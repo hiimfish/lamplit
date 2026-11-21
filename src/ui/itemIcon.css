@@ -1,0 +1,21 @@
+/*
+ * Pixel item icons. One logical pixel of the icon is one --px, so the icon
+ * lines up with the game's pixel grid; the intro card shows it at 2x.
+ */
+.item-icon {
+  display: block;
+  flex: none;
+  width: calc(24 * var(--px));
+  height: calc(24 * var(--px));
+  image-rendering: pixelated;
+}
+
+.intro-emoji .item-icon {
+  width: calc(48 * var(--px));
+  height: calc(48 * var(--px));
+}
+
+/* Inline in a line of text (the result list): centre the icon on the text. */
+.result-new li > .mg-emoji {
+  vertical-align: middle;
+}

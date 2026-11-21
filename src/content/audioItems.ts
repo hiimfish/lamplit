@@ -1,0 +1,23 @@
+import type { AudioItem, Unit } from './types';
+
+/** Every spoken thing in a unit: chunks, words and scene lines (main text only, no `accept` variants). */
+export function unitToAudioItems(unit: Unit): AudioItem[] {
+  const items: AudioItem[] = [];
+  for (const chunk of unit.chunks) {
+    items.push({ id: `${unit.id}.chunk.${chunk.id}`, text: chunk.en, role: 'guide' });
+  }
+  for (const word of unit.words) {
+    items.push({ id: `${unit.id}.word.${word.id}`, text: word.en, role: 'guide' });
+  }
+  for (const task of unit.tasks) {
+    for (const line of task.scene) {
+      items.push({ id: `${unit.id}.line.${line.id}`, text: line.en, role: line.role });
+    }
+  }
+  const seen = new Set<string>();
+  return items.filter((item) => {
+    if (seen.has(item.id)) return false;
+    seen.add(item.id);
+    return true;
+  });
+}

@@ -1,0 +1,173 @@
+/* Settings panel. Sizes: calc(N * var(--px)); text sizes are multiples of 11. */
+.settings-panel {
+  gap: calc(6 * var(--px));
+  max-height: calc(100% - 6 * var(--px));
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink) var(--paper);
+}
+
+/* Title as an ink header strip with paper text. */
+.settings-title {
+  margin: calc(-8 * var(--px)) calc(-8 * var(--px)) 0;
+  padding: var(--px) 0 calc(2 * var(--px));
+  font-size: calc(11 * var(--px));
+  font-weight: normal;
+  text-align: center;
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.settings-group {
+  display: flex;
+  flex-direction: column;
+  gap: calc(2 * var(--px));
+}
+
+.settings-group + .settings-group {
+  padding-top: calc(4 * var(--px));
+  border-top: var(--px) dotted var(--ink);
+}
+
+.settings-actions {
+  flex-direction: row;
+  gap: calc(4 * var(--px));
+}
+
+.settings-actions .pixel-button {
+  flex: 1;
+  white-space: nowrap;
+  padding-right: calc(4 * var(--px));
+  padding-left: calc(4 * var(--px));
+}
+
+/*
+ * Voice and 顯示中文 are boxed keys. The chosen one is lamp-filled with a
+ * thicker ink rim (an extra inset pixel, so its size does not change).
+ */
+/* Same height chosen or not (chosen keys are primary, which has the tap height). */
+.pixel-button.settings-choice {
+  min-height: var(--tap);
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.pixel-button.settings-choice[aria-checked='true'] {
+  box-shadow:
+    inset 0 0 0 var(--px) var(--ink),
+    var(--drop);
+}
+
+.pixel-button.settings-choice[aria-checked='true']:active {
+  box-shadow: inset 0 0 0 var(--px) var(--ink);
+}
+
+.pixel-button.settings-close {
+  align-self: center;
+  min-width: calc(66 * var(--px));
+}
+
+.settings-note {
+  margin: 0;
+  color: var(--ink);
+}
+
+.settings-row {
+  display: grid;
+  grid-template-columns: calc(40 * var(--px)) 1fr calc(30 * var(--px));
+  align-items: center;
+  gap: calc(6 * var(--px));
+}
+
+.settings-label {
+  font-size: calc(11 * var(--px));
+}
+
+.settings-value {
+  text-align: right;
+  font-size: calc(11 * var(--px));
+  color: var(--ink);
+}
+
+/*
+ * Pixel slider: ink-framed track, lamp fill up to the value, paper after it,
+ * square ink thumb. The hard colour stop is a fill, not a soft gradient.
+ */
+.settings-slider {
+  --fill: 50%;
+  width: 100%;
+  height: calc(22 * var(--px));
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  touch-action: pan-y;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.settings-slider::-webkit-slider-runnable-track {
+  height: calc(8 * var(--px));
+  border: var(--px) solid var(--ink);
+  background: linear-gradient(to right, var(--lamp) var(--fill), var(--paper) var(--fill));
+}
+
+.settings-slider::-moz-range-track {
+  height: calc(8 * var(--px));
+  border: var(--px) solid var(--ink);
+  background: linear-gradient(to right, var(--lamp) var(--fill), var(--paper) var(--fill));
+}
+
+.settings-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: calc(8 * var(--px));
+  height: calc(16 * var(--px));
+  margin-top: calc(-5 * var(--px));
+  border: var(--px) solid var(--ink);
+  border-radius: 0;
+  background: var(--ink);
+  box-shadow: inset 0 0 0 var(--px) var(--paper);
+}
+
+.settings-slider::-moz-range-thumb {
+  width: calc(6 * var(--px));
+  height: calc(14 * var(--px));
+  border: var(--px) solid var(--ink);
+  border-radius: 0;
+  background: var(--ink);
+  box-shadow: inset 0 0 0 var(--px) var(--paper);
+}
+
+.settings-slider:focus-visible {
+  outline: var(--line) dotted var(--ink);
+  outline-offset: var(--px);
+}
+
+/* Landscape screens are short, so tighten the panel until it fits without scrolling. */
+:root[data-orientation='landscape'] .settings-panel {
+  max-width: calc(390 * var(--px));
+  gap: calc(2 * var(--px));
+  padding: calc(6 * var(--px));
+}
+
+:root[data-orientation='landscape'] .settings-title {
+  margin: calc(-6 * var(--px)) calc(-6 * var(--px)) 0;
+}
+
+:root[data-orientation='landscape'] .settings-group + .settings-group {
+  padding-top: calc(3 * var(--px));
+}
+
+:root[data-orientation='landscape'] .settings-group[role='radiogroup'] {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: calc(2 * var(--px)) calc(4 * var(--px));
+}
+
+:root[data-orientation='landscape'] .settings-group[role='radiogroup'] .settings-choice {
+  flex: 1;
+}
+
+:root[data-orientation='landscape'] .settings-group[role='radiogroup'] .settings-note {
+  flex-basis: 100%;
+  text-align: center;
+}

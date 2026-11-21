@@ -1,0 +1,357 @@
+/*
+ * Sizes use calc(N * var(--px)): --px is the on-screen size of one logical
+ * (game) pixel, so the UI lines up with the pixel art at every zoom level.
+ * Text uses multiples of 11 logical pixels, the native size of Cubic 11.
+ *
+ * Look: an old handheld screen / paper card. Four main colours only - ink,
+ * paper, lamp orange and a rare neon pink - with crisp 2px ink borders, a hard
+ * stepped drop shadow, square corners, no gradients and no soft shadows.
+ * Every tappable element is a boxed key; plain text is never a control.
+ *
+ * Contrast (WCAG): ink on paper 14:1, ink on lamp 8.3:1, paper on ink 14:1,
+ * neon on ink 5.8:1. Neon on paper (2.4:1), good/bad on paper (3.3:1 / 4.0:1)
+ * and dim on paper (2.6:1) are too low for small text, so those colours are
+ * used for fills, borders, underlines and marks only; dim is kept for
+ * disabled controls. Explanations next to them (先完成上一關) stay ink.
+ *
+ * Touch targets: main keys (primary, answer choices, word blocks) are at least
+ * 44 CSS pixels high even when one logical pixel is small (--tap).
+ */
+@font-face {
+  font-family: 'Cubic 11';
+  src: url('/assets/fonts/Cubic_11.woff2') format('woff2');
+  font-display: block;
+}
+
+:root {
+  --px: 2px;
+  --scene-w: 960px;
+  --scene-h: 540px;
+  --frame-x: 0px;
+  --frame-y: 0px;
+
+  --ink: #1d1a2b;
+  --paper: #f3e9d2;
+  --lamp: #f2a541;
+  --neon: #ff5c8a;
+  --good: #3f8f5a;
+  --bad: #c4473a;
+  --dim: #9a8f7a;
+  /* Lamp-tinted paper: hover on paper keys, and the player's own story lines. */
+  --lamp-tint: #f3ce98;
+  --screen-bg: #1d1a2b;
+
+  /* Window border width and the hard, stepped drop shadow (no blur). */
+  --line: calc(2 * var(--px));
+  --tap: max(44px, calc(22 * var(--px)));
+  --drop: var(--px) var(--px) 0 0 var(--ink), var(--line) var(--line) 0 0 var(--ink);
+  /* A 1px ink outline drawn with text-shadow, for lamp stars and neon hearts. */
+  --outline-1:
+    var(--px) 0 0 var(--ink), calc(-1 * var(--px)) 0 0 var(--ink), 0 var(--px) 0 var(--ink),
+    0 calc(-1 * var(--px)) 0 var(--ink);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--screen-bg);
+  color: var(--ink);
+  font-family: 'Cubic 11', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+  font-size: calc(11 * var(--px));
+  line-height: 1.3;
+  -webkit-font-smoothing: none;
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
+  user-select: none;
+}
+
+#stage {
+  position: fixed;
+  inset: 0;
+  background: var(--screen-bg);
+}
+
+/* Placed by script on whole device pixels (see layout.ts), not centred by CSS. */
+#frame {
+  position: absolute;
+  left: var(--frame-x);
+  top: var(--frame-y);
+  width: var(--scene-w);
+  height: var(--scene-h);
+}
+
+#game {
+  width: var(--scene-w);
+  height: var(--scene-h);
+}
+
+#game canvas {
+  display: block;
+  image-rendering: pixelated;
+}
+
+#ui {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+#ui button,
+#ui .pixel-panel {
+  pointer-events: auto;
+}
+
+/* Portrait: scene on top, a paper panel with a thick double ink rule fills the rest. */
+:root[data-orientation='portrait'] #frame {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+:root[data-orientation='portrait'] #game {
+  flex: none;
+  margin-left: var(--frame-x);
+}
+
+:root[data-orientation='portrait'] #ui {
+  position: relative;
+  inset: auto;
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  background: var(--paper);
+  border-top: calc(3 * var(--px)) solid var(--ink);
+  box-shadow:
+    inset 0 var(--px) 0 var(--paper),
+    inset 0 calc(2 * var(--px)) 0 var(--ink);
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: calc(8 * var(--px));
+}
+
+/* Title: paper name plate at the top, start button at the bottom (landscape). */
+.title-screen {
+  justify-content: flex-start;
+  gap: calc(10 * var(--px));
+  padding-top: calc(8 * var(--px));
+}
+
+:root[data-orientation='portrait'] .title-screen {
+  justify-content: center;
+  padding-top: calc(8 * var(--px));
+}
+
+.title-block {
+  text-align: center;
+  padding: calc(4 * var(--px)) calc(10 * var(--px)) calc(5 * var(--px));
+  margin: var(--px) var(--line) var(--line) 0;
+  background: var(--paper);
+  border: var(--line) solid var(--ink);
+  box-shadow: var(--drop);
+}
+
+.title {
+  display: inline-block;
+  margin: 0;
+  padding-bottom: calc(2 * var(--px));
+  font-size: calc(22 * var(--px));
+  font-weight: normal;
+  line-height: 1.2;
+  color: var(--ink);
+  /* Neon underline: a solid pink bar with an ink rule under it. */
+  border-bottom: var(--line) solid var(--neon);
+  box-shadow: 0 var(--px) 0 var(--ink);
+}
+
+.subtitle {
+  margin: calc(3 * var(--px)) 0 0;
+  color: var(--ink);
+  letter-spacing: var(--px);
+}
+
+/*
+ * Buttons: every tappable thing is a visible key - paper fill, 2px ink rim and
+ * the hard stepped shadow; pressing sinks it into the shadow. The right/bottom
+ * margin keeps room for the shadow so neighbours never overlap it.
+ */
+.pixel-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(4 * var(--px));
+  min-height: calc(22 * var(--px));
+  margin: 0 var(--line) var(--line) 0;
+  padding: calc(1 * var(--px)) calc(7 * var(--px));
+  font: inherit;
+  line-height: 1.3;
+  color: var(--ink);
+  background: var(--paper);
+  border: var(--line) solid var(--ink);
+  border-radius: 0;
+  box-shadow: var(--drop);
+  text-align: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Primary actions (下一句, 繼續, 檢查...) and chosen settings: lamp keys. */
+.pixel-button.primary,
+.pixel-button[aria-checked='true'] {
+  background: var(--lamp);
+}
+
+.pixel-button.primary {
+  min-height: var(--tap);
+  padding-right: calc(10 * var(--px));
+  padding-left: calc(10 * var(--px));
+}
+
+@media (hover: hover) {
+  .pixel-button:hover:not(:disabled):not(.primary):not([aria-checked='true']) {
+    background: var(--lamp-tint);
+  }
+}
+
+.pixel-button:focus-visible {
+  outline: var(--line) dotted var(--ink);
+  outline-offset: var(--line);
+}
+
+.pixel-button:focus-visible:not(:disabled):not(.primary):not([aria-checked='true']) {
+  background: var(--lamp-tint);
+}
+
+.pixel-button:active:not(:disabled) {
+  transform: translate(var(--line), var(--line));
+  box-shadow: none;
+}
+
+.pixel-button:disabled {
+  color: var(--dim);
+  background: var(--paper);
+  border-color: var(--dim);
+  box-shadow: none;
+  cursor: default;
+}
+
+/* "Tap to start": the key presses itself now and then, like a demo screen. */
+.blink {
+  animation: key-tap 1.6s steps(1, end) infinite;
+}
+
+@keyframes key-tap {
+  0%,
+  80% {
+    transform: none;
+    box-shadow: var(--drop);
+  }
+  81%,
+  100% {
+    transform: translate(var(--line), var(--line));
+    box-shadow: none;
+  }
+}
+
+/* Shared by the story's "more" marker. */
+@keyframes blink {
+  0%,
+  60% {
+    opacity: 1;
+  }
+  61%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blink {
+    animation: none;
+  }
+}
+
+/* Window: paper card, 2px ink rim, hard drop shadow, square corners. */
+.pixel-panel {
+  max-width: calc(300 * var(--px));
+  width: calc(100% - 6 * var(--px));
+  margin: var(--px) calc(3 * var(--px)) calc(3 * var(--px)) var(--px);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: calc(6 * var(--px));
+  padding: calc(8 * var(--px));
+  text-align: left;
+  color: var(--ink);
+  background: var(--paper);
+  border: var(--line) solid var(--ink);
+  box-shadow: var(--drop);
+}
+
+.pixel-panel p {
+  margin: 0;
+}
+
+/* Read by screen readers only. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/*
+ * Headings and dialogs receive focus by script after a screen change so screen
+ * readers start there; they are not keys, so they get no focus ring.
+ */
+#ui [tabindex='-1']:focus {
+  outline: none;
+}
+
+.debug {
+  position: absolute;
+  left: calc(2 * var(--px));
+  bottom: calc(2 * var(--px));
+  padding: var(--px) calc(2 * var(--px));
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* The start key is larger and keeps its own shadow over the busy street. */
+.title-screen .pixel-button[data-testid='start'] {
+  padding: calc(4 * var(--px)) calc(14 * var(--px));
+}
+
+/* Over the dusk scene a paper focus ring reads better than ink. */
+:root[data-orientation='landscape'] .title-screen .pixel-button[data-testid='start']:focus-visible {
+  outline-color: var(--paper);
+}
+
+/*
+ * In landscape the café sits in the middle of the scene: keep the middle band
+ * clear by placing the name plate at the top and the start key at the bottom.
+ */
+:root[data-orientation='landscape'] .title-screen .pixel-button[data-testid='start'] {
+  margin-top: auto;
+  margin-bottom: calc(12 * var(--px));
+}

@@ -1,0 +1,587 @@
+/* Game-flow screens: town, task, result, review. Sizes are logical pixels via --px. */
+
+.flow {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: calc(6 * var(--px));
+  pointer-events: none;
+}
+
+/* The story is a message box along the bottom, like an old handheld game. */
+:root[data-orientation='landscape'] .flow:has(.story) {
+  align-items: flex-end;
+}
+
+/* Paper card: 2px ink rim, hard 2px drop shadow, square corners. */
+.flow-card {
+  position: relative;
+  pointer-events: auto;
+  width: calc(100% - 6 * var(--px));
+  max-width: calc(330 * var(--px));
+  max-height: calc(100% - 4 * var(--px));
+  margin: 0 var(--line) var(--line) 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: calc(3 * var(--px));
+  padding: calc(5 * var(--px)) calc(6 * var(--px));
+  color: var(--ink);
+  background: var(--paper);
+  border: var(--line) solid var(--ink);
+  box-shadow: var(--drop);
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink) var(--paper);
+}
+
+:root[data-orientation='landscape'] .flow:has(.story) .flow-card {
+  max-width: calc(440 * var(--px));
+}
+
+/* Portrait: the paper UI area under the scene is the window itself. */
+:root[data-orientation='portrait'] .flow {
+  align-items: stretch;
+  padding: 0;
+}
+
+:root[data-orientation='portrait'] .flow-card {
+  width: 100%;
+  max-width: none;
+  max-height: none;
+  height: 100%;
+  margin: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  padding: calc(6 * var(--px)) calc(6 * var(--px)) calc(4 * var(--px));
+}
+
+/* Status line, separated from the content by a dotted ink rule. */
+.flow-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: calc(6 * var(--px));
+  flex: none;
+  padding-bottom: calc(2 * var(--px));
+  border-bottom: var(--px) dotted var(--ink);
+}
+
+/* Task title: an ink header strip with paper text, tall enough to hold the quit key. */
+.flow-title {
+  margin: calc(-5 * var(--px)) calc(-6 * var(--px)) 0;
+  min-height: calc(24 * var(--px));
+  padding: calc(5 * var(--px)) calc(6 * var(--px)) calc(4 * var(--px));
+  font-size: inherit;
+  font-weight: normal;
+  text-align: center;
+  color: var(--paper);
+  background: var(--ink);
+}
+
+/*
+ * 先回小鎮 is secondary: a small paper key at the right end of the title strip,
+ * out of the way of 下一句 / 繼續. Its shadow would vanish on ink, so it has none.
+ */
+.flow-card > .flow-title ~ .quit {
+  position: absolute;
+  top: var(--px);
+  right: calc(3 * var(--px));
+  margin: 0;
+  box-shadow: none;
+}
+
+.flow-card > .flow-title ~ .quit:focus-visible {
+  outline-color: var(--paper);
+  outline-offset: var(--px);
+}
+
+.flow-card > .flow-title ~ .quit:active:not(:disabled) {
+  transform: translateY(var(--px));
+}
+
+:root[data-orientation='portrait'] .flow-title {
+  margin-top: calc(-6 * var(--px));
+}
+
+/* Section heading with a small neon square as the rare accent. */
+.flow-heading {
+  margin: 0;
+  color: var(--ink);
+}
+
+.flow-heading::before {
+  content: '';
+  display: inline-block;
+  width: calc(4 * var(--px));
+  height: calc(4 * var(--px));
+  margin: 0 calc(4 * var(--px)) 0 calc(1 * var(--px));
+  vertical-align: middle;
+  background: var(--neon);
+  box-shadow: 0 0 0 var(--px) var(--ink);
+}
+
+.flow-note {
+  margin: 0;
+  color: var(--ink);
+}
+
+.flow-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: calc(3 * var(--px)) calc(6 * var(--px));
+  flex: none;
+}
+
+.pixel-button.small {
+  padding-right: calc(5 * var(--px));
+  padding-left: calc(5 * var(--px));
+}
+
+/* Modal backdrop: the screen dims to ink. */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: calc(8 * var(--px));
+  background: rgba(29, 26, 43, 0.8);
+  pointer-events: auto;
+  overflow-y: auto;
+}
+
+/* Town: status line, then one list of boxed task keys per building. */
+.flow-bar .coins::before,
+.result-coins::before {
+  content: '';
+  display: inline-block;
+  width: calc(5 * var(--px));
+  height: calc(7 * var(--px));
+  margin: 0 calc(4 * var(--px)) 0 var(--px);
+  vertical-align: middle;
+  background: var(--lamp);
+  box-shadow:
+    0 0 0 var(--px) var(--ink),
+    inset calc(-1 * var(--px)) 0 0 var(--paper);
+}
+
+.building {
+  display: flex;
+  flex-direction: column;
+  gap: calc(2 * var(--px));
+  padding-top: calc(2 * var(--px));
+}
+
+/*
+ * 即將開幕 is information, not a control: ink text in a dashed frame (not a
+ * boxed key) with a padlock, so the locked state never relies on faint text.
+ */
+.building.locked {
+  gap: 0;
+  margin-top: calc(2 * var(--px));
+  padding: calc(2 * var(--px)) calc(4 * var(--px));
+  color: var(--ink);
+  border: var(--px) dashed var(--ink);
+}
+
+/* Padlock drawn in CSS: an ink shackle (::before) over an ink body (::after). */
+.lock-mark {
+  position: relative;
+  display: inline-block;
+  width: calc(7 * var(--px));
+  height: calc(9 * var(--px));
+  margin: 0 calc(4 * var(--px)) 0 var(--px);
+  vertical-align: middle;
+}
+
+.lock-mark::before,
+.lock-mark::after {
+  content: '';
+  position: absolute;
+}
+
+.lock-mark::before {
+  left: calc(1 * var(--px));
+  top: 0;
+  width: calc(5 * var(--px));
+  height: calc(5 * var(--px));
+  border: var(--px) solid currentColor;
+  border-bottom: 0;
+}
+
+.lock-mark::after {
+  left: 0;
+  bottom: 0;
+  width: calc(7 * var(--px));
+  height: calc(5 * var(--px));
+  background: currentColor;
+}
+
+.building-title {
+  margin: 0 0 calc(1 * var(--px));
+  padding-bottom: calc(1 * var(--px));
+  font-size: inherit;
+  font-weight: normal;
+  display: flex;
+  justify-content: space-between;
+  color: var(--ink);
+  border-bottom: var(--px) dotted var(--ink);
+}
+
+.building-name {
+  padding: 0 calc(3 * var(--px));
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.building-en {
+  color: var(--ink);
+}
+
+/* One boxed key per task: title on the left, its state on the right. */
+.pixel-button.task-row {
+  display: flex;
+  justify-content: space-between;
+  gap: calc(6 * var(--px));
+  text-align: left;
+}
+
+.task-state {
+  flex: none;
+  color: var(--ink);
+}
+
+/* Earned stars: lamp with an ink outline; empty stars: plain ink. */
+.task-state.stars,
+.result-stars {
+  color: var(--ink);
+  letter-spacing: var(--px);
+}
+
+.star-on {
+  color: var(--lamp);
+  text-shadow: var(--outline-1);
+}
+
+/* "New" badge: neon on an ink chip. */
+.task-state.new {
+  padding: 0 calc(3 * var(--px));
+  color: var(--neon);
+  background: var(--ink);
+}
+
+/* A locked task: the key itself is disabled (dim, dashed rim), its explanation stays ink. */
+.pixel-button.task-row:disabled {
+  border-style: dashed;
+}
+
+.task-row:disabled .task-state {
+  color: var(--ink);
+}
+
+/* Story: handheld message box. The current line is typed out with a stepped wipe. */
+.story,
+.intro,
+.practice {
+  display: flex;
+  flex-direction: column;
+  gap: calc(4 * var(--px));
+  min-height: 0;
+}
+
+/*
+ * A chat log of boxed lines. Each line is its own key (tap to hear it again)
+ * with a 慢速 key right beside it. The padding keeps room for the shadows and
+ * focus rings inside the scrolling log.
+ */
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: calc(4 * var(--px));
+  min-height: calc(60 * var(--px));
+  max-height: calc(150 * var(--px));
+  padding: calc(3 * var(--px)) calc(2 * var(--px)) calc(2 * var(--px)) calc(3 * var(--px));
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink) var(--paper);
+}
+
+/* Landscape is short: the log takes what the title, heading and keys leave. */
+:root[data-orientation='landscape'] .chat {
+  max-height: calc(var(--scene-h) - 102 * var(--px));
+}
+
+/* Portrait has a tall paper panel: show the whole short scene without an inner scrollbar. */
+:root[data-orientation='portrait'] .chat {
+  max-height: calc(270 * var(--px));
+}
+
+.bubble-row {
+  display: flex;
+  align-items: center;
+  gap: calc(4 * var(--px));
+}
+
+/* Your own lines sit a little to the right, on lamp-tinted paper. */
+.bubble-row.player {
+  padding-left: calc(16 * var(--px));
+}
+
+.bubble-row .bubble-slow {
+  flex: none;
+}
+
+.bubble {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  font: inherit;
+  line-height: inherit;
+  text-align: left;
+  border-radius: 0;
+  margin: 0 var(--line) var(--line) 0;
+  padding: calc(3 * var(--px)) calc(12 * var(--px)) calc(3 * var(--px)) calc(4 * var(--px));
+  position: relative;
+  cursor: pointer;
+  color: var(--ink);
+  background: var(--paper);
+  border: var(--line) solid var(--ink);
+  box-shadow: var(--drop);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bubble-row.player .bubble {
+  background: var(--lamp-tint);
+}
+
+.bubble:focus-visible {
+  outline: var(--line) dotted var(--ink);
+  outline-offset: var(--px);
+}
+
+.bubble:active {
+  transform: translate(var(--line), var(--line));
+  box-shadow: none;
+}
+
+@media (hover: hover) {
+  .bubble-row.npc .bubble:hover {
+    background: var(--lamp-tint);
+  }
+}
+
+/* Speaker name as a tab; past lines get an outlined tab, the current line a solid ink tab. */
+.bubble-who {
+  align-self: flex-start;
+  margin-bottom: calc(2 * var(--px));
+  padding: 0 calc(4 * var(--px));
+  color: var(--ink);
+  background: var(--paper);
+  box-shadow: inset 0 0 0 var(--px) var(--ink);
+}
+
+.bubble.current .bubble-who {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.bubble-zh {
+  color: var(--ink);
+}
+
+.bubble.current .bubble-en {
+  animation: typewriter 0.7s steps(14, end) both;
+}
+
+@keyframes typewriter {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* "More to come": a small ink down-triangle that blinks. */
+.story.more .bubble.current::after {
+  content: '';
+  position: absolute;
+  right: calc(2 * var(--px));
+  bottom: calc(2 * var(--px));
+  border-style: solid;
+  border-width: calc(5 * var(--px)) calc(4 * var(--px)) 0 calc(4 * var(--px));
+  border-color: var(--ink) transparent transparent transparent;
+  animation: blink 1s steps(1, end) infinite;
+}
+
+/* Intro cards: an inner card with a 1px ink rim. */
+.intro-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(4 * var(--px));
+  padding: calc(6 * var(--px));
+  text-align: center;
+  background: var(--paper);
+  box-shadow: inset 0 0 0 var(--px) var(--ink);
+}
+
+/* 聽發音 and 慢速 side by side under the word they play. */
+.intro-card .flow-actions {
+  padding-top: calc(2 * var(--px));
+  align-self: stretch;
+}
+
+/* Emoji placeholders sit on a small paper square with an ink rim. */
+.intro-emoji,
+.mg-emoji {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(1 * var(--px)) calc(2 * var(--px));
+  line-height: 1.1;
+  background: var(--paper);
+  box-shadow: 0 0 0 var(--px) var(--ink);
+}
+
+.intro-emoji {
+  font-size: calc(33 * var(--px));
+  padding: calc(3 * var(--px)) calc(5 * var(--px));
+  box-shadow:
+    0 0 0 var(--line) var(--ink),
+    var(--line) var(--line) 0 var(--line) var(--ink);
+  margin: var(--line) calc(2 * var(--line)) calc(2 * var(--line)) var(--line);
+}
+
+.intro-en {
+  font-size: calc(22 * var(--px));
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+/* Translation: ink text with a neon underline. */
+.intro-zh {
+  color: var(--ink);
+  border-bottom: var(--line) solid var(--neon);
+}
+
+.intro-note {
+  color: var(--ink);
+}
+
+/* Practice: progress bar = ink frame, paper track, lamp fill. */
+.progress {
+  height: calc(6 * var(--px));
+  background: var(--paper);
+  border: var(--px) solid var(--ink);
+  flex: none;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--lamp);
+  box-shadow: var(--px) 0 0 var(--ink);
+}
+
+.progress-fill[style*='width: 0%'] {
+  box-shadow: none;
+}
+
+/* Combo: neon on an ink chip. */
+.combo {
+  padding: 0 calc(4 * var(--px));
+  color: var(--neon);
+  background: var(--ink);
+}
+
+/* Hearts ● ○: neon with a 1px ink outline. */
+.hearts {
+  letter-spacing: calc(2 * var(--px));
+  color: var(--neon);
+  text-shadow: var(--outline-1);
+}
+
+.gentle {
+  margin: 0;
+  padding: calc(3 * var(--px));
+  text-align: center;
+  color: var(--ink);
+  background: var(--paper);
+  box-shadow: inset 0 0 0 var(--line) var(--neon);
+}
+
+.quit {
+  align-self: center;
+  flex: none;
+  color: var(--ink);
+}
+
+/* Result */
+.result {
+  align-items: center;
+  text-align: center;
+}
+
+.result .flow-title {
+  align-self: stretch;
+}
+
+.result p {
+  margin: 0;
+}
+
+.result-stars {
+  font-size: calc(22 * var(--px));
+  letter-spacing: calc(3 * var(--px));
+}
+
+.result-coins {
+  color: var(--ink);
+}
+
+.result-new {
+  align-self: stretch;
+  padding-top: calc(3 * var(--px));
+  border-top: var(--px) dotted var(--ink);
+}
+
+.result-new ul {
+  margin: calc(2 * var(--px)) 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: calc(3 * var(--px));
+}
+
+.result-new .mg-emoji {
+  margin-right: calc(3 * var(--px));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble.current .bubble-en,
+  .story.more .bubble.current::after {
+    animation: none;
+  }
+}
+
+.flow-card > * {
+  flex-shrink: 0;
+}
+
+.flow-card .mg-root,
+.flow-card .practice,
+.flow-card .story,
+.flow-card .intro {
+  flex-shrink: 0;
+}
+
+:root[data-orientation='landscape'] .practice {
+  gap: calc(3 * var(--px));
+}

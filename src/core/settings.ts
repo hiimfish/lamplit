@@ -1,0 +1,93 @@
+import type { VoiceMode } from '../audio/voices';
+import { createStore, type Store } from './store';
+
+export interface Settings {
+  voiceMode: VoiceMode;
+  /** 0 to 1 each. */
+  musicVolume: number;
+  voiceVolume: number;
+  sfxVolume: number;
+  /** Show Chinese translations next to English. */
+  showZh: boolean;
+}
+
+export const DEFAULT_SETTINGS: Settings = {
+  voiceMode: 'chirp',
+  musicVolume: 0.25,
+  voiceVolume: 1,
+  sfxVolume: 0.7,
+  showZh: true,
+};
+
+export const SETTINGS_KEY = 'pixel-english-town.settings.v1';
+
+/** The slice of the Storage API we use, so tests can pass a fake. */
+export interface SettingsStorage {
+  getItem(key: string): string | null;
+  setItem(key: string, value: string): void;
+}
+
+const VOICE_MODES: readonly VoiceMode[] = ['neural2', 'chirp'];
+
+function volumeOr(value: unknown, fallback: number): number {
+  if (typeof value !== 'number' || !Number.isFinite(value)) return fallback;
+  return Math.min(1, Math.max(0, value));
+}
+
+/** Turns any parsed JSON into valid settings: bad fields fall back to defaults. */
+export function sanitizeSettings(raw: unknown): Settings {
+  if (typeof raw !== 'object' || raw === null || Array.isArray(raw)) return { ...DEFAULT_SETTINGS };
+  const r = raw as Record<string, unknown>;
+  const voiceMode = VOICE_MODES.find((mode) => mode === r.voiceMode);
+  return {
+    voiceMode: voiceMode ?? DEFAULT_SETTINGS.voiceMode,
+    musicVolume: volumeOr(r.musicVolume, DEFAULT_SETTINGS.musicVolume),
+    voiceVolume: volumeOr(r.voiceVolume, DEFAULT_SETTINGS.voiceVolume),
+    sfxVolume: volumeOr(r.sfxVolume, DEFAULT_SETTINGS.sfxVolume),
+    showZh: typeof r.showZh === 'boolean' ? r.showZh : DEFAULT_SETTINGS.showZh,
+  };
+}
+
+/** Never throws: missing storage, missing key or corrupt JSON all give defaults. */
+export function loadSettings(storage: SettingsStorage | null): Settings {
+  if (!storage) return { ...DEFAULT_SETTINGS };
+  try {
+    const text = storage.getItem(SETTINGS_KEY);
+    if (text === null) return { ...DEFAULT_SETTINGS };
+    return sanitizeSettings(JSON.parse(text));
+  } catch {
+    return { ...DEFAULT_SETTINGS };
+  }
+}
+
+/** Returns false when the write failed (private mode, quota). */
+export function saveSettings(storage: SettingsStorage | null, settings: Settings): boolean {
+  if (!storage) return false;
+  try {
+    storage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/** Saves the store to storage on every change. Returns an unsubscribe function. */
+export function attachPersistence(
+  store: Store<Settings>,
+  storage: SettingsStorage | null,
+): () => void {
+  return store.subscribe((settings) => {
+    saveSettings(storage, settings);
+  });
+}
+
+function browserStorage(): SettingsStorage | null {
+  try {
+    return typeof localStorage === 'undefined' ? null : localStorage;
+  } catch {
+    return null; // access can throw when storage is blocked
+  }
+}
+
+export const settingsStore = createStore<Settings>(loadSettings(browserStorage()));
+attachPersistence(settingsStore, browserStorage());

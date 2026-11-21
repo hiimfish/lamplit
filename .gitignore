@@ -1,0 +1,23 @@
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+
+# secrets: never commit
+.env
+.env.*
+!.env.example
+*-credentials.json
+*service-account*.json
+gcp-key*.json
+secrets/
+
+# local scratch
+.tmp/
+*.log
+.DS_Store
+Thumbs.db
+
+# style reference images by other artists: local reference only, never commit
+docs/art-image/

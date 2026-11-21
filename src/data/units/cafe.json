@@ -1,0 +1,136 @@
+{
+  "id": "cafe",
+  "title": "咖啡廳",
+  "titleEn": "The Café",
+  "chunks": [
+    {
+      "id": "can_i_get",
+      "en": "Can I get a latte, please?",
+      "zh": "可以給我一杯拿鐵嗎？",
+      "accept": ["Can I get a latte?"],
+      "note": "Can I get…? 是點餐最常用的說法，比 I want… 有禮貌。",
+      "distractors": [
+        { "text": "Can I get latte, please?", "error": "article" },
+        { "text": "I want latte.", "error": "other" }
+      ]
+    },
+    { "id": "for_here", "en": "For here or to go?", "zh": "內用還是外帶？" },
+    { "id": "to_go", "en": "To go, please.", "zh": "外帶，謝謝。", "accept": ["To go."] },
+    { "id": "how_much", "en": "How much is it?", "zh": "這多少錢？" },
+    {
+      "id": "say_again",
+      "en": "Sorry, can you say that again?",
+      "zh": "不好意思，可以再說一次嗎？",
+      "note": "聽不懂時最有用的一句，不用不好意思。"
+    },
+    { "id": "here_you_go", "en": "Here you go.", "zh": "給你。（遞東西時說）" }
+  ],
+  "words": [
+    { "id": "latte", "en": "latte", "zh": "拿鐵", "emoji": "☕" },
+    { "id": "tea", "en": "tea", "zh": "茶", "emoji": "🍵" },
+    { "id": "muffin", "en": "muffin", "zh": "瑪芬", "emoji": "🧁" },
+    { "id": "water", "en": "water", "zh": "水", "emoji": "💧" },
+    { "id": "cake", "en": "cake", "zh": "蛋糕", "emoji": "🍰" },
+    { "id": "sandwich", "en": "sandwich", "zh": "三明治", "emoji": "🥪" }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "點一杯拿鐵",
+      "newChunkIds": ["can_i_get"],
+      "newWordIds": ["latte", "tea", "muffin"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "Hi! What can I get for you?",
+          "zh": "嗨！要點什麼？"
+        },
+        {
+          "id": "t1_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I get a latte, please?",
+          "zh": "可以給我一杯拿鐵嗎？",
+          "chunkId": "can_i_get"
+        },
+        {
+          "id": "t1_3",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "Sure! Anything else?",
+          "zh": "好的！還要別的嗎？"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "內用還是外帶",
+      "newChunkIds": ["for_here", "to_go"],
+      "newWordIds": ["water", "cake"],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "For here or to go?",
+          "zh": "內用還是外帶？"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "To go, please.",
+          "zh": "外帶，謝謝。",
+          "chunkId": "to_go"
+        },
+        {
+          "id": "t2_3",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "No problem. It will be ready soon.",
+          "zh": "沒問題，馬上好。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "付錢，還有聽不懂時",
+      "newChunkIds": ["how_much", "say_again", "here_you_go"],
+      "newWordIds": ["sandwich"],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How much is it?",
+          "zh": "這多少錢？",
+          "chunkId": "how_much"
+        },
+        {
+          "id": "t3_2",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "That's six fifty.",
+          "zh": "六塊五。"
+        },
+        {
+          "id": "t3_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sorry, can you say that again?",
+          "zh": "不好意思，可以再說一次嗎？",
+          "chunkId": "say_again"
+        },
+        {
+          "id": "t3_4",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "Six fifty. Here you go.",
+          "zh": "六塊五。這是你的。"
+        }
+      ]
+    }
+  ]
+}

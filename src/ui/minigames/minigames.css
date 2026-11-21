@@ -1,0 +1,291 @@
+/* Minigame layout. Phone-width column; scrolls when the content is taller than the panel. */
+.mg-root {
+  width: 100%;
+  padding: calc(2 * var(--px));
+  display: flex;
+  flex-direction: column;
+  gap: calc(4 * var(--px));
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink) var(--paper);
+}
+
+.mg {
+  display: flex;
+  flex-direction: column;
+  gap: calc(4 * var(--px));
+}
+
+/* Prompt with the neon square accent, like the section headings. */
+.mg-prompt {
+  margin: 0;
+  font-size: calc(11 * var(--px));
+  color: var(--ink);
+}
+
+.mg-prompt::before {
+  content: '';
+  display: inline-block;
+  width: calc(4 * var(--px));
+  height: calc(4 * var(--px));
+  margin: 0 calc(4 * var(--px)) 0 var(--px);
+  vertical-align: middle;
+  background: var(--neon);
+  box-shadow: 0 0 0 var(--px) var(--ink);
+}
+
+.mg-sentence {
+  margin: 0;
+  font-size: calc(11 * var(--px));
+  color: var(--ink);
+}
+
+.mg-zh {
+  margin: 0;
+  font-size: calc(11 * var(--px));
+  color: var(--ink);
+}
+
+.mg-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: calc(3 * var(--px)) calc(4 * var(--px));
+}
+
+/* A lone key (看中文) keeps its own width instead of stretching across the column. */
+.mg > .pixel-button {
+  align-self: flex-start;
+}
+
+/* Answer choices: one boxed key per choice, two columns. */
+.mg-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(3 * var(--px)) calc(4 * var(--px));
+}
+
+.pixel-button.mg-option {
+  min-height: var(--tap);
+  justify-content: flex-start;
+  padding-left: calc(5 * var(--px));
+  padding-right: calc(4 * var(--px));
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.mg-emoji {
+  font-size: calc(11 * var(--px));
+}
+
+/* Answered keys stay readable although disabled; the right and the chosen wrong one keep a coloured rim. */
+.pixel-button.mg-option.right:disabled,
+.pixel-button.mg-option.wrong:disabled,
+.pixel-button.mg-block.right:disabled,
+.pixel-button.mg-block.wrong:disabled {
+  color: var(--ink);
+}
+
+.pixel-button.mg-option.right,
+.pixel-button.mg-block.right {
+  border-color: var(--good);
+}
+
+.pixel-button.mg-option.wrong,
+.pixel-button.mg-block.wrong {
+  border-color: var(--bad);
+}
+
+/* ○ / × mark on a coloured square: never colour alone. */
+.mg-option.right::after,
+.mg-option.wrong::after {
+  flex: none;
+  margin-left: auto;
+  min-width: calc(13 * var(--px));
+  padding: 0 var(--px);
+  text-align: center;
+  color: var(--paper);
+}
+
+.mg-option.right::after {
+  content: '○';
+  background: var(--good);
+}
+
+.mg-option.wrong::after {
+  content: '×';
+  background: var(--bad);
+}
+
+/*
+ * A line to listen to (the NPC's line, the sentence to say) with its replay and
+ * 慢速 keys right beside it; on narrow screens the keys wrap under the line.
+ */
+.mg-npc-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: calc(3 * var(--px)) calc(4 * var(--px));
+}
+
+.mg-npc-row > .mg-npc,
+.mg-npc-row > .mg-say {
+  flex: 1 1 calc(150 * var(--px));
+}
+
+.mg-say {
+  display: flex;
+  flex-direction: column;
+  gap: calc(2 * var(--px));
+}
+
+.mg-npc-row > .mg-row {
+  flex: none;
+  flex-wrap: nowrap;
+  gap: calc(4 * var(--px));
+}
+
+/* Quoted speech, not a key: no rim or shadow, just a neon bar with an ink edge. */
+.mg-npc {
+  padding: calc(2 * var(--px)) calc(4 * var(--px)) calc(2 * var(--px)) calc(6 * var(--px));
+  border-left: calc(3 * var(--px)) solid var(--neon);
+  box-shadow: calc(-1 * var(--px)) 0 0 var(--ink);
+}
+
+.mg-npc-text {
+  font-size: calc(11 * var(--px));
+  color: var(--ink);
+}
+
+.mg-line,
+.mg-pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(4 * var(--px));
+  padding: calc(4 * var(--px));
+}
+
+.mg-line {
+  min-height: calc(34 * var(--px));
+  align-content: flex-start;
+  background: var(--paper);
+  border: var(--px) dashed var(--ink);
+}
+
+.mg-placeholder {
+  color: var(--ink);
+  align-self: center;
+}
+
+/* Word blocks are smaller keys; a used block leaves a dashed ghost of the same size behind. */
+.pixel-button.mg-block,
+.mg-block.ghost {
+  min-width: var(--tap);
+  min-height: var(--tap);
+  margin: 0 var(--line) var(--line) 0;
+  padding: calc(1 * var(--px)) calc(5 * var(--px));
+}
+
+.mg-block.ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--line) dashed var(--dim);
+  background: transparent;
+  color: transparent;
+}
+
+/* Feedback box: coloured rim plus words (答對了！ / 不太對喔), never colour alone. */
+.mg-feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: calc(2 * var(--px));
+  padding: calc(5 * var(--px)) calc(6 * var(--px));
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.mg-feedback.good {
+  box-shadow: inset 0 0 0 var(--line) var(--good);
+}
+
+.mg-feedback.bad {
+  box-shadow: inset 0 0 0 var(--line) var(--bad);
+}
+
+.mg-feedback strong {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(4 * var(--px));
+  font-weight: normal;
+  color: var(--ink);
+}
+
+.mg-feedback strong::before {
+  min-width: calc(13 * var(--px));
+  text-align: center;
+  color: var(--paper);
+}
+
+.mg-feedback.good strong::before {
+  content: '○';
+  background: var(--good);
+}
+
+.mg-feedback.bad strong::before {
+  content: '×';
+  background: var(--bad);
+}
+
+/* The model answer: ink text with a neon underline. */
+.mg-feedback em {
+  font-style: normal;
+  color: var(--ink);
+  border-bottom: var(--line) solid var(--neon);
+}
+
+.mg-note {
+  margin: 0;
+  color: var(--ink);
+}
+
+.mg-note.warn {
+  padding-left: calc(4 * var(--px));
+  border-left: var(--line) solid var(--bad);
+}
+
+.mg-continue {
+  align-self: center;
+}
+
+/*
+ * The feedback live region is on the page from the start; while it is empty it
+ * is taken out of the flow so it adds no gap.
+ */
+.mg-live:empty {
+  position: absolute;
+}
+
+/* Once answered the word pool is only ghosts; free the room for feedback and 繼續. */
+.mg-pool:has(~ .mg-live:not(:empty)) {
+  display: none;
+}
+
+/* Landscape screens are short: tighten the rhythm so 繼續 fits without scrolling. */
+:root[data-orientation='landscape'] .mg-root {
+  padding: 0;
+  gap: calc(3 * var(--px));
+}
+
+:root[data-orientation='landscape'] .mg {
+  gap: calc(3 * var(--px));
+}
+
+:root[data-orientation='landscape'] .mg-feedback {
+  gap: 0;
+  padding: calc(2 * var(--px)) calc(5 * var(--px));
+}
+
+:root[data-orientation='landscape'] .mg-line {
+  min-height: calc(30 * var(--px));
+}
