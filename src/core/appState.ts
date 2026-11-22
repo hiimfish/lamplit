@@ -29,6 +29,12 @@ export interface AppState {
   save: SaveData;
   /** The task being played, as `${unitId}/${taskId}` parts. */
   activeTask?: { unitId: string; taskId: string };
+  /**
+   * What the town shows: an act (index into ACTS) and, when a location is open,
+   * its unit. Unset until the player picks one; the town then opens on the act
+   * with the task to continue.
+   */
+  town?: { act: number; unitId?: string };
   result?: ResultData;
 }
 

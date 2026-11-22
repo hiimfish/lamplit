@@ -31,9 +31,13 @@ const LANDSCAPE_MAX_SCALE = 2;
  * - landscape: a full-height column on the left and the story card on the
  *   right. The column takes what the card leaves (at most two cores wide) and
  *   the scale is the largest that still shows the middle of the core.
+ *
+ * `reserveH` logical pixels at the bottom of the scene are left for something
+ * else (the town's name plate and keys); the stage gets the height above them.
  */
-export function stageArea(layout: Layout): StageArea {
-  const { sceneW, sceneH } = layout;
+export function stageArea(layout: Layout, reserveH = 0): StageArea {
+  const { sceneW } = layout;
+  const sceneH = layout.sceneH - reserveH;
   if (layout.orientation === 'portrait') {
     return { w: sceneW, h: sceneH, scale: fit(sceneW / CORE_W, sceneH / CORE_H) };
   }

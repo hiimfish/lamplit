@@ -273,7 +273,7 @@ function StageBubbleView({
  * pixels and anchored at the bottom left, so every pixel lands on the device
  * grid); characters, bubbles and props are placed relative to the core.
  */
-function SceneStage({ unit, scene, view, beat, talking, area }: Props) {
+export function SceneStage({ unit, scene, view, beat, talking, area }: Props) {
   const config = stageFor(unit.id);
   if (!config) return null;
   const { w: W, h: H } = stageCanvasSize(area);

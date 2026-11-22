@@ -107,6 +107,15 @@ body {
   pointer-events: auto;
 }
 
+/*
+ * Landscape: the stage column and the town's scene column are added to #frame
+ * after #ui. Keep #ui above them so a dialog's backdrop dims the whole screen;
+ * taps still reach the columns through the parts of #ui that hold no key.
+ */
+:root[data-orientation='landscape'] #ui {
+  z-index: 1;
+}
+
 /* Portrait: scene on top, a paper panel with a thick double ink rule fills the rest. */
 :root[data-orientation='portrait'] #frame {
   left: 0;

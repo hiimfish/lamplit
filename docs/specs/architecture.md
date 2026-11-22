@@ -33,9 +33,9 @@ src/
                     Spell（打字拼字，畫面上的字母鍵盤）、Cloze（聽力填空）、ReadSign（讀招牌／價目）、
                     PictureChoose（看圖選句）、Speak、QuestionView，共用的小元件（shared），以及錄音和辨識的 hook
   learning/         出題（questionGen）、題目的型別和 NO_ITEM（questions）、批改、錯誤提示、FSRS 排程、
-                    練習與複習的規則（sessionPlan）
+                    練習與複習的規則（sessionPlan）、小鎮畫面的進度和「繼續」要去哪一關（townPlan）
   content/          單元型別、載入、內容檢查、音檔項目、角色的中文名稱（roles）、
-                    單元順序（unitOrder）、用字分析和平滑度規則（vocab）
+                    單元順序（unitOrder）、四幕和各幕的地點（acts）、用字分析和平滑度規則（vocab）
   core/             共用狀態、存檔、設定
   audio/            發音播放、音軌與音量、背景音樂、音效、錄音、語音辨識、每個角色的聲線（voices）
   art/items/        單字像素圖：每個單元一個檔（cafe、moveIn、store、street、market、clothes、clinic、

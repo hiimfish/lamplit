@@ -216,6 +216,13 @@ describe('stageArea', () => {
     expect(small.sceneW - a.w).toBeGreaterThanOrEqual(LANDSCAPE_CARD_MIN_W);
   });
 
+  it('leaves the reserved height at the bottom and keeps the scale (the town plate and keys)', () => {
+    const phone = computeLayout(390, 844, 3);
+    expect(stageArea(phone, 32)).toEqual({ w: phone.sceneW, h: phone.sceneH - 32, scale: 2 });
+    const desk = computeLayout(1280, 720, 1);
+    expect(stageArea(desk, 60)).toEqual({ ...stageArea(desk), h: desk.sceneH - 60 });
+  });
+
   it.each([
     [390, 844, 3],
     [360, 640, 2],

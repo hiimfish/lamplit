@@ -1,0 +1,261 @@
+/*
+ * Town (home). Three levels, none of them a long scroll: the four act keys,
+ * the locations of the chosen act, then the tasks of one location.
+ *
+ * The scene above the panel (the left column in landscape) shows where you
+ * are: the stage of the location, a status chip and the settings key over it,
+ * and an ink name plate under it. Its size comes from TownScreen (stageArea).
+ */
+.town-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--ink);
+}
+
+/* Portrait: #frame is the whole screen and the canvas is offset by --frame-x. */
+:root[data-orientation='portrait'] .town-top {
+  left: var(--frame-x);
+}
+
+.town-scene {
+  position: relative;
+  flex: none;
+}
+
+/* The stage fills the scene box; without a stage the dusk street shows through. */
+:root[data-orientation] .town-scene .stage {
+  left: 0;
+  border-right: 0;
+}
+
+/* Over the scene: coins and streak on a paper chip (information), 設定 as a key. */
+.town-hud {
+  position: absolute;
+  top: calc(3 * var(--px));
+  left: calc(3 * var(--px));
+  right: calc(2 * var(--px));
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: calc(4 * var(--px));
+}
+
+/* In a narrow landscape column a long coin count pushes the streak to a second line. */
+.town-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 calc(8 * var(--px));
+  min-width: 0;
+  margin: var(--px);
+  padding: var(--px) calc(4 * var(--px));
+  white-space: nowrap;
+  background: var(--paper);
+  box-shadow: 0 0 0 var(--px) var(--ink);
+}
+
+/* Over the dusk scene a paper focus ring reads better than ink. */
+.town-hud .pixel-button:focus-visible {
+  outline-color: var(--paper);
+}
+
+/* Name plate: two lines of paper text on ink, like the title strip of a task. */
+.town-plate {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 calc(5 * var(--px));
+  line-height: calc(14 * var(--px));
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.town-plate-row {
+  display: flex;
+  justify-content: space-between;
+  gap: calc(6 * var(--px));
+  white-space: nowrap;
+}
+
+.town-plate-row > :first-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.town-plate-row > :nth-child(2) {
+  flex: none;
+}
+
+/* 第一幕: ink on a lamp chip. */
+.town-chip {
+  margin-right: calc(4 * var(--px));
+  padding: 0 calc(3 * var(--px));
+  color: var(--ink);
+  background: var(--lamp);
+}
+
+.town-plate .star-on {
+  text-shadow: none;
+}
+
+/* 今日複習 and 繼續 side by side (or 回第一幕 alone): big keys for the thumb. */
+.town-actions {
+  flex: none;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: calc(3 * var(--px));
+}
+
+.town-actions .pixel-button {
+  min-width: 0;
+  min-height: var(--tap);
+  padding-right: calc(4 * var(--px));
+  padding-left: calc(4 * var(--px));
+}
+
+/* Landscape: the keys sit under the name plate, on paper. */
+.town-top .town-actions {
+  flex: 1;
+  min-height: 0;
+  align-items: center;
+  padding: calc(2 * var(--px)) calc(2 * var(--px)) 0 calc(4 * var(--px));
+  background: var(--paper);
+}
+
+:root[data-orientation='landscape'] .town-top {
+  border-right: var(--px) solid var(--ink);
+}
+
+/* 回第一幕: a left-pointing ink triangle drawn in CSS (the font has no arrow key glyphs). */
+.back-key::before {
+  content: '';
+  border-style: solid;
+  border-width: calc(4 * var(--px)) calc(5 * var(--px)) calc(4 * var(--px)) 0;
+  border-color: transparent var(--ink) transparent transparent;
+}
+
+/* The four acts: one row of keys; the chosen one is lamp (aria-checked). */
+.act-tabs {
+  flex: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: calc(2 * var(--px));
+}
+
+.pixel-button.act-tab {
+  min-width: 0;
+  min-height: var(--tap);
+  padding-right: 0;
+  padding-left: 0;
+  white-space: nowrap;
+}
+
+/* An act with nothing to play yet: dashed rim, still a key (it shows what is coming). */
+.pixel-button.act-tab.soon {
+  border-style: dashed;
+}
+
+/* Locations of the act: two columns of boxed keys, name over progress. */
+.place-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(2 * var(--px)) calc(3 * var(--px));
+}
+
+.pixel-button.place-tile {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  min-width: 0;
+  padding: var(--px) calc(4 * var(--px));
+  line-height: calc(13 * var(--px));
+  text-align: left;
+}
+
+/* The location 繼續 opens. */
+.pixel-button.place-tile.next {
+  background: var(--lamp-tint);
+}
+
+.place-name {
+  display: flex;
+  gap: calc(4 * var(--px));
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Its number in the act: paper on an ink chip. */
+.place-no {
+  flex: none;
+  min-width: calc(11 * var(--px));
+  padding: 0 calc(2 * var(--px));
+  text-align: center;
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.place-state {
+  color: var(--ink);
+}
+
+/* Never played: neon on an ink chip, like 新任務. */
+.place-state.new {
+  align-self: flex-start;
+  padding: 0 calc(3 * var(--px));
+  color: var(--neon);
+  background: var(--ink);
+}
+
+/*
+ * A location that is not built yet is information, not a control: ink text in
+ * a dashed frame with a padlock, so the locked state never relies on faint text.
+ */
+.place-tile.soon {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  margin: 0 var(--line) var(--line) 0;
+  padding: var(--px) calc(4 * var(--px));
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--ink);
+  border: var(--px) dashed var(--ink);
+}
+
+.place-tile.soon .lock-mark {
+  flex: none;
+}
+
+/* Tasks of one location: one boxed key each. */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: calc(3 * var(--px));
+}
+
+/*
+ * A short portrait screen (an old phone, or a browser with tall bars): slimmer
+ * act keys, back key and tiles, so the ten locations and the eight tasks still
+ * fit without scrolling.
+ */
+@media (max-height: 660px) {
+  :root[data-orientation='portrait'] .pixel-button.act-tab,
+  :root[data-orientation='portrait'] .town-actions .back-key {
+    min-height: calc(22 * var(--px));
+  }
+
+  :root[data-orientation='portrait'] .pixel-button.place-tile {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  :root[data-orientation='portrait'] .task-list {
+    gap: calc(2 * var(--px));
+  }
+}

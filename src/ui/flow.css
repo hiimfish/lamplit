@@ -161,8 +161,8 @@
   overflow-y: auto;
 }
 
-/* Town: status line, then one list of boxed task keys per building. */
-.flow-bar .coins::before,
+/* A small coin before the coin count (town status chip, result). */
+.coins::before,
 .result-coins::before {
   content: '';
   display: inline-block;
@@ -174,25 +174,6 @@
   box-shadow:
     0 0 0 var(--px) var(--ink),
     inset calc(-1 * var(--px)) 0 0 var(--paper);
-}
-
-.building {
-  display: flex;
-  flex-direction: column;
-  gap: calc(2 * var(--px));
-  padding-top: calc(2 * var(--px));
-}
-
-/*
- * 即將開幕 is information, not a control: ink text in a dashed frame (not a
- * boxed key) with a padlock, so the locked state never relies on faint text.
- */
-.building.locked {
-  gap: 0;
-  margin-top: calc(2 * var(--px));
-  padding: calc(2 * var(--px)) calc(4 * var(--px));
-  color: var(--ink);
-  border: var(--px) dashed var(--ink);
 }
 
 /* Padlock drawn in CSS: an ink shackle (::before) over an ink body (::after). */
@@ -226,27 +207,6 @@
   width: calc(7 * var(--px));
   height: calc(5 * var(--px));
   background: currentColor;
-}
-
-.building-title {
-  margin: 0 0 calc(1 * var(--px));
-  padding-bottom: calc(1 * var(--px));
-  font-size: inherit;
-  font-weight: normal;
-  display: flex;
-  justify-content: space-between;
-  color: var(--ink);
-  border-bottom: var(--px) dotted var(--ink);
-}
-
-.building-name {
-  padding: 0 calc(3 * var(--px));
-  color: var(--paper);
-  background: var(--ink);
-}
-
-.building-en {
-  color: var(--ink);
 }
 
 /* One boxed key per task: title on the left, its state on the right. */
