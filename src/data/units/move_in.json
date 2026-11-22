@@ -58,6 +58,106 @@
       "zh": "了解，謝謝！",
       "accept": ["Got it, thanks!"],
       "note": "Got it. 是口語的「懂了／知道了」。"
+    },
+    {
+      "id": "help_with_box",
+      "en": "Can you help me with this box?",
+      "zh": "可以幫我搬這個箱子嗎？",
+      "accept": ["Can you help me with this box, please?"],
+      "note": "help + 人 + with + 東西 = 幫某人處理某樣東西。",
+      "distractors": [
+        { "text": "Can you help me this box?", "error": "missing-word" },
+        { "text": "Can you help I with this box?", "error": "other" },
+        { "text": "You can help me with this box?", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "sure_no_problem",
+      "en": "Sure, no problem.",
+      "zh": "好啊，沒問題。",
+      "accept": ["No problem."],
+      "note": "別人請你幫忙時的回答。Sure 是口語的「好啊」。",
+      "distractors": [
+        { "text": "Sure, no problems.", "error": "plural" },
+        { "text": "Sure, not problem.", "error": "other" },
+        { "text": "Sure, problem no.", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "live_alone",
+      "en": "Yes, I live alone.",
+      "zh": "對，我一個人住。",
+      "accept": ["I live alone."],
+      "note": "現在簡單式說平常的事。I live 不加 -s；he lives 才加。",
+      "distractors": [
+        { "text": "Yes, I living alone.", "error": "other" },
+        { "text": "Yes, I lives alone.", "error": "other" },
+        { "text": "Yes, I live in alone.", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "no_car",
+      "en": "No, I don't have a car.",
+      "zh": "沒有，我沒有車。",
+      "accept": ["No, I do not have a car.", "I don't have a car.", "I do not have a car."],
+      "note": "I don't = I do not。don't 後面接動詞原形 have。",
+      "distractors": [
+        { "text": "No, I don't have car.", "error": "article" },
+        { "text": "No, I not have a car.", "error": "missing-word" },
+        { "text": "No, I doesn't have a car.", "error": "other" }
+      ]
+    },
+    {
+      "id": "new_neighbor",
+      "en": "Hi, I'm your new neighbor.",
+      "zh": "嗨，我是你的新鄰居。",
+      "accept": [
+        "Hi, I am your new neighbor.",
+        "I'm your new neighbor.",
+        "I am your new neighbor."
+      ],
+      "note": "I'm = I am。形容詞 new 放在名詞 neighbor 前面。",
+      "distractors": [
+        { "text": "Hi, I your new neighbor.", "error": "missing-word" },
+        { "text": "Hi, I'm your neighbor new.", "error": "word-order" },
+        { "text": "Hi, I'm you new neighbor.", "error": "other" }
+      ]
+    },
+    {
+      "id": "whats_your_name",
+      "en": "Sorry, what's your name?",
+      "zh": "不好意思，你叫什麼名字？",
+      "accept": ["Sorry, what is your name?", "What's your name?", "What is your name?"],
+      "note": "what's = what is。沒聽清楚時，前面加 Sorry 比較客氣。",
+      "distractors": [
+        { "text": "Sorry, what your name?", "error": "missing-word" },
+        { "text": "Sorry, your name is what?", "error": "word-order" },
+        { "text": "Sorry, what's you name?", "error": "other" }
+      ]
+    },
+    {
+      "id": "come_in",
+      "en": "Please come in.",
+      "zh": "請進。",
+      "accept": ["Come in, please.", "Come in."],
+      "note": "祈使句：動詞放最前面，不用說 you。加 please 比較客氣。",
+      "distractors": [
+        { "text": "Please you come in.", "error": "extra-word" },
+        { "text": "Please come.", "error": "missing-word" },
+        { "text": "Please in come.", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "call_me",
+      "en": "Call me if you need anything.",
+      "zh": "需要什麼就打給我。",
+      "accept": ["Just call me if you need anything."],
+      "note": "祈使句 Call me（打給我）。if 是「如果」，anything 是「任何東西」。",
+      "distractors": [
+        { "text": "Call me you need anything.", "error": "missing-word" },
+        { "text": "Call me if you needs anything.", "error": "other" },
+        { "text": "Call me if need you anything.", "error": "word-order" }
+      ]
     }
   ],
   "words": [
@@ -66,7 +166,23 @@
     { "id": "door", "en": "door", "zh": "門", "emoji": "🚪" },
     { "id": "chair", "en": "chair", "zh": "椅子", "emoji": "🪑" },
     { "id": "lamp", "en": "lamp", "zh": "檯燈", "emoji": "💡" },
-    { "id": "trash_can", "en": "trash can", "zh": "垃圾桶", "emoji": "🗑️" }
+    { "id": "trash_can", "en": "trash can", "zh": "垃圾桶", "emoji": "🗑️" },
+    { "id": "welcome", "en": "welcome", "zh": "歡迎", "emoji": "👋", "abstract": true },
+    { "id": "room", "en": "room", "zh": "房間", "emoji": "🛏️" },
+    { "id": "two", "en": "two", "zh": "二", "emoji": "2️⃣", "abstract": true },
+    { "id": "three", "en": "three", "zh": "三", "emoji": "3️⃣", "abstract": true },
+    { "id": "home", "en": "home", "zh": "家", "emoji": "🏠" },
+    { "id": "car", "en": "car", "zh": "汽車", "emoji": "🚗" },
+    { "id": "four", "en": "four", "zh": "四", "emoji": "4️⃣", "abstract": true },
+    { "id": "five", "en": "five", "zh": "五", "emoji": "5️⃣", "abstract": true },
+    { "id": "okay", "en": "okay", "zh": "好；可以", "emoji": "👌", "abstract": true },
+    { "id": "neighbor", "en": "neighbor", "zh": "鄰居", "emoji": "🏘️", "abstract": true },
+    { "id": "six", "en": "six", "zh": "六", "emoji": "6️⃣", "abstract": true },
+    { "id": "seven", "en": "seven", "zh": "七", "emoji": "7️⃣", "abstract": true },
+    { "id": "phone", "en": "phone", "zh": "電話；手機", "emoji": "📱" },
+    { "id": "sofa", "en": "sofa", "zh": "沙發", "emoji": "🛋️" },
+    { "id": "eight", "en": "eight", "zh": "八", "emoji": "8️⃣", "abstract": true },
+    { "id": "nine", "en": "nine", "zh": "九", "emoji": "9️⃣", "abstract": true }
   ],
   "pairs": [
     {
@@ -252,6 +368,194 @@
           "speaker": "npc",
           "en": "Have a good day!",
           "zh": "祝你有美好的一天！"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "搬箱子",
+      "newChunkIds": ["help_with_box", "sure_no_problem"],
+      "newWordIds": ["welcome", "room", "two", "three"],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Here are two more boxes.",
+          "zh": "這裡還有兩個箱子。",
+          "stage": { "act": "give", "item": "box" }
+        },
+        {
+          "id": "t4_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can you help me with this box?",
+          "zh": "可以幫我搬這個箱子嗎？",
+          "chunkId": "help_with_box",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t4_3",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Yes, I can. Can you open the door?",
+          "zh": "可以啊。你可以開一下門嗎？"
+        },
+        {
+          "id": "t4_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sure, no problem.",
+          "zh": "好啊，沒問題。",
+          "chunkId": "sure_no_problem"
+        },
+        {
+          "id": "t4_5",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Thanks! Welcome to your new room.",
+          "zh": "謝謝！歡迎來到你的新房間。",
+          "stage": { "act": "want", "item": "room" }
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "聊聊自己",
+      "newChunkIds": ["live_alone", "no_car"],
+      "newWordIds": ["home", "car", "four", "five"],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "So, do you live here alone?",
+          "zh": "那你一個人住在這裡嗎？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Yes, I live alone.",
+          "zh": "對，我一個人住。",
+          "chunkId": "live_alone"
+        },
+        {
+          "id": "t5_3",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Good. And do you have a car?",
+          "zh": "好。那你有車嗎？",
+          "stage": { "act": "want", "item": "car" }
+        },
+        {
+          "id": "t5_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "No, I don't have a car.",
+          "zh": "沒有，我沒有車。",
+          "chunkId": "no_car"
+        },
+        {
+          "id": "t5_5",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "No problem. You can take the bus.",
+          "zh": "沒關係，你可以搭公車。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "認識鄰居",
+      "newChunkIds": ["new_neighbor", "whats_your_name"],
+      "newWordIds": ["okay", "neighbor", "six", "seven"],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Yes? Can I help you?",
+          "zh": "嗯？有什麼事嗎？"
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Hi, I'm your new neighbor.",
+          "zh": "嗨，我是你的新鄰居。",
+          "chunkId": "new_neighbor"
+        },
+        {
+          "id": "t6_3",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Nice to meet you! I'm Lena.",
+          "zh": "很高興認識你！我是 Lena。"
+        },
+        {
+          "id": "t6_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sorry, what's your name?",
+          "zh": "不好意思，你叫什麼名字？",
+          "chunkId": "whats_your_name",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t6_5",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "It's Lena. I live in number seven.",
+          "zh": "我叫 Lena。我住在七號。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "請鄰居進來坐",
+      "newChunkIds": ["come_in", "call_me"],
+      "newWordIds": ["phone", "sofa", "eight", "nine"],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Hi! It's me, Lena.",
+          "zh": "嗨！是我，Lena。"
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Please come in.",
+          "zh": "請進。",
+          "chunkId": "come_in"
+        },
+        {
+          "id": "t7_3",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Thanks! I like your sofa.",
+          "zh": "謝謝！我喜歡你的沙發。",
+          "stage": { "act": "want", "item": "sofa" }
+        },
+        {
+          "id": "t7_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Call me if you need anything.",
+          "zh": "需要什麼就打給我。",
+          "chunkId": "call_me"
+        },
+        {
+          "id": "t7_5",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Okay, thanks! Here's my phone number.",
+          "zh": "好，謝謝！這是我的電話號碼。",
+          "stage": { "act": "give", "item": "phone" }
         }
       ]
     }
