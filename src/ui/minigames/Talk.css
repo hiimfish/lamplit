@@ -1,33 +1,126 @@
-/* 聽對話答題 (Talk.tsx): no text while listening; the script shows after answering. */
-.talk-listening {
-  margin: 0;
-  font-size: calc(11 * var(--px));
-  color: var(--ink);
-  text-align: center;
-}
-
-.talk-script {
+/*
+ * 聽對話答題 (Talk.tsx). While the conversation plays: no English, only the two speakers'
+ * tabs (the one talking is a solid ink tab with ▶, never colour alone) and one square per
+ * line. After answering: the transcript, one boxed line per speech (story bubbles from
+ * flow.css) with its 慢速 key. Nothing here animates.
+ */
+.talk-stage {
   display: flex;
   flex-direction: column;
-  gap: calc(2 * var(--px));
-  padding: calc(4 * var(--px)) calc(6 * var(--px));
-  font-size: calc(11 * var(--px));
-  color: var(--ink);
+  align-items: center;
+  gap: calc(5 * var(--px));
+  padding: calc(8 * var(--px)) calc(6 * var(--px));
   background: var(--paper);
   box-shadow: inset 0 0 0 var(--px) var(--dim);
 }
 
-.talk-line {
-  margin: 0;
+.talk-speakers {
   display: flex;
   flex-wrap: wrap;
-  gap: 0 calc(4 * var(--px));
+  justify-content: center;
+  gap: calc(4 * var(--px)) calc(12 * var(--px));
 }
 
-.talk-who {
-  color: var(--dim);
+/* A name tab, not a key: 1px ink rim, no shadow. */
+.talk-speaker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(2 * var(--px));
+  min-width: calc(60 * var(--px));
+  padding: calc(3 * var(--px)) calc(6 * var(--px));
+  font-size: calc(11 * var(--px));
+  color: var(--ink);
+  background: var(--paper);
+  box-shadow: inset 0 0 0 var(--px) var(--ink);
 }
 
-.talk-zh {
-  flex-basis: 100%;
+.talk-speaker.on {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+/* Room for ▶ is kept on both tabs, so the names do not shift when the speaker changes. */
+.talk-speaker .talk-mark {
+  display: inline-block;
+  min-width: calc(8 * var(--px));
+  text-align: center;
+}
+
+.talk-progress {
+  display: flex;
+  align-items: center;
+  gap: calc(6 * var(--px));
+}
+
+.talk-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(3 * var(--px));
+}
+
+/* Lines to come are hollow, lines heard are filled, the line playing is taller and neon. */
+.talk-dot {
+  width: calc(6 * var(--px));
+  height: calc(6 * var(--px));
+  box-shadow: inset 0 0 0 var(--px) var(--dim);
+}
+
+.talk-dot.done {
+  background: var(--ink);
+  box-shadow: none;
+}
+
+.talk-dot.now {
+  height: calc(10 * var(--px));
+  background: var(--neon);
+  box-shadow: inset 0 0 0 var(--px) var(--ink);
+}
+
+.talk-count,
+.talk-hint,
+.talk-transcript-title {
+  margin: 0;
+  font-size: calc(11 * var(--px));
+  color: var(--ink);
+}
+
+.talk-transcript {
+  display: flex;
+  flex-direction: column;
+  gap: calc(4 * var(--px));
+}
+
+/* The second speaker's lines sit a little to the right, so turns read at a glance. */
+.talk-row.second {
+  padding-left: calc(16 * var(--px));
+}
+
+.bubble.talk-bubble {
+  min-height: var(--tap);
+}
+
+@media (hover: hover) {
+  .bubble.talk-bubble:hover {
+    background: var(--lamp-tint);
+  }
+}
+
+/* While 再聽一次 plays after answering, the line being heard gets the solid tab and ▶. */
+.talk-bubble.talk-now .bubble-who {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.talk-bubble .talk-mark {
+  margin-right: calc(2 * var(--px));
+}
+
+.pixel-button.talk-slow {
+  min-height: var(--tap);
+}
+
+:root[data-orientation='landscape'] .talk-stage {
+  gap: calc(3 * var(--px));
+  padding: calc(4 * var(--px)) calc(6 * var(--px));
 }

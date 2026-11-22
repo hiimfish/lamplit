@@ -1,7 +1,7 @@
 /**
  * 聽對話答題 (TOEIC Part 3): one question per ChoiceQuestion of each TalkItem of a task,
- * each carrying the whole conversation; the questions on one talk come one after another.
- * Minimal version; the rendering is src/ui/minigames/Talk.tsx.
+ * each carrying the whole conversation; the questions on one talk come one after another,
+ * in the content's order. Only the options are shuffled. Rendering: src/ui/minigames/Talk.tsx.
  */
 import type { Role, Task, Unit } from '../../content/types';
 import { NO_ITEM } from '../questions';
@@ -14,6 +14,8 @@ export interface TalkQuestion {
   talkId: string;
   /** The conversation in order; each line's clip is `${unitId}.talk.${lineId}`. */
   lines: { audioId: string; role: Role; en: string; zh: string }[];
+  /** The speakers in the order they first speak (two for checked content). */
+  speakers: Role[];
   /** The question, in English and Chinese. */
   en: string;
   zh: string;
@@ -38,10 +40,12 @@ export function talkQuestions(unit: Unit, task: Task, rng: Rng): TalkQuestion[] 
       en: line.en,
       zh: line.zh,
     }));
+    const speakers = [...new Set(lines.map((line) => line.role))];
     return talk.questions.map((q, index) => ({
       kind: 'talk' as const,
       talkId: talk.id,
       lines,
+      speakers,
       en: q.en,
       zh: q.zh,
       options: shuffledOptions(q.options, rng),
