@@ -298,8 +298,8 @@
           "id": "t1_6",
           "role": "counselor",
           "speaker": "npc",
-          "en": "Please write your age and the area you live in.",
-          "zh": "請寫上你的年齡和住的地區。"
+          "en": "Write your age, the area you live in, and your English level.",
+          "zh": "寫上你的年齡、住的地區，還有你的英文程度。"
         }
       ]
     },
@@ -348,8 +348,8 @@
           "id": "t2_3",
           "role": "counselor",
           "speaker": "npc",
-          "en": "I see. It says here you were a clerk.",
-          "zh": "了解，這裡寫你以前是職員。"
+          "en": "I see. Your form says you were a clerk.",
+          "zh": "了解，你表上寫你以前是職員。"
         },
         {
           "id": "t2_4",
@@ -371,8 +371,8 @@
           "id": "t2_6",
           "role": "counselor",
           "speaker": "npc",
-          "en": "Good. Actually, a lot of companies here need assistants.",
-          "zh": "很好。其實這裡很多公司都在找助理。"
+          "en": "That's good, actually. A lot of companies here need assistants.",
+          "zh": "那其實剛好。這裡很多公司都在找助理。"
         }
       ]
     },
@@ -402,15 +402,15 @@
           "id": "t3_3",
           "role": "counselor",
           "speaker": "npc",
-          "en": "Sure. But the salary can be a bit lower.",
-          "zh": "可以啊。不過薪水可能會低一點。"
+          "en": "Sure. But the salary could be lower, at least at first.",
+          "zh": "可以啊。不過薪水可能會低一點，至少一開始是這樣。"
         },
         {
           "id": "t3_4",
           "role": "counselor",
           "speaker": "npc",
-          "en": "And what about days? Is Saturday okay?",
-          "zh": "那上班的日子呢？星期六可以嗎？"
+          "en": "And can you work on Saturdays?",
+          "zh": "那星期六可以上班嗎？"
         },
         {
           "id": "t3_5",
@@ -518,8 +518,8 @@
           "id": "t4_6",
           "role": "counselor",
           "speaker": "npc",
-          "en": "Through me. It requires office experience, and you have that.",
-          "zh": "透過我就行。它要求有辦公室經驗，你剛好有。"
+          "en": "You apply through me. They require office experience, and you have it.",
+          "zh": "透過我應徵就行。他們要求有辦公室經驗，你剛好有。"
         }
       ]
     },
@@ -553,8 +553,8 @@
             {
               "id": "t5_talk_4",
               "role": "counselor",
-              "en": "It pays less, but it's Monday to Friday.",
-              "zh": "錢比較少，但是星期一到五上班。"
+              "en": "It pays less, but at least it's Monday to Friday.",
+              "zh": "錢比較少，但至少是星期一到五上班。"
             },
             {
               "id": "t5_talk_5",
@@ -755,8 +755,8 @@
           "id": "t7_7",
           "role": "counselor",
           "speaker": "npc",
-          "en": "Just your passport. Let's send it as soon as possible.",
-          "zh": "帶護照就好。我們盡快把它寄出去。"
+          "en": "If possible, write down your old jobs before you come.",
+          "zh": "可以的話，來之前先把你以前做過的工作寫下來。"
         }
       ]
     },
@@ -824,8 +824,8 @@
           "id": "t8_8",
           "role": "counselor",
           "speaker": "npc",
-          "en": "Then I have two ads here: a restaurant and an office.",
-          "zh": "那我這裡有兩則廣告：一家餐廳、一間辦公室。"
+          "en": "Okay, I have two ads. This one is for an office assistant.",
+          "zh": "好，我有兩則廣告。這一則是徵辦公室助理。"
         },
         {
           "id": "t8_9",
@@ -839,8 +839,8 @@
           "id": "t8_10",
           "role": "counselor",
           "speaker": "npc",
-          "en": "The office job is full time, and they offer benefits.",
-          "zh": "辦公室那份是全職，而且有福利。"
+          "en": "Full time, and the employer offers good benefits.",
+          "zh": "全職，而且雇主有提供不錯的福利。"
         },
         {
           "id": "t8_11",
@@ -906,8 +906,8 @@
           "id": "t8_19",
           "role": "counselor",
           "speaker": "npc",
-          "en": "Just your passport. See you at ten!",
-          "zh": "帶護照就好。十點見！"
+          "en": "No, just yourself. See you at ten!",
+          "zh": "不用，人來就好。十點見！"
         }
       ]
     }

@@ -48,7 +48,7 @@
     {
       "id": "which_floor_is_your_office_on",
       "en": "Which floor is your office on?",
-      "zh": "你們辦公室在幾樓？",
+      "zh": "請問辦公室在幾樓？",
       "accept": ["What floor is your office on?"],
       "note": "問辦公室在幾樓。on the third floor 的 on 留在句尾。",
       "distractors": [
@@ -388,8 +388,8 @@
           "id": "t1_5",
           "role": "manager",
           "speaker": "npc",
-          "en": "Great! So can I tell everyone you accept?",
-          "zh": "太好了！那我可以跟大家說你接受了嗎？"
+          "en": "Great! So, do you accept our offer?",
+          "zh": "太好了！那你願意接受這份工作嗎？"
         },
         {
           "id": "t1_6",
@@ -415,12 +415,12 @@
       "newWordIds": ["above", "arrive", "noon", "exactly", "lobby", "below", "elevator"],
       "fills": [
         {
-          "id": "lunch_at_noon",
-          "en": "We usually have lunch at ___ in the office.",
-          "zh": "我們通常中午在辦公室吃午餐。",
-          "options": ["noon", "morning", "today", "week"],
+          "id": "lobby_below",
+          "en": "The lobby is on the first floor, two floors ___ our office.",
+          "zh": "大廳在一樓，在我們辦公室下面兩層。",
+          "options": ["below", "above", "behind", "with"],
           "answer": 0,
-          "note": "at noon 是固定說法，at 不接 today。"
+          "note": "一樓在辦公室的下面，所以用 below（在……下面）。"
         },
         {
           "id": "arrives_exactly",
@@ -444,7 +444,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "Which floor is your office on?",
-          "zh": "你們辦公室在幾樓？",
+          "zh": "請問辦公室在幾樓？",
           "chunkId": "which_floor_is_your_office_on"
         },
         {
@@ -474,8 +474,8 @@
           "id": "t2_6",
           "role": "manager",
           "speaker": "npc",
-          "en": "Yes, please. I can come down and meet you.",
-          "zh": "好，麻煩你。我可以下樓去接你。"
+          "en": "Yes, please. I'll come down when you arrive.",
+          "zh": "好，麻煩你。你到了我就下樓接你。"
         },
         {
           "id": "t2_7",
@@ -676,7 +676,7 @@
             {
               "en": "Who is going to cook?",
               "zh": "誰會下廚？",
-              "options": ["The neighbor", "Her husband", "You"],
+              "options": ["The neighbor", "Her husband", "Her mother"],
               "answer": 1
             }
           ]
@@ -702,8 +702,8 @@
           "id": "t5_3",
           "role": "neighbor",
           "speaker": "npc",
-          "en": "Really? You finally got a real office job!",
-          "zh": "真的嗎？你終於找到真正的辦公室工作了！"
+          "en": "Really? Your first real job here! Finally!",
+          "zh": "真的嗎？你在這裡的第一份正式工作！終於等到了！"
         },
         {
           "id": "t5_4",
@@ -748,7 +748,7 @@
         {
           "lineId": "t6_6",
           "word": "route",
-          "distractors": ["clock", "suit"]
+          "distractors": ["suit", "tie"]
         }
       ],
       "scene": [
@@ -779,7 +779,7 @@
           "role": "neighbor",
           "speaker": "npc",
           "en": "Harbor Trading is across the water from here.",
-          "zh": "Harbor Trading 在水的對岸。"
+          "zh": "Harbor Trading 在對岸。"
         },
         {
           "id": "t6_5",
@@ -809,7 +809,7 @@
           "id": "t7_1",
           "role": "neighbor",
           "speaker": "npc",
-          "en": "Hi! I just came by. Big day tomorrow, right?",
+          "en": "Hi! I just stopped by. Big day tomorrow, right?",
           "zh": "嗨！我順道過來看看。明天是大日子，對吧？"
         },
         {
@@ -853,8 +853,8 @@
           "id": "t7_7",
           "role": "neighbor",
           "speaker": "npc",
-          "en": "You're welcome. Now set your clock and go to bed!",
-          "zh": "不客氣。現在快去設好鬧鐘，然後上床睡覺！",
+          "en": "You're welcome. Now check your alarm clock and go to bed!",
+          "zh": "不客氣。現在去確認一下鬧鐘，然後上床睡覺！",
           "stage": { "act": "want", "item": "clock" }
         }
       ]

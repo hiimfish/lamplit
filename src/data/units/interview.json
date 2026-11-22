@@ -298,8 +298,8 @@
           "id": "t1_7",
           "role": "front_desk",
           "speaker": "npc",
-          "en": "Have a great interview! I wish you the best.",
-          "zh": "面試加油！祝你一切順利。"
+          "en": "Have a seat. I wish you the best of luck!",
+          "zh": "請坐。祝你面試順利！"
         }
       ]
     },
@@ -371,15 +371,15 @@
           "id": "t2_5",
           "role": "manager",
           "speaker": "npc",
-          "en": "Good! And fall is an especially nice season here.",
-          "zh": "太好了！而且秋天在這裡是特別舒服的季節。"
+          "en": "Well, so are you! That makes a positive impression.",
+          "zh": "你也是啊！給人的印象很好。"
         },
         {
           "id": "t2_6",
           "role": "manager",
           "speaker": "npc",
-          "en": "Well, you're making a positive impression already!",
-          "zh": "嗯，你已經給人很好的印象了！"
+          "en": "And fall is an especially nice season to be here.",
+          "zh": "而且秋天是這裡特別舒服的季節。"
         }
       ]
     },
@@ -408,8 +408,8 @@
           "id": "t3_2",
           "role": "manager",
           "speaker": "npc",
-          "en": "How long have you been here?",
-          "zh": "你來這裡多久了？",
+          "en": "How long have you been in town?",
+          "zh": "你搬來鎮上多久了？",
           "stage": { "act": "ask" }
         },
         {
@@ -446,8 +446,8 @@
           "id": "t3_7",
           "role": "manager",
           "speaker": "npc",
-          "en": "It shows. Learning a language is a big challenge.",
-          "zh": "看得出來。學一個語言是很大的挑戰。"
+          "en": "It shows. Learning English is a big challenge.",
+          "zh": "看得出來。學英文是很大的挑戰。"
         }
       ]
     },
@@ -535,8 +535,8 @@
           "id": "t4_6",
           "role": "manager",
           "speaker": "npc",
-          "en": "So you really have to pay attention to details.",
-          "zh": "所以你真的要很注意細節。"
+          "en": "So you have to focus and pay attention to details.",
+          "zh": "所以你要很專心，注意細節。"
         }
       ]
     },
@@ -570,8 +570,8 @@
             {
               "id": "t5_talk_4",
               "role": "manager",
-              "en": "Mostly answering phones and taking care of orders.",
-              "zh": "大多是接電話和處理訂單。"
+              "en": "Most of the time, it's phones and orders.",
+              "zh": "大部分時間是接電話和處理訂單。"
             },
             {
               "id": "t5_talk_5",
@@ -582,8 +582,8 @@
             {
               "id": "t5_talk_6",
               "role": "front_desk",
-              "en": "Got it. I can call her back now.",
-              "zh": "了解，我現在就回電給她。"
+              "en": "Got it. I'll call her back and suggest a time.",
+              "zh": "了解，我回電給她，跟她約個時間。"
             }
           ],
           "questions": [
@@ -623,8 +623,8 @@
           "id": "t5_3",
           "role": "manager",
           "speaker": "npc",
-          "en": "It is. We really respect each other here.",
-          "zh": "沒錯。我們這裡的人很尊重彼此。"
+          "en": "It is. We respect each other here and share our success.",
+          "zh": "沒錯。我們這裡的人互相尊重，有成果也一起分享。"
         },
         {
           "id": "t5_4",
@@ -665,7 +665,7 @@
       "newWordIds": ["strong", "improve", "patient", "fail", "stress", "strength", "weak"],
       "cloze": [
         { "lineId": "t6_1", "word": "strength", "distractors": ["kitchen", "ticket"] },
-        { "lineId": "t6_5", "word": "improves", "distractors": ["closes", "rains"] },
+        { "lineId": "t6_5", "word": "improve", "distractors": ["close", "rain"] },
         { "lineId": "t6_6", "word": "phones", "distractors": ["shoes", "trees"] }
       ],
       "scene": [
@@ -689,8 +689,8 @@
           "id": "t6_3",
           "role": "manager",
           "speaker": "npc",
-          "en": "That's fine, careful is good. What are you weak at?",
-          "zh": "沒關係，細心很好。那你哪方面比較弱？",
+          "en": "That's fine, careful is good. Any weak areas?",
+          "zh": "沒關係，細心很好。那你有哪方面比較弱嗎？",
           "stage": { "act": "ask" }
         },
         {
@@ -705,7 +705,7 @@
           "id": "t6_5",
           "role": "manager",
           "speaker": "npc",
-          "en": "Don't worry. It improves when you use it every day.",
+          "en": "Don't worry, it'll improve when you use it every day.",
           "zh": "別擔心，每天用就會進步。"
         },
         {
@@ -766,14 +766,14 @@
           "id": "t7_5",
           "role": "manager",
           "speaker": "npc",
-          "en": "It depends, but immediately would be great.",
-          "zh": "看情況，不過能馬上開始最好。"
+          "en": "Well, we'd like someone who can start immediately.",
+          "zh": "嗯，我們希望找能馬上開始的人。"
         },
         {
           "id": "t7_6",
           "role": "manager",
           "speaker": "npc",
-          "en": "First, I need to discuss it with my team.",
+          "en": "But first, I need to discuss it with my team.",
           "zh": "不過我得先跟團隊討論一下。"
         },
         {
@@ -896,8 +896,8 @@
           "id": "t8_14",
           "role": "manager",
           "speaker": "npc",
-          "en": "That's fine. Here, careful matters more than fast.",
-          "zh": "沒關係。在這裡，細心比快更重要。"
+          "en": "Good. I agree, careful matters more than fast.",
+          "zh": "很好。我同意，細心比快更重要。"
         },
         {
           "id": "t8_15",

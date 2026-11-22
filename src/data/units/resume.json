@@ -256,8 +256,8 @@
           "id": "t1_3",
           "role": "counselor",
           "speaker": "npc",
-          "en": "Sure. Let's start with your details at the top.",
-          "zh": "沒問題。我們先從最上面的個人資料開始。"
+          "en": "Sure. Let's start with your details. They go first.",
+          "zh": "沒問題。我們先從個人資料開始，這部分放最前面。"
         },
         {
           "id": "t1_4",
@@ -375,8 +375,8 @@
           "id": "t3_1",
           "role": "counselor",
           "speaker": "npc",
-          "en": "Have you ever written a resume in English?",
-          "zh": "你有用英文寫過履歷嗎？",
+          "en": "Have you ever written a resume in English, even once?",
+          "zh": "你用英文寫過履歷嗎？一次也算。",
           "stage": { "act": "ask" }
         },
         {
@@ -406,8 +406,8 @@
           "id": "t3_5",
           "role": "counselor",
           "speaker": "npc",
-          "en": "Great. List the one you had most recently first.",
-          "zh": "很好。最近做的那份寫在最前面。"
+          "en": "Great. Start with the job you had most recently.",
+          "zh": "很好。從最近做的那份工作開始寫。"
         },
         {
           "id": "t3_6",
@@ -488,15 +488,15 @@
           "id": "t4_5",
           "role": "counselor",
           "speaker": "npc",
-          "en": "Right. Short sentences, and only relevant background.",
+          "en": "Right. Short sentences, and only the background that's relevant.",
           "zh": "對。句子短短的，只寫跟工作有關的背景。"
         },
         {
           "id": "t4_6",
           "role": "counselor",
           "speaker": "npc",
-          "en": "And everything in the document has to be true.",
-          "zh": "還有，上面寫的每一件事都必須是真的。"
+          "en": "And every word in the document has to be true.",
+          "zh": "還有，文件上的每個字都必須是真的。"
         }
       ]
     },
@@ -512,14 +512,14 @@
             {
               "id": "t5_talk_1",
               "role": "counselor",
-              "en": "So, Ken, what languages do you speak?",
+              "en": "So, what languages do you speak, Ken?",
               "zh": "那 Ken，你會說哪些語言？"
             },
             {
               "id": "t5_talk_2",
               "role": "passerby",
-              "en": "English and Chinese. My parents are from Taiwan.",
-              "zh": "英文和中文，我爸媽是台灣人。"
+              "en": "English and Chinese. I spoke Chinese at home as a child.",
+              "zh": "英文和中文。我小時候在家都說中文。"
             },
             {
               "id": "t5_talk_3",
@@ -550,11 +550,7 @@
             {
               "en": "Why is Chinese useful for the job?",
               "zh": "為什麼中文對這份工作有用？",
-              "options": [
-                "It works with Taiwan",
-                "Its office is in Taiwan",
-                "Ken's parents work there"
-              ],
+              "options": ["It works with Taiwan", "Its office is in Taiwan", "It teaches Chinese"],
               "answer": 0
             }
           ]
@@ -596,8 +592,8 @@
           "id": "t5_5",
           "role": "counselor",
           "speaker": "npc",
-          "en": "Yes! They work with a lot of foreign companies.",
-          "zh": "有！他們跟很多外國公司有往來。"
+          "en": "Yes, Harbor Trading works with a lot of foreign companies.",
+          "zh": "有，Harbor Trading 跟很多外國公司有往來。"
         },
         {
           "id": "t5_6",
@@ -614,17 +610,17 @@
       "newChunkIds": ["just_finished_first_draft", "havent_sent_it_yet"],
       "newWordIds": ["already", "while", "stay", "prepare", "review", "mistake", "rewrite"],
       "cloze": [
-        { "lineId": "t6_3", "word": "sent", "distractors": ["cooked", "washed"] },
+        { "lineId": "t6_3", "word": "sent", "distractors": ["cooked", "bought"] },
         { "lineId": "t6_5", "word": "mistake", "distractors": ["window", "bus"] },
-        { "lineId": "t6_6", "word": "rewrite", "distractors": ["eat", "wash"] }
+        { "lineId": "t6_6", "word": "rewrite", "distractors": ["eat", "drink"] }
       ],
       "scene": [
         {
           "id": "t6_1",
           "role": "friend",
           "speaker": "npc",
-          "en": "Hi! Sorry I'm late. How's the resume going?",
-          "zh": "嗨！抱歉我遲到了。履歷寫得怎麼樣？"
+          "en": "Hi! Sorry I'm late, my bus was slow. How's the resume going?",
+          "zh": "嗨！抱歉我遲到了，公車好慢。履歷寫得怎麼樣？"
         },
         {
           "id": "t6_2",
@@ -638,8 +634,8 @@
           "id": "t6_3",
           "role": "friend",
           "speaker": "npc",
-          "en": "Already? Great. Have you sent it yet?",
-          "zh": "已經寫好了？太好了。寄出去了嗎？"
+          "en": "Already? That was fast! Have you sent it yet?",
+          "zh": "已經寫好了？好快喔！寄出去了嗎？"
         },
         {
           "id": "t6_4",
@@ -660,8 +656,8 @@
           "id": "t6_6",
           "role": "friend",
           "speaker": "npc",
-          "en": "I can stay while you rewrite this sentence.",
-          "zh": "你重寫這句的時候，我可以留下來陪你。"
+          "en": "I'll stay while you rewrite this sentence.",
+          "zh": "你重寫這句的時候，我留下來陪你。"
         }
       ]
     },
@@ -707,8 +703,8 @@
           "id": "t7_4",
           "role": "counselor",
           "speaker": "npc",
-          "en": "Then attach it and a cover letter as separate documents.",
-          "zh": "然後把履歷和求職信分成兩個檔案附上去。"
+          "en": "Did you prepare a cover letter? Attach it as a separate file.",
+          "zh": "你準備好求職信了嗎？把它當成另一個檔案附上去。"
         },
         {
           "id": "t7_5",
@@ -723,7 +719,7 @@
           "role": "counselor",
           "speaker": "npc",
           "en": "Great! Don't forget your signature at the end.",
-          "zh": "太好了！最後別忘了加上你的署名。"
+          "zh": "太好了！最後別忘了署名。"
         }
       ]
     },
@@ -836,15 +832,15 @@
           "id": "t8_14",
           "role": "friend",
           "speaker": "npc",
-          "en": "Nice! Let me review it for mistakes.",
-          "zh": "不錯喔！我幫你看看有沒有錯。"
+          "en": "Nice! Let me review it. No mistakes, good job!",
+          "zh": "不錯喔！我幫你看看。沒有錯，寫得很好！"
         },
         {
           "id": "t8_15",
           "role": "counselor",
           "speaker": "npc",
-          "en": "It looks good. Just add a reference at the end.",
-          "zh": "看起來不錯。最後再加一位推薦人就好。"
+          "en": "Good. Now just add a reference at the end.",
+          "zh": "很好。最後再加一位推薦人就好。"
         },
         {
           "id": "t8_16",
@@ -858,8 +854,8 @@
           "id": "t8_17",
           "role": "counselor",
           "speaker": "npc",
-          "en": "Someone from a previous job. Then you're all ready!",
-          "zh": "之前工作認識的人。這樣就全部準備好了！"
+          "en": "Someone from a previous job. Then your resume is complete!",
+          "zh": "之前工作認識的人。這樣你的履歷就完成了！"
         },
         {
           "id": "t8_18",
