@@ -1006,8 +1006,8 @@
       "fills": [
         {
           "id": "dan_usually_eats",
-          "en": "Dan usually ___ lunch at noon.",
-          "zh": "Dan 通常中午吃午餐。",
+          "en": "My friend Dan usually ___ lunch at noon.",
+          "zh": "我的朋友 Dan 通常中午吃午餐。",
           "options": ["eat", "eats", "eating", "ate"],
           "answer": 1,
           "note": "每天的習慣用現在式，Dan 一個人，動詞加 s。",
@@ -1190,8 +1190,8 @@
             {
               "id": "t7_talk_2",
               "role": "coworker",
-              "en": "Right. Oh, wait. The technician put in new software yesterday.",
-              "zh": "對。喔，等等。技術人員昨天裝了新的軟體。"
+              "en": "Right. Wait a minute. The technician put in new software yesterday.",
+              "zh": "對。等一下。技術人員昨天裝了新的軟體。"
             },
             {
               "id": "t7_talk_3",
@@ -1202,8 +1202,8 @@
             {
               "id": "t7_talk_4",
               "role": "coworker",
-              "en": "Yes. Our old logins don't work now. Every user needs a new one.",
-              "zh": "對。我們舊的帳號現在都不能用了，每個使用者都要一個新的。"
+              "en": "Yes. Our old logins don't work now. Every user has to enter a new password.",
+              "zh": "對。我們舊的帳號現在都不能用了，每個使用者都要輸入新密碼。"
             },
             {
               "id": "t7_talk_5",
@@ -1420,15 +1420,15 @@
           "id": "t9_5",
           "role": "coworker",
           "speaker": "npc",
-          "en": "The technician gave everyone a new login. Here's yours.",
-          "zh": "技術人員給每個人一個新帳號。這是你的。"
+          "en": "The technician gave everyone a new login. Nobody told you?",
+          "zh": "技術人員給每個人一個新帳號。沒人跟你說嗎？"
         },
         {
           "id": "t9_6",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Is your computer okay now?",
-          "zh": "你的電腦現在沒問題了嗎？"
+          "en": "Here's yours. Is your computer okay now?",
+          "zh": "這是你的。你的電腦現在沒問題了嗎？"
         },
         {
           "id": "t9_7",
