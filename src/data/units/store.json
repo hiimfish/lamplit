@@ -354,7 +354,7 @@
           "en": "Can you heat it up, please?",
           "zh": "可以幫我加熱嗎？",
           "chunkId": "heat_it_up",
-          "stage": { "act": "give", "item": "lunch" }
+          "stage": { "act": "want", "item": "lunch" }
         },
         {
           "id": "t4_2",
@@ -472,8 +472,8 @@
           "id": "t6_5",
           "role": "clerk",
           "speaker": "npc",
-          "en": "Sure. I like this snack, too.",
-          "zh": "好的。我也喜歡這個零食。",
+          "en": "Sure. I like this chocolate, too.",
+          "zh": "好的。我也喜歡這個巧克力。",
           "stage": { "act": "give", "item": "chocolate" }
         }
       ]
