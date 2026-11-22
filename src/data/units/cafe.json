@@ -23,7 +23,99 @@
       "zh": "不好意思，可以再說一次嗎？",
       "note": "聽不懂時最有用的一句，不用不好意思。"
     },
-    { "id": "here_you_go", "en": "Here you go.", "zh": "給你。（遞東西時說）" }
+    { "id": "here_you_go", "en": "Here you go.", "zh": "給你。（遞東西時說）" },
+    {
+      "id": "iced_coffee",
+      "en": "Can I get an iced coffee?",
+      "zh": "可以給我一杯冰咖啡嗎？",
+      "accept": ["Can I get an iced coffee, please?"],
+      "note": "冰咖啡是 iced coffee（加了冰的咖啡）。iced 開頭是母音，所以用 an。",
+      "distractors": [
+        { "text": "Can I get a iced coffee?", "error": "article" },
+        { "text": "Can I get an ice coffee?", "error": "other" },
+        { "text": "Can I get an coffee iced?", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "no_sugar",
+      "en": "No sugar, please.",
+      "zh": "不加糖，謝謝。",
+      "accept": ["No sugar.", "No sugar please."],
+      "note": "No + 東西 = 不要加那個東西。",
+      "distractors": [
+        { "text": "No sugars, please.", "error": "plural" },
+        { "text": "Not sugar, please.", "error": "other" }
+      ]
+    },
+    {
+      "id": "what_sizes",
+      "en": "What sizes do you have?",
+      "zh": "有哪幾種大小？",
+      "note": "問有哪些可以選，用複數 sizes；do 不能省。",
+      "distractors": [
+        { "text": "What sizes you have?", "error": "missing-word" },
+        { "text": "What sizes have you do?", "error": "word-order" },
+        { "text": "What sizes do you has?", "error": "other" }
+      ]
+    },
+    {
+      "id": "small_one",
+      "en": "A small one, please.",
+      "zh": "小杯的，謝謝。",
+      "accept": ["A small one."],
+      "note": "one 代替前面說過的東西（這裡是飲料），不用再說一次 latte。",
+      "distractors": [
+        { "text": "Small one, please.", "error": "article" },
+        { "text": "A one small, please.", "error": "word-order" },
+        { "text": "A small ones, please.", "error": "plural" }
+      ]
+    },
+    {
+      "id": "wifi_here",
+      "en": "Is there Wi-Fi here?",
+      "zh": "這裡有 Wi-Fi 嗎？",
+      "accept": ["Is there wifi here?", "Is there WiFi here?", "Is there Wi-Fi?"],
+      "note": "Is there…? 問「有沒有」。中文說「這裡有」，英文不說 Here has，要說 There is。",
+      "distractors": [
+        { "text": "Is there a Wi-Fi here?", "error": "article" },
+        { "text": "There is Wi-Fi here?", "error": "word-order" },
+        { "text": "Is here have Wi-Fi?", "error": "other" }
+      ]
+    },
+    {
+      "id": "table_outside",
+      "en": "Is there a table outside?",
+      "zh": "外面有桌子嗎？",
+      "note": "一張桌子用 Is there a table…?；很多張用 Are there tables…?",
+      "distractors": [
+        { "text": "Is there table outside?", "error": "article" },
+        { "text": "Are there a table outside?", "error": "other" },
+        { "text": "Is there outside a table?", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "seat_taken",
+      "en": "Is this seat taken?",
+      "zh": "這個位子有人坐嗎？",
+      "note": "固定說法，整句記起來。taken 表示「已經有人坐了」。",
+      "distractors": [
+        { "text": "Is this seat take?", "error": "other" },
+        { "text": "This seat is taken?", "error": "word-order" },
+        { "text": "Is this seat is taken?", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "go_ahead",
+      "en": "No, go ahead.",
+      "zh": "沒有，請便。",
+      "accept": ["No. Go ahead.", "No, go ahead!"],
+      "note": "回答 Is this seat taken? 或 Do you mind…?（你介意嗎？）時，No 才是「可以」。go ahead = 請便。",
+      "distractors": [
+        { "text": "Yes, go ahead.", "error": "other" },
+        { "text": "No, go a head.", "error": "spelling" },
+        { "text": "No, ahead go.", "error": "word-order" }
+      ]
+    }
   ],
   "words": [
     { "id": "latte", "en": "latte", "zh": "拿鐵", "emoji": "☕" },
@@ -31,7 +123,22 @@
     { "id": "muffin", "en": "muffin", "zh": "瑪芬", "emoji": "🧁" },
     { "id": "water", "en": "water", "zh": "水", "emoji": "💧" },
     { "id": "cake", "en": "cake", "zh": "蛋糕", "emoji": "🍰" },
-    { "id": "sandwich", "en": "sandwich", "zh": "三明治", "emoji": "🥪" }
+    { "id": "sandwich", "en": "sandwich", "zh": "三明治", "emoji": "🥪" },
+    { "id": "coffee", "en": "coffee", "zh": "咖啡", "emoji": "🥤" },
+    { "id": "ice", "en": "ice", "zh": "冰塊", "emoji": "🧊" },
+    { "id": "sugar", "en": "sugar", "zh": "糖", "emoji": "🍬" },
+    { "id": "small", "en": "small", "zh": "小的（小杯）", "emoji": "🔸" },
+    { "id": "large", "en": "large", "zh": "大的（大杯）", "emoji": "🟧" },
+    { "id": "medium", "en": "medium", "zh": "中的（中杯）", "emoji": "🔶" },
+    { "id": "cookie", "en": "cookie", "zh": "餅乾", "emoji": "🍪" },
+    { "id": "table", "en": "table", "zh": "桌子", "emoji": "🍽️" },
+    { "id": "window", "en": "window", "zh": "窗戶", "emoji": "🪟" },
+    { "id": "outside", "en": "outside", "zh": "外面", "emoji": "🌳", "abstract": true },
+    { "id": "inside", "en": "inside", "zh": "裡面", "emoji": "🏠", "abstract": true },
+    { "id": "sit", "en": "sit", "zh": "坐", "emoji": "🪑", "abstract": true },
+    { "id": "seat", "en": "seat", "zh": "座位", "emoji": "💺" },
+    { "id": "read", "en": "read", "zh": "讀；看（書）", "emoji": "📖", "abstract": true },
+    { "id": "book", "en": "book", "zh": "書", "emoji": "📕" }
   ],
   "tasks": [
     {
@@ -133,6 +240,190 @@
           "en": "Six fifty. Here you go.",
           "zh": "六塊五。這是你的。",
           "stage": { "act": "give", "item": "sandwich" }
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "冰的，不加糖",
+      "newChunkIds": ["iced_coffee", "no_sugar"],
+      "newWordIds": ["coffee", "ice", "sugar"],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "Good morning! What can I get you?",
+          "zh": "早安！要點什麼？"
+        },
+        {
+          "id": "t4_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I get an iced coffee?",
+          "zh": "可以給我一杯冰咖啡嗎？",
+          "chunkId": "iced_coffee",
+          "stage": { "act": "want", "item": "coffee" }
+        },
+        {
+          "id": "t4_3",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "Got it. Do you want sugar?",
+          "zh": "好的。要加糖嗎？",
+          "stage": { "act": "want", "item": "sugar" }
+        },
+        {
+          "id": "t4_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "No sugar, please.",
+          "zh": "不加糖，謝謝。",
+          "chunkId": "no_sugar"
+        },
+        {
+          "id": "t4_5",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "One iced coffee, no sugar. Here you go.",
+          "zh": "一杯冰咖啡，不加糖。給你。",
+          "stage": { "act": "give", "item": "coffee" }
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "大杯小杯",
+      "newChunkIds": ["what_sizes", "small_one"],
+      "newWordIds": ["small", "large", "medium", "cookie"],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "One hot latte? What size do you want?",
+          "zh": "一杯熱拿鐵？要什麼大小？"
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What sizes do you have?",
+          "zh": "有哪幾種大小？",
+          "chunkId": "what_sizes",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t5_3",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "Small, medium, or large.",
+          "zh": "小杯、中杯，還是大杯。"
+        },
+        {
+          "id": "t5_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "A small one, please.",
+          "zh": "小杯的，謝謝。",
+          "chunkId": "small_one",
+          "stage": { "act": "want", "item": "small" }
+        },
+        {
+          "id": "t5_5",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "Small hot latte. Do you want a cookie?",
+          "zh": "小杯熱拿鐵。要不要來塊餅乾？",
+          "stage": { "act": "want", "item": "cookie" }
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "外面有位子嗎",
+      "newChunkIds": ["wifi_here", "table_outside"],
+      "newWordIds": ["table", "window", "outside", "inside"],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "Here's your tea.",
+          "zh": "這是你的茶。"
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is there Wi-Fi here?",
+          "zh": "這裡有 Wi-Fi 嗎？",
+          "chunkId": "wifi_here",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t6_3",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "Yes, there is. It's free.",
+          "zh": "有，而且免費。"
+        },
+        {
+          "id": "t6_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is there a table outside?",
+          "zh": "外面有桌子嗎？",
+          "chunkId": "table_outside",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t6_5",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "No, but there's a free one inside.",
+          "zh": "沒有，不過裡面有空的。",
+          "stage": { "act": "want", "item": "table" }
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "這裡有人坐嗎",
+      "newChunkIds": ["seat_taken", "go_ahead"],
+      "newWordIds": ["sit", "seat", "read", "book"],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is this seat taken?",
+          "zh": "這個位子有人坐嗎？",
+          "chunkId": "seat_taken",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t7_2",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "No. Do you mind if I read?",
+          "zh": "沒有。你介意我在這裡看書嗎？",
+          "stage": { "act": "want", "item": "book" }
+        },
+        {
+          "id": "t7_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "No, go ahead.",
+          "zh": "不介意，請便。",
+          "chunkId": "go_ahead"
+        },
+        {
+          "id": "t7_4",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "Thanks! Don't mind me.",
+          "zh": "謝謝！你不用管我。"
         }
       ]
     }
