@@ -67,8 +67,31 @@ export interface SpeakQuestion {
   itemId: string;
 }
 
+/**
+ * Typing (打字拼字): hear a word already taught (maybe in an earlier unit), see its
+ * picture and meaning, and type it letter by letter.
+ */
+export interface SpellQuestion {
+  kind: 'spell';
+  /** The word's own clip, from the unit that taught it (`move_in.word.key`). */
+  audioId: string;
+  /** The spelling to type: one plain word of letters. */
+  answer: string;
+  zh: string;
+  /** For the pixel icon. */
+  wordId: string;
+  emoji?: string;
+  /** `word:<id>`. */
+  itemId: string;
+}
+
 export type Question =
-  ListenPickQuestion | ListenPairQuestion | ArrangeQuestion | ChooseReplyQuestion | SpeakQuestion;
+  | ListenPickQuestion
+  | ListenPairQuestion
+  | ArrangeQuestion
+  | ChooseReplyQuestion
+  | SpeakQuestion
+  | SpellQuestion;
 
 export interface AnswerResult {
   itemId: string;

@@ -14,7 +14,7 @@ import {
 
 /** An answer faster than this counts as "fast" (FSRS Easy) for listen and choose questions. */
 export const FAST_MS_LISTEN_CHOOSE = 4000;
-/** Arranging blocks takes longer, so its fast threshold is higher. */
+/** Arranging blocks (and typing a word) takes longer, so its fast threshold is higher. */
 export const FAST_MS_ARRANGE = 12000;
 
 const DAILY_REVIEW_LIMIT = 20;
@@ -24,7 +24,8 @@ const COINS_THREE_STAR_BONUS = 10;
 export type QuestionKind = Question['kind'];
 
 function isFastAnswer(ms: number, kind: QuestionKind): boolean {
-  return ms < (kind === 'arrange' ? FAST_MS_ARRANGE : FAST_MS_LISTEN_CHOOSE);
+  const slowKind = kind === 'arrange' || kind === 'spell';
+  return ms < (slowKind ? FAST_MS_ARRANGE : FAST_MS_LISTEN_CHOOSE);
 }
 
 /** True if the item id still exists in the content (`chunk:<id>` or `word:<id>`). */

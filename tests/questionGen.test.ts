@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import cafe from '../src/data/units/cafe.json';
+import moveInJson from '../src/data/units/move_in.json';
 import type { Task, Unit } from '../src/content/types';
 import { gradeAnswer, normalize } from '../src/learning/grading';
 import {
@@ -10,8 +11,9 @@ import {
   makeRng,
   rolePlayShown,
   rolePlaySteps,
+  spellMarks,
 } from '../src/learning/questionGen';
-import type { Question } from '../src/learning/questions';
+import type { Question, SpellQuestion } from '../src/learning/questions';
 
 const unit = cafe as Unit;
 
@@ -210,5 +212,58 @@ describe('role-play turns', () => {
       zh: '可以給我一個瑪芬嗎？',
       itemId: 'chunk:can_i_get',
     });
+  });
+});
+
+describe('spelling questions (打字拼字)', () => {
+  const moveIn = moveInJson as Unit;
+  const units = [moveIn, unit];
+  const t7 = unit.tasks[6]!;
+  const withSpell = (ids: string[]): Task => ({ ...t7, spellWordIds: ids });
+
+  it('spells words from this unit or an earlier one, after arrange and before speak', () => {
+    const qs = buildTaskPractice(unit, withSpell(['key', 'tea']), makeRng(1), units);
+    const kinds = qs.map((q) => q.kind);
+    const spells = qs.filter((q): q is SpellQuestion => q.kind === 'spell');
+    expect(spells.map((q) => q.answer)).toEqual(['key', 'tea']);
+    expect(kinds.indexOf('spell')).toBeGreaterThan(kinds.lastIndexOf('arrange'));
+    expect(kinds.lastIndexOf('spell')).toBeLessThan(kinds.indexOf('speak'));
+    expect(spells[0]).toEqual({
+      kind: 'spell',
+      audioId: 'move_in.word.key',
+      answer: 'key',
+      zh: '鑰匙',
+      wordId: 'key',
+      emoji: expect.any(String),
+      itemId: 'word:key',
+    });
+    expect(spells[1]?.audioId).toBe('cafe.word.tea');
+  });
+
+  it('skips unknown words and words that are not one plain word', () => {
+    const qs = buildTaskPractice(unit, withSpell(['nope', 'trash_can', 'key']), makeRng(1), units);
+    expect(qs.filter((q) => q.kind === 'spell').map((q) => q.itemId)).toEqual(['word:key']);
+  });
+
+  it('looks only in the task’s own unit unless other units are given', () => {
+    const qs = buildTaskPractice(unit, withSpell(['key', 'tea']), makeRng(1));
+    expect(qs.filter((q) => q.kind === 'spell').map((q) => q.itemId)).toEqual(['word:tea']);
+  });
+
+  it('a task without spellWordIds has no spelling questions', () => {
+    const qs = buildTaskPractice(unit, t7, makeRng(1), units);
+    expect(qs.some((q) => q.kind === 'spell')).toBe(false);
+  });
+});
+
+describe('spellMarks', () => {
+  it('marks each typed letter right or wrong by position', () => {
+    expect(spellMarks('kay', 'key')).toEqual(['right', 'wrong', 'right']);
+    expect(spellMarks('key', 'key')).toEqual(['right', 'right', 'right']);
+  });
+
+  it('marks letters past the answer, and ignores case', () => {
+    expect(spellMarks('KEYS', 'key')).toEqual(['right', 'right', 'right', 'wrong']);
+    expect(spellMarks('', 'key')).toEqual([]);
   });
 });

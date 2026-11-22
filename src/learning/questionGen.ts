@@ -13,6 +13,7 @@ import type {
   ListenPickQuestion,
   Question,
   SpeakQuestion,
+  SpellQuestion,
 } from './questions';
 
 /** Returns numbers in [0, 1). */
@@ -219,8 +220,48 @@ function compact(questions: (Question | null)[]): Question[] {
   return questions.filter((q): q is Question => q !== null);
 }
 
-/** Ordered practice for one task, easy to hard. */
-export function buildTaskPractice(unit: Unit, task: Task, rng: Rng): Question[] {
+/** Only one plain word of letters can be typed on the letter keys (not "trash can"). */
+const SPELLABLE = /^[a-z]+$/i;
+
+/** A typing question for word `id`, found in whichever of `units` taught it. */
+function spellWord(units: readonly Unit[], id: string): SpellQuestion | null {
+  for (const owner of units) {
+    const word = owner.words.find((w) => w.id === id);
+    if (!word) continue;
+    if (!SPELLABLE.test(word.en)) return null;
+    return {
+      kind: 'spell',
+      audioId: `${owner.id}.word.${word.id}`,
+      answer: word.en,
+      zh: word.zh,
+      wordId: word.id,
+      emoji: word.emoji,
+      itemId: wordItemId(word.id),
+    };
+  }
+  return null;
+}
+
+/**
+ * Each typed letter against the answer at the same place (case ignored); letters past
+ * the end of the answer are wrong.
+ */
+export function spellMarks(typed: string, answer: string): ('right' | 'wrong')[] {
+  const target = answer.toLowerCase();
+  return [...typed.toLowerCase()].map((letter, i) => (letter === target[i] ? 'right' : 'wrong'));
+}
+
+/**
+ * Ordered practice for one task, easy to hard. Typing questions (`spellWordIds`) come
+ * after arranging and before speaking; their words are looked up in `units` (pass every
+ * unit, since they may come from an earlier one).
+ */
+export function buildTaskPractice(
+  unit: Unit,
+  task: Task,
+  rng: Rng,
+  units: readonly Unit[] = [unit],
+): Question[] {
   const words = task.newWordIds
     .map((id) => unit.words.find((w) => w.id === id))
     .filter((w): w is Word => w !== undefined);
@@ -237,6 +278,7 @@ export function buildTaskPractice(unit: Unit, task: Task, rng: Rng): Question[] 
     ...compact(chunks.map((c) => listenPickChunk(unit, c, rng))),
     ...chooseReplies(unit, task, rng),
     ...compact(chunks.map((c) => arrangeChunk(unit, c, rng))),
+    ...compact((task.spellWordIds ?? []).map((id) => spellWord(units, id))),
     ...chunks.map((c) => speakChunk(unit, c)),
   ];
 }

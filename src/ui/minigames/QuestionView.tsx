@@ -12,6 +12,7 @@ import { ChooseReply } from './ChooseReply';
 import { ListenPair } from './ListenPair';
 import { ListenPick } from './ListenPick';
 import { Speak } from './Speak';
+import { Spell } from './Spell';
 import './minigames.css';
 
 export interface QuestionViewProps {
@@ -68,6 +69,9 @@ function Body({ question, onAnswer }: QuestionViewProps) {
       break;
     case 'speak':
       view = <Speak question={question} onAnswered={onAnswered} />;
+      break;
+    case 'spell':
+      view = <Spell question={question} onAnswered={onAnswered} />;
       break;
   }
 

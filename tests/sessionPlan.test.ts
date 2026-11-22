@@ -57,6 +57,13 @@ describe('applyAnswer', () => {
       new Date(slow.cards.a?.due ?? 0).getTime(),
     );
   });
+
+  it('gives typed spelling the same higher threshold as arrange', () => {
+    const ms = FAST_MS_LISTEN_CHOOSE + 1000;
+    const arranged = applyAnswer(createEmptySave(day0), answer('a', { ms }), day0, 'arrange');
+    const spelled = applyAnswer(createEmptySave(day0), answer('a', { ms }), day0, 'spell');
+    expect(spelled.cards.a?.due).toBe(arranged.cards.a?.due);
+  });
 });
 
 describe('buildDailyReview', () => {

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { playMusic } from '../audio/music';
 import { nowPlaying } from '../audio/pronounce';
 import { playSfx } from '../audio/sfx';
-import { getUnit, speakerOf, taskItemIds } from '../content/units';
+import { UNITS, getUnit, speakerOf, taskItemIds } from '../content/units';
 import { appStore, commitSave, currentNow } from '../core/appState';
 import { useStore } from '../core/store';
 import { makeRng, buildTaskPractice } from '../learning/questionGen';
@@ -139,7 +139,7 @@ export function TaskScreen() {
   const questions = useMemo(
     () =>
       unit && task && task.kind !== 'roleplay'
-        ? buildTaskPractice(unit, task, makeRng(currentNow().getTime()))
+        ? buildTaskPractice(unit, task, makeRng(currentNow().getTime()), UNITS)
         : [],
     [unit, task],
   );
