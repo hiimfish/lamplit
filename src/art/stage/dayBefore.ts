@@ -721,13 +721,13 @@ export const DAY_BEFORE_STAGE: StageConfig = {
   cast: {
     guide: GUIDE_ACTOR,
     manager: { sprite: MANAGER_SPRITE, ...BY_TABLE, side: 'right' },
-    // Alone she stands where Ms. Carter would; with Ms. Carter there too
-    // she steps back by the coat stand.
+    // Alone she stands where Ms. Carter would. With Ms. Carter on the phone too
+    // she stays in the room with you, left of the call panel (PANEL.x).
     neighbor: {
       sprite: NEIGHBOR_SPRITE,
       ...BY_TABLE,
       side: 'right',
-      beside: { x: 96, y: BY_TABLE.y },
+      beside: { x: 42, y: BY_TABLE.y },
     },
   },
   want: { left: { x: 30, y: 5 }, right: { x: 62, y: 8 } },
