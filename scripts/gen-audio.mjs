@@ -86,12 +86,23 @@ function readManifest() {
  *   mkdirSync(path: string, options: { recursive: boolean }): unknown;
  *   writeFileSync(path: string, data: string | Uint8Array): unknown;
  *   renameSync(from: string, to: string): unknown;
+ *   waitSync?(ms: number): unknown;
  * }} WriteFs
  */
 
+/** Errors Windows gives while another process (Vite's watcher, antivirus) holds the target. */
+const LOCKED = new Set(['EPERM', 'EBUSY', 'EACCES']);
+const RENAME_TRIES = 6;
+
+/** Blocks for `ms` milliseconds (the writes are synchronous, so this is too). */
+function waitSync(ms) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
+
 /**
  * Writes to `<file>.tmp` and renames it over the target, so a kill mid-write never
- * leaves a truncated file that a later run would count as up to date.
+ * leaves a truncated file that a later run would count as up to date. A rename that
+ * fails because the target is briefly locked is retried a few times.
  * @param {string} file
  * @param {string | Uint8Array} data
  * @param {WriteFs} [fs]
@@ -100,7 +111,15 @@ export function writeFileAtomic(file, data, fs = nodeFs) {
   fs.mkdirSync(dirname(file), { recursive: true });
   const tmp = `${file}.tmp`;
   fs.writeFileSync(tmp, data);
-  fs.renameSync(tmp, file);
+  for (let attempt = 1; ; attempt++) {
+    try {
+      fs.renameSync(tmp, file);
+      return;
+    } catch (error) {
+      if (attempt >= RENAME_TRIES || !LOCKED.has(error?.code)) throw error;
+      (fs.waitSync ?? waitSync)(25 * attempt);
+    }
+  }
 }
 
 /** Manifest JSON with keys sorted, so diffs stay small. */

@@ -155,6 +155,43 @@ describe('gen-audio atomic writes', () => {
     expect(readFileSync(file, 'utf8')).toBe('good');
   });
 
+  /** A rename that fails with `code` for the first `failures` calls. */
+  const flakyFs = (failures: number, code: string) => {
+    const calls: string[] = [];
+    let left = failures;
+    return {
+      calls,
+      fs: {
+        mkdirSync: () => undefined,
+        writeFileSync: () => undefined,
+        renameSync: () => {
+          calls.push('rename');
+          if (left-- > 0) throw Object.assign(new Error(code), { code });
+        },
+        waitSync: (ms: number) => calls.push(`wait ${ms}`),
+      },
+    };
+  };
+
+  it('retries a rename that Windows briefly locks (EPERM, EBUSY, EACCES)', () => {
+    for (const code of ['EPERM', 'EBUSY', 'EACCES']) {
+      const { fs, calls } = flakyFs(2, code);
+      writeFileAtomic('/p/manifest.json', '{}', fs);
+      expect(calls.filter((c) => c === 'rename')).toHaveLength(3);
+      expect(calls.filter((c) => c.startsWith('wait'))).toHaveLength(2);
+    }
+  });
+
+  it('gives up after a few locked renames, and never retries other errors', () => {
+    const locked = flakyFs(100, 'EPERM');
+    expect(() => writeFileAtomic('/p/a', 'x', locked.fs)).toThrow('EPERM');
+    expect(locked.calls.filter((c) => c === 'rename')).toHaveLength(6);
+
+    const missing = flakyFs(1, 'ENOENT');
+    expect(() => writeFileAtomic('/p/a', 'x', missing.fs)).toThrow('ENOENT');
+    expect(missing.calls).toEqual(['rename']);
+  });
+
   it('writes the manifest atomically with sorted keys', () => {
     const dir = mkdtempSync(join(tmpdir(), 'ga-manifest-'));
     const file = join(dir, 'manifest.json');
