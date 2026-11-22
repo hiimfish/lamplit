@@ -32,7 +32,7 @@
       "note": "冰咖啡是 iced coffee（加了冰的咖啡）。iced 開頭是母音，所以用 an。",
       "distractors": [
         { "text": "Can I get a iced coffee?", "error": "article" },
-        { "text": "Can I get an ice coffee?", "error": "other" },
+        { "text": "Can I get an iced coffees?", "error": "plural" },
         { "text": "Can I get an coffee iced?", "error": "word-order" }
       ]
     },
@@ -107,9 +107,9 @@
     {
       "id": "go_ahead",
       "en": "No, go ahead.",
-      "zh": "沒有，請便。",
+      "zh": "沒有，請坐。",
       "accept": ["No. Go ahead.", "No, go ahead!"],
-      "note": "回答 Is this seat taken? 或 Do you mind…?（你介意嗎？）時，No 才是「可以」。go ahead = 請便。",
+      "note": "回答 Is this seat taken?（有人坐嗎？）時，No 表示沒人坐。go ahead = 請便、請用。",
       "distractors": [
         { "text": "Yes, go ahead.", "error": "other" },
         { "text": "No, go a head.", "error": "spelling" },
@@ -406,24 +406,33 @@
           "id": "t7_2",
           "role": "barista",
           "speaker": "npc",
-          "en": "No. Do you mind if I read?",
-          "zh": "沒有。你介意我在這裡看書嗎？",
-          "stage": { "act": "want", "item": "book" }
+          "en": "No. Sit here, by the window.",
+          "zh": "沒有。坐這裡吧，靠窗。",
+          "stage": { "act": "want", "item": "seat" }
         },
         {
           "id": "t7_3",
-          "role": "guide",
-          "speaker": "player",
-          "en": "No, go ahead.",
-          "zh": "不介意，請便。",
-          "chunkId": "go_ahead"
+          "role": "barista",
+          "speaker": "npc",
+          "en": "I'm on my break. Is this one taken?",
+          "zh": "我在休息。這個位子有人坐嗎？",
+          "stage": { "act": "ask" }
         },
         {
           "id": "t7_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "No, go ahead.",
+          "zh": "沒有，請坐。",
+          "chunkId": "go_ahead"
+        },
+        {
+          "id": "t7_5",
           "role": "barista",
           "speaker": "npc",
-          "en": "Thanks! Don't mind me.",
-          "zh": "謝謝！你不用管我。"
+          "en": "Thanks! I read here on my break.",
+          "zh": "謝謝！我休息時都在這裡看書。",
+          "stage": { "act": "want", "item": "book" }
         }
       ]
     }
