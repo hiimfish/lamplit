@@ -28,6 +28,39 @@ describe('unitToAudioItems', () => {
     }
   });
 
+  it('speaks the right sentence of each picture in the guide voice', () => {
+    const withPicture: Unit = {
+      id: 'u',
+      title: 't',
+      titleEn: 't',
+      chunks: [],
+      words: [],
+      tasks: [
+        {
+          id: 't1',
+          title: 't',
+          newChunkIds: [],
+          newWordIds: [],
+          scene: [],
+          pictures: [
+            {
+              id: 'p1',
+              pictureId: 'reading',
+              options: [
+                { en: 'She is drinking tea.', zh: '她在喝茶。' },
+                { en: 'She is reading a book.', zh: '她在看書。' },
+              ],
+              answer: 1,
+            },
+          ],
+        },
+      ],
+    };
+    expect(unitToAudioItems(withPicture)).toEqual([
+      { id: 'u.picture.p1', text: 'She is reading a book.', role: 'guide' },
+    ]);
+  });
+
   it('keeps one item when ids collide and skips accept variants', () => {
     const dup: Unit = {
       id: 'u',

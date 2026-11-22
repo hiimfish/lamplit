@@ -21,6 +21,12 @@ export function unitToAudioItems(unit: Unit): AudioItem[] {
     for (const line of task.scene) {
       items.push({ id: `${unit.id}.line.${line.id}`, text: line.en, role: line.role });
     }
+    // 看圖選句: only the sentence that matches the picture is spoken, after answering.
+    for (const picture of task.pictures ?? []) {
+      const right = picture.options[picture.answer];
+      if (right)
+        items.push({ id: `${unit.id}.picture.${picture.id}`, text: right.en, role: 'guide' });
+    }
   }
   const seen = new Set<string>();
   return items.filter((item) => {

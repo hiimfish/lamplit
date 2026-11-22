@@ -1,7 +1,24 @@
 /** Shared content shapes. Content lives in src/data/units/*.json; code never hard-codes lessons. */
 
 /** Who speaks a line. Each role has one fixed voice per voice family (see src/audio/voices.ts). */
-export type Role = 'barista' | 'landlord' | 'neighbor' | 'clerk' | 'guide';
+export type Role =
+  | 'barista'
+  | 'landlord'
+  | 'neighbor'
+  | 'clerk'
+  | 'passerby'
+  | 'driver'
+  | 'cashier'
+  | 'vendor'
+  | 'assistant'
+  | 'receptionist'
+  | 'doctor'
+  | 'pharmacist'
+  | 'server'
+  | 'friend'
+  | 'postal_clerk'
+  | 'volunteer'
+  | 'guide';
 
 export interface Chunk {
   /** e.g. "can_i_get". Audio id is `${unitId}.chunk.${id}`. */
@@ -74,8 +91,49 @@ export interface Task {
    * this unit or an earlier one, all taught before this task; they teach nothing new.
    */
   spellWordIds?: string[];
+  /** Listening cloze questions (聽力填空) on lines of this task's story. */
+  cloze?: ClozeItem[];
+  /** Signs and price lists to read (讀招牌／價目), one question each. */
+  signs?: SignItem[];
+  /** Pictures to describe (看圖選句): pick the sentence that matches. */
+  pictures?: PictureItem[];
   /** The short story played first, in order. */
   scene: SceneLine[];
+}
+
+/** 聽力填空: hear one story line and pick the word that is blanked out in its text. */
+interface ClozeItem {
+  /** A line of this task's scene; its own clip is played. */
+  lineId: string;
+  /** The word to blank, one word spelled as it is in the line. Taught in this task or earlier. */
+  word: string;
+  /** 2 or 3 wrong words shown with the right one. */
+  distractors: string[];
+}
+
+/** 讀招牌／價目: a short sign (15 words at most) and one question about it. */
+interface SignItem {
+  /** Unique in the unit. */
+  id: string;
+  heading?: string;
+  /** Lines of the sign: a label, and a value on the right for a price list ("Shirts", "$15"). */
+  rows: { label: string; value?: string }[];
+  question: { en: string; zh: string };
+  /** 2 to 4 answers, each different. */
+  options: string[];
+  /** Index of the right option. */
+  answer: number;
+}
+
+/** 看圖選句: one picture and 2 to 4 sentences, one of which describes it. */
+interface PictureItem {
+  /** Unique in the unit. Audio id of the right sentence is `${unitId}.picture.${id}`. */
+  id: string;
+  /** Key of the picture in src/art/pictures. */
+  pictureId: string;
+  options: { en: string; zh: string }[];
+  /** Index of the right option. */
+  answer: number;
 }
 
 /** One word of a minimal pair. Audio id is `${unitId}.pair.${id}`; ids are unique across the unit's pairs. */

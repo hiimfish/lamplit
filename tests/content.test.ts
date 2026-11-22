@@ -67,6 +67,118 @@ describe('validateUnit catches broken content', () => {
     expect(spell(['key', 'key'])).not.toEqual([]);
   });
 
+  describe('listening cloze (聽力填空)', () => {
+    // café t1_1 is "Hi! What can I get for you?"
+    const cloze = (value: unknown) =>
+      problemsFor((u) => Object.assign(u.tasks[0]!, { cloze: value }));
+    const item = (over: object = {}) => ({
+      lineId: 't1_1',
+      word: 'get',
+      distractors: ['sit', 'read'],
+      ...over,
+    });
+
+    it('accepts a word of a line of the task with 2 or 3 wrong words', () => {
+      expect(cloze([item()])).toEqual([]);
+      expect(cloze([item({ word: 'Hi', distractors: ['yes', 'no', 'okay'] })])).toEqual([]);
+    });
+
+    it('rejects a line of another task, a word not in the line, and bad wrong words', () => {
+      expect(cloze([])).not.toEqual([]);
+      expect(cloze('t1_1')).not.toEqual([]);
+      expect(cloze([item({ lineId: 't2_1' })])).not.toEqual([]);
+      expect(cloze([item({ word: 'latte' })])).not.toEqual([]);
+      expect(cloze([item({ word: 'can I' })])).not.toEqual([]);
+      expect(cloze([item({ distractors: ['sit'] })])).not.toEqual([]);
+      expect(cloze([item({ distractors: ['sit', 'read', 'go', 'eat'] })])).not.toEqual([]);
+      expect(cloze([item({ distractors: ['sit', 'Sit'] })])).not.toEqual([]);
+      expect(cloze([item({ distractors: ['sit', 'Get'] })])).not.toEqual([]);
+      expect(cloze([item(), item()])).not.toEqual([]);
+    });
+  });
+
+  describe('signs to read (讀招牌／價目)', () => {
+    const signs = (value: unknown) =>
+      problemsFor((u) => Object.assign(u.tasks[0]!, { signs: value }));
+    const sign = (over: object = {}) => ({
+      id: 'menu',
+      heading: 'Drinks',
+      rows: [
+        { label: 'Tea', value: '$2' },
+        { label: 'Latte', value: '$4' },
+      ],
+      question: { en: 'How much is a latte?', zh: '拿鐵多少錢？' },
+      options: ['$2', '$4', '$6'],
+      answer: 1,
+      ...over,
+    });
+
+    it('accepts a short sign with one question', () => {
+      expect(signs([sign()])).toEqual([]);
+      expect(signs([sign({ heading: undefined, rows: [{ label: 'Fitting Room' }] })])).toEqual([]);
+    });
+
+    it('rejects bad ids, empty or long signs, and bad questions or answers', () => {
+      expect(signs([])).not.toEqual([]);
+      expect(signs([sign({ id: 'Menu' })])).not.toEqual([]);
+      expect(signs([sign(), sign()])).not.toEqual([]);
+      expect(signs([sign({ rows: [] })])).not.toEqual([]);
+      expect(signs([sign({ rows: [{ value: '$2' }] })])).not.toEqual([]);
+      const long = Array.from({ length: 8 }, (_, i) => ({ label: `Tea ${i}`, value: '$2' }));
+      expect(signs([sign({ rows: long })])).not.toEqual([]);
+      expect(signs([sign({ question: { en: 'How much?' } })])).not.toEqual([]);
+      expect(signs([sign({ options: ['$2'] })])).not.toEqual([]);
+      expect(signs([sign({ options: ['$2', '$2', '$4'] })])).not.toEqual([]);
+      expect(signs([sign({ answer: 3 })])).not.toEqual([]);
+      expect(signs([sign({ answer: '1' })])).not.toEqual([]);
+    });
+  });
+
+  describe('pictures to describe (看圖選句)', () => {
+    const pictures = (value: unknown) =>
+      problemsFor((u) => Object.assign(u.tasks[0]!, { pictures: value }));
+    const picture = (over: object = {}) => ({
+      id: 'p1',
+      pictureId: 'reading',
+      options: [
+        { en: 'She is reading a book.', zh: '她在看書。' },
+        { en: 'She is drinking tea.', zh: '她在喝茶。' },
+      ],
+      answer: 0,
+      ...over,
+    });
+
+    it('accepts a picture with 2 to 4 sentences', () => {
+      expect(pictures([picture()])).toEqual([]);
+    });
+
+    it('rejects bad ids, too few or repeated sentences, and a bad answer', () => {
+      expect(pictures([])).not.toEqual([]);
+      expect(pictures([picture({ id: 'P 1' })])).not.toEqual([]);
+      expect(pictures([picture(), picture()])).not.toEqual([]);
+      expect(pictures([picture({ pictureId: 'Reading!' })])).not.toEqual([]);
+      const same = { en: 'She is reading a book.', zh: '她在看書。' };
+      expect(pictures([picture({ options: [same] })])).not.toEqual([]);
+      expect(pictures([picture({ options: [same, same] })])).not.toEqual([]);
+      expect(pictures([picture({ options: [same, { en: 'She is sitting.' }] })])).not.toEqual([]);
+      expect(pictures([picture({ answer: 2 })])).not.toEqual([]);
+    });
+  });
+
+  it('keeps cloze, signs and pictures out of a role-play task', () => {
+    const sign = {
+      id: 's',
+      rows: [{ label: 'Open' }],
+      question: { en: 'Is it open?', zh: '有開嗎？' },
+      options: ['Yes', 'No'],
+      answer: 0,
+    };
+    expect(problemsFor((u) => Object.assign(u.tasks[0]!, { signs: [sign] }))).toEqual([]);
+    expect(
+      problemsFor((u) => Object.assign(u.tasks[u.tasks.length - 1]!, { signs: [sign] })),
+    ).not.toEqual([]);
+  });
+
   it('rejects unknown references and player lines with no chunk', () => {
     expect(problemsFor((u) => (u.tasks[0]!.newChunkIds as string[]).push('nope'))).not.toEqual([]);
     expect(problemsFor((u) => (u.tasks[0]!.newWordIds as string[]).push('nope'))).not.toEqual([]);

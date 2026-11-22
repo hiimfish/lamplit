@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { coreOrigin, CORE_H, CORE_W, STAGE_UNIT_IDS, stageFor } from '../src/art/stage';
 import { BARISTA_SPRITE, CAFE_COUNTER } from '../src/art/stage/cafe';
-import { LANDLORD_SPRITE, NEIGHBOR_SPRITE } from '../src/art/stage/moveIn';
+import { NEIGHBOR_SPRITE } from '../src/art/stage/moveIn';
 import { CLERK_SPRITE, STORE_COUNTER } from '../src/art/stage/store';
 import { getUnit } from '../src/content/units';
 import { recordingPainter, type Painter } from '../src/game/painter';
@@ -95,15 +95,24 @@ describe('stage art', () => {
     expect(Object.values(BARISTA_SPRITE.legend).every(isPaletteName)).toBe(true);
   });
 
-  it.each([
-    ['landlord', LANDLORD_SPRITE],
-    ['neighbor', NEIGHBOR_SPRITE],
-    ['clerk', CLERK_SPRITE],
-  ] as const)('draws a valid 16x24 %s in palette colours', (_, sprite) => {
-    expect(validateSprite(sprite)).toEqual([]);
-    expect(sprite.rows).toHaveLength(PERSON_H);
-    expect(sprite.rows[0]).toHaveLength(PERSON_W);
-    expect(Object.values(sprite.legend).every(isPaletteName)).toBe(true);
+  it.each(STAGE_UNIT_IDS)('%s draws every character as a valid 16x24 palette sprite', (id) => {
+    for (const [role, actor] of Object.entries(stageFor(id)!.cast)) {
+      const { sprite } = actor;
+      expect(validateSprite(sprite), role).toEqual([]);
+      expect(sprite.rows, role).toHaveLength(PERSON_H);
+      expect(sprite.rows[0], role).toHaveLength(PERSON_W);
+      expect(Object.values(sprite.legend).every(isPaletteName), role).toBe(true);
+    }
+  });
+
+  it.each(STAGE_UNIT_IDS)('%s casts every role that speaks in its unit, you on the left', (id) => {
+    const config = stageFor(id)!;
+    expect(config.cast.guide).toMatchObject({ x: 20, y: 39, side: 'left' });
+    const roles = new Set(getUnit(id)?.tasks.flatMap((t) => t.scene.map((l) => l.role)));
+    for (const role of roles) expect(config.cast[role], role).toBeDefined();
+    for (const [role, actor] of Object.entries(config.cast)) {
+      if (role !== 'guide') expect(actor.side, role).toBe('right');
+    }
   });
 
   it('puts the neighbor where the landlord stands on moving-in day', () => {

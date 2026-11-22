@@ -1,9 +1,16 @@
 import { isPaletteName, PALETTE } from '../../game/palette';
 import { validateSprite, type PixelSprite } from '../../game/sprites';
 import { CAFE_ITEMS } from './cafe';
+import { CLINIC_ITEMS } from './clinic';
+import { CLOTHES_ITEMS } from './clothes';
 import { ITEM_SIZE } from './draw';
+import { MARKET_ITEMS } from './market';
 import { MOVE_IN_ITEMS } from './moveIn';
+import { PARK_ITEMS } from './park';
+import { POST_OFFICE_ITEMS } from './postOffice';
+import { RESTAURANT_ITEMS } from './restaurant';
 import { STORE_ITEMS } from './store';
+import { STREET_ITEMS } from './street';
 
 /**
  * Item icons for word pictures in the HTML UI, drawn like a specimen sheet:
@@ -14,7 +21,7 @@ import { STORE_ITEMS } from './store';
  * Each sprite is a string grid ('.' is transparent) plus a legend of palette
  * names, the same format as the street sprites. Keyed by word id.
  *
- * The pictures live in one file per unit (cafe.ts, moveIn.ts, store.ts); the shared
+ * The pictures live in one file per unit (cafe.ts, moveIn.ts, store.ts, ...); the shared
  * drawing helpers are in draw.ts.
  */
 
@@ -24,6 +31,13 @@ export const ITEM_SPRITES: Readonly<Record<string, PixelSprite>> = {
   ...CAFE_ITEMS,
   ...MOVE_IN_ITEMS,
   ...STORE_ITEMS,
+  ...STREET_ITEMS,
+  ...MARKET_ITEMS,
+  ...CLOTHES_ITEMS,
+  ...CLINIC_ITEMS,
+  ...RESTAURANT_ITEMS,
+  ...POST_OFFICE_ITEMS,
+  ...PARK_ITEMS,
 };
 
 export function getItemSprite(id: string): PixelSprite | undefined {

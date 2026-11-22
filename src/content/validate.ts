@@ -6,7 +6,25 @@
 /** Ids end up in audio file names and save keys, so keep them plain. */
 const ID_PATTERN = /^[a-z0-9_]+$/;
 
-const ROLES = ['barista', 'landlord', 'neighbor', 'clerk', 'guide'];
+const ROLES = [
+  'barista',
+  'landlord',
+  'neighbor',
+  'clerk',
+  'passerby',
+  'driver',
+  'cashier',
+  'vendor',
+  'assistant',
+  'receptionist',
+  'doctor',
+  'pharmacist',
+  'server',
+  'friend',
+  'postal_clerk',
+  'volunteer',
+  'guide',
+];
 const SPEAKERS = ['npc', 'player'];
 
 const isObject = (value: unknown): value is Record<string, unknown> =>
@@ -57,6 +75,9 @@ export function validateUnit(unit: unknown): string[] {
 
   // Line audio ids are `${unitId}.line.${id}`, so line ids are unique across the unit.
   const lineIds = new Set<string>();
+  // Sign and picture ids are unique across the unit too (picture audio is `${unitId}.picture.${id}`).
+  const signIds = new Set<string>();
+  const pictureIds = new Set<string>();
   /** Chunks introduced by the tasks before the current one. */
   const taughtChunks = new Set<string>();
   for (const task of tasks ?? []) {
@@ -126,11 +147,11 @@ export function validateUnit(unit: unknown): string[] {
       if (line.stage !== undefined)
         checkStage(line.stage, wordIds, (p) => problems.push(where(`line "${lineId}" ${p}`)));
     }
-    if (task.kind === 'roleplay') {
-      checkRolePlay(task, scene, taughtChunks, (p) =>
-        problems.push(where(`task "${taskId}" ${p}`)),
-      );
-    }
+    const report = (p: string) => problems.push(where(`task "${taskId}" ${p}`));
+    if (task.cloze !== undefined) checkCloze(task.cloze, scene, report);
+    if (task.signs !== undefined) checkSigns(task.signs, signIds, report);
+    if (task.pictures !== undefined) checkPictures(task.pictures, pictureIds, report);
+    if (task.kind === 'roleplay') checkRolePlay(task, scene, taughtChunks, report);
     if (Array.isArray(task.newChunkIds)) {
       for (const id of task.newChunkIds) if (typeof id === 'string') taughtChunks.add(id);
     }
@@ -153,6 +174,10 @@ function checkRolePlay(
   if (hasItems('newChunkIds') || hasItems('newWordIds') || task.newPairIds !== undefined) {
     report('is a role-play and must not teach new items');
   }
+  // A role-play has no practice round, so these questions would never be asked.
+  for (const key of ['cloze', 'signs', 'pictures']) {
+    if (task[key] !== undefined) report(`is a role-play and must not have ${key}`);
+  }
   if (scene[0]?.speaker !== 'npc') report('role-play must start with an NPC line');
   let turns = 0;
   scene.forEach((line, i) => {
@@ -166,6 +191,134 @@ function checkRolePlay(
     }
   });
   if (turns < 2) report('role-play needs at least 2 player lines');
+}
+
+/** One word: letters, with an apostrophe or hyphen inside (don't, T-shirt). */
+const ONE_WORD = /^[a-z]+(['-][a-z]+)*$/i;
+
+const sameText = (a: string, b: string) => a.trim().toLowerCase() === b.trim().toLowerCase();
+
+/** True when every text differs from the others, ignoring case. */
+const allDifferent = (texts: string[]) =>
+  new Set(texts.map((t) => t.trim().toLowerCase())).size === texts.length;
+
+/** A list of `min` to `max` different non-empty texts, or null. */
+function textList(value: unknown, min: number, max: number): string[] | null {
+  if (!Array.isArray(value) || value.length < min || value.length > max) return null;
+  const texts = value.filter(isText);
+  return texts.length === value.length && allDifferent(texts) ? texts : null;
+}
+
+const isIndex = (value: unknown, length: number): boolean =>
+  typeof value === 'number' && Number.isInteger(value) && value >= 0 && value < length;
+
+/**
+ * 聽力填空: each item blanks one word of a line of this task and offers 2 or 3 wrong words.
+ * (tests/content.test.ts checks that the blanked word was taught by then.)
+ */
+function checkCloze(
+  value: unknown,
+  scene: Record<string, unknown>[],
+  report: (problem: string) => void,
+): void {
+  const items = list(value);
+  if (!items || items.length === 0) {
+    report('cloze must be a non-empty list');
+    return;
+  }
+  const seen = new Set<string>();
+  for (const item of items) {
+    const line = scene.find((l) => l.id === item.lineId);
+    const label = `cloze on line "${String(item.lineId)}"`;
+    if (!line) {
+      report(`${label} is not a line of this task`);
+      continue;
+    }
+    const word = item.word;
+    if (!isText(word) || !ONE_WORD.test(word)) {
+      report(`${label} needs one word to blank`);
+      continue;
+    }
+    const lineWords = isText(line.en) ? line.en.toLowerCase().split(/[^a-z0-9'-]+/) : [];
+    if (!lineWords.includes(word.toLowerCase()))
+      report(`${label} blanks "${word}", not in the line`);
+    const key = `${String(item.lineId)}/${word.toLowerCase()}`;
+    if (seen.has(key)) report(`${label} blanks "${word}" twice`);
+    seen.add(key);
+    const wrong = textList(item.distractors, 2, 3);
+    if (!wrong || !wrong.every((w) => ONE_WORD.test(w)) || wrong.some((w) => sameText(w, word))) {
+      report(`${label} needs 2 or 3 different wrong words`);
+    }
+  }
+}
+
+/** Longest sign a learner reads in Act 1 (docs/specs/curriculum.md). */
+const SIGN_MAX_WORDS = 15;
+
+/** 讀招牌／價目: a short sign and one question with 2 to 4 answers. */
+function checkSigns(value: unknown, seen: Set<string>, report: (problem: string) => void): void {
+  const signs = list(value);
+  if (!signs || signs.length === 0) {
+    report('signs must be a non-empty list');
+    return;
+  }
+  for (const sign of signs) {
+    const label = `sign "${String(sign.id)}"`;
+    if (typeof sign.id !== 'string' || !ID_PATTERN.test(sign.id)) report(`${label} has a bad id`);
+    else if (seen.has(sign.id)) report(`duplicate sign id "${sign.id}"`);
+    else seen.add(sign.id);
+    if (sign.heading !== undefined && !isText(sign.heading)) report(`${label} has a bad heading`);
+    const rows = list(sign.rows);
+    const rowsOk =
+      rows !== null &&
+      rows.length > 0 &&
+      rows.every((r) => isText(r.label) && (r.value === undefined || isText(r.value)));
+    if (!rowsOk) {
+      report(`${label} needs rows, each with a label`);
+    } else {
+      const text = [sign.heading, ...rows.flatMap((r) => [r.label, r.value])].filter(isText);
+      const words = text.join(' ').split(/\s+/).filter(Boolean).length;
+      if (words > SIGN_MAX_WORDS) report(`${label} has ${words} words (max ${SIGN_MAX_WORDS})`);
+    }
+    const question = sign.question;
+    if (!isObject(question) || !isText(question.en) || !isText(question.zh)) {
+      report(`${label} question needs en and zh`);
+    }
+    const options = textList(sign.options, 2, 4);
+    if (!options) report(`${label} needs 2 to 4 different options`);
+    else if (!isIndex(sign.answer, options.length)) report(`${label} has a bad answer`);
+  }
+}
+
+/** 看圖選句: a picture and 2 to 4 different sentences with a translation each. */
+function checkPictures(value: unknown, seen: Set<string>, report: (problem: string) => void): void {
+  const pictures = list(value);
+  if (!pictures || pictures.length === 0) {
+    report('pictures must be a non-empty list');
+    return;
+  }
+  for (const picture of pictures) {
+    const label = `picture "${String(picture.id)}"`;
+    if (typeof picture.id !== 'string' || !ID_PATTERN.test(picture.id)) {
+      report(`${label} has a bad id`);
+    } else if (seen.has(picture.id)) {
+      report(`duplicate picture id "${picture.id}"`);
+    } else {
+      seen.add(picture.id);
+    }
+    if (typeof picture.pictureId !== 'string' || !ID_PATTERN.test(picture.pictureId)) {
+      report(`${label} has a bad pictureId`);
+    }
+    const options = list(picture.options);
+    const optionsOk =
+      options !== null &&
+      options.length >= 2 &&
+      options.length <= 4 &&
+      options.every((o) => isText(o.en) && isText(o.zh)) &&
+      allDifferent(options.map((o) => String(o.en)));
+    if (!optionsOk) report(`${label} needs 2 to 4 different sentences with en and zh`);
+    else if (!isIndex(picture.answer, options.length)) report(`${label} has a bad answer`);
+  }
 }
 
 const STAGE_ACTS = ['want', 'ask', 'give'];
