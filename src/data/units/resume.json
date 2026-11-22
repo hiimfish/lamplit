@@ -1,0 +1,875 @@
+{
+  "id": "resume",
+  "title": "履歷",
+  "titleEn": "Resume Workshop",
+  "chunks": [
+    {
+      "id": "help_with_my_resume",
+      "en": "I'd like some help with my resume.",
+      "zh": "我想請你幫我看一下履歷。",
+      "accept": ["I would like some help with my resume."],
+      "note": "請人幫忙時說。I'd like = I would like，比 I want 客氣；help with 後面接要幫的事。",
+      "distractors": [
+        { "text": "I'd like some helps with my resume.", "error": "plural" },
+        { "text": "I'd like some help for my resume.", "error": "other" },
+        { "text": "I'd like some help with my resum.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "include_parents_names",
+      "en": "Should I include my parents' names?",
+      "zh": "要寫我爸媽的名字嗎？",
+      "note": "問該不該做某事：Should I + 動詞原形？parents' 是爸媽兩個人的，撇號在 s 後面。",
+      "distractors": [
+        { "text": "Should I to include my parents' names?", "error": "extra-word" },
+        { "text": "Should include I my parents' names?", "error": "word-order" },
+        { "text": "Should I include my parents names?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "where_put_education",
+      "en": "Where do I put my education?",
+      "zh": "學歷要寫在哪裡？",
+      "accept": ["Where should I put my education?"],
+      "note": "問東西要放在哪裡。Where do I 後面接動詞原形，put 不加 s。",
+      "distractors": [
+        { "text": "Where I put my education?", "error": "missing-word" },
+        { "text": "Where do I puts my education?", "error": "other" },
+        { "text": "Where do I put my educations?", "error": "plural" }
+      ]
+    },
+    {
+      "id": "list_high_school_too",
+      "en": "Do I list my high school too?",
+      "zh": "高中也要寫進去嗎？",
+      "accept": ["Should I list my high school too?"],
+      "note": "list 在這裡是動詞「列上去、寫上」。too 放在句尾，意思是「也」。",
+      "distractors": [
+        { "text": "Do I list too my high school?", "error": "word-order" },
+        { "text": "Do I lists my high school too?", "error": "other" },
+        { "text": "Do I list my high school to?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "never_written_in_english",
+      "en": "I've never written one in English.",
+      "zh": "我從來沒用英文寫過履歷。",
+      "accept": ["I have never written one in English."],
+      "note": "現在完成式 have + 過去分詞，說到現在為止的經驗；never 放在 have 後面，write 要用 written。",
+      "distractors": [
+        { "text": "I've never wrote one in English.", "error": "other" },
+        { "text": "I've written never one in English.", "error": "word-order" },
+        { "text": "I've never written one in english.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "had_several_jobs_taiwan",
+      "en": "I've had several jobs in Taiwan.",
+      "zh": "我在台灣做過好幾份工作。",
+      "accept": ["I have had several jobs in Taiwan."],
+      "note": "I've had 也是現在完成式：到現在做過好幾份。have 的過去分詞是 had，所以會連著出現 have had。",
+      "distractors": [
+        { "text": "I've have several jobs in Taiwan.", "error": "other" },
+        { "text": "I've had several job in Taiwan.", "error": "plural" },
+        { "text": "I've had several jobs at Taiwan.", "error": "other" }
+      ]
+    },
+    {
+      "id": "see_example_first",
+      "en": "Could I see an example first?",
+      "zh": "可以先看一份範例嗎？",
+      "accept": ["Can I see an example first?"],
+      "note": "想先看看別人怎麼寫時問。Could I + 動詞原形，比 Can I 客氣；first 放句尾是「先」。",
+      "distractors": [
+        { "text": "Could I see a example first?", "error": "article" },
+        { "text": "Could I seeing an example first?", "error": "other" },
+        { "text": "Could I see an example frist?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "looks_pretty_clear",
+      "en": "This one looks pretty clear.",
+      "zh": "這份看起來蠻清楚的。",
+      "note": "pretty 在這裡是「蠻、相當」，不是漂亮。look + 形容詞 = 看起來…，主詞是 this one，所以 looks 加 s。",
+      "distractors": [
+        { "text": "This one look pretty clear.", "error": "other" },
+        { "text": "This one looks pretty clearly.", "error": "other" },
+        { "text": "This one looks clear pretty.", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "grew_up_speaking_chinese",
+      "en": "I grew up speaking Chinese.",
+      "zh": "我從小就說中文。",
+      "note": "grew up 是 grow up（長大）的過去式，後面接 speaking 這種 -ing，說從小一直在做的事。",
+      "distractors": [
+        { "text": "I grew up speak Chinese.", "error": "other" },
+        { "text": "I growed up speaking Chinese.", "error": "spelling" },
+        { "text": "I grew up speaking chinese.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "chinese_useful_skill",
+      "en": "Is Chinese a useful skill for this job?",
+      "zh": "中文對這份工作有幫助嗎？",
+      "note": "問某樣能力對工作有沒有用。Is 開頭問「是不是」；useful 開頭是 you 的音，前面用 a 不用 an。",
+      "distractors": [
+        { "text": "Is Chinese an useful skill for this job?", "error": "article" },
+        { "text": "Is Chinese a useful skills for this job?", "error": "plural" },
+        { "text": "Does Chinese a useful skill for this job?", "error": "other" }
+      ]
+    },
+    {
+      "id": "just_finished_first_draft",
+      "en": "I've just finished my first draft.",
+      "zh": "我剛寫完第一版草稿。",
+      "accept": ["I have just finished my first draft.", "I just finished my first draft."],
+      "note": "現在完成式 + just：事情剛剛做完。just 放在 have 和過去分詞中間。",
+      "distractors": [
+        { "text": "I've just finish my first draft.", "error": "other" },
+        { "text": "I've finished just my first draft.", "error": "word-order" },
+        { "text": "I've just finished my frist draft.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "havent_sent_it_yet",
+      "en": "I haven't sent it yet.",
+      "zh": "我還沒寄出去。",
+      "accept": ["I have not sent it yet."],
+      "note": "還沒做的事：haven't + 過去分詞，yet 放句尾＝「還沒」。send 的過去分詞是 sent。",
+      "distractors": [
+        { "text": "I haven't send it yet.", "error": "other" },
+        { "text": "I haven't sent yet it.", "error": "word-order" },
+        { "text": "I haven't sent it already.", "error": "other" }
+      ]
+    },
+    {
+      "id": "whats_a_reference",
+      "en": "Sorry, what's a reference?",
+      "zh": "不好意思，推薦人是什麼？",
+      "accept": ["Sorry, what is a reference?"],
+      "note": "聽到不懂的字，先說 Sorry 再這樣問。what's = what is，reference 前面要有 a。",
+      "distractors": [
+        { "text": "Sorry, what's reference?", "error": "article" },
+        { "text": "Sorry, what a reference?", "error": "missing-word" },
+        { "text": "Sorry, what's a refrence?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "going_to_send_harbor",
+      "en": "I'm going to send it to Harbor Trading today.",
+      "zh": "我今天就要寄給 Harbor Trading。",
+      "note": "說已經決定好的計畫：be going to + 動詞原形。",
+      "distractors": [
+        { "text": "I'm going to sending it to Harbor Trading today.", "error": "other" },
+        { "text": "I'm going send it to Harbor Trading today.", "error": "missing-word" },
+        { "text": "I going to send it to Harbor Trading today.", "error": "missing-word" }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "resume", "en": "resume", "zh": "履歷", "emoji": "📇" },
+    { "id": "mother", "en": "mother", "zh": "母親", "emoji": "👩‍🦰" },
+    { "id": "father", "en": "father", "zh": "父親", "emoji": "👨‍🦱" },
+    { "id": "child", "en": "child", "zh": "小孩", "emoji": "🧒", "abstract": true },
+    { "id": "add", "en": "add", "zh": "加上", "emoji": "➕", "abstract": true },
+    { "id": "detail", "en": "detail", "zh": "（個人）資料；細節", "emoji": "🔍", "abstract": true },
+    { "id": "education", "en": "education", "zh": "學歷", "emoji": "🎓", "abstract": true },
+    { "id": "date", "en": "date", "zh": "日期", "emoji": "📅", "abstract": true },
+    { "id": "continue", "en": "continue", "zh": "繼續（念）", "emoji": "⏩", "abstract": true },
+    {
+      "id": "college",
+      "en": "college",
+      "zh": "大學（口語通稱，也指學院）",
+      "emoji": "🏫",
+      "abstract": true
+    },
+    { "id": "degree", "en": "degree", "zh": "學位", "emoji": "📜", "abstract": true },
+    { "id": "university", "en": "university", "zh": "大學（正式名稱）", "emoji": "🏛️" },
+    { "id": "graduate", "en": "graduate", "zh": "畢業", "emoji": "👩‍🎓", "abstract": true },
+    { "id": "ever", "en": "ever", "zh": "曾經", "emoji": "❓", "abstract": true },
+    { "id": "once", "en": "once", "zh": "一次", "emoji": "1️⃣", "abstract": true },
+    { "id": "past", "en": "past", "zh": "過去的", "emoji": "⏪", "abstract": true },
+    { "id": "history", "en": "history", "zh": "（工作）經歷", "emoji": "🕰️", "abstract": true },
+    { "id": "mention", "en": "mention", "zh": "提到", "emoji": "💬", "abstract": true },
+    { "id": "recently", "en": "recently", "zh": "最近", "emoji": "🕒", "abstract": true },
+    {
+      "id": "description",
+      "en": "description",
+      "zh": "（工作內容）說明",
+      "emoji": "📝",
+      "abstract": true
+    },
+    { "id": "main", "en": "main", "zh": "主要的", "emoji": "⭐", "abstract": true },
+    { "id": "true", "en": "true", "zh": "真實的", "emoji": "✔️", "abstract": true },
+    { "id": "describe", "en": "describe", "zh": "描述", "emoji": "🗣️", "abstract": true },
+    { "id": "document", "en": "document", "zh": "文件", "emoji": "📃", "abstract": true },
+    { "id": "sentence", "en": "sentence", "zh": "句子", "emoji": "✏️", "abstract": true },
+    { "id": "background", "en": "background", "zh": "背景", "emoji": "🧳", "abstract": true },
+    { "id": "relevant", "en": "relevant", "zh": "相關的", "emoji": "🔗", "abstract": true },
+    { "id": "language", "en": "language", "zh": "語言", "emoji": "🌐", "abstract": true },
+    { "id": "type", "en": "type", "zh": "打字", "emoji": "⌨️", "abstract": true },
+    { "id": "special", "en": "special", "zh": "特別的", "emoji": "✨", "abstract": true },
+    { "id": "explain", "en": "explain", "zh": "解釋", "emoji": "🧑‍🏫", "abstract": true },
+    { "id": "foreign", "en": "foreign", "zh": "外國的", "emoji": "🌍", "abstract": true },
+    { "id": "skill", "en": "skill", "zh": "技能", "emoji": "🛠️", "abstract": true },
+    { "id": "certificate", "en": "certificate", "zh": "證照；證書", "emoji": "📜" },
+    { "id": "already", "en": "already", "zh": "已經", "emoji": "☑️", "abstract": true },
+    { "id": "while", "en": "while", "zh": "在……的時候", "emoji": "⏳", "abstract": true },
+    { "id": "stay", "en": "stay", "zh": "留下來", "emoji": "🪑", "abstract": true },
+    { "id": "prepare", "en": "prepare", "zh": "準備", "emoji": "🗂️", "abstract": true },
+    { "id": "review", "en": "review", "zh": "仔細看過；檢查", "emoji": "🔎", "abstract": true },
+    { "id": "mistake", "en": "mistake", "zh": "錯誤", "emoji": "❗", "abstract": true },
+    { "id": "rewrite", "en": "rewrite", "zh": "重寫", "emoji": "🔁", "abstract": true },
+    { "id": "complete", "en": "complete", "zh": "完整的", "emoji": "💯", "abstract": true },
+    { "id": "option", "en": "option", "zh": "選擇；方式", "emoji": "🔀", "abstract": true },
+    { "id": "separate", "en": "separate", "zh": "分開的；另外的", "emoji": "✂️", "abstract": true },
+    { "id": "previous", "en": "previous", "zh": "之前的", "emoji": "⬅️", "abstract": true },
+    { "id": "attach", "en": "attach", "zh": "附上（檔案）", "emoji": "📎", "abstract": true },
+    { "id": "signature", "en": "signature", "zh": "簽名", "emoji": "✍️", "abstract": true },
+    { "id": "cover_letter", "en": "cover letter", "zh": "求職信", "emoji": "✉️", "abstract": true }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "履歷工作坊：個人資料",
+      "newChunkIds": ["help_with_my_resume", "include_parents_names"],
+      "newWordIds": ["resume", "mother", "father", "child", "add", "detail"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Hi again! Welcome to the resume workshop.",
+          "zh": "又見面了！歡迎來履歷工作坊。"
+        },
+        {
+          "id": "t1_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'd like some help with my resume.",
+          "zh": "我想請你幫我看一下履歷。",
+          "chunkId": "help_with_my_resume",
+          "stage": { "act": "want", "item": "resume" }
+        },
+        {
+          "id": "t1_3",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Sure. Let's start with your details at the top.",
+          "zh": "沒問題。我們先從最上面的個人資料開始。"
+        },
+        {
+          "id": "t1_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Should I include my parents' names?",
+          "zh": "要寫我爸媽的名字嗎？",
+          "chunkId": "include_parents_names",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t1_5",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "No, not here. Don't add your mother, father or children.",
+          "zh": "不用，這裡不寫。爸爸、媽媽、小孩都不要加上去。"
+        },
+        {
+          "id": "t1_6",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Just your name, phone number and email address.",
+          "zh": "只要寫你的名字、電話和 email 就好。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "寫學歷",
+      "newChunkIds": ["where_put_education", "list_high_school_too"],
+      "newWordIds": [
+        "education",
+        "date",
+        "continue",
+        "college",
+        "degree",
+        "university",
+        "graduate"
+      ],
+      "fills": [
+        {
+          "id": "t2_fill_1",
+          "en": "Where do I ___ my education?",
+          "zh": "學歷要寫在哪裡？",
+          "options": ["put", "puts", "putting", "to put"],
+          "answer": 0,
+          "note": "do I 後面接動詞原形，所以用 put。",
+          "chunkId": "where_put_education"
+        },
+        {
+          "id": "t2_fill_2",
+          "en": "I graduated ___ university in 2016.",
+          "zh": "我 2016 年大學畢業。",
+          "options": ["from", "on", "to", "with"],
+          "answer": 0,
+          "note": "從學校畢業是 graduate from。"
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Okay, your details look good. Now, education.",
+          "zh": "好，個人資料沒問題。接下來是學歷。"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Where do I put my education?",
+          "zh": "學歷要寫在哪裡？",
+          "chunkId": "where_put_education"
+        },
+        {
+          "id": "t2_3",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Right under your details, with the dates.",
+          "zh": "就在個人資料下面，日期也要寫。"
+        },
+        {
+          "id": "t2_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do I list my high school too?",
+          "zh": "高中也要寫進去嗎？",
+          "chunkId": "list_high_school_too",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t2_5",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Not if you continued on to college.",
+          "zh": "如果你有繼續念大學，就不用。"
+        },
+        {
+          "id": "t2_6",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Just add your university, your degree and when you graduated.",
+          "zh": "寫上你的大學、學位和畢業時間就好。",
+          "stage": { "act": "want", "item": "university" }
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "在台灣的工作經歷",
+      "newChunkIds": ["never_written_in_english", "had_several_jobs_taiwan"],
+      "newWordIds": ["ever", "once", "past", "history", "mention", "recently", "description"],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Have you ever written a resume in English?",
+          "zh": "你有用英文寫過履歷嗎？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I've never written one in English.",
+          "zh": "我從來沒用英文寫過履歷。",
+          "chunkId": "never_written_in_english"
+        },
+        {
+          "id": "t3_3",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "That's okay. Let's do your work history next.",
+          "zh": "沒關係。接下來寫你的工作經歷。"
+        },
+        {
+          "id": "t3_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I've had several jobs in Taiwan.",
+          "zh": "我在台灣做過好幾份工作。",
+          "chunkId": "had_several_jobs_taiwan"
+        },
+        {
+          "id": "t3_5",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Great. List the one you had most recently first.",
+          "zh": "很好。最近做的那份寫在最前面。"
+        },
+        {
+          "id": "t3_6",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Under each job, add a short description of what you did.",
+          "zh": "每份工作下面，加幾句說明你做了什麼。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀履歷範例",
+      "newChunkIds": ["see_example_first", "looks_pretty_clear"],
+      "newWordIds": ["main", "true", "describe", "document", "sentence", "background", "relevant"],
+      "passages": [
+        {
+          "id": "t4_sample_resume",
+          "kind": "form",
+          "lines": [
+            "Name: Amy Chen",
+            "Phone: 555-0148",
+            "Work Experience: Office assistant, Sunny Foods, 2019-2023",
+            "Main work: answering the phone, writing emails, taking orders",
+            "Before that: Clerk, City Bank, 2017-2019",
+            "Education: College degree in English, 2017",
+            "Other: good with computers, speaks Chinese and English"
+          ],
+          "questions": [
+            {
+              "en": "What was Amy's main work at Sunny Foods?",
+              "zh": "Amy 在 Sunny Foods 主要做什麼？",
+              "options": ["Answering the phone", "Cooking in the kitchen", "Fixing cars"],
+              "answer": 0
+            },
+            {
+              "en": "When did Amy graduate from college?",
+              "zh": "Amy 什麼時候大學畢業？",
+              "options": ["2015", "2017", "2019"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Now let's describe your main work at each job.",
+          "zh": "現在來描述你每份工作主要做什麼。"
+        },
+        {
+          "id": "t4_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could I see an example first?",
+          "zh": "可以先看一份範例嗎？",
+          "chunkId": "see_example_first"
+        },
+        {
+          "id": "t4_3",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Sure. Here's one from a past student.",
+          "zh": "好啊。這是以前一個學員寫的。",
+          "stage": { "act": "give", "item": "resume" }
+        },
+        {
+          "id": "t4_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "This one looks pretty clear.",
+          "zh": "這份看起來蠻清楚的。",
+          "chunkId": "looks_pretty_clear"
+        },
+        {
+          "id": "t4_5",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Right. Short sentences, and only relevant background.",
+          "zh": "對。句子短短的，只寫跟工作有關的背景。"
+        },
+        {
+          "id": "t4_6",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "And everything in the document has to be true.",
+          "zh": "還有，上面寫的每一件事都必須是真的。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "技能和語言",
+      "newChunkIds": ["grew_up_speaking_chinese", "chinese_useful_skill"],
+      "newWordIds": ["language", "type", "special", "explain", "foreign", "skill", "certificate"],
+      "talks": [
+        {
+          "id": "t5_talk",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "counselor",
+              "en": "So, Ken, what languages do you speak?",
+              "zh": "那 Ken，你會說哪些語言？"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "passerby",
+              "en": "English and Chinese. My parents are from Taiwan.",
+              "zh": "英文和中文，我爸媽是台灣人。"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "counselor",
+              "en": "Nice. Anything special, like a certificate?",
+              "zh": "不錯。有什麼特別的嗎？像是證照？"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "passerby",
+              "en": "Just one, for typing. Where should I put my languages?",
+              "zh": "只有一張打字的。語言要寫在哪裡？"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "counselor",
+              "en": "Under Skills. The company works with Taiwan, so Chinese really helps.",
+              "zh": "寫在「技能」那欄。那家公司跟台灣有往來，所以會中文很加分。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "Where should Ken put his languages?",
+              "zh": "Ken 應該把語言寫在哪裡？",
+              "options": ["Under Skills", "Under Education", "Under his name"],
+              "answer": 0
+            },
+            {
+              "en": "Why is Chinese useful for the job?",
+              "zh": "為什麼中文對這份工作有用？",
+              "options": [
+                "It works with Taiwan",
+                "Its office is in Taiwan",
+                "Ken's parents work there"
+              ],
+              "answer": 0
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Okay, skills. What languages do you speak?",
+          "zh": "好，接下來是技能。你會說哪些語言？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I grew up speaking Chinese.",
+          "zh": "我從小就說中文。",
+          "chunkId": "grew_up_speaking_chinese"
+        },
+        {
+          "id": "t5_3",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Nice. So with English, that's two languages.",
+          "zh": "很好。再加上英文，就是兩種語言了。"
+        },
+        {
+          "id": "t5_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is Chinese a useful skill for this job?",
+          "zh": "中文對這份工作有幫助嗎？",
+          "chunkId": "chinese_useful_skill"
+        },
+        {
+          "id": "t5_5",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Yes! They work with a lot of foreign companies.",
+          "zh": "有！他們跟很多外國公司有往來。"
+        },
+        {
+          "id": "t5_6",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Mention it, and explain that you can type in Chinese too.",
+          "zh": "一定要寫，也要說明你會打中文。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "請 Mia 看草稿",
+      "newChunkIds": ["just_finished_first_draft", "havent_sent_it_yet"],
+      "newWordIds": ["already", "while", "stay", "prepare", "review", "mistake", "rewrite"],
+      "cloze": [
+        { "lineId": "t6_3", "word": "sent", "distractors": ["cooked", "washed"] },
+        { "lineId": "t6_5", "word": "mistake", "distractors": ["window", "bus"] },
+        { "lineId": "t6_6", "word": "rewrite", "distractors": ["eat", "wash"] }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "Hi! Sorry I'm late. How's the resume going?",
+          "zh": "嗨！抱歉我遲到了。履歷寫得怎麼樣？"
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I've just finished my first draft.",
+          "zh": "我剛寫完第一版草稿。",
+          "chunkId": "just_finished_first_draft"
+        },
+        {
+          "id": "t6_3",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "Already? Great. Have you sent it yet?",
+          "zh": "已經寫好了？太好了。寄出去了嗎？"
+        },
+        {
+          "id": "t6_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I haven't sent it yet.",
+          "zh": "我還沒寄出去。",
+          "chunkId": "havent_sent_it_yet"
+        },
+        {
+          "id": "t6_5",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "Good. Let me review it. Wait, there's a mistake here.",
+          "zh": "那就好，我幫你看一下。等等，這裡有個錯。"
+        },
+        {
+          "id": "t6_6",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "I can stay while you rewrite this sentence.",
+          "zh": "你重寫這句的時候，我可以留下來陪你。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "加上推薦人，寄出應徵",
+      "newChunkIds": ["whats_a_reference", "going_to_send_harbor"],
+      "newWordIds": [
+        "complete",
+        "option",
+        "separate",
+        "previous",
+        "attach",
+        "signature",
+        "cover_letter"
+      ],
+      "spellWordIds": ["counselor", "assistant", "company", "salary", "wage"],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Your resume is almost complete. Just add two references.",
+          "zh": "你的履歷快完成了。再加上兩位推薦人就好。"
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sorry, what's a reference?",
+          "zh": "不好意思，推薦人是什麼？",
+          "chunkId": "whats_a_reference",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t7_3",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Someone from a previous job who knows your work.",
+          "zh": "之前工作認識的人，而且了解你的工作表現。"
+        },
+        {
+          "id": "t7_4",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Then attach it and a cover letter as separate documents.",
+          "zh": "然後把履歷和求職信分成兩個檔案附上去。"
+        },
+        {
+          "id": "t7_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm going to send it to Harbor Trading today.",
+          "zh": "我今天就要寄給 Harbor Trading。",
+          "chunkId": "going_to_send_harbor"
+        },
+        {
+          "id": "t7_6",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Great! Don't forget your signature at the end.",
+          "zh": "太好了！最後別忘了加上你的署名。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Hi there! Come on in. How can I help?",
+          "zh": "嗨！請進。有什麼需要幫忙的嗎？"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'd like some help with my resume.",
+          "zh": "我想請你幫我看一下履歷。",
+          "chunkId": "help_with_my_resume"
+        },
+        {
+          "id": "t8_3",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Of course. Have you ever written one before?",
+          "zh": "當然好。你以前寫過履歷嗎？"
+        },
+        {
+          "id": "t8_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I've never written one in English.",
+          "zh": "我從來沒用英文寫過履歷。",
+          "chunkId": "never_written_in_english"
+        },
+        {
+          "id": "t8_5",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "No problem. A lot of people here haven't.",
+          "zh": "沒問題，這裡很多人都沒寫過。"
+        },
+        {
+          "id": "t8_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could I see an example first?",
+          "zh": "可以先看一份範例嗎？",
+          "chunkId": "see_example_first"
+        },
+        {
+          "id": "t8_7",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Sure, here you go. Start with your details and education.",
+          "zh": "好，給你。先從個人資料和學歷開始寫。",
+          "stage": { "act": "give", "item": "resume" }
+        },
+        {
+          "id": "t8_8",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do I list my high school too?",
+          "zh": "高中也要寫進去嗎？",
+          "chunkId": "list_high_school_too"
+        },
+        {
+          "id": "t8_9",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "No, just college. Do you speak any other languages?",
+          "zh": "不用，寫大學就好。你還會說別的語言嗎？"
+        },
+        {
+          "id": "t8_10",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I grew up speaking Chinese.",
+          "zh": "我從小就說中文。",
+          "chunkId": "grew_up_speaking_chinese"
+        },
+        {
+          "id": "t8_11",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Great, add that. That's a useful skill here.",
+          "zh": "很好，寫上去。這在這裡是很有用的技能。"
+        },
+        {
+          "id": "t8_12",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "Hi! Sorry I'm late. How's it going?",
+          "zh": "嗨！抱歉我來晚了。寫得怎麼樣？"
+        },
+        {
+          "id": "t8_13",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I've just finished my first draft.",
+          "zh": "我剛寫完第一版草稿。",
+          "chunkId": "just_finished_first_draft"
+        },
+        {
+          "id": "t8_14",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "Nice! Let me review it for mistakes.",
+          "zh": "不錯喔！我幫你看看有沒有錯。"
+        },
+        {
+          "id": "t8_15",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "It looks good. Just add a reference at the end.",
+          "zh": "看起來不錯。最後再加一位推薦人就好。"
+        },
+        {
+          "id": "t8_16",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sorry, what's a reference?",
+          "zh": "不好意思，推薦人是什麼？",
+          "chunkId": "whats_a_reference"
+        },
+        {
+          "id": "t8_17",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Someone from a previous job. Then you're all ready!",
+          "zh": "之前工作認識的人。這樣就全部準備好了！"
+        },
+        {
+          "id": "t8_18",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm going to send it to Harbor Trading today.",
+          "zh": "我今天就要寄給 Harbor Trading。",
+          "chunkId": "going_to_send_harbor"
+        }
+      ]
+    }
+  ]
+}
