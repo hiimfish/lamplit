@@ -104,11 +104,11 @@
 
 ### 搬家第一天（`move_in`）
 
-- 14 個詞塊、22 個單字（11 個標 `abstract`：welcome、okay、neighbor、two～nine）、6 組對比詞、8 個任務、48 句劇情台詞。NPC 是房東 Mr. Bell（`landlord`，t1～t5、t8）和鄰居 Lena（`neighbor`，t6～t7）。
-- 任務：見到房東（自我介紹）、名字怎麼拼（How do you spell that?）、垃圾怎麼丟（Can you speak more slowly, please?）、搬箱子、聊聊自己、認識鄰居、請鄰居進來坐，最後是角色扮演大挑戰（和房東重演第一天：自我介紹、從哪裡來、一個人住、聽不懂請他說慢一點，你說 6 句）。
+- 14 個詞塊、22 個單字（11 個標 `abstract`：welcome、okay、neighbor、two～nine）、6 組對比詞、8 個任務、52 句劇情台詞。NPC 是房東 Mr. Bell（`landlord`，t1～t5、t8）和鄰居 Lena（`neighbor`，t6～t7）。
+- 任務：見到房東（自我介紹）、名字怎麼拼（How do you spell that?）、垃圾怎麼丟（Can you speak more slowly, please?）、搬箱子、聊聊自己、認識鄰居、請鄰居進來坐，最後是角色扮演大挑戰（和房東重演第一天：自我介紹、從哪裡來、一個人住、請他幫忙搬箱子、聽不懂請他說慢一點，你說 8 句）。
 - 對比詞：fan/van、light/right、bed/bad、sink/think、ship/sheep、cap/cup，t1～t3 每個任務兩組；t4～t7 沒有對比詞。
 - 單字像素圖：鑰匙、箱子、門、椅子、檯燈、垃圾桶、房間、家、汽車、手機、沙發。對比詞不用圖（聽辨題只靠聲音）。
-- 小劇場：新家玄關，房東或鄰居（只畫這個任務有說話的角色）；16 句台詞有道具提示，見 [scene-stage.md](scene-stage.md)。
+- 小劇場：新家玄關，房東或鄰居（只畫這個任務有說話的角色）；18 句台詞有道具提示，見 [scene-stage.md](scene-stage.md)。
 - 英文句子還沒請人審閱，發音還沒請使用者試聽。
 
 ### 咖啡廳（`cafe`）

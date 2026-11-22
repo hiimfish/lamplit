@@ -378,15 +378,27 @@
     "hash": "492270e9cdd913ba"
   },
   "audio/chirp/move_in.line.t8_10.normal.mp3": {
-    "hash": "5dd63c9fcef1d5f1"
+    "hash": "455b8e0c4a23fae7"
   },
   "audio/chirp/move_in.line.t8_11.normal.mp3": {
-    "hash": "6127aab899cdd594"
+    "hash": "806b42a45a188450"
   },
   "audio/chirp/move_in.line.t8_12.normal.mp3": {
-    "hash": "d5f3a7450feff22a"
+    "hash": "79820d72daf932df"
   },
   "audio/chirp/move_in.line.t8_13.normal.mp3": {
+    "hash": "f95773ac3317a98a"
+  },
+  "audio/chirp/move_in.line.t8_14.normal.mp3": {
+    "hash": "5dd63c9fcef1d5f1"
+  },
+  "audio/chirp/move_in.line.t8_15.normal.mp3": {
+    "hash": "6127aab899cdd594"
+  },
+  "audio/chirp/move_in.line.t8_16.normal.mp3": {
+    "hash": "d5f3a7450feff22a"
+  },
+  "audio/chirp/move_in.line.t8_17.normal.mp3": {
     "hash": "2ef94af34654aae6"
   },
   "audio/chirp/move_in.line.t8_2.normal.mp3": {
@@ -411,7 +423,7 @@
     "hash": "20d003b0d39479e6"
   },
   "audio/chirp/move_in.line.t8_9.normal.mp3": {
-    "hash": "f95773ac3317a98a"
+    "hash": "e0710b3ae50b9a3f"
   },
   "audio/chirp/move_in.pair.bad.normal.mp3": {
     "hash": "ff4af0bc163ff0a9"
@@ -1272,27 +1284,51 @@
     "hash": "ba881060228f4f47"
   },
   "audio/neural2/move_in.line.t8_10.normal.mp3": {
-    "hash": "c5f255bf6f3a636a"
+    "hash": "b1230b34605fe22a"
   },
   "audio/neural2/move_in.line.t8_10.slow.mp3": {
-    "hash": "0bbbc71cbf039d7f"
+    "hash": "90ea5973369bb4dd"
   },
   "audio/neural2/move_in.line.t8_11.normal.mp3": {
-    "hash": "de7ec603e54f182b"
+    "hash": "c65aeb8397fe8e13"
   },
   "audio/neural2/move_in.line.t8_11.slow.mp3": {
-    "hash": "9eb4fb1a14ada940"
+    "hash": "8b6d258ecda354c4"
   },
   "audio/neural2/move_in.line.t8_12.normal.mp3": {
-    "hash": "5135feba585ead1b"
+    "hash": "73b4eb7c2024d1ee"
   },
   "audio/neural2/move_in.line.t8_12.slow.mp3": {
-    "hash": "e2ae74acf8277841"
+    "hash": "b4135d4fca46be7c"
   },
   "audio/neural2/move_in.line.t8_13.normal.mp3": {
-    "hash": "e0e90c07ccf1306a"
+    "hash": "97fdcadf9235dd7c"
   },
   "audio/neural2/move_in.line.t8_13.slow.mp3": {
+    "hash": "65362d55a4def302"
+  },
+  "audio/neural2/move_in.line.t8_14.normal.mp3": {
+    "hash": "c5f255bf6f3a636a"
+  },
+  "audio/neural2/move_in.line.t8_14.slow.mp3": {
+    "hash": "0bbbc71cbf039d7f"
+  },
+  "audio/neural2/move_in.line.t8_15.normal.mp3": {
+    "hash": "de7ec603e54f182b"
+  },
+  "audio/neural2/move_in.line.t8_15.slow.mp3": {
+    "hash": "9eb4fb1a14ada940"
+  },
+  "audio/neural2/move_in.line.t8_16.normal.mp3": {
+    "hash": "5135feba585ead1b"
+  },
+  "audio/neural2/move_in.line.t8_16.slow.mp3": {
+    "hash": "e2ae74acf8277841"
+  },
+  "audio/neural2/move_in.line.t8_17.normal.mp3": {
+    "hash": "e0e90c07ccf1306a"
+  },
+  "audio/neural2/move_in.line.t8_17.slow.mp3": {
     "hash": "cfe1062bd6047008"
   },
   "audio/neural2/move_in.line.t8_2.normal.mp3": {
@@ -1338,10 +1374,10 @@
     "hash": "c3e110e3035b81f6"
   },
   "audio/neural2/move_in.line.t8_9.normal.mp3": {
-    "hash": "97fdcadf9235dd7c"
+    "hash": "cd17796ed52951b3"
   },
   "audio/neural2/move_in.line.t8_9.slow.mp3": {
-    "hash": "65362d55a4def302"
+    "hash": "0e2c808e962f4fde"
   },
   "audio/neural2/move_in.pair.bad.normal.mp3": {
     "hash": "6cb1ac4e0dd6c0eb"
