@@ -1,0 +1,934 @@
+{
+  "id": "interview",
+  "title": "面試",
+  "titleEn": "Job Interview",
+  "chunks": [
+    {
+      "id": "have_interview_at_ten",
+      "en": "Hi, I have an interview at ten.",
+      "zh": "你好，我十點有面試。",
+      "accept": ["Hi, I have an interview at 10.", "Hi, I have an interview at ten o'clock."],
+      "note": "到公司櫃台報到時說。at + 時間 = 在幾點。",
+      "distractors": [
+        { "text": "Hi, I have a interview at ten.", "error": "article" },
+        { "text": "Hi, I have interview at ten.", "error": "missing-word" },
+        { "text": "Hi, I have an interview in ten.", "error": "other" }
+      ]
+    },
+    {
+      "id": "fill_anything_out_first",
+      "en": "Should I fill anything out first?",
+      "zh": "我需要先填什麼嗎？",
+      "accept": ["Should I fill out anything first?"],
+      "note": "等的時候問要不要先填表。fill out = 填寫（表格）。",
+      "distractors": [
+        { "text": "Should I fill anything first out?", "error": "word-order" },
+        { "text": "Should I to fill anything out first?", "error": "extra-word" },
+        { "text": "Should I fills anything out first?", "error": "other" }
+      ]
+    },
+    {
+      "id": "thanks_for_meeting_me",
+      "en": "Thanks for meeting with me today.",
+      "zh": "謝謝您今天撥空見我。",
+      "accept": ["Thank you for meeting with me today."],
+      "note": "面試一開始，先謝謝對方撥空見你。",
+      "distractors": [
+        { "text": "Thanks for meet with me today.", "error": "other" },
+        { "text": "Thanks for meeting me with today.", "error": "word-order" },
+        { "text": "Thanks for meeting with I today.", "error": "other" }
+      ]
+    },
+    {
+      "id": "love_it_here_friendly",
+      "en": "I love it here, and people are so friendly.",
+      "zh": "我很喜歡這裡，大家都好友善。",
+      "note": "被問住得習不習慣時這樣回答。love 比 like 更喜歡。",
+      "distractors": [
+        { "text": "I love it here, and people is so friendly.", "error": "other" },
+        { "text": "I love here, and people are so friendly.", "error": "missing-word" },
+        { "text": "I love it here, and peoples are so friendly.", "error": "plural" }
+      ]
+    },
+    {
+      "id": "been_in_town_since_august",
+      "en": "I've been in this town since August.",
+      "zh": "我從八月就住在這個鎮上了。",
+      "accept": ["I have been in this town since August."],
+      "note": "現在完成式 have been + since 時間點：從那時到現在一直是這樣。",
+      "distractors": [
+        { "text": "I've been in this town for August.", "error": "other" },
+        { "text": "I'm in this town since August.", "error": "other" },
+        { "text": "I've been in this town since in August.", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "studied_english_many_years",
+      "en": "I've studied English for many years.",
+      "zh": "我學英文學了很多年。",
+      "accept": ["I have studied English for many years."],
+      "note": "現在完成式 have + 過去分詞 + for 一段時間：做了多久，到現在還在做。",
+      "distractors": [
+        { "text": "I've studied English since many years.", "error": "other" },
+        { "text": "I've study English for many years.", "error": "other" },
+        { "text": "I've studied English for many year.", "error": "plural" }
+      ]
+    },
+    {
+      "id": "answered_phone_wrote_emails",
+      "en": "I answered the phone and wrote emails.",
+      "zh": "我接電話、寫 email。",
+      "note": "說以前工作做什麼，用過去式。write 的過去式是 wrote。",
+      "distractors": [
+        { "text": "I answer the phone and wrote emails.", "error": "other" },
+        { "text": "I answered the phone and writed emails.", "error": "other" },
+        { "text": "I answered phone and wrote emails.", "error": "article" }
+      ]
+    },
+    {
+      "id": "took_care_of_orders_meetings",
+      "en": "I also took care of orders and planned meetings.",
+      "zh": "我也負責處理訂單和安排會議。",
+      "note": "接著補充其他工作。take care of = 負責處理，took 是過去式。",
+      "distractors": [
+        { "text": "I also took care orders and planned meetings.", "error": "missing-word" },
+        { "text": "I also taked care of orders and planned meetings.", "error": "other" },
+        { "text": "I also took care of order and planned meetings.", "error": "plural" }
+      ]
+    },
+    {
+      "id": "heard_great_place_to_work",
+      "en": "I heard it's a great place to work.",
+      "zh": "我聽說這裡是很棒的工作環境。",
+      "accept": ["I heard it is a great place to work."],
+      "note": "被問為什麼想來這家公司時，先說聽到的好評價。",
+      "distractors": [
+        { "text": "I heard it's a great place to working.", "error": "other" },
+        { "text": "I heard it's great place to work.", "error": "article" },
+        { "text": "I heard it's a great place work.", "error": "missing-word" }
+      ]
+    },
+    {
+      "id": "looking_for_chance_to_grow",
+      "en": "I'm looking for a chance to grow.",
+      "zh": "我在找一個可以成長的機會。",
+      "accept": ["I am looking for a chance to grow."],
+      "note": "說自己想要的是成長的機會。look for = 找。",
+      "distractors": [
+        { "text": "I'm looking a chance to grow.", "error": "missing-word" },
+        { "text": "I'm look for a chance to grow.", "error": "other" },
+        { "text": "I'm looking for a chance to growing.", "error": "other" }
+      ]
+    },
+    {
+      "id": "not_fastest_but_careful",
+      "en": "I'm not the fastest, but I'm very careful.",
+      "zh": "我不是最快的，但我很細心。",
+      "accept": ["I am not the fastest, but I am very careful."],
+      "note": "最高級：the + 形容詞加 -est = 最…的，例如 the fastest 最快的。",
+      "distractors": [
+        { "text": "I'm not fastest, but I'm very careful.", "error": "article" },
+        { "text": "I'm not the most fast, but I'm very careful.", "error": "other" },
+        { "text": "I'm not the fastest, but I'm very carefull.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "english_not_strong_yet",
+      "en": "My English isn't very strong yet.",
+      "zh": "我的英文還不是很好。",
+      "accept": ["My English is not very strong yet."],
+      "note": "被問缺點時老實說。not … yet = 還沒有…，之後會進步。",
+      "distractors": [
+        { "text": "My English not very strong yet.", "error": "missing-word" },
+        { "text": "My English isn't very strongly yet.", "error": "other" },
+        { "text": "My English aren't very strong yet.", "error": "other" }
+      ]
+    },
+    {
+      "id": "ask_about_working_hours",
+      "en": "Could I ask about the working hours?",
+      "zh": "可以問一下上班時間嗎？",
+      "note": "面試最後輪到你發問時用。Could I 比 Can I 客氣。",
+      "distractors": [
+        { "text": "Could I ask the working hours about?", "error": "word-order" },
+        { "text": "Could I asking about the working hours?", "error": "other" },
+        { "text": "Could I ask about the working hour?", "error": "plural" }
+      ]
+    },
+    {
+      "id": "when_need_me_to_start",
+      "en": "When would you need me to start?",
+      "zh": "您希望我什麼時候開始上班？",
+      "note": "問對方希望你哪天開始上班。would 讓問法更客氣。",
+      "distractors": [
+        { "text": "When would you need me start?", "error": "missing-word" },
+        { "text": "When would you need I to start?", "error": "other" },
+        { "text": "When you would need me to start?", "error": "word-order" }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "interview", "en": "interview", "zh": "面試", "emoji": "🤝", "abstract": true },
+    { "id": "mind", "en": "mind", "zh": "介意", "emoji": "🤔", "abstract": true },
+    { "id": "fine", "en": "fine", "zh": "沒問題；好", "emoji": "👌", "abstract": true },
+    { "id": "certainly", "en": "certainly", "zh": "當然", "emoji": "✅", "abstract": true },
+    { "id": "wish", "en": "wish", "zh": "祝（你…）", "emoji": "🍀", "abstract": true },
+    { "id": "manager", "en": "manager", "zh": "主管；經理", "emoji": "👩‍💼", "abstract": true },
+    { "id": "love", "en": "love", "zh": "很喜歡", "emoji": "❤️", "abstract": true },
+    { "id": "especially", "en": "especially", "zh": "尤其", "emoji": "⭐", "abstract": true },
+    {
+      "id": "couple",
+      "en": "couple",
+      "zh": "幾個（a couple of）",
+      "emoji": "✌️",
+      "abstract": true
+    },
+    { "id": "season", "en": "season", "zh": "季節", "emoji": "🍂", "abstract": true },
+    { "id": "introduce", "en": "introduce", "zh": "介紹", "emoji": "🙋", "abstract": true },
+    { "id": "positive", "en": "positive", "zh": "正面的；好的", "emoji": "➕", "abstract": true },
+    { "id": "impression", "en": "impression", "zh": "印象", "emoji": "💭", "abstract": true },
+    { "id": "since", "en": "since", "zh": "自從", "emoji": "📅", "abstract": true },
+    { "id": "expect", "en": "expect", "zh": "預料；預期", "emoji": "🔮", "abstract": true },
+    { "id": "suggest", "en": "suggest", "zh": "建議", "emoji": "💡", "abstract": true },
+    { "id": "difficult", "en": "difficult", "zh": "困難的", "emoji": "😣", "abstract": true },
+    { "id": "personal", "en": "personal", "zh": "個人的", "emoji": "👤", "abstract": true },
+    { "id": "challenge", "en": "challenge", "zh": "挑戰", "emoji": "🧗", "abstract": true },
+    { "id": "independent", "en": "independent", "zh": "獨立的", "emoji": "🚶", "abstract": true },
+    { "id": "share", "en": "share", "zh": "共用；分享", "emoji": "🤲", "abstract": true },
+    { "id": "focus", "en": "focus", "zh": "專心；專注", "emoji": "🎯", "abstract": true },
+    { "id": "effort", "en": "effort", "zh": "努力", "emoji": "💪", "abstract": true },
+    { "id": "attention", "en": "attention", "zh": "注意力", "emoji": "👀", "abstract": true },
+    { "id": "communication", "en": "communication", "zh": "溝通", "emoji": "💬", "abstract": true },
+    { "id": "responsible", "en": "responsible", "zh": "負責的", "emoji": "🧑‍💼", "abstract": true },
+    { "id": "respond", "en": "respond", "zh": "回覆", "emoji": "↩️", "abstract": true },
+    { "id": "believe", "en": "believe", "zh": "相信", "emoji": "🙏", "abstract": true },
+    { "id": "reason", "en": "reason", "zh": "理由", "emoji": "❓", "abstract": true },
+    { "id": "future", "en": "future", "zh": "未來", "emoji": "🔭", "abstract": true },
+    { "id": "opportunity", "en": "opportunity", "zh": "機會", "emoji": "🚪", "abstract": true },
+    { "id": "respect", "en": "respect", "zh": "尊重", "emoji": "🙇", "abstract": true },
+    { "id": "success", "en": "success", "zh": "成功", "emoji": "🏆", "abstract": true },
+    { "id": "goal", "en": "goal", "zh": "目標", "emoji": "🥅", "abstract": true },
+    { "id": "strong", "en": "strong", "zh": "強的；好的", "emoji": "🏋️", "abstract": true },
+    { "id": "improve", "en": "improve", "zh": "進步；改善", "emoji": "📈", "abstract": true },
+    { "id": "patient", "en": "patient", "zh": "有耐心的", "emoji": "🧘", "abstract": true },
+    { "id": "fail", "en": "fail", "zh": "失敗", "emoji": "❌", "abstract": true },
+    { "id": "stress", "en": "stress", "zh": "壓力", "emoji": "😰", "abstract": true },
+    { "id": "strength", "en": "strength", "zh": "優點；長處", "emoji": "💎", "abstract": true },
+    { "id": "weak", "en": "weak", "zh": "弱的；不擅長的", "emoji": "🪫", "abstract": true },
+    {
+      "id": "matter",
+      "en": "matter",
+      "zh": "要緊（doesn't matter）",
+      "emoji": "❗",
+      "abstract": true
+    },
+    { "id": "agree", "en": "agree", "zh": "同意", "emoji": "👍", "abstract": true },
+    { "id": "discuss", "en": "discuss", "zh": "討論", "emoji": "🗣️", "abstract": true },
+    { "id": "opinion", "en": "opinion", "zh": "意見；看法", "emoji": "💭", "abstract": true },
+    {
+      "id": "depend",
+      "en": "depend",
+      "zh": "看情況（depend on）",
+      "emoji": "⚖️",
+      "abstract": true
+    },
+    {
+      "id": "immediately",
+      "en": "immediately",
+      "zh": "馬上；立刻",
+      "emoji": "⚡",
+      "abstract": true
+    },
+    { "id": "attitude", "en": "attitude", "zh": "態度", "emoji": "🙂", "abstract": true }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "前台報到",
+      "newChunkIds": ["have_interview_at_ten", "fill_anything_out_first"],
+      "newWordIds": ["interview", "mind", "fine", "certainly", "wish", "manager"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "front_desk",
+          "speaker": "npc",
+          "en": "Good morning! Welcome to Harbor Trading.",
+          "zh": "早安！歡迎來到 Harbor Trading。"
+        },
+        {
+          "id": "t1_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Hi, I have an interview at ten.",
+          "zh": "你好，我十點有面試。",
+          "chunkId": "have_interview_at_ten"
+        },
+        {
+          "id": "t1_3",
+          "role": "front_desk",
+          "speaker": "npc",
+          "en": "Great. Ms. Carter, the office manager, will be right out.",
+          "zh": "好的。辦公室主管 Carter 小姐馬上就出來。"
+        },
+        {
+          "id": "t1_4",
+          "role": "front_desk",
+          "speaker": "npc",
+          "en": "Do you mind waiting a few minutes?",
+          "zh": "你介意等幾分鐘嗎？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t1_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Should I fill anything out first?",
+          "zh": "我需要先填什麼嗎？",
+          "chunkId": "fill_anything_out_first",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t1_6",
+          "role": "front_desk",
+          "speaker": "npc",
+          "en": "Certainly. Here's a short form. It only takes a minute.",
+          "zh": "當然。這張表格很短，一下子就填好了。"
+        },
+        {
+          "id": "t1_7",
+          "role": "front_desk",
+          "speaker": "npc",
+          "en": "Have a great interview! I wish you the best.",
+          "zh": "面試加油！祝你一切順利。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "見面寒暄",
+      "newChunkIds": ["thanks_for_meeting_me", "love_it_here_friendly"],
+      "newWordIds": [
+        "love",
+        "especially",
+        "couple",
+        "season",
+        "introduce",
+        "positive",
+        "impression"
+      ],
+      "fills": [
+        {
+          "id": "meeting_with_me",
+          "en": "Thanks for meeting ___ me today.",
+          "zh": "謝謝您今天撥空見我。",
+          "options": ["with", "at", "of", "on"],
+          "answer": 0,
+          "note": "meet with 某人 = 和某人見面。",
+          "chunkId": "thanks_for_meeting_me"
+        },
+        {
+          "id": "let_me_introduce",
+          "en": "Let me ___ myself. I'm Linda Carter.",
+          "zh": "我先自我介紹一下，我是 Linda Carter。",
+          "options": ["introduce", "introduces", "introducing", "introduced"],
+          "answer": 0,
+          "note": "Let me 後面接動詞原形。"
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Hi, I'm Linda Carter. Come on in!",
+          "zh": "嗨，我是 Linda Carter。請進！"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thanks for meeting with me today.",
+          "zh": "謝謝您今天撥空見我。",
+          "chunkId": "thanks_for_meeting_me"
+        },
+        {
+          "id": "t2_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Of course. So, how do you like our town?",
+          "zh": "不會。那你覺得我們這個鎮怎麼樣？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t2_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I love it here, and people are so friendly.",
+          "zh": "我很喜歡這裡，大家都好友善。",
+          "chunkId": "love_it_here_friendly"
+        },
+        {
+          "id": "t2_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good! And fall is an especially nice season here.",
+          "zh": "太好了！而且秋天在這裡是特別舒服的季節。"
+        },
+        {
+          "id": "t2_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Well, you're making a positive impression already!",
+          "zh": "嗯，你已經給人很好的印象了！"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "自我介紹",
+      "newChunkIds": ["been_in_town_since_august", "studied_english_many_years"],
+      "newWordIds": [
+        "since",
+        "expect",
+        "suggest",
+        "difficult",
+        "personal",
+        "challenge",
+        "independent"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Let's start with a couple of personal questions.",
+          "zh": "我們先從幾個比較個人的問題開始吧。"
+        },
+        {
+          "id": "t3_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "How long have you been here?",
+          "zh": "你來這裡多久了？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t3_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I've been in this town since August.",
+          "zh": "我從八月就住在這個鎮上了。",
+          "chunkId": "been_in_town_since_august"
+        },
+        {
+          "id": "t3_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Moving alone is difficult. You must be very independent.",
+          "zh": "一個人搬過來不容易。你一定很獨立。"
+        },
+        {
+          "id": "t3_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And your English is better than I expected.",
+          "zh": "而且你的英文比我想的還好。"
+        },
+        {
+          "id": "t3_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I've studied English for many years.",
+          "zh": "我學英文學了很多年。",
+          "chunkId": "studied_english_many_years"
+        },
+        {
+          "id": "t3_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "It shows. Learning a language is a big challenge.",
+          "zh": "看得出來。學一個語言是很大的挑戰。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "上一份工作",
+      "newChunkIds": ["answered_phone_wrote_emails", "took_care_of_orders_meetings"],
+      "newWordIds": [
+        "share",
+        "focus",
+        "effort",
+        "attention",
+        "communication",
+        "responsible",
+        "respond"
+      ],
+      "passages": [
+        {
+          "id": "job_description",
+          "kind": "notice",
+          "title": "Office Assistant",
+          "lines": [
+            "Answer phones and respond to emails",
+            "Take care of orders",
+            "Plan meetings for the team",
+            "Good communication skills in English and Chinese",
+            "Monday to Friday, 9:00 to 5:00"
+          ],
+          "questions": [
+            {
+              "en": "What are the working hours?",
+              "zh": "上班時間是幾點到幾點？",
+              "options": ["8:00 to 4:00", "9:00 to 5:00", "10:00 to 6:00"],
+              "answer": 1
+            },
+            {
+              "en": "What is one task in this job?",
+              "zh": "這份工作要做的事之一是什麼？",
+              "options": ["Fix computers", "Teach English", "Plan meetings"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "So, tell me about your last job.",
+          "zh": "那說說你上一份工作吧。"
+        },
+        {
+          "id": "t4_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I answered the phone and wrote emails.",
+          "zh": "我接電話、寫 email。",
+          "chunkId": "answered_phone_wrote_emails"
+        },
+        {
+          "id": "t4_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. What else were you responsible for?",
+          "zh": "不錯。你還負責哪些事？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t4_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I also took care of orders and planned meetings.",
+          "zh": "我也負責處理訂單和安排會議。",
+          "chunkId": "took_care_of_orders_meetings"
+        },
+        {
+          "id": "t4_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Great. Here, we respond to every email the same day.",
+          "zh": "很好。在這裡，每封 email 我們都當天回覆。"
+        },
+        {
+          "id": "t4_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "So you really have to pay attention to details.",
+          "zh": "所以你真的要很注意細節。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "為什麼想來這裡",
+      "newChunkIds": ["heard_great_place_to_work", "looking_for_chance_to_grow"],
+      "newWordIds": ["believe", "reason", "future", "opportunity", "respect", "success", "goal"],
+      "talks": [
+        {
+          "id": "t5_talk",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "front_desk",
+              "en": "Ms. Carter, a candidate called about the office job.",
+              "zh": "Carter 小姐，有位應徵者打電話來問辦公室的工作。"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "manager",
+              "en": "Okay. Tell her we're a small team, just six people.",
+              "zh": "好。跟她說我們是小團隊，只有六個人。"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "front_desk",
+              "en": "Sure. And what's the job like?",
+              "zh": "好的。那工作內容是什麼？"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "manager",
+              "en": "Mostly answering phones and taking care of orders.",
+              "zh": "大多是接電話和處理訂單。"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "manager",
+              "en": "Some meetings, too. It takes effort, but it's fun.",
+              "zh": "也要安排一些會議。要花點心力，但很有趣。"
+            },
+            {
+              "id": "t5_talk_6",
+              "role": "front_desk",
+              "en": "Got it. I can call her back now.",
+              "zh": "了解，我現在就回電給她。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "How many people are on the team?",
+              "zh": "團隊有幾個人？",
+              "options": ["Four", "Six", "Ten"],
+              "answer": 1
+            },
+            {
+              "en": "What does the assistant do most?",
+              "zh": "助理最常做什麼？",
+              "options": ["Answer phones", "Clean the office", "Teach classes"],
+              "answer": 0
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "So, why do you want to work here?",
+          "zh": "那你為什麼想來這裡工作？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I heard it's a great place to work.",
+          "zh": "我聽說這裡是很棒的工作環境。",
+          "chunkId": "heard_great_place_to_work"
+        },
+        {
+          "id": "t5_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "It is. We really respect each other here.",
+          "zh": "沒錯。我們這裡的人很尊重彼此。"
+        },
+        {
+          "id": "t5_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And what are your goals for the future?",
+          "zh": "那你對未來有什麼目標？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t5_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm looking for a chance to grow.",
+          "zh": "我在找一個可以成長的機會。",
+          "chunkId": "looking_for_chance_to_grow"
+        },
+        {
+          "id": "t5_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. I believe this job is a great opportunity for that.",
+          "zh": "很好。我相信這份工作會是很好的機會。"
+        },
+        {
+          "id": "t5_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "A couple of our managers started as assistants.",
+          "zh": "我們有幾位主管就是從助理做起的。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "優點和缺點",
+      "newChunkIds": ["not_fastest_but_careful", "english_not_strong_yet"],
+      "newWordIds": ["strong", "improve", "patient", "fail", "stress", "strength", "weak"],
+      "cloze": [
+        { "lineId": "t6_1", "word": "strength", "distractors": ["kitchen", "ticket"] },
+        { "lineId": "t6_5", "word": "improves", "distractors": ["closes", "rains"] },
+        { "lineId": "t6_6", "word": "phones", "distractors": ["shoes", "trees"] }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Okay. What's your biggest strength?",
+          "zh": "好。你最大的優點是什麼？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm not the fastest, but I'm very careful.",
+          "zh": "我不是最快的，但我很細心。",
+          "chunkId": "not_fastest_but_careful"
+        },
+        {
+          "id": "t6_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "That's fine, careful is good. What are you weak at?",
+          "zh": "沒關係，細心很好。那你哪方面比較弱？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t6_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "My English isn't very strong yet.",
+          "zh": "我的英文還不是很好。",
+          "chunkId": "english_not_strong_yet"
+        },
+        {
+          "id": "t6_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Don't worry. It improves when you use it every day.",
+          "zh": "別擔心，每天用就會進步。"
+        },
+        {
+          "id": "t6_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "The phones get busy here, so there's some stress.",
+          "zh": "這裡電話很多，所以會有一點壓力。"
+        },
+        {
+          "id": "t6_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "But you seem patient. That's a big strength.",
+          "zh": "不過你看起來很有耐心，這是很大的優點。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "輪到你發問",
+      "newChunkIds": ["ask_about_working_hours", "when_need_me_to_start"],
+      "newWordIds": ["matter", "agree", "discuss", "opinion", "depend", "immediately", "attitude"],
+      "spellWordIds": ["resume", "mother", "father", "university", "certificate"],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Okay, that's all from me. Any questions?",
+          "zh": "好，我這邊問完了。你有什麼問題嗎？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could I ask about the working hours?",
+          "zh": "可以問一下上班時間嗎？",
+          "chunkId": "ask_about_working_hours"
+        },
+        {
+          "id": "t7_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Sure. It's nine to five, Monday to Friday.",
+          "zh": "當然。早上九點到下午五點，星期一到星期五。"
+        },
+        {
+          "id": "t7_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "When would you need me to start?",
+          "zh": "您希望我什麼時候開始上班？",
+          "chunkId": "when_need_me_to_start"
+        },
+        {
+          "id": "t7_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "It depends, but immediately would be great.",
+          "zh": "看情況，不過能馬上開始最好。"
+        },
+        {
+          "id": "t7_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "First, I need to discuss it with my team.",
+          "zh": "不過我得先跟團隊討論一下。"
+        },
+        {
+          "id": "t7_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "In my opinion, attitude matters most. I like yours.",
+          "zh": "我覺得態度最重要，而我喜歡你的態度。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "front_desk",
+          "speaker": "npc",
+          "en": "Good morning! How can I help you?",
+          "zh": "早安！有什麼需要幫忙的嗎？"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Hi, I have an interview at ten.",
+          "zh": "你好，我十點有面試。",
+          "chunkId": "have_interview_at_ten"
+        },
+        {
+          "id": "t8_3",
+          "role": "front_desk",
+          "speaker": "npc",
+          "en": "Great. Ms. Carter will be right out.",
+          "zh": "好的，Carter 小姐馬上就出來。"
+        },
+        {
+          "id": "t8_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Hi there! Sorry to keep you waiting.",
+          "zh": "嗨！不好意思讓你久等了。"
+        },
+        {
+          "id": "t8_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thanks for meeting with me today.",
+          "zh": "謝謝您今天撥空見我。",
+          "chunkId": "thanks_for_meeting_me"
+        },
+        {
+          "id": "t8_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Of course. So, tell me a little about yourself.",
+          "zh": "不會。那跟我說說你自己吧。",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I've been in this town since August.",
+          "zh": "我從八月就住在這個鎮上了。",
+          "chunkId": "been_in_town_since_august"
+        },
+        {
+          "id": "t8_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Nice. And what did you do at your last job?",
+          "zh": "不錯。那你上一份工作做什麼？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_9",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I answered the phone and wrote emails.",
+          "zh": "我接電話、寫 email。",
+          "chunkId": "answered_phone_wrote_emails"
+        },
+        {
+          "id": "t8_10",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. And what's your reason for applying here?",
+          "zh": "很好。那你為什麼會來應徵這裡？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_11",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm looking for a chance to grow.",
+          "zh": "我在找一個可以成長的機會。",
+          "chunkId": "looking_for_chance_to_grow"
+        },
+        {
+          "id": "t8_12",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I like that attitude. What's your biggest strength?",
+          "zh": "我喜歡這種態度。你最大的優點是什麼？"
+        },
+        {
+          "id": "t8_13",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm not the fastest, but I'm very careful.",
+          "zh": "我不是最快的，但我很細心。",
+          "chunkId": "not_fastest_but_careful"
+        },
+        {
+          "id": "t8_14",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "That's fine. Here, careful matters more than fast.",
+          "zh": "沒關係。在這裡，細心比快更重要。"
+        },
+        {
+          "id": "t8_15",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Okay, any questions for me?",
+          "zh": "好，你有什麼想問我的嗎？"
+        },
+        {
+          "id": "t8_16",
+          "role": "guide",
+          "speaker": "player",
+          "en": "When would you need me to start?",
+          "zh": "您希望我什麼時候開始上班？",
+          "chunkId": "when_need_me_to_start"
+        },
+        {
+          "id": "t8_17",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "It depends. I need to discuss it with my team.",
+          "zh": "看情況。我得先跟團隊討論一下。"
+        },
+        {
+          "id": "t8_18",
+          "role": "front_desk",
+          "speaker": "npc",
+          "en": "We all wish you the best. Have a nice day!",
+          "zh": "我們都祝你一切順利。祝你有美好的一天！"
+        }
+      ]
+    }
+  ]
+}
