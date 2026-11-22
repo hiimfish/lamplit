@@ -64,6 +64,28 @@ describe('validateUnit catches broken content', () => {
     expect(problemsFor((u) => (player(u).chunkId = 'nope'))).not.toEqual([]);
     expect(problemsFor((u) => delete player(u).chunkId)).not.toEqual([]);
   });
+
+  describe('stage cues', () => {
+    const withStage = (stage: unknown) =>
+      problemsFor((u) => {
+        (u.tasks[0]!.scene[0] as { stage?: unknown }).stage = stage;
+      });
+
+    it('accepts want / give with a word of the unit, and ask with no item', () => {
+      expect(withStage({ act: 'want', item: 'latte' })).toEqual([]);
+      expect(withStage({ act: 'give', item: 'muffin' })).toEqual([]);
+      expect(withStage({ act: 'ask' })).toEqual([]);
+    });
+
+    it('rejects a bad act, a missing or unknown item, and ask with an item', () => {
+      expect(withStage({ act: 'wave' })).not.toEqual([]);
+      expect(withStage({ act: 'want' })).not.toEqual([]);
+      expect(withStage({ act: 'give', item: 'key' })).not.toEqual([]);
+      expect(withStage({ act: 'give', item: 3 })).not.toEqual([]);
+      expect(withStage({ act: 'ask', item: 'latte' })).not.toEqual([]);
+      expect(withStage('want')).not.toEqual([]);
+    });
+  });
 });
 
 describe('ids across units', () => {

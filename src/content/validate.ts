@@ -101,9 +101,33 @@ export function validateUnit(unit: unknown): string[] {
       } else if (line.speaker === 'player') {
         problems.push(where(`player line "${lineId}" has no chunkId`));
       }
+      if (line.stage !== undefined)
+        checkStage(line.stage, wordIds, (p) => problems.push(where(`line "${lineId}" ${p}`)));
     }
   }
   return problems;
+}
+
+const STAGE_ACTS = ['want', 'ask', 'give'];
+
+/** A stage cue: `want` / `give` need an item that is a word of the unit; `ask` has none. */
+function checkStage(value: unknown, wordIds: Set<string>, report: (problem: string) => void): void {
+  if (!isObject(value)) {
+    report('stage must be an object');
+    return;
+  }
+  const { act, item } = value;
+  if (typeof act !== 'string' || !STAGE_ACTS.includes(act)) {
+    report(`stage has bad act "${String(act)}"`);
+    return;
+  }
+  if (act === 'ask') {
+    if (item !== undefined) report('stage "ask" must not have an item');
+  } else if (item === undefined) {
+    report(`stage "${act}" needs an item`);
+  } else if (typeof item !== 'string' || !wordIds.has(item)) {
+    report(`stage uses unknown word "${String(item)}"`);
+  }
 }
 
 /**

@@ -25,7 +25,7 @@ export interface Word {
   emoji: string;
 }
 
-interface SceneLine {
+export interface SceneLine {
   /** Audio id is `${unitId}.line.${id}`. */
   id: string;
   role: Role;
@@ -35,6 +35,16 @@ interface SceneLine {
   zh: string;
   /** For a player line: the chunk it practises (links to Chunk.id). */
   chunkId?: string;
+  /** Optional prop action for the little stage above the story (see scene-stage.md). */
+  stage?: StageCue;
+}
+
+export type StageAct = 'want' | 'ask' | 'give';
+
+/** `want` and `give` show a word's picture (`item` is a word id of the same unit); `ask` has no item. */
+export interface StageCue {
+  act: StageAct;
+  item?: string;
 }
 
 export interface Task {

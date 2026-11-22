@@ -91,7 +91,7 @@
 - 每句 `player` 台詞都有 `chunkId`。
 - `role` 和 `speaker` 是合法值。
 - 對比詞：id 和兩個字的 id 符合格式、不重複；有 `focus`；兩個字都有 `en`、`zh` 而且不一樣；任務的 `newPairIds` 都存在。
-- （未做）`stage` 的 `act` 合法；`want`／`give` 的 `item` 是同單元的單字，`ask` 不帶 `item`。
+- `stage` 的 `act` 合法；`want`／`give` 的 `item` 是同單元的單字，`ask` 不帶 `item`。
 
 不合格的單元不會被載入，開發模式下會在 console 顯示警告。`tests/content.test.ts` 會檢查 `src/data/units/` 裡的每個單元。
 
@@ -105,6 +105,7 @@
 - 任務：見到房東（自我介紹）、名字怎麼拼（How do you spell that?）、垃圾怎麼丟（Can you speak more slowly, please?）。
 - 對比詞：fan/van、light/right、bed/bad、sink/think、ship/sheep、cap/cup，每個任務兩組。
 - 單字像素圖：鑰匙、箱子、門、椅子、檯燈、垃圾桶都有。對比詞不用圖（聽辨題只靠聲音）。
+- 小劇場：新家玄關和房東 Mr. Bell；4 句台詞有道具提示（給鑰匙、兩次問號、講垃圾時的垃圾桶），見 [scene-stage.md](scene-stage.md)。
 - 英文句子還沒請人審閱，發音還沒請使用者試聽。
 
 ### 咖啡廳（`cafe`）

@@ -155,7 +155,8 @@
           "role": "landlord",
           "speaker": "npc",
           "en": "Nice to meet you, too. Here's your key.",
-          "zh": "我也很高興認識你。這是你的鑰匙。"
+          "zh": "我也很高興認識你。這是你的鑰匙。",
+          "stage": { "act": "give", "item": "key" }
         }
       ]
     },
@@ -194,7 +195,8 @@
           "speaker": "player",
           "en": "How do you spell that?",
           "zh": "那個怎麼拼？",
-          "chunkId": "spell_that"
+          "chunkId": "spell_that",
+          "stage": { "act": "ask" }
         },
         {
           "id": "t2_5",
@@ -217,7 +219,8 @@
           "role": "landlord",
           "speaker": "npc",
           "en": "Trash goes out on Monday night, and recycling goes out on Thursday.",
-          "zh": "垃圾星期一晚上拿出去，回收是星期四。"
+          "zh": "垃圾星期一晚上拿出去，回收是星期四。",
+          "stage": { "act": "want", "item": "trash_can" }
         },
         {
           "id": "t3_2",
@@ -225,7 +228,8 @@
           "speaker": "player",
           "en": "Can you speak more slowly, please?",
           "zh": "可以請你說慢一點嗎？",
-          "chunkId": "more_slowly"
+          "chunkId": "more_slowly",
+          "stage": { "act": "ask" }
         },
         {
           "id": "t3_3",

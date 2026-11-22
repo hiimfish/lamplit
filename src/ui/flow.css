@@ -84,7 +84,13 @@
 /*
  * 先回小鎮 is secondary: a small paper key at the right end of the title strip,
  * out of the way of 下一句 / 繼續. Its shadow would vanish on ink, so it has none.
+ * The title keeps clear of it (centred in the space left of the key) and wraps
+ * in a narrow card instead of running under the key.
  */
+.flow-card > .flow-title:has(~ .quit) {
+  padding-right: calc(62 * var(--px));
+}
+
 .flow-card > .flow-title ~ .quit {
   position: absolute;
   top: var(--px);
@@ -319,6 +325,31 @@
 /* Portrait has a tall paper panel: show the whole short scene without an inner scrollbar. */
 :root[data-orientation='portrait'] .chat {
   max-height: calc(270 * var(--px));
+}
+
+/*
+ * Landscape with a stage (stage/stage.css): the stage is a full-height column
+ * on the left, --stage-w wide (set on #frame while the story is open). The
+ * story card fills everything to its right, edge to edge like the portrait
+ * panel, so no street shows around it.
+ */
+:root[data-orientation='landscape'] .flow:has(.story.has-stage) {
+  align-items: stretch;
+  padding: 0 0 0 var(--stage-w, 0px);
+}
+
+:root[data-orientation='landscape'] .flow:has(.story.has-stage) .flow-card {
+  width: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  border: 0;
+  box-shadow: none;
+}
+
+/* Without the card's outer margins the chat can use a little more of the height. */
+:root[data-orientation='landscape'] .story.has-stage .chat {
+  max-height: calc(var(--scene-h) - 80 * var(--px));
 }
 
 .bubble-row {

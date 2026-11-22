@@ -1,0 +1,194 @@
+/*
+ * The stage over the top of the scene, edge to edge. Its size (in --px) comes
+ * from stageArea(); --sp is one stage pixel on screen (--px times the
+ * whole-number --stage-scale). Motion is stepped and only moves transform and
+ * opacity.
+ */
+.stage {
+  --sp: calc(var(--px) * var(--stage-scale, 1));
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  background: var(--ink);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Portrait: #frame is the whole screen and the canvas is offset by --frame-x. */
+:root[data-orientation='portrait'] .stage {
+  left: var(--frame-x);
+}
+
+/* Landscape: a full-height column on the left, with a thin ink rule where the story begins. */
+:root[data-orientation='landscape'] .stage {
+  border-right: var(--px) solid var(--ink);
+}
+
+/* The painted stage, anchored at the bottom left so every pixel is on the grid. */
+.stage-canvas {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.stage-bg {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+.stage-clip {
+  position: absolute;
+  overflow: hidden;
+}
+
+.stage-actor {
+  position: absolute;
+  display: block;
+}
+
+.stage-actor.talking {
+  animation: stage-talk 360ms steps(1, end) infinite;
+}
+
+@keyframes stage-talk {
+  0% {
+    transform: none;
+  }
+  50% {
+    transform: translateY(calc(-1 * var(--sp)));
+  }
+}
+
+.stage .item-icon {
+  width: calc(24 * var(--sp));
+  height: calc(24 * var(--sp));
+}
+
+.stage .item-icon-fallback {
+  display: grid;
+  place-items: center;
+  width: calc(24 * var(--sp));
+  height: calc(24 * var(--sp));
+  font-size: calc(11 * var(--sp));
+  line-height: 1;
+}
+
+/* A prop handed across the counter slides one stage pixel per step. */
+.stage-prop {
+  position: absolute;
+}
+
+.stage-prop.sliding {
+  animation-name: stage-slide;
+  animation-duration: 600ms;
+  animation-fill-mode: both;
+}
+
+@keyframes stage-slide {
+  from {
+    transform: translateX(calc(var(--dx) * var(--sp)));
+  }
+  to {
+    transform: none;
+  }
+}
+
+/* Thought (want) and question (ask) bubbles over a character's head. */
+.stage-bubble {
+  position: absolute;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  background: var(--paper);
+  border: var(--sp) solid var(--ink);
+  animation: stage-pop 160ms steps(2, end) both;
+}
+
+.stage-bubble.want {
+  width: calc(28 * var(--sp));
+  height: calc(28 * var(--sp));
+}
+
+.stage-bubble.ask {
+  width: calc(11 * var(--sp));
+  height: calc(13 * var(--sp));
+  font-size: calc(11 * var(--sp));
+  line-height: 1;
+}
+
+/* Tail dots: a boxed dot, then a small ink dot, leading to the head. */
+.stage-bubble::before,
+.stage-bubble::after {
+  content: '';
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.stage-bubble::before {
+  width: calc(3 * var(--sp));
+  height: calc(3 * var(--sp));
+  background: var(--paper);
+  border: var(--sp) solid var(--ink);
+}
+
+.stage-bubble::after {
+  width: calc(2 * var(--sp));
+  height: calc(2 * var(--sp));
+  background: var(--ink);
+}
+
+/* Your thought bubble sits up and to the right; the tail runs down-left. */
+.stage-bubble.want.left::before {
+  left: calc(-2 * var(--sp));
+  bottom: calc(-5 * var(--sp));
+}
+
+.stage-bubble.want.left::after {
+  left: calc(-5 * var(--sp));
+  bottom: calc(-8 * var(--sp));
+}
+
+/* The barista's bubble sits to the left of the head; the tail runs right. */
+.stage-bubble.want.right::before {
+  right: calc(-5 * var(--sp));
+  bottom: calc(2 * var(--sp));
+}
+
+.stage-bubble.want.right::after {
+  right: calc(-8 * var(--sp));
+  bottom: calc(-1 * var(--sp));
+}
+
+.stage-bubble.ask::before {
+  display: none;
+}
+
+.stage-bubble.ask::after {
+  left: calc(4 * var(--sp));
+  bottom: calc(-3 * var(--sp));
+}
+
+@keyframes stage-pop {
+  from {
+    opacity: 0;
+    transform: translateY(calc(2 * var(--sp)));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage-actor.talking,
+  .stage-prop.sliding,
+  .stage-bubble {
+    animation: none;
+  }
+}
