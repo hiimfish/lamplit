@@ -255,8 +255,8 @@
           "id": "t2_1",
           "role": "clerk",
           "speaker": "npc",
-          "en": "Hi! Do you want a sandwich with your drink?",
-          "zh": "嗨！飲料要不要配個三明治？"
+          "en": "Hi! Is it just the drink today?",
+          "zh": "嗨！今天只買飲料嗎？"
         },
         {
           "id": "t2_2",
@@ -288,8 +288,8 @@
           "id": "t2_5",
           "role": "clerk",
           "speaker": "npc",
-          "en": "Okay. Thanks, and have a good day!",
-          "zh": "好的。謝謝，祝你有美好的一天！"
+          "en": "Okay, thanks! Have a good day!",
+          "zh": "好，謝謝！祝你有美好的一天！"
         }
       ]
     },
@@ -303,8 +303,8 @@
           "id": "t3_1",
           "role": "clerk",
           "speaker": "npc",
-          "en": "Look, it's raining!",
-          "zh": "你看，下雨了！"
+          "en": "Oh no, it's raining!",
+          "zh": "糟糕，下雨了！"
         },
         {
           "id": "t3_2",
@@ -319,8 +319,8 @@
           "id": "t3_3",
           "role": "clerk",
           "speaker": "npc",
-          "en": "They're over there, by the batteries.",
-          "zh": "在那邊，電池旁邊。",
+          "en": "They're by the batteries.",
+          "zh": "在電池旁邊。",
           "stage": { "act": "want", "item": "battery" }
         },
         {
@@ -336,8 +336,8 @@
           "id": "t3_5",
           "role": "clerk",
           "speaker": "npc",
-          "en": "Yes. You got the last one!",
-          "zh": "對。你拿到最後一把了！"
+          "en": "Yes, it is!",
+          "zh": "對，是最後一把！"
         }
       ]
     },
@@ -360,8 +360,8 @@
           "id": "t4_2",
           "role": "clerk",
           "speaker": "npc",
-          "en": "Sure. Here, it's hot!",
-          "zh": "好的。來，很燙喔！",
+          "en": "Here, it's hot!",
+          "zh": "來，很燙喔！",
           "stage": { "act": "give", "item": "lunch" }
         },
         {
@@ -377,8 +377,8 @@
           "id": "t4_4",
           "role": "clerk",
           "speaker": "npc",
-          "en": "Okay. Here's a fork.",
-          "zh": "好。這是叉子。",
+          "en": "Sure, here.",
+          "zh": "好，給你。",
           "stage": { "act": "give", "item": "fork" }
         }
       ]
@@ -472,8 +472,8 @@
           "id": "t6_5",
           "role": "clerk",
           "speaker": "npc",
-          "en": "Sure. I like this chocolate, too.",
-          "zh": "好的。我也喜歡這個巧克力。",
+          "en": "Sure. This chocolate is really good.",
+          "zh": "好的。這個巧克力很好吃。",
           "stage": { "act": "give", "item": "chocolate" }
         }
       ]
@@ -568,8 +568,8 @@
           "id": "t8_5",
           "role": "clerk",
           "speaker": "npc",
-          "en": "They're by the door. Look, it's raining!",
-          "zh": "在門旁邊。你看，下雨了！"
+          "en": "They're by the door. Oh no, it's raining!",
+          "zh": "在門旁邊。糟糕，下雨了！"
         },
         {
           "id": "t8_6",
@@ -584,7 +584,7 @@
           "id": "t8_7",
           "role": "clerk",
           "speaker": "npc",
-          "en": "The umbrellas are by the door, too.",
+          "en": "They're by the door, too.",
           "zh": "雨傘也在門旁邊。"
         },
         {
