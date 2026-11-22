@@ -15,7 +15,7 @@ import {
   wordCount,
   type TaskCheckContext,
 } from './checks/common';
-import { checkFills } from './checks/fills';
+import { checkFillChunks, checkFills } from './checks/fills';
 import { checkPassages } from './checks/passages';
 import { checkTalks } from './checks/talks';
 
@@ -182,6 +182,8 @@ export function validateUnit(unit: unknown): string[] {
       for (const id of task.newChunkIds) if (typeof id === 'string') taughtChunks.add(id);
     }
   }
+  // A fill that names a chunk must be that chunk; this needs the whole unit, and a unit in shape.
+  if (problems.length === 0) problems.push(...checkFillChunks(unit));
   return problems;
 }
 
