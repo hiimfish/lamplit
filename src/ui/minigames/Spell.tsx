@@ -50,9 +50,11 @@ interface KeyboardProps {
   empty: boolean;
   onLetter: (letter: string) => void;
   onBack: () => void;
+  onCheck: () => void;
 }
 
-function LetterKeys({ full, empty, onLetter, onBack }: KeyboardProps) {
+/** Letter keys; the bottom row ends with ⌫ and 檢查, so the whole pad is three rows. */
+function LetterKeys({ full, empty, onLetter, onBack, onCheck }: KeyboardProps) {
   return (
     <div class="mg-keys" lang="en">
       {KEY_ROWS.map((row, r) => (
@@ -79,6 +81,18 @@ function LetterKeys({ full, empty, onLetter, onBack }: KeyboardProps) {
               onClick={onBack}
             >
               ⌫
+            </button>
+          )}
+          {r === KEY_ROWS.length - 1 && (
+            <button
+              type="button"
+              class="pixel-button primary mg-key wide"
+              lang="zh-Hant"
+              data-testid="check"
+              disabled={empty}
+              onClick={onCheck}
+            >
+              檢查
             </button>
           )}
         </div>
@@ -148,25 +162,13 @@ export function Spell({ question, onAnswered }: MinigameProps<SpellQuestion>) {
       />
       <LetterSlots typed={typed} answer={question.answer} graded={locked} />
       {!locked && (
-        <>
-          <LetterKeys
-            full={typed.length >= max}
-            empty={typed === ''}
-            onLetter={letter}
-            onBack={back}
-          />
-          <div class="mg-row">
-            <button
-              type="button"
-              class="pixel-button primary"
-              data-testid="check"
-              disabled={typed === ''}
-              onClick={check}
-            >
-              檢查
-            </button>
-          </div>
-        </>
+        <LetterKeys
+          full={typed.length >= max}
+          empty={typed === ''}
+          onLetter={letter}
+          onBack={back}
+          onCheck={check}
+        />
       )}
       <FeedbackSlot>
         {grade && (
