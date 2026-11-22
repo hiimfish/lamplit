@@ -864,8 +864,8 @@
           "id": "t1_1",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Okay, our first trade fair! The doors open in an hour.",
-          "zh": "好，我們第一次參加商展！再一個小時就開門了。"
+          "en": "Okay, our first trade fair together! The doors open in an hour.",
+          "zh": "好，我們第一次一起參展！再一個小時就開門了。"
         },
         {
           "id": "t1_2",
@@ -881,7 +881,10 @@
           "speaker": "npc",
           "en": "Brochures on the counter, right under our logo.",
           "zh": "簡介放櫃台上，就在我們的商標下面。",
-          "stage": { "act": "give", "item": "brochure" }
+          "stage": {
+            "act": "give",
+            "item": "brochure"
+          }
         },
         {
           "id": "t1_4",
@@ -918,7 +921,10 @@
           "speaker": "npc",
           "en": "So greet everyone who stops at the booth, okay?",
           "zh": "所以只要有人在攤位前停下來，都要打招呼，好嗎？",
-          "stage": { "act": "want", "item": "greet" }
+          "stage": {
+            "act": "want",
+            "item": "greet"
+          }
         }
       ]
     },
@@ -1049,7 +1055,9 @@
           "speaker": "npc",
           "en": "But there's a lot of competition here. What makes yours different?",
           "zh": "不過這裡競爭很激烈。你們的跟別家差在哪裡？",
-          "stage": { "act": "ask" }
+          "stage": {
+            "act": "ask"
+          }
         },
         {
           "id": "t3_5",
@@ -1070,8 +1078,8 @@
           "id": "t3_7",
           "role": "client",
           "speaker": "npc",
-          "en": "Quality and a modern look. That's what keeps you competitive.",
-          "zh": "品質好、外型新，這樣才有競爭力。"
+          "en": "Good quality and modern features. That's how you stay competitive.",
+          "zh": "品質好、功能新，這樣才能保持競爭力。"
         }
       ]
     },
@@ -1102,7 +1110,7 @@
             "Area A: companies from North America. Area B: companies from the Asia region. Area C: companies from Europe.",
             "Thursday is for business visitors only (10:00 to 6:00). Friday and Saturday are open to everyone (9:00 to 5:00).",
             "The information desk in Area A opens one hour before the fair each day. Ask there for a free guide with a map of every booth.",
-            "Every afternoon at two, companies show their newest products in Area C. Last year, visitors ordered more than twelve million dollars of products."
+            "Every afternoon at two, companies show their newest products in Area C. Last year, visitors ordered products worth more than twelve million dollars."
           ],
           "questions": [
             {
@@ -1167,7 +1175,7 @@
           "id": "t4_6",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Last year, visitors ordered over twelve million dollars of products!",
+          "en": "Last year, visitors ordered more than twelve million dollars' worth of products!",
           "zh": "去年訪客下的訂單超過一千兩百萬美元！"
         },
         {
@@ -1287,13 +1295,15 @@
           "speaker": "npc",
           "en": "Do you have a catalog I could take back with me?",
           "zh": "有目錄可以讓我帶回去嗎？",
-          "stage": { "act": "ask" }
+          "stage": {
+            "act": "ask"
+          }
         },
         {
           "id": "t5_5",
           "role": "client",
           "speaker": "npc",
-          "en": "Lovely, thank you. And who should I email about an order?",
+          "en": "Thanks, that's great. And who should I email about an order?",
           "zh": "太好了，謝謝。那要下單的話，我該寄信給誰？"
         },
         {
@@ -1414,8 +1424,8 @@
           "id": "t6_4",
           "role": "client",
           "speaker": "npc",
-          "en": "Good. I hear the light is powerful, and it runs very efficiently.",
-          "zh": "很好。聽說它的光很強，而且很省電。"
+          "en": "Good. Your video says the light is powerful but works very efficiently.",
+          "zh": "很好。你們的影片說它光很強，可是很省電。"
         },
         {
           "id": "t6_5",
@@ -1558,7 +1568,7 @@
           "role": "coworker",
           "speaker": "npc",
           "en": "I think so too! Visitors were really impressed with our lamps today.",
-          "zh": "哈，我也這麼覺得！今天的訪客都對我們的檯燈印象很深。"
+          "zh": "我也這麼覺得！今天的訪客都對我們的檯燈印象很深。"
         },
         {
           "id": "t7_4",
@@ -1578,7 +1588,7 @@
           "id": "t7_6",
           "role": "coworker",
           "speaker": "npc",
-          "en": "What an enormous first day. I'm so tired.",
+          "en": "That was an enormous first day. I'm so tired.",
           "zh": "第一天人也太多了吧，我好累。"
         },
         {
@@ -1654,15 +1664,15 @@
           "id": "t8_4",
           "role": "client",
           "speaker": "npc",
-          "en": "Yes. By sea, please. Air is far too costly.",
-          "zh": "對。請走海運，空運太貴了。"
+          "en": "Yes, twice our typical order. By sea, please. Air's too costly.",
+          "zh": "對，是我們平常訂單的兩倍。請走海運，空運太貴了。"
         },
         {
           "id": "t8_5",
           "role": "client",
           "speaker": "npc",
-          "en": "Could you put it all in an email?",
-          "zh": "可以把這些都寫成 email 寄給我嗎？"
+          "en": "Could you put it in an email?",
+          "zh": "可以寫成 email 寄給我嗎？"
         },
         {
           "id": "t8_6",
@@ -1714,8 +1724,8 @@
           "id": "t9_4",
           "role": "client",
           "speaker": "npc",
-          "en": "Good morning. What lovely lamps!",
-          "zh": "早安。好漂亮的檯燈！"
+          "en": "Good morning. These lamps look great!",
+          "zh": "早安。這些檯燈看起來很棒！"
         },
         {
           "id": "t9_5",
@@ -1744,8 +1754,8 @@
           "id": "t9_8",
           "role": "client",
           "speaker": "npc",
-          "en": "You too. This fair is much bigger than I expected.",
-          "zh": "我也是。這個展覽比我想的大多了。"
+          "en": "You too. This fair is full of potential partners.",
+          "zh": "我也是。這個展覽到處都是可能的合作對象。"
         },
         {
           "id": "t9_9",
@@ -1781,8 +1791,8 @@
           "id": "t9_13",
           "role": "client",
           "speaker": "npc",
-          "en": "So what's its best feature? I'd love to see it work.",
-          "zh": "那它最棒的功能是什麼？我很想看看它怎麼用。"
+          "en": "So what's its biggest advantage? I'd love to see it work.",
+          "zh": "那它最大的優點是什麼？我很想看看它怎麼用。"
         },
         {
           "id": "t9_14",
@@ -1796,8 +1806,8 @@
           "id": "t9_15",
           "role": "client",
           "speaker": "npc",
-          "en": "Your booth looks great, I must say.",
-          "zh": "說真的，你們的攤位佈置得真好看。"
+          "en": "Your booth looks great. Are you in the competition?",
+          "zh": "你們的攤位佈置得真好看。有參加比賽嗎？"
         },
         {
           "id": "t9_16",
@@ -1811,8 +1821,8 @@
           "id": "t9_17",
           "role": "client",
           "speaker": "npc",
-          "en": "Perhaps! Right, I'd like two hundred of the new model.",
-          "zh": "哈，或許吧！好，新款我要兩百個。"
+          "en": "We'll see! Right, I'd like two hundred of the new model.",
+          "zh": "那就拭目以待囉！好，新款我要兩百個。"
         },
         {
           "id": "t9_18",
@@ -1841,7 +1851,7 @@
           "id": "t9_21",
           "role": "client",
           "speaker": "npc",
-          "en": "Lovely. A very successful visit! See you both at dinner on Saturday.",
+          "en": "Great. A very successful visit! See you both at dinner on Saturday.",
           "zh": "太好了。這次來得很值得！星期六晚餐見囉。"
         }
       ]

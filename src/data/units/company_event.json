@@ -386,8 +386,8 @@
           "id": "t1_6",
           "role": "manager",
           "speaker": "npc",
-          "en": "About eighty, with families. It's a social occasion.",
-          "zh": "八十人左右，包括家人。這是聯誼的場合嘛。"
+          "en": "About eighty, with families. It's more of a social occasion.",
+          "zh": "八十人左右，會帶家人來。算是比較聯誼性質的場合。"
         },
         {
           "id": "t1_7",
@@ -561,8 +561,8 @@
           "id": "t3_7",
           "role": "coworker",
           "speaker": "npc",
-          "en": "They make a traditional cake, too. Let's taste it!",
-          "zh": "他們還有做傳統的蛋糕。我們去試吃看看吧！"
+          "en": "They make a traditional cake, too. We should go taste it!",
+          "zh": "他們還有做傳統蛋糕。我們應該去試吃看看！"
         }
       ]
     },
@@ -668,8 +668,8 @@
           "id": "t4_6",
           "role": "manager",
           "speaker": "npc",
-          "en": "Thanks. People need to reply by Friday, for the caterer.",
-          "zh": "謝謝。大家要在星期五前回覆，外燴那邊要知道人數。"
+          "en": "Thanks. People need to reply by Friday, so the caterer knows the number.",
+          "zh": "謝謝。大家要在星期五前回覆，外燴那邊才知道人數。"
         },
         {
           "id": "t4_7",
@@ -746,8 +746,8 @@
             {
               "id": "t5_talk_8",
               "role": "coworker",
-              "en": "Guests arrive at six tonight. I hope a big crowd at the door isn't a problem.",
-              "zh": "來賓今晚六點到。希望門口人一多不會出問題。"
+              "en": "Guests arrive at six tonight. Let's hope there's no big crowd at the door.",
+              "zh": "來賓今晚六點到。希望門口不要擠一大堆人。"
             }
           ],
           "questions": [
@@ -864,16 +864,16 @@
           "lines": [
             "Hi everyone,",
             "The party starts at six tonight. If you ___ early, please help Dan with the tables.",
-            "Our band has two musicians, and one of them is very ___. Get ready to laugh!",
+            "Our band has two musicians, and one of them tells really ___ jokes. Get ready to laugh!",
             "Please stay ___ the photographer takes a group photo at nine thirty.",
             "Ms. Carter"
           ],
           "zh": [
             "大家好：",
             "派對今晚六點開始。如果你早到，請幫 Dan 擺桌子。",
-            "我們的樂團有兩位樂手，其中一位非常好笑。準備好笑一整晚吧！",
+            "我們的樂團有兩位樂手，其中一位很會講好笑的笑話。準備好大笑吧！",
             "請留到九點半攝影師拍大合照之後再走。",
-            "Carter"
+            "Ms. Carter"
           ],
           "blanks": [
             {
@@ -884,7 +884,7 @@
             {
               "options": ["funny", "round", "vegetarian", "outdoor"],
               "answer": 0,
-              "note": "後面說準備好笑，所以是 funny。"
+              "note": "後面說準備好大笑，所以笑話是 funny（好笑的）。"
             },
             {
               "options": ["until", "during", "unless", "by"],
@@ -936,8 +936,8 @@
           "id": "t6_6",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Mr. Ellis is so generous. Dessert is his treat!",
-          "zh": "Ellis 先生真大方，甜點是他請客！"
+          "en": "Mr. Ellis is so generous. The cake is his treat!",
+          "zh": "Ellis 先生真大方，蛋糕是他請客的！"
         },
         {
           "id": "t6_7",
@@ -1010,8 +1010,8 @@
             {
               "id": "t7_talk_6",
               "role": "director",
-              "en": "Tonight, I also want to thank one person in particular.",
-              "zh": "今晚我還要特別感謝一個人。"
+              "en": "Tonight, I also have a surprise for one person in this room.",
+              "zh": "今晚我還要給在座的一位同事一個驚喜。"
             },
             {
               "id": "t7_talk_7",
@@ -1028,8 +1028,8 @@
             {
               "id": "t7_talk_9",
               "role": "director",
-              "en": "It is my honor to give the Employee of the Year award to our party leader!",
-              "zh": "我很榮幸把年度最佳員工獎頒給這次派對的負責人！"
+              "en": "It is my honor to give the Employee of the Year award to the person who organized this party!",
+              "zh": "我很榮幸把年度最佳員工獎，頒給籌辦今晚派對的這位同事！"
             }
           ],
           "questions": [
@@ -1097,8 +1097,8 @@
           "id": "t7_5",
           "role": "director",
           "speaker": "npc",
-          "en": "And you organized this whole party, too!",
-          "zh": "而且整個派對也是你籌辦的！"
+          "en": "And tonight's party is a big success, too!",
+          "zh": "而且今晚的派對也辦得很成功！"
         },
         {
           "id": "t7_6",
@@ -1159,8 +1159,8 @@
           "id": "t8_4",
           "role": "manager",
           "speaker": "npc",
-          "en": "That was easy. I admire how hard you work.",
-          "zh": "那很容易啊。我很佩服你這麼努力。"
+          "en": "My pleasure. I really admire how hard you work.",
+          "zh": "不客氣。我真的很佩服你這麼努力。"
         },
         {
           "id": "t8_5",
@@ -1226,7 +1226,7 @@
           "id": "t9_4",
           "role": "manager",
           "speaker": "npc",
-          "en": "The last one, I think. That gives us more time.",
+          "en": "The later one, I think. That gives us more time.",
           "zh": "我想選後面那個，這樣我們時間比較充裕。"
         },
         {
@@ -1263,8 +1263,8 @@
           "id": "t9_9",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Sounds great from here. Loud and clear!",
-          "zh": "從這裡聽很清楚，又大聲又清楚！"
+          "en": "It works. I can hear you fine from back here!",
+          "zh": "可以用。我在後面這裡聽得很清楚！"
         },
         {
           "id": "t9_10",

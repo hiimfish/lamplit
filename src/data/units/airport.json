@@ -895,14 +895,14 @@
           "id": "t2_1",
           "role": "airline_agent",
           "speaker": "npc",
-          "en": "Good morning. Flight 482, and Chicago is your final destination?",
-          "zh": "早安。482 班機，最後的目的地是芝加哥嗎？"
+          "en": "Good morning. Flight 482. Is Chicago your final destination today?",
+          "zh": "早安。482 班機，請問您今天的目的地就是芝加哥嗎？"
         },
         {
           "id": "t2_2",
           "role": "airline_agent",
           "speaker": "npc",
-          "en": "Great. Can I see both of your IDs, please?",
+          "en": "Okay. Can I see both of your IDs, please?",
           "zh": "好的。可以看一下兩位的證件嗎？"
         },
         {
@@ -991,8 +991,8 @@
           "id": "t3_3",
           "role": "coworker",
           "speaker": "npc",
-          "en": "In your pocket, right? Keep it in your wallet.",
-          "zh": "在你口袋裡對吧？把它收在皮夾裡啦。",
+          "en": "Was it in your pocket? Keep it in your wallet next time.",
+          "zh": "在口袋裡嗎？下次收在皮夾裡啦。",
           "stage": {
             "act": "want",
             "item": "wallet"
@@ -1067,7 +1067,7 @@
             "The airline changed the time of your flight home on Saturday evening, so I'm sending you a new version of your itinerary. Please use this one, not the old one.",
             "Your departure today is the same. Flight 482 leaves at 1:10 p.m., and the arrival time in Chicago is 3:05 p.m.",
             "There may be a storm near Chicago this afternoon, so there is a possibility of a delay. If anything unexpected happens, call me.",
-            "You don't need a rental car. A free shuttle to your rooms leaves the airport every 30 minutes, so you can get there easily.",
+            "You don't need a rental car. A free shuttle goes from the airport to where you're staying every 30 minutes, so you can get there easily.",
             "Have a good trip!",
             "Ms. Carter"
           ],
@@ -1348,14 +1348,14 @@
             "Dear passengers,",
             "Flight 482 to Chicago is delayed because of bad weather. The plane will depart from a new gate.",
             "Please stay near this gate ___ we post the new gate on the screens.",
-            "Frequent passengers with a member card may wait in the ___.",
+            "If you are one of our frequent passengers, you are welcome to wait in our ___.",
             "Thank you for ___ patient."
           ],
           "zh": [
             "各位旅客好：",
             "往芝加哥的 482 班機因為天氣不好延誤了，飛機會改從新的登機門起飛。",
             "在我們把新的登機門公布在螢幕上之前，請待在這個登機門附近。",
-            "有會員卡的常客可以在貴賓室等候。",
+            "常搭我們班機的旅客，歡迎到我們的貴賓室等候。",
             "謝謝您耐心等候。"
           ],
           "blanks": [
@@ -1365,7 +1365,7 @@
               "note": "一直等到公布為止，用 until。"
             },
             {
-              "options": ["lounge", "pocket", "wallet", "belt"],
+              "options": ["lounge", "aisle", "luggage", "pocket"],
               "answer": 0,
               "note": "可以坐著等的地方是貴賓室 lounge。"
             },
@@ -1404,15 +1404,15 @@
           "id": "t6_4",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Hold on. Did they just announce a gate change?",
-          "zh": "等一下。他們剛剛是不是廣播說要換登機門？"
+          "en": "Hold on. They just announced a gate change.",
+          "zh": "等一下，他們剛剛廣播說要換登機門。"
         },
         {
           "id": "t6_5",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Right, but the screen doesn't say which gate yet.",
-          "zh": "對，可是螢幕上還沒寫是哪個登機門。"
+          "en": "But the screen doesn't say which gate yet.",
+          "zh": "可是螢幕上還沒寫是哪個登機門。"
         },
         {
           "id": "t6_6",
@@ -1756,8 +1756,8 @@
           "id": "t9_10",
           "role": "airline_agent",
           "speaker": "npc",
-          "en": "Sorry, one window and one aisle. Can I see your boarding passes?",
-          "zh": "抱歉，一個靠窗，一個靠走道。可以看一下兩位的登機證嗎？"
+          "en": "Sorry, just a window and an aisle. Can I see your boarding passes?",
+          "zh": "抱歉，只剩一個靠窗、一個靠走道。可以看一下兩位的登機證嗎？"
         },
         {
           "id": "t9_11",
@@ -1808,8 +1808,8 @@
           "id": "t9_17",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Thirteen. It's just a short distance from here.",
-          "zh": "13 號，離這裡很近。"
+          "en": "Thirteen. That's a short distance from here. I know this airport well.",
+          "zh": "13 號，離這裡很近。這個機場我很熟。"
         },
         {
           "id": "t9_18",
@@ -1823,8 +1823,8 @@
           "id": "t9_19",
           "role": "coworker",
           "speaker": "npc",
-          "en": "A lot. By the way, someone should tell Ms. Carter about the new flight.",
-          "zh": "很常啊。對了，要有人跟 Ms. Carter 說我們換班機了。"
+          "en": "Pretty often, and sometimes abroad. Someone should tell Ms. Carter about our new flight.",
+          "zh": "滿常的，有時候還會出國。對了，要有人跟 Ms. Carter 說我們換班機了。"
         },
         {
           "id": "t9_20",

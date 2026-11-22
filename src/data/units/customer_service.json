@@ -917,7 +917,7 @@
           "role": "customer",
           "speaker": "npc",
           "en": "I realize it's not you, but this is really frustrating.",
-          "zh": "我知道不是你的錯，但這真的很讓人火大。"
+          "zh": "我知道不是你的錯，但這真的很讓人頭痛。"
         },
         {
           "id": "t2_2",
@@ -1216,8 +1216,8 @@
           "id": "t5_1",
           "role": "customer",
           "speaker": "npc",
-          "en": "Hi. So, my lamps came yesterday, in terrible condition.",
-          "zh": "嗨。我的檯燈昨天到了，狀況糟透了。"
+          "en": "Hi. So you got my email. The lamps came in terrible condition.",
+          "zh": "嗨。你們收到我的信了吧。燈送來的時候狀況糟透了。"
         },
         {
           "id": "t5_2",
@@ -1300,7 +1300,7 @@
             "Your eight new lamps left our warehouse this afternoon. They ___ take two or three days to arrive.",
             "To avoid ___, each box has a yellow \"Replacement\" label.",
             "We advise you to check every lamp. If there is even a minor problem, you can refuse the box. ___",
-            "Again, we are sorry for any difficulty this has caused.",
+            "We apologize again for any difficulty this has caused.",
             "Best regards,",
             "Harbor Trading Customer Service"
           ],
@@ -1309,7 +1309,7 @@
             "您的八盞新檯燈今天下午已經從我們的倉庫出貨，可能要兩三天才會送到。",
             "為了避免搞混，每一箱都貼了黃色的「Replacement（換貨）」標籤。",
             "建議您每一盞燈都檢查一下。就算只是小問題，您也可以拒收那一箱。我們會協助您辦理索賠。",
-            "再次為這次造成的困擾向您致歉。",
+            "這次造成您的困擾，我們再次致歉。",
             "敬祝 順心",
             "Harbor Trading 客服部"
           ],
@@ -1367,8 +1367,8 @@
           "id": "t6_4",
           "role": "customer",
           "speaker": "npc",
-          "en": "And this time, I'll open the boxes right away.",
-          "zh": "而且這次我會一收到就馬上開箱。"
+          "en": "And I'll open the boxes as soon as they come.",
+          "zh": "而且貨一到，我就會馬上開箱。"
         },
         {
           "id": "t6_5",
@@ -1501,8 +1501,8 @@
           "id": "t7_3",
           "role": "manager",
           "speaker": "npc",
-          "en": "Do we know if the new lamps got there yet?",
-          "zh": "我們知道新的燈送到了沒有嗎？"
+          "en": "The new lamps should get to him in a day or two.",
+          "zh": "新的燈應該再一兩天就會送到他那裡。"
         },
         {
           "id": "t7_4",
@@ -1569,7 +1569,7 @@
           "id": "t8_1",
           "role": "customer",
           "speaker": "npc",
-          "en": "Hi there! I was hoping you'd call.",
+          "en": "Hi! I was hoping you'd call.",
           "zh": "嗨！我正希望你打來呢。"
         },
         {
@@ -1599,8 +1599,8 @@
           "id": "t8_5",
           "role": "customer",
           "speaker": "npc",
-          "en": "No problem. You were very helpful. I'm not upset anymore.",
-          "zh": "不客氣。你幫了大忙，我已經不氣了。"
+          "en": "You were very helpful. I'm not worried about the sale anymore.",
+          "zh": "你幫了大忙。我現在不用再擔心特賣了。"
         },
         {
           "id": "t8_6",
@@ -1712,7 +1712,7 @@
           "id": "t9_13",
           "role": "customer",
           "speaker": "npc",
-          "en": "Can I have them before the weekend?",
+          "en": "Can I have it before the weekend?",
           "zh": "週末前可以拿到嗎？"
         },
         {
@@ -1727,8 +1727,8 @@
           "id": "t9_15",
           "role": "customer",
           "speaker": "npc",
-          "en": "Thursday works. Thanks for all your support.",
-          "zh": "星期四可以。謝謝你們一直這麼幫忙。"
+          "en": "Thursday works. But this has been a frustrating week.",
+          "zh": "星期四可以。不過這個禮拜真的很煩。"
         },
         {
           "id": "t9_16",
@@ -1742,8 +1742,8 @@
           "id": "t9_17",
           "role": "customer",
           "speaker": "npc",
-          "en": "Don't worry about it. Talk to you soon!",
-          "zh": "別放在心上。再聊囉！"
+          "en": "Don't worry about it. Thanks for all your support. Talk to you soon!",
+          "zh": "別放在心上。謝謝你們一直這麼幫忙。再聊囉！"
         },
         {
           "id": "t9_18",

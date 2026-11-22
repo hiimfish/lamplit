@@ -831,7 +831,7 @@
           "id": "t1_3",
           "role": "warehouse_lead",
           "speaker": "npc",
-          "en": "Great. We're a small operation, so we can use the help.",
+          "en": "Great. We're a small operation, so we could use the help.",
           "zh": "太好了。我們這裡人手不多，正需要人幫忙。"
         },
         {
@@ -889,7 +889,7 @@
           "id": "numbers_dont_match",
           "en": "I counted again, but the numbers still don't ___.",
           "zh": "我又數了一次，數字還是對不起來。",
-          "options": ["match", "mark", "sleep", "open"],
+          "options": ["match", "mark", "count", "start"],
           "answer": 0,
           "note": "match = 相符、對得上。",
           "chunkId": "numbers_still_dont_match"
@@ -917,8 +917,8 @@
           "id": "t2_2",
           "role": "warehouse_lead",
           "speaker": "npc",
-          "en": "The list says five dozen small lamps on this rack.",
-          "zh": "清單上寫這座貨架上有五打小檯燈。",
+          "en": "The list says five dozen small lamps on this rack. Count them twice.",
+          "zh": "清單上寫這座貨架上有五打小檯燈。數兩次確認一下。",
           "stage": {
             "act": "want",
             "item": "shelf"
@@ -1124,7 +1124,7 @@
           "id": "t4_4",
           "role": "warehouse_lead",
           "speaker": "npc",
-          "en": "That glass can cut you, so always wear gloves in here.",
+          "en": "Glass can cut your hands, so always wear gloves in here.",
           "zh": "那些玻璃會割傷手，所以在這裡一定要戴手套。"
         },
         {
@@ -1280,8 +1280,8 @@
           "id": "t5_6",
           "role": "warehouse_lead",
           "speaker": "npc",
-          "en": "It's almost at maximum capacity, so stack the boxes three high.",
-          "zh": "那台車快到載重上限了，所以箱子要疊三層高。"
+          "en": "It's almost at maximum capacity. Don't stack the boxes more than three high.",
+          "zh": "那台車快到載重上限了。箱子最多疊三層，不要再高。"
         },
         {
           "id": "t5_7",
@@ -1316,12 +1316,12 @@
         {
           "lineId": "t6_3",
           "word": "disappear",
-          "distractors": ["cook", "swim"]
+          "distractors": ["match", "count"]
         },
         {
           "lineId": "t6_7",
           "word": "accurate",
-          "distractors": ["hot", "cold"]
+          "distractors": ["fragile", "empty"]
         }
       ],
       "textFills": [
@@ -1333,14 +1333,14 @@
             "Hi team,",
             "This morning, ___ of the boxes for the Lake Street order were on the dock, but one was missing.",
             "We found it later behind the door. Please do a ___ check before a truck leaves.",
-            "Our inventory list must be ___, or our customers get a shortage.",
+            "Our inventory list must be ___, so there is never a shortage for a customer.",
             "Thanks, Luis"
           ],
           "zh": [
             "各位好：",
             "今天早上，Lake Street 那張訂單的箱子大部分都在裝卸區，但是少了一箱。",
             "後來我們在門後面找到了。貨車出發前，請大家仔細檢查一遍。",
-            "我們的庫存清單一定要準確，不然客戶收到的貨就會短少。",
+            "我們的庫存清單一定要準確，客戶才不會收到短少的貨。",
             "謝謝，Luis"
           ],
           "blanks": [
@@ -1418,8 +1418,8 @@
           "id": "t6_7",
           "role": "warehouse_lead",
           "speaker": "npc",
-          "en": "Our list has to be accurate, or the customer gets a shortage.",
-          "zh": "我們的清單一定要準確，不然客戶收到的貨就會少。"
+          "en": "Our count has to be accurate. No customer wants a shortage.",
+          "zh": "我們的數量一定要準確。沒有客戶想收到短少的貨。"
         }
       ]
     },
@@ -1530,8 +1530,8 @@
           "id": "t7_4",
           "role": "warehouse_lead",
           "speaker": "npc",
-          "en": "It'll control the temperature, so the lamps don't get too cold.",
-          "zh": "它會控制溫度，檯燈才不會太冷。",
+          "en": "It'll control the temperature, so it's never too hot or too cold.",
+          "zh": "它會控制溫度，裡面就不會太熱或太冷。",
           "stage": {
             "act": "want",
             "item": "temperature"
@@ -1541,7 +1541,7 @@
           "id": "t7_5",
           "role": "warehouse_lead",
           "speaker": "npc",
-          "en": "Until then, the doors remain shut, so we'll work out here.",
+          "en": "Until then, the doors stay shut, so we'll work out here.",
           "zh": "在那之前門都會關著，所以我們先在外面做。"
         },
         {
@@ -1606,8 +1606,8 @@
           "id": "t8_3",
           "role": "warehouse_lead",
           "speaker": "npc",
-          "en": "It's going by sea, so it's at the port now.",
-          "zh": "這批走海運，所以現在在港口。",
+          "en": "It's going to England by sea. Right now it's at the port.",
+          "zh": "這批走海運到英國，現在在港口。",
           "stage": {
             "act": "want",
             "item": "port"
@@ -1789,8 +1789,8 @@
           "id": "t9_20",
           "role": "warehouse_lead",
           "speaker": "npc",
-          "en": "The carrier collected it last week. It weighs a lot, so it's going by sea.",
-          "zh": "貨運公司上禮拜收走了。那批很重，所以走海運。",
+          "en": "The carrier collected it last week. It weighs a lot, so it's cheaper to send by sea.",
+          "zh": "貨運公司上禮拜收走了。那批很重，走海運比較便宜。",
           "stage": {
             "act": "want",
             "item": "sea"

@@ -870,15 +870,15 @@
           "id": "t1_6",
           "role": "hotel_clerk",
           "speaker": "npc",
-          "en": "Oh, you're right. We reserved two singles, Wednesday to Saturday.",
-          "zh": "喔，您說得對。我們幫您保留了兩間單人房，星期三到星期六。"
+          "en": "Oh, here it is. Two singles reserved, Wednesday to Saturday.",
+          "zh": "喔，找到了。兩間單人房，星期三住到星期六。"
         },
         {
           "id": "t1_7",
           "role": "hotel_clerk",
           "speaker": "npc",
           "en": "They were paid in advance, so you're all set.",
-          "zh": "房費已經事先付好了，這樣就完成了。"
+          "zh": "房費已經事先付清了，這樣就都辦好了。"
         },
         {
           "id": "t1_8",
@@ -929,8 +929,8 @@
           "id": "t2_1",
           "role": "hotel_clerk",
           "speaker": "npc",
-          "en": "Each room has a private bathroom and a big television.",
-          "zh": "每間房都有自己的浴室，還有一台大電視。"
+          "en": "Just so you know, both rooms have a private bathroom and a big television.",
+          "zh": "跟您說一下，兩間房都有獨立浴室，還有一台大電視。"
         },
         {
           "id": "t2_2",
@@ -944,8 +944,8 @@
           "id": "t2_3",
           "role": "hotel_clerk",
           "speaker": "npc",
-          "en": "Yes, it is. We have it daily in the restaurant.",
-          "zh": "有喔。每天都在餐廳供應。"
+          "en": "Yes, it is. It's in our restaurant every morning.",
+          "zh": "有喔。每天早上都在我們的餐廳。"
         },
         {
           "id": "t2_4",
@@ -973,8 +973,8 @@
           "id": "t2_7",
           "role": "hotel_clerk",
           "speaker": "npc",
-          "en": "And the hotel is very central, so it's really convenient.",
-          "zh": "而且飯店就在市中心，真的很方便。"
+          "en": "And we're very central, so getting around is really convenient.",
+          "zh": "而且我們就在市中心，去哪裡都很方便。"
         },
         {
           "id": "t2_8",
@@ -1024,8 +1024,8 @@
           "id": "t3_3",
           "role": "hotel_clerk",
           "speaker": "npc",
-          "en": "Welcome back. So, did the new card work?",
-          "zh": "您回來了。新的卡可以用嗎？",
+          "en": "Oh, you're back already. Did that card work?",
+          "zh": "咦，您這麼快就回來了。那張卡可以用嗎？",
           "stage": {
             "act": "ask"
           }
@@ -1042,8 +1042,8 @@
           "id": "t3_5",
           "role": "hotel_clerk",
           "speaker": "npc",
-          "en": "Oh no, you're right. That's a double, and it's still dirty.",
-          "zh": "糟糕，您說得對。那是雙人房，而且還沒整理。"
+          "en": "Oh no, you're right. That's a double, still dirty from the last guest.",
+          "zh": "糟糕，您說得對。那是雙人房，上一位客人走了還沒整理。"
         },
         {
           "id": "t3_6",
@@ -1101,7 +1101,7 @@
             {
               "en": "What is the password for the wireless network?",
               "zh": "無線網路的密碼是什麼？",
-              "options": ["Guest", "Room number and last name", "Your phone number"],
+              "options": ["Guest", "Your room number and last name", "Your phone number"],
               "answer": 1
             },
             {
@@ -1236,8 +1236,8 @@
             {
               "id": "t5_talk_6",
               "role": "coworker",
-              "en": "The hotel shuttle can give us a ride. It starts at ten.",
-              "zh": "飯店的接駁車可以載我們過去。十點開始。"
+              "en": "The hotel shuttle can give us a ride. The fair starts at ten.",
+              "zh": "飯店的接駁車可以載我們過去。商展十點開始。"
             },
             {
               "id": "t5_talk_7",
@@ -1279,8 +1279,8 @@
           "id": "t5_1",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Hey! How's the new room? Is it comfortable?",
-          "zh": "嘿！新房間怎麼樣？舒服嗎？"
+          "en": "Hey! How's the new suite? Comfortable? Everything okay?",
+          "zh": "嘿！新的套房怎麼樣？舒服嗎？都還好吧？"
         },
         {
           "id": "t5_2",
@@ -1422,8 +1422,8 @@
           "id": "t6_3",
           "role": "hotel_clerk",
           "speaker": "npc",
-          "en": "If it still doesn't work, we can wash your shirt for you.",
-          "zh": "如果還是不行，我們可以幫您洗襯衫。"
+          "en": "If it still doesn't work, we can wash and iron your shirt.",
+          "zh": "如果還是不行，我們可以幫您把襯衫洗好燙好。"
         },
         {
           "id": "t6_4",
@@ -1473,8 +1473,8 @@
             {
               "id": "t7_talk_1",
               "role": "manager",
-              "en": "Hi, it's Ms. Carter. I hope your flight was okay.",
-              "zh": "嗨，我是 Carter。希望你們這趟飛行還順利。"
+              "en": "Hi, it's Linda Carter. I hope your flight was okay.",
+              "zh": "嗨，我是 Linda Carter。希望你們一路都還順利。"
             },
             {
               "id": "t7_talk_2",
@@ -1516,13 +1516,13 @@
               "id": "t7_talk_8",
               "role": "manager",
               "en": "Keep all your receipts. Ms. Reed will reimburse you when you're back.",
-              "zh": "收據都要留著。你們回來以後，Reed 會把錢還給你們。"
+              "zh": "收據都要留著。你們回來以後，Ms. Reed 會把代墊的錢還給你們。"
             },
             {
               "id": "t7_talk_9",
               "role": "manager",
-              "en": "And for meals, please don't exceed roughly sixty dollars a day. Thanks!",
-              "zh": "還有餐費，一天大約不要超過六十塊。謝謝！"
+              "en": "For meals, you each get roughly sixty dollars a day, so try not to exceed that. Thanks!",
+              "zh": "餐費的話，每人一天大約六十塊，盡量不要超過。謝謝！"
             }
           ],
           "questions": [
@@ -1531,8 +1531,8 @@
               "zh": "他們為什麼要多住一晚？",
               "options": [
                 "To have dinner with Mr. Hughes",
-                "Their flight is canceled",
-                "The fair is one day longer"
+                "To see the fair one more day",
+                "To wait for a later flight"
               ],
               "answer": 0
             },
@@ -1556,8 +1556,8 @@
           "id": "t7_1",
           "role": "hotel_clerk",
           "speaker": "npc",
-          "en": "Hi again. Did you listen to your voicemail?",
-          "zh": "又見面了。您聽過語音留言了嗎？"
+          "en": "Hi again. Did you get your message?",
+          "zh": "又見面了。您聽到留言了嗎？"
         },
         {
           "id": "t7_2",
@@ -1636,7 +1636,7 @@
           "id": "t8_1",
           "role": "hotel_clerk",
           "speaker": "npc",
-          "en": "Good morning! Sorry, I didn't hear the bell.",
+          "en": "Morning! Sorry, I didn't hear the bell.",
           "zh": "早安！不好意思，我沒聽到鈴聲。"
         },
         {
@@ -1651,15 +1651,15 @@
           "id": "t8_3",
           "role": "hotel_clerk",
           "speaker": "npc",
-          "en": "Sure. Any preference, paper or email?",
+          "en": "Sure. Paper or email? Any preference?",
           "zh": "好的。您想要紙本還是 email？"
         },
         {
           "id": "t8_4",
           "role": "hotel_clerk",
           "speaker": "npc",
-          "en": "Here's a voucher for a free overnight stay, too.",
-          "zh": "另外，這是一張免費住一晚的兌換券。"
+          "en": "Sorry about the first room. Here's a voucher for a free overnight stay.",
+          "zh": "第一天的房間真不好意思。這是一張免費住一晚的兌換券。"
         },
         {
           "id": "t8_5",
@@ -1673,8 +1673,8 @@
           "id": "t8_6",
           "role": "hotel_clerk",
           "speaker": "npc",
-          "en": "Sure, we can accommodate that. Put them beside the desk.",
-          "zh": "好，沒問題。放在櫃台旁邊就好。"
+          "en": "We can accommodate that. Put them beside the desk.",
+          "zh": "沒問題。放在櫃台旁邊就好。"
         }
       ]
     },
@@ -1781,8 +1781,8 @@
           "id": "t9_13",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Good. Is breakfast free here, by the way?",
-          "zh": "很好。對了，這裡的早餐是免費的嗎？"
+          "en": "Good. And can you ask about breakfast, too?",
+          "zh": "很好。你也順便問一下早餐吧？"
         },
         {
           "id": "t9_14",
