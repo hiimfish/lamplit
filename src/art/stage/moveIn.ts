@@ -38,7 +38,7 @@ export function paintMoveIn(target: Painter, w: number, h: number): void {
   p.rect(0, railY + 1, w, 1, 'stone');
   p.rect(0, floorTop - 2, w, 2, 'paper');
 
-  // A calendar with the trash days, when there is wall above the core.
+  // A calendar with trash day, when there is wall above the core.
   if (oy >= 30) paintCalendar(p, ox + 24, oy - 22);
 
   // More windows (and boxes on the floor below some) on both sides of the core.
@@ -127,7 +127,7 @@ function paintDoor(p: Painter, x: number, top: number, floorTop: number): void {
   px(p, x + w, top + Math.floor(h / 2), 'honey');
 }
 
-/** A wall calendar with two days ringed in red (trash and recycling). */
+/** A wall calendar with trash day (Monday) ringed in red. */
 function paintCalendar(p: Painter, x: number, y: number): void {
   p.rect(x, y, 12, 14, 'paper');
   p.rect(x, y, 12, 3, 'red');
@@ -137,8 +137,6 @@ function paintCalendar(p: Painter, x: number, y: number): void {
   }
   p.rect(x + 1, y + 4, 3, 3, 'red');
   p.rect(x + 2, y + 5, 1, 1, 'stone');
-  p.rect(x + 7, y + 7, 3, 3, 'red');
-  p.rect(x + 8, y + 8, 1, 1, 'stone');
   p.rect(x + 1, y + 14, 11, 1, 'concrete');
 }
 

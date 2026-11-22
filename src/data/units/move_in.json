@@ -124,8 +124,8 @@
           "id": "t1_1",
           "role": "landlord",
           "speaker": "npc",
-          "en": "Hi! You must be the new tenant.",
-          "zh": "嗨！你一定是新房客吧。"
+          "en": "Are you new here?",
+          "zh": "你是新來的嗎？"
         },
         {
           "id": "t1_2",
@@ -139,8 +139,8 @@
           "id": "t1_3",
           "role": "landlord",
           "speaker": "npc",
-          "en": "Welcome! I'm Mr. Bell, your landlord.",
-          "zh": "歡迎！我是 Bell 先生，你的房東。"
+          "en": "Welcome! I'm Mr. Bell.",
+          "zh": "歡迎！我是 Bell 先生。"
         },
         {
           "id": "t1_4",
@@ -154,8 +154,8 @@
           "id": "t1_5",
           "role": "landlord",
           "speaker": "npc",
-          "en": "Nice to meet you, too. Here's your key.",
-          "zh": "我也很高興認識你。這是你的鑰匙。",
+          "en": "Nice to meet you. Here's your key.",
+          "zh": "很高興認識你。這是你的鑰匙。",
           "stage": { "act": "give", "item": "key" }
         }
       ]
@@ -186,8 +186,8 @@
           "id": "t2_3",
           "role": "landlord",
           "speaker": "npc",
-          "en": "Cool! If you need help, call me. My last name is Bell.",
-          "zh": "酷！需要幫忙就打給我。我姓 Bell。"
+          "en": "Good. My name is Bell.",
+          "zh": "很好。我叫 Bell。"
         },
         {
           "id": "t2_4",
@@ -202,8 +202,8 @@
           "id": "t2_5",
           "role": "landlord",
           "speaker": "npc",
-          "en": "B, E, L, L. Bell, like a bell.",
-          "zh": "B、E、L、L。Bell，就是鈴鐺的 bell。"
+          "en": "It's B, E, L, L.",
+          "zh": "是 B、E、L、L。"
         }
       ]
     },
@@ -218,8 +218,8 @@
           "id": "t3_1",
           "role": "landlord",
           "speaker": "npc",
-          "en": "Trash goes out on Monday night, and recycling goes out on Thursday.",
-          "zh": "垃圾星期一晚上拿出去，回收是星期四。",
+          "en": "The trash goes out on Monday.",
+          "zh": "垃圾星期一拿出去。",
           "stage": { "act": "want", "item": "trash_can" }
         },
         {
@@ -235,8 +235,8 @@
           "id": "t3_3",
           "role": "landlord",
           "speaker": "npc",
-          "en": "Sure. Trash, on Monday. Recycling, on Thursday.",
-          "zh": "好。垃圾，星期一。回收，星期四。"
+          "en": "Yes. Trash, on Monday.",
+          "zh": "對。垃圾，星期一。"
         },
         {
           "id": "t3_4",
@@ -250,8 +250,8 @@
           "id": "t3_5",
           "role": "landlord",
           "speaker": "npc",
-          "en": "You're welcome. Enjoy your new home!",
-          "zh": "不客氣。祝你住得愉快！"
+          "en": "Have a good day!",
+          "zh": "祝你有美好的一天！"
         }
       ]
     }
