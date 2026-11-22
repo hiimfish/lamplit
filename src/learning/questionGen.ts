@@ -2,18 +2,22 @@
  * Builds the questions for a task or a review session. Pure: all randomness comes from a
  * seeded RNG so tests are deterministic.
  *
- * Item ids: `chunk:<id>`, `word:<id>` and `pair:<id>` (also used in AnswerResult.itemId).
+ * Item ids: `chunk:<id>`, `word:<id>` and `pair:<id>` (also used in AnswerResult.itemId);
+ * NO_ITEM for a question about no single item.
  */
 import type { Chunk, MinimalPair, SceneLine, Task, Unit, Word } from '../content/types';
 import { normalize } from './grading';
-import type {
-  ArrangeQuestion,
-  ChooseReplyQuestion,
-  ListenPairQuestion,
-  ListenPickQuestion,
-  Question,
-  SpeakQuestion,
-  SpellQuestion,
+import {
+  NO_ITEM,
+  type ArrangeQuestion,
+  type ChooseReplyQuestion,
+  type ClozeQuestion,
+  type ListenPairQuestion,
+  type ListenPickQuestion,
+  type Question,
+  type SignQuestion,
+  type SpeakQuestion,
+  type SpellQuestion,
 } from './questions';
 
 /** Returns numbers in [0, 1). */
@@ -242,6 +246,78 @@ function spellWord(units: readonly Unit[], id: string): SpellQuestion | null {
   return null;
 }
 
+/** `word` as a whole word in `text`, any case: the text around it and the word as written there. */
+function cutAtWord(
+  text: string,
+  word: string,
+): { before: string; found: string; after: string } | null {
+  // Content is validated to one word of letters; anything else never matches.
+  if (!/^[a-z]+(['-][a-z]+)*$/i.test(word)) return null;
+  const match = new RegExp(`(?<![a-z'-])${word}(?![a-z'-])`, 'i').exec(text);
+  if (!match) return null;
+  return {
+    before: text.slice(0, match.index),
+    found: match[0],
+    after: text.slice(match.index + match[0].length),
+  };
+}
+
+const capitalized = (text: string) => text.charAt(0).toUpperCase() + text.slice(1);
+
+/**
+ * Listening cloze questions (聽力填空) for the task's `cloze` items. When the missing word
+ * starts with a capital in the line, every option gets one, so the capital gives nothing away.
+ * The answer is scheduled as the taught word when it is one (looked up in `units`), else as
+ * the line's chunk, else not at all.
+ */
+function clozeQuestions(unit: Unit, task: Task, rng: Rng, units: readonly Unit[]): ClozeQuestion[] {
+  return (task.cloze ?? []).flatMap((item) => {
+    const line = task.scene.find((l) => l.id === item.lineId);
+    const cut = line ? cutAtWord(line.en, item.word) : null;
+    if (!line || !cut) return [];
+    const label = /^[A-Z]/.test(cut.found) ? capitalized : (text: string) => text;
+    const word = units.flatMap((u) => u.words).find((w) => sameText(w.en, cut.found));
+    const itemId = word ? wordItemId(word.id) : line.chunkId ? chunkItemId(line.chunkId) : NO_ITEM;
+    const options = [cut.found, ...item.distractors.map(label)].map((text, i) => ({
+      id: `o${i}`,
+      label: text,
+    }));
+    return [
+      {
+        kind: 'cloze' as const,
+        audioId: `${unit.id}.line.${line.id}`,
+        before: cut.before,
+        after: cut.after,
+        answer: cut.found,
+        zh: line.zh,
+        options: shuffle(options, rng),
+        correctId: 'o0',
+        itemId,
+      },
+    ];
+  });
+}
+
+/** Reading questions (讀招牌／價目) for the task's `signs`, options in a shuffled order. */
+function signQuestions(task: Task, rng: Rng): SignQuestion[] {
+  return (task.signs ?? []).map((sign) => {
+    const question: SignQuestion = {
+      kind: 'read-sign',
+      rows: sign.rows,
+      en: sign.question.en,
+      zh: sign.question.zh,
+      options: shuffle(
+        sign.options.map((label, i) => ({ id: `o${i}`, label })),
+        rng,
+      ),
+      correctId: `o${sign.answer}`,
+      itemId: NO_ITEM,
+    };
+    if (sign.heading) question.heading = sign.heading;
+    return question;
+  });
+}
+
 /**
  * Each typed letter against the answer at the same place (case ignored); letters past
  * the end of the answer are wrong.
@@ -252,9 +328,10 @@ export function spellMarks(typed: string, answer: string): ('right' | 'wrong')[]
 }
 
 /**
- * Ordered practice for one task, easy to hard. Typing questions (`spellWordIds`) come
- * after arranging and before speaking; their words are looked up in `units` (pass every
- * unit, since they may come from an earlier one).
+ * Ordered practice for one task, easy to hard. Listening cloze comes after the
+ * listen-and-pick questions, signs to read after choosing replies, typing questions
+ * (`spellWordIds`) after arranging and before speaking. Typed and blanked words are looked
+ * up in `units` (pass every unit, since they may come from an earlier one).
  */
 export function buildTaskPractice(
   unit: Unit,
@@ -276,7 +353,9 @@ export function buildTaskPractice(
     ...compact(words.map((w) => listenPickWord(unit, w, rng))),
     ...pairQuestions(unit, pairs, rng),
     ...compact(chunks.map((c) => listenPickChunk(unit, c, rng))),
+    ...clozeQuestions(unit, task, rng, units),
     ...chooseReplies(unit, task, rng),
+    ...signQuestions(task, rng),
     ...compact(chunks.map((c) => arrangeChunk(unit, c, rng))),
     ...compact((task.spellWordIds ?? []).map((id) => spellWord(units, id))),
     ...chunks.map((c) => speakChunk(unit, c)),

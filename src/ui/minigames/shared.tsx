@@ -136,3 +136,41 @@ export function FeedbackSlot({ children }: { children?: ComponentChildren }) {
     </div>
   );
 }
+
+export interface ChoiceKeysProps {
+  options: readonly { id: string; label: string }[];
+  correctId: string;
+  /** The option the learner picked, or null while the question is open. */
+  picked: string | null;
+  onPick: (id: string) => void;
+}
+
+/** One boxed key per text choice; once picked, the right one and a wrong pick are marked. */
+export function ChoiceKeys({ options, correctId, picked, onPick }: ChoiceKeysProps) {
+  return (
+    <div class="mg-options">
+      {options.map((option) => {
+        const state =
+          picked === null
+            ? ''
+            : option.id === correctId
+              ? 'right'
+              : option.id === picked
+                ? 'wrong'
+                : '';
+        return (
+          <button
+            type="button"
+            key={option.id}
+            class={`pixel-button mg-option ${state}`}
+            data-testid={`option-${option.id}`}
+            disabled={picked !== null}
+            onClick={() => onPick(option.id)}
+          >
+            <span lang="en">{option.label}</span>
+          </button>
+        );
+      })}
+    </div>
+  );
+}

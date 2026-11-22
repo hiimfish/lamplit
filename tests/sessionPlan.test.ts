@@ -229,3 +229,19 @@ describe('isTaskUnlocked', () => {
     expect(isTaskUnlocked(save, unit, 9)).toBe(false);
   });
 });
+
+describe('questions about no item (a sign to read)', () => {
+  it('count for the day but make no review card', () => {
+    const save = applyAnswer(createEmptySave(day0), answer(''), day0, 'read-sign');
+    expect(save.cards).toEqual({});
+    expect(save.daily).toMatchObject({ answered: 1, correct: 1 });
+    expect(save.streak.count).toBe(1);
+  });
+
+  it('give listening cloze and sign reading the longer "fast" threshold', () => {
+    const ms = FAST_MS_LISTEN_CHOOSE + 1000;
+    const arranged = applyAnswer(createEmptySave(day0), answer('a', { ms }), day0, 'arrange');
+    const cloze = applyAnswer(createEmptySave(day0), answer('a', { ms }), day0, 'cloze');
+    expect(cloze.cards.a?.due).toBe(arranged.cards.a?.due);
+  });
+});

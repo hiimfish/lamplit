@@ -13,7 +13,12 @@ import {
   rolePlaySteps,
   spellMarks,
 } from '../src/learning/questionGen';
-import type { Question, SpellQuestion } from '../src/learning/questions';
+import type {
+  ClozeQuestion,
+  Question,
+  SignQuestion,
+  SpellQuestion,
+} from '../src/learning/questions';
 
 const unit = cafe as Unit;
 
@@ -265,5 +270,100 @@ describe('spellMarks', () => {
   it('marks letters past the answer, and ignores case', () => {
     expect(spellMarks('KEYS', 'key')).toEqual(['right', 'right', 'right', 'wrong']);
     expect(spellMarks('', 'key')).toEqual([]);
+  });
+});
+
+describe('listening cloze questions (聽力填空)', () => {
+  const units = [moveInJson as Unit, unit];
+  // café t1: "Hi! What can I get for you?" / "Can I get a latte, please?" / "Sure! Anything else?"
+  const t1 = unit.tasks[0]!;
+  const clozeOf = (items: NonNullable<Task['cloze']>) =>
+    buildTaskPractice(unit, { ...t1, cloze: items }, makeRng(3), units);
+  const only = (qs: Question[]) => qs.filter((q): q is ClozeQuestion => q.kind === 'cloze');
+
+  it('cuts the line at the word and offers it with the wrong words', () => {
+    const [q] = only(clozeOf([{ lineId: 't1_1', word: 'get', distractors: ['sit', 'read'] }]));
+    expect(q).toMatchObject({
+      kind: 'cloze',
+      audioId: 'cafe.line.t1_1',
+      before: 'Hi! What can I ',
+      answer: 'get',
+      after: ' for you?',
+      zh: t1.scene[0]!.zh,
+    });
+    expect(q!.options.map((o) => o.label).sort()).toEqual(['get', 'read', 'sit']);
+    expect(q!.options.find((o) => o.id === q!.correctId)?.label).toBe('get');
+    expect(new Set(q!.options.map((o) => o.id)).size).toBe(3);
+  });
+
+  it('comes after the listen-and-pick questions and before choosing a reply', () => {
+    const kinds = clozeOf([{ lineId: 't1_1', word: 'get', distractors: ['sit', 'read'] }]).map(
+      (q) => q.kind,
+    );
+    expect(kinds.indexOf('cloze')).toBeGreaterThan(kinds.lastIndexOf('listen-pick'));
+    expect(kinds.indexOf('cloze')).toBeLessThan(kinds.indexOf('choose-reply'));
+  });
+
+  it('finds the word in any case and gives every option a capital at the start of a line', () => {
+    const [q] = only(clozeOf([{ lineId: 't1_1', word: 'hi', distractors: ['yes', 'sure'] }]));
+    expect(q).toMatchObject({ before: '', answer: 'Hi', after: '! What can I get for you?' });
+    expect(q!.options.map((o) => o.label).sort()).toEqual(['Hi', 'Sure', 'Yes']);
+  });
+
+  it('matches whole words only and skips an item whose word or line is missing', () => {
+    // "a" must not match inside "can" or "latte"
+    const [q] = only(clozeOf([{ lineId: 't1_2', word: 'a', distractors: ['an', 'the'] }]));
+    expect(q).toMatchObject({ before: 'Can I get ', answer: 'a', after: ' latte, please?' });
+    expect(only(clozeOf([{ lineId: 't1_1', word: 'tea', distractors: ['a', 'b'] }]))).toEqual([]);
+    expect(only(clozeOf([{ lineId: 'nope', word: 'get', distractors: ['a', 'b'] }]))).toEqual([]);
+  });
+
+  it('is scheduled as the taught word, else as the line’s chunk, else not at all', () => {
+    const ids = only(
+      clozeOf([
+        { lineId: 't1_2', word: 'latte', distractors: ['tea', 'cake'] },
+        { lineId: 't1_2', word: 'get', distractors: ['sit', 'read'] },
+        { lineId: 't1_1', word: 'get', distractors: ['sit', 'read'] },
+        { lineId: 't1_1', word: 'Hi', distractors: ['Key', 'Box'] },
+      ]),
+    ).map((q) => q.itemId);
+    expect(ids).toEqual(['word:latte', 'chunk:can_i_get', '', '']);
+  });
+});
+
+describe('sign questions (讀招牌／價目)', () => {
+  const t1 = unit.tasks[0]!;
+  const sign = {
+    id: 'menu',
+    heading: 'Drinks',
+    rows: [
+      { label: 'Tea', value: '$2' },
+      { label: 'Latte', value: '$4' },
+    ],
+    question: { en: 'How much is a latte?', zh: '拿鐵多少錢？' },
+    options: ['$2', '$4', '$6'],
+    answer: 1,
+  };
+  const qs = buildTaskPractice(unit, { ...t1, signs: [sign] }, makeRng(5));
+  const signs = qs.filter((q): q is SignQuestion => q.kind === 'read-sign');
+
+  it('shows the sign and its question, with the options in a shuffled order', () => {
+    expect(signs).toHaveLength(1);
+    const q = signs[0]!;
+    expect(q).toMatchObject({
+      heading: 'Drinks',
+      rows: sign.rows,
+      en: 'How much is a latte?',
+      zh: '拿鐵多少錢？',
+      itemId: '',
+    });
+    expect(q.options.map((o) => o.label).sort()).toEqual(['$2', '$4', '$6']);
+    expect(q.options.find((o) => o.id === q.correctId)?.label).toBe('$4');
+  });
+
+  it('comes after choosing a reply and before arranging', () => {
+    const kinds = qs.map((q) => q.kind);
+    expect(kinds.indexOf('read-sign')).toBeGreaterThan(kinds.lastIndexOf('choose-reply'));
+    expect(kinds.indexOf('read-sign')).toBeLessThan(kinds.indexOf('arrange'));
   });
 });

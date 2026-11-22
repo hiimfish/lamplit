@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import type { Unit } from '../src/content/types';
+import type { SceneLine, Task, Unit } from '../src/content/types';
 import { UNIT_ORDER } from '../src/content/unitOrder';
 import {
   parseWordLists,
@@ -88,14 +88,46 @@ describe('smoothness rules', () => {
   });
 });
 
+/** The shipped units that are in the play order, in that order. */
+const shipped = (): Unit[] =>
+  readdirSync(UNITS)
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => JSON.parse(readFileSync(join(UNITS, f), 'utf8')) as Unit)
+    .filter((u) => UNIT_ORDER.includes(u.id))
+    .sort((a, b) => UNIT_ORDER.indexOf(a.id) - UNIT_ORDER.indexOf(b.id));
+
+/** Every text a task's cloze and sign questions show, as lines to profile like a story. */
+function questionTexts(task: Task): SceneLine[] {
+  const texts = [
+    ...(task.cloze ?? []).flatMap((c) => [c.word, ...c.distractors]),
+    ...(task.signs ?? []).flatMap((s) => [
+      s.heading ?? '',
+      ...s.rows.flatMap((r) => [r.label, r.value ?? '']),
+      s.question.en,
+      ...s.options,
+    ]),
+  ];
+  return texts
+    .filter((en) => en !== '')
+    .map((en, i) => ({ id: `q${i}`, role: 'guide', speaker: 'npc', en, zh: en }));
+}
+
 describe('the real units in play order', () => {
   it('break no smoothness rule', () => {
-    const units = readdirSync(UNITS)
-      .filter((f) => f.endsWith('.json'))
-      .map((f) => JSON.parse(readFileSync(join(UNITS, f), 'utf8')) as Unit)
-      .filter((u) => UNIT_ORDER.includes(u.id))
-      .sort((a, b) => UNIT_ORDER.indexOf(a.id) - UNIT_ORDER.indexOf(b.id));
+    const units = shipped();
     expect(units.map((u) => u.id)).toEqual([...UNIT_ORDER]);
     expect(smoothnessBreaks(profileUnits(units, lists), lists)).toEqual([]);
+  });
+
+  // Blanked words, wrong choices, signs and their questions: all words taught by that task.
+  it('use only taught words in cloze and sign questions', () => {
+    const probe = shipped().map((u) => ({
+      ...u,
+      tasks: u.tasks.map((t) => ({ ...t, scene: questionTexts(t) })),
+    }));
+    const untaught = profileUnits(probe, lists)
+      .filter((p) => p.unplanned.length > 0)
+      .map((p) => `${p.unitId}/${p.taskId}: ${p.unplanned.join(' ')}`);
+    expect(untaught).toEqual([]);
   });
 });

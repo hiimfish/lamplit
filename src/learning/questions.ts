@@ -85,13 +85,56 @@ export interface SpellQuestion {
   itemId: string;
 }
 
+/**
+ * Item id of a question that is about no single chunk or word (a sign to read): it counts
+ * for the round and the day, but no review card is made for it.
+ */
+export const NO_ITEM = '';
+
+/**
+ * Listening cloze (聽力填空): hear a story line, read it with one word missing, and
+ * pick the missing word.
+ */
+export interface ClozeQuestion {
+  kind: 'cloze';
+  /** The line's own clip (`street.line.t6_1`). */
+  audioId: string;
+  /** The line's text before and after the missing word. */
+  before: string;
+  after: string;
+  /** The missing word as it is written in the line. */
+  answer: string;
+  /** The whole line in Chinese. */
+  zh: string;
+  options: { id: string; label: string }[];
+  correctId: string;
+  /** The taught word's `word:<id>`, else the line's `chunk:<id>`, else NO_ITEM. */
+  itemId: string;
+}
+
+/** Reading (讀招牌／價目): a short sign or price list and one question about it. */
+export interface SignQuestion {
+  kind: 'read-sign';
+  heading?: string;
+  rows: { label: string; value?: string }[];
+  /** The question, in English and Chinese. */
+  en: string;
+  zh: string;
+  options: { id: string; label: string }[];
+  correctId: string;
+  /** Always NO_ITEM: reading a sign is not one item to review. */
+  itemId: string;
+}
+
 export type Question =
   | ListenPickQuestion
   | ListenPairQuestion
   | ArrangeQuestion
   | ChooseReplyQuestion
   | SpeakQuestion
-  | SpellQuestion;
+  | SpellQuestion
+  | ClozeQuestion
+  | SignQuestion;
 
 export interface AnswerResult {
   itemId: string;

@@ -9,8 +9,10 @@ import type { AnswerResult, Question } from '../../learning/questions';
 import { focusAndReveal, focusLost, focusStatic } from '../focus';
 import { Arrange } from './Arrange';
 import { ChooseReply } from './ChooseReply';
+import { Cloze } from './Cloze';
 import { ListenPair } from './ListenPair';
 import { ListenPick } from './ListenPick';
+import { ReadSign } from './ReadSign';
 import { Speak } from './Speak';
 import { Spell } from './Spell';
 import './minigames.css';
@@ -72,6 +74,12 @@ function Body({ question, onAnswer }: QuestionViewProps) {
       break;
     case 'spell':
       view = <Spell question={question} onAnswered={onAnswered} />;
+      break;
+    case 'cloze':
+      view = <Cloze question={question} onAnswered={onAnswered} />;
+      break;
+    case 'read-sign':
+      view = <ReadSign question={question} onAnswered={onAnswered} />;
       break;
   }
 

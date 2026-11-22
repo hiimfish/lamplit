@@ -1,6 +1,6 @@
 import { getItem } from '../content/units';
 import { dailyFor, touchPlayed, type SaveData } from '../core/save';
-import type { AnswerResult, Question } from './questions';
+import { NO_ITEM, type AnswerResult, type Question } from './questions';
 import {
   dueToday,
   isDue,
@@ -14,7 +14,10 @@ import {
 
 /** An answer faster than this counts as "fast" (FSRS Easy) for listen and choose questions. */
 export const FAST_MS_LISTEN_CHOOSE = 4000;
-/** Arranging blocks (and typing a word) takes longer, so its fast threshold is higher. */
+/**
+ * Arranging blocks takes longer, and so does typing a word, hearing a whole line for a
+ * cloze or reading a sign, so their fast threshold is higher.
+ */
 export const FAST_MS_ARRANGE = 12000;
 
 const DAILY_REVIEW_LIMIT = 20;
@@ -23,9 +26,10 @@ const COINS_THREE_STAR_BONUS = 10;
 
 export type QuestionKind = Question['kind'];
 
+const SLOW_KINDS: readonly QuestionKind[] = ['arrange', 'spell', 'cloze', 'read-sign'];
+
 function isFastAnswer(ms: number, kind: QuestionKind): boolean {
-  const slowKind = kind === 'arrange' || kind === 'spell';
-  return ms < (slowKind ? FAST_MS_ARRANGE : FAST_MS_LISTEN_CHOOSE);
+  return ms < (SLOW_KINDS.includes(kind) ? FAST_MS_ARRANGE : FAST_MS_LISTEN_CHOOSE);
 }
 
 /** True if the item id still exists in the content (`chunk:<id>` or `word:<id>`). */
@@ -89,6 +93,15 @@ export function applySessionAnswer(
   kind: QuestionKind = 'listen-pick',
 ): { save: SaveData; session: PracticeSession } {
   const id = result.itemId;
+  const played = touchPlayed(save, now);
+  const daily = dailyFor(played, now);
+  const counted = {
+    ...daily,
+    answered: daily.answered + 1,
+    correct: daily.correct + (result.correct ? 1 : 0),
+  };
+  // A question about no item (a sign to read) only counts for the day.
+  if (id === NO_ITEM) return { session, save: { ...played, daily: counted } };
   const outcome = outcomeFromAnswer({
     correct: result.correct,
     usedHelp: result.usedHelp,
@@ -102,18 +115,12 @@ export function applySessionAnswer(
     before: seen ? session.before : { ...session.before, [id]: before },
     worst: { ...session.worst, [id]: worst },
   };
-  const played = touchPlayed(save, now);
-  const daily = dailyFor(played, now);
   return {
     session: nextSession,
     save: {
       ...played,
       cards: { ...played.cards, [id]: scheduleOnce(before, worst, now) },
-      daily: {
-        ...daily,
-        answered: daily.answered + 1,
-        correct: daily.correct + (result.correct ? 1 : 0),
-      },
+      daily: counted,
     },
   };
 }

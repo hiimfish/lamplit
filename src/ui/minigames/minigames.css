@@ -397,3 +397,76 @@
 :root[data-orientation='landscape'] .mg-keys-row {
   gap: var(--px);
 }
+
+/* Listening cloze (聽力填空): the line with a gap; the gap fills in once answered. */
+.mg-cloze {
+  margin: 0;
+  font-size: calc(11 * var(--px));
+  line-height: 1.8;
+  color: var(--ink);
+}
+
+.mg-blank {
+  display: inline-block;
+  min-width: calc(34 * var(--px));
+  margin: 0 calc(2 * var(--px));
+  padding: 0 calc(3 * var(--px));
+  text-align: center;
+  background: var(--paper);
+  box-shadow: inset 0 0 0 var(--px) var(--dim);
+  border-bottom: var(--line) solid var(--neon);
+}
+
+.mg-blank:empty::before {
+  content: '\00a0';
+}
+
+.mg-blank.right {
+  box-shadow: inset 0 0 0 var(--px) var(--good);
+  border-bottom-color: var(--good);
+}
+
+.mg-blank.wrong {
+  box-shadow: inset 0 0 0 var(--px) var(--bad);
+  border-bottom-color: var(--bad);
+}
+
+/* Reading (讀招牌／價目): a dark signboard with light lettering, prices on the right. */
+.mg-sign {
+  align-self: center;
+  box-sizing: border-box;
+  width: min(100%, calc(170 * var(--px)));
+  padding: calc(5 * var(--px)) calc(8 * var(--px));
+  display: flex;
+  flex-direction: column;
+  gap: calc(2 * var(--px));
+  font-size: calc(11 * var(--px));
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow:
+    inset 0 0 0 var(--px) var(--ink),
+    inset 0 0 0 calc(2 * var(--px)) var(--neon);
+}
+
+.mg-sign-heading {
+  padding-bottom: calc(2 * var(--px));
+  text-align: center;
+  color: var(--neon);
+  border-bottom: var(--px) dashed var(--dim);
+}
+
+.mg-sign-row {
+  display: flex;
+  justify-content: space-between;
+  gap: calc(8 * var(--px));
+}
+
+/* A sign with no prices (Fitting Room) reads as one centred line. */
+.mg-sign-row > span:only-child {
+  flex: 1;
+  text-align: center;
+}
+
+.mg-sign-value {
+  flex: none;
+}
