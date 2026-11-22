@@ -31,20 +31,26 @@ src/
                     整個任務都由 audio/pronounce 的 nowPlaying 和 content/units 的 speakerOf 決定誰在跳動
   ui/minigames/     題型元件：ListenPick、ListenPair（聽辨挑戰）、ChooseReply、Arrange、
                     Spell（打字拼字，畫面上的字母鍵盤）、Cloze（聽力填空）、ReadSign（讀招牌／價目）、
-                    PictureChoose（看圖選句）、Speak、QuestionView，共用的小元件（shared），以及錄音和辨識的 hook
+                    PictureChoose（看圖選句）、Fill（句子填空）、ReadPassage（讀短文）、Talk（聽對話答題）、
+                    Speak、QuestionView，共用的小元件（shared），以及錄音和辨識的 hook
   learning/         出題（questionGen）、題目的型別和 NO_ITEM（questions）、批改、錯誤提示、FSRS 排程、
                     練習與複習的規則（sessionPlan）、小鎮畫面的進度和「繼續」要去哪一關（townPlan）
+  learning/gen/     句子填空、讀短文、聽對話答題各自的出題檔（fills、passages、talks），加上共用的亂數和打亂選項（common）
   content/          單元型別、載入、內容檢查、音檔項目、角色的中文名稱（roles）、
                     單元順序（unitOrder）、四幕和各幕的地點（acts）、用字分析和平滑度規則（vocab）
+  content/checks/   三種新題型各自的內容檢查（fills、passages、talks），加上共用的小工具（common）
   core/             共用狀態、存檔、設定
   audio/            發音播放、音軌與音量、背景音樂、音效、錄音、語音辨識、每個角色的聲線（voices）
   art/items/        單字像素圖：每個單元一個檔（cafe、moveIn、store、street、market、clothes、clinic、
-                    restaurant、postOffice、park），共 153 個；共用繪圖工具（draw）、對照表和檢查（index）
+                    restaurant、postOffice、park），第一幕共 153 個；共用繪圖工具（draw）、對照表和檢查（index）
+                    第二幕的 8 個檔（bank、communityCenter、library、repair、jobCenter、resume、interview、dayBefore），共 41 個
   art/stage/        小劇場：共用工具（common）、舞台設定的型別和「你」（config）、每個地點一個檔的背景與角色圖
                     （cafe、moveIn、store、street、market、clothes、clinic、restaurant、postOffice、park；
                     後 7 個檔也匯出自己的整份舞台設定）、依單元 id 列出舞台設定（index）
-  art/pictures/     看圖選句的圖（96×64）：對照表、尺寸和型別 PictureFn（index）、第一幕的 10 張（act1）
-  data/units/       單元內容 JSON（第一幕十個地點）
+                    第二幕的 8 個檔（bank、communityCenter、library、repair、jobCenter、resume、interview、dayBefore）也各匯出整份舞台設定；
+                    修車與維修、上班前一天各有兩張背景（`backdrops`）
+  art/pictures/     看圖選句的圖（96×64）：對照表、尺寸和型別 PictureFn（index）、第一幕的 10 張（act1）、第二幕的 4 張（act2）
+  data/units/       單元內容 JSON（第一、二幕共 18 個地點）
   data/wordlists/   NGSL、TSL 和補充字表（CC BY-SA 4.0，出處見那裡的 README）
 scripts/            gen-audio（產生音檔）、spike-tts（聲線比較）、check-font-glyphs（字型檢查）、
                     vocab-report（用字和難度報表）
@@ -146,10 +152,12 @@ tests/              Vitest 測試
 - 需要 Web Audio 的測試使用 `tests/fakeAudio.ts` 的假 AudioContext。
 - 專案沒有安裝模擬瀏覽器的測試環境（jsdom 或 happy-dom），所以畫面元件本身沒有自動化測試；畫面改動要在瀏覽器裡實際操作確認。
 - 場景有快照測試（`tests/streetSnapshot.test.ts`）：繪製結果的雜湊改變就會失敗。刻意改畫面時要更新雜湊，並在說明中寫明原因。
-- 內容的平滑度規則由 `tests/smoothness.test.ts` 檢查，和 `scripts/vocab-report.mjs` 共用 `src/content/vocab.ts` 的 `smoothnessBreaks`。改了單元內容後測試失敗時，先跑報表看是哪個任務違反了規則。同一個檔也檢查聽力填空、讀招牌、看圖選句的題目只用教過的字。
+- 內容的平滑度規則由 `tests/smoothness.test.ts` 檢查，和 `scripts/vocab-report.mjs` 共用 `src/content/vocab.ts` 的 `smoothnessBreaks`。改了單元內容後測試失敗時，先跑報表看是哪個任務違反了規則。同一個檔也檢查聽力填空、讀招牌、看圖選句、句子填空、讀短文、聽對話答題的題目只用教過的字。
 - 看圖選句的圖由 `tests/pictures.test.ts` 檢查：只用調色盤顏色、整數像素、不超出 96×64、每次畫出來都一樣，而且內容裡用到的每個圖片 id 都有圖。
+- 句子填空、讀短文、聽對話答題各有自己的測試檔（`tests/fills.test.ts`、`passages.test.ts`、`talks.test.ts`），測內容檢查和出題；聽對話的播放節奏（`playConversation`）用假的播放和時鐘測，不需要瀏覽器。
 - 小劇場由 `tests/stageArt.test.ts`、`tests/stageState.test.ts` 檢查每一個有舞台的單元（見 [scene-stage.md](scene-stage.md) 的「測試」）。
 - 2026-11-22 第一幕做完時：34 個測試檔、1,186 個測試，全部通過（`npm test`）。
+- 2026-11-23 第二幕做完時：1,588 個測試全部通過；型別檢查、ESLint、Prettier 和正式建置也都沒有錯誤。`knip` 沒有跑（專案沒有安裝，也下載不到）。
 
 ### 手機上測錄音
 
