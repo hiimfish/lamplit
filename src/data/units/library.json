@@ -1,0 +1,1221 @@
+{
+  "id": "library",
+  "title": "圖書館",
+  "titleEn": "Library",
+  "chunks": [
+    {
+      "id": "get_library_card",
+      "en": "I'd like to get a library card.",
+      "zh": "我想辦一張借書證。",
+      "accept": ["I would like to get a library card."],
+      "note": "想辦一件事時說 I'd like to + 動詞原形，比 I want 客氣。",
+      "distractors": [
+        {
+          "text": "I'd like get a library card.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I'd like to get library card.",
+          "error": "article"
+        },
+        {
+          "text": "I'd like to getting a library card.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "live_near_here",
+      "en": "I live near here.",
+      "zh": "我住在這附近。",
+      "note": "說自己住在附近。near here 就是「這附近」，前面不用加 in。",
+      "distractors": [
+        {
+          "text": "I live in near here.",
+          "error": "extra-word"
+        },
+        {
+          "text": "I living near here.",
+          "error": "other"
+        },
+        {
+          "text": "I live here near.",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "where_computer_books",
+      "en": "Where are the computer books?",
+      "zh": "電腦的書在哪裡？",
+      "note": "問東西放在哪裡。books 是複數，所以用 are。",
+      "distractors": [
+        {
+          "text": "Where is the computer books?",
+          "error": "other"
+        },
+        {
+          "text": "Where the computer books are?",
+          "error": "word-order"
+        },
+        {
+          "text": "Where are the computers books?",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "how_many_borrow",
+      "en": "How many books can I borrow?",
+      "zh": "我一次可以借幾本？",
+      "note": "How many 後面接複數名詞問數量；can I 後面接動詞原形。",
+      "distractors": [
+        {
+          "text": "How much books can I borrow?",
+          "error": "other"
+        },
+        {
+          "text": "How many book can I borrow?",
+          "error": "plural"
+        },
+        {
+          "text": "How many books I can borrow?",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "renew_these_books",
+      "en": "Can I renew these books?",
+      "zh": "這些書可以續借嗎？",
+      "note": "書快到期、還想再借就問這句。問過去的事才用 Did，例如 Did you read them?",
+      "distractors": [
+        {
+          "text": "Can I renew this books?",
+          "error": "other"
+        },
+        {
+          "text": "Can I renew these book?",
+          "error": "plural"
+        },
+        {
+          "text": "Can renew I these books?",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "didnt_have_time_read",
+      "en": "I didn't have time to read them.",
+      "zh": "我還沒時間看。",
+      "accept": ["I did not have time to read them."],
+      "note": "過去式的否定是 didn't + 動詞原形，所以說 didn't have，不說 didn't had。",
+      "distractors": [
+        {
+          "text": "I didn't had time to read them.",
+          "error": "other"
+        },
+        {
+          "text": "I didn't have time read them.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I not have time to read them.",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "what_word_mean",
+      "en": "What does this word mean?",
+      "zh": "這個字是什麼意思？",
+      "note": "看不懂一個字時問。does 已經有了，mean 就不加 s。",
+      "distractors": [
+        {
+          "text": "What does this word means?",
+          "error": "other"
+        },
+        {
+          "text": "What this word does mean?",
+          "error": "word-order"
+        },
+        {
+          "text": "What is this word mean?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "is_job_fair_free",
+      "en": "Is the job fair free?",
+      "zh": "就業博覽會要錢嗎？",
+      "note": "free 是「免費的」。問活動要不要錢，就用 Is … free?",
+      "distractors": [
+        {
+          "text": "Is the job fair a free?",
+          "error": "article"
+        },
+        {
+          "text": "Does the job fair free?",
+          "error": "other"
+        },
+        {
+          "text": "Is free the job fair?",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "use_my_laptop_here",
+      "en": "Can I use my laptop here?",
+      "zh": "我可以在這裡用自己的筆電嗎？",
+      "note": "問能不能在這裡做某件事。Can I 後面接動詞原形。",
+      "distractors": [
+        {
+          "text": "Can I use laptop here?",
+          "error": "article"
+        },
+        {
+          "text": "Can I using my laptop here?",
+          "error": "other"
+        },
+        {
+          "text": "Can use I my laptop here?",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "write_that_down",
+      "en": "Let me write that down.",
+      "zh": "我記一下。",
+      "note": "對方說密碼、時間這類資訊時說這句。Let me 後面接動詞原形。",
+      "distractors": [
+        {
+          "text": "Let me to write that down.",
+          "error": "extra-word"
+        },
+        {
+          "text": "Let me write down that.",
+          "error": "word-order"
+        },
+        {
+          "text": "Let me writing that down.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "show_me_how_print",
+      "en": "Could you show me how to print?",
+      "zh": "可以教我怎麼列印嗎？",
+      "note": "show 後面的「人」用受詞：show me，不說 show I。",
+      "distractors": [
+        {
+          "text": "Could you show I how to print?",
+          "error": "other"
+        },
+        {
+          "text": "Could you show me how print?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Could you show me how to printing?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "print_them_color",
+      "en": "Can I print them in color?",
+      "zh": "這些可以印彩色的嗎？",
+      "note": "them 指前面說的那些東西，放在動詞後面用 them，不用 they。",
+      "distractors": [
+        {
+          "text": "Can I print they in color?",
+          "error": "other"
+        },
+        {
+          "text": "Can I print them in a color?",
+          "error": "article"
+        },
+        {
+          "text": "Can I print them on color?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "let_me_turn_it_off",
+      "en": "Sorry, let me turn it off.",
+      "zh": "抱歉，我馬上關掉。",
+      "note": "手機響了被提醒時說。turn it off 的 it 要放在中間。",
+      "distractors": [
+        {
+          "text": "Sorry, let me turn off it.",
+          "error": "word-order"
+        },
+        {
+          "text": "Sorry, let me turn it of.",
+          "error": "spelling"
+        },
+        {
+          "text": "Sorry, let me to turn it off.",
+          "error": "extra-word"
+        }
+      ]
+    },
+    {
+      "id": "where_take_call",
+      "en": "Where can I take a call?",
+      "zh": "我可以去哪裡講電話？",
+      "note": "問哪裡可以講電話。take a call 就是接電話、講電話。",
+      "distractors": [
+        {
+          "text": "Where I can take a call?",
+          "error": "word-order"
+        },
+        {
+          "text": "Where can I take call?",
+          "error": "article"
+        },
+        {
+          "text": "Where can I take a calls?",
+          "error": "plural"
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "id": "librarian",
+      "en": "librarian",
+      "zh": "圖書館員",
+      "emoji": "👩‍💼",
+      "abstract": true
+    },
+    {
+      "id": "place",
+      "en": "place",
+      "zh": "地方",
+      "emoji": "📍",
+      "abstract": true
+    },
+    {
+      "id": "until",
+      "en": "until",
+      "zh": "到（幾點）為止",
+      "emoji": "⏳",
+      "abstract": true
+    },
+    {
+      "id": "eleven",
+      "en": "eleven",
+      "zh": "十一",
+      "emoji": "🕚",
+      "abstract": true
+    },
+    {
+      "id": "twelve",
+      "en": "twelve",
+      "zh": "十二",
+      "emoji": "🕛",
+      "abstract": true
+    },
+    {
+      "id": "magazine",
+      "en": "magazine",
+      "zh": "雜誌",
+      "emoji": "🗞️"
+    },
+    {
+      "id": "through",
+      "en": "through",
+      "zh": "穿過",
+      "emoji": "🚪",
+      "abstract": true
+    },
+    {
+      "id": "under",
+      "en": "under",
+      "zh": "在…下面",
+      "emoji": "👇",
+      "abstract": true
+    },
+    {
+      "id": "behind",
+      "en": "behind",
+      "zh": "在…後面",
+      "emoji": "🔙",
+      "abstract": true
+    },
+    {
+      "id": "author",
+      "en": "author",
+      "zh": "作者",
+      "emoji": "✍️",
+      "abstract": true
+    },
+    {
+      "id": "title",
+      "en": "title",
+      "zh": "書名",
+      "emoji": "📕",
+      "abstract": true
+    },
+    {
+      "id": "renew",
+      "en": "renew",
+      "zh": "續借",
+      "emoji": "🔁",
+      "abstract": true
+    },
+    {
+      "id": "due",
+      "en": "due",
+      "zh": "到期的",
+      "emoji": "📆",
+      "abstract": true
+    },
+    {
+      "id": "ago",
+      "en": "ago",
+      "zh": "…以前",
+      "emoji": "⏪",
+      "abstract": true
+    },
+    {
+      "id": "still",
+      "en": "still",
+      "zh": "還（在）",
+      "emoji": "⏸️",
+      "abstract": true
+    },
+    {
+      "id": "remember",
+      "en": "remember",
+      "zh": "記得",
+      "emoji": "💭",
+      "abstract": true
+    },
+    {
+      "id": "forget",
+      "en": "forget",
+      "zh": "忘記",
+      "emoji": "❓",
+      "abstract": true
+    },
+    {
+      "id": "january",
+      "en": "January",
+      "zh": "一月",
+      "emoji": "🎍",
+      "abstract": true
+    },
+    {
+      "id": "february",
+      "en": "February",
+      "zh": "二月",
+      "emoji": "💝",
+      "abstract": true
+    },
+    {
+      "id": "march",
+      "en": "March",
+      "zh": "三月",
+      "emoji": "🌱",
+      "abstract": true
+    },
+    {
+      "id": "april",
+      "en": "April",
+      "zh": "四月",
+      "emoji": "🌷",
+      "abstract": true
+    },
+    {
+      "id": "may",
+      "en": "May",
+      "zh": "五月",
+      "emoji": "🌸",
+      "abstract": true
+    },
+    {
+      "id": "june",
+      "en": "June",
+      "zh": "六月",
+      "emoji": "🌦️",
+      "abstract": true
+    },
+    {
+      "id": "connect",
+      "en": "connect",
+      "zh": "連線",
+      "emoji": "🔌",
+      "abstract": true
+    },
+    {
+      "id": "download",
+      "en": "download",
+      "zh": "下載",
+      "emoji": "📥",
+      "abstract": true
+    },
+    {
+      "id": "password",
+      "en": "password",
+      "zh": "密碼",
+      "emoji": "🔑",
+      "abstract": true
+    },
+    {
+      "id": "search",
+      "en": "search",
+      "zh": "搜尋",
+      "emoji": "🔍",
+      "abstract": true
+    },
+    {
+      "id": "limit",
+      "en": "limit",
+      "zh": "限制",
+      "emoji": "⛔",
+      "abstract": true
+    },
+    {
+      "id": "e_book",
+      "en": "e-book",
+      "zh": "電子書",
+      "emoji": "📲",
+      "abstract": true
+    },
+    {
+      "id": "print",
+      "en": "print",
+      "zh": "列印",
+      "emoji": "🖨️"
+    },
+    {
+      "id": "paper",
+      "en": "paper",
+      "zh": "紙",
+      "emoji": "🗒️"
+    },
+    {
+      "id": "page",
+      "en": "page",
+      "zh": "頁",
+      "emoji": "🔖",
+      "abstract": true
+    },
+    {
+      "id": "copy",
+      "en": "copy",
+      "zh": "影印；一份",
+      "emoji": "📑",
+      "abstract": true
+    },
+    {
+      "id": "file",
+      "en": "file",
+      "zh": "檔案",
+      "emoji": "📁"
+    },
+    {
+      "id": "around",
+      "en": "around",
+      "zh": "大約",
+      "emoji": "〰️",
+      "abstract": true
+    },
+    {
+      "id": "board",
+      "en": "board",
+      "zh": "布告欄",
+      "emoji": "📌"
+    },
+    {
+      "id": "rule",
+      "en": "rule",
+      "zh": "規定",
+      "emoji": "📏",
+      "abstract": true
+    },
+    {
+      "id": "follow",
+      "en": "follow",
+      "zh": "遵守",
+      "emoji": "👣",
+      "abstract": true
+    },
+    {
+      "id": "allow",
+      "en": "allow",
+      "zh": "允許",
+      "emoji": "✅",
+      "abstract": true
+    },
+    {
+      "id": "quiet",
+      "en": "quiet",
+      "zh": "安靜的",
+      "emoji": "🤫",
+      "abstract": true
+    },
+    {
+      "id": "away",
+      "en": "away",
+      "zh": "收起來（put away）",
+      "emoji": "👋",
+      "abstract": true
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "辦借書證",
+      "newChunkIds": ["get_library_card", "live_near_here"],
+      "newWordIds": ["librarian", "place", "until", "eleven", "twelve"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'd like to get a library card.",
+          "zh": "我想辦一張借書證。",
+          "chunkId": "get_library_card"
+        },
+        {
+          "id": "t1_2",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Of course. Do you live in the city?",
+          "zh": "沒問題。你住在市區嗎？",
+          "stage": {
+            "act": "ask"
+          }
+        },
+        {
+          "id": "t1_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I live near here.",
+          "zh": "我住在這附近。",
+          "chunkId": "live_near_here"
+        },
+        {
+          "id": "t1_4",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Great. Then I just need an ID with your address.",
+          "zh": "好的。那我只需要一張有你地址的證件。"
+        },
+        {
+          "id": "t1_5",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Here you are. I'm Helen, one of the librarians.",
+          "zh": "好了，給你。我是 Helen，這裡的圖書館員之一。"
+        },
+        {
+          "id": "t1_6",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "We're open every day. On Sundays, it's eleven until four.",
+          "zh": "我們每天都有開。星期天是十一點開到四點。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "找書、借書",
+      "newChunkIds": ["where_computer_books", "how_many_borrow"],
+      "newWordIds": ["magazine", "through", "under", "behind", "author", "title"],
+      "fills": [
+        {
+          "id": "borrow_form",
+          "en": "How many books can I ___?",
+          "zh": "我一次可以借幾本書？",
+          "options": ["borrow", "borrows", "borrowing"],
+          "answer": 0,
+          "note": "can 後面接動詞原形。",
+          "chunkId": "how_many_borrow"
+        },
+        {
+          "id": "who_author",
+          "en": "Who is the ___ of this book?",
+          "zh": "這本書的作者是誰？",
+          "options": ["title", "author", "place"],
+          "answer": 1,
+          "note": "Who 問的是人，寫書的人是 author。"
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Where are the computer books?",
+          "zh": "電腦的書在哪裡？",
+          "chunkId": "where_computer_books"
+        },
+        {
+          "id": "t2_2",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Just through that door, behind the magazines.",
+          "zh": "穿過那扇門就是了，在雜誌後面。",
+          "stage": {
+            "act": "want",
+            "item": "magazine"
+          }
+        },
+        {
+          "id": "t2_3",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "You can look up a title or author on this computer.",
+          "zh": "你也可以用這台電腦查書名或作者。"
+        },
+        {
+          "id": "t2_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How many books can I borrow?",
+          "zh": "我一次可以借幾本？",
+          "chunkId": "how_many_borrow"
+        },
+        {
+          "id": "t2_5",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Up to twelve, for two weeks.",
+          "zh": "最多十二本，可以借兩個禮拜。"
+        },
+        {
+          "id": "t2_6",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "But you can't take the magazines home.",
+          "zh": "不過雜誌不能帶回家喔。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "續借",
+      "newChunkIds": ["renew_these_books", "didnt_have_time_read"],
+      "newWordIds": ["renew", "due", "ago", "still", "remember", "forget"],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I renew these books?",
+          "zh": "這些書可以續借嗎？",
+          "chunkId": "renew_these_books"
+        },
+        {
+          "id": "t3_2",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Let me see. You borrowed them two weeks ago.",
+          "zh": "我看一下。你是兩個禮拜前借的。"
+        },
+        {
+          "id": "t3_3",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "They're due today. Did you like them?",
+          "zh": "今天到期。好看嗎？",
+          "stage": {
+            "act": "ask"
+          }
+        },
+        {
+          "id": "t3_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I didn't have time to read them.",
+          "zh": "我還沒時間看。",
+          "chunkId": "didnt_have_time_read"
+        },
+        {
+          "id": "t3_5",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "That's okay. You can keep them two more weeks.",
+          "zh": "沒關係。你可以再借兩個禮拜。"
+        },
+        {
+          "id": "t3_6",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "And if you forget, you can renew them online.",
+          "zh": "如果你忘了，也可以上網續借。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "看布告欄",
+      "newChunkIds": ["what_word_mean", "is_job_fair_free"],
+      "newWordIds": ["january", "february", "march", "april", "may", "june"],
+      "passages": [
+        {
+          "id": "library_notices",
+          "kind": "notice",
+          "title": "Library Notices",
+          "lines": [
+            "JOB FAIR: Saturday, October 3, 11:00–3:00, at the Job Center",
+            "English Talk Night: every Tuesday, January to June. Sign up at the desk by December.",
+            "Book Sale: March 14",
+            "Reading Time for Kids: February, April and May",
+            "Summer hours start in June."
+          ],
+          "questions": [
+            {
+              "en": "When does English Talk Night start?",
+              "zh": "英語聊天夜什麼時候開始？",
+              "options": ["In January", "In June", "In December"],
+              "answer": 0
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Hi again! Can I help you with something?",
+          "zh": "又見面了！需要幫忙嗎？"
+        },
+        {
+          "id": "t4_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What does this word mean?",
+          "zh": "這個字是什麼意思？",
+          "chunkId": "what_word_mean",
+          "stage": {
+            "act": "ask"
+          }
+        },
+        {
+          "id": "t4_3",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "A job fair? You can meet people and talk about jobs.",
+          "zh": "就業博覽會？你可以去認識人，聊聊工作的事。"
+        },
+        {
+          "id": "t4_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is the job fair free?",
+          "zh": "就業博覽會要錢嗎？",
+          "chunkId": "is_job_fair_free"
+        },
+        {
+          "id": "t4_5",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Yes, it's free, and you don't have to sign up.",
+          "zh": "對，免費的，而且不用報名。"
+        },
+        {
+          "id": "t4_6",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "It's at the Job Center. That's a good place to start.",
+          "zh": "在就業服務站。找工作從那裡開始很不錯。"
+        },
+        {
+          "id": "t4_7",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "The other notices are all for next year.",
+          "zh": "其他公告都是明年的活動。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "用圖書館的電腦",
+      "newChunkIds": ["use_my_laptop_here", "write_that_down"],
+      "newWordIds": ["connect", "download", "password", "search", "limit", "e_book"],
+      "pictures": [
+        {
+          "id": "pic_magazine",
+          "pictureId": "reading_magazine",
+          "options": [
+            {
+              "en": "She is sleeping in a chair.",
+              "zh": "她在椅子上睡覺。"
+            },
+            {
+              "en": "She is reading a magazine.",
+              "zh": "她在看雜誌。"
+            },
+            {
+              "en": "She is eating a sandwich.",
+              "zh": "她在吃三明治。"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "pic_borrow",
+          "pictureId": "borrowing_books",
+          "options": [
+            {
+              "en": "He is writing a letter.",
+              "zh": "他在寫信。"
+            },
+            {
+              "en": "He is playing a game.",
+              "zh": "他在玩遊戲。"
+            },
+            {
+              "en": "He is borrowing two books.",
+              "zh": "他在借兩本書。"
+            }
+          ],
+          "answer": 2
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I use my laptop here?",
+          "zh": "我可以在這裡用自己的筆電嗎？",
+          "chunkId": "use_my_laptop_here"
+        },
+        {
+          "id": "t5_2",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Of course. You can connect to our Wi-Fi.",
+          "zh": "當然可以。你可以連我們的 Wi-Fi。"
+        },
+        {
+          "id": "t5_3",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "The password is \"happy reading,\" all small letters.",
+          "zh": "密碼是 happy reading，全部小寫。"
+        },
+        {
+          "id": "t5_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let me write that down.",
+          "zh": "我記一下。",
+          "chunkId": "write_that_down"
+        },
+        {
+          "id": "t5_5",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "You can also download e-books for free.",
+          "zh": "你也可以免費下載電子書。"
+        },
+        {
+          "id": "t5_6",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Our computers have a limit of one hour.",
+          "zh": "我們的電腦一次限用一小時。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "列印和影印",
+      "newChunkIds": ["show_me_how_print", "print_them_color"],
+      "newWordIds": ["print", "paper", "page", "copy", "file", "around"],
+      "cloze": [
+        {
+          "lineId": "t6_2",
+          "word": "file",
+          "distractors": ["salad", "pizza"]
+        },
+        {
+          "lineId": "t6_5",
+          "word": "copy",
+          "distractors": ["shoe", "bus"]
+        },
+        {
+          "lineId": "t6_6",
+          "word": "paper",
+          "distractors": ["soup", "rice"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could you show me how to print?",
+          "zh": "可以教我怎麼列印嗎？",
+          "chunkId": "show_me_how_print"
+        },
+        {
+          "id": "t6_2",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Sure. First open your file, then go to \"Print.\"",
+          "zh": "好啊。先打開你的檔案，再按「列印」。"
+        },
+        {
+          "id": "t6_3",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Your pages come out over there, by the door.",
+          "zh": "印好的紙會從那邊出來，在門旁邊。"
+        },
+        {
+          "id": "t6_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I print them in color?",
+          "zh": "這些可以印彩色的嗎？",
+          "chunkId": "print_them_color"
+        },
+        {
+          "id": "t6_5",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Yes, but it's around twenty cents a copy.",
+          "zh": "可以，不過一張大約二十分錢。"
+        },
+        {
+          "id": "t6_6",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "If you need more paper, it's under the desk.",
+          "zh": "如果紙不夠，桌子下面還有。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "安靜的規定",
+      "newChunkIds": ["let_me_turn_it_off", "where_take_call"],
+      "newWordIds": ["board", "rule", "follow", "allow", "quiet", "away"],
+      "spellWordIds": ["computer", "screen", "keyboard", "mouse", "teacher"],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Excuse me, is that your phone?",
+          "zh": "不好意思，那是你的手機嗎？",
+          "stage": {
+            "act": "ask"
+          }
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sorry, let me turn it off.",
+          "zh": "抱歉，我馬上關掉。",
+          "chunkId": "let_me_turn_it_off"
+        },
+        {
+          "id": "t7_3",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Thanks. Calls aren't allowed in the quiet room.",
+          "zh": "謝謝。安靜閱覽室裡不能講電話。"
+        },
+        {
+          "id": "t7_4",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Please follow the rules on the board.",
+          "zh": "請遵守布告欄上的規定。",
+          "stage": {
+            "act": "want",
+            "item": "board"
+          }
+        },
+        {
+          "id": "t7_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Where can I take a call?",
+          "zh": "我可以去哪裡講電話？",
+          "chunkId": "where_take_call"
+        },
+        {
+          "id": "t7_6",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Just go through that door.",
+          "zh": "穿過那扇門就可以了。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Hi again! You come here a lot. Do you live far away?",
+          "zh": "又見面了！你很常來耶。你住得遠嗎？"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I live near here.",
+          "zh": "我住在這附近。",
+          "chunkId": "live_near_here"
+        },
+        {
+          "id": "t8_3",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Nice. So, what can I do for you today?",
+          "zh": "真好。那今天需要什麼幫忙嗎？"
+        },
+        {
+          "id": "t8_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I renew these books?",
+          "zh": "這些書可以續借嗎？",
+          "chunkId": "renew_these_books"
+        },
+        {
+          "id": "t8_5",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Done. Remember, they're due again in two weeks.",
+          "zh": "好了。記得喔，兩個禮拜後又到期了。"
+        },
+        {
+          "id": "t8_6",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Do you still need books for your computer class?",
+          "zh": "你的電腦課還需要書嗎？"
+        },
+        {
+          "id": "t8_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Where are the computer books?",
+          "zh": "電腦的書在哪裡？",
+          "chunkId": "where_computer_books"
+        },
+        {
+          "id": "t8_8",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Through that door, behind the magazines.",
+          "zh": "穿過那扇門，在雜誌後面。"
+        },
+        {
+          "id": "t8_9",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "And look at the board. There's a job fair.",
+          "zh": "對了，你看一下布告欄，有一場就業博覽會。",
+          "stage": {
+            "act": "want",
+            "item": "board"
+          }
+        },
+        {
+          "id": "t8_10",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is the job fair free?",
+          "zh": "就業博覽會要錢嗎？",
+          "chunkId": "is_job_fair_free"
+        },
+        {
+          "id": "t8_11",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Yes. It's on October 3, at the Job Center.",
+          "zh": "免費喔。十月三號，在就業服務站。"
+        },
+        {
+          "id": "t8_12",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "You can search for jobs on our computers, too.",
+          "zh": "你也可以用我們的電腦找工作。"
+        },
+        {
+          "id": "t8_13",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I use my laptop here?",
+          "zh": "我可以在這裡用自己的筆電嗎？",
+          "chunkId": "use_my_laptop_here"
+        },
+        {
+          "id": "t8_14",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Of course. Do you need to print anything?",
+          "zh": "當然可以。你有東西要印嗎？"
+        },
+        {
+          "id": "t8_15",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could you show me how to print?",
+          "zh": "可以教我怎麼列印嗎？",
+          "chunkId": "show_me_how_print"
+        },
+        {
+          "id": "t8_16",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Sure. Open your file, then go to \"Print.\"",
+          "zh": "好啊。打開你的檔案，再按「列印」。"
+        },
+        {
+          "id": "t8_17",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Wait, is that your phone?",
+          "zh": "等等，那是你的手機嗎？",
+          "stage": {
+            "act": "ask"
+          }
+        },
+        {
+          "id": "t8_18",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sorry, let me turn it off.",
+          "zh": "抱歉，我馬上關掉。",
+          "chunkId": "let_me_turn_it_off"
+        },
+        {
+          "id": "t8_19",
+          "role": "librarian",
+          "speaker": "npc",
+          "en": "Thanks. Please put it away in the library.",
+          "zh": "謝謝。在圖書館裡請把手機收起來。"
+        }
+      ]
+    }
+  ]
+}
