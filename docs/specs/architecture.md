@@ -32,12 +32,16 @@ src/
   ui/minigames/     題型元件：ListenPick、ListenPair（聽辨挑戰）、ChooseReply、Arrange、
                     Speak、QuestionView，以及錄音和辨識的 hook
   learning/         出題、批改、錯誤提示、FSRS 排程、練習與複習的規則
-  content/          單元型別、載入、內容檢查、音檔項目、角色的中文名稱（roles）
+  content/          單元型別、載入、內容檢查、音檔項目、角色的中文名稱（roles）、
+                    單元順序（unitOrder）、用字分析和平滑度規則（vocab）
   core/             共用狀態、存檔、設定
   audio/            發音播放、音軌與音量、背景音樂、音效、錄音、語音辨識
-  art/              單字像素圖；art/stage/ 是小劇場：共用工具（common）、咖啡廳和搬家第一天的背景與角色圖、每個單元的舞台設定
+  art/items/        單字像素圖：每個單元一個檔（cafe、moveIn）、共用繪圖工具（draw）、對照表和檢查（index）
+  art/stage/        小劇場：共用工具（common）、咖啡廳和搬家第一天的背景與角色圖、每個單元的舞台設定
   data/units/       單元內容 JSON
-scripts/            gen-audio（產生音檔）、spike-tts（聲線比較）、check-font-glyphs（字型檢查）
+  data/wordlists/   NGSL、TSL 和補充字表（CC BY-SA 4.0，出處見那裡的 README）
+scripts/            gen-audio（產生音檔）、spike-tts（聲線比較）、check-font-glyphs（字型檢查）、
+                    vocab-report（用字和難度報表）
 public/audio/       產生出來的發音 mp3 和 manifest.json
 public/assets/fonts 俐方體 11 號和授權文件
 tests/              Vitest 測試
@@ -108,11 +112,12 @@ tests/              Vitest 測試
 
 `scripts/` 裡的工具：
 
-| 指令                                          | 作用                                                                   |
-| --------------------------------------------- | ---------------------------------------------------------------------- |
-| `node --env-file=.env scripts/gen-audio.mjs`  | 產生發音音檔；加 `--dry-run` 只預演、不花錢（見 [audio.md](audio.md)） |
-| `node --env-file=.env scripts/spike-tts.mjs`  | 聲線比較實驗；加 `--dry-run` 只列出計畫                                |
-| `node scripts/check-font-glyphs.mjs <字型檔>` | 檢查字型缺哪些字（見 [visual-style.md](visual-style.md)）              |
+| 指令                                          | 作用                                                                                                                                                                                                                             |
+| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `node --env-file=.env scripts/gen-audio.mjs`  | 產生發音音檔；加 `--dry-run` 只預演、不花錢（見 [audio.md](audio.md)）                                                                                                                                                           |
+| `node --env-file=.env scripts/spike-tts.mjs`  | 聲線比較實驗；加 `--dry-run` 只列出計畫                                                                                                                                                                                          |
+| `node scripts/check-font-glyphs.mjs <字型檔>` | 檢查字型缺哪些字（見 [visual-style.md](visual-style.md)）                                                                                                                                                                        |
+| `node scripts/vocab-report.mjs`               | 依遊玩順序列出每個任務的用字、難度分數和違反平滑規則的地方；加 `--json` 輸出 JSON、`--starter=N` 把 NGSL 前 N 名當成玩家一開始就認得的字（預設 100）。只是報表，結束碼一律 0（見 [curriculum.md](curriculum.md) 的「用字分析」） |
 
 ## 環境變數
 
@@ -134,6 +139,7 @@ tests/              Vitest 測試
 - 需要 Web Audio 的測試使用 `tests/fakeAudio.ts` 的假 AudioContext。
 - 專案沒有安裝模擬瀏覽器的測試環境（jsdom 或 happy-dom），所以畫面元件本身沒有自動化測試；畫面改動要在瀏覽器裡實際操作確認。
 - 場景有快照測試（`tests/streetSnapshot.test.ts`）：繪製結果的雜湊改變就會失敗。刻意改畫面時要更新雜湊，並在說明中寫明原因。
+- 內容的平滑度規則由 `tests/smoothness.test.ts` 檢查，和 `scripts/vocab-report.mjs` 共用 `src/content/vocab.ts` 的 `smoothnessBreaks`。改了單元內容後測試失敗時，先跑報表看是哪個任務違反了規則。
 
 ### 手機上測錄音
 
