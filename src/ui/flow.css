@@ -580,6 +580,12 @@
   box-shadow: inset 0 0 0 var(--line) var(--neon);
 }
 
+/* In the progress bar (after the hearts refill) it takes the combo's place: one line, no extra row. */
+.flow-bar .gentle {
+  padding: 0 calc(4 * var(--px));
+  white-space: nowrap;
+}
+
 .quit {
   align-self: center;
   flex: none;

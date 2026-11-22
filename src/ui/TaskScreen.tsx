@@ -95,7 +95,14 @@ export function QuestionRunner({ questions, showHearts, onFinish, onProgress }: 
         <span data-testid="progress-text">
           {index + 1} / {questions.length}
         </span>
-        {combo >= 2 && <span class="combo">連擊 x{combo}</span>}
+        {/* A refill follows a wrong answer, so it never shows together with a combo. */}
+        {refilled ? (
+          <span class="gentle" data-testid="refill">
+            沒關係，再聽一次
+          </span>
+        ) : (
+          combo >= 2 && <span class="combo">連擊 x{combo}</span>
+        )}
         {showHearts && (
           <span class="hearts" data-testid="hearts" aria-label={`剩 ${heartsLeft} 顆心`}>
             {hearts(heartsLeft)}
@@ -105,11 +112,6 @@ export function QuestionRunner({ questions, showHearts, onFinish, onProgress }: 
       <div class="progress" aria-hidden="true">
         <div class="progress-fill" style={{ width: `${(index / questions.length) * 100}%` }} />
       </div>
-      {refilled && (
-        <p class="gentle" data-testid="refill">
-          沒關係，再聽一次，心已經補滿。
-        </p>
-      )}
       <QuestionView question={question} onAnswer={onAnswer} />
     </div>
   );

@@ -117,6 +117,7 @@ tests/              Vitest 測試
 | `node --env-file=.env scripts/gen-audio.mjs`  | 產生發音音檔；加 `--dry-run` 只預演、不花錢（見 [audio.md](audio.md)）                                                                                                                                                           |
 | `node --env-file=.env scripts/spike-tts.mjs`  | 聲線比較實驗；加 `--dry-run` 只列出計畫                                                                                                                                                                                          |
 | `node scripts/check-font-glyphs.mjs <字型檔>` | 檢查字型缺哪些字（見 [visual-style.md](visual-style.md)）                                                                                                                                                                        |
+| `npx knip`                                    | 找沒用到的檔案、export 和套件（設定在 `knip.json`：`scripts/*.mjs` 是入口，只在同一個檔案用到的 export 不算）；knip 沒裝進專案，npx 會臨時下載                                                                                   |
 | `node scripts/vocab-report.mjs`               | 依遊玩順序列出每個任務的用字、難度分數和違反平滑規則的地方；加 `--json` 輸出 JSON、`--starter=N` 把 NGSL 前 N 名當成玩家一開始就認得的字（預設 100）。只是報表，結束碼一律 0（見 [curriculum.md](curriculum.md) 的「用字分析」） |
 
 ## 環境變數
