@@ -1,0 +1,1773 @@
+{
+  "id": "customer_service",
+  "title": "客戶服務",
+  "titleEn": "Customer Service",
+  "chunks": [
+    {
+      "id": "completely_understand_and_like_to_help",
+      "en": "I completely understand, and I'd like to help.",
+      "zh": "我完全理解，我來幫您處理。",
+      "accept": ["I completely understand, and I would like to help."],
+      "note": "客人在抱怨時，先表示理解，再說你要幫忙。completely 放在 understand 前面。",
+      "distractors": [
+        {
+          "text": "I complete understand, and I'd like to help.",
+          "error": "other"
+        },
+        {
+          "text": "I completely understand, and I'd like to helping.",
+          "error": "other"
+        },
+        {
+          "text": "I completly understand, and I'd like to help.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "could_i_have_your_order_number",
+      "en": "Could I have your order number, please?",
+      "zh": "可以給我您的訂單編號嗎？",
+      "accept": ["Can I have your order number, please?"],
+      "note": "客氣地跟對方要資料：Could I have…, please?",
+      "distractors": [
+        {
+          "text": "Could I have you order number, please?",
+          "error": "other"
+        },
+        {
+          "text": "Could I your order number have, please?",
+          "error": "word-order"
+        },
+        {
+          "text": "Could I have your oder number, please?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "very_sorry_for_the_inconvenience",
+      "en": "I'm very sorry for the inconvenience, Mr. Grant.",
+      "zh": "Mr. Grant，造成您的不便，真的很抱歉。",
+      "accept": ["I am very sorry for the inconvenience, Mr. Grant."],
+      "note": "正式地為對方遇到的麻煩道歉。sorry for 後面接名詞。",
+      "distractors": [
+        {
+          "text": "I'm very sorry for inconvenience, Mr. Grant.",
+          "error": "article"
+        },
+        {
+          "text": "I'm very sorry the inconvenience, Mr. Grant.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I'm very sorry for the inconvenient, Mr. Grant.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "look_into_it_and_call_you_right_back",
+      "en": "Let me look into it and call you right back.",
+      "zh": "我查一下，馬上回電給您。",
+      "note": "需要時間查的時候說。look into = 仔細查；call you right back = 馬上回電。",
+      "distractors": [
+        {
+          "text": "Let me look it into and call you right back.",
+          "error": "word-order"
+        },
+        {
+          "text": "Let me looking into it and call you right back.",
+          "error": "other"
+        },
+        {
+          "text": "Let me look into it and call you rigth back.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "have_it_thursday_unless_you_hear_from_me",
+      "en": "You'll have it Thursday unless you hear from me.",
+      "zh": "除非我再跟您聯絡，不然您星期四就會收到。",
+      "accept": [
+        "You will have it Thursday unless you hear from me.",
+        "You'll have it on Thursday unless you hear from me."
+      ],
+      "note": "unless = if not（除非）。unless 後面用現在式，不用 will。",
+      "distractors": [
+        {
+          "text": "You'll have it Thursday unless you will hear from me.",
+          "error": "extra-word"
+        },
+        {
+          "text": "You'll have it Thursday unless you don't hear from me.",
+          "error": "other"
+        },
+        {
+          "text": "You'll have it Thursday unles you hear from me.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "if_it_doesnt_arrive_by_friday",
+      "en": "If it doesn't arrive by Friday, we'll send a new one.",
+      "zh": "如果星期五還沒到，我們會重新寄一批給您。",
+      "accept": ["If it does not arrive by Friday, we will send a new one."],
+      "note": "if 後面用現在式（doesn’t arrive），另一半用 will 說會怎麼做。",
+      "distractors": [
+        {
+          "text": "If it won't arrive by Friday, we'll send a new one.",
+          "error": "other"
+        },
+        {
+          "text": "If it doesn't arrives by Friday, we'll send a new one.",
+          "error": "other"
+        },
+        {
+          "text": "If it doesn't arrive by Friday, we'll send new one.",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "what_can_we_do_to_make_this_right",
+      "en": "What can we do to make this right?",
+      "zh": "我們可以怎麼補救？",
+      "note": "公司出了錯、想補救時問。make this right = 把事情弄好。",
+      "distractors": [
+        {
+          "text": "What can we do make this right?",
+          "error": "missing-word"
+        },
+        {
+          "text": "What we can do to make this right?",
+          "error": "word-order"
+        },
+        {
+          "text": "What can we do to make this rigth?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "sorry_your_order_arrived_in_that_condition",
+      "en": "I'm so sorry your order arrived in that condition.",
+      "zh": "貨送到的時候是那個樣子，真的很抱歉。",
+      "accept": ["I am so sorry your order arrived in that condition."],
+      "note": "貨送到時壞了，先為貨的狀況道歉。condition 在這裡是「狀態」。",
+      "distractors": [
+        {
+          "text": "I'm so sorry your order arrive in that condition.",
+          "error": "other"
+        },
+        {
+          "text": "I'm so sorry your order arrived that condition.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I'm so sorry your order arrived in that conditions.",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "prefer_a_replacement_or_a_full_refund",
+      "en": "Would you prefer a replacement or a full refund?",
+      "zh": "您想要換貨，還是全額退款？",
+      "note": "讓客人自己選補救的方式：Would you prefer A or B?",
+      "distractors": [
+        {
+          "text": "Would you prefer replacement or a full refund?",
+          "error": "article"
+        },
+        {
+          "text": "Would you prefer a replacement or a fully refund?",
+          "error": "other"
+        },
+        {
+          "text": "Would you prefer a replacment or a full refund?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "it_might_take_two_or_three_days",
+      "en": "It might take two or three days to get there.",
+      "zh": "可能要兩三天才會送到。",
+      "accept": ["It may take two or three days to get there."],
+      "note": "might + 動詞原形 = 可能會，比 will 委婉，不把話說死。",
+      "distractors": [
+        {
+          "text": "It might takes two or three days to get there.",
+          "error": "other"
+        },
+        {
+          "text": "It might to take two or three days to get there.",
+          "error": "extra-word"
+        },
+        {
+          "text": "It might take two or three day to get there.",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "you_may_want_to_check_everything",
+      "en": "You may want to check everything when it arrives.",
+      "zh": "建議您貨到的時候全部檢查一遍。",
+      "accept": ["You might want to check everything when it arrives."],
+      "note": "You may want to + 動詞原形 是客氣的建議，比 You should 委婉。",
+      "distractors": [
+        {
+          "text": "You may want check everything when it arrives.",
+          "error": "missing-word"
+        },
+        {
+          "text": "You may wants to check everything when it arrives.",
+          "error": "other"
+        },
+        {
+          "text": "You may want to check everything when it will arrive.",
+          "error": "extra-word"
+        }
+      ]
+    },
+    {
+      "id": "follow_up_with_him_later_this_week",
+      "en": "I'll follow up with him again later this week.",
+      "zh": "我這禮拜會再跟他聯絡，確認後續。",
+      "accept": ["I will follow up with him again later this week."],
+      "note": "跟主管說你會再追蹤。follow up with 人 = 再跟某人聯絡、確認後續。",
+      "distractors": [
+        {
+          "text": "I'll follow up him again later this week.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I'll follow up with he again later this week.",
+          "error": "other"
+        },
+        {
+          "text": "I'll follow up with him again later this weak.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "calling_to_make_sure_everything_arrived_okay",
+      "en": "I'm just calling to make sure everything arrived okay.",
+      "zh": "我只是打來確認東西都順利送到了。",
+      "accept": ["I am just calling to make sure everything arrived okay."],
+      "note": "打追蹤電話時的開場。make sure = 確認一下。",
+      "distractors": [
+        {
+          "text": "I'm just calling for make sure everything arrived okay.",
+          "error": "other"
+        },
+        {
+          "text": "I'm just calling to make sure everything arrive okay.",
+          "error": "other"
+        },
+        {
+          "text": "I'm just calling to make shure everything arrived okay.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "thank_you_again_for_your_patience",
+      "en": "Thank you again for your patience, Mr. Grant.",
+      "zh": "Mr. Grant，再次謝謝您的耐心等候。",
+      "note": "講完電話前再謝一次對方的耐心。thank you for 後面接名詞。",
+      "distractors": [
+        {
+          "text": "Thank you again your patience, Mr. Grant.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Thank you again for your patient, Mr. Grant.",
+          "error": "other"
+        },
+        {
+          "text": "Thank you again for your patiense, Mr. Grant.",
+          "error": "spelling"
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "id": "issue",
+      "en": "issue",
+      "zh": "問題（要處理的狀況）",
+      "emoji": "⚠️",
+      "abstract": true
+    },
+    {
+      "id": "service",
+      "en": "service",
+      "zh": "服務",
+      "emoji": "🤝",
+      "abstract": true
+    },
+    {
+      "id": "concern",
+      "en": "concern",
+      "zh": "顧慮；擔心",
+      "emoji": "😟",
+      "abstract": true
+    },
+    {
+      "id": "situation",
+      "en": "situation",
+      "zh": "狀況；情況",
+      "emoji": "📍",
+      "abstract": true
+    },
+    {
+      "id": "major",
+      "en": "major",
+      "zh": "重大的",
+      "emoji": "‼️",
+      "abstract": true
+    },
+    {
+      "id": "completely",
+      "en": "completely",
+      "zh": "完全地",
+      "emoji": "✅",
+      "abstract": true
+    },
+    {
+      "id": "angry",
+      "en": "angry",
+      "zh": "生氣的",
+      "emoji": "😡",
+      "abstract": true
+    },
+    {
+      "id": "upset",
+      "en": "upset",
+      "zh": "不高興的；心煩的",
+      "emoji": "😣",
+      "abstract": true
+    },
+    {
+      "id": "case",
+      "en": "case",
+      "zh": "情況（in that case 那樣的話）",
+      "emoji": "🗂️",
+      "abstract": true
+    },
+    {
+      "id": "cause",
+      "en": "cause",
+      "zh": "造成；導致",
+      "emoji": "➡️",
+      "abstract": true
+    },
+    {
+      "id": "realize",
+      "en": "realize",
+      "zh": "意識到；了解到",
+      "emoji": "😮",
+      "abstract": true
+    },
+    {
+      "id": "unfortunately",
+      "en": "unfortunately",
+      "zh": "很遺憾；不巧",
+      "emoji": "😔",
+      "abstract": true
+    },
+    {
+      "id": "actual",
+      "en": "actual",
+      "zh": "實際的",
+      "emoji": "🎯",
+      "abstract": true
+    },
+    {
+      "id": "inconvenience",
+      "en": "inconvenience",
+      "zh": "不便",
+      "emoji": "🚧",
+      "abstract": true
+    },
+    {
+      "id": "explanation",
+      "en": "explanation",
+      "zh": "解釋；說明",
+      "emoji": "🗣️",
+      "abstract": true
+    },
+    {
+      "id": "apologize",
+      "en": "apologize",
+      "zh": "道歉",
+      "emoji": "🙇"
+    },
+    {
+      "id": "frustrating",
+      "en": "frustrating",
+      "zh": "讓人很煩的；令人挫折的",
+      "emoji": "😤",
+      "abstract": true
+    },
+    {
+      "id": "solution",
+      "en": "solution",
+      "zh": "解決辦法",
+      "emoji": "🗝️",
+      "abstract": true
+    },
+    {
+      "id": "doubt",
+      "en": "doubt",
+      "zh": "懷疑；疑慮",
+      "emoji": "🤔",
+      "abstract": true
+    },
+    {
+      "id": "difficulty",
+      "en": "difficulty",
+      "zh": "困難",
+      "emoji": "🧗",
+      "abstract": true
+    },
+    {
+      "id": "unless",
+      "en": "unless",
+      "zh": "除非",
+      "emoji": "⛔",
+      "abstract": true
+    },
+    {
+      "id": "trust",
+      "en": "trust",
+      "zh": "信任；相信",
+      "emoji": "🫶",
+      "abstract": true
+    },
+    {
+      "id": "resolve",
+      "en": "resolve",
+      "zh": "解決（問題、糾紛）",
+      "emoji": "🧩",
+      "abstract": true
+    },
+    {
+      "id": "honest",
+      "en": "honest",
+      "zh": "老實的；誠實的",
+      "emoji": "😇",
+      "abstract": true
+    },
+    {
+      "id": "unlikely",
+      "en": "unlikely",
+      "zh": "不太可能的",
+      "emoji": "🎲",
+      "abstract": true
+    },
+    {
+      "id": "assure",
+      "en": "assure",
+      "zh": "向……保證",
+      "emoji": "🤞",
+      "abstract": true
+    },
+    {
+      "id": "refund",
+      "en": "refund",
+      "zh": "退款",
+      "emoji": "💸",
+      "abstract": true
+    },
+    {
+      "id": "loss",
+      "en": "loss",
+      "zh": "損失",
+      "emoji": "📉",
+      "abstract": true
+    },
+    {
+      "id": "discover",
+      "en": "discover",
+      "zh": "發現",
+      "emoji": "🔍",
+      "abstract": true
+    },
+    {
+      "id": "slightly",
+      "en": "slightly",
+      "zh": "稍微；輕微地",
+      "emoji": "🤏",
+      "abstract": true
+    },
+    {
+      "id": "eventually",
+      "en": "eventually",
+      "zh": "最後；終於",
+      "emoji": "⏳",
+      "abstract": true
+    },
+    {
+      "id": "replacement",
+      "en": "replacement",
+      "zh": "換貨；替換品",
+      "emoji": "🔁",
+      "abstract": true
+    },
+    {
+      "id": "complain",
+      "en": "complain",
+      "zh": "抱怨；投訴",
+      "emoji": "😠",
+      "abstract": true
+    },
+    {
+      "id": "complaint",
+      "en": "complaint",
+      "zh": "抱怨；客訴",
+      "emoji": "📣",
+      "abstract": true
+    },
+    {
+      "id": "disappointed",
+      "en": "disappointed",
+      "zh": "失望的",
+      "emoji": "😞",
+      "abstract": true
+    },
+    {
+      "id": "badly",
+      "en": "badly",
+      "zh": "嚴重地",
+      "emoji": "💥",
+      "abstract": true
+    },
+    {
+      "id": "poor",
+      "en": "poor",
+      "zh": "差的；品質不好的",
+      "emoji": "👎",
+      "abstract": true
+    },
+    {
+      "id": "original",
+      "en": "original",
+      "zh": "原本的；原來的",
+      "emoji": "🥇",
+      "abstract": true
+    },
+    {
+      "id": "admit",
+      "en": "admit",
+      "zh": "承認",
+      "emoji": "🙋",
+      "abstract": true
+    },
+    {
+      "id": "coupon",
+      "en": "coupon",
+      "zh": "折價券",
+      "emoji": "🎟️"
+    },
+    {
+      "id": "insist",
+      "en": "insist",
+      "zh": "堅持",
+      "emoji": "✊",
+      "abstract": true
+    },
+    {
+      "id": "blame",
+      "en": "blame",
+      "zh": "責怪；怪罪",
+      "emoji": "👉",
+      "abstract": true
+    },
+    {
+      "id": "terrible",
+      "en": "terrible",
+      "zh": "很糟的",
+      "emoji": "😱",
+      "abstract": true
+    },
+    {
+      "id": "fault",
+      "en": "fault",
+      "zh": "過錯；責任",
+      "emoji": "❌",
+      "abstract": true
+    },
+    {
+      "id": "defective",
+      "en": "defective",
+      "zh": "有瑕疵的；故障的",
+      "emoji": "🚫",
+      "abstract": true
+    },
+    {
+      "id": "claim",
+      "en": "claim",
+      "zh": "索賠；理賠申請",
+      "emoji": "📑",
+      "abstract": true
+    },
+    {
+      "id": "avoid",
+      "en": "avoid",
+      "zh": "避免",
+      "emoji": "🙅",
+      "abstract": true
+    },
+    {
+      "id": "refuse",
+      "en": "refuse",
+      "zh": "拒絕；拒收",
+      "emoji": "🛑",
+      "abstract": true
+    },
+    {
+      "id": "properly",
+      "en": "properly",
+      "zh": "妥當地；正確地",
+      "emoji": "✔️",
+      "abstract": true
+    },
+    {
+      "id": "advise",
+      "en": "advise",
+      "zh": "建議；勸告",
+      "emoji": "☝️",
+      "abstract": true
+    },
+    {
+      "id": "minor",
+      "en": "minor",
+      "zh": "輕微的；小的",
+      "emoji": "🔹",
+      "abstract": true
+    },
+    {
+      "id": "assist",
+      "en": "assist",
+      "zh": "協助",
+      "emoji": "🤲",
+      "abstract": true
+    },
+    {
+      "id": "promptly",
+      "en": "promptly",
+      "zh": "迅速地；馬上",
+      "emoji": "⚡",
+      "abstract": true
+    },
+    {
+      "id": "confusion",
+      "en": "confusion",
+      "zh": "混亂；誤會",
+      "emoji": "😵‍💫",
+      "abstract": true
+    },
+    {
+      "id": "occur",
+      "en": "occur",
+      "zh": "發生",
+      "emoji": "✴️",
+      "abstract": true
+    },
+    {
+      "id": "lack",
+      "en": "lack",
+      "zh": "缺乏；不足",
+      "emoji": "🫙",
+      "abstract": true
+    },
+    {
+      "id": "investigate",
+      "en": "investigate",
+      "zh": "調查",
+      "emoji": "🕵️",
+      "abstract": true
+    },
+    {
+      "id": "seriously",
+      "en": "seriously",
+      "zh": "認真地；嚴肅地",
+      "emoji": "🧐",
+      "abstract": true
+    },
+    {
+      "id": "expectation",
+      "en": "expectation",
+      "zh": "期望",
+      "emoji": "🌠",
+      "abstract": true
+    },
+    {
+      "id": "outcome",
+      "en": "outcome",
+      "zh": "結果",
+      "emoji": "🏁",
+      "abstract": true
+    },
+    {
+      "id": "incident",
+      "en": "incident",
+      "zh": "事件（意外狀況）",
+      "emoji": "🚨",
+      "abstract": true
+    },
+    {
+      "id": "calm",
+      "en": "calm",
+      "zh": "冷靜的",
+      "emoji": "😌",
+      "abstract": true
+    },
+    {
+      "id": "satisfaction",
+      "en": "satisfaction",
+      "zh": "滿意；滿意度",
+      "emoji": "😊",
+      "abstract": true
+    },
+    {
+      "id": "react",
+      "en": "react",
+      "zh": "反應；應對",
+      "emoji": "🔄",
+      "abstract": true
+    },
+    {
+      "id": "support",
+      "en": "support",
+      "zh": "支持",
+      "emoji": "🫂",
+      "abstract": true
+    },
+    {
+      "id": "satisfied",
+      "en": "satisfied",
+      "zh": "滿意的",
+      "emoji": "😃",
+      "abstract": true
+    },
+    {
+      "id": "recommendation",
+      "en": "recommendation",
+      "zh": "推薦；建議",
+      "emoji": "👍",
+      "abstract": true
+    },
+    {
+      "id": "relief",
+      "en": "relief",
+      "zh": "鬆一口氣；安心",
+      "emoji": "😮‍💨",
+      "abstract": true
+    },
+    {
+      "id": "helpful",
+      "en": "helpful",
+      "zh": "幫了大忙的；有幫助的",
+      "emoji": "🙌",
+      "abstract": true
+    },
+    {
+      "id": "perfectly",
+      "en": "perfectly",
+      "zh": "完美地；完全地",
+      "emoji": "👌",
+      "abstract": true
+    },
+    {
+      "id": "anymore",
+      "en": "anymore",
+      "zh": "（不）再",
+      "emoji": "🔚",
+      "abstract": true
+    },
+    {
+      "id": "loyal",
+      "en": "loyal",
+      "zh": "忠實的",
+      "emoji": "💙",
+      "abstract": true
+    },
+    {
+      "id": "patience",
+      "en": "patience",
+      "zh": "耐心",
+      "emoji": "🧘",
+      "abstract": true
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "訂單還沒到",
+      "newChunkIds": ["completely_understand_and_like_to_help", "could_i_have_your_order_number"],
+      "newWordIds": [
+        "issue",
+        "service",
+        "concern",
+        "situation",
+        "major",
+        "completely",
+        "angry",
+        "upset"
+      ],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "Hi, is this customer service? This is Tom Grant.",
+          "zh": "喂，請問是客服嗎？我是 Tom Grant。"
+        },
+        {
+          "id": "t1_2",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "I have an issue. My 24 desk lamps were due on Monday.",
+          "zh": "我有個問題。我訂的 24 盞檯燈星期一就該到了。"
+        },
+        {
+          "id": "t1_3",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "It's Wednesday, and they're still not here. I'm not angry, just upset.",
+          "zh": "今天都星期三了，貨還是沒到。我不是在生氣，只是很不高興。"
+        },
+        {
+          "id": "t1_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I completely understand, and I'd like to help.",
+          "zh": "我完全理解，我來幫您處理。",
+          "chunkId": "completely_understand_and_like_to_help"
+        },
+        {
+          "id": "t1_5",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "Thanks. This is a major order for my store.",
+          "zh": "謝謝。這張訂單對我的店很重要。"
+        },
+        {
+          "id": "t1_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could I have your order number, please?",
+          "zh": "可以給我您的訂單編號嗎？",
+          "chunkId": "could_i_have_your_order_number"
+        },
+        {
+          "id": "t1_7",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "Sure, it's four seven two one. My big concern is my sale next weekend.",
+          "zh": "好，是 4721。我最擔心的是下個週末的特賣。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "道歉並查訂單",
+      "newChunkIds": ["very_sorry_for_the_inconvenience", "look_into_it_and_call_you_right_back"],
+      "newWordIds": [
+        "case",
+        "cause",
+        "realize",
+        "unfortunately",
+        "actual",
+        "inconvenience",
+        "explanation",
+        "apologize",
+        "frustrating"
+      ],
+      "fills": [
+        {
+          "id": "realized_late",
+          "en": "I ___ the order was late when Mr. Grant called.",
+          "zh": "Mr. Grant 打來的時候，我才發現訂單晚到了。",
+          "options": ["realize", "realizes", "realized", "realizing"],
+          "answer": 2,
+          "note": "說的是過去的事（called），用過去式 realized。",
+          "grammar": true
+        },
+        {
+          "id": "apologize_delivery",
+          "en": "We'd like to ___ for the late delivery.",
+          "zh": "貨晚到了，我們想跟您道歉。",
+          "options": ["apologize", "realize", "cause", "arrive"],
+          "answer": 0,
+          "note": "apologize for… = 為了……道歉。"
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "I realize it's not you, but this is really frustrating.",
+          "zh": "我知道不是你的錯，但這真的很讓人火大。"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm very sorry for the inconvenience, Mr. Grant.",
+          "zh": "Mr. Grant，造成您的不便，真的很抱歉。",
+          "chunkId": "very_sorry_for_the_inconvenience"
+        },
+        {
+          "id": "t2_3",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "Thanks, but I'd like an explanation. What caused the delay?",
+          "zh": "謝謝，但我想聽個解釋。為什麼會晚到？",
+          "stage": {
+            "act": "ask"
+          }
+        },
+        {
+          "id": "t2_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let me look into it and call you right back.",
+          "zh": "我查一下，馬上回電給您。",
+          "chunkId": "look_into_it_and_call_you_right_back"
+        },
+        {
+          "id": "t2_5",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "Okay. In that case, I'll wait for your call.",
+          "zh": "好。那樣的話，我就等你電話。"
+        },
+        {
+          "id": "t2_6",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "And this time, please give me the actual delivery date.",
+          "zh": "還有，這次請告訴我實際的到貨日期。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "保證到貨日期",
+      "newChunkIds": ["have_it_thursday_unless_you_hear_from_me", "if_it_doesnt_arrive_by_friday"],
+      "newWordIds": [
+        "solution",
+        "doubt",
+        "difficulty",
+        "unless",
+        "trust",
+        "resolve",
+        "honest",
+        "unlikely",
+        "assure"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "Thanks for calling back. Any news?",
+          "zh": "謝謝你回電。有消息了嗎？"
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "You'll have it Thursday unless you hear from me.",
+          "zh": "除非我再跟您聯絡，不然您星期四就會收到。",
+          "chunkId": "have_it_thursday_unless_you_hear_from_me"
+        },
+        {
+          "id": "t3_3",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "Thursday? To be honest, I have my doubts.",
+          "zh": "星期四？老實說，我有點懷疑。"
+        },
+        {
+          "id": "t3_4",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "I know it's unlikely, but what if they don't come?",
+          "zh": "我知道不太可能，但萬一還是沒到呢？"
+        },
+        {
+          "id": "t3_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "If it doesn't arrive by Friday, we'll send a new one.",
+          "zh": "如果星期五還沒到，我們會重新寄一批給您。",
+          "chunkId": "if_it_doesnt_arrive_by_friday"
+        },
+        {
+          "id": "t3_6",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "Okay, I'll trust you. I hope this resolves the issue.",
+          "zh": "好，我就相信你。希望這樣能把問題解決。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀客訴信",
+      "newChunkIds": ["what_can_we_do_to_make_this_right"],
+      "newWordIds": [
+        "refund",
+        "loss",
+        "discover",
+        "slightly",
+        "eventually",
+        "replacement",
+        "complain",
+        "complaint",
+        "disappointed",
+        "badly"
+      ],
+      "passages": [
+        {
+          "id": "grant_complaint",
+          "kind": "email",
+          "title": "Complaint about my order",
+          "lines": [
+            "Dear Harbor Trading,",
+            "I am writing to complain about my last order. I ordered 24 desk lamps on May 4, and they were due last Monday. I called your office on Wednesday, and the order eventually arrived on Thursday, three days late.",
+            "When we opened the boxes, we discovered that six lamps were badly damaged and two more do not turn on. Some of the other boxes were slightly damaged too. I took pictures of everything and attached them to this email.",
+            "I have been your customer for five years, and I am very disappointed. I have a big sale next weekend, so this is a real loss for my store.",
+            "Please send a replacement by next Wednesday, or give me a refund for the eight lamps.",
+            "Best regards, Tom Grant"
+          ],
+          "questions": [
+            {
+              "en": "Why did Mr. Grant write this email?",
+              "zh": "Mr. Grant 為什麼寫這封信？",
+              "options": [
+                "To order more lamps",
+                "To complain about an order",
+                "To ask about a sale"
+              ],
+              "answer": 1
+            },
+            {
+              "en": "How many lamps have a problem?",
+              "zh": "總共有幾盞燈有問題？",
+              "options": ["Two", "Six", "Eight"],
+              "answer": 2
+            },
+            {
+              "en": "What does Mr. Grant want?",
+              "zh": "Mr. Grant 希望公司怎麼做？",
+              "options": ["A visit to his store", "A replacement or a refund", "A bigger discount"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Did you read Mr. Grant's complaint? He's very disappointed.",
+          "zh": "你看了 Mr. Grant 的客訴信嗎？他非常失望。"
+        },
+        {
+          "id": "t4_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "He almost never complains, so this is serious.",
+          "zh": "他幾乎從來不抱怨，所以這次很嚴重。"
+        },
+        {
+          "id": "t4_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Six lamps were badly damaged, and two more don't turn on.",
+          "zh": "六盞燈壞得很嚴重，另外兩盞根本不會亮。"
+        },
+        {
+          "id": "t4_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What can we do to make this right?",
+          "zh": "我們可以怎麼補救？",
+          "chunkId": "what_can_we_do_to_make_this_right"
+        },
+        {
+          "id": "t4_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Here's my solution: he can choose a replacement or a full refund.",
+          "zh": "我的辦法是：讓他自己選換貨，或是全額退款。"
+        },
+        {
+          "id": "t4_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And let's send him a small gift too. It was our mistake.",
+          "zh": "另外再送他一個小禮物。這是我們的錯。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "道歉與補救",
+      "newChunkIds": [
+        "sorry_your_order_arrived_in_that_condition",
+        "prefer_a_replacement_or_a_full_refund"
+      ],
+      "newWordIds": [
+        "poor",
+        "original",
+        "admit",
+        "coupon",
+        "insist",
+        "blame",
+        "terrible",
+        "fault",
+        "defective"
+      ],
+      "talks": [
+        {
+          "id": "grant_replacement",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "customer",
+              "en": "Two of the lamps are defective. They don't even turn on.",
+              "zh": "有兩盞燈是故障的，連開都開不了。"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "guide",
+              "en": "I'm sorry. I have to admit it was our fault.",
+              "zh": "真的很抱歉。我得承認這是我們的錯。"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "customer",
+              "en": "Well, at least you admit it. I don't blame you.",
+              "zh": "嗯，至少你們肯承認。我不怪你。"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "customer",
+              "en": "But I insist on the same lamps as my original order.",
+              "zh": "不過我堅持要跟原本訂的一模一樣的燈。"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "guide",
+              "en": "Of course. I assure you they'll be the exact same lamps.",
+              "zh": "當然。我向您保證，會是一模一樣的燈。"
+            },
+            {
+              "id": "t5_talk_6",
+              "role": "guide",
+              "en": "We'll also send you a coupon for ten percent off your next order.",
+              "zh": "我們也會寄一張折價券給您，下次訂貨打九折。"
+            },
+            {
+              "id": "t5_talk_7",
+              "role": "customer",
+              "en": "Thank you. That's very kind of you.",
+              "zh": "謝謝，你們真貼心。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "What is wrong with two of the lamps?",
+              "zh": "其中兩盞燈有什麼問題？",
+              "options": ["They don't turn on.", "They're the wrong color.", "They're too small."],
+              "answer": 0
+            },
+            {
+              "en": "What does Mr. Grant insist on?",
+              "zh": "Mr. Grant 堅持要什麼？",
+              "options": ["A full refund", "The same lamps", "A faster truck"],
+              "answer": 1
+            },
+            {
+              "en": "What will Mr. Grant get for his next order?",
+              "zh": "Mr. Grant 下次訂貨會得到什麼？",
+              "options": ["A free lamp", "Ten percent off", "Free delivery"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "Hi. So, my lamps came yesterday, in terrible condition.",
+          "zh": "嗨。我的檯燈昨天到了，狀況糟透了。"
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm so sorry your order arrived in that condition.",
+          "zh": "貨送到的時候是那個樣子，真的很抱歉。",
+          "chunkId": "sorry_your_order_arrived_in_that_condition"
+        },
+        {
+          "id": "t5_3",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "Thanks. But six broken lamps? That's really poor service.",
+          "zh": "謝謝。可是破了六盞？這服務真的很差。"
+        },
+        {
+          "id": "t5_4",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "So, what can you do for me?",
+          "zh": "所以，你們能怎麼處理？"
+        },
+        {
+          "id": "t5_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Would you prefer a replacement or a full refund?",
+          "zh": "您想要換貨，還是全額退款？",
+          "chunkId": "prefer_a_replacement_or_a_full_refund"
+        },
+        {
+          "id": "t5_6",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "A replacement, please. I need lamps for my sale, not money.",
+          "zh": "換貨，麻煩了。我特賣要的是燈，不是錢。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "說明後續安排",
+      "newChunkIds": ["it_might_take_two_or_three_days", "you_may_want_to_check_everything"],
+      "newWordIds": [
+        "claim",
+        "avoid",
+        "refuse",
+        "properly",
+        "advise",
+        "minor",
+        "assist",
+        "promptly",
+        "confusion"
+      ],
+      "cloze": [
+        {
+          "lineId": "t6_1",
+          "word": "new",
+          "distractors": ["old", "broken"]
+        },
+        {
+          "lineId": "t6_3",
+          "word": "sale",
+          "distractors": ["ladder", "alarm"]
+        },
+        {
+          "lineId": "t6_6",
+          "word": "properly",
+          "distractors": ["badly", "slightly"]
+        }
+      ],
+      "textFills": [
+        {
+          "id": "replacement_email",
+          "kind": "email",
+          "title": "Your replacement lamps",
+          "lines": [
+            "Dear Mr. Grant,",
+            "Your eight new lamps left our warehouse this afternoon. They ___ take two or three days to arrive.",
+            "To avoid ___, each box has a yellow \"Replacement\" label.",
+            "We advise you to check every lamp. If there is even a minor problem, you can refuse the box. ___",
+            "Again, we are sorry for any difficulty this has caused.",
+            "Best regards,",
+            "Harbor Trading Customer Service"
+          ],
+          "zh": [
+            "Mr. Grant 您好：",
+            "您的八盞新檯燈今天下午已經從我們的倉庫出貨，可能要兩三天才會送到。",
+            "為了避免搞混，每一箱都貼了黃色的「Replacement（換貨）」標籤。",
+            "建議您每一盞燈都檢查一下。就算只是小問題，您也可以拒收那一箱。我們會協助您辦理索賠。",
+            "再次為這次造成的困擾向您致歉。",
+            "敬祝 順心",
+            "Harbor Trading 客服部"
+          ],
+          "blanks": [
+            {
+              "options": ["might", "might to", "might be", "might taking"],
+              "answer": 0,
+              "note": "might 後面直接接動詞原形 take。"
+            },
+            {
+              "options": ["confusion", "refund", "solution", "delivery"],
+              "answer": 0,
+              "note": "貼標籤是為了避免搞混：avoid confusion。"
+            },
+            {
+              "options": [
+                "We will assist you with the claim.",
+                "Thank you for your order of 24 lamps.",
+                "The lamps are on sale this week.",
+                "Our warehouse is closed on Monday."
+              ],
+              "answer": 0,
+              "note": "拒收之後，接著說公司會幫忙辦索賠最通順。"
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "So, when will the new lamps get here?",
+          "zh": "那新的燈什麼時候會到？",
+          "stage": {
+            "act": "ask"
+          }
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "It might take two or three days to get there.",
+          "zh": "可能要兩三天才會送到。",
+          "chunkId": "it_might_take_two_or_three_days"
+        },
+        {
+          "id": "t6_3",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "Okay, that works. My sale starts next Saturday.",
+          "zh": "好，這樣可以。我的特賣下星期六開始。"
+        },
+        {
+          "id": "t6_4",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "And this time, I'll open the boxes right away.",
+          "zh": "而且這次我會一收到就馬上開箱。"
+        },
+        {
+          "id": "t6_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "You may want to check everything when it arrives.",
+          "zh": "建議您貨到的時候全部檢查一遍。",
+          "chunkId": "you_may_want_to_check_everything"
+        },
+        {
+          "id": "t6_6",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "Will do. I'll check every lamp properly this time.",
+          "zh": "好。這次我會把每一盞燈都好好檢查。"
+        },
+        {
+          "id": "t6_7",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "And thanks for handling this so promptly.",
+          "zh": "還有，謝謝你這麼快就幫我處理好。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "週會上的檢討",
+      "newChunkIds": ["follow_up_with_him_later_this_week"],
+      "newWordIds": [
+        "occur",
+        "lack",
+        "investigate",
+        "seriously",
+        "expectation",
+        "outcome",
+        "incident",
+        "calm",
+        "satisfaction",
+        "react"
+      ],
+      "talks": [
+        {
+          "id": "monday_meeting",
+          "kind": "monologue",
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "manager",
+              "en": "Good morning, everyone. First, let's talk about last week's incident.",
+              "zh": "大家早。首先，我們來談談上星期的事件。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "manager",
+              "en": "Mr. Grant's order arrived three days late, and eight lamps had problems.",
+              "zh": "Mr. Grant 的訂單晚了三天才到，而且有八盞燈有問題。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "manager",
+              "en": "We investigated, and here's how it occurred.",
+              "zh": "我們調查過了，事情是這樣發生的。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "manager",
+              "en": "Unfortunately, the truck broke down on the road, and there was a lack of packing material in the boxes.",
+              "zh": "很不巧，貨車在路上拋錨，箱子裡的保護材料又不夠。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "manager",
+              "en": "We take this very seriously. Customer satisfaction comes first, and we didn't meet his expectations.",
+              "zh": "我們非常重視這件事。客戶滿意最重要，而這次我們沒有達到他的期望。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "manager",
+              "en": "Thanks to our newest team member for staying calm and reacting quickly. The outcome was good.",
+              "zh": "謝謝我們最新的同事保持冷靜、反應很快。結果是好的。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "manager",
+              "en": "From now on, Luis will check every box of glass lamps before it leaves.",
+              "zh": "從現在開始，玻璃燈的訂單出貨前，Luis 會一箱一箱檢查。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "Why were the lamps damaged?",
+              "zh": "燈為什麼會壞掉？",
+              "options": [
+                "There was not enough packing.",
+                "The boxes got wet.",
+                "The driver dropped them."
+              ],
+              "answer": 0
+            },
+            {
+              "en": "What will happen before glass orders leave?",
+              "zh": "以後玻璃製品的訂單出貨前會多做什麼？",
+              "options": [
+                "The boxes will be checked.",
+                "The lamps will be cheaper.",
+                "The truck will leave earlier."
+              ],
+              "answer": 0
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "You did a great job with Mr. Grant last week.",
+          "zh": "上星期 Mr. Grant 那件事，你處理得很好。"
+        },
+        {
+          "id": "t7_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "He was upset, but you handled the situation really well.",
+          "zh": "他很不高興，可是你把狀況處理得非常好。"
+        },
+        {
+          "id": "t7_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Do we know if the new lamps got there yet?",
+          "zh": "我們知道新的燈送到了沒有嗎？"
+        },
+        {
+          "id": "t7_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll follow up with him again later this week.",
+          "zh": "我這禮拜會再跟他聯絡，確認後續。",
+          "chunkId": "follow_up_with_him_later_this_week"
+        },
+        {
+          "id": "t7_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Great. Let me know how it goes, okay?",
+          "zh": "很好。有什麼進展再跟我說，好嗎？"
+        },
+        {
+          "id": "t7_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "We want him to trust us again.",
+          "zh": "我們希望他能再次信任我們。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "追蹤回電",
+      "newChunkIds": [
+        "calling_to_make_sure_everything_arrived_okay",
+        "thank_you_again_for_your_patience"
+      ],
+      "newWordIds": [
+        "support",
+        "satisfied",
+        "recommendation",
+        "relief",
+        "helpful",
+        "perfectly",
+        "anymore",
+        "loyal",
+        "patience"
+      ],
+      "spellWordIds": ["warehouse", "truck", "shelf", "label", "ladder"],
+      "cloze": [
+        {
+          "lineId": "t8_3",
+          "word": "relief",
+          "distractors": ["loss", "complaint"]
+        },
+        {
+          "lineId": "t8_5",
+          "word": "helpful",
+          "distractors": ["terrible", "angry"]
+        },
+        {
+          "lineId": "t8_6",
+          "word": "satisfied",
+          "distractors": ["disappointed", "defective"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "Hi there! I was hoping you'd call.",
+          "zh": "嗨！我正希望你打來呢。"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm just calling to make sure everything arrived okay.",
+          "zh": "我只是打來確認東西都順利送到了。",
+          "chunkId": "calling_to_make_sure_everything_arrived_okay"
+        },
+        {
+          "id": "t8_3",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "It did. Every lamp works perfectly. What a relief!",
+          "zh": "都到了，每一盞燈都好好的。真是鬆了一口氣！"
+        },
+        {
+          "id": "t8_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thank you again for your patience, Mr. Grant.",
+          "zh": "Mr. Grant，再次謝謝您的耐心等候。",
+          "chunkId": "thank_you_again_for_your_patience"
+        },
+        {
+          "id": "t8_5",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "No problem. You were very helpful. I'm not upset anymore.",
+          "zh": "不客氣。你幫了大忙，我已經不氣了。"
+        },
+        {
+          "id": "t8_6",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "I'm very satisfied. Any recommendations for my next order?",
+          "zh": "我非常滿意。我下一張訂單，你有推薦的款式嗎？"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "Hello, Grant's Lamps. Hi! It's you again.",
+          "zh": "喂，Grant 燈具店。嗨！又是你啊。"
+        },
+        {
+          "id": "t9_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm just calling to make sure everything arrived okay.",
+          "zh": "我只是打來確認東西都順利送到了。",
+          "chunkId": "calling_to_make_sure_everything_arrived_okay"
+        },
+        {
+          "id": "t9_3",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "Most of it did. But two lamps are slightly damaged.",
+          "zh": "大部分都到了。不過有兩盞燈有點小損傷。"
+        },
+        {
+          "id": "t9_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm so sorry your order arrived in that condition.",
+          "zh": "貨送到的時候是那個樣子，真的很抱歉。",
+          "chunkId": "sorry_your_order_arrived_in_that_condition"
+        },
+        {
+          "id": "t9_5",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "It's only a minor issue, but I'm a little disappointed.",
+          "zh": "只是小問題，但我有點失望。"
+        },
+        {
+          "id": "t9_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I completely understand, and I'd like to help.",
+          "zh": "我完全理解，我來幫您處理。",
+          "chunkId": "completely_understand_and_like_to_help"
+        },
+        {
+          "id": "t9_7",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "Thanks. I need those lamps for my store window.",
+          "zh": "謝謝。那兩盞燈我要擺在店裡的櫥窗。"
+        },
+        {
+          "id": "t9_8",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What can we do to make this right?",
+          "zh": "我們可以怎麼補救？",
+          "chunkId": "what_can_we_do_to_make_this_right"
+        },
+        {
+          "id": "t9_9",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "I'm not sure. What are my choices?",
+          "zh": "我也不確定。我有哪些選擇？"
+        },
+        {
+          "id": "t9_10",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Would you prefer a replacement or a full refund?",
+          "zh": "您想要換貨，還是全額退款？",
+          "chunkId": "prefer_a_replacement_or_a_full_refund"
+        },
+        {
+          "id": "t9_11",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "A replacement, please. How long will that take?",
+          "zh": "換貨，麻煩了。要多久？"
+        },
+        {
+          "id": "t9_12",
+          "role": "guide",
+          "speaker": "player",
+          "en": "It might take two or three days to get there.",
+          "zh": "可能要兩三天才會送到。",
+          "chunkId": "it_might_take_two_or_three_days"
+        },
+        {
+          "id": "t9_13",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "Can I have them before the weekend?",
+          "zh": "週末前可以拿到嗎？"
+        },
+        {
+          "id": "t9_14",
+          "role": "guide",
+          "speaker": "player",
+          "en": "You'll have it Thursday unless you hear from me.",
+          "zh": "除非我再跟您聯絡，不然您星期四就會收到。",
+          "chunkId": "have_it_thursday_unless_you_hear_from_me"
+        },
+        {
+          "id": "t9_15",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "Thursday works. Thanks for all your support.",
+          "zh": "星期四可以。謝謝你們一直這麼幫忙。"
+        },
+        {
+          "id": "t9_16",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm very sorry for the inconvenience, Mr. Grant.",
+          "zh": "Mr. Grant，造成您的不便，真的很抱歉。",
+          "chunkId": "very_sorry_for_the_inconvenience"
+        },
+        {
+          "id": "t9_17",
+          "role": "customer",
+          "speaker": "npc",
+          "en": "Don't worry about it. Talk to you soon!",
+          "zh": "別放在心上。再聊囉！"
+        },
+        {
+          "id": "t9_18",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "So the two new lamps go out today? Will you check on them?",
+          "zh": "所以那兩盞新的燈今天出貨？你會追蹤一下嗎？"
+        },
+        {
+          "id": "t9_19",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll follow up with him again later this week.",
+          "zh": "我這禮拜會再跟他聯絡，確認後續。",
+          "chunkId": "follow_up_with_him_later_this_week"
+        },
+        {
+          "id": "t9_20",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Great. He's one of our most loyal customers.",
+          "zh": "很好。他是我們最忠實的客戶之一。"
+        }
+      ]
+    }
+  ]
+}
