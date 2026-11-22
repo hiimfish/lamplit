@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { playMusic } from '../audio/music';
+import { nowPlaying } from '../audio/pronounce';
 import { playSfx } from '../audio/sfx';
 import type { Role } from '../content/types';
-import { getUnit, taskItemIds } from '../content/units';
+import { getUnit, speakerOf, taskItemIds } from '../content/units';
 import { appStore, commitSave, currentNow } from '../core/appState';
+import { useStore } from '../core/store';
 import { makeRng, buildTaskPractice } from '../learning/questionGen';
 import type { AnswerResult, Question } from '../learning/questions';
 import {
@@ -118,6 +120,7 @@ export function TaskScreen() {
     shown: 1,
     talking: undefined,
   });
+  const { audioId: heard } = useStore(nowPlaying);
   useEffect(() => playMusic('cafe'), []);
 
   // Items with no card yet are "new" in the result screen.
@@ -160,9 +163,11 @@ export function TaskScreen() {
   };
 
   // Units with a stage show it for the whole task: the story plays on it, then
-  // it rests at the story's end during the intro cards and practice.
+  // it rests at the story's end during the intro cards and practice, where
+  // whoever is heard in a clip bobs.
   const frame = stageFrame(unit.id);
   const inStory = phase === 'story';
+  const talking = inStory ? beat.talking : heard ? speakerOf(heard) : undefined;
   return (
     <div class={`flow${frame ? ' has-stage' : ''}`} data-testid="task">
       {frame && (
@@ -171,7 +176,7 @@ export function TaskScreen() {
           unit={unit}
           view={inStory ? stageAt(task.scene, beat.shown) : stageAfter(task.scene)}
           beat={beat.shown}
-          talking={inStory ? beat.talking : undefined}
+          talking={talking}
         />
       )}
       <div class="flow-card">

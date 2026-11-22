@@ -1,3 +1,4 @@
+import { unitToAudioItems } from './audioItems';
 import type { Role, Unit } from './types';
 import { validateUnit } from './validate';
 
@@ -107,6 +108,17 @@ export function getItem(itemId: string): ItemInfo | undefined {
     }
   }
   return undefined;
+}
+
+let speakers: Map<string, Role> | undefined;
+
+/**
+ * Who is heard in a clip: the same role whose voice recorded it (see
+ * unitToAudioItems), so the character that bobs always matches the voice.
+ */
+export function speakerOf(audioId: string): Role | undefined {
+  speakers ??= new Map(UNITS.flatMap(unitToAudioItems).map((item) => [item.id, item.role]));
+  return speakers.get(audioId);
 }
 
 export function lineAudioId(unitId: string, lineId: string): string {

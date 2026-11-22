@@ -4,6 +4,7 @@
  * given) or silence. Nothing here throws to callers.
  */
 import { settingsStore } from '../core/settings';
+import { createStore } from '../core/store';
 import { resumeIfNeeded } from './audioContext';
 import { getAudioManager } from './AudioManager';
 import { speakWithBrowser } from './browserSpeech';
@@ -54,6 +55,13 @@ interface Playing {
   finish: () => void;
 }
 
+/**
+ * The clip being heard right now (from the moment it starts until it ends or is
+ * stopped), so the stage can make its speaker bob. Browser speech is not
+ * tracked: it has no reliable end.
+ */
+export const nowPlaying = createStore<{ audioId: string | undefined }>({ audioId: undefined });
+
 let current: Playing | null = null;
 /** Bumped by every play/stop so a slow load can tell it has been superseded. */
 let sequence = 0;
@@ -88,7 +96,10 @@ async function play(audioId: string, options: PlayOptions): Promise<void> {
     const finish = () => {
       if (done) return;
       done = true;
-      if (current?.source === source) current = null;
+      if (current?.source === source) {
+        current = null;
+        nowPlaying.set({ audioId: undefined });
+      }
       try {
         source.stop();
       } catch {
@@ -100,6 +111,7 @@ async function play(audioId: string, options: PlayOptions): Promise<void> {
     };
     source.onended = finish;
     current = { source, finish };
+    nowPlaying.set({ audioId });
     manager.voiceStarted();
     source.start();
   });

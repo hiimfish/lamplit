@@ -208,6 +208,54 @@ describe('playAudio', () => {
     expect(fake.speak).not.toHaveBeenCalled();
   });
 
+  describe('nowPlaying', () => {
+    const playing = () => mod.nowPlaying.get().audioId;
+
+    it('holds the clip id while it plays, cleared when it ends', async () => {
+      const done = mod.playAudio('cafe.line.t1_1');
+      expect(playing()).toBeUndefined(); // still loading: nothing heard yet
+      await flush();
+      expect(playing()).toBe('cafe.line.t1_1');
+      endClip();
+      await done;
+      expect(playing()).toBeUndefined();
+    });
+
+    it('is cleared by stopAudio', async () => {
+      const done = mod.playAudio('cafe.word.latte');
+      await flush();
+      mod.stopAudio();
+      await done;
+      expect(playing()).toBeUndefined();
+    });
+
+    it('follows a new clip that replaces the one playing', async () => {
+      const first = mod.playAudio('cafe.line.t1_1');
+      await flush();
+      const second = mod.playAudio('cafe.chunk.can_i_get');
+      await first;
+      await flush();
+      expect(playing()).toBe('cafe.chunk.can_i_get');
+      endClip();
+      await second;
+      expect(playing()).toBeUndefined();
+    });
+
+    it('is never set by a clip cancelled while loading', async () => {
+      const done = mod.playAudio('cafe.word.latte');
+      mod.stopAudio();
+      await done;
+      expect(playing()).toBeUndefined();
+    });
+
+    it('stays empty for browser speech (no reliable end)', async () => {
+      fake.manager = null;
+      await mod.playAudio('cafe.word.latte', { text: 'latte' });
+      expect(fake.speak).toHaveBeenCalled();
+      expect(playing()).toBeUndefined();
+    });
+  });
+
   it('resumes an interrupted context before playing', async () => {
     ctx.state = 'interrupted';
     const done = mod.playAudio('cafe.word.latte');

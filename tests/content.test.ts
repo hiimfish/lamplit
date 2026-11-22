@@ -2,7 +2,7 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import cafe from '../src/data/units/cafe.json';
-import { UNITS, getItem, getUnit, taskItemIds } from '../src/content/units';
+import { UNITS, getItem, getUnit, speakerOf, taskItemIds } from '../src/content/units';
 import { validateUnit } from '../src/content/validate';
 
 const UNIT_DIR = join(__dirname, '..', 'src', 'data', 'units');
@@ -148,6 +148,26 @@ describe('getItem / taskItemIds', () => {
       for (const task of unit.tasks) {
         for (const id of taskItemIds(task)) expect(getItem(id), id).toBeDefined();
       }
+    }
+  });
+});
+
+describe('speakerOf', () => {
+  it('a scene line is said by its role', () => {
+    expect(speakerOf('cafe.line.t1_1')).toBe('barista');
+    expect(speakerOf('cafe.line.t1_2')).toBe('guide');
+    expect(speakerOf('move_in.line.t1_1')).toBe('landlord');
+  });
+
+  it('chunks, words and minimal pairs are said by the guide', () => {
+    expect(speakerOf('cafe.chunk.can_i_get')).toBe('guide');
+    expect(speakerOf('cafe.word.latte')).toBe('guide');
+    expect(speakerOf('move_in.pair.fan')).toBe('guide');
+  });
+
+  it('unknown ids have no speaker', () => {
+    for (const id of ['cafe.line.nope', 'nope.word.latte', 'latte', '']) {
+      expect(speakerOf(id), id).toBeUndefined();
     }
   });
 });
