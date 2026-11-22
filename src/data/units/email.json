@@ -1,0 +1,1312 @@
+{
+  "id": "email",
+  "title": "Email",
+  "titleEn": "Email",
+  "chunks": [
+    {
+      "id": "put_in_subject_line",
+      "en": "What should I put in the subject line?",
+      "zh": "主旨要寫什麼比較好？",
+      "note": "寫信前問同事主旨怎麼寫。subject line = 主旨欄。",
+      "distractors": [
+        {
+          "text": "What should I put in subject line?",
+          "error": "missing-word"
+        },
+        {
+          "text": "What I should put in the subject line?",
+          "error": "word-order"
+        },
+        {
+          "text": "What should I puts in the subject line?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "writing_to_ask_about_order",
+      "en": "I'm writing to ask about your order.",
+      "zh": "來信是想請問您訂單的事。",
+      "accept": ["I am writing to ask about your order."],
+      "note": "工作信的第一句，直接說寫信的目的。I'm writing to + 動詞。",
+      "distractors": [
+        {
+          "text": "I'm writing for ask about your order.",
+          "error": "other"
+        },
+        {
+          "text": "I'm write to ask about your order.",
+          "error": "other"
+        },
+        {
+          "text": "I'm writing to ask your about order.",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "cant_open_attachment",
+      "en": "Sorry, I can't open the attachment.",
+      "zh": "不好意思，附件我打不開。",
+      "accept": ["Sorry, I cannot open the attachment."],
+      "note": "附件打不開時說。can't 後面接動詞原形。",
+      "distractors": [
+        {
+          "text": "Sorry, I can't opening the attachment.",
+          "error": "other"
+        },
+        {
+          "text": "Sorry, I can't open attachment.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Sorry, I can't open the atachment.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "send_me_link_instead",
+      "en": "Could you send me the link instead?",
+      "zh": "可以改傳連結給我嗎？",
+      "note": "請對方改用別的方式傳。instead = 改成、代替。",
+      "distractors": [
+        {
+          "text": "Could you send me link instead?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Could you send the link me instead?",
+          "error": "word-order"
+        },
+        {
+          "text": "Could you sent me the link instead?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "think_i_attached_wrong_file",
+      "en": "I think I attached the wrong file.",
+      "zh": "我好像附錯檔案了。",
+      "note": "跟同事說話用主動：I attached（我附了）。信裡常改用過去式被動，見下一句。",
+      "distractors": [
+        {
+          "text": "I think I attached wrong file.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I think I was attached the wrong file.",
+          "error": "extra-word"
+        },
+        {
+          "text": "I think I attach the wrong file yesterday.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "wrong_file_was_attached",
+      "en": "Sorry, the wrong file was attached to my last email.",
+      "zh": "抱歉，上一封信附錯檔案了。",
+      "note": "過去式被動：was + 過去分詞（was attached），不說是誰做的，更正信常這樣寫。",
+      "distractors": [
+        {
+          "text": "Sorry, the wrong file attached to my last email.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Sorry, the wrong file were attached to my last email.",
+          "error": "other"
+        },
+        {
+          "text": "Sorry, the wrong file was attach to my last email.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "finish_before_deadline",
+      "en": "No problem, I'll finish it before the deadline.",
+      "zh": "沒問題，我會在期限前完成。",
+      "accept": ["No problem. I'll finish it before the deadline."],
+      "note": "主管交代工作時答應對方。before the deadline = 在期限前。",
+      "distractors": [
+        {
+          "text": "No problem, I'll finish it before deadline.",
+          "error": "missing-word"
+        },
+        {
+          "text": "No problem, I'll finishing it before the deadline.",
+          "error": "other"
+        },
+        {
+          "text": "No problem, I'll finish before it the deadline.",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "still_waiting_for_response",
+      "en": "I'm still waiting for a response from Mr. Hughes.",
+      "zh": "我還在等 Mr. Hughes 回覆。",
+      "accept": ["I am still waiting for a response from Mr. Hughes."],
+      "note": "說明對方還沒回信。wait for + 人或事 = 等。",
+      "distractors": [
+        {
+          "text": "I'm still waiting a response from Mr. Hughes.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I'm still wait for a response from Mr. Hughes.",
+          "error": "other"
+        },
+        {
+          "text": "I'm waiting still for a response from Mr. Hughes.",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "should_i_forward_it",
+      "en": "Should I forward it to Ms. Carter?",
+      "zh": "要轉寄給 Ms. Carter 嗎？",
+      "note": "問同事要不要把信轉給主管。forward = 轉寄。",
+      "distractors": [
+        {
+          "text": "Should I forward it for Ms. Carter?",
+          "error": "other"
+        },
+        {
+          "text": "Should I forwarding it to Ms. Carter?",
+          "error": "other"
+        },
+        {
+          "text": "Should I forward to it Ms. Carter?",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "take_a_quick_look",
+      "en": "Could you take a quick look at this?",
+      "zh": "可以幫我很快看一下這個嗎？",
+      "note": "形容詞放在名詞前：a quick look（quick 修飾 look）。請人幫忙看稿時說。",
+      "distractors": [
+        {
+          "text": "Could you take a quickly look at this?",
+          "error": "other"
+        },
+        {
+          "text": "Could you take quick look at this?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Could you take a quick look this?",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "read_more_carefully_next_time",
+      "en": "I'll read it more carefully next time.",
+      "zh": "下次我會看得更仔細。",
+      "note": "副詞修飾動詞：read carefully（careful + ly）。被指出錯誤時說。",
+      "distractors": [
+        {
+          "text": "I'll read it more careful next time.",
+          "error": "other"
+        },
+        {
+          "text": "I'll read it more carefuly next time.",
+          "error": "spelling"
+        },
+        {
+          "text": "I'll read more carefully it next time.",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "take_care_of_it_right_away",
+      "en": "I'll take care of it right away.",
+      "zh": "我馬上處理。",
+      "note": "主管交代事情時，答應馬上做。right away = 馬上。",
+      "distractors": [
+        {
+          "text": "I'll take care it right away.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I'll take care of right away it.",
+          "error": "word-order"
+        },
+        {
+          "text": "I'll takes care of it right away.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "out_of_office_on_friday",
+      "en": "I'll be out of the office on Friday.",
+      "zh": "我星期五不在公司。",
+      "accept": ["I will be out of the office on Friday."],
+      "note": "說哪一天不在公司。out of the office = 不在辦公室。",
+      "distractors": [
+        {
+          "text": "I'll be out the office on Friday.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I'll be out of the office in Friday.",
+          "error": "other"
+        },
+        {
+          "text": "I'll out of the office on Friday.",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "any_further_questions",
+      "en": "Please let me know if you have any further questions.",
+      "zh": "如果您還有其他問題，請再跟我說。",
+      "note": "工作信的結尾常用。further = 更多的、其他的。",
+      "distractors": [
+        {
+          "text": "Please let me know if you have any further question.",
+          "error": "plural"
+        },
+        {
+          "text": "Please let me to know if you have any further questions.",
+          "error": "extra-word"
+        },
+        {
+          "text": "Please let know me if you have any further questions.",
+          "error": "word-order"
+        }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "subject", "en": "subject", "zh": "（信件的）主旨", "emoji": "🔠", "abstract": true },
+    { "id": "create", "en": "create", "zh": "建立；新增", "emoji": "🆕", "abstract": true },
+    { "id": "simple", "en": "simple", "zh": "簡單的", "emoji": "👌", "abstract": true },
+    { "id": "purpose", "en": "purpose", "zh": "目的", "emoji": "🎯", "abstract": true },
+    {
+      "id": "dear",
+      "en": "dear",
+      "zh": "（信件開頭的稱呼）……您好",
+      "emoji": "👋",
+      "abstract": true
+    },
+    {
+      "id": "sincerely",
+      "en": "sincerely",
+      "zh": "（信尾）敬上；誠摯地",
+      "emoji": "✍️",
+      "abstract": true
+    },
+    {
+      "id": "regards",
+      "en": "regards",
+      "zh": "（信尾）祝好；問候",
+      "emoji": "🤗",
+      "abstract": true
+    },
+    { "id": "attachment", "en": "attachment", "zh": "附件", "emoji": "📎", "abstract": true },
+    { "id": "link", "en": "link", "zh": "連結", "emoji": "🔗" },
+    { "id": "site", "en": "site", "zh": "網站", "emoji": "🌐", "abstract": true },
+    { "id": "data", "en": "data", "zh": "資料；數據", "emoji": "📊", "abstract": true },
+    { "id": "article", "en": "article", "zh": "文章", "emoji": "📃", "abstract": true },
+    {
+      "id": "newsletter",
+      "en": "newsletter",
+      "zh": "（業界的）電子報",
+      "emoji": "📨",
+      "abstract": true
+    },
+    { "id": "appear", "en": "appear", "zh": "出現；顯示", "emoji": "👀", "abstract": true },
+    {
+      "id": "enclose",
+      "en": "enclose",
+      "zh": "（紙本信件）隨信附上",
+      "emoji": "📩",
+      "abstract": true
+    },
+    { "id": "error", "en": "error", "zh": "錯誤", "emoji": "⚠️" },
+    { "id": "correct", "en": "correct", "zh": "正確的", "emoji": "✅" },
+    { "id": "ignore", "en": "ignore", "zh": "不用理會；忽略", "emoji": "🙈", "abstract": true },
+    { "id": "delete", "en": "delete", "zh": "刪除", "emoji": "❌", "abstract": true },
+    { "id": "sender", "en": "sender", "zh": "寄件人", "emoji": "📤", "abstract": true },
+    { "id": "recipient", "en": "recipient", "zh": "收件人", "emoji": "📥", "abstract": true },
+    { "id": "attempt", "en": "attempt", "zh": "試圖；嘗試", "emoji": "🧗", "abstract": true },
+    { "id": "notify", "en": "notify", "zh": "通知", "emoji": "🔔", "abstract": true },
+    { "id": "request", "en": "request", "zh": "要求；請求", "emoji": "🙋", "abstract": true },
+    { "id": "recent", "en": "recent", "zh": "最近的", "emoji": "📅", "abstract": true },
+    { "id": "current", "en": "current", "zh": "目前的；現行的", "emoji": "🕒", "abstract": true },
+    { "id": "revise", "en": "revise", "zh": "修訂；修改", "emoji": "🔄", "abstract": true },
+    { "id": "necessary", "en": "necessary", "zh": "必要的", "emoji": "❗", "abstract": true },
+    { "id": "ensure", "en": "ensure", "zh": "確保", "emoji": "🛡️", "abstract": true },
+    { "id": "approve", "en": "approve", "zh": "核准；同意", "emoji": "👍", "abstract": true },
+    { "id": "deadline", "en": "deadline", "zh": "截止期限", "emoji": "⏳", "abstract": true },
+    { "id": "priority", "en": "priority", "zh": "優先要做的事", "emoji": "🥇", "abstract": true },
+    { "id": "reply", "en": "reply", "zh": "回覆（動詞）", "emoji": "↩️" },
+    {
+      "id": "response",
+      "en": "response",
+      "zh": "回覆；回應（名詞）",
+      "emoji": "🗨️",
+      "abstract": true
+    },
+    { "id": "final", "en": "final", "zh": "最後的；定案的", "emoji": "🏁", "abstract": true },
+    { "id": "comment", "en": "comment", "zh": "意見；評語", "emoji": "💭", "abstract": true },
+    {
+      "id": "refer",
+      "en": "refer",
+      "zh": "提到；參考（refer to）",
+      "emoji": "👉",
+      "abstract": true
+    },
+    { "id": "discussion", "en": "discussion", "zh": "討論", "emoji": "🗣️", "abstract": true },
+    { "id": "content", "en": "content", "zh": "內容", "emoji": "📖", "abstract": true },
+    {
+      "id": "meanwhile",
+      "en": "meanwhile",
+      "zh": "在這段時間；同時",
+      "emoji": "⏱️",
+      "abstract": true
+    },
+    { "id": "quick", "en": "quick", "zh": "快速的；簡短的", "emoji": "⚡", "abstract": true },
+    { "id": "carefully", "en": "carefully", "zh": "仔細地", "emoji": "🔍", "abstract": true },
+    { "id": "clearly", "en": "clearly", "zh": "清楚地", "emoji": "👓", "abstract": true },
+    { "id": "polite", "en": "polite", "zh": "有禮貌的；客氣的", "emoji": "🙇", "abstract": true },
+    { "id": "simply", "en": "simply", "zh": "只要；簡單地", "emoji": "👆", "abstract": true },
+    { "id": "express", "en": "express", "zh": "表達", "emoji": "💐", "abstract": true },
+    { "id": "appreciate", "en": "appreciate", "zh": "感謝；感激", "emoji": "🙏", "abstract": true },
+    {
+      "id": "possibly",
+      "en": "possibly",
+      "zh": "（Could you possibly…）方不方便；也許",
+      "emoji": "🤔",
+      "abstract": true
+    },
+    { "id": "raise", "en": "raise", "zh": "提出（問題）", "emoji": "☝️", "abstract": true },
+    { "id": "gain", "en": "gain", "zh": "得到；累積（經驗）", "emoji": "📈", "abstract": true },
+    { "id": "unable", "en": "unable", "zh": "無法；不能", "emoji": "🚫", "abstract": true },
+    { "id": "outline", "en": "outline", "zh": "大綱；重點摘要", "emoji": "📑", "abstract": true },
+    { "id": "highlight", "en": "highlight", "zh": "標出來；強調", "emoji": "🖍️", "abstract": true },
+    {
+      "id": "addition",
+      "en": "addition",
+      "zh": "（in addition）另外；附加",
+      "emoji": "➕",
+      "abstract": true
+    },
+    { "id": "verify", "en": "verify", "zh": "核對；查證", "emoji": "☑️", "abstract": true },
+    { "id": "certain", "en": "certain", "zh": "確定的", "emoji": "✔️", "abstract": true },
+    { "id": "otherwise", "en": "otherwise", "zh": "否則；不然", "emoji": "🔀", "abstract": true },
+    {
+      "id": "absence",
+      "en": "absence",
+      "zh": "不在（的期間）；缺席",
+      "emoji": "🏝️",
+      "abstract": true
+    },
+    { "id": "further", "en": "further", "zh": "更多的；進一步的", "emoji": "➡️", "abstract": true },
+    {
+      "id": "inform",
+      "en": "inform",
+      "zh": "告知；通知（書信用語）",
+      "emoji": "📢",
+      "abstract": true
+    },
+    { "id": "prior", "en": "prior", "zh": "（prior to）在……之前", "emoji": "⏪", "abstract": true },
+    { "id": "proofread", "en": "proofread", "zh": "校對", "emoji": "🧐", "abstract": true },
+    {
+      "id": "communicate",
+      "en": "communicate",
+      "zh": "溝通；聯絡",
+      "emoji": "📣",
+      "abstract": true
+    },
+    { "id": "glad", "en": "glad", "zh": "高興的；樂意的", "emoji": "😊", "abstract": true },
+    {
+      "id": "particularly",
+      "en": "particularly",
+      "zh": "尤其；特別",
+      "emoji": "🌟",
+      "abstract": true
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "寫第一封工作信",
+      "newChunkIds": ["put_in_subject_line", "writing_to_ask_about_order"],
+      "newWordIds": ["subject", "create", "simple", "purpose", "dear", "sincerely", "regards"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "So, Ms. Carter says you can write to Mr. Hughes yourself now.",
+          "zh": "聽說 Ms. Carter 讓你自己寫信給 Mr. Hughes 了。"
+        },
+        {
+          "id": "t1_2",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "First, create a new email and put in his address.",
+          "zh": "先新增一封信，把他的地址填進去。"
+        },
+        {
+          "id": "t1_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What should I put in the subject line?",
+          "zh": "主旨要寫什麼比較好？",
+          "chunkId": "put_in_subject_line"
+        },
+        {
+          "id": "t1_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Keep it simple. Just write 'December order.'",
+          "zh": "簡單就好，寫「December order」就行了。"
+        },
+        {
+          "id": "t1_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Then start with 'Dear Mr. Hughes' and say your purpose.",
+          "zh": "然後開頭寫「Dear Mr. Hughes」，再說你寫信的目的。"
+        },
+        {
+          "id": "t1_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm writing to ask about your order.",
+          "zh": "來信是想請問您訂單的事。",
+          "chunkId": "writing_to_ask_about_order"
+        },
+        {
+          "id": "t1_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Great. For a client, end with 'Sincerely' or 'Best regards.'",
+          "zh": "很好。寫給客戶的話，結尾用「Sincerely」或「Best regards」。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "附件和連結",
+      "newChunkIds": ["cant_open_attachment", "send_me_link_instead"],
+      "newWordIds": [
+        "attachment",
+        "link",
+        "site",
+        "data",
+        "article",
+        "newsletter",
+        "appear",
+        "enclose"
+      ],
+      "fills": [
+        {
+          "id": "send_link_instead",
+          "en": "Could you send me the ___ instead?",
+          "zh": "可以改傳連結給我嗎？",
+          "options": ["town", "link", "purpose", "regards"],
+          "answer": 1,
+          "note": "能「傳」過去、又能點開的是連結。",
+          "chunkId": "send_me_link_instead"
+        },
+        {
+          "id": "cant_open_form",
+          "en": "Sorry, I can't ___ the attachment.",
+          "zh": "不好意思，附件我打不開。",
+          "options": ["opens", "opened", "open", "opening"],
+          "answer": 2,
+          "note": "can't 後面接動詞原形。",
+          "chunkId": "cant_open_attachment",
+          "grammar": true
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "I just sent you a newsletter. There's a good article about desk lamps.",
+          "zh": "我剛寄了一份電子報給你，裡面有一篇講桌燈的文章，寫得不錯。"
+        },
+        {
+          "id": "t2_2",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "It's not ours. We're too small to have our own newsletter.",
+          "zh": "不是我們的啦，我們公司太小，沒有自己的電子報。"
+        },
+        {
+          "id": "t2_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "The sales data is in the attachment, too.",
+          "zh": "銷售資料也在附件裡。"
+        },
+        {
+          "id": "t2_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sorry, I can't open the attachment.",
+          "zh": "不好意思，附件我打不開。",
+          "chunkId": "cant_open_attachment"
+        },
+        {
+          "id": "t2_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Nothing appears at all? That's strange.",
+          "zh": "什麼都沒出現？好奇怪。"
+        },
+        {
+          "id": "t2_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could you send me the link instead?",
+          "zh": "可以改傳連結給我嗎？",
+          "chunkId": "send_me_link_instead"
+        },
+        {
+          "id": "t2_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Sure. The data is on our site, too. Here's the link.",
+          "zh": "好啊，資料在我們網站上也有，連結給你。",
+          "stage": { "act": "give", "item": "link" }
+        },
+        {
+          "id": "t2_8",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "By the way, paper letters say 'enclosed.' Emails say 'attached.'",
+          "zh": "對了，紙本信寫「enclosed」，email 寫「attached」。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "寄錯檔案",
+      "newChunkIds": ["think_i_attached_wrong_file", "wrong_file_was_attached"],
+      "newWordIds": [
+        "error",
+        "correct",
+        "ignore",
+        "delete",
+        "sender",
+        "recipient",
+        "attempt",
+        "notify"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "You look worried. Is everything okay?",
+          "zh": "你看起來很擔心，還好嗎？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I think I attached the wrong file.",
+          "zh": "我好像附錯檔案了。",
+          "chunkId": "think_i_attached_wrong_file"
+        },
+        {
+          "id": "t3_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Let me see. That's last year's price list. The new list wasn't attached.",
+          "zh": "我看看。這是去年的價目表，新的沒附上去。"
+        },
+        {
+          "id": "t3_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "You can't delete it now, so notify the recipient right away.",
+          "zh": "信寄出去就刪不掉了，所以馬上通知收件人。"
+        },
+        {
+          "id": "t3_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Don't attempt to hide it. Write 'Please ignore my last email.'",
+          "zh": "不要想裝作沒事。就寫「Please ignore my last email.」"
+        },
+        {
+          "id": "t3_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sorry, the wrong file was attached to my last email.",
+          "zh": "抱歉，上一封信附錯檔案了。",
+          "chunkId": "wrong_file_was_attached"
+        },
+        {
+          "id": "t3_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Good. Now attach the correct file and send it.",
+          "zh": "很好。現在附上正確的檔案，寄出去。",
+          "stage": { "act": "give", "item": "correct" }
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀主管交辦的信",
+      "newChunkIds": ["finish_before_deadline"],
+      "newWordIds": [
+        "request",
+        "recent",
+        "current",
+        "revise",
+        "necessary",
+        "ensure",
+        "approve",
+        "deadline",
+        "priority"
+      ],
+      "passages": [
+        {
+          "id": "price_list_request",
+          "kind": "email",
+          "title": "Ms. Carter",
+          "lines": [
+            "Subject: Price list for Mr. Hughes",
+            "Hi,",
+            "Thanks for fixing this morning's error so quickly. Now I have a request.",
+            "In his recent email, Mr. Hughes asked for our current price list, but the list on file is from last year. Could you revise it? The new data is in the attachment.",
+            "Please make the necessary changes and ensure that every price is correct. I have to approve the list first, so send your draft to me, not to Mr. Hughes.",
+            "The deadline is Thursday at noon. This is your top priority this week.",
+            "Best regards, Linda"
+          ],
+          "questions": [
+            {
+              "en": "What does Ms. Carter ask for?",
+              "zh": "Ms. Carter 要你做什麼？",
+              "options": ["A new desk lamp", "A revised price list", "A meeting with Mr. Hughes"],
+              "answer": 1
+            },
+            {
+              "en": "Who should get the draft first?",
+              "zh": "草稿要先寄給誰？",
+              "options": ["Mr. Hughes", "The front desk", "Ms. Carter"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Hi. Did you get my email about the price list?",
+          "zh": "嗨，你有收到我那封講價目表的信嗎？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t4_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "There are a lot of prices, but most of the changes are simple.",
+          "zh": "價錢很多，不過大部分的修改都很簡單。"
+        },
+        {
+          "id": "t4_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Remember, send the draft to me first, not to Mr. Hughes.",
+          "zh": "記得，草稿先寄給我，不要寄給 Mr. Hughes。"
+        },
+        {
+          "id": "t4_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "No problem, I'll finish it before the deadline.",
+          "zh": "沒問題，我會在期限前完成。",
+          "chunkId": "finish_before_deadline"
+        },
+        {
+          "id": "t4_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Great. And thanks again for fixing that error so quickly.",
+          "zh": "很好。也謝謝你那麼快就把那個錯誤處理好。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "等回信、轉寄",
+      "newChunkIds": ["still_waiting_for_response", "should_i_forward_it"],
+      "newWordIds": [
+        "reply",
+        "response",
+        "final",
+        "comment",
+        "refer",
+        "discussion",
+        "content",
+        "meanwhile"
+      ],
+      "textFills": [
+        {
+          "id": "reply_to_hughes",
+          "kind": "email",
+          "title": "Re: Price list",
+          "lines": [
+            "Dear Mr. Hughes,",
+            "Thank you ___ your email.",
+            "I have ___ the new price list to this email.",
+            "Please ___ me know if you have any questions.",
+            "Sincerely,",
+            "Harbor Trading"
+          ],
+          "zh": [
+            "Mr. Hughes 您好：",
+            "謝謝您的來信。",
+            "新的價目表已經附在這封信裡。",
+            "如果有任何問題，請跟我說。",
+            "敬上",
+            "Harbor Trading"
+          ],
+          "blanks": [
+            {
+              "options": ["to", "for", "of", "at"],
+              "answer": 1,
+              "note": "Thank you for + 事情 = 謝謝你的……。"
+            },
+            {
+              "options": ["attach", "attaching", "attached", "attaches"],
+              "answer": 2,
+              "note": "have + 過去分詞：已經附上了。"
+            },
+            {
+              "options": ["tell", "make", "give", "let"],
+              "answer": 3,
+              "note": "let me know = 跟我說一聲。"
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Any news from Mr. Hughes about the price list?",
+          "zh": "Mr. Hughes 那邊有價目表的消息了嗎？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm still waiting for a response from Mr. Hughes.",
+          "zh": "我還在等 Mr. Hughes 回覆。",
+          "chunkId": "still_waiting_for_response"
+        },
+        {
+          "id": "t5_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Hold on. I think he replied to me by mistake.",
+          "zh": "等等，他好像不小心回到我這裡了。",
+          "stage": { "act": "want", "item": "reply" }
+        },
+        {
+          "id": "t5_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "He has a few comments on the final list. I'll forward the email to you.",
+          "zh": "他對定案的價目表有幾點意見，我把信轉寄給你。"
+        },
+        {
+          "id": "t5_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Should I forward it to Ms. Carter?",
+          "zh": "要轉寄給 Ms. Carter 嗎？",
+          "chunkId": "should_i_forward_it"
+        },
+        {
+          "id": "t5_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Yes. He refers to their discussion about the December order.",
+          "zh": "要。他有提到他們之前討論十二月訂單的事。"
+        },
+        {
+          "id": "t5_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Meanwhile, you can write a short reply to him.",
+          "zh": "同時，你可以先回他一封短信。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "把信寫得客氣",
+      "newChunkIds": ["take_a_quick_look", "read_more_carefully_next_time"],
+      "newWordIds": [
+        "quick",
+        "carefully",
+        "clearly",
+        "polite",
+        "simply",
+        "express",
+        "appreciate",
+        "possibly"
+      ],
+      "cloze": [
+        { "lineId": "t6_3", "word": "content", "distractors": ["kitchen", "ticket"] },
+        { "lineId": "t6_4", "word": "polite", "distractors": ["sick", "late"] },
+        { "lineId": "t6_6", "word": "name", "distractors": ["lamp", "bus"] }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Is that your reply to Mr. Hughes?",
+          "zh": "那是你要回給 Mr. Hughes 的信嗎？"
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could you take a quick look at this?",
+          "zh": "可以幫我很快看一下這個嗎？",
+          "chunkId": "take_a_quick_look"
+        },
+        {
+          "id": "t6_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Sure. The content is fine, and you write very clearly.",
+          "zh": "好啊。內容沒問題，你寫得很清楚。"
+        },
+        {
+          "id": "t6_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "But 'Send me the list' doesn't sound very polite.",
+          "zh": "不過「Send me the list」聽起來不太客氣。"
+        },
+        {
+          "id": "t6_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Simply write 'Could you possibly send me the list?'",
+          "zh": "只要改成「Could you possibly send me the list?」就好。"
+        },
+        {
+          "id": "t6_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "And you spelled his name wrong at the top.",
+          "zh": "還有，你最上面把他的名字拼錯了。"
+        },
+        {
+          "id": "t6_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll read it more carefully next time.",
+          "zh": "下次我會看得更仔細。",
+          "chunkId": "read_more_carefully_next_time"
+        },
+        {
+          "id": "t6_8",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "No problem. And to express thanks, add 'I appreciate your help.'",
+          "zh": "沒關係。還有，想表達謝意的話，加一句「I appreciate your help.」"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "主管的語音留言",
+      "newChunkIds": ["take_care_of_it_right_away"],
+      "newWordIds": [
+        "raise",
+        "gain",
+        "unable",
+        "outline",
+        "highlight",
+        "addition",
+        "verify",
+        "certain",
+        "otherwise"
+      ],
+      "talks": [
+        {
+          "id": "carter_voicemail",
+          "kind": "monologue",
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "manager",
+              "en": "Hi, it's Linda. I'm with a client all afternoon.",
+              "zh": "嗨，我是 Linda。我整個下午都在客戶那裡。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "manager",
+              "en": "I'm unable to check my email, so I'm leaving a message.",
+              "zh": "我沒辦法收信，所以用留言的。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "manager",
+              "en": "Mr. Hughes raised a question about the delivery date. Please write to him today.",
+              "zh": "Mr. Hughes 對交貨日期提了一個問題，請你今天寫信給他。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "manager",
+              "en": "First, give a short outline of the plan in two or three lines, and highlight the new date.",
+              "zh": "先用兩三行寫出時程的大綱，再把新的日期標出來。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "manager",
+              "en": "In addition, please verify his address with Dan.",
+              "zh": "另外，請跟 Dan 核對一下他的地址。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "manager",
+              "en": "I'm certain you can write it yourself. It's a good chance to gain experience.",
+              "zh": "我確定你可以自己寫，這是累積經驗的好機會。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "manager",
+              "en": "Please send it before four. Otherwise, he can't use it in his meeting tomorrow.",
+              "zh": "請在四點前寄出，不然他明天開會就來不及用了。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "Why does Ms. Carter leave a message?",
+              "zh": "Ms. Carter 為什麼用留言的？",
+              "options": ["She can't check email.", "She is sick today.", "Her phone is broken."],
+              "answer": 0
+            },
+            {
+              "en": "What should you check with Dan?",
+              "zh": "你要跟 Dan 核對什麼？",
+              "options": ["The price", "The address", "The meeting room"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Hi, it's Linda. Did you get my voicemail?",
+          "zh": "嗨，我是 Linda。你有聽到我的語音留言嗎？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t7_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Sorry, I'm still with the client, so I have to be quick.",
+          "zh": "不好意思，我還在客戶這邊，所以長話短說。"
+        },
+        {
+          "id": "t7_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Mr. Hughes needs the new delivery date before his meeting tomorrow.",
+          "zh": "Mr. Hughes 明天開會前需要拿到新的交貨日期。"
+        },
+        {
+          "id": "t7_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll take care of it right away.",
+          "zh": "我馬上處理。",
+          "chunkId": "take_care_of_it_right_away"
+        },
+        {
+          "id": "t7_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Thanks. Keep it short, and highlight the new date in the email.",
+          "zh": "謝謝。寫短一點，信裡把新的日期標出來。"
+        },
+        {
+          "id": "t7_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And check his address with Dan before you send it.",
+          "zh": "寄出去之前，記得跟 Dan 確認一下他的地址。"
+        },
+        {
+          "id": "t7_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I'm certain you can do it. Call me if you need anything.",
+          "zh": "我相信你做得到。有什麼需要就打給我。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "請假前的最後一封信",
+      "newChunkIds": ["out_of_office_on_friday", "any_further_questions"],
+      "newWordIds": [
+        "absence",
+        "further",
+        "inform",
+        "prior",
+        "proofread",
+        "communicate",
+        "glad",
+        "particularly"
+      ],
+      "spellWordIds": ["telephone", "operator", "signal", "ring", "dial"],
+      "cloze": [
+        { "lineId": "t8_2", "word": "inform", "distractors": ["cook", "clean"] },
+        { "lineId": "t8_4", "word": "clients", "distractors": ["lamps", "boxes"] },
+        { "lineId": "t8_7", "word": "send", "distractors": ["eat", "cook"] }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll be out of the office on Friday.",
+          "zh": "我星期五不在公司。",
+          "chunkId": "out_of_office_on_friday"
+        },
+        {
+          "id": "t8_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Okay. Please inform Mr. Hughes prior to Friday.",
+          "zh": "好。請在星期五之前通知 Mr. Hughes。"
+        },
+        {
+          "id": "t8_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "In your absence, Dan will be glad to help.",
+          "zh": "你不在的時候，Dan 會很樂意幫忙。"
+        },
+        {
+          "id": "t8_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "He'll communicate with our clients, particularly Mr. Hughes.",
+          "zh": "他會跟我們的客戶聯絡，尤其是 Mr. Hughes。"
+        },
+        {
+          "id": "t8_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Read me the last line of your email.",
+          "zh": "把你信裡的最後一句唸給我聽。"
+        },
+        {
+          "id": "t8_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Please let me know if you have any further questions.",
+          "zh": "如果您還有其他問題，請再跟我說。",
+          "chunkId": "any_further_questions"
+        },
+        {
+          "id": "t8_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. Proofread it once more, then send it.",
+          "zh": "很好。再校對一次，然後寄出去。"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Mr. Hughes asked for our new price list this morning.",
+          "zh": "Mr. Hughes 今天早上要了我們新的價目表。"
+        },
+        {
+          "id": "t9_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Could you send it to him today?",
+          "zh": "你今天可以寄給他嗎？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t9_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll take care of it right away.",
+          "zh": "我馬上處理。",
+          "chunkId": "take_care_of_it_right_away"
+        },
+        {
+          "id": "t9_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Thanks. He needs it before three o'clock.",
+          "zh": "謝謝。他三點前需要。"
+        },
+        {
+          "id": "t9_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "No problem, I'll finish it before the deadline.",
+          "zh": "沒問題，我會在期限前完成。",
+          "chunkId": "finish_before_deadline"
+        },
+        {
+          "id": "t9_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Here, I just sent you the new list. Check your email.",
+          "zh": "來，我剛把新的價目表寄給你了，看一下信箱。"
+        },
+        {
+          "id": "t9_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sorry, I can't open the attachment.",
+          "zh": "不好意思，附件我打不開。",
+          "chunkId": "cant_open_attachment"
+        },
+        {
+          "id": "t9_8",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Okay, it's on our site, too. I sent you the link.",
+          "zh": "好，網站上也有，我把連結傳給你了。"
+        },
+        {
+          "id": "t9_9",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Do you need any help with the email?",
+          "zh": "寫信需要幫忙嗎？"
+        },
+        {
+          "id": "t9_10",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What should I put in the subject line?",
+          "zh": "主旨要寫什麼比較好？",
+          "chunkId": "put_in_subject_line"
+        },
+        {
+          "id": "t9_11",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Keep it simple: 'New price list.' Write it, and I'll check it.",
+          "zh": "簡單就好：「New price list」。寫好我幫你看。"
+        },
+        {
+          "id": "t9_12",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could you take a quick look at this?",
+          "zh": "可以幫我很快看一下這個嗎？",
+          "chunkId": "take_a_quick_look"
+        },
+        {
+          "id": "t9_13",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Sure. It's clear and polite. Okay, send it.",
+          "zh": "好啊。寫得清楚又客氣。好，寄出去吧。"
+        },
+        {
+          "id": "t9_14",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I think I attached the wrong file.",
+          "zh": "我好像附錯檔案了。",
+          "chunkId": "think_i_attached_wrong_file"
+        },
+        {
+          "id": "t9_15",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Don't worry, every sender does that once. Just send the correct file.",
+          "zh": "別擔心，每個寄信的人都會犯一次。寄正確的檔案過去就好。"
+        },
+        {
+          "id": "t9_16",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "So, did Mr. Hughes reply?",
+          "zh": "那 Mr. Hughes 回信了嗎？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t9_17",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm still waiting for a response from Mr. Hughes.",
+          "zh": "我還在等 Mr. Hughes 回覆。",
+          "chunkId": "still_waiting_for_response"
+        },
+        {
+          "id": "t9_18",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Okay. You're off tomorrow, right?",
+          "zh": "好。你明天請假，對吧？"
+        },
+        {
+          "id": "t9_19",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll be out of the office on Friday.",
+          "zh": "我星期五不在公司。",
+          "chunkId": "out_of_office_on_friday"
+        },
+        {
+          "id": "t9_20",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Right. And in your absence, Dan will be glad to help.",
+          "zh": "對。你不在的時候，Dan 會很樂意幫忙。"
+        }
+      ]
+    }
+  ]
+}
