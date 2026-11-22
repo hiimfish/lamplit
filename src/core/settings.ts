@@ -89,5 +89,15 @@ function browserStorage(): SettingsStorage | null {
   }
 }
 
-export const settingsStore = createStore<Settings>(loadSettings(browserStorage()));
+/**
+ * The dev server always starts with the music at 0, so it doesn't play on every
+ * reload while developing. The slider still works for the rest of the session.
+ * Builds (npm run build) keep the saved volume.
+ */
+function initialSettings(): Settings {
+  const loaded = loadSettings(browserStorage());
+  return import.meta.env.DEV ? { ...loaded, musicVolume: 0 } : loaded;
+}
+
+export const settingsStore = createStore<Settings>(initialSettings());
 attachPersistence(settingsStore, browserStorage());
