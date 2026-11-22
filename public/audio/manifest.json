@@ -227,6 +227,585 @@
   "audio/chirp/cafe.word.window.normal.mp3": {
     "hash": "2f7ce5f535ab2ee9"
   },
+  "audio/chirp/clothes.chunk.fits_well.normal.mp3": {
+    "hash": "ec1261dd58b9e8b6"
+  },
+  "audio/chirp/clothes.chunk.fitting_room.normal.mp3": {
+    "hash": "14529f72aa7eed39"
+  },
+  "audio/chirp/clothes.chunk.in_black.normal.mp3": {
+    "hash": "3904215f8ef86224"
+  },
+  "audio/chirp/clothes.chunk.just_looking.normal.mp3": {
+    "hash": "d7b993112c0204c2"
+  },
+  "audio/chirp/clothes.chunk.little_big.normal.mp3": {
+    "hash": "b3cb55afa4be1ba3"
+  },
+  "audio/chirp/clothes.chunk.looking_for_coat.normal.mp3": {
+    "hash": "6cb911053db89ace"
+  },
+  "audio/chirp/clothes.chunk.my_receipt.normal.mp3": {
+    "hash": "fd09f5af25bf220e"
+  },
+  "audio/chirp/clothes.chunk.on_sale.normal.mp3": {
+    "hash": "14b3eaf4c1bcbd8a"
+  },
+  "audio/chirp/clothes.chunk.return_this.normal.mp3": {
+    "hash": "53b5b51218d25b63"
+  },
+  "audio/chirp/clothes.chunk.someone_helping.normal.mp3": {
+    "hash": "0d098ad07c3eab61"
+  },
+  "audio/chirp/clothes.chunk.take_it.normal.mp3": {
+    "hash": "fd74aad4937b956e"
+  },
+  "audio/chirp/clothes.chunk.try_it_on.normal.mp3": {
+    "hash": "94c2eb201f643417"
+  },
+  "audio/chirp/clothes.chunk.what_size.normal.mp3": {
+    "hash": "26714b2f7726dcc4"
+  },
+  "audio/chirp/clothes.chunk.where_jackets.normal.mp3": {
+    "hash": "646a25b66c71da4a"
+  },
+  "audio/chirp/clothes.line.t1_1.normal.mp3": {
+    "hash": "d17e3d4868959d69"
+  },
+  "audio/chirp/clothes.line.t1_2.normal.mp3": {
+    "hash": "d7b993112c0204c2"
+  },
+  "audio/chirp/clothes.line.t1_3.normal.mp3": {
+    "hash": "f8ef189137034785"
+  },
+  "audio/chirp/clothes.line.t1_4.normal.mp3": {
+    "hash": "646a25b66c71da4a"
+  },
+  "audio/chirp/clothes.line.t1_5.normal.mp3": {
+    "hash": "135411c626cd6aa8"
+  },
+  "audio/chirp/clothes.line.t2_1.normal.mp3": {
+    "hash": "5b22d86621dc15e9"
+  },
+  "audio/chirp/clothes.line.t2_2.normal.mp3": {
+    "hash": "3904215f8ef86224"
+  },
+  "audio/chirp/clothes.line.t2_3.normal.mp3": {
+    "hash": "d452a63a4c4e8cfb"
+  },
+  "audio/chirp/clothes.line.t2_4.normal.mp3": {
+    "hash": "26714b2f7726dcc4"
+  },
+  "audio/chirp/clothes.line.t2_5.normal.mp3": {
+    "hash": "237fbef1f19790ed"
+  },
+  "audio/chirp/clothes.line.t3_1.normal.mp3": {
+    "hash": "f627a7c1cbca4ce2"
+  },
+  "audio/chirp/clothes.line.t3_2.normal.mp3": {
+    "hash": "0d098ad07c3eab61"
+  },
+  "audio/chirp/clothes.line.t3_3.normal.mp3": {
+    "hash": "fb912c7e0b9e7fb6"
+  },
+  "audio/chirp/clothes.line.t3_4.normal.mp3": {
+    "hash": "6cb911053db89ace"
+  },
+  "audio/chirp/clothes.line.t3_5.normal.mp3": {
+    "hash": "50071aa19dcd699a"
+  },
+  "audio/chirp/clothes.line.t4_1.normal.mp3": {
+    "hash": "e3ee92924b61d3c5"
+  },
+  "audio/chirp/clothes.line.t4_2.normal.mp3": {
+    "hash": "94c2eb201f643417"
+  },
+  "audio/chirp/clothes.line.t4_3.normal.mp3": {
+    "hash": "452943a61ba3853b"
+  },
+  "audio/chirp/clothes.line.t4_4.normal.mp3": {
+    "hash": "14529f72aa7eed39"
+  },
+  "audio/chirp/clothes.line.t4_5.normal.mp3": {
+    "hash": "9e4a8340a90fa044"
+  },
+  "audio/chirp/clothes.line.t5_1.normal.mp3": {
+    "hash": "633474ff641f25e4"
+  },
+  "audio/chirp/clothes.line.t5_2.normal.mp3": {
+    "hash": "b3cb55afa4be1ba3"
+  },
+  "audio/chirp/clothes.line.t5_3.normal.mp3": {
+    "hash": "c63118acf7cc9669"
+  },
+  "audio/chirp/clothes.line.t5_4.normal.mp3": {
+    "hash": "ec1261dd58b9e8b6"
+  },
+  "audio/chirp/clothes.line.t5_5.normal.mp3": {
+    "hash": "17e78bcca821e559"
+  },
+  "audio/chirp/clothes.line.t6_1.normal.mp3": {
+    "hash": "14b3eaf4c1bcbd8a"
+  },
+  "audio/chirp/clothes.line.t6_2.normal.mp3": {
+    "hash": "9d449e91a16cacb7"
+  },
+  "audio/chirp/clothes.line.t6_3.normal.mp3": {
+    "hash": "644280816af8ebc9"
+  },
+  "audio/chirp/clothes.line.t6_4.normal.mp3": {
+    "hash": "fd74aad4937b956e"
+  },
+  "audio/chirp/clothes.line.t6_5.normal.mp3": {
+    "hash": "4b3744a878f0a51b"
+  },
+  "audio/chirp/clothes.line.t7_1.normal.mp3": {
+    "hash": "4ce1e2b25401c0a0"
+  },
+  "audio/chirp/clothes.line.t7_2.normal.mp3": {
+    "hash": "53b5b51218d25b63"
+  },
+  "audio/chirp/clothes.line.t7_3.normal.mp3": {
+    "hash": "2216b7ea589eba66"
+  },
+  "audio/chirp/clothes.line.t7_4.normal.mp3": {
+    "hash": "fd09f5af25bf220e"
+  },
+  "audio/chirp/clothes.line.t7_5.normal.mp3": {
+    "hash": "fd0a60e2b79ead6c"
+  },
+  "audio/chirp/clothes.line.t8_1.normal.mp3": {
+    "hash": "19fe064cbda4c07e"
+  },
+  "audio/chirp/clothes.line.t8_10.normal.mp3": {
+    "hash": "94c2eb201f643417"
+  },
+  "audio/chirp/clothes.line.t8_11.normal.mp3": {
+    "hash": "2fdff108bd25a900"
+  },
+  "audio/chirp/clothes.line.t8_12.normal.mp3": {
+    "hash": "6e2cb78b092df17e"
+  },
+  "audio/chirp/clothes.line.t8_13.normal.mp3": {
+    "hash": "ec1261dd58b9e8b6"
+  },
+  "audio/chirp/clothes.line.t8_14.normal.mp3": {
+    "hash": "70535ecead222cf0"
+  },
+  "audio/chirp/clothes.line.t8_15.normal.mp3": {
+    "hash": "fd74aad4937b956e"
+  },
+  "audio/chirp/clothes.line.t8_16.normal.mp3": {
+    "hash": "5f32592e456e49e2"
+  },
+  "audio/chirp/clothes.line.t8_2.normal.mp3": {
+    "hash": "53b5b51218d25b63"
+  },
+  "audio/chirp/clothes.line.t8_3.normal.mp3": {
+    "hash": "4f3ba46d1cbf76b6"
+  },
+  "audio/chirp/clothes.line.t8_4.normal.mp3": {
+    "hash": "646a25b66c71da4a"
+  },
+  "audio/chirp/clothes.line.t8_5.normal.mp3": {
+    "hash": "1e5e0b8e557bacbf"
+  },
+  "audio/chirp/clothes.line.t8_6.normal.mp3": {
+    "hash": "6cb911053db89ace"
+  },
+  "audio/chirp/clothes.line.t8_7.normal.mp3": {
+    "hash": "0b79300b03c1c378"
+  },
+  "audio/chirp/clothes.line.t8_8.normal.mp3": {
+    "hash": "3904215f8ef86224"
+  },
+  "audio/chirp/clothes.line.t8_9.normal.mp3": {
+    "hash": "6491a42cf300c2d6"
+  },
+  "audio/chirp/clothes.word.black.normal.mp3": {
+    "hash": "b60119ffc5251569"
+  },
+  "audio/chirp/clothes.word.blue.normal.mp3": {
+    "hash": "e94e16f86b851c2a"
+  },
+  "audio/chirp/clothes.word.clothes.normal.mp3": {
+    "hash": "4976617628869942"
+  },
+  "audio/chirp/clothes.word.coat.normal.mp3": {
+    "hash": "3dec47bc34131c67"
+  },
+  "audio/chirp/clothes.word.color.normal.mp3": {
+    "hash": "0e22f2b5324f7e0b"
+  },
+  "audio/chirp/clothes.word.dress.normal.mp3": {
+    "hash": "4e5767f06656cf11"
+  },
+  "audio/chirp/clothes.word.exchange.normal.mp3": {
+    "hash": "3d307952c6d8be31"
+  },
+  "audio/chirp/clothes.word.fit.normal.mp3": {
+    "hash": "5bcb4fdb0cf88eaf"
+  },
+  "audio/chirp/clothes.word.gift.normal.mp3": {
+    "hash": "a0342cec2edeb534"
+  },
+  "audio/chirp/clothes.word.green.normal.mp3": {
+    "hash": "ae2def0e9351ff26"
+  },
+  "audio/chirp/clothes.word.hat.normal.mp3": {
+    "hash": "359fad6c2512ced3"
+  },
+  "audio/chirp/clothes.word.jacket.normal.mp3": {
+    "hash": "a74ad3be95cf3a3f"
+  },
+  "audio/chirp/clothes.word.long.normal.mp3": {
+    "hash": "7e40f681bd4d6431"
+  },
+  "audio/chirp/clothes.word.loose.normal.mp3": {
+    "hash": "05cf10077ec7c0e0"
+  },
+  "audio/chirp/clothes.word.mirror.normal.mp3": {
+    "hash": "9efa5c1e7d244d98"
+  },
+  "audio/chirp/clothes.word.new.normal.mp3": {
+    "hash": "f5b4f6328df28d15"
+  },
+  "audio/chirp/clothes.word.old.normal.mp3": {
+    "hash": "8eaab1ed95a65f59"
+  },
+  "audio/chirp/clothes.word.pair.normal.mp3": {
+    "hash": "52f48794d3bc0f1c"
+  },
+  "audio/chirp/clothes.word.pants.normal.mp3": {
+    "hash": "a76fce65a7c787e9"
+  },
+  "audio/chirp/clothes.word.percent.normal.mp3": {
+    "hash": "8dca7d348f1c292d"
+  },
+  "audio/chirp/clothes.word.red.normal.mp3": {
+    "hash": "f86ad88a810ef688"
+  },
+  "audio/chirp/clothes.word.return.normal.mp3": {
+    "hash": "c89ad7eacd10677e"
+  },
+  "audio/chirp/clothes.word.sale.normal.mp3": {
+    "hash": "cf121859030467cc"
+  },
+  "audio/chirp/clothes.word.scarf.normal.mp3": {
+    "hash": "45653ad7bd949096"
+  },
+  "audio/chirp/clothes.word.shirt.normal.mp3": {
+    "hash": "0e4a1b80da70c835"
+  },
+  "audio/chirp/clothes.word.shoe.normal.mp3": {
+    "hash": "62602da081ae0b35"
+  },
+  "audio/chirp/clothes.word.short.normal.mp3": {
+    "hash": "a0ab5431766a9e96"
+  },
+  "audio/chirp/clothes.word.size.normal.mp3": {
+    "hash": "a676a7a73e884dc0"
+  },
+  "audio/chirp/clothes.word.skirt.normal.mp3": {
+    "hash": "d0c40cac2bef564c"
+  },
+  "audio/chirp/clothes.word.tight.normal.mp3": {
+    "hash": "4dddba7c9391b650"
+  },
+  "audio/chirp/clothes.word.warm.normal.mp3": {
+    "hash": "3d5118fdabbc3e7f"
+  },
+  "audio/chirp/clothes.word.wear.normal.mp3": {
+    "hash": "aa239c576d9fef96"
+  },
+  "audio/chirp/clothes.word.white.normal.mp3": {
+    "hash": "295661466ff9828f"
+  },
+  "audio/chirp/clothes.word.wrong.normal.mp3": {
+    "hash": "25c866905ca1b9a6"
+  },
+  "audio/chirp/market.chunk.buy_one_get_one.normal.mp3": {
+    "hash": "07cf1db38b624a36"
+  },
+  "audio/chirp/market.chunk.how_many_bag.normal.mp3": {
+    "hash": "ef0b626c6fa45181"
+  },
+  "audio/chirp/market.chunk.how_much_tomatoes.normal.mp3": {
+    "hash": "5f07830a56dbc820"
+  },
+  "audio/chirp/market.chunk.i_see_them.normal.mp3": {
+    "hash": "ef2a88aaf872c2ac"
+  },
+  "audio/chirp/market.chunk.in_line.normal.mp3": {
+    "hash": "fdf4b833f4b48442"
+  },
+  "audio/chirp/market.chunk.little_more.normal.mp3": {
+    "hash": "633c70ccaa579e1d"
+  },
+  "audio/chirp/market.chunk.looks_good.normal.mp3": {
+    "hash": "70541abfd918f5a1"
+  },
+  "audio/chirp/market.chunk.one_pound.normal.mp3": {
+    "hash": "9b306492173815ee"
+  },
+  "audio/chirp/market.chunk.own_bag.normal.mp3": {
+    "hash": "d76d9e958b9f95b9"
+  },
+  "audio/chirp/market.chunk.rice_and_eggs.normal.mp3": {
+    "hash": "4d1be4ef17e60e43"
+  },
+  "audio/chirp/market.chunk.take_two.normal.mp3": {
+    "hash": "c79c25ec52bf0053"
+  },
+  "audio/chirp/market.chunk.try_one.normal.mp3": {
+    "hash": "e93d6be031bc42be"
+  },
+  "audio/chirp/market.chunk.two_bottles.normal.mp3": {
+    "hash": "df7ffa48bc366e86"
+  },
+  "audio/chirp/market.chunk.where_apples.normal.mp3": {
+    "hash": "b9a3af954e2d2fc2"
+  },
+  "audio/chirp/market.line.t1_1.normal.mp3": {
+    "hash": "b9a3af954e2d2fc2"
+  },
+  "audio/chirp/market.line.t1_2.normal.mp3": {
+    "hash": "e4fad4a7c1f3129e"
+  },
+  "audio/chirp/market.line.t1_3.normal.mp3": {
+    "hash": "ef2a88aaf872c2ac"
+  },
+  "audio/chirp/market.line.t1_4.normal.mp3": {
+    "hash": "d71a4e72409aaaa6"
+  },
+  "audio/chirp/market.line.t2_1.normal.mp3": {
+    "hash": "c16ff7e49888214b"
+  },
+  "audio/chirp/market.line.t2_2.normal.mp3": {
+    "hash": "e93d6be031bc42be"
+  },
+  "audio/chirp/market.line.t2_3.normal.mp3": {
+    "hash": "af9bc5d607c1e2ee"
+  },
+  "audio/chirp/market.line.t2_4.normal.mp3": {
+    "hash": "70541abfd918f5a1"
+  },
+  "audio/chirp/market.line.t2_5.normal.mp3": {
+    "hash": "2e652f74265ab0ba"
+  },
+  "audio/chirp/market.line.t3_1.normal.mp3": {
+    "hash": "976249c9deea2ac3"
+  },
+  "audio/chirp/market.line.t3_2.normal.mp3": {
+    "hash": "df7ffa48bc366e86"
+  },
+  "audio/chirp/market.line.t3_3.normal.mp3": {
+    "hash": "4c4c37c828744a79"
+  },
+  "audio/chirp/market.line.t3_4.normal.mp3": {
+    "hash": "4d1be4ef17e60e43"
+  },
+  "audio/chirp/market.line.t3_5.normal.mp3": {
+    "hash": "9159b5f03aed44b2"
+  },
+  "audio/chirp/market.line.t4_1.normal.mp3": {
+    "hash": "934e5e1ef692f6fc"
+  },
+  "audio/chirp/market.line.t4_2.normal.mp3": {
+    "hash": "9b306492173815ee"
+  },
+  "audio/chirp/market.line.t4_3.normal.mp3": {
+    "hash": "df0974cf1d100162"
+  },
+  "audio/chirp/market.line.t4_4.normal.mp3": {
+    "hash": "633c70ccaa579e1d"
+  },
+  "audio/chirp/market.line.t4_5.normal.mp3": {
+    "hash": "6073fe6763f987fd"
+  },
+  "audio/chirp/market.line.t5_1.normal.mp3": {
+    "hash": "fdf4b833f4b48442"
+  },
+  "audio/chirp/market.line.t5_2.normal.mp3": {
+    "hash": "00c9c771dfbc36b0"
+  },
+  "audio/chirp/market.line.t5_3.normal.mp3": {
+    "hash": "d76d9e958b9f95b9"
+  },
+  "audio/chirp/market.line.t5_4.normal.mp3": {
+    "hash": "ba46d83db962d5cd"
+  },
+  "audio/chirp/market.line.t6_1.normal.mp3": {
+    "hash": "b43d945d3843b3be"
+  },
+  "audio/chirp/market.line.t6_2.normal.mp3": {
+    "hash": "5f07830a56dbc820"
+  },
+  "audio/chirp/market.line.t6_3.normal.mp3": {
+    "hash": "482515f0595fcc7b"
+  },
+  "audio/chirp/market.line.t6_4.normal.mp3": {
+    "hash": "ef0b626c6fa45181"
+  },
+  "audio/chirp/market.line.t6_5.normal.mp3": {
+    "hash": "0446fea2beb2dbfe"
+  },
+  "audio/chirp/market.line.t7_1.normal.mp3": {
+    "hash": "d860b8304e0cbbc2"
+  },
+  "audio/chirp/market.line.t7_2.normal.mp3": {
+    "hash": "07cf1db38b624a36"
+  },
+  "audio/chirp/market.line.t7_3.normal.mp3": {
+    "hash": "d26311e7c5a60ade"
+  },
+  "audio/chirp/market.line.t7_4.normal.mp3": {
+    "hash": "c79c25ec52bf0053"
+  },
+  "audio/chirp/market.line.t8_1.normal.mp3": {
+    "hash": "df79d90c6666f6ab"
+  },
+  "audio/chirp/market.line.t8_10.normal.mp3": {
+    "hash": "633c70ccaa579e1d"
+  },
+  "audio/chirp/market.line.t8_11.normal.mp3": {
+    "hash": "4020e2fcf77fe98f"
+  },
+  "audio/chirp/market.line.t8_12.normal.mp3": {
+    "hash": "30b597d75c57b4ae"
+  },
+  "audio/chirp/market.line.t8_13.normal.mp3": {
+    "hash": "07cf1db38b624a36"
+  },
+  "audio/chirp/market.line.t8_14.normal.mp3": {
+    "hash": "0b10a50d06a44c8c"
+  },
+  "audio/chirp/market.line.t8_15.normal.mp3": {
+    "hash": "d76d9e958b9f95b9"
+  },
+  "audio/chirp/market.line.t8_16.normal.mp3": {
+    "hash": "380cd86e9b903b20"
+  },
+  "audio/chirp/market.line.t8_2.normal.mp3": {
+    "hash": "b9a3af954e2d2fc2"
+  },
+  "audio/chirp/market.line.t8_3.normal.mp3": {
+    "hash": "4aa772c8802bb271"
+  },
+  "audio/chirp/market.line.t8_4.normal.mp3": {
+    "hash": "e93d6be031bc42be"
+  },
+  "audio/chirp/market.line.t8_5.normal.mp3": {
+    "hash": "fd3c9eb59edd3303"
+  },
+  "audio/chirp/market.line.t8_6.normal.mp3": {
+    "hash": "4d1be4ef17e60e43"
+  },
+  "audio/chirp/market.line.t8_7.normal.mp3": {
+    "hash": "8f8d12cd271eb2f4"
+  },
+  "audio/chirp/market.line.t8_8.normal.mp3": {
+    "hash": "5f07830a56dbc820"
+  },
+  "audio/chirp/market.line.t8_9.normal.mp3": {
+    "hash": "c7c47d8a475a7dc9"
+  },
+  "audio/chirp/market.word.apple.normal.mp3": {
+    "hash": "177ba3f21b2bda86"
+  },
+  "audio/chirp/market.word.banana.normal.mp3": {
+    "hash": "3b91a891bd64d316"
+  },
+  "audio/chirp/market.word.butter.normal.mp3": {
+    "hash": "2eeb614bf1ef8324"
+  },
+  "audio/chirp/market.word.buy.normal.mp3": {
+    "hash": "3e0ceafcfde15a9d"
+  },
+  "audio/chirp/market.word.cheap.normal.mp3": {
+    "hash": "3dbd313ac021cfaf"
+  },
+  "audio/chirp/market.word.cheese.normal.mp3": {
+    "hash": "c0a6b7e71be59685"
+  },
+  "audio/chirp/market.word.chicken.normal.mp3": {
+    "hash": "e75929bb84feb4b2"
+  },
+  "audio/chirp/market.word.each.normal.mp3": {
+    "hash": "17c6460f227586e6"
+  },
+  "audio/chirp/market.word.expensive.normal.mp3": {
+    "hash": "26e4bd61229e8a94"
+  },
+  "audio/chirp/market.word.fifteen.normal.mp3": {
+    "hash": "11bee469b2b0b55a"
+  },
+  "audio/chirp/market.word.fish.normal.mp3": {
+    "hash": "5459057d7d6f0378"
+  },
+  "audio/chirp/market.word.forty.normal.mp3": {
+    "hash": "96937fed16039f1f"
+  },
+  "audio/chirp/market.word.free.normal.mp3": {
+    "hash": "dea9a51805a3b88c"
+  },
+  "audio/chirp/market.word.fresh.normal.mp3": {
+    "hash": "0eb34d79d32982c5"
+  },
+  "audio/chirp/market.word.fruit.normal.mp3": {
+    "hash": "fe9375ad6206d627"
+  },
+  "audio/chirp/market.word.half.normal.mp3": {
+    "hash": "768f1707a3e41935"
+  },
+  "audio/chirp/market.word.hundred.normal.mp3": {
+    "hash": "c334b59fde636c1c"
+  },
+  "audio/chirp/market.word.juice.normal.mp3": {
+    "hash": "56f1ac5b1704f15d"
+  },
+  "audio/chirp/market.word.meat.normal.mp3": {
+    "hash": "b86cbed6bcd3b49c"
+  },
+  "audio/chirp/market.word.oil.normal.mp3": {
+    "hash": "3aede61321211106"
+  },
+  "audio/chirp/market.word.orange.normal.mp3": {
+    "hash": "4e1048ee699ead21"
+  },
+  "audio/chirp/market.word.piece.normal.mp3": {
+    "hash": "9ae88fe46fc92609"
+  },
+  "audio/chirp/market.word.pizza.normal.mp3": {
+    "hash": "01867fe29f5fba4c"
+  },
+  "audio/chirp/market.word.potato.normal.mp3": {
+    "hash": "33b8ddcc19115686"
+  },
+  "audio/chirp/market.word.pound.normal.mp3": {
+    "hash": "3d04831de5204d0e"
+  },
+  "audio/chirp/market.word.price.normal.mp3": {
+    "hash": "4e3fcb43b5484007"
+  },
+  "audio/chirp/market.word.rice.normal.mp3": {
+    "hash": "bbfd7fbaf6d3b089"
+  },
+  "audio/chirp/market.word.salt.normal.mp3": {
+    "hash": "2bee24ae2c3b044e"
+  },
+  "audio/chirp/market.word.thirteen.normal.mp3": {
+    "hash": "0f8e6690df0dd3ba"
+  },
+  "audio/chirp/market.word.thirty.normal.mp3": {
+    "hash": "d2fc06616c204652"
+  },
+  "audio/chirp/market.word.tomato.normal.mp3": {
+    "hash": "90a10f2dfdff8b79"
+  },
+  "audio/chirp/market.word.vegetable.normal.mp3": {
+    "hash": "ba5794498c9e28ee"
+  },
   "audio/chirp/move_in.chunk.call_me.normal.mp3": {
     "hash": "c2c57d5f9ffd3488"
   },
@@ -794,6 +1373,288 @@
   "audio/chirp/store.word.umbrella.normal.mp3": {
     "hash": "737c315532cd7fc5"
   },
+  "audio/chirp/street.chunk.any_change.normal.mp3": {
+    "hash": "da67d223e08039e7"
+  },
+  "audio/chirp/street.chunk.bus_late.normal.mp3": {
+    "hash": "eafcfcee3edffc9d"
+  },
+  "audio/chirp/street.chunk.far_from_here.normal.mp3": {
+    "hash": "65e77e0b7c2aa9c6"
+  },
+  "audio/chirp/street.chunk.go_downtown.normal.mp3": {
+    "hash": "341645aaa9042114"
+  },
+  "audio/chirp/street.chunk.how_long.normal.mp3": {
+    "hash": "d9688de41c5da8d8"
+  },
+  "audio/chirp/street.chunk.how_much_fare.normal.mp3": {
+    "hash": "07b3de33de9ce42e"
+  },
+  "audio/chirp/street.chunk.im_lost.normal.mp3": {
+    "hash": "2e0f2d04f3369007"
+  },
+  "audio/chirp/street.chunk.left_or_right.normal.mp3": {
+    "hash": "b8aa9ee2a5ac7b11"
+  },
+  "audio/chirp/street.chunk.my_stop.normal.mp3": {
+    "hash": "f2a78c55ad06ff14"
+  },
+  "audio/chirp/street.chunk.need_coins.normal.mp3": {
+    "hash": "b44365732a09acde"
+  },
+  "audio/chirp/street.chunk.next_bus.normal.mp3": {
+    "hash": "71afbc5ab375e109"
+  },
+  "audio/chirp/street.chunk.show_on_map.normal.mp3": {
+    "hash": "40aecdd12aa5dd23"
+  },
+  "audio/chirp/street.chunk.wheres_bus_stop.normal.mp3": {
+    "hash": "c700868b68090c92"
+  },
+  "audio/chirp/street.chunk.which_way.normal.mp3": {
+    "hash": "212f1cea06d7289e"
+  },
+  "audio/chirp/street.line.t1_1.normal.mp3": {
+    "hash": "c700868b68090c92"
+  },
+  "audio/chirp/street.line.t1_2.normal.mp3": {
+    "hash": "65d1c0232f917fef"
+  },
+  "audio/chirp/street.line.t1_3.normal.mp3": {
+    "hash": "65e77e0b7c2aa9c6"
+  },
+  "audio/chirp/street.line.t1_4.normal.mp3": {
+    "hash": "0e1d178500dc85d8"
+  },
+  "audio/chirp/street.line.t2_1.normal.mp3": {
+    "hash": "db839e0735ecce7f"
+  },
+  "audio/chirp/street.line.t2_2.normal.mp3": {
+    "hash": "212f1cea06d7289e"
+  },
+  "audio/chirp/street.line.t2_3.normal.mp3": {
+    "hash": "b1aadcb869807fac"
+  },
+  "audio/chirp/street.line.t2_4.normal.mp3": {
+    "hash": "b8aa9ee2a5ac7b11"
+  },
+  "audio/chirp/street.line.t2_5.normal.mp3": {
+    "hash": "376764f09711c14c"
+  },
+  "audio/chirp/street.line.t3_1.normal.mp3": {
+    "hash": "79a44e53ade745b5"
+  },
+  "audio/chirp/street.line.t3_2.normal.mp3": {
+    "hash": "b44365732a09acde"
+  },
+  "audio/chirp/street.line.t3_3.normal.mp3": {
+    "hash": "94f754070d19b8e1"
+  },
+  "audio/chirp/street.line.t3_4.normal.mp3": {
+    "hash": "da67d223e08039e7"
+  },
+  "audio/chirp/street.line.t3_5.normal.mp3": {
+    "hash": "ac54c22fcd55fab4"
+  },
+  "audio/chirp/street.line.t4_1.normal.mp3": {
+    "hash": "341645aaa9042114"
+  },
+  "audio/chirp/street.line.t4_2.normal.mp3": {
+    "hash": "c900ce5014ad2be8"
+  },
+  "audio/chirp/street.line.t4_3.normal.mp3": {
+    "hash": "07b3de33de9ce42e"
+  },
+  "audio/chirp/street.line.t4_4.normal.mp3": {
+    "hash": "9e46e3c6335904f3"
+  },
+  "audio/chirp/street.line.t5_1.normal.mp3": {
+    "hash": "df20c0329852fc01"
+  },
+  "audio/chirp/street.line.t5_2.normal.mp3": {
+    "hash": "d9688de41c5da8d8"
+  },
+  "audio/chirp/street.line.t5_3.normal.mp3": {
+    "hash": "638ea46f8c32179d"
+  },
+  "audio/chirp/street.line.t5_4.normal.mp3": {
+    "hash": "f2a78c55ad06ff14"
+  },
+  "audio/chirp/street.line.t5_5.normal.mp3": {
+    "hash": "28d5addaf2ec09be"
+  },
+  "audio/chirp/street.line.t6_1.normal.mp3": {
+    "hash": "71afbc5ab375e109"
+  },
+  "audio/chirp/street.line.t6_2.normal.mp3": {
+    "hash": "6b6d93656393202d"
+  },
+  "audio/chirp/street.line.t6_3.normal.mp3": {
+    "hash": "eafcfcee3edffc9d"
+  },
+  "audio/chirp/street.line.t6_4.normal.mp3": {
+    "hash": "bf2d818b27ae753f"
+  },
+  "audio/chirp/street.line.t6_5.normal.mp3": {
+    "hash": "d298d128df96568d"
+  },
+  "audio/chirp/street.line.t7_1.normal.mp3": {
+    "hash": "2e0f2d04f3369007"
+  },
+  "audio/chirp/street.line.t7_2.normal.mp3": {
+    "hash": "7255b1a4a410eb3e"
+  },
+  "audio/chirp/street.line.t7_3.normal.mp3": {
+    "hash": "40aecdd12aa5dd23"
+  },
+  "audio/chirp/street.line.t7_4.normal.mp3": {
+    "hash": "e8c0416f8f27eb69"
+  },
+  "audio/chirp/street.line.t8_1.normal.mp3": {
+    "hash": "91c275d74bd35a69"
+  },
+  "audio/chirp/street.line.t8_10.normal.mp3": {
+    "hash": "31087f86575aabde"
+  },
+  "audio/chirp/street.line.t8_11.normal.mp3": {
+    "hash": "eafcfcee3edffc9d"
+  },
+  "audio/chirp/street.line.t8_12.normal.mp3": {
+    "hash": "27ad413dc296ee3a"
+  },
+  "audio/chirp/street.line.t8_13.normal.mp3": {
+    "hash": "8463415b5d7ac026"
+  },
+  "audio/chirp/street.line.t8_14.normal.mp3": {
+    "hash": "341645aaa9042114"
+  },
+  "audio/chirp/street.line.t8_15.normal.mp3": {
+    "hash": "92e9e08e84b91d2c"
+  },
+  "audio/chirp/street.line.t8_16.normal.mp3": {
+    "hash": "d9688de41c5da8d8"
+  },
+  "audio/chirp/street.line.t8_17.normal.mp3": {
+    "hash": "01e593cc1cd11e06"
+  },
+  "audio/chirp/street.line.t8_2.normal.mp3": {
+    "hash": "2e0f2d04f3369007"
+  },
+  "audio/chirp/street.line.t8_3.normal.mp3": {
+    "hash": "7dd03bdf7b3538a9"
+  },
+  "audio/chirp/street.line.t8_4.normal.mp3": {
+    "hash": "65e77e0b7c2aa9c6"
+  },
+  "audio/chirp/street.line.t8_5.normal.mp3": {
+    "hash": "ce87893a1c6e70c4"
+  },
+  "audio/chirp/street.line.t8_6.normal.mp3": {
+    "hash": "680767fa975a95ff"
+  },
+  "audio/chirp/street.line.t8_7.normal.mp3": {
+    "hash": "b8aa9ee2a5ac7b11"
+  },
+  "audio/chirp/street.line.t8_8.normal.mp3": {
+    "hash": "9e6801827ac1b7c0"
+  },
+  "audio/chirp/street.line.t8_9.normal.mp3": {
+    "hash": "da67d223e08039e7"
+  },
+  "audio/chirp/street.word.bank.normal.mp3": {
+    "hash": "8d7c332516d1baab"
+  },
+  "audio/chirp/street.word.bridge.normal.mp3": {
+    "hash": "fe2e5d7633a2cb90"
+  },
+  "audio/chirp/street.word.bus.normal.mp3": {
+    "hash": "44e00e8f00b1869d"
+  },
+  "audio/chirp/street.word.coin.normal.mp3": {
+    "hash": "99835a752e5d64e0"
+  },
+  "audio/chirp/street.word.corner.normal.mp3": {
+    "hash": "8b9bc284b8098b3c"
+  },
+  "audio/chirp/street.word.downtown.normal.mp3": {
+    "hash": "96556decaaa3b6a7"
+  },
+  "audio/chirp/street.word.driver.normal.mp3": {
+    "hash": "c2e64dbe7f34ff73"
+  },
+  "audio/chirp/street.word.fare.normal.mp3": {
+    "hash": "5dce6b3be7e9b2ce"
+  },
+  "audio/chirp/street.word.friday.normal.mp3": {
+    "hash": "8d1be208e6048bc8"
+  },
+  "audio/chirp/street.word.front.normal.mp3": {
+    "hash": "1b3204e790432777"
+  },
+  "audio/chirp/street.word.hospital.normal.mp3": {
+    "hash": "9447fc86123986ee"
+  },
+  "audio/chirp/street.word.hour.normal.mp3": {
+    "hash": "32169e8449e1c221"
+  },
+  "audio/chirp/street.word.left.normal.mp3": {
+    "hash": "d1a11963c222dada"
+  },
+  "audio/chirp/street.word.library.normal.mp3": {
+    "hash": "7ac5396356ee9070"
+  },
+  "audio/chirp/street.word.map.normal.mp3": {
+    "hash": "14e1b8eae7a0bfbc"
+  },
+  "audio/chirp/street.word.minute.normal.mp3": {
+    "hash": "cf0f6719d1b7bf6d"
+  },
+  "audio/chirp/street.word.monday.normal.mp3": {
+    "hash": "7a013c8f3101abd1"
+  },
+  "audio/chirp/street.word.museum.normal.mp3": {
+    "hash": "b78e9b582b309786"
+  },
+  "audio/chirp/street.word.road.normal.mp3": {
+    "hash": "52840d7156da0c07"
+  },
+  "audio/chirp/street.word.school.normal.mp3": {
+    "hash": "0a96c523dc475f00"
+  },
+  "audio/chirp/street.word.sign.normal.mp3": {
+    "hash": "cb7af6ace83fad95"
+  },
+  "audio/chirp/street.word.stand.normal.mp3": {
+    "hash": "23927d445dbaf162"
+  },
+  "audio/chirp/street.word.station.normal.mp3": {
+    "hash": "fea52f7ab0426cc3"
+  },
+  "audio/chirp/street.word.street.normal.mp3": {
+    "hash": "b5917c6305b7bb11"
+  },
+  "audio/chirp/street.word.taxi.normal.mp3": {
+    "hash": "d8d5518b5019875c"
+  },
+  "audio/chirp/street.word.thursday.normal.mp3": {
+    "hash": "8c8ff3930b899ec3"
+  },
+  "audio/chirp/street.word.ticket.normal.mp3": {
+    "hash": "22cc6ebb3ea5b1b2"
+  },
+  "audio/chirp/street.word.tuesday.normal.mp3": {
+    "hash": "6ef90a36f4df537f"
+  },
+  "audio/chirp/street.word.wait.normal.mp3": {
+    "hash": "448dc7b7157657c1"
+  },
+  "audio/chirp/street.word.walk.normal.mp3": {
+    "hash": "b2a423237bd1e250"
+  },
+  "audio/chirp/street.word.wednesday.normal.mp3": {
+    "hash": "99e1d7fc7449a011"
+  },
   "audio/neural2/cafe.chunk.can_i_get.normal.mp3": {
     "hash": "93b0563c92fbd89f"
   },
@@ -1249,6 +2110,1164 @@
   },
   "audio/neural2/cafe.word.window.slow.mp3": {
     "hash": "ca13f3794a1e8aef"
+  },
+  "audio/neural2/clothes.chunk.fits_well.normal.mp3": {
+    "hash": "2f71cd8b34fc7ff6"
+  },
+  "audio/neural2/clothes.chunk.fits_well.slow.mp3": {
+    "hash": "728566e16452f184"
+  },
+  "audio/neural2/clothes.chunk.fitting_room.normal.mp3": {
+    "hash": "8af5418238e6def1"
+  },
+  "audio/neural2/clothes.chunk.fitting_room.slow.mp3": {
+    "hash": "b3b8024ae243aebf"
+  },
+  "audio/neural2/clothes.chunk.in_black.normal.mp3": {
+    "hash": "79a6f734a4b151e0"
+  },
+  "audio/neural2/clothes.chunk.in_black.slow.mp3": {
+    "hash": "ff82cff62a6ff0dd"
+  },
+  "audio/neural2/clothes.chunk.just_looking.normal.mp3": {
+    "hash": "86654ebd96b5d828"
+  },
+  "audio/neural2/clothes.chunk.just_looking.slow.mp3": {
+    "hash": "86461062e29cffa6"
+  },
+  "audio/neural2/clothes.chunk.little_big.normal.mp3": {
+    "hash": "896f484c464ee150"
+  },
+  "audio/neural2/clothes.chunk.little_big.slow.mp3": {
+    "hash": "eab9f00fe2d72db9"
+  },
+  "audio/neural2/clothes.chunk.looking_for_coat.normal.mp3": {
+    "hash": "7358bb95b2ebbc83"
+  },
+  "audio/neural2/clothes.chunk.looking_for_coat.slow.mp3": {
+    "hash": "57f138bb7b78a739"
+  },
+  "audio/neural2/clothes.chunk.my_receipt.normal.mp3": {
+    "hash": "fc207e166c6031f9"
+  },
+  "audio/neural2/clothes.chunk.my_receipt.slow.mp3": {
+    "hash": "92ab9ba3f90a2d4d"
+  },
+  "audio/neural2/clothes.chunk.on_sale.normal.mp3": {
+    "hash": "c78a7d1b051342b6"
+  },
+  "audio/neural2/clothes.chunk.on_sale.slow.mp3": {
+    "hash": "8f90b86bddb71bac"
+  },
+  "audio/neural2/clothes.chunk.return_this.normal.mp3": {
+    "hash": "aba81483c716d4b8"
+  },
+  "audio/neural2/clothes.chunk.return_this.slow.mp3": {
+    "hash": "508b3f99805a15dc"
+  },
+  "audio/neural2/clothes.chunk.someone_helping.normal.mp3": {
+    "hash": "88e36112fb8ad7ec"
+  },
+  "audio/neural2/clothes.chunk.someone_helping.slow.mp3": {
+    "hash": "57ed045189d12d5c"
+  },
+  "audio/neural2/clothes.chunk.take_it.normal.mp3": {
+    "hash": "3f22a145c27c5a14"
+  },
+  "audio/neural2/clothes.chunk.take_it.slow.mp3": {
+    "hash": "bc4c6550c566ab90"
+  },
+  "audio/neural2/clothes.chunk.try_it_on.normal.mp3": {
+    "hash": "31140a76c131c846"
+  },
+  "audio/neural2/clothes.chunk.try_it_on.slow.mp3": {
+    "hash": "3bc9f735a719478d"
+  },
+  "audio/neural2/clothes.chunk.what_size.normal.mp3": {
+    "hash": "ed87f317361cf3d5"
+  },
+  "audio/neural2/clothes.chunk.what_size.slow.mp3": {
+    "hash": "ed706ae1194719c8"
+  },
+  "audio/neural2/clothes.chunk.where_jackets.normal.mp3": {
+    "hash": "8dcd7e903308937a"
+  },
+  "audio/neural2/clothes.chunk.where_jackets.slow.mp3": {
+    "hash": "3a588baf4d69ffa1"
+  },
+  "audio/neural2/clothes.line.t1_1.normal.mp3": {
+    "hash": "cf8cdd7db11160d1"
+  },
+  "audio/neural2/clothes.line.t1_1.slow.mp3": {
+    "hash": "f5b1e91cf93bc354"
+  },
+  "audio/neural2/clothes.line.t1_2.normal.mp3": {
+    "hash": "86654ebd96b5d828"
+  },
+  "audio/neural2/clothes.line.t1_2.slow.mp3": {
+    "hash": "86461062e29cffa6"
+  },
+  "audio/neural2/clothes.line.t1_3.normal.mp3": {
+    "hash": "af5aa4a701fc40c7"
+  },
+  "audio/neural2/clothes.line.t1_3.slow.mp3": {
+    "hash": "20ee731846225015"
+  },
+  "audio/neural2/clothes.line.t1_4.normal.mp3": {
+    "hash": "8dcd7e903308937a"
+  },
+  "audio/neural2/clothes.line.t1_4.slow.mp3": {
+    "hash": "3a588baf4d69ffa1"
+  },
+  "audio/neural2/clothes.line.t1_5.normal.mp3": {
+    "hash": "71d2b6c0fad34c0f"
+  },
+  "audio/neural2/clothes.line.t1_5.slow.mp3": {
+    "hash": "babc186524143555"
+  },
+  "audio/neural2/clothes.line.t2_1.normal.mp3": {
+    "hash": "5bde7a0be7adda62"
+  },
+  "audio/neural2/clothes.line.t2_1.slow.mp3": {
+    "hash": "d2e427dfafae5696"
+  },
+  "audio/neural2/clothes.line.t2_2.normal.mp3": {
+    "hash": "79a6f734a4b151e0"
+  },
+  "audio/neural2/clothes.line.t2_2.slow.mp3": {
+    "hash": "ff82cff62a6ff0dd"
+  },
+  "audio/neural2/clothes.line.t2_3.normal.mp3": {
+    "hash": "449cb5c62c399f59"
+  },
+  "audio/neural2/clothes.line.t2_3.slow.mp3": {
+    "hash": "4501471356a7c190"
+  },
+  "audio/neural2/clothes.line.t2_4.normal.mp3": {
+    "hash": "ed87f317361cf3d5"
+  },
+  "audio/neural2/clothes.line.t2_4.slow.mp3": {
+    "hash": "ed706ae1194719c8"
+  },
+  "audio/neural2/clothes.line.t2_5.normal.mp3": {
+    "hash": "05983f11b6df3732"
+  },
+  "audio/neural2/clothes.line.t2_5.slow.mp3": {
+    "hash": "39330af97b4bc4b7"
+  },
+  "audio/neural2/clothes.line.t3_1.normal.mp3": {
+    "hash": "e829dfa31450bba8"
+  },
+  "audio/neural2/clothes.line.t3_1.slow.mp3": {
+    "hash": "63bd70fbc8b17955"
+  },
+  "audio/neural2/clothes.line.t3_2.normal.mp3": {
+    "hash": "88e36112fb8ad7ec"
+  },
+  "audio/neural2/clothes.line.t3_2.slow.mp3": {
+    "hash": "57ed045189d12d5c"
+  },
+  "audio/neural2/clothes.line.t3_3.normal.mp3": {
+    "hash": "b2d469c966324faf"
+  },
+  "audio/neural2/clothes.line.t3_3.slow.mp3": {
+    "hash": "64eeae9b944258c0"
+  },
+  "audio/neural2/clothes.line.t3_4.normal.mp3": {
+    "hash": "7358bb95b2ebbc83"
+  },
+  "audio/neural2/clothes.line.t3_4.slow.mp3": {
+    "hash": "57f138bb7b78a739"
+  },
+  "audio/neural2/clothes.line.t3_5.normal.mp3": {
+    "hash": "d31b0132fa40b93a"
+  },
+  "audio/neural2/clothes.line.t3_5.slow.mp3": {
+    "hash": "5bfdde7a99075974"
+  },
+  "audio/neural2/clothes.line.t4_1.normal.mp3": {
+    "hash": "5149267f189fab05"
+  },
+  "audio/neural2/clothes.line.t4_1.slow.mp3": {
+    "hash": "8f32b1fe985cbcdc"
+  },
+  "audio/neural2/clothes.line.t4_2.normal.mp3": {
+    "hash": "31140a76c131c846"
+  },
+  "audio/neural2/clothes.line.t4_2.slow.mp3": {
+    "hash": "3bc9f735a719478d"
+  },
+  "audio/neural2/clothes.line.t4_3.normal.mp3": {
+    "hash": "8d78f93e95f2934f"
+  },
+  "audio/neural2/clothes.line.t4_3.slow.mp3": {
+    "hash": "20380ee57e3ed3ce"
+  },
+  "audio/neural2/clothes.line.t4_4.normal.mp3": {
+    "hash": "8af5418238e6def1"
+  },
+  "audio/neural2/clothes.line.t4_4.slow.mp3": {
+    "hash": "b3b8024ae243aebf"
+  },
+  "audio/neural2/clothes.line.t4_5.normal.mp3": {
+    "hash": "0f6c0d74f4464829"
+  },
+  "audio/neural2/clothes.line.t4_5.slow.mp3": {
+    "hash": "e6c38549354a4caa"
+  },
+  "audio/neural2/clothes.line.t5_1.normal.mp3": {
+    "hash": "d33b076dc8cb191a"
+  },
+  "audio/neural2/clothes.line.t5_1.slow.mp3": {
+    "hash": "30683f0e9fc18a8f"
+  },
+  "audio/neural2/clothes.line.t5_2.normal.mp3": {
+    "hash": "896f484c464ee150"
+  },
+  "audio/neural2/clothes.line.t5_2.slow.mp3": {
+    "hash": "eab9f00fe2d72db9"
+  },
+  "audio/neural2/clothes.line.t5_3.normal.mp3": {
+    "hash": "809b9b444f2db37f"
+  },
+  "audio/neural2/clothes.line.t5_3.slow.mp3": {
+    "hash": "38cb7d4c75847ce7"
+  },
+  "audio/neural2/clothes.line.t5_4.normal.mp3": {
+    "hash": "2f71cd8b34fc7ff6"
+  },
+  "audio/neural2/clothes.line.t5_4.slow.mp3": {
+    "hash": "728566e16452f184"
+  },
+  "audio/neural2/clothes.line.t5_5.normal.mp3": {
+    "hash": "f4e67f997e4423f3"
+  },
+  "audio/neural2/clothes.line.t5_5.slow.mp3": {
+    "hash": "1580c4512357ee59"
+  },
+  "audio/neural2/clothes.line.t6_1.normal.mp3": {
+    "hash": "c78a7d1b051342b6"
+  },
+  "audio/neural2/clothes.line.t6_1.slow.mp3": {
+    "hash": "8f90b86bddb71bac"
+  },
+  "audio/neural2/clothes.line.t6_2.normal.mp3": {
+    "hash": "5e0a794bbc20dbda"
+  },
+  "audio/neural2/clothes.line.t6_2.slow.mp3": {
+    "hash": "0d9304844a7f0b57"
+  },
+  "audio/neural2/clothes.line.t6_3.normal.mp3": {
+    "hash": "49b9630da17b6dc8"
+  },
+  "audio/neural2/clothes.line.t6_3.slow.mp3": {
+    "hash": "3765678f470741db"
+  },
+  "audio/neural2/clothes.line.t6_4.normal.mp3": {
+    "hash": "3f22a145c27c5a14"
+  },
+  "audio/neural2/clothes.line.t6_4.slow.mp3": {
+    "hash": "bc4c6550c566ab90"
+  },
+  "audio/neural2/clothes.line.t6_5.normal.mp3": {
+    "hash": "6c768cf5e268c9b3"
+  },
+  "audio/neural2/clothes.line.t6_5.slow.mp3": {
+    "hash": "ad2f4485652c84ed"
+  },
+  "audio/neural2/clothes.line.t7_1.normal.mp3": {
+    "hash": "57953cf4b600882b"
+  },
+  "audio/neural2/clothes.line.t7_1.slow.mp3": {
+    "hash": "7dd56d9ffaae7d7b"
+  },
+  "audio/neural2/clothes.line.t7_2.normal.mp3": {
+    "hash": "aba81483c716d4b8"
+  },
+  "audio/neural2/clothes.line.t7_2.slow.mp3": {
+    "hash": "508b3f99805a15dc"
+  },
+  "audio/neural2/clothes.line.t7_3.normal.mp3": {
+    "hash": "16370a5a9d9c5eea"
+  },
+  "audio/neural2/clothes.line.t7_3.slow.mp3": {
+    "hash": "e96f54ed001ac499"
+  },
+  "audio/neural2/clothes.line.t7_4.normal.mp3": {
+    "hash": "fc207e166c6031f9"
+  },
+  "audio/neural2/clothes.line.t7_4.slow.mp3": {
+    "hash": "92ab9ba3f90a2d4d"
+  },
+  "audio/neural2/clothes.line.t7_5.normal.mp3": {
+    "hash": "ab7fe33e272b838f"
+  },
+  "audio/neural2/clothes.line.t7_5.slow.mp3": {
+    "hash": "ada4b42ccdb5a39a"
+  },
+  "audio/neural2/clothes.line.t8_1.normal.mp3": {
+    "hash": "14cc6644003c953b"
+  },
+  "audio/neural2/clothes.line.t8_1.slow.mp3": {
+    "hash": "d0bd86f192fe33fc"
+  },
+  "audio/neural2/clothes.line.t8_10.normal.mp3": {
+    "hash": "31140a76c131c846"
+  },
+  "audio/neural2/clothes.line.t8_10.slow.mp3": {
+    "hash": "3bc9f735a719478d"
+  },
+  "audio/neural2/clothes.line.t8_11.normal.mp3": {
+    "hash": "7b8939625fc7ac90"
+  },
+  "audio/neural2/clothes.line.t8_11.slow.mp3": {
+    "hash": "f386273ee7317128"
+  },
+  "audio/neural2/clothes.line.t8_12.normal.mp3": {
+    "hash": "af71975d08938d83"
+  },
+  "audio/neural2/clothes.line.t8_12.slow.mp3": {
+    "hash": "96bda518b7fc45dd"
+  },
+  "audio/neural2/clothes.line.t8_13.normal.mp3": {
+    "hash": "2f71cd8b34fc7ff6"
+  },
+  "audio/neural2/clothes.line.t8_13.slow.mp3": {
+    "hash": "728566e16452f184"
+  },
+  "audio/neural2/clothes.line.t8_14.normal.mp3": {
+    "hash": "a1546cb710ebd380"
+  },
+  "audio/neural2/clothes.line.t8_14.slow.mp3": {
+    "hash": "4356488f36554cd0"
+  },
+  "audio/neural2/clothes.line.t8_15.normal.mp3": {
+    "hash": "3f22a145c27c5a14"
+  },
+  "audio/neural2/clothes.line.t8_15.slow.mp3": {
+    "hash": "bc4c6550c566ab90"
+  },
+  "audio/neural2/clothes.line.t8_16.normal.mp3": {
+    "hash": "cd4869172761e907"
+  },
+  "audio/neural2/clothes.line.t8_16.slow.mp3": {
+    "hash": "404994f7967c4f68"
+  },
+  "audio/neural2/clothes.line.t8_2.normal.mp3": {
+    "hash": "aba81483c716d4b8"
+  },
+  "audio/neural2/clothes.line.t8_2.slow.mp3": {
+    "hash": "508b3f99805a15dc"
+  },
+  "audio/neural2/clothes.line.t8_3.normal.mp3": {
+    "hash": "d1337a89225ce600"
+  },
+  "audio/neural2/clothes.line.t8_3.slow.mp3": {
+    "hash": "313ca14694863d7e"
+  },
+  "audio/neural2/clothes.line.t8_4.normal.mp3": {
+    "hash": "8dcd7e903308937a"
+  },
+  "audio/neural2/clothes.line.t8_4.slow.mp3": {
+    "hash": "3a588baf4d69ffa1"
+  },
+  "audio/neural2/clothes.line.t8_5.normal.mp3": {
+    "hash": "a4618f267c1e90df"
+  },
+  "audio/neural2/clothes.line.t8_5.slow.mp3": {
+    "hash": "b3bfa72943f4b9c5"
+  },
+  "audio/neural2/clothes.line.t8_6.normal.mp3": {
+    "hash": "7358bb95b2ebbc83"
+  },
+  "audio/neural2/clothes.line.t8_6.slow.mp3": {
+    "hash": "57f138bb7b78a739"
+  },
+  "audio/neural2/clothes.line.t8_7.normal.mp3": {
+    "hash": "ba0a6aa666c2ac58"
+  },
+  "audio/neural2/clothes.line.t8_7.slow.mp3": {
+    "hash": "2f55b10b080816c1"
+  },
+  "audio/neural2/clothes.line.t8_8.normal.mp3": {
+    "hash": "79a6f734a4b151e0"
+  },
+  "audio/neural2/clothes.line.t8_8.slow.mp3": {
+    "hash": "ff82cff62a6ff0dd"
+  },
+  "audio/neural2/clothes.line.t8_9.normal.mp3": {
+    "hash": "909c623be4bed2a9"
+  },
+  "audio/neural2/clothes.line.t8_9.slow.mp3": {
+    "hash": "eabf93ed7263c14b"
+  },
+  "audio/neural2/clothes.word.black.normal.mp3": {
+    "hash": "4a9e3240b1e95161"
+  },
+  "audio/neural2/clothes.word.black.slow.mp3": {
+    "hash": "de5f2469a4cdbc62"
+  },
+  "audio/neural2/clothes.word.blue.normal.mp3": {
+    "hash": "12d085ad1dea1f12"
+  },
+  "audio/neural2/clothes.word.blue.slow.mp3": {
+    "hash": "d1cbe5f8288ba198"
+  },
+  "audio/neural2/clothes.word.clothes.normal.mp3": {
+    "hash": "5143bac0ae6b15fd"
+  },
+  "audio/neural2/clothes.word.clothes.slow.mp3": {
+    "hash": "599abd4fb31348c2"
+  },
+  "audio/neural2/clothes.word.coat.normal.mp3": {
+    "hash": "86c0d32c824ebe7b"
+  },
+  "audio/neural2/clothes.word.coat.slow.mp3": {
+    "hash": "540fc271a8b8788d"
+  },
+  "audio/neural2/clothes.word.color.normal.mp3": {
+    "hash": "ffa179ff8bcb6212"
+  },
+  "audio/neural2/clothes.word.color.slow.mp3": {
+    "hash": "960e07270c6aade5"
+  },
+  "audio/neural2/clothes.word.dress.normal.mp3": {
+    "hash": "9e97bf18e7f9e165"
+  },
+  "audio/neural2/clothes.word.dress.slow.mp3": {
+    "hash": "08a2a68c35f4e15c"
+  },
+  "audio/neural2/clothes.word.exchange.normal.mp3": {
+    "hash": "ceab484781c4a637"
+  },
+  "audio/neural2/clothes.word.exchange.slow.mp3": {
+    "hash": "ddc2319fe135059b"
+  },
+  "audio/neural2/clothes.word.fit.normal.mp3": {
+    "hash": "f6bd35679a5946fc"
+  },
+  "audio/neural2/clothes.word.fit.slow.mp3": {
+    "hash": "64574d6155c62eaa"
+  },
+  "audio/neural2/clothes.word.gift.normal.mp3": {
+    "hash": "7d4964e8c7c97f1d"
+  },
+  "audio/neural2/clothes.word.gift.slow.mp3": {
+    "hash": "afe731cee5818419"
+  },
+  "audio/neural2/clothes.word.green.normal.mp3": {
+    "hash": "8bd9df1fd31dd740"
+  },
+  "audio/neural2/clothes.word.green.slow.mp3": {
+    "hash": "8861c2d1a0924b1e"
+  },
+  "audio/neural2/clothes.word.hat.normal.mp3": {
+    "hash": "23ae45ad4fa3ea1c"
+  },
+  "audio/neural2/clothes.word.hat.slow.mp3": {
+    "hash": "9a374fb19a22659a"
+  },
+  "audio/neural2/clothes.word.jacket.normal.mp3": {
+    "hash": "edb16725249fb34b"
+  },
+  "audio/neural2/clothes.word.jacket.slow.mp3": {
+    "hash": "cb6c4cfda6aaf8b6"
+  },
+  "audio/neural2/clothes.word.long.normal.mp3": {
+    "hash": "31e49f83505a7fe4"
+  },
+  "audio/neural2/clothes.word.long.slow.mp3": {
+    "hash": "cec4c139c5262a14"
+  },
+  "audio/neural2/clothes.word.loose.normal.mp3": {
+    "hash": "35ec7adcb280834e"
+  },
+  "audio/neural2/clothes.word.loose.slow.mp3": {
+    "hash": "5f7ceb75c3ae6db0"
+  },
+  "audio/neural2/clothes.word.mirror.normal.mp3": {
+    "hash": "540edce5f68514cf"
+  },
+  "audio/neural2/clothes.word.mirror.slow.mp3": {
+    "hash": "40fd8b533fff0fb4"
+  },
+  "audio/neural2/clothes.word.new.normal.mp3": {
+    "hash": "5d65ba632310b402"
+  },
+  "audio/neural2/clothes.word.new.slow.mp3": {
+    "hash": "510449f67116c2a0"
+  },
+  "audio/neural2/clothes.word.old.normal.mp3": {
+    "hash": "ce1544eb7b42392f"
+  },
+  "audio/neural2/clothes.word.old.slow.mp3": {
+    "hash": "ea68d67cfa9de689"
+  },
+  "audio/neural2/clothes.word.pair.normal.mp3": {
+    "hash": "dcb899fe7d39ca1b"
+  },
+  "audio/neural2/clothes.word.pair.slow.mp3": {
+    "hash": "c8b9dc7d8d6140cc"
+  },
+  "audio/neural2/clothes.word.pants.normal.mp3": {
+    "hash": "189a9e9fc4792d3b"
+  },
+  "audio/neural2/clothes.word.pants.slow.mp3": {
+    "hash": "fa3edc16714dfd92"
+  },
+  "audio/neural2/clothes.word.percent.normal.mp3": {
+    "hash": "7f672909a0848ff6"
+  },
+  "audio/neural2/clothes.word.percent.slow.mp3": {
+    "hash": "78d7280de302c1bb"
+  },
+  "audio/neural2/clothes.word.red.normal.mp3": {
+    "hash": "89681d5f1caaf9ce"
+  },
+  "audio/neural2/clothes.word.red.slow.mp3": {
+    "hash": "bcfd24aaaa8e17e7"
+  },
+  "audio/neural2/clothes.word.return.normal.mp3": {
+    "hash": "9706863458905551"
+  },
+  "audio/neural2/clothes.word.return.slow.mp3": {
+    "hash": "733bf44cab45cfde"
+  },
+  "audio/neural2/clothes.word.sale.normal.mp3": {
+    "hash": "0226afb1f9e88c7b"
+  },
+  "audio/neural2/clothes.word.sale.slow.mp3": {
+    "hash": "fdabd4926bed15ff"
+  },
+  "audio/neural2/clothes.word.scarf.normal.mp3": {
+    "hash": "6871bfceb6c69f9b"
+  },
+  "audio/neural2/clothes.word.scarf.slow.mp3": {
+    "hash": "6d391da0d76f3898"
+  },
+  "audio/neural2/clothes.word.shirt.normal.mp3": {
+    "hash": "c952ded8b833c9be"
+  },
+  "audio/neural2/clothes.word.shirt.slow.mp3": {
+    "hash": "3072ebf2081db7eb"
+  },
+  "audio/neural2/clothes.word.shoe.normal.mp3": {
+    "hash": "42092e3e8d7621df"
+  },
+  "audio/neural2/clothes.word.shoe.slow.mp3": {
+    "hash": "10c3663ff1b8e949"
+  },
+  "audio/neural2/clothes.word.short.normal.mp3": {
+    "hash": "8680a4e2c41b9e18"
+  },
+  "audio/neural2/clothes.word.short.slow.mp3": {
+    "hash": "842af5ab85d28e8e"
+  },
+  "audio/neural2/clothes.word.size.normal.mp3": {
+    "hash": "e18abdee897b5c1f"
+  },
+  "audio/neural2/clothes.word.size.slow.mp3": {
+    "hash": "12c550d44c6c5ed4"
+  },
+  "audio/neural2/clothes.word.skirt.normal.mp3": {
+    "hash": "dc8f8746dae23517"
+  },
+  "audio/neural2/clothes.word.skirt.slow.mp3": {
+    "hash": "bbc4c78fe62f4308"
+  },
+  "audio/neural2/clothes.word.tight.normal.mp3": {
+    "hash": "f08d5403abf8a8d2"
+  },
+  "audio/neural2/clothes.word.tight.slow.mp3": {
+    "hash": "cdb6f68cde973e21"
+  },
+  "audio/neural2/clothes.word.warm.normal.mp3": {
+    "hash": "337b0c4ccd175b5f"
+  },
+  "audio/neural2/clothes.word.warm.slow.mp3": {
+    "hash": "88a524701b0233ca"
+  },
+  "audio/neural2/clothes.word.wear.normal.mp3": {
+    "hash": "8994b030eba44920"
+  },
+  "audio/neural2/clothes.word.wear.slow.mp3": {
+    "hash": "0da714b0e2f7057e"
+  },
+  "audio/neural2/clothes.word.white.normal.mp3": {
+    "hash": "39b532f17d496739"
+  },
+  "audio/neural2/clothes.word.white.slow.mp3": {
+    "hash": "abacdd3b7218fe1b"
+  },
+  "audio/neural2/clothes.word.wrong.normal.mp3": {
+    "hash": "4ad48a5e374da63a"
+  },
+  "audio/neural2/clothes.word.wrong.slow.mp3": {
+    "hash": "3f914cc67b5e8c3d"
+  },
+  "audio/neural2/market.chunk.buy_one_get_one.normal.mp3": {
+    "hash": "b2858f1c1a7e6501"
+  },
+  "audio/neural2/market.chunk.buy_one_get_one.slow.mp3": {
+    "hash": "475d11a6e33ac144"
+  },
+  "audio/neural2/market.chunk.how_many_bag.normal.mp3": {
+    "hash": "be6060a8e15ccd43"
+  },
+  "audio/neural2/market.chunk.how_many_bag.slow.mp3": {
+    "hash": "2022b2cfe6dc2317"
+  },
+  "audio/neural2/market.chunk.how_much_tomatoes.normal.mp3": {
+    "hash": "77ada2f82e619323"
+  },
+  "audio/neural2/market.chunk.how_much_tomatoes.slow.mp3": {
+    "hash": "8fd0f743151e2a1b"
+  },
+  "audio/neural2/market.chunk.i_see_them.normal.mp3": {
+    "hash": "fb711433c947c178"
+  },
+  "audio/neural2/market.chunk.i_see_them.slow.mp3": {
+    "hash": "7ce8b08388249b72"
+  },
+  "audio/neural2/market.chunk.in_line.normal.mp3": {
+    "hash": "080de52eb170efce"
+  },
+  "audio/neural2/market.chunk.in_line.slow.mp3": {
+    "hash": "76e8583e58a0e14e"
+  },
+  "audio/neural2/market.chunk.little_more.normal.mp3": {
+    "hash": "aef5f236bdf7ae48"
+  },
+  "audio/neural2/market.chunk.little_more.slow.mp3": {
+    "hash": "890a11fd3e6134b8"
+  },
+  "audio/neural2/market.chunk.looks_good.normal.mp3": {
+    "hash": "f56b9b76237964c3"
+  },
+  "audio/neural2/market.chunk.looks_good.slow.mp3": {
+    "hash": "bac9fb2bc1f15715"
+  },
+  "audio/neural2/market.chunk.one_pound.normal.mp3": {
+    "hash": "9977fe581734e829"
+  },
+  "audio/neural2/market.chunk.one_pound.slow.mp3": {
+    "hash": "0fcd7185a86f6170"
+  },
+  "audio/neural2/market.chunk.own_bag.normal.mp3": {
+    "hash": "0e04693e3bede431"
+  },
+  "audio/neural2/market.chunk.own_bag.slow.mp3": {
+    "hash": "7bfec6dad3ca2aed"
+  },
+  "audio/neural2/market.chunk.rice_and_eggs.normal.mp3": {
+    "hash": "137800595d00c2ad"
+  },
+  "audio/neural2/market.chunk.rice_and_eggs.slow.mp3": {
+    "hash": "0b82be5b600f9440"
+  },
+  "audio/neural2/market.chunk.take_two.normal.mp3": {
+    "hash": "f58acff0433e2ad6"
+  },
+  "audio/neural2/market.chunk.take_two.slow.mp3": {
+    "hash": "5661679bed2875a9"
+  },
+  "audio/neural2/market.chunk.try_one.normal.mp3": {
+    "hash": "62deba8ee2834b1e"
+  },
+  "audio/neural2/market.chunk.try_one.slow.mp3": {
+    "hash": "a2ac3fd15d773d53"
+  },
+  "audio/neural2/market.chunk.two_bottles.normal.mp3": {
+    "hash": "4ce9612afe168e46"
+  },
+  "audio/neural2/market.chunk.two_bottles.slow.mp3": {
+    "hash": "d52c8f2231774053"
+  },
+  "audio/neural2/market.chunk.where_apples.normal.mp3": {
+    "hash": "e501cc1c4f1649f6"
+  },
+  "audio/neural2/market.chunk.where_apples.slow.mp3": {
+    "hash": "221a97147673be17"
+  },
+  "audio/neural2/market.line.t1_1.normal.mp3": {
+    "hash": "e501cc1c4f1649f6"
+  },
+  "audio/neural2/market.line.t1_1.slow.mp3": {
+    "hash": "221a97147673be17"
+  },
+  "audio/neural2/market.line.t1_2.normal.mp3": {
+    "hash": "f52275825200b55e"
+  },
+  "audio/neural2/market.line.t1_2.slow.mp3": {
+    "hash": "b5a69cab9f4befec"
+  },
+  "audio/neural2/market.line.t1_3.normal.mp3": {
+    "hash": "fb711433c947c178"
+  },
+  "audio/neural2/market.line.t1_3.slow.mp3": {
+    "hash": "7ce8b08388249b72"
+  },
+  "audio/neural2/market.line.t1_4.normal.mp3": {
+    "hash": "00b45401c20961bb"
+  },
+  "audio/neural2/market.line.t1_4.slow.mp3": {
+    "hash": "50cc0da4e72fe9fe"
+  },
+  "audio/neural2/market.line.t2_1.normal.mp3": {
+    "hash": "edbbf5d22fe3cdd1"
+  },
+  "audio/neural2/market.line.t2_1.slow.mp3": {
+    "hash": "118cde14642e156c"
+  },
+  "audio/neural2/market.line.t2_2.normal.mp3": {
+    "hash": "62deba8ee2834b1e"
+  },
+  "audio/neural2/market.line.t2_2.slow.mp3": {
+    "hash": "a2ac3fd15d773d53"
+  },
+  "audio/neural2/market.line.t2_3.normal.mp3": {
+    "hash": "877b22f9362181f3"
+  },
+  "audio/neural2/market.line.t2_3.slow.mp3": {
+    "hash": "cc8cfa2853ba7e48"
+  },
+  "audio/neural2/market.line.t2_4.normal.mp3": {
+    "hash": "f56b9b76237964c3"
+  },
+  "audio/neural2/market.line.t2_4.slow.mp3": {
+    "hash": "bac9fb2bc1f15715"
+  },
+  "audio/neural2/market.line.t2_5.normal.mp3": {
+    "hash": "37e6eb188b0b8c57"
+  },
+  "audio/neural2/market.line.t2_5.slow.mp3": {
+    "hash": "f698f8551607a254"
+  },
+  "audio/neural2/market.line.t3_1.normal.mp3": {
+    "hash": "a7cb82e79cce2ebc"
+  },
+  "audio/neural2/market.line.t3_1.slow.mp3": {
+    "hash": "0b07e4f2a962303b"
+  },
+  "audio/neural2/market.line.t3_2.normal.mp3": {
+    "hash": "4ce9612afe168e46"
+  },
+  "audio/neural2/market.line.t3_2.slow.mp3": {
+    "hash": "d52c8f2231774053"
+  },
+  "audio/neural2/market.line.t3_3.normal.mp3": {
+    "hash": "3a43da6ca41ba590"
+  },
+  "audio/neural2/market.line.t3_3.slow.mp3": {
+    "hash": "89ddc1c8ef934fde"
+  },
+  "audio/neural2/market.line.t3_4.normal.mp3": {
+    "hash": "137800595d00c2ad"
+  },
+  "audio/neural2/market.line.t3_4.slow.mp3": {
+    "hash": "0b82be5b600f9440"
+  },
+  "audio/neural2/market.line.t3_5.normal.mp3": {
+    "hash": "aeb62c53731a8b5a"
+  },
+  "audio/neural2/market.line.t3_5.slow.mp3": {
+    "hash": "453c3a089655dd94"
+  },
+  "audio/neural2/market.line.t4_1.normal.mp3": {
+    "hash": "f6710227a1a60218"
+  },
+  "audio/neural2/market.line.t4_1.slow.mp3": {
+    "hash": "e0b7cefee6d9f865"
+  },
+  "audio/neural2/market.line.t4_2.normal.mp3": {
+    "hash": "9977fe581734e829"
+  },
+  "audio/neural2/market.line.t4_2.slow.mp3": {
+    "hash": "0fcd7185a86f6170"
+  },
+  "audio/neural2/market.line.t4_3.normal.mp3": {
+    "hash": "8bfbd7d3df3b7606"
+  },
+  "audio/neural2/market.line.t4_3.slow.mp3": {
+    "hash": "ea7e9eda4709ada5"
+  },
+  "audio/neural2/market.line.t4_4.normal.mp3": {
+    "hash": "aef5f236bdf7ae48"
+  },
+  "audio/neural2/market.line.t4_4.slow.mp3": {
+    "hash": "890a11fd3e6134b8"
+  },
+  "audio/neural2/market.line.t4_5.normal.mp3": {
+    "hash": "e21022ce25f288c9"
+  },
+  "audio/neural2/market.line.t4_5.slow.mp3": {
+    "hash": "8a6c760eeaac5b25"
+  },
+  "audio/neural2/market.line.t5_1.normal.mp3": {
+    "hash": "080de52eb170efce"
+  },
+  "audio/neural2/market.line.t5_1.slow.mp3": {
+    "hash": "76e8583e58a0e14e"
+  },
+  "audio/neural2/market.line.t5_2.normal.mp3": {
+    "hash": "b8e8fe928a803a62"
+  },
+  "audio/neural2/market.line.t5_2.slow.mp3": {
+    "hash": "e9dd7ac2a6d3f025"
+  },
+  "audio/neural2/market.line.t5_3.normal.mp3": {
+    "hash": "0e04693e3bede431"
+  },
+  "audio/neural2/market.line.t5_3.slow.mp3": {
+    "hash": "7bfec6dad3ca2aed"
+  },
+  "audio/neural2/market.line.t5_4.normal.mp3": {
+    "hash": "2501f5833f9efd60"
+  },
+  "audio/neural2/market.line.t5_4.slow.mp3": {
+    "hash": "6f8333bf2556a5dc"
+  },
+  "audio/neural2/market.line.t6_1.normal.mp3": {
+    "hash": "0692008661f8fb9e"
+  },
+  "audio/neural2/market.line.t6_1.slow.mp3": {
+    "hash": "b2f6c3d20202f93e"
+  },
+  "audio/neural2/market.line.t6_2.normal.mp3": {
+    "hash": "77ada2f82e619323"
+  },
+  "audio/neural2/market.line.t6_2.slow.mp3": {
+    "hash": "8fd0f743151e2a1b"
+  },
+  "audio/neural2/market.line.t6_3.normal.mp3": {
+    "hash": "86295d59fc3dda33"
+  },
+  "audio/neural2/market.line.t6_3.slow.mp3": {
+    "hash": "4e5946cb1e67e601"
+  },
+  "audio/neural2/market.line.t6_4.normal.mp3": {
+    "hash": "be6060a8e15ccd43"
+  },
+  "audio/neural2/market.line.t6_4.slow.mp3": {
+    "hash": "2022b2cfe6dc2317"
+  },
+  "audio/neural2/market.line.t6_5.normal.mp3": {
+    "hash": "070ccbaf421e7621"
+  },
+  "audio/neural2/market.line.t6_5.slow.mp3": {
+    "hash": "e883c682b2b100ba"
+  },
+  "audio/neural2/market.line.t7_1.normal.mp3": {
+    "hash": "4feddcfb4e80e4e1"
+  },
+  "audio/neural2/market.line.t7_1.slow.mp3": {
+    "hash": "fb4f4ce0db3fc43b"
+  },
+  "audio/neural2/market.line.t7_2.normal.mp3": {
+    "hash": "b2858f1c1a7e6501"
+  },
+  "audio/neural2/market.line.t7_2.slow.mp3": {
+    "hash": "475d11a6e33ac144"
+  },
+  "audio/neural2/market.line.t7_3.normal.mp3": {
+    "hash": "e23f12ee5749c450"
+  },
+  "audio/neural2/market.line.t7_3.slow.mp3": {
+    "hash": "8f7fca7fa3aad649"
+  },
+  "audio/neural2/market.line.t7_4.normal.mp3": {
+    "hash": "f58acff0433e2ad6"
+  },
+  "audio/neural2/market.line.t7_4.slow.mp3": {
+    "hash": "5661679bed2875a9"
+  },
+  "audio/neural2/market.line.t8_1.normal.mp3": {
+    "hash": "72dd3fa8c016edac"
+  },
+  "audio/neural2/market.line.t8_1.slow.mp3": {
+    "hash": "cd54268fcee2ac92"
+  },
+  "audio/neural2/market.line.t8_10.normal.mp3": {
+    "hash": "aef5f236bdf7ae48"
+  },
+  "audio/neural2/market.line.t8_10.slow.mp3": {
+    "hash": "890a11fd3e6134b8"
+  },
+  "audio/neural2/market.line.t8_11.normal.mp3": {
+    "hash": "261ad0dbc4fd389a"
+  },
+  "audio/neural2/market.line.t8_11.slow.mp3": {
+    "hash": "dabfe8bbfc697812"
+  },
+  "audio/neural2/market.line.t8_12.normal.mp3": {
+    "hash": "5217a4a2e5d67db8"
+  },
+  "audio/neural2/market.line.t8_12.slow.mp3": {
+    "hash": "8ad9397d79d87d09"
+  },
+  "audio/neural2/market.line.t8_13.normal.mp3": {
+    "hash": "b2858f1c1a7e6501"
+  },
+  "audio/neural2/market.line.t8_13.slow.mp3": {
+    "hash": "475d11a6e33ac144"
+  },
+  "audio/neural2/market.line.t8_14.normal.mp3": {
+    "hash": "31b2b30e3811c752"
+  },
+  "audio/neural2/market.line.t8_14.slow.mp3": {
+    "hash": "7a17d664e0eab183"
+  },
+  "audio/neural2/market.line.t8_15.normal.mp3": {
+    "hash": "0e04693e3bede431"
+  },
+  "audio/neural2/market.line.t8_15.slow.mp3": {
+    "hash": "7bfec6dad3ca2aed"
+  },
+  "audio/neural2/market.line.t8_16.normal.mp3": {
+    "hash": "16fea5ee20dc7305"
+  },
+  "audio/neural2/market.line.t8_16.slow.mp3": {
+    "hash": "6a653c45c335efdc"
+  },
+  "audio/neural2/market.line.t8_2.normal.mp3": {
+    "hash": "e501cc1c4f1649f6"
+  },
+  "audio/neural2/market.line.t8_2.slow.mp3": {
+    "hash": "221a97147673be17"
+  },
+  "audio/neural2/market.line.t8_3.normal.mp3": {
+    "hash": "fdd3da696cf8eef7"
+  },
+  "audio/neural2/market.line.t8_3.slow.mp3": {
+    "hash": "156facb83ccb6e23"
+  },
+  "audio/neural2/market.line.t8_4.normal.mp3": {
+    "hash": "62deba8ee2834b1e"
+  },
+  "audio/neural2/market.line.t8_4.slow.mp3": {
+    "hash": "a2ac3fd15d773d53"
+  },
+  "audio/neural2/market.line.t8_5.normal.mp3": {
+    "hash": "5fb013da1091776a"
+  },
+  "audio/neural2/market.line.t8_5.slow.mp3": {
+    "hash": "0e9a9a39730c8cde"
+  },
+  "audio/neural2/market.line.t8_6.normal.mp3": {
+    "hash": "137800595d00c2ad"
+  },
+  "audio/neural2/market.line.t8_6.slow.mp3": {
+    "hash": "0b82be5b600f9440"
+  },
+  "audio/neural2/market.line.t8_7.normal.mp3": {
+    "hash": "a185050970af7db1"
+  },
+  "audio/neural2/market.line.t8_7.slow.mp3": {
+    "hash": "b13c1fd22b72a8f7"
+  },
+  "audio/neural2/market.line.t8_8.normal.mp3": {
+    "hash": "77ada2f82e619323"
+  },
+  "audio/neural2/market.line.t8_8.slow.mp3": {
+    "hash": "8fd0f743151e2a1b"
+  },
+  "audio/neural2/market.line.t8_9.normal.mp3": {
+    "hash": "10d1ef208fb3a264"
+  },
+  "audio/neural2/market.line.t8_9.slow.mp3": {
+    "hash": "a2ccf5428af31927"
+  },
+  "audio/neural2/market.word.apple.normal.mp3": {
+    "hash": "5ef7c192e6af63bd"
+  },
+  "audio/neural2/market.word.apple.slow.mp3": {
+    "hash": "3a775174dfb65bbf"
+  },
+  "audio/neural2/market.word.banana.normal.mp3": {
+    "hash": "4b241b191cd4c7c2"
+  },
+  "audio/neural2/market.word.banana.slow.mp3": {
+    "hash": "c710390fee9cc6c2"
+  },
+  "audio/neural2/market.word.butter.normal.mp3": {
+    "hash": "037260c79ecdcd11"
+  },
+  "audio/neural2/market.word.butter.slow.mp3": {
+    "hash": "2cbaccce329299fe"
+  },
+  "audio/neural2/market.word.buy.normal.mp3": {
+    "hash": "d8076363878c1f32"
+  },
+  "audio/neural2/market.word.buy.slow.mp3": {
+    "hash": "88b1976b433d1f90"
+  },
+  "audio/neural2/market.word.cheap.normal.mp3": {
+    "hash": "1f3225017b499ad4"
+  },
+  "audio/neural2/market.word.cheap.slow.mp3": {
+    "hash": "9e8f61ffe90919ca"
+  },
+  "audio/neural2/market.word.cheese.normal.mp3": {
+    "hash": "a036ccde48cda117"
+  },
+  "audio/neural2/market.word.cheese.slow.mp3": {
+    "hash": "115a10588decf715"
+  },
+  "audio/neural2/market.word.chicken.normal.mp3": {
+    "hash": "c2dd92106f6e3eda"
+  },
+  "audio/neural2/market.word.chicken.slow.mp3": {
+    "hash": "328fcee2f48b85f1"
+  },
+  "audio/neural2/market.word.each.normal.mp3": {
+    "hash": "a3dc87614cf34ae0"
+  },
+  "audio/neural2/market.word.each.slow.mp3": {
+    "hash": "18f398180c12ae96"
+  },
+  "audio/neural2/market.word.expensive.normal.mp3": {
+    "hash": "b24281fe06562d2f"
+  },
+  "audio/neural2/market.word.expensive.slow.mp3": {
+    "hash": "58c3dabac68fd47d"
+  },
+  "audio/neural2/market.word.fifteen.normal.mp3": {
+    "hash": "32fa6274efa9eb80"
+  },
+  "audio/neural2/market.word.fifteen.slow.mp3": {
+    "hash": "b8300979835fd0d0"
+  },
+  "audio/neural2/market.word.fish.normal.mp3": {
+    "hash": "c9f383fdd3ad9580"
+  },
+  "audio/neural2/market.word.fish.slow.mp3": {
+    "hash": "3ba4b2f7a23dd4db"
+  },
+  "audio/neural2/market.word.forty.normal.mp3": {
+    "hash": "11089e214c2211da"
+  },
+  "audio/neural2/market.word.forty.slow.mp3": {
+    "hash": "9084a6aa985a15bf"
+  },
+  "audio/neural2/market.word.free.normal.mp3": {
+    "hash": "1a1ed4bf5eea9c99"
+  },
+  "audio/neural2/market.word.free.slow.mp3": {
+    "hash": "c4a8e753afad4627"
+  },
+  "audio/neural2/market.word.fresh.normal.mp3": {
+    "hash": "112727eff0f33fdd"
+  },
+  "audio/neural2/market.word.fresh.slow.mp3": {
+    "hash": "8241cdffba52be85"
+  },
+  "audio/neural2/market.word.fruit.normal.mp3": {
+    "hash": "9663c99909f27703"
+  },
+  "audio/neural2/market.word.fruit.slow.mp3": {
+    "hash": "ab1ec8165f2e7f9b"
+  },
+  "audio/neural2/market.word.half.normal.mp3": {
+    "hash": "8902246eef786459"
+  },
+  "audio/neural2/market.word.half.slow.mp3": {
+    "hash": "79c9e00c09d048de"
+  },
+  "audio/neural2/market.word.hundred.normal.mp3": {
+    "hash": "d35aa155c8e28e8c"
+  },
+  "audio/neural2/market.word.hundred.slow.mp3": {
+    "hash": "5c8d76fcb1c9c829"
+  },
+  "audio/neural2/market.word.juice.normal.mp3": {
+    "hash": "d24a70125dac4e53"
+  },
+  "audio/neural2/market.word.juice.slow.mp3": {
+    "hash": "7ffc27ffcfeb2996"
+  },
+  "audio/neural2/market.word.meat.normal.mp3": {
+    "hash": "faa09eab70e21628"
+  },
+  "audio/neural2/market.word.meat.slow.mp3": {
+    "hash": "8f374baff9e6bcd4"
+  },
+  "audio/neural2/market.word.oil.normal.mp3": {
+    "hash": "483ef92a23b407bd"
+  },
+  "audio/neural2/market.word.oil.slow.mp3": {
+    "hash": "2329e3a77a79ffec"
+  },
+  "audio/neural2/market.word.orange.normal.mp3": {
+    "hash": "e67776321099094f"
+  },
+  "audio/neural2/market.word.orange.slow.mp3": {
+    "hash": "ad563bb8b9f2a864"
+  },
+  "audio/neural2/market.word.piece.normal.mp3": {
+    "hash": "4fd285f9a77d61c0"
+  },
+  "audio/neural2/market.word.piece.slow.mp3": {
+    "hash": "bab1b169295ef02f"
+  },
+  "audio/neural2/market.word.pizza.normal.mp3": {
+    "hash": "69d96455612ecd8f"
+  },
+  "audio/neural2/market.word.pizza.slow.mp3": {
+    "hash": "8595243b32722303"
+  },
+  "audio/neural2/market.word.potato.normal.mp3": {
+    "hash": "bbd7abf229f1b547"
+  },
+  "audio/neural2/market.word.potato.slow.mp3": {
+    "hash": "fea59be210fb6a11"
+  },
+  "audio/neural2/market.word.pound.normal.mp3": {
+    "hash": "00c6e192b2e78754"
+  },
+  "audio/neural2/market.word.pound.slow.mp3": {
+    "hash": "f0a133fe905f6318"
+  },
+  "audio/neural2/market.word.price.normal.mp3": {
+    "hash": "ae91e55370403b32"
+  },
+  "audio/neural2/market.word.price.slow.mp3": {
+    "hash": "933ca9160e659ffe"
+  },
+  "audio/neural2/market.word.rice.normal.mp3": {
+    "hash": "3396168525d7eeaf"
+  },
+  "audio/neural2/market.word.rice.slow.mp3": {
+    "hash": "dedc31c45c99a4f0"
+  },
+  "audio/neural2/market.word.salt.normal.mp3": {
+    "hash": "ae55d333bf67741f"
+  },
+  "audio/neural2/market.word.salt.slow.mp3": {
+    "hash": "327f0ba0bc764361"
+  },
+  "audio/neural2/market.word.thirteen.normal.mp3": {
+    "hash": "6e7056e94b93d688"
+  },
+  "audio/neural2/market.word.thirteen.slow.mp3": {
+    "hash": "cef5ecae152a5e6f"
+  },
+  "audio/neural2/market.word.thirty.normal.mp3": {
+    "hash": "0c95e04c0b3f6459"
+  },
+  "audio/neural2/market.word.thirty.slow.mp3": {
+    "hash": "3846a0004890fd8a"
+  },
+  "audio/neural2/market.word.tomato.normal.mp3": {
+    "hash": "ecf26b6e7eef39df"
+  },
+  "audio/neural2/market.word.tomato.slow.mp3": {
+    "hash": "bcf930e561a25ff9"
+  },
+  "audio/neural2/market.word.vegetable.normal.mp3": {
+    "hash": "5a2e9042c24ff58e"
+  },
+  "audio/neural2/market.word.vegetable.slow.mp3": {
+    "hash": "2bf6184267689e41"
   },
   "audio/neural2/move_in.chunk.call_me.normal.mp3": {
     "hash": "ffad5538de33c6b4"
@@ -2383,5 +4402,569 @@
   },
   "audio/neural2/store.word.umbrella.slow.mp3": {
     "hash": "57e7471479143c1b"
+  },
+  "audio/neural2/street.chunk.any_change.normal.mp3": {
+    "hash": "cbcdcd49900d7548"
+  },
+  "audio/neural2/street.chunk.any_change.slow.mp3": {
+    "hash": "ac3beb51861d4ba6"
+  },
+  "audio/neural2/street.chunk.bus_late.normal.mp3": {
+    "hash": "218aae9d3b7b31c9"
+  },
+  "audio/neural2/street.chunk.bus_late.slow.mp3": {
+    "hash": "42e0050d4197b38d"
+  },
+  "audio/neural2/street.chunk.far_from_here.normal.mp3": {
+    "hash": "2bf14eaa9fa822da"
+  },
+  "audio/neural2/street.chunk.far_from_here.slow.mp3": {
+    "hash": "a1b5aef185356379"
+  },
+  "audio/neural2/street.chunk.go_downtown.normal.mp3": {
+    "hash": "1382b3e9e94fb7f9"
+  },
+  "audio/neural2/street.chunk.go_downtown.slow.mp3": {
+    "hash": "62f2a86718749025"
+  },
+  "audio/neural2/street.chunk.how_long.normal.mp3": {
+    "hash": "1bd4bcab3e275925"
+  },
+  "audio/neural2/street.chunk.how_long.slow.mp3": {
+    "hash": "a874cbcef7fa37f3"
+  },
+  "audio/neural2/street.chunk.how_much_fare.normal.mp3": {
+    "hash": "ae394b3ec377a6c4"
+  },
+  "audio/neural2/street.chunk.how_much_fare.slow.mp3": {
+    "hash": "f75171d0653476c9"
+  },
+  "audio/neural2/street.chunk.im_lost.normal.mp3": {
+    "hash": "f188387374a588c7"
+  },
+  "audio/neural2/street.chunk.im_lost.slow.mp3": {
+    "hash": "d3ba9c91be8daffa"
+  },
+  "audio/neural2/street.chunk.left_or_right.normal.mp3": {
+    "hash": "cf68bd7ee22a26a9"
+  },
+  "audio/neural2/street.chunk.left_or_right.slow.mp3": {
+    "hash": "9184c5cf1d9cac1e"
+  },
+  "audio/neural2/street.chunk.my_stop.normal.mp3": {
+    "hash": "004b89adf00ba9ae"
+  },
+  "audio/neural2/street.chunk.my_stop.slow.mp3": {
+    "hash": "f49c69e02a1eb2c7"
+  },
+  "audio/neural2/street.chunk.need_coins.normal.mp3": {
+    "hash": "e9317f0bfac9d828"
+  },
+  "audio/neural2/street.chunk.need_coins.slow.mp3": {
+    "hash": "38078c415196b88b"
+  },
+  "audio/neural2/street.chunk.next_bus.normal.mp3": {
+    "hash": "df2095436a8f5771"
+  },
+  "audio/neural2/street.chunk.next_bus.slow.mp3": {
+    "hash": "9ff821e0c496abe6"
+  },
+  "audio/neural2/street.chunk.show_on_map.normal.mp3": {
+    "hash": "c57c5ac7eab747bc"
+  },
+  "audio/neural2/street.chunk.show_on_map.slow.mp3": {
+    "hash": "83a238d8396c1c93"
+  },
+  "audio/neural2/street.chunk.wheres_bus_stop.normal.mp3": {
+    "hash": "7430ca4a2071d25d"
+  },
+  "audio/neural2/street.chunk.wheres_bus_stop.slow.mp3": {
+    "hash": "b288a06f08b342ba"
+  },
+  "audio/neural2/street.chunk.which_way.normal.mp3": {
+    "hash": "5c4406c7a32b4a12"
+  },
+  "audio/neural2/street.chunk.which_way.slow.mp3": {
+    "hash": "dce325e579e4f350"
+  },
+  "audio/neural2/street.line.t1_1.normal.mp3": {
+    "hash": "7430ca4a2071d25d"
+  },
+  "audio/neural2/street.line.t1_1.slow.mp3": {
+    "hash": "b288a06f08b342ba"
+  },
+  "audio/neural2/street.line.t1_2.normal.mp3": {
+    "hash": "79056176dae50c40"
+  },
+  "audio/neural2/street.line.t1_2.slow.mp3": {
+    "hash": "8bf29fc2ee2e4cb0"
+  },
+  "audio/neural2/street.line.t1_3.normal.mp3": {
+    "hash": "2bf14eaa9fa822da"
+  },
+  "audio/neural2/street.line.t1_3.slow.mp3": {
+    "hash": "a1b5aef185356379"
+  },
+  "audio/neural2/street.line.t1_4.normal.mp3": {
+    "hash": "c7580d4f3ba193ed"
+  },
+  "audio/neural2/street.line.t1_4.slow.mp3": {
+    "hash": "1e257957f8ca8abe"
+  },
+  "audio/neural2/street.line.t2_1.normal.mp3": {
+    "hash": "7d134fd92b25e421"
+  },
+  "audio/neural2/street.line.t2_1.slow.mp3": {
+    "hash": "04c2e8f7551773a8"
+  },
+  "audio/neural2/street.line.t2_2.normal.mp3": {
+    "hash": "5c4406c7a32b4a12"
+  },
+  "audio/neural2/street.line.t2_2.slow.mp3": {
+    "hash": "dce325e579e4f350"
+  },
+  "audio/neural2/street.line.t2_3.normal.mp3": {
+    "hash": "c73321dd6cff3f82"
+  },
+  "audio/neural2/street.line.t2_3.slow.mp3": {
+    "hash": "a45610258e89f69d"
+  },
+  "audio/neural2/street.line.t2_4.normal.mp3": {
+    "hash": "cf68bd7ee22a26a9"
+  },
+  "audio/neural2/street.line.t2_4.slow.mp3": {
+    "hash": "9184c5cf1d9cac1e"
+  },
+  "audio/neural2/street.line.t2_5.normal.mp3": {
+    "hash": "1f8d8fe9e445d9ce"
+  },
+  "audio/neural2/street.line.t2_5.slow.mp3": {
+    "hash": "227f59ce11aabff5"
+  },
+  "audio/neural2/street.line.t3_1.normal.mp3": {
+    "hash": "9c36f8a300bd1ebb"
+  },
+  "audio/neural2/street.line.t3_1.slow.mp3": {
+    "hash": "bcb862638efd85d4"
+  },
+  "audio/neural2/street.line.t3_2.normal.mp3": {
+    "hash": "e9317f0bfac9d828"
+  },
+  "audio/neural2/street.line.t3_2.slow.mp3": {
+    "hash": "38078c415196b88b"
+  },
+  "audio/neural2/street.line.t3_3.normal.mp3": {
+    "hash": "39ebccf89b25d2f2"
+  },
+  "audio/neural2/street.line.t3_3.slow.mp3": {
+    "hash": "9215a45bdc69b81c"
+  },
+  "audio/neural2/street.line.t3_4.normal.mp3": {
+    "hash": "cbcdcd49900d7548"
+  },
+  "audio/neural2/street.line.t3_4.slow.mp3": {
+    "hash": "ac3beb51861d4ba6"
+  },
+  "audio/neural2/street.line.t3_5.normal.mp3": {
+    "hash": "e5643294117b45a1"
+  },
+  "audio/neural2/street.line.t3_5.slow.mp3": {
+    "hash": "327879679a36327d"
+  },
+  "audio/neural2/street.line.t4_1.normal.mp3": {
+    "hash": "1382b3e9e94fb7f9"
+  },
+  "audio/neural2/street.line.t4_1.slow.mp3": {
+    "hash": "62f2a86718749025"
+  },
+  "audio/neural2/street.line.t4_2.normal.mp3": {
+    "hash": "f4c2f65e8c3c6617"
+  },
+  "audio/neural2/street.line.t4_2.slow.mp3": {
+    "hash": "b2b742c075d7ad15"
+  },
+  "audio/neural2/street.line.t4_3.normal.mp3": {
+    "hash": "ae394b3ec377a6c4"
+  },
+  "audio/neural2/street.line.t4_3.slow.mp3": {
+    "hash": "f75171d0653476c9"
+  },
+  "audio/neural2/street.line.t4_4.normal.mp3": {
+    "hash": "b496d78daaa6f167"
+  },
+  "audio/neural2/street.line.t4_4.slow.mp3": {
+    "hash": "ffa2060a13f881c5"
+  },
+  "audio/neural2/street.line.t5_1.normal.mp3": {
+    "hash": "d2a727369222da9b"
+  },
+  "audio/neural2/street.line.t5_1.slow.mp3": {
+    "hash": "72a84beeb95c78b3"
+  },
+  "audio/neural2/street.line.t5_2.normal.mp3": {
+    "hash": "1bd4bcab3e275925"
+  },
+  "audio/neural2/street.line.t5_2.slow.mp3": {
+    "hash": "a874cbcef7fa37f3"
+  },
+  "audio/neural2/street.line.t5_3.normal.mp3": {
+    "hash": "ea5e1304d041431d"
+  },
+  "audio/neural2/street.line.t5_3.slow.mp3": {
+    "hash": "cf2f8c55597f5e3b"
+  },
+  "audio/neural2/street.line.t5_4.normal.mp3": {
+    "hash": "004b89adf00ba9ae"
+  },
+  "audio/neural2/street.line.t5_4.slow.mp3": {
+    "hash": "f49c69e02a1eb2c7"
+  },
+  "audio/neural2/street.line.t5_5.normal.mp3": {
+    "hash": "6ed2c6677edcdf6b"
+  },
+  "audio/neural2/street.line.t5_5.slow.mp3": {
+    "hash": "950a1933314e010b"
+  },
+  "audio/neural2/street.line.t6_1.normal.mp3": {
+    "hash": "df2095436a8f5771"
+  },
+  "audio/neural2/street.line.t6_1.slow.mp3": {
+    "hash": "9ff821e0c496abe6"
+  },
+  "audio/neural2/street.line.t6_2.normal.mp3": {
+    "hash": "edce56d43b88c5f9"
+  },
+  "audio/neural2/street.line.t6_2.slow.mp3": {
+    "hash": "55dea51a79a10a64"
+  },
+  "audio/neural2/street.line.t6_3.normal.mp3": {
+    "hash": "218aae9d3b7b31c9"
+  },
+  "audio/neural2/street.line.t6_3.slow.mp3": {
+    "hash": "42e0050d4197b38d"
+  },
+  "audio/neural2/street.line.t6_4.normal.mp3": {
+    "hash": "2aeb3163dcc2c8d2"
+  },
+  "audio/neural2/street.line.t6_4.slow.mp3": {
+    "hash": "c297851c4b644b9e"
+  },
+  "audio/neural2/street.line.t6_5.normal.mp3": {
+    "hash": "d5aea1929970c67f"
+  },
+  "audio/neural2/street.line.t6_5.slow.mp3": {
+    "hash": "6393135a10c7b6be"
+  },
+  "audio/neural2/street.line.t7_1.normal.mp3": {
+    "hash": "f188387374a588c7"
+  },
+  "audio/neural2/street.line.t7_1.slow.mp3": {
+    "hash": "d3ba9c91be8daffa"
+  },
+  "audio/neural2/street.line.t7_2.normal.mp3": {
+    "hash": "686b24ffa8acb738"
+  },
+  "audio/neural2/street.line.t7_2.slow.mp3": {
+    "hash": "a3fd88313be1efaa"
+  },
+  "audio/neural2/street.line.t7_3.normal.mp3": {
+    "hash": "c57c5ac7eab747bc"
+  },
+  "audio/neural2/street.line.t7_3.slow.mp3": {
+    "hash": "83a238d8396c1c93"
+  },
+  "audio/neural2/street.line.t7_4.normal.mp3": {
+    "hash": "1bca2bfd97db9231"
+  },
+  "audio/neural2/street.line.t7_4.slow.mp3": {
+    "hash": "1d0baf705607aeb9"
+  },
+  "audio/neural2/street.line.t8_1.normal.mp3": {
+    "hash": "c2374cf913e6df79"
+  },
+  "audio/neural2/street.line.t8_1.slow.mp3": {
+    "hash": "b4fe13aa8703b6ec"
+  },
+  "audio/neural2/street.line.t8_10.normal.mp3": {
+    "hash": "19d6418ab477645b"
+  },
+  "audio/neural2/street.line.t8_10.slow.mp3": {
+    "hash": "f39432c7dc2bdbf1"
+  },
+  "audio/neural2/street.line.t8_11.normal.mp3": {
+    "hash": "218aae9d3b7b31c9"
+  },
+  "audio/neural2/street.line.t8_11.slow.mp3": {
+    "hash": "42e0050d4197b38d"
+  },
+  "audio/neural2/street.line.t8_12.normal.mp3": {
+    "hash": "1cd84582d558f62e"
+  },
+  "audio/neural2/street.line.t8_12.slow.mp3": {
+    "hash": "8bd6c1ee45dcb267"
+  },
+  "audio/neural2/street.line.t8_13.normal.mp3": {
+    "hash": "654b778f12f780af"
+  },
+  "audio/neural2/street.line.t8_13.slow.mp3": {
+    "hash": "b2b137ef1ae62de7"
+  },
+  "audio/neural2/street.line.t8_14.normal.mp3": {
+    "hash": "1382b3e9e94fb7f9"
+  },
+  "audio/neural2/street.line.t8_14.slow.mp3": {
+    "hash": "62f2a86718749025"
+  },
+  "audio/neural2/street.line.t8_15.normal.mp3": {
+    "hash": "523ca23158d50610"
+  },
+  "audio/neural2/street.line.t8_15.slow.mp3": {
+    "hash": "1dfb1b27441dcea2"
+  },
+  "audio/neural2/street.line.t8_16.normal.mp3": {
+    "hash": "1bd4bcab3e275925"
+  },
+  "audio/neural2/street.line.t8_16.slow.mp3": {
+    "hash": "a874cbcef7fa37f3"
+  },
+  "audio/neural2/street.line.t8_17.normal.mp3": {
+    "hash": "a10e9cb36873a22b"
+  },
+  "audio/neural2/street.line.t8_17.slow.mp3": {
+    "hash": "848e3b0120d47c2e"
+  },
+  "audio/neural2/street.line.t8_2.normal.mp3": {
+    "hash": "f188387374a588c7"
+  },
+  "audio/neural2/street.line.t8_2.slow.mp3": {
+    "hash": "d3ba9c91be8daffa"
+  },
+  "audio/neural2/street.line.t8_3.normal.mp3": {
+    "hash": "38ea472aaeda53f8"
+  },
+  "audio/neural2/street.line.t8_3.slow.mp3": {
+    "hash": "926dbe1a6132aed9"
+  },
+  "audio/neural2/street.line.t8_4.normal.mp3": {
+    "hash": "2bf14eaa9fa822da"
+  },
+  "audio/neural2/street.line.t8_4.slow.mp3": {
+    "hash": "a1b5aef185356379"
+  },
+  "audio/neural2/street.line.t8_5.normal.mp3": {
+    "hash": "0f44338c81af169d"
+  },
+  "audio/neural2/street.line.t8_5.slow.mp3": {
+    "hash": "dc8460dc153d28e4"
+  },
+  "audio/neural2/street.line.t8_6.normal.mp3": {
+    "hash": "b23d39f9b5261e0a"
+  },
+  "audio/neural2/street.line.t8_6.slow.mp3": {
+    "hash": "3561e0d217191146"
+  },
+  "audio/neural2/street.line.t8_7.normal.mp3": {
+    "hash": "cf68bd7ee22a26a9"
+  },
+  "audio/neural2/street.line.t8_7.slow.mp3": {
+    "hash": "9184c5cf1d9cac1e"
+  },
+  "audio/neural2/street.line.t8_8.normal.mp3": {
+    "hash": "b3e0d8db79cf0f61"
+  },
+  "audio/neural2/street.line.t8_8.slow.mp3": {
+    "hash": "48c6b50965021cc9"
+  },
+  "audio/neural2/street.line.t8_9.normal.mp3": {
+    "hash": "cbcdcd49900d7548"
+  },
+  "audio/neural2/street.line.t8_9.slow.mp3": {
+    "hash": "ac3beb51861d4ba6"
+  },
+  "audio/neural2/street.word.bank.normal.mp3": {
+    "hash": "78789711183ac784"
+  },
+  "audio/neural2/street.word.bank.slow.mp3": {
+    "hash": "401e29df092c5708"
+  },
+  "audio/neural2/street.word.bridge.normal.mp3": {
+    "hash": "168ac935f39f3007"
+  },
+  "audio/neural2/street.word.bridge.slow.mp3": {
+    "hash": "49c0e53e637bc266"
+  },
+  "audio/neural2/street.word.bus.normal.mp3": {
+    "hash": "b066482f2b358440"
+  },
+  "audio/neural2/street.word.bus.slow.mp3": {
+    "hash": "7343d2975197a5f4"
+  },
+  "audio/neural2/street.word.coin.normal.mp3": {
+    "hash": "86fcf9a8fecffd9d"
+  },
+  "audio/neural2/street.word.coin.slow.mp3": {
+    "hash": "f8b4d31dfbcb2eec"
+  },
+  "audio/neural2/street.word.corner.normal.mp3": {
+    "hash": "4fb971c408af0f61"
+  },
+  "audio/neural2/street.word.corner.slow.mp3": {
+    "hash": "ed28ebe770bb82db"
+  },
+  "audio/neural2/street.word.downtown.normal.mp3": {
+    "hash": "ad826d5e5e0181c8"
+  },
+  "audio/neural2/street.word.downtown.slow.mp3": {
+    "hash": "e64df6c390b3c45c"
+  },
+  "audio/neural2/street.word.driver.normal.mp3": {
+    "hash": "0beb35a1f47b490b"
+  },
+  "audio/neural2/street.word.driver.slow.mp3": {
+    "hash": "05a25c01c55a7091"
+  },
+  "audio/neural2/street.word.fare.normal.mp3": {
+    "hash": "670fc47455f2392f"
+  },
+  "audio/neural2/street.word.fare.slow.mp3": {
+    "hash": "159c7ec2c2d85f9c"
+  },
+  "audio/neural2/street.word.friday.normal.mp3": {
+    "hash": "75f78c21d62ceee6"
+  },
+  "audio/neural2/street.word.friday.slow.mp3": {
+    "hash": "75f61e553e8f1def"
+  },
+  "audio/neural2/street.word.front.normal.mp3": {
+    "hash": "6239a8c3e04a0cd5"
+  },
+  "audio/neural2/street.word.front.slow.mp3": {
+    "hash": "a573611f3f0a7be1"
+  },
+  "audio/neural2/street.word.hospital.normal.mp3": {
+    "hash": "a4eca9d5fea5289e"
+  },
+  "audio/neural2/street.word.hospital.slow.mp3": {
+    "hash": "6120eca62d50f0c0"
+  },
+  "audio/neural2/street.word.hour.normal.mp3": {
+    "hash": "b7ab33023024fa57"
+  },
+  "audio/neural2/street.word.hour.slow.mp3": {
+    "hash": "72ab881df9b89c12"
+  },
+  "audio/neural2/street.word.left.normal.mp3": {
+    "hash": "461e9e09db8a5e6a"
+  },
+  "audio/neural2/street.word.left.slow.mp3": {
+    "hash": "c61e2898549d2fe5"
+  },
+  "audio/neural2/street.word.library.normal.mp3": {
+    "hash": "3aa6eed944fedcc1"
+  },
+  "audio/neural2/street.word.library.slow.mp3": {
+    "hash": "0a99ffe0f77b2fe8"
+  },
+  "audio/neural2/street.word.map.normal.mp3": {
+    "hash": "b5bd194eb98cbb1f"
+  },
+  "audio/neural2/street.word.map.slow.mp3": {
+    "hash": "e971ce106bea6904"
+  },
+  "audio/neural2/street.word.minute.normal.mp3": {
+    "hash": "f81c539ec6dcff1e"
+  },
+  "audio/neural2/street.word.minute.slow.mp3": {
+    "hash": "d4dc520f1ee9fe71"
+  },
+  "audio/neural2/street.word.monday.normal.mp3": {
+    "hash": "8fc404194cf2a05d"
+  },
+  "audio/neural2/street.word.monday.slow.mp3": {
+    "hash": "b1038838fc78cb47"
+  },
+  "audio/neural2/street.word.museum.normal.mp3": {
+    "hash": "a6d3d203178cc785"
+  },
+  "audio/neural2/street.word.museum.slow.mp3": {
+    "hash": "a3e9d652e9e1355f"
+  },
+  "audio/neural2/street.word.road.normal.mp3": {
+    "hash": "ae0906fc78699d92"
+  },
+  "audio/neural2/street.word.road.slow.mp3": {
+    "hash": "1817010f25b6f6ae"
+  },
+  "audio/neural2/street.word.school.normal.mp3": {
+    "hash": "a815d37fb5781fc0"
+  },
+  "audio/neural2/street.word.school.slow.mp3": {
+    "hash": "55a30e14269f4dbb"
+  },
+  "audio/neural2/street.word.sign.normal.mp3": {
+    "hash": "3456c0c4d7ca35dd"
+  },
+  "audio/neural2/street.word.sign.slow.mp3": {
+    "hash": "db31737945bb59ca"
+  },
+  "audio/neural2/street.word.stand.normal.mp3": {
+    "hash": "e18cc3b85b521d8c"
+  },
+  "audio/neural2/street.word.stand.slow.mp3": {
+    "hash": "8a1b9c46774146ea"
+  },
+  "audio/neural2/street.word.station.normal.mp3": {
+    "hash": "fbde4fde467ec8e9"
+  },
+  "audio/neural2/street.word.station.slow.mp3": {
+    "hash": "c190a64422d71b34"
+  },
+  "audio/neural2/street.word.street.normal.mp3": {
+    "hash": "83c32d0343783eed"
+  },
+  "audio/neural2/street.word.street.slow.mp3": {
+    "hash": "60e74e73ff69ab1f"
+  },
+  "audio/neural2/street.word.taxi.normal.mp3": {
+    "hash": "9a6822020e6f03ae"
+  },
+  "audio/neural2/street.word.taxi.slow.mp3": {
+    "hash": "58307af538c86e2a"
+  },
+  "audio/neural2/street.word.thursday.normal.mp3": {
+    "hash": "cebfe12365d58758"
+  },
+  "audio/neural2/street.word.thursday.slow.mp3": {
+    "hash": "2fbb89c3150b4189"
+  },
+  "audio/neural2/street.word.ticket.normal.mp3": {
+    "hash": "3c84780f01ebcd35"
+  },
+  "audio/neural2/street.word.ticket.slow.mp3": {
+    "hash": "759542d36fdd7493"
+  },
+  "audio/neural2/street.word.tuesday.normal.mp3": {
+    "hash": "f612fdda26c0e998"
+  },
+  "audio/neural2/street.word.tuesday.slow.mp3": {
+    "hash": "c46f99cdb7ce25ea"
+  },
+  "audio/neural2/street.word.wait.normal.mp3": {
+    "hash": "03a8a2b3be93269f"
+  },
+  "audio/neural2/street.word.wait.slow.mp3": {
+    "hash": "5f23c70ca089e19f"
+  },
+  "audio/neural2/street.word.walk.normal.mp3": {
+    "hash": "b163c7cb2a677848"
+  },
+  "audio/neural2/street.word.walk.slow.mp3": {
+    "hash": "2825346bc9f5eaf1"
+  },
+  "audio/neural2/street.word.wednesday.normal.mp3": {
+    "hash": "ec88f4db4fa12baa"
+  },
+  "audio/neural2/street.word.wednesday.slow.mp3": {
+    "hash": "b0cb6a09611dc7ac"
   }
 }
