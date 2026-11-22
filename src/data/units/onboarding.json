@@ -339,7 +339,7 @@
           "role": "hr",
           "speaker": "npc",
           "en": "Welcome! I'm Ms. Reed from Human Resources. HR for short.",
-          "zh": "歡迎！我是人力資源部的 Reed，簡稱人資。"
+          "zh": "歡迎！我是人力資源部的 Reed，大家都叫我們人資。"
         },
         {
           "id": "t1_3",
@@ -446,7 +446,7 @@
           "role": "hr",
           "speaker": "npc",
           "en": "Ms. Carter. You'll meet her again this afternoon.",
-          "zh": "Carter。你今天下午會再見到她。"
+          "zh": "Ms. Carter。你今天下午會再見到她。"
         },
         {
           "id": "t2_5",
@@ -521,8 +521,8 @@
           "id": "t3_4",
           "role": "hr",
           "speaker": "npc",
-          "en": "Sorry, lunch isn't. Most of us bring something from home.",
-          "zh": "午餐就沒有了，不好意思。我們大多是從家裡帶。"
+          "en": "No, sorry. Most of us bring something from home.",
+          "zh": "沒有耶，不好意思。我們大多是從家裡帶。"
         },
         {
           "id": "t3_5",
@@ -753,8 +753,8 @@
           "id": "t5_7",
           "role": "hr",
           "speaker": "npc",
-          "en": "Any more questions, come and see me. My door is always open.",
-          "zh": "還有問題就來找我，我隨時都在。"
+          "en": "And my door is always open, so come and see me.",
+          "zh": "之後有問題也隨時來找我。"
         }
       ]
     },
@@ -782,7 +782,7 @@
           "role": "manager",
           "speaker": "npc",
           "en": "Hi there! Are you done with Ms. Reed's forms?",
-          "zh": "嗨！Reed 的表格填完了嗎？"
+          "zh": "嗨！Ms. Reed 的表格填完了嗎？"
         },
         {
           "id": "t6_2",
@@ -870,7 +870,7 @@
               "id": "t7_talk_4",
               "role": "manager",
               "en": "Yes, only to shops. Mr. Ellis is our director.",
-              "zh": "對，只賣給店家。Ellis 先生是我們的總經理。"
+              "zh": "對，只賣給店家。Mr. Ellis 是我們的總經理。"
             },
             {
               "id": "t7_talk_5",
@@ -881,8 +881,8 @@
             {
               "id": "t7_talk_6",
               "role": "guide",
-              "en": "Who should I ask when I have a question?",
-              "zh": "我有問題的時候要問誰？"
+              "en": "And who should I go to with questions?",
+              "zh": "那我有問題要找誰？"
             },
             {
               "id": "t7_talk_7",
@@ -919,7 +919,7 @@
           "role": "manager",
           "speaker": "npc",
           "en": "Time for a few introductions. You met Ms. Reed already.",
-          "zh": "來介紹一下大家。Reed 你已經見過了。"
+          "zh": "來介紹一下大家。Ms. Reed 你已經見過了。"
         },
         {
           "id": "t7_2",
@@ -939,15 +939,15 @@
           "id": "t7_4",
           "role": "manager",
           "speaker": "npc",
-          "en": "Your ability to speak Chinese is important here, too.",
-          "zh": "你會說中文的能力在這裡也很重要。"
+          "en": "Our new products are made in Taiwan.",
+          "zh": "我們的新產品是在台灣做的。"
         },
         {
           "id": "t7_5",
           "role": "manager",
           "speaker": "npc",
-          "en": "Our new products are made in Taiwan.",
-          "zh": "我們的新產品是在台灣做的。"
+          "en": "So your ability to speak Chinese is really important here.",
+          "zh": "所以你會說中文的能力，在這裡很重要。"
         },
         {
           "id": "t7_6",
@@ -961,8 +961,8 @@
           "id": "t7_7",
           "role": "manager",
           "speaker": "npc",
-          "en": "We're happy to have you. Your knowledge of Chinese will help.",
-          "zh": "我們很高興有你加入。你懂中文會很有幫助。"
+          "en": "We're happy to have you. Now come and meet Dan.",
+          "zh": "我們很高興有你加入。來，我帶你去認識 Dan。"
         }
       ]
     },
@@ -1027,8 +1027,8 @@
           "id": "t8_6",
           "role": "manager",
           "speaker": "npc",
-          "en": "That's fine. Your permanent badge will be ready on Friday.",
-          "zh": "沒關係。你的正式識別證星期五會做好。",
+          "en": "That's fine. That badge is temporary. The permanent one comes Friday.",
+          "zh": "沒關係。那張識別證是臨時的，正式的星期五會好。",
           "stage": { "act": "want", "item": "badge" }
         },
         {
@@ -1098,7 +1098,7 @@
           "role": "hr",
           "speaker": "npc",
           "en": "Ms. Carter. And here's the handbook. Read the part about sick days.",
-          "zh": "Carter。還有這是員工手冊，看一下請病假那一段。"
+          "zh": "Ms. Carter。還有這是員工手冊，看一下請病假那一段。"
         },
         {
           "id": "t9_8",
@@ -1143,7 +1143,7 @@
           "role": "hr",
           "speaker": "npc",
           "en": "Bring your own, sorry. Look, here's Ms. Carter now.",
-          "zh": "要自己帶，不好意思。你看，Carter 來了。"
+          "zh": "要自己帶，不好意思。你看，Ms. Carter 來了。"
         },
         {
           "id": "t9_14",
@@ -1194,15 +1194,15 @@
           "id": "t9_20",
           "role": "manager",
           "speaker": "npc",
-          "en": "Great. We're flexible about lunch, so come find me after.",
-          "zh": "太好了。午餐時間很有彈性，吃完再來找我。"
+          "en": "Great. Go have lunch first. We're flexible about the time.",
+          "zh": "太好了。你先去吃午餐，時間不用太趕。"
         },
         {
           "id": "t9_21",
           "role": "manager",
           "speaker": "npc",
-          "en": "Then I'll explain your role and your routine.",
-          "zh": "到時候我再跟你說明你的職務和例行工作。"
+          "en": "After that, I'll explain your role and your routine.",
+          "zh": "吃完我再跟你說明你的職務和例行工作。"
         }
       ]
     }

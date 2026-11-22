@@ -815,8 +815,8 @@
           "id": "t1_8",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Listen to this conversation. You'll learn a lot.",
-          "zh": "你聽聽我怎麼講，會學到很多。"
+          "en": "Stay and listen to this conversation. You'll learn a lot.",
+          "zh": "你留下來聽我講這通，會學到很多。"
         }
       ]
     },
@@ -978,8 +978,8 @@
           "id": "t3_8",
           "role": "client",
           "speaker": "npc",
-          "en": "I'm afraid this can't wait. She can call me anytime today.",
-          "zh": "這件事恐怕不能等。她今天隨時都可以打給我。"
+          "en": "I'm afraid it's quite important. She can call me anytime today.",
+          "zh": "這件事恐怕滿重要的。她今天隨時都可以打給我。"
         }
       ]
     },
@@ -1184,7 +1184,7 @@
           "id": "t5_7",
           "role": "coworker",
           "speaker": "npc",
-          "en": "She has his mobile number, too. In England, they say mobile.",
+          "en": "She has his mobile number, too. In England, a cellphone is a mobile.",
           "zh": "她也有他的手機號碼。英國人把手機叫 mobile。"
         }
       ]
@@ -1369,8 +1369,8 @@
           "id": "t7_2",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Yes, it's their voicemail. Leave a message after the tone.",
-          "zh": "對，是語音信箱。嗶聲之後留言。"
+          "en": "Hear that? It's their voicemail. Leave a message after the tone.",
+          "zh": "聽到了嗎？是語音信箱。嗶聲之後留言。"
         },
         {
           "id": "t7_3",
@@ -1485,8 +1485,8 @@
           "id": "t8_7",
           "role": "client",
           "speaker": "npc",
-          "en": "January the fifteenth, then. I'll be at the fair in June.",
-          "zh": "那就一月十五號。六月的商展我會去。"
+          "en": "January the fifteenth! And I'll be at the fair in June.",
+          "zh": "我是說一月十五號！對了，六月的商展我會去。"
         }
       ]
     },
@@ -1568,7 +1568,7 @@
           "id": "t9_10",
           "role": "client",
           "speaker": "npc",
-          "en": "Sorry, the line went silent. Let me call you right back.",
+          "en": "Sorry, it went silent for a moment. Let me call you right back.",
           "zh": "抱歉，剛剛突然沒聲音了。我馬上回撥給你。"
         },
         {
@@ -1590,8 +1590,8 @@
           "id": "t9_13",
           "role": "client",
           "speaker": "npc",
-          "en": "Hello again, it's James Hughes. Is the connection better now?",
-          "zh": "又是我，James Hughes。現在收訊比較好了嗎？"
+          "en": "Hello again, it's James Hughes. Sorry about the bad connection.",
+          "zh": "又是我，James Hughes。抱歉，剛剛收訊太差了。"
         },
         {
           "id": "t9_14",

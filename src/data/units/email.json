@@ -519,7 +519,7 @@
           "id": "send_link_instead",
           "en": "Could you send me the ___ instead?",
           "zh": "可以改傳連結給我嗎？",
-          "options": ["town", "link", "purpose", "regards"],
+          "options": ["subject", "link", "purpose", "regards"],
           "answer": 1,
           "note": "能「傳」過去、又能點開的是連結。",
           "chunkId": "send_me_link_instead"
@@ -547,8 +547,8 @@
           "id": "t2_2",
           "role": "coworker",
           "speaker": "npc",
-          "en": "It's not ours. We're too small to have our own newsletter.",
-          "zh": "不是我們的啦，我們公司太小，沒有自己的電子報。"
+          "en": "It comes from a big lamp company. We're too small to have our own.",
+          "zh": "是一家大燈具公司發的。我們公司太小，沒有自己的電子報。"
         },
         {
           "id": "t2_3",
@@ -639,8 +639,8 @@
           "id": "t3_4",
           "role": "coworker",
           "speaker": "npc",
-          "en": "You can't delete it now, so notify the recipient right away.",
-          "zh": "信寄出去就刪不掉了，所以馬上通知收件人。"
+          "en": "It's sent, so you can't delete it. Just notify the recipient right away.",
+          "zh": "信已經寄出去了，刪不掉。馬上通知收件人就好。"
         },
         {
           "id": "t3_5",
@@ -700,13 +700,13 @@
             {
               "en": "What does Ms. Carter ask for?",
               "zh": "Ms. Carter 要你做什麼？",
-              "options": ["A new desk lamp", "A revised price list", "A meeting with Mr. Hughes"],
+              "options": ["The new data", "A revised price list", "A meeting with Mr. Hughes"],
               "answer": 1
             },
             {
               "en": "Who should get the draft first?",
               "zh": "草稿要先寄給誰？",
-              "options": ["Mr. Hughes", "The front desk", "Ms. Carter"],
+              "options": ["Mr. Hughes", "Your coworker", "Ms. Carter"],
               "answer": 2
             }
           ]
@@ -850,8 +850,8 @@
           "id": "t5_6",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Yes. He refers to their discussion about the December order.",
-          "zh": "要。他有提到他們之前討論十二月訂單的事。"
+          "en": "Yes. It refers to their discussion about the December order.",
+          "zh": "要。信裡有提到他們之前討論十二月訂單的事。"
         },
         {
           "id": "t5_7",
@@ -937,8 +937,8 @@
           "id": "t6_8",
           "role": "coworker",
           "speaker": "npc",
-          "en": "No problem. And to express thanks, add 'I appreciate your help.'",
-          "zh": "沒關係。還有，想表達謝意的話，加一句「I appreciate your help.」"
+          "en": "No problem. Also add 'I appreciate your help.' It's a nice way to express thanks.",
+          "zh": "沒關係。另外加一句「I appreciate your help.」，用來表達謝意很得體。"
         }
       ]
     },

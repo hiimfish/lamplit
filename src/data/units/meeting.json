@@ -560,8 +560,8 @@
         },
         {
           "id": "dan_booked_room",
-          "en": "Yesterday, Dan ___ the conference room for us.",
-          "zh": "Dan 昨天幫我們訂了會議室。",
+          "en": "Yesterday, I ___ the conference room for the team.",
+          "zh": "我昨天幫大家訂了會議室。",
           "options": ["book", "books", "booked", "booking"],
           "answer": 2,
           "note": "有 yesterday，是過去的事，用過去式 booked。",
@@ -740,7 +740,7 @@
             {
               "en": "What should everyone do before the meeting?",
               "zh": "開會前大家要先做什麼？",
-              "options": ["Book the room", "Read the report", "Buy coffee"],
+              "options": ["Book the room", "Read the report", "Email Ms. Carter"],
               "answer": 1
             }
           ]
@@ -1001,12 +1001,12 @@
             {
               "options": [
                 "Please try it this week and tell me your view.",
-                "Coffee and refreshments are provided.",
-                "The room is free between ten and eleven.",
-                "I'm away on business next Monday."
+                "The January sales figures look good.",
+                "Ms. Carter is away on business next Monday.",
+                "I've already bought it for the whole team."
               ],
               "answer": 0,
-              "note": "下一句說「然後一起決定」，前面要先試用。"
+              "note": "先請大家試用、說看法，才接得上「再一起決定」。"
             }
           ]
         }
@@ -1054,8 +1054,8 @@
           "id": "t6_6",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Absolutely. I'll consider that one first.",
-          "zh": "完全同意。那我先考慮那一個。"
+          "en": "Absolutely. Let's consider that one first.",
+          "zh": "完全同意。那我們先考慮那一個。"
         },
         {
           "id": "t6_7",
@@ -1300,8 +1300,8 @@
           "id": "t8_8",
           "role": "manager",
           "speaker": "npc",
-          "en": "Good. I assume the agenda can wait until Friday, then.",
-          "zh": "很好。那議程我想等到星期五應該沒關係。"
+          "en": "Good. I assume you can send them out today, then.",
+          "zh": "很好。那我想你今天應該就能寄出去吧。"
         }
       ]
     },
@@ -1368,8 +1368,8 @@
           "id": "t9_8",
           "role": "manager",
           "speaker": "npc",
-          "en": "Great. Then Dan's sales results can come first.",
-          "zh": "太好了。那第一項就是 Dan 報告業績。"
+          "en": "Great. Now the agenda: Dan's sales results come first.",
+          "zh": "太好了。再來是議程：第一項是 Dan 報告業績。"
         },
         {
           "id": "t9_9",
@@ -1421,8 +1421,8 @@
           "id": "t9_15",
           "role": "manager",
           "speaker": "npc",
-          "en": "We're also choosing between two new programs. Which one do you like?",
-          "zh": "我們也在兩個新程式之間挑一個。你喜歡哪一個？",
+          "en": "We're choosing between two new programs. Neither is cheap. Which do you like?",
+          "zh": "我們在兩個新程式之間挑一個，兩個都不便宜。你喜歡哪一個？",
           "stage": { "act": "ask" }
         },
         {
@@ -1437,8 +1437,8 @@
           "id": "t9_17",
           "role": "manager",
           "speaker": "npc",
-          "en": "Me too. So, three things for you: the calendar, the agenda and the notes.",
-          "zh": "我也是。那你有三件事：行事曆、議程和會議記錄。"
+          "en": "Me too. So, three things for you: the room, the agenda and the notes.",
+          "zh": "我也是。那你有三件事：會議室、議程和會議記錄。"
         },
         {
           "id": "t9_18",

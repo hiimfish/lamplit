@@ -986,7 +986,7 @@
           "id": "t4_6",
           "role": "coworker",
           "speaker": "npc",
-          "en": "There's plastic inside, so we can't recycle them.",
+          "en": "They have plastic inside, so we can't recycle them.",
           "zh": "紙杯裡面有一層塑膠，所以不能回收。"
         },
         {
@@ -1006,8 +1006,8 @@
       "fills": [
         {
           "id": "dan_usually_eats",
-          "en": "My friend Dan usually ___ lunch at noon.",
-          "zh": "我的朋友 Dan 通常中午吃午餐。",
+          "en": "My colleague Dan usually ___ lunch at noon.",
+          "zh": "我的同事 Dan 通常中午吃午餐。",
           "options": ["eat", "eats", "eating", "ate"],
           "answer": 1,
           "note": "每天的習慣用現在式，Dan 一個人，動詞加 s。",
@@ -1028,8 +1028,8 @@
           "id": "t5_1",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Lunch time! Is anyone using the microwave right now?",
-          "zh": "午餐時間到了！現在有人在用微波爐嗎？"
+          "en": "Lunch time! Let me just put this in the microwave.",
+          "zh": "午餐時間到了！我先把這個拿去微波一下。"
         },
         {
           "id": "t5_2",
@@ -1065,8 +1065,8 @@
           "id": "t5_6",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Sometimes. It's not ours. Every company in the park uses it.",
-          "zh": "有時候。那不是我們公司的，園區裡每家公司都可以用。"
+          "en": "Sometimes. But it's not ours. Every company around here uses it.",
+          "zh": "有時候。不過那不是我們公司的，園區裡每家公司都可以用。"
         },
         {
           "id": "t5_7",
@@ -1266,8 +1266,8 @@
           "id": "t7_4",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Yes, it is. And the internet is working, too.",
-          "zh": "有，插著。網路也是通的。"
+          "en": "Okay, it's in. And the internet is working, too.",
+          "zh": "嗯，有插好。網路也是通的。"
         },
         {
           "id": "t7_5",
@@ -1287,8 +1287,8 @@
           "id": "t7_7",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Mine doesn't work. I'm not good with technology either.",
-          "zh": "我的也不行。我對科技也不太在行。"
+          "en": "Mine doesn't work. Sorry, I'm not very good with technology.",
+          "zh": "我的也不行。抱歉，我對科技不太在行。"
         }
       ]
     },
@@ -1344,8 +1344,8 @@
           "id": "t8_3",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Thanks! Only order what's essential. Don't waste money.",
-          "zh": "謝啦！只訂必要的東西就好，別浪費錢。"
+          "en": "Thanks! Just get what's essential, so we don't waste money.",
+          "zh": "謝啦！只訂必要的東西就好，才不會浪費錢。"
         },
         {
           "id": "t8_4",
@@ -1449,7 +1449,7 @@
           "id": "t9_9",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Can you send a fax for me? The copier does it.",
+          "en": "Can you send a fax for me? The copier can do it.",
           "zh": "你可以幫我傳真嗎？影印機就可以傳。"
         },
         {
@@ -1464,8 +1464,8 @@
           "id": "t9_11",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Of course. Watch. Put the sheet here, and... done!",
-          "zh": "當然。你看，把紙放這裡，然後……好了！"
+          "en": "Sure, it's easy. Put the sheet in here and push this button.",
+          "zh": "好啊，很簡單。把紙放進這裡，再按這個按鈕。"
         },
         {
           "id": "t9_12",

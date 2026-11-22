@@ -557,8 +557,8 @@
           "id": "t2_7",
           "role": "supplier",
           "speaker": "npc",
-          "en": "But it's all in the quote, so have a look.",
-          "zh": "不過報價單上都有寫，你可以看一下。"
+          "en": "I'll put all of this in the quote for you.",
+          "zh": "這些我都會寫在報價單裡給你。"
         }
       ]
     },
@@ -871,8 +871,8 @@
           "id": "t5_7",
           "role": "supplier",
           "speaker": "npc",
-          "en": "That's a really good deal for you.",
-          "zh": "這價錢真的很划算啦。"
+          "en": "That's a very good deal for five hundred.",
+          "zh": "訂五百盞拿到這個價錢，很划算了。"
         },
         {
           "id": "t5_8",
@@ -949,9 +949,9 @@
             {
               "options": [
                 "We will deliver the lamps by April 14.",
-                "Please select a new supplier.",
-                "The price will rise next month.",
-                "We can't produce any lamps."
+                "Please send us a quote for these items.",
+                "This quote is good until March 31.",
+                "Thank you for the samples."
               ],
               "answer": 0,
               "note": "開始生產之後，接著說什麼時候交貨。"
@@ -1009,8 +1009,8 @@
           "id": "t6_7",
           "role": "supplier",
           "speaker": "npc",
-          "en": "By Friday, they'll tell me how fast they can produce them.",
-          "zh": "他們禮拜五前會告訴我多快能做好。"
+          "en": "They produce about a hundred a day. I'll know the date by Friday.",
+          "zh": "他們一天大概能生產一百盞，禮拜五前我就會知道日期。"
         },
         {
           "id": "t6_8",
@@ -1121,8 +1121,8 @@
           "id": "t7_3",
           "role": "manager",
           "speaker": "npc",
-          "en": "That's not good. Remind me, when do we need them?",
-          "zh": "這不太妙。我再確認一下，我們什麼時候要拿到？"
+          "en": "That's not good. Is that a problem for us?",
+          "zh": "這不太妙。對我們會有影響嗎？"
         },
         {
           "id": "t7_4",
@@ -1254,8 +1254,8 @@
           "id": "t9_1",
           "role": "supplier",
           "speaker": "npc",
-          "en": "Hi again! So, how did the last order go?",
-          "zh": "嗨，又見面了！上一張訂單還順利嗎？"
+          "en": "Hi again! Did you get the invoice for the samples?",
+          "zh": "嗨，又見面了！樣品的發票你收到了嗎？"
         },
         {
           "id": "t9_2",
@@ -1276,8 +1276,8 @@
           "id": "t9_4",
           "role": "supplier",
           "speaker": "npc",
-          "en": "So, Ms. Carter says you need more lamps?",
-          "zh": "對了，Ms. Carter 說你們還要再訂燈？"
+          "en": "So, Ms. Carter says you need standard lamps, too?",
+          "zh": "對了，Ms. Carter 說你們也要訂標準款？"
         },
         {
           "id": "t9_5",
@@ -1336,7 +1336,7 @@
           "id": "t9_12",
           "role": "supplier",
           "speaker": "npc",
-          "en": "I can send half in fourteen days and the rest a week later.",
+          "en": "I can send half within fourteen days and the rest a week later.",
           "zh": "十四天內我可以先送一半，剩下的晚一個禮拜。"
         },
         {
