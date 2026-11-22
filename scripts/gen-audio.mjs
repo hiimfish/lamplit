@@ -21,6 +21,11 @@ const API = 'https://texttospeech.googleapis.com/v1/text:synthesize';
 const CONCURRENCY = 3;
 const { existsSync, readdirSync, readFileSync } = nodeFs;
 
+/** Language code of a voice name: its first two parts ("en-GB-Neural2-C" gives "en-GB"). */
+export function languageCodeOf(voiceName) {
+  return voiceName.split('-').slice(0, 2).join('-');
+}
+
 export function jobHash(text, voiceName, rate) {
   return createHash('sha256')
     .update(JSON.stringify([text, voiceName, rate]))
@@ -172,7 +177,7 @@ export async function runJobs(
 async function synthesize(text, voiceName, rate, apiKey) {
   const body = JSON.stringify({
     input: { text },
-    voice: { languageCode: 'en-US', name: voiceName },
+    voice: { languageCode: languageCodeOf(voiceName), name: voiceName },
     audioConfig: { audioEncoding: 'MP3', speakingRate: rate },
   });
   for (let attempt = 0; attempt < 2; attempt++) {

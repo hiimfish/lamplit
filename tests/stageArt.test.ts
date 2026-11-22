@@ -301,7 +301,7 @@ describe('Act 2 placeholder stages', () => {
       for (const role of roles) {
         expect(config!.cast[role], role).toBeDefined();
         expect(ROLE_LABEL[role]).toBeTruthy();
-        expect(VOICE_NAMES.chirp[role]).toMatch(/^en-US-Chirp3-HD-/);
+        expect(VOICE_NAMES.chirp[role]).toMatch(/^en-(US|GB)-Chirp3-HD-/);
       }
       // two roles of one location never share a Neural2 voice
       const voices = roles.map((r) => VOICE_NAMES.neural2[r]);

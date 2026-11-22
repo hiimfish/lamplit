@@ -17,7 +17,7 @@ export const VOICE_NAMES: Record<VoiceMode, Record<Role, string>> = {
     neighbor: 'en-US-Neural2-F',
     clerk: 'en-US-Neural2-I',
     // Neural2 has nine US voices, so roles of different locations share one;
-    // two roles of the same location never do.
+    // two roles of the same location never do. The librarian is the one British voice.
     passerby: 'en-US-Neural2-E',
     driver: 'en-US-Neural2-J',
     cashier: 'en-US-Neural2-G',
@@ -32,7 +32,7 @@ export const VOICE_NAMES: Record<VoiceMode, Record<Role, string>> = {
     volunteer: 'en-US-Neural2-J',
     teller: 'en-US-Neural2-G',
     instructor: 'en-US-Neural2-D',
-    librarian: 'en-US-Neural2-C',
+    librarian: 'en-GB-Neural2-C',
     mechanic: 'en-US-Neural2-I',
     counselor: 'en-US-Neural2-C',
     front_desk: 'en-US-Neural2-E',
@@ -58,7 +58,7 @@ export const VOICE_NAMES: Record<VoiceMode, Record<Role, string>> = {
     volunteer: 'en-US-Chirp3-HD-Sadachbia',
     teller: 'en-US-Chirp3-HD-Autonoe',
     instructor: 'en-US-Chirp3-HD-Algieba',
-    librarian: 'en-US-Chirp3-HD-Gacrux',
+    librarian: 'en-GB-Chirp3-HD-Gacrux',
     mechanic: 'en-US-Chirp3-HD-Alnilam',
     counselor: 'en-US-Chirp3-HD-Laomedeia',
     front_desk: 'en-US-Chirp3-HD-Pulcherrima',

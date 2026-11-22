@@ -16,27 +16,37 @@
 
 每個角色的聲線（`src/audio/voices.ts` 的 `VOICE_NAMES`；完整名稱是 `en-US-Chirp3-HD-<名字>` 和 `en-US-Neural2-<字母>`）：
 
-| 角色（`role`）                                            | 地點             | Chirp 3 HD   | Neural2 |
-| --------------------------------------------------------- | ---------------- | ------------ | ------- |
-| 你（`guide`），也念詞塊、單字、對比詞、看圖選句的正確句子 | 每個地點         | `Achird`     | `A`     |
-| 房東（`landlord`）                                        | 搬家第一天       | `Charon`     | `D`     |
-| 鄰居（`neighbor`）                                        | 搬家第一天、公園 | `Aoede`      | `F`     |
-| 咖啡廳店員（`barista`）                                   | 咖啡廳           | `Achernar`   | `C`     |
-| 便利商店店員（`clerk`）                                   | 便利商店         | `Puck`       | `I`     |
-| 路人（`passerby`）                                        | 街道             | `Kore`       | `E`     |
-| 司機（`driver`）                                          | 街道             | `Fenrir`     | `J`     |
-| 收銀員（`cashier`）                                       | 超市與市集       | `Leda`       | `G`     |
-| 攤販（`vendor`）                                          | 超市與市集       | `Orus`       | `D`     |
-| 服飾店店員（`assistant`）                                 | 服飾店           | `Zephyr`     | `H`     |
-| 櫃台（`receptionist`）                                    | 診所與藥局       | `Callirrhoe` | `C`     |
-| 醫生（`doctor`）                                          | 診所與藥局       | `Iapetus`    | `J`     |
-| 藥師（`pharmacist`）                                      | 診所與藥局       | `Despina`    | `G`     |
-| 服務生（`server`）                                        | 餐廳與聚會       | `Umbriel`    | `I`     |
-| 朋友（`friend`）                                          | 餐廳與聚會       | `Sulafat`    | `E`     |
-| 郵局人員（`postal_clerk`）                                | 郵局             | `Schedar`    | `D`     |
-| 志工（`volunteer`）                                       | 公園與社區       | `Sadachbia`  | `J`     |
+| 角色（`role`）                                            | 地點             | Chirp 3 HD       | Neural2     |
+| --------------------------------------------------------- | ---------------- | ---------------- | ----------- |
+| 你（`guide`），也念詞塊、單字、對比詞、看圖選句的正確句子 | 每個地點         | `Achird`         | `A`         |
+| 房東（`landlord`）                                        | 搬家第一天       | `Charon`         | `D`         |
+| 鄰居（`neighbor`）                                        | 搬家第一天、公園 | `Aoede`          | `F`         |
+| 咖啡廳店員（`barista`）                                   | 咖啡廳           | `Achernar`       | `C`         |
+| 便利商店店員（`clerk`）                                   | 便利商店         | `Puck`           | `I`         |
+| 路人（`passerby`）                                        | 街道             | `Kore`           | `E`         |
+| 司機（`driver`）                                          | 街道             | `Fenrir`         | `J`         |
+| 收銀員（`cashier`）                                       | 超市與市集       | `Leda`           | `G`         |
+| 攤販（`vendor`）                                          | 超市與市集       | `Orus`           | `D`         |
+| 服飾店店員（`assistant`）                                 | 服飾店           | `Zephyr`         | `H`         |
+| 櫃台（`receptionist`）                                    | 診所與藥局       | `Callirrhoe`     | `C`         |
+| 醫生（`doctor`）                                          | 診所與藥局       | `Iapetus`        | `J`         |
+| 藥師（`pharmacist`）                                      | 診所與藥局       | `Despina`        | `G`         |
+| 服務生（`server`）                                        | 餐廳與聚會       | `Umbriel`        | `I`         |
+| 朋友（`friend`）                                          | 餐廳與聚會       | `Sulafat`        | `E`         |
+| 郵局人員（`postal_clerk`）                                | 郵局             | `Schedar`        | `D`         |
+| 志工（`volunteer`）                                       | 公園與社區       | `Sadachbia`      | `J`         |
+| 銀行櫃員（`teller`）                                      | 第二幕：銀行     | `Autonoe`        | `G`         |
+| 講師（`instructor`）                                      | 第二幕：社區中心 | `Algieba`        | `D`         |
+| 圖書館員（`librarian`），**英式口音**                     | 第二幕：圖書館   | `en-GB` `Gacrux` | `en-GB` `C` |
+| 修車師傅（`mechanic`）                                    | 第二幕：修車廠   | `Alnilam`        | `I`         |
+| 就業顧問（`counselor`）                                   | 第二幕：就業中心 | `Laomedeia`      | `C`         |
+| 面試櫃台（`front_desk`）                                  | 第二幕：面試     | `Pulcherrima`    | `E`         |
+| 經理（`manager`）                                         | 第二幕：面試     | `Erinome`        | `H`         |
 
-- Chirp 3 HD：17 個角色各用不同的聲線。
+- 第二幕的 7 個角色（`teller` 到 `manager`）在 2026-11-22 用 Google 的聲線清單 API 逐一核對過，名稱都存在，性別也和角色相符；這些聲線還沒請使用者試聽。
+- **圖書館員是遊戲裡唯一的英式口音角色**：50 多歲、沉穩、說話精準的女士。她用 `en-GB-Chirp3-HD-Gacrux`（正常速度）和 `en-GB-Neural2-C`（慢速和 Neural2 版）。`en-GB` 有 Neural2 的女聲 A、C、F、N，都能用 0.75 的慢速；選 C 是因為沒有更多資訊可比，之後可以換成 A、F 或 N。兩個聲線都實際請求過一句話，服務正常回傳音檔。
+- 其他角色的聲線名稱都是 `en-US-…`；圖書館員是 `en-GB-…`。腳本用聲線名稱的前兩段當作 `languageCode`（見「產生音檔」）。
+- Chirp 3 HD：24 個角色各用不同的聲線。
 - Neural2：用了 9 種（A、C、D、E、F、G、H、I、J）。同一個地點的兩個角色一定不同；不同地點會共用，例如 `D` 是房東、攤販和郵局人員，`J` 是司機、醫生和志工。
 - 公園的鄰居沿用搬家第一天的 `neighbor`，所以聲線一樣。
 
@@ -74,7 +84,7 @@
 
 - 每次只播一句；播新的一句會停掉上一句。
 - 每個音檔網址只下載一次，之後用快取。
-- 音檔讀取或解碼失敗時，改用瀏覽器內建語音；但裝置沒有英文語音時寧可不播，也不用中文語音念英文。
+- 音檔讀取或解碼失敗時，改用瀏覽器內建語音；但裝置沒有英文語音時寧可不播，也不用中文語音念英文。目前備援一律要求 `en-US`，圖書館員的句子在備援時會用美式口音（要改成英式需要把角色一路傳到 `speakWithBrowser`，還沒做）。
 - 不符合格式的音檔 id 不會被下載。
 
 ## 背景音樂
@@ -131,6 +141,7 @@ node --env-file=.env scripts/gen-audio.mjs --only=latte # 只處理路徑含 lat
 ```
 
 - `.env` 需要 `GOOGLE_TTS_API_KEY`（參考 `.env.example`；`.env` 不進版控）。腳本不會印出金鑰。
+- 每個請求的 `languageCode` 由聲線名稱的前兩段決定（`en-US-Neural2-C` 是 `en-US`，`en-GB-Chirp3-HD-Gacrux` 是 `en-GB`），不寫死。`languageCode` 不進雜湊，所以既有的美式音檔不會被重做。
 - 快取：`public/audio/manifest.json` 記錄每個檔案的雜湊（由文字、聲線和速度算出）。雜湊相同且檔案存在就跳過。
 - 每個檔案先寫到暫存檔再改名，並在每個檔案成功後立刻更新清單；中途中斷不會留下壞檔，也不會重複付費。
 - 有任何請求失敗時，結束碼不是 0。

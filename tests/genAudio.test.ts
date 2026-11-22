@@ -5,6 +5,7 @@ import { describe, expect, it, vi } from 'vitest';
 import {
   jobHash,
   jobsToRun,
+  languageCodeOf,
   planJobs,
   runJobs,
   serializeManifest,
@@ -200,6 +201,67 @@ describe('gen-audio atomic writes', () => {
     expect(text).toBe(serializeManifest({ a: { hash: '1' }, b: { hash: '2' } }));
     expect(Object.keys(JSON.parse(text))).toEqual(['a', 'b']);
     expect(readdirSync(dir)).toEqual(['manifest.json']);
+  });
+});
+
+describe('language code follows the voice', () => {
+  it('is the first two parts of the voice name', () => {
+    expect(languageCodeOf('en-US-Neural2-C')).toBe('en-US');
+    expect(languageCodeOf('en-US-Chirp3-HD-Achernar')).toBe('en-US');
+    expect(languageCodeOf('en-GB-Neural2-C')).toBe('en-GB');
+    expect(languageCodeOf('en-GB-Chirp3-HD-Gacrux')).toBe('en-GB');
+  });
+
+  it('does not enter the manifest hash, so existing US clips stay up to date', () => {
+    const job = planJobs([{ id: 'u.word.latte', text: 'latte', role: 'barista' as const }])[0]!;
+    expect(job.hash).toBe(jobHash('latte', job.voiceName, job.rate));
+    expect(Object.keys(job)).not.toContain('languageCode');
+  });
+});
+
+describe('role voice table', () => {
+  const act2Roles = [
+    'teller',
+    'instructor',
+    'librarian',
+    'mechanic',
+    'counselor',
+    'front_desk',
+    'manager',
+  ] as const;
+  const allRoles = Object.keys(VOICE_NAMES.neural2) as (keyof typeof VOICE_NAMES.neural2)[];
+
+  it('gives every role a voice in both families', () => {
+    expect(Object.keys(VOICE_NAMES.chirp).sort()).toEqual([...allRoles].sort());
+  });
+
+  it('uses US voices for every role except the British librarian', () => {
+    for (const role of allRoles) {
+      const expected = role === 'librarian' ? 'en-GB' : 'en-US';
+      expect(languageCodeOf(VOICE_NAMES.neural2[role]), role).toBe(expected);
+      expect(languageCodeOf(VOICE_NAMES.chirp[role]), role).toBe(expected);
+    }
+  });
+
+  it('pins the Act 2 voices', () => {
+    expect(act2Roles.map((r) => VOICE_NAMES.neural2[r])).toEqual([
+      'en-US-Neural2-G',
+      'en-US-Neural2-D',
+      'en-GB-Neural2-C',
+      'en-US-Neural2-I',
+      'en-US-Neural2-C',
+      'en-US-Neural2-E',
+      'en-US-Neural2-H',
+    ]);
+    expect(act2Roles.map((r) => VOICE_NAMES.chirp[r])).toEqual([
+      'en-US-Chirp3-HD-Autonoe',
+      'en-US-Chirp3-HD-Algieba',
+      'en-GB-Chirp3-HD-Gacrux',
+      'en-US-Chirp3-HD-Alnilam',
+      'en-US-Chirp3-HD-Laomedeia',
+      'en-US-Chirp3-HD-Pulcherrima',
+      'en-US-Chirp3-HD-Erinome',
+    ]);
   });
 });
 
