@@ -15,7 +15,8 @@ import type { MinigameProps } from './shared';
 
 /**
  * Listening cloze (聽力填空): the line plays, its text shows with one word missing, and the
- * learner picks the word. After answering, the gap fills in with the right word.
+ * learner picks the word. After answering, the gap fills in with the right word, marked
+ * as right whatever was picked (the wrong pick is marked on its own key).
  */
 export function Cloze({ question, onAnswered }: MinigameProps<ClozeQuestion>) {
   const clock = useAnswerClock();
@@ -40,7 +41,7 @@ export function Cloze({ question, onAnswered }: MinigameProps<ClozeQuestion>) {
         <div class="mg-say">
           <p class="mg-cloze" data-testid="cloze-line" lang="en">
             {question.before}
-            <span class={`mg-blank ${picked === null ? '' : isRight ? 'right' : 'wrong'}`}>
+            <span class={`mg-blank ${picked === null ? '' : 'filled'}`}>
               {picked === null ? '' : question.answer}
             </span>
             {question.after}
