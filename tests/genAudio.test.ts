@@ -229,18 +229,78 @@ describe('role voice table', () => {
     'front_desk',
     'manager',
   ] as const;
+  const act3Roles = [
+    'hr',
+    'coworker',
+    'client',
+    'supplier',
+    'warehouse_lead',
+    'customer',
+    'airline_agent',
+    'hotel_clerk',
+    'director',
+    'announcer',
+  ] as const;
   const allRoles = Object.keys(VOICE_NAMES.neural2) as (keyof typeof VOICE_NAMES.neural2)[];
 
   it('gives every role a voice in both families', () => {
     expect(Object.keys(VOICE_NAMES.chirp).sort()).toEqual([...allRoles].sort());
   });
 
-  it('uses US voices for every role except the British librarian', () => {
+  it('uses US voices for every role except the British librarian and client and the Australian supplier', () => {
+    const accents: Partial<Record<(typeof allRoles)[number], string>> = {
+      librarian: 'en-GB',
+      client: 'en-GB',
+      supplier: 'en-AU',
+    };
     for (const role of allRoles) {
-      const expected = role === 'librarian' ? 'en-GB' : 'en-US';
+      const expected = accents[role] ?? 'en-US';
       expect(languageCodeOf(VOICE_NAMES.neural2[role]), role).toBe(expected);
       expect(languageCodeOf(VOICE_NAMES.chirp[role]), role).toBe(expected);
     }
+  });
+
+  it('reads the language code of an Australian voice', () => {
+    expect(languageCodeOf('en-AU-Neural2-B')).toBe('en-AU');
+    expect(languageCodeOf('en-AU-Chirp3-HD-Fenrir')).toBe('en-AU');
+  });
+
+  it('plans a job for the announcer, who has voices but no picture', () => {
+    const jobs = planJobs([
+      { id: 'u.line.gate', text: 'Now boarding.', role: 'announcer' as const },
+    ]);
+    expect(jobs.map((j) => j.voiceName)).toEqual([
+      VOICE_NAMES.neural2.announcer,
+      VOICE_NAMES.neural2.announcer,
+      VOICE_NAMES.chirp.announcer,
+    ]);
+  });
+
+  it('pins the Act 3 voices', () => {
+    expect(act3Roles.map((r) => VOICE_NAMES.neural2[r])).toEqual([
+      'en-US-Neural2-F',
+      'en-US-Neural2-D',
+      'en-GB-Neural2-B',
+      'en-AU-Neural2-B',
+      'en-US-Neural2-J',
+      'en-US-Neural2-I',
+      'en-US-Neural2-C',
+      'en-US-Neural2-G',
+      'en-US-Neural2-J',
+      'en-US-Neural2-E',
+    ]);
+    expect(act3Roles.map((r) => VOICE_NAMES.chirp[r])).toEqual([
+      'en-US-Chirp3-HD-Kore',
+      'en-US-Chirp3-HD-Zubenelgenubi',
+      'en-GB-Chirp3-HD-Charon',
+      'en-AU-Chirp3-HD-Fenrir',
+      'en-US-Chirp3-HD-Algenib',
+      'en-US-Chirp3-HD-Sadaltager',
+      'en-US-Chirp3-HD-Leda',
+      'en-US-Chirp3-HD-Vindemiatrix',
+      'en-US-Chirp3-HD-Rasalgethi',
+      'en-US-Chirp3-HD-Zephyr',
+    ]);
   });
 
   it('pins the Act 2 voices', () => {

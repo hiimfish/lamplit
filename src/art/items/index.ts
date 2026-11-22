@@ -8,6 +8,18 @@ import { JOB_CENTER_ITEMS } from './jobCenter';
 import { RESUME_ITEMS } from './resume';
 import { INTERVIEW_ITEMS } from './interview';
 import { DAY_BEFORE_ITEMS } from './dayBefore';
+import { ONBOARDING_ITEMS } from './onboarding';
+import { OFFICE_ITEMS } from './office';
+import { PHONE_ITEMS } from './phone';
+import { EMAIL_ITEMS } from './email';
+import { MEETING_ITEMS } from './meeting';
+import { PURCHASING_ITEMS } from './purchasing';
+import { WAREHOUSE_ITEMS } from './warehouse';
+import { CUSTOMER_SERVICE_ITEMS } from './customerService';
+import { AIRPORT_ITEMS } from './airport';
+import { HOTEL_ITEMS } from './hotel';
+import { TRADE_FAIR_ITEMS } from './tradeFair';
+import { COMPANY_EVENT_ITEMS } from './companyEvent';
 import { CAFE_ITEMS } from './cafe';
 import { CLINIC_ITEMS } from './clinic';
 import { CLOTHES_ITEMS } from './clothes';
@@ -54,6 +66,18 @@ export const ITEM_SPRITES: Readonly<Record<string, PixelSprite>> = {
   ...RESUME_ITEMS,
   ...INTERVIEW_ITEMS,
   ...DAY_BEFORE_ITEMS,
+  ...ONBOARDING_ITEMS,
+  ...OFFICE_ITEMS,
+  ...PHONE_ITEMS,
+  ...EMAIL_ITEMS,
+  ...MEETING_ITEMS,
+  ...PURCHASING_ITEMS,
+  ...WAREHOUSE_ITEMS,
+  ...CUSTOMER_SERVICE_ITEMS,
+  ...AIRPORT_ITEMS,
+  ...HOTEL_ITEMS,
+  ...TRADE_FAIR_ITEMS,
+  ...COMPANY_EVENT_ITEMS,
 };
 
 export function getItemSprite(id: string): PixelSprite | undefined {

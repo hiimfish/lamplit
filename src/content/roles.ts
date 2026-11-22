@@ -25,5 +25,16 @@ export const ROLE_LABEL: Record<Role, string> = {
   counselor: '就業顧問',
   front_desk: '前台人員',
   manager: '主管',
+  hr: '人資',
+  coworker: '同事',
+  client: '客戶',
+  supplier: '廠商業務',
+  warehouse_lead: '倉管',
+  customer: '顧客',
+  airline_agent: '地勤人員',
+  hotel_clerk: '飯店櫃台',
+  director: '總經理',
+  // A voice over a speaker (voicemail, the warehouse, the airport, the fair): never drawn on a stage.
+  announcer: '廣播',
   guide: '你',
 };

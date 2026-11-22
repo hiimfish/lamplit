@@ -17,7 +17,8 @@ export const VOICE_NAMES: Record<VoiceMode, Record<Role, string>> = {
     neighbor: 'en-US-Neural2-F',
     clerk: 'en-US-Neural2-I',
     // Neural2 has nine US voices, so roles of different locations share one;
-    // two roles of the same location never do. The librarian is the one British voice.
+    // two roles of the same location never do. Three roles are not American:
+    // the librarian and the client are British, the supplier is Australian.
     passerby: 'en-US-Neural2-E',
     driver: 'en-US-Neural2-J',
     cashier: 'en-US-Neural2-G',
@@ -37,6 +38,16 @@ export const VOICE_NAMES: Record<VoiceMode, Record<Role, string>> = {
     counselor: 'en-US-Neural2-C',
     front_desk: 'en-US-Neural2-E',
     manager: 'en-US-Neural2-H',
+    hr: 'en-US-Neural2-F',
+    coworker: 'en-US-Neural2-D',
+    client: 'en-GB-Neural2-B',
+    supplier: 'en-AU-Neural2-B',
+    warehouse_lead: 'en-US-Neural2-J',
+    customer: 'en-US-Neural2-I',
+    airline_agent: 'en-US-Neural2-C',
+    hotel_clerk: 'en-US-Neural2-G',
+    director: 'en-US-Neural2-J',
+    announcer: 'en-US-Neural2-E',
     guide: 'en-US-Neural2-A',
   },
   chirp: {
@@ -63,6 +74,20 @@ export const VOICE_NAMES: Record<VoiceMode, Record<Role, string>> = {
     counselor: 'en-US-Chirp3-HD-Laomedeia',
     front_desk: 'en-US-Chirp3-HD-Pulcherrima',
     manager: 'en-US-Chirp3-HD-Erinome',
+    // Chirp 3 HD has thirty voices and every role up to here has its own. Act 3 has more
+    // women than voices left: the HR officer, the airline agent and the announcer share
+    // theirs with a role of Act 1 (passerby, cashier, assistant). The client and the
+    // supplier are the landlord's and the driver's voices in another accent.
+    hr: 'en-US-Chirp3-HD-Kore',
+    coworker: 'en-US-Chirp3-HD-Zubenelgenubi',
+    client: 'en-GB-Chirp3-HD-Charon',
+    supplier: 'en-AU-Chirp3-HD-Fenrir',
+    warehouse_lead: 'en-US-Chirp3-HD-Algenib',
+    customer: 'en-US-Chirp3-HD-Sadaltager',
+    airline_agent: 'en-US-Chirp3-HD-Leda',
+    hotel_clerk: 'en-US-Chirp3-HD-Vindemiatrix',
+    director: 'en-US-Chirp3-HD-Rasalgethi',
+    announcer: 'en-US-Chirp3-HD-Zephyr',
     guide: 'en-US-Chirp3-HD-Achird',
   },
 };

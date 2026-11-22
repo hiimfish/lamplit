@@ -8,6 +8,18 @@ import { JOB_CENTER_STAGE } from './jobCenter';
 import { RESUME_STAGE } from './resume';
 import { INTERVIEW_STAGE } from './interview';
 import { DAY_BEFORE_STAGE } from './dayBefore';
+import { ONBOARDING_STAGE } from './onboarding';
+import { OFFICE_STAGE } from './office';
+import { PHONE_STAGE } from './phone';
+import { EMAIL_STAGE } from './email';
+import { MEETING_STAGE } from './meeting';
+import { PURCHASING_STAGE } from './purchasing';
+import { WAREHOUSE_STAGE } from './warehouse';
+import { CUSTOMER_SERVICE_STAGE } from './customerService';
+import { AIRPORT_STAGE } from './airport';
+import { HOTEL_STAGE } from './hotel';
+import { TRADE_FAIR_STAGE } from './tradeFair';
+import { COMPANY_EVENT_STAGE } from './companyEvent';
 import { CLINIC_STAGE } from './clinic';
 import { CLOTHES_STAGE } from './clothes';
 import { GUIDE_ACTOR, type StageConfig, type StageSide } from './config';
@@ -99,6 +111,18 @@ const STAGES: Readonly<Record<string, StageConfig>> = {
   resume: RESUME_STAGE,
   interview: INTERVIEW_STAGE,
   day_before: DAY_BEFORE_STAGE,
+  onboarding: ONBOARDING_STAGE,
+  office: OFFICE_STAGE,
+  phone: PHONE_STAGE,
+  email: EMAIL_STAGE,
+  meeting: MEETING_STAGE,
+  purchasing: PURCHASING_STAGE,
+  warehouse: WAREHOUSE_STAGE,
+  customer_service: CUSTOMER_SERVICE_STAGE,
+  airport: AIRPORT_STAGE,
+  hotel: HOTEL_STAGE,
+  trade_fair: TRADE_FAIR_STAGE,
+  company_event: COMPANY_EVENT_STAGE,
 };
 
 export function stageFor(unitId: string): StageConfig | undefined {

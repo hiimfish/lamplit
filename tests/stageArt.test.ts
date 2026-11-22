@@ -52,6 +52,9 @@ function paintStage(unitId: string, w: number, h: number, backdropRole?: Role) {
 
 const cases = STAGE_UNIT_IDS.flatMap((id) => SIZES.map(([w, h]) => [id, w, h] as const));
 
+/** Roles that are only heard (a voice over a speaker, a voicemail system): on no stage. */
+const UNDRAWN: readonly Role[] = ['announcer'];
+
 describe('stage art', () => {
   it('has a stage for the café, the moving-in unit and the store, none for unknown ids', () => {
     expect(STAGE_UNIT_IDS).toEqual(expect.arrayContaining(['cafe', 'move_in', 'store']));
@@ -147,7 +150,9 @@ describe('stage art', () => {
     const config = stageFor(id)!;
     expect(config.cast.guide).toMatchObject({ x: 20, y: 39, side: 'left' });
     const roles = new Set(getUnit(id)?.tasks.flatMap((t) => t.scene.map((l) => l.role)));
-    for (const role of roles) expect(config.cast[role], role).toBeDefined();
+    for (const role of roles) {
+      if (!UNDRAWN.includes(role)) expect(config.cast[role], role).toBeDefined();
+    }
     for (const [role, actor] of Object.entries(config.cast)) {
       if (role !== 'guide') expect(actor.side, role).toBe('right');
     }
@@ -308,4 +313,84 @@ describe('Act 2 placeholder stages', () => {
       expect(new Set(voices).size).toBe(voices.length);
     },
   );
+});
+
+describe('Act 3 placeholder stages', () => {
+  const ACT3_CAST: Record<string, Role[]> = {
+    onboarding: ['hr', 'manager'],
+    office: ['coworker'],
+    phone: ['coworker', 'client'],
+    email: ['coworker', 'manager'],
+    meeting: ['manager', 'coworker'],
+    purchasing: ['supplier', 'manager'],
+    warehouse: ['warehouse_lead'],
+    customer_service: ['customer', 'manager'],
+    airport: ['coworker', 'airline_agent'],
+    hotel: ['hotel_clerk', 'coworker'],
+    trade_fair: ['coworker', 'client'],
+    company_event: ['manager', 'coworker', 'director'],
+  };
+  /** Voices heard in a location without standing on its stage (a speaker, a voicemail). */
+  const ACT3_ONLY_HEARD: Record<string, Role[]> = {
+    phone: ['announcer'],
+    warehouse: ['announcer'],
+    airport: ['announcer'],
+    hotel: ['manager'],
+    trade_fair: ['announcer'],
+  };
+  const ACT3_ROLES: Role[] = [
+    'hr',
+    'coworker',
+    'client',
+    'supplier',
+    'warehouse_lead',
+    'customer',
+    'airline_agent',
+    'hotel_clerk',
+    'director',
+    'announcer',
+  ];
+  const NEURAL2_NAME = /^en-(US|GB|AU)-Neural2-[A-J]$/;
+  const CHIRP_NAME = /^en-(US|GB|AU)-Chirp3-HD-[A-Z][a-z]+$/;
+
+  it.each(Object.entries(ACT3_CAST))(
+    '%s casts its roles, each with a label and voices',
+    (id, roles) => {
+      const config = stageFor(id);
+      expect(config).toBeDefined();
+      for (const role of roles) expect(config!.cast[role], role).toBeDefined();
+      const heard = [...roles, ...(ACT3_ONLY_HEARD[id] ?? [])];
+      for (const role of heard) {
+        expect(ROLE_LABEL[role], role).toBeTruthy();
+        expect(VOICE_NAMES.neural2[role], role).toMatch(NEURAL2_NAME);
+        expect(VOICE_NAMES.chirp[role], role).toMatch(CHIRP_NAME);
+      }
+      // two roles of one location never share a voice (either family) or a label
+      for (const names of [
+        heard.map((r) => VOICE_NAMES.neural2[r]),
+        heard.map((r) => VOICE_NAMES.chirp[r]),
+        heard.map((r) => ROLE_LABEL[r]),
+      ]) {
+        expect(new Set(names).size, names.join(' ')).toBe(names.length);
+      }
+    },
+  );
+
+  it('gives every new role a label and a voice in both families', () => {
+    for (const role of ACT3_ROLES) {
+      expect(ROLE_LABEL[role], role).toBeTruthy();
+      expect(VOICE_NAMES.neural2[role], role).toMatch(NEURAL2_NAME);
+      expect(VOICE_NAMES.chirp[role], role).toMatch(CHIRP_NAME);
+    }
+    // the client is British and the supplier Australian, in both families
+    for (const family of ['neural2', 'chirp'] as const) {
+      expect(VOICE_NAMES[family].client).toMatch(/^en-GB-/);
+      expect(VOICE_NAMES[family].supplier).toMatch(/^en-AU-/);
+    }
+  });
+
+  it('draws every new role but the announcer, who is on no stage', () => {
+    const drawn = new Set(STAGE_UNIT_IDS.flatMap((id) => Object.keys(stageFor(id)!.cast)));
+    for (const role of ACT3_ROLES) expect(drawn.has(role), role).toBe(!UNDRAWN.includes(role));
+  });
 });

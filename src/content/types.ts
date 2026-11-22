@@ -25,6 +25,16 @@ export type Role =
   | 'counselor'
   | 'front_desk'
   | 'manager'
+  | 'hr'
+  | 'coworker'
+  | 'client'
+  | 'supplier'
+  | 'warehouse_lead'
+  | 'customer'
+  | 'airline_agent'
+  | 'hotel_clerk'
+  | 'director'
+  | 'announcer'
   | 'guide';
 
 export interface Chunk {
