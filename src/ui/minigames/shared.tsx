@@ -102,20 +102,22 @@ export interface FeedbackProps {
   correct: boolean;
   /** Specific zh-TW explanation for a mistake. */
   hint?: string;
-  /** Shown as "正確說法" when wrong. */
+  /** Shown after `answerLabel` when wrong. */
   answer?: string;
+  /** What the answer is called: a way to say it by default, 正確答案 for a fact read off a sign. */
+  answerLabel?: string;
   note?: string;
 }
 
 /** Shown inside a FeedbackSlot, which announces it. */
-export function Feedback({ correct, hint, answer, note }: FeedbackProps) {
+export function Feedback({ correct, hint, answer, answerLabel = '正確說法', note }: FeedbackProps) {
   return (
     <div class={`mg-feedback ${correct ? 'good' : 'bad'}`} data-testid="feedback">
       <strong>{correct ? '答對了！' : '不太對喔'}</strong>
       {!correct && hint && <span>{hint}</span>}
       {answer && (
         <span>
-          {correct ? '' : '正確說法：'}
+          {correct ? '' : `${answerLabel}：`}
           <em lang="en">{answer}</em>
         </span>
       )}

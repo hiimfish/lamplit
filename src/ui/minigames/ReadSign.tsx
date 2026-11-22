@@ -51,6 +51,7 @@ export function ReadSign({ question, onAnswered }: MinigameProps<SignQuestion>) 
             correct={isRight}
             hint={isRight ? undefined : '再看一次招牌上寫的字。'}
             answer={answer}
+            answerLabel="正確答案"
           />
         )}
       </FeedbackSlot>
