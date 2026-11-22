@@ -1,0 +1,1665 @@
+{
+  "id": "phone",
+  "title": "電話與留言",
+  "titleEn": "Phone Calls and Messages",
+  "chunks": [
+    {
+      "id": "thank_you_for_calling_harbor_trading",
+      "en": "Hello, thank you for calling Harbor Trading.",
+      "zh": "Harbor Trading 您好，感謝您的來電。",
+      "accept": ["Hello, thanks for calling Harbor Trading."],
+      "note": "接公司電話的第一句：先打招呼，再說公司名稱。",
+      "distractors": [
+        {
+          "text": "Hello, thank you for call Harbor Trading.",
+          "error": "other"
+        },
+        {
+          "text": "Hello, thank you to calling Harbor Trading.",
+          "error": "other"
+        },
+        {
+          "text": "Hello, thank you for calling to Harbor Trading.",
+          "error": "extra-word"
+        }
+      ]
+    },
+    {
+      "id": "somebody_on_the_phone_for_you",
+      "en": "There's somebody on the phone for you.",
+      "zh": "有人打電話找你。",
+      "accept": ["There is somebody on the phone for you."],
+      "note": "告訴同事有他的電話。在電話上用 on the phone。",
+      "distractors": [
+        {
+          "text": "There's somebody in the phone for you.",
+          "error": "other"
+        },
+        {
+          "text": "There's somebody on phone for you.",
+          "error": "article"
+        },
+        {
+          "text": "There are somebody on the phone for you.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "one_moment_ill_transfer_you",
+      "en": "One moment, please, I'll transfer you.",
+      "zh": "請稍等，我幫您轉接。",
+      "accept": [
+        "One moment please, I'll transfer you.",
+        "One moment, please, I will transfer you."
+      ],
+      "note": "要把電話轉給別人之前說，請對方等一下。",
+      "distractors": [
+        {
+          "text": "One moment, please, I'll transfer to you.",
+          "error": "extra-word"
+        },
+        {
+          "text": "One moments, please, I'll transfer you.",
+          "error": "plural"
+        },
+        {
+          "text": "One moment, please, I'll tranfer you.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "hold_or_call_back_later",
+      "en": "Would you like to hold or call back later?",
+      "zh": "您要在線上稍等，還是晚點再打來？",
+      "note": "要找的人沒接時，讓對方選：在線上等，或晚點再打。",
+      "distractors": [
+        {
+          "text": "Would you like hold or call back later?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Would you like to holding or call back later?",
+          "error": "other"
+        },
+        {
+          "text": "Would you like to hold or call later back?",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "may_i_ask_whos_calling",
+      "en": "May I ask who's calling, please?",
+      "zh": "請問您是哪一位？",
+      "accept": ["May I ask who is calling, please?"],
+      "note": "May I…? 是客氣地請求，比 Can I…? 更有禮貌。",
+      "distractors": [
+        {
+          "text": "May I ask who calling, please?",
+          "error": "missing-word"
+        },
+        {
+          "text": "May I asking who's calling, please?",
+          "error": "other"
+        },
+        {
+          "text": "May I ask who's call, please?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "she_might_be_in_a_meeting",
+      "en": "She might be in a meeting right now.",
+      "zh": "她現在可能在開會。",
+      "note": "might + 動詞原形 = 可能（不確定）：might be 可能在。",
+      "distractors": [
+        {
+          "text": "She might is in a meeting right now.",
+          "error": "other"
+        },
+        {
+          "text": "She might be in meeting right now.",
+          "error": "article"
+        },
+        {
+          "text": "She might be in a meetings right now.",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "text_her_or_call_her_cellphone",
+      "en": "Should I text her or call her cellphone?",
+      "zh": "我要傳訊息給她，還是打她的手機？",
+      "note": "問要用哪種方式聯絡。text 當動詞是「傳訊息給」。",
+      "distractors": [
+        {
+          "text": "Should I text to her or call her cellphone?",
+          "error": "extra-word"
+        },
+        {
+          "text": "Should I texting her or call her cellphone?",
+          "error": "other"
+        },
+        {
+          "text": "Should I text her or call she cellphone?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "sorry_to_interrupt_left_a_voicemail",
+      "en": "Sorry to interrupt, but Mr. Hughes left a voicemail.",
+      "zh": "不好意思打斷你一下，Mr. Hughes 留了語音留言。",
+      "note": "對方在忙，要打斷他之前先說 Sorry to interrupt。",
+      "distractors": [
+        {
+          "text": "Sorry to interrupting, but Mr. Hughes left a voicemail.",
+          "error": "other"
+        },
+        {
+          "text": "Sorry to interrupt, but Mr. Hughes leaved a voicemail.",
+          "error": "other"
+        },
+        {
+          "text": "Sorry to interupt, but Mr. Hughes left a voicemail.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "wants_her_to_call_him_back",
+      "en": "He wants her to call him back sometime today.",
+      "zh": "他希望她今天找個時間回電給他。",
+      "note": "轉述別人要什麼：want + 人 + to + 動詞。",
+      "distractors": [
+        {
+          "text": "He wants her call him back sometime today.",
+          "error": "missing-word"
+        },
+        {
+          "text": "He wants she to call him back sometime today.",
+          "error": "other"
+        },
+        {
+          "text": "He want her to call him back sometime today.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "would_you_like_me_to_take_a_message",
+      "en": "Would you like me to take a message?",
+      "zh": "需要我幫您留言嗎？",
+      "note": "要找的人不在時主動幫忙。Would you like me to…? = 要我幫您…嗎？",
+      "distractors": [
+        {
+          "text": "Would you like I to take a message?",
+          "error": "other"
+        },
+        {
+          "text": "Would you like me take a message?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Would you like me to take message?",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "tell_her_as_soon_as_shes_back",
+      "en": "I'll tell her as soon as she's back.",
+      "zh": "她一回來我就馬上轉告她。",
+      "accept": [
+        "I will tell her as soon as she is back.",
+        "I'll tell her as soon as she is back."
+      ],
+      "note": "as soon as = 一…就…；後面用現在式說未來：she's back，不說 she'll be back。",
+      "distractors": [
+        {
+          "text": "I'll tell her as soon as she'll be back.",
+          "error": "other"
+        },
+        {
+          "text": "I'll tell her as soon she's back.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I'll tell she as soon as she's back.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "calling_from_harbor_trading_about_order",
+      "en": "I'm calling from Harbor Trading about your December order.",
+      "zh": "這裡是 Harbor Trading，打來是要跟您說十二月那筆訂單的事。",
+      "accept": ["I am calling from Harbor Trading about your December order."],
+      "note": "打電話或留言時，先說你是哪裡的人、打來是為了什麼事。",
+      "distractors": [
+        {
+          "text": "I'm call from Harbor Trading about your December order.",
+          "error": "other"
+        },
+        {
+          "text": "I'm calling from Harbor Trading about you December order.",
+          "error": "other"
+        },
+        {
+          "text": "I'm calling from Harbor Trading about your Decmber order.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "thanks_for_getting_back_to_me",
+      "en": "Thanks for getting back to me so quickly.",
+      "zh": "謝謝您這麼快就回電給我。",
+      "accept": ["Thank you for getting back to me so quickly."],
+      "note": "對方回電或回信時道謝。get back to 人 = 回覆某人。",
+      "distractors": [
+        {
+          "text": "Thanks for get back to me so quickly.",
+          "error": "other"
+        },
+        {
+          "text": "Thanks for getting back me so quickly.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Thanks for getting back to me so quikly.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "youre_breaking_up_a_little",
+      "en": "Sorry, you're breaking up a little.",
+      "zh": "不好意思，您的聲音有點斷斷續續。",
+      "accept": ["Sorry, you are breaking up a little."],
+      "note": "電話收訊不好、對方聲音斷斷續續時說。",
+      "distractors": [
+        {
+          "text": "Sorry, you're break up a little.",
+          "error": "other"
+        },
+        {
+          "text": "Sorry, you're breaking a little up.",
+          "error": "word-order"
+        },
+        {
+          "text": "Sorry, your breaking up a little.",
+          "error": "spelling"
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "id": "man",
+      "en": "man",
+      "zh": "男人；先生",
+      "emoji": "👨",
+      "abstract": true
+    },
+    {
+      "id": "customer",
+      "en": "customer",
+      "zh": "顧客；客人",
+      "emoji": "🛒",
+      "abstract": true
+    },
+    {
+      "id": "ring",
+      "en": "ring",
+      "zh": "（電話）響",
+      "emoji": "🔔",
+      "abstract": true
+    },
+    {
+      "id": "conversation",
+      "en": "conversation",
+      "zh": "對話；交談",
+      "emoji": "🗨️",
+      "abstract": true
+    },
+    {
+      "id": "somebody",
+      "en": "somebody",
+      "zh": "有人；某個人",
+      "emoji": "👤",
+      "abstract": true
+    },
+    {
+      "id": "ourselves",
+      "en": "ourselves",
+      "zh": "我們自己",
+      "emoji": "👐",
+      "abstract": true
+    },
+    {
+      "id": "hello",
+      "en": "hello",
+      "zh": "喂；你好",
+      "emoji": "👋",
+      "abstract": true
+    },
+    {
+      "id": "reach",
+      "en": "reach",
+      "zh": "聯絡上；找到（人）",
+      "emoji": "🫱",
+      "abstract": true
+    },
+    {
+      "id": "o_clock",
+      "en": "o'clock",
+      "zh": "……點（整點）",
+      "emoji": "🕙",
+      "abstract": true
+    },
+    {
+      "id": "direct",
+      "en": "direct",
+      "zh": "直接的；直撥的",
+      "emoji": "➡️",
+      "abstract": true
+    },
+    {
+      "id": "hang",
+      "en": "hang",
+      "zh": "掛（電話）（hang up）",
+      "emoji": "📴",
+      "abstract": true
+    },
+    {
+      "id": "anybody",
+      "en": "anybody",
+      "zh": "任何人；有人（問句、否定句）",
+      "emoji": "👥",
+      "abstract": true
+    },
+    {
+      "id": "dial",
+      "en": "dial",
+      "zh": "撥（號）",
+      "emoji": "🔢",
+      "abstract": true
+    },
+    {
+      "id": "bother",
+      "en": "bother",
+      "zh": "打擾；麻煩",
+      "emoji": "🙏",
+      "abstract": true
+    },
+    {
+      "id": "extension",
+      "en": "extension",
+      "zh": "分機",
+      "emoji": "#️⃣",
+      "abstract": true
+    },
+    {
+      "id": "might",
+      "en": "might",
+      "zh": "可能；也許",
+      "emoji": "🤔",
+      "abstract": true
+    },
+    {
+      "id": "client",
+      "en": "client",
+      "zh": "（公司往來的）客戶",
+      "emoji": "💼",
+      "abstract": true
+    },
+    {
+      "id": "afraid",
+      "en": "afraid",
+      "zh": "恐怕（I'm afraid…）",
+      "emoji": "😟",
+      "abstract": true
+    },
+    {
+      "id": "personally",
+      "en": "personally",
+      "zh": "親自；本人",
+      "emoji": "🧍",
+      "abstract": true
+    },
+    {
+      "id": "lately",
+      "en": "lately",
+      "zh": "最近；這陣子",
+      "emoji": "📆",
+      "abstract": true
+    },
+    {
+      "id": "typically",
+      "en": "typically",
+      "zh": "通常；一般來說",
+      "emoji": "📊",
+      "abstract": true
+    },
+    {
+      "id": "sir",
+      "en": "sir",
+      "zh": "先生（對男士的尊稱）",
+      "emoji": "👨‍💼",
+      "abstract": true
+    },
+    {
+      "id": "anytime",
+      "en": "anytime",
+      "zh": "隨時；任何時候",
+      "emoji": "🕰️",
+      "abstract": true
+    },
+    {
+      "id": "caller",
+      "en": "caller",
+      "zh": "來電的人",
+      "emoji": "📞",
+      "abstract": true
+    },
+    {
+      "id": "telephone",
+      "en": "telephone",
+      "zh": "電話（機）",
+      "emoji": "☎️"
+    },
+    {
+      "id": "text",
+      "en": "text",
+      "zh": "傳訊息；簡訊",
+      "emoji": "📩",
+      "abstract": true
+    },
+    {
+      "id": "cellphone",
+      "en": "cellphone",
+      "zh": "手機",
+      "emoji": "📲",
+      "abstract": true
+    },
+    {
+      "id": "unknown",
+      "en": "unknown",
+      "zh": "不認識的；不明的",
+      "emoji": "❓",
+      "abstract": true
+    },
+    {
+      "id": "urgent",
+      "en": "urgent",
+      "zh": "緊急的",
+      "emoji": "🚨",
+      "abstract": true
+    },
+    {
+      "id": "accurately",
+      "en": "accurately",
+      "zh": "正確地；準確地",
+      "emoji": "🎯",
+      "abstract": true
+    },
+    {
+      "id": "behalf",
+      "en": "behalf",
+      "zh": "代替；代表（on behalf of）",
+      "emoji": "🤝",
+      "abstract": true
+    },
+    {
+      "id": "permission",
+      "en": "permission",
+      "zh": "同意；許可",
+      "emoji": "✅",
+      "abstract": true
+    },
+    {
+      "id": "sometime",
+      "en": "sometime",
+      "zh": "找個時間；某個時候",
+      "emoji": "⏳",
+      "abstract": true
+    },
+    {
+      "id": "voice",
+      "en": "voice",
+      "zh": "（說話的）聲音",
+      "emoji": "🗣️",
+      "abstract": true
+    },
+    {
+      "id": "pause",
+      "en": "pause",
+      "zh": "暫停；停頓",
+      "emoji": "⏸️",
+      "abstract": true
+    },
+    {
+      "id": "voicemail",
+      "en": "voicemail",
+      "zh": "語音留言；語音信箱",
+      "emoji": "📼",
+      "abstract": true
+    },
+    {
+      "id": "mobile",
+      "en": "mobile",
+      "zh": "手機（英式說法）；行動的",
+      "emoji": "📳",
+      "abstract": true
+    },
+    {
+      "id": "rarely",
+      "en": "rarely",
+      "zh": "很少；難得",
+      "emoji": "📉",
+      "abstract": true
+    },
+    {
+      "id": "interrupt",
+      "en": "interrupt",
+      "zh": "打斷",
+      "emoji": "🤚",
+      "abstract": true
+    },
+    {
+      "id": "summarize",
+      "en": "summarize",
+      "zh": "講重點；摘要",
+      "emoji": "📑",
+      "abstract": true
+    },
+    {
+      "id": "repeat",
+      "en": "repeat",
+      "zh": "重複；再說一次",
+      "emoji": "🔁",
+      "abstract": true
+    },
+    {
+      "id": "definitely",
+      "en": "definitely",
+      "zh": "一定；肯定",
+      "emoji": "👍",
+      "abstract": true
+    },
+    {
+      "id": "inquire",
+      "en": "inquire",
+      "zh": "詢問",
+      "emoji": "❔",
+      "abstract": true
+    },
+    {
+      "id": "whenever",
+      "en": "whenever",
+      "zh": "什麼時候都可以；每當",
+      "emoji": "🔄",
+      "abstract": true
+    },
+    {
+      "id": "briefly",
+      "en": "briefly",
+      "zh": "簡短地",
+      "emoji": "⏱️",
+      "abstract": true
+    },
+    {
+      "id": "chat",
+      "en": "chat",
+      "zh": "聊一下；聊天",
+      "emoji": "💭",
+      "abstract": true
+    },
+    {
+      "id": "hesitate",
+      "en": "hesitate",
+      "zh": "猶豫（Don't hesitate to… 儘管…）",
+      "emoji": "😬",
+      "abstract": true
+    },
+    {
+      "id": "meantime",
+      "en": "meantime",
+      "zh": "這段時間（in the meantime）",
+      "emoji": "⌛",
+      "abstract": true
+    },
+    {
+      "id": "press",
+      "en": "press",
+      "zh": "按（按鍵）",
+      "emoji": "👆",
+      "abstract": true
+    },
+    {
+      "id": "twice",
+      "en": "twice",
+      "zh": "兩次",
+      "emoji": "✌️",
+      "abstract": true
+    },
+    {
+      "id": "shortly",
+      "en": "shortly",
+      "zh": "很快；不久",
+      "emoji": "🔜",
+      "abstract": true
+    },
+    {
+      "id": "tone",
+      "en": "tone",
+      "zh": "（電話的）嗶聲；提示音",
+      "emoji": "🎶",
+      "abstract": true
+    },
+    {
+      "id": "weekday",
+      "en": "weekday",
+      "zh": "平日；工作日",
+      "emoji": "🗓️",
+      "abstract": true
+    },
+    {
+      "id": "operator",
+      "en": "operator",
+      "zh": "總機；接線人員",
+      "emoji": "🎧"
+    },
+    {
+      "id": "directory",
+      "en": "directory",
+      "zh": "通訊錄；分機表",
+      "emoji": "📖",
+      "abstract": true
+    },
+    {
+      "id": "successfully",
+      "en": "successfully",
+      "zh": "成功地",
+      "emoji": "🏆",
+      "abstract": true
+    },
+    {
+      "id": "inquiry",
+      "en": "inquiry",
+      "zh": "詢問；查詢",
+      "emoji": "🔎",
+      "abstract": true
+    },
+    {
+      "id": "connection",
+      "en": "connection",
+      "zh": "連線；通話品質",
+      "emoji": "🔗",
+      "abstract": true
+    },
+    {
+      "id": "hardly",
+      "en": "hardly",
+      "zh": "幾乎不",
+      "emoji": "🤏",
+      "abstract": true
+    },
+    {
+      "id": "signal",
+      "en": "signal",
+      "zh": "訊號",
+      "emoji": "📶"
+    },
+    {
+      "id": "concentrate",
+      "en": "concentrate",
+      "zh": "專心",
+      "emoji": "🧠",
+      "abstract": true
+    },
+    {
+      "id": "commute",
+      "en": "commute",
+      "zh": "通勤",
+      "emoji": "🚆",
+      "abstract": true
+    },
+    {
+      "id": "loud",
+      "en": "loud",
+      "zh": "大聲的；吵的",
+      "emoji": "🔊",
+      "abstract": true
+    },
+    {
+      "id": "silent",
+      "en": "silent",
+      "zh": "沒聲音的；靜音的",
+      "emoji": "🔇",
+      "abstract": true
+    },
+    {
+      "id": "temporarily",
+      "en": "temporarily",
+      "zh": "暫時",
+      "emoji": "🚧",
+      "abstract": true
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "電話響了",
+      "newChunkIds": ["thank_you_for_calling_harbor_trading", "somebody_on_the_phone_for_you"],
+      "newWordIds": ["man", "customer", "ring", "conversation", "somebody", "ourselves", "hello"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "When Kate is away, the phone rings at every desk.",
+          "zh": "Kate 不在的時候，每個人桌上的電話都會響。"
+        },
+        {
+          "id": "t1_2",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "So we answer it ourselves. Most calls are from customers.",
+          "zh": "所以我們都自己接。大部分是客人打來的。"
+        },
+        {
+          "id": "t1_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "There it goes. Go ahead, you take this one.",
+          "zh": "響了。來，這通你接。",
+          "stage": {
+            "act": "want",
+            "item": "telephone"
+          }
+        },
+        {
+          "id": "t1_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Hello, thank you for calling Harbor Trading.",
+          "zh": "Harbor Trading 您好，感謝您的來電。",
+          "chunkId": "thank_you_for_calling_harbor_trading"
+        },
+        {
+          "id": "t1_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Nice and friendly. So, who is it?",
+          "zh": "很好，很親切。那是誰打來的？"
+        },
+        {
+          "id": "t1_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "There's somebody on the phone for you.",
+          "zh": "有人打電話找你。",
+          "chunkId": "somebody_on_the_phone_for_you"
+        },
+        {
+          "id": "t1_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "For me? It's probably the man from the lamp shop.",
+          "zh": "找我？大概是燈具店那位先生。"
+        },
+        {
+          "id": "t1_8",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Listen to this conversation. You'll learn a lot.",
+          "zh": "你聽聽我怎麼講，會學到很多。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "幫客戶轉接",
+      "newChunkIds": ["one_moment_ill_transfer_you", "hold_or_call_back_later"],
+      "newWordIds": [
+        "reach",
+        "o_clock",
+        "direct",
+        "hang",
+        "anybody",
+        "dial",
+        "bother",
+        "extension"
+      ],
+      "fills": [
+        {
+          "id": "dont_hang_up",
+          "en": "Please don't ___ up. I'll transfer you now.",
+          "zh": "請先不要掛斷，我現在幫您轉接。",
+          "options": ["hang", "dial", "reach", "bother"],
+          "answer": 0,
+          "note": "hang up 是「掛電話」。"
+        },
+        {
+          "id": "ill_transfer_form",
+          "en": "One moment, please, I'll ___ you.",
+          "zh": "請稍等，我幫您轉接。",
+          "options": ["transfer", "transfers", "transferred", "transferring"],
+          "answer": 0,
+          "note": "I'll = I will，後面接動詞原形。",
+          "chunkId": "one_moment_ill_transfer_you",
+          "grammar": true
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Hello, this is James Hughes, calling from England.",
+          "zh": "您好，我是 James Hughes，從英國打來的。"
+        },
+        {
+          "id": "t2_2",
+          "role": "client",
+          "speaker": "npc",
+          "en": "I can't reach Ms. Carter on her direct line. Could you put me through?",
+          "zh": "我打 Carter 小姐的直撥電話一直找不到她。可以幫我轉過去嗎？"
+        },
+        {
+          "id": "t2_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "One moment, please, I'll transfer you.",
+          "zh": "請稍等，我幫您轉接。",
+          "chunkId": "one_moment_ill_transfer_you"
+        },
+        {
+          "id": "t2_4",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Hello? Is anybody there? Her phone just rang and rang.",
+          "zh": "喂？有人在嗎？她的電話一直響都沒人接。"
+        },
+        {
+          "id": "t2_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Would you like to hold or call back later?",
+          "zh": "您要在線上稍等，還是晚點再打來？",
+          "chunkId": "hold_or_call_back_later"
+        },
+        {
+          "id": "t2_6",
+          "role": "client",
+          "speaker": "npc",
+          "en": "I'll call back later. Sorry to bother you.",
+          "zh": "我晚點再打好了。不好意思打擾了。"
+        },
+        {
+          "id": "t2_7",
+          "role": "client",
+          "speaker": "npc",
+          "en": "What's her extension? I'll dial it myself at four o'clock.",
+          "zh": "她的分機是幾號？我四點自己撥過去。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "她可能在開會",
+      "newChunkIds": ["may_i_ask_whos_calling", "she_might_be_in_a_meeting"],
+      "newWordIds": [
+        "might",
+        "client",
+        "afraid",
+        "personally",
+        "lately",
+        "typically",
+        "sir",
+        "anytime"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Good afternoon. I'd like to speak to Ms. Carter, please.",
+          "zh": "午安。麻煩找 Carter 小姐。"
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "May I ask who's calling, please?",
+          "zh": "請問您是哪一位？",
+          "chunkId": "may_i_ask_whos_calling"
+        },
+        {
+          "id": "t3_3",
+          "role": "client",
+          "speaker": "npc",
+          "en": "This is James Hughes, one of her clients in England.",
+          "zh": "我是 James Hughes，她在英國的客戶。"
+        },
+        {
+          "id": "t3_4",
+          "role": "client",
+          "speaker": "npc",
+          "en": "I'd like to talk to her personally, if I may.",
+          "zh": "可以的話，我想跟她本人談。"
+        },
+        {
+          "id": "t3_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "She might be in a meeting right now.",
+          "zh": "她現在可能在開會。",
+          "chunkId": "she_might_be_in_a_meeting"
+        },
+        {
+          "id": "t3_6",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Yes, she's been very busy lately.",
+          "zh": "也是，她最近很忙。"
+        },
+        {
+          "id": "t3_7",
+          "role": "client",
+          "speaker": "npc",
+          "en": "She typically calls me back the same day.",
+          "zh": "她通常當天就會回我電話。"
+        },
+        {
+          "id": "t3_8",
+          "role": "client",
+          "speaker": "npc",
+          "en": "I'm afraid this can't wait. She can call me anytime today.",
+          "zh": "這件事恐怕不能等。她今天隨時都可以打給我。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀接電話須知",
+      "newChunkIds": ["text_her_or_call_her_cellphone"],
+      "newWordIds": [
+        "caller",
+        "telephone",
+        "text",
+        "cellphone",
+        "unknown",
+        "urgent",
+        "accurately",
+        "behalf",
+        "permission"
+      ],
+      "passages": [
+        {
+          "id": "answering_the_telephone",
+          "kind": "email",
+          "title": "Answering the telephone",
+          "lines": [
+            "Hi everyone,",
+            "When Kate is away from the front desk, the telephone rings at every desk. Please answer it before it rings three times.",
+            "Say hello and the company name, and always ask for the caller's name.",
+            "If the person is out, take a message on his or her behalf. Write down the name, company and number accurately, and ask the reason for the call.",
+            "Never give a colleague's cellphone number to an unknown caller without permission.",
+            "If a call is urgent, let me know right away by text or by phone.",
+            "Thanks,",
+            "Ms. Carter"
+          ],
+          "questions": [
+            {
+              "en": "What should you never give to an unknown caller?",
+              "zh": "絕對不能給不認識的來電者什麼？",
+              "options": ["The company name", "A colleague's cellphone number", "Your extension"],
+              "answer": 1
+            },
+            {
+              "en": "What should you do when a call is urgent?",
+              "zh": "遇到緊急的電話要怎麼做？",
+              "options": ["Call back later", "Tell Ms. Carter right away", "Ask Kate for help"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Did you read Ms. Carter's email about the telephone?",
+          "zh": "你看了 Carter 小姐那封接電話的信嗎？"
+        },
+        {
+          "id": "t4_2",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "The big rule: never give her cellphone number to an unknown caller.",
+          "zh": "最重要的一條：絕對不要把她的手機號碼給不認識的人。"
+        },
+        {
+          "id": "t4_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "And if a call is urgent, tell her right away.",
+          "zh": "還有，如果是緊急的電話，要馬上跟她說。"
+        },
+        {
+          "id": "t4_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Should I text her or call her cellphone?",
+          "zh": "我要傳訊息給她，還是打她的手機？",
+          "chunkId": "text_her_or_call_her_cellphone"
+        },
+        {
+          "id": "t4_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Text her first. She doesn't answer calls in meetings.",
+          "zh": "先傳訊息。她開會的時候不接電話。"
+        },
+        {
+          "id": "t4_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "If she doesn't text back in ten minutes, then call.",
+          "zh": "如果她十分鐘內沒回，再打給她。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "聽語音留言",
+      "newChunkIds": ["sorry_to_interrupt_left_a_voicemail", "wants_her_to_call_him_back"],
+      "newWordIds": [
+        "sometime",
+        "voice",
+        "pause",
+        "voicemail",
+        "mobile",
+        "rarely",
+        "interrupt",
+        "summarize"
+      ],
+      "talks": [
+        {
+          "id": "hughes_voicemail",
+          "kind": "monologue",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "client",
+              "en": "Hello, this is James Hughes from Hughes Home and Garden, calling for Ms. Carter.",
+              "zh": "您好，我是 Hughes Home and Garden 的 James Hughes，找 Carter 小姐。"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "client",
+              "en": "It's about my December order.",
+              "zh": "是關於我十二月那筆訂單。"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "client",
+              "en": "I need to change the delivery date, and it's quite urgent.",
+              "zh": "我需要改交貨日期，而且滿急的。"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "client",
+              "en": "Could she call me back today? I'm in the office until five o'clock.",
+              "zh": "可以請她今天回電給我嗎？我五點以前都在辦公室。"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "client",
+              "en": "Thank you.",
+              "zh": "謝謝。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "What does the caller want Ms. Carter to do?",
+              "zh": "來電的人希望 Carter 小姐做什麼？",
+              "options": ["Call him back", "Send him an email", "Come to his office"],
+              "answer": 0
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sorry to interrupt, but Mr. Hughes left a voicemail.",
+          "zh": "不好意思打斷你一下，Mr. Hughes 留了語音留言。",
+          "chunkId": "sorry_to_interrupt_left_a_voicemail"
+        },
+        {
+          "id": "t5_2",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "No problem. He rarely leaves messages, so it must be important.",
+          "zh": "沒關係。他很少留言，一定是重要的事。"
+        },
+        {
+          "id": "t5_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Ms. Carter is out this morning. Can you summarize it for me?",
+          "zh": "Carter 小姐今天早上不在。你可以跟我講一下重點嗎？"
+        },
+        {
+          "id": "t5_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "He wants her to call him back sometime today.",
+          "zh": "他希望她今天找個時間回電給他。",
+          "chunkId": "wants_her_to_call_him_back"
+        },
+        {
+          "id": "t5_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Let me hear it. Yes, that's his voice.",
+          "zh": "我聽聽看。對，是他的聲音。"
+        },
+        {
+          "id": "t5_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Pause it here and write down his number.",
+          "zh": "在這裡按暫停，把他的號碼抄下來。"
+        },
+        {
+          "id": "t5_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "She has his mobile number, too. In England, they say mobile.",
+          "zh": "她也有他的手機號碼。英國人把手機叫 mobile。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "幫忙留言",
+      "newChunkIds": ["would_you_like_me_to_take_a_message", "tell_her_as_soon_as_shes_back"],
+      "newWordIds": [
+        "repeat",
+        "definitely",
+        "inquire",
+        "whenever",
+        "briefly",
+        "chat",
+        "hesitate",
+        "meantime"
+      ],
+      "cloze": [
+        {
+          "lineId": "t6_4",
+          "word": "date",
+          "distractors": ["voice", "extension"]
+        },
+        {
+          "lineId": "t6_5",
+          "word": "free",
+          "distractors": ["afraid", "urgent"]
+        },
+        {
+          "lineId": "t6_7",
+          "word": "email",
+          "distractors": ["drawer", "copier"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Hello, James Hughes again. Is Ms. Carter back yet?",
+          "zh": "您好，又是我，James Hughes。Carter 小姐回來了嗎？"
+        },
+        {
+          "id": "t6_2",
+          "role": "client",
+          "speaker": "npc",
+          "en": "I only need to chat with her briefly.",
+          "zh": "我只是想跟她簡單聊一下。"
+        },
+        {
+          "id": "t6_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Would you like me to take a message?",
+          "zh": "需要我幫您留言嗎？",
+          "chunkId": "would_you_like_me_to_take_a_message"
+        },
+        {
+          "id": "t6_4",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Yes, please. Tell her I'd like to inquire about a new delivery date.",
+          "zh": "好，麻煩你。跟她說我想問一下新的交貨日期。"
+        },
+        {
+          "id": "t6_5",
+          "role": "client",
+          "speaker": "npc",
+          "en": "She can call me whenever she's free today.",
+          "zh": "她今天有空的時候隨時都可以打給我。"
+        },
+        {
+          "id": "t6_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll tell her as soon as she's back.",
+          "zh": "她一回來我就馬上轉告她。",
+          "chunkId": "tell_her_as_soon_as_shes_back"
+        },
+        {
+          "id": "t6_7",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Thank you. In the meantime, I'll send her an email.",
+          "zh": "謝謝。這段時間我先寄封信給她。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "換我留言",
+      "newChunkIds": ["calling_from_harbor_trading_about_order"],
+      "newWordIds": [
+        "press",
+        "twice",
+        "shortly",
+        "tone",
+        "weekday",
+        "operator",
+        "directory",
+        "successfully",
+        "inquiry"
+      ],
+      "talks": [
+        {
+          "id": "hughes_office_system",
+          "kind": "monologue",
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "announcer",
+              "en": "Thank you for calling Hughes Home and Garden. Our office is now closed.",
+              "zh": "感謝您致電 Hughes Home and Garden。我們的辦公室現在已經下班了。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "announcer",
+              "en": "We are open on weekdays from nine o'clock to five thirty.",
+              "zh": "我們的上班時間是平日九點到五點半。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "announcer",
+              "en": "If you know the extension, dial it now.",
+              "zh": "如果您知道分機號碼，請現在撥。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "announcer",
+              "en": "For the staff directory, press one. For inquiries about an order, press two.",
+              "zh": "員工分機表請按一。訂單相關的詢問請按二。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "announcer",
+              "en": "To speak to an operator, please call back during office hours.",
+              "zh": "要找總機人員，請在上班時間再打來。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "announcer",
+              "en": "To repeat this message, press three.",
+              "zh": "要重聽這段訊息，請按三。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "announcer",
+              "en": "After the tone, please leave your message, and we will call you back shortly.",
+              "zh": "請在嗶聲後留言，我們會盡快回電給您。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "When is the office open?",
+              "zh": "這間辦公室什麼時候有人上班？",
+              "options": [
+                "Weekdays, 9:00 to 5:30",
+                "Every day, 9:00 to 5:00",
+                "Weekdays, 8:30 to 5:00"
+              ],
+              "answer": 0
+            },
+            {
+              "en": "Which key should you press about an order?",
+              "zh": "要問訂單的事，應該按哪個鍵？",
+              "options": ["One", "Two", "Nine"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "It's after five in England, so they might be closed.",
+          "zh": "英國那邊已經過五點了，他們可能下班了。"
+        },
+        {
+          "id": "t7_2",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Yes, it's their voicemail. Leave a message after the tone.",
+          "zh": "對，是語音信箱。嗶聲之後留言。"
+        },
+        {
+          "id": "t7_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm calling from Harbor Trading about your December order.",
+          "zh": "這裡是 Harbor Trading，打來是要跟您說十二月那筆訂單的事。",
+          "chunkId": "calling_from_harbor_trading_about_order"
+        },
+        {
+          "id": "t7_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Good. Now say your number twice, nice and slowly.",
+          "zh": "很好。現在把你的電話號碼慢慢地講兩次。"
+        },
+        {
+          "id": "t7_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Done? Then press one to send it.",
+          "zh": "講完了嗎？那就按一送出。"
+        },
+        {
+          "id": "t7_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "\"Message sent successfully.\" Great. He'll probably call back shortly.",
+          "zh": "「留言已成功送出。」很好。他大概很快就會回電。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "訊號不好的回電",
+      "newChunkIds": ["thanks_for_getting_back_to_me", "youre_breaking_up_a_little"],
+      "newWordIds": [
+        "connection",
+        "hardly",
+        "signal",
+        "concentrate",
+        "commute",
+        "loud",
+        "silent",
+        "temporarily"
+      ],
+      "spellWordIds": ["drawer", "pen", "copier", "cable", "bin"],
+      "cloze": [
+        {
+          "lineId": "t8_3",
+          "word": "commute",
+          "distractors": ["conversation", "extension"]
+        },
+        {
+          "lineId": "t8_6",
+          "word": "hear",
+          "distractors": ["press", "dial"]
+        },
+        {
+          "lineId": "t8_7",
+          "word": "fair",
+          "distractors": ["bin", "copier"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Hello, it's James Hughes. I got your message.",
+          "zh": "您好，我是 James Hughes。我聽到你的留言了。"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thanks for getting back to me so quickly.",
+          "zh": "謝謝您這麼快就回電給我。",
+          "chunkId": "thanks_for_getting_back_to_me"
+        },
+        {
+          "id": "t8_3",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Not at all. I'm on my commute, so it's loud.",
+          "zh": "不客氣。我在下班回家的路上，所以有點吵。"
+        },
+        {
+          "id": "t8_4",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Could we move the delivery to January the...?",
+          "zh": "交貨可以改到一月……嗎？"
+        },
+        {
+          "id": "t8_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sorry, you're breaking up a little.",
+          "zh": "不好意思，您的聲音有點斷斷續續。",
+          "chunkId": "youre_breaking_up_a_little"
+        },
+        {
+          "id": "t8_6",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Sorry, bad signal. I can hardly hear you.",
+          "zh": "抱歉，收訊不好。我幾乎聽不到你的聲音。",
+          "stage": {
+            "act": "want",
+            "item": "signal"
+          }
+        },
+        {
+          "id": "t8_7",
+          "role": "client",
+          "speaker": "npc",
+          "en": "January the fifteenth, then. I'll be at the fair in June.",
+          "zh": "那就一月十五號。六月的商展我會去。"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Hang on, I'm trying to concentrate on this email.",
+          "zh": "等一下，我在專心寫這封信。"
+        },
+        {
+          "id": "t9_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sorry to interrupt, but Mr. Hughes left a voicemail.",
+          "zh": "不好意思打斷你一下，Mr. Hughes 留了語音留言。",
+          "chunkId": "sorry_to_interrupt_left_a_voicemail"
+        },
+        {
+          "id": "t9_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "No problem. Ms. Carter went out, but she'll be back soon.",
+          "zh": "沒關係。Carter 小姐出去了，不過很快就回來。"
+        },
+        {
+          "id": "t9_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Should I text her or call her cellphone?",
+          "zh": "我要傳訊息給她，還是打她的手機？",
+          "chunkId": "text_her_or_call_her_cellphone"
+        },
+        {
+          "id": "t9_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Text her. Look, she already texted back. She wants you to call him.",
+          "zh": "傳訊息吧。你看，她已經回了。她要你打給他。"
+        },
+        {
+          "id": "t9_6",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Hughes Home and Garden, James Hughes speaking.",
+          "zh": "Hughes Home and Garden，我是 James Hughes。"
+        },
+        {
+          "id": "t9_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm calling from Harbor Trading about your December order.",
+          "zh": "這裡是 Harbor Trading，打來是要跟您說十二月那筆訂單的事。",
+          "chunkId": "calling_from_harbor_trading_about_order"
+        },
+        {
+          "id": "t9_8",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Thank you. I'd like the delivery on the... of January...",
+          "zh": "謝謝。我希望交貨改到一月的……"
+        },
+        {
+          "id": "t9_9",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sorry, you're breaking up a little.",
+          "zh": "不好意思，您的聲音有點斷斷續續。",
+          "chunkId": "youre_breaking_up_a_little"
+        },
+        {
+          "id": "t9_10",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Sorry, the line went silent. Let me call you right back.",
+          "zh": "抱歉，剛剛突然沒聲音了。我馬上回撥給你。"
+        },
+        {
+          "id": "t9_11",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "There's your phone. That's definitely him again.",
+          "zh": "你的電話響了。一定又是他。"
+        },
+        {
+          "id": "t9_12",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Hello, thank you for calling Harbor Trading.",
+          "zh": "Harbor Trading 您好，感謝您的來電。",
+          "chunkId": "thank_you_for_calling_harbor_trading"
+        },
+        {
+          "id": "t9_13",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Hello again, it's James Hughes. Is the connection better now?",
+          "zh": "又是我，James Hughes。現在收訊比較好了嗎？"
+        },
+        {
+          "id": "t9_14",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thanks for getting back to me so quickly.",
+          "zh": "謝謝您這麼快就回電給我。",
+          "chunkId": "thanks_for_getting_back_to_me"
+        },
+        {
+          "id": "t9_15",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Not at all. Is Ms. Carter back? I'd like a word with her.",
+          "zh": "不客氣。Carter 小姐回來了嗎？我想跟她說幾句。"
+        },
+        {
+          "id": "t9_16",
+          "role": "guide",
+          "speaker": "player",
+          "en": "One moment, please, I'll transfer you.",
+          "zh": "請稍等，我幫您轉接。",
+          "chunkId": "one_moment_ill_transfer_you"
+        },
+        {
+          "id": "t9_17",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Hello? Her phone just rings. Nobody's answering.",
+          "zh": "喂？她的電話一直響，沒有人接。"
+        },
+        {
+          "id": "t9_18",
+          "role": "guide",
+          "speaker": "player",
+          "en": "She might be in a meeting right now.",
+          "zh": "她現在可能在開會。",
+          "chunkId": "she_might_be_in_a_meeting"
+        },
+        {
+          "id": "t9_19",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Then please tell her the fifteenth of January is fine.",
+          "zh": "那請跟她說，一月十五號沒問題。"
+        },
+        {
+          "id": "t9_20",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll tell her as soon as she's back.",
+          "zh": "她一回來我就馬上轉告她。",
+          "chunkId": "tell_her_as_soon_as_shes_back"
+        },
+        {
+          "id": "t9_21",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Thank you. If she has questions, don't hesitate to call me.",
+          "zh": "謝謝。如果她有問題，儘管打給我。"
+        }
+      ]
+    }
+  ]
+}
