@@ -8,6 +8,7 @@ import {
   saveSettings,
   type Settings,
   type SettingsStorage,
+  devUnlockAll,
 } from '../src/core/settings';
 import { createStore } from '../src/core/store';
 
@@ -32,6 +33,7 @@ describe('sanitizeSettings', () => {
       voiceVolume: 0.2,
       sfxVolume: 0.3,
       showZh: false,
+      unlockAll: true,
     };
     expect(sanitizeSettings(s)).toEqual(s);
   });
@@ -49,6 +51,7 @@ describe('sanitizeSettings', () => {
       musicVolume: 'loud',
       sfxVolume: NaN,
       showZh: 'yes',
+      unlockAll: 1,
     });
     expect(s).toEqual(DEFAULT_SETTINGS);
   });
@@ -114,5 +117,18 @@ describe('DEFAULT_SETTINGS', () => {
   it('defaults to the Chirp voice and a lower music level', () => {
     expect(DEFAULT_SETTINGS.voiceMode).toBe('chirp');
     expect(DEFAULT_SETTINGS.musicVolume).toBe(0.25);
+  });
+});
+
+describe('devUnlockAll', () => {
+  it('opens every task only when dev mode is on, on the dev server', () => {
+    expect(devUnlockAll({ unlockAll: true }, true)).toBe(true);
+    expect(devUnlockAll({ unlockAll: false }, true)).toBe(false);
+    // A build ignores a saved unlockAll.
+    expect(devUnlockAll({ unlockAll: true }, false)).toBe(false);
+  });
+
+  it('is off by default', () => {
+    expect(DEFAULT_SETTINGS.unlockAll).toBe(false);
   });
 });

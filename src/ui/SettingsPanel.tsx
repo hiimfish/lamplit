@@ -2,7 +2,7 @@ import { useRef } from 'preact/hooks';
 import { playAudio } from '../audio/pronounce';
 import { playSfx } from '../audio/sfx';
 import type { VoiceMode } from '../audio/voices';
-import { settingsStore, type Settings } from '../core/settings';
+import { settingsStore, type Settings, DEV_TOOLS } from '../core/settings';
 import { useStore } from '../core/store';
 import './settings.css';
 import { useModal } from './useModal';
@@ -129,6 +129,25 @@ function ZhSwitch({ showZh }: { showZh: boolean }) {
   );
 }
 
+/** Dev server only: open every task, to try any of them without clearing the ones before. */
+function DevSwitch({ unlockAll }: { unlockAll: boolean }) {
+  return (
+    <div class="settings-group">
+      <button
+        type="button"
+        role="switch"
+        aria-checked={unlockAll}
+        class={`pixel-button settings-choice${unlockAll ? ' primary' : ''}`}
+        onClick={() => settingsStore.set({ unlockAll: !unlockAll })}
+        data-testid="dev-unlock-all"
+      >
+        開發模式（所有關卡都能玩）：{unlockAll ? '開' : '關'}
+      </button>
+      <p class="flow-note">只在開發伺服器出現，正式版不會有。</p>
+    </div>
+  );
+}
+
 const TITLE_ID = 'settings-title';
 
 /** Modal settings dialog. The caller dims and inerts the screen behind it. */
@@ -153,6 +172,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
       <VolumeGroup settings={settings} />
       <TestButtons />
       <ZhSwitch showZh={settings.showZh} />
+      {DEV_TOOLS && <DevSwitch unlockAll={settings.unlockAll} />}
       <button type="button" class="pixel-button settings-close" onClick={onClose}>
         關閉
       </button>

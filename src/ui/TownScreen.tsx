@@ -4,6 +4,7 @@ import { playSfx } from '../audio/sfx';
 import { UNITS } from '../content/units';
 import { appStore, currentNow } from '../core/appState';
 import { currentStreak } from '../core/save';
+import { devUnlockAll, settingsStore } from '../core/settings';
 import { useStore } from '../core/store';
 import { buildDailyReview, isTaskUnlocked, taskKey } from '../learning/sessionPlan';
 import './flow.css';
@@ -29,6 +30,7 @@ function LockMark() {
 export function TownScreen() {
   const { save } = useStore(appStore);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const openAll = devUnlockAll(useStore(settingsStore));
   useEffect(() => playMusic('town'), []);
 
   const now = currentNow();
@@ -67,6 +69,11 @@ export function TownScreen() {
           今日複習（{dueCount}）
         </button>
         {dueCount === 0 && <p class="flow-note">今天沒有要複習的，去玩新任務吧。</p>}
+        {openAll && (
+          <p class="flow-note" data-testid="dev-note">
+            開發模式：所有關卡都開放（在設定裡關掉）。
+          </p>
+        )}
 
         {UNITS.map((unit) => (
           <section class="building" key={unit.id}>
@@ -77,7 +84,7 @@ export function TownScreen() {
               </span>
             </h2>
             {unit.tasks.map((task, index) => {
-              const unlocked = isTaskUnlocked(save, unit, index);
+              const unlocked = openAll || isTaskUnlocked(save, unit, index);
               const record = save.tasks[taskKey(unit.id, task.id)];
               return (
                 <button

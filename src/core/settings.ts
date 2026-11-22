@@ -9,6 +9,8 @@ export interface Settings {
   sfxVolume: number;
   /** Show Chinese translations next to English. */
   showZh: boolean;
+  /** Dev mode: every task in the town is open (see devUnlockAll). */
+  unlockAll: boolean;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -17,6 +19,7 @@ export const DEFAULT_SETTINGS: Settings = {
   voiceVolume: 1,
   sfxVolume: 0.7,
   showZh: true,
+  unlockAll: false,
 };
 
 export const SETTINGS_KEY = 'pixel-english-town.settings.v1';
@@ -45,7 +48,19 @@ export function sanitizeSettings(raw: unknown): Settings {
     voiceVolume: volumeOr(r.voiceVolume, DEFAULT_SETTINGS.voiceVolume),
     sfxVolume: volumeOr(r.sfxVolume, DEFAULT_SETTINGS.sfxVolume),
     showZh: typeof r.showZh === 'boolean' ? r.showZh : DEFAULT_SETTINGS.showZh,
+    unlockAll: typeof r.unlockAll === 'boolean' ? r.unlockAll : DEFAULT_SETTINGS.unlockAll,
   };
+}
+
+/**
+ * Dev tools (the unlock-all switch) exist only on the dev server (npm run dev,
+ * dev:https); a build ignores the saved setting, so players never see it.
+ */
+export const DEV_TOOLS = import.meta.env.DEV;
+
+/** True when every task should be open: dev mode is on, on the dev server. */
+export function devUnlockAll(settings: Pick<Settings, 'unlockAll'>, devTools = DEV_TOOLS): boolean {
+  return devTools && settings.unlockAll;
 }
 
 /** Never throws: missing storage, missing key or corrupt JSON all give defaults. */
