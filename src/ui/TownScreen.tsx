@@ -10,7 +10,8 @@ import { buildDailyReview, isTaskUnlocked, taskKey } from '../learning/sessionPl
 import './flow.css';
 import { SettingsPanel } from './SettingsPanel';
 
-const COMING_SOON = ['便利商店', '街道與公車站', '超市與市集'];
+// The first locations of Act 2 (docs/specs/curriculum.md).
+const COMING_SOON = ['銀行', '社區中心', '圖書館'];
 
 /** Earned stars as ★ and the rest as ☆, in separate spans so they can be styled apart. */
 export function StarMarks({ n }: { n: number }) {

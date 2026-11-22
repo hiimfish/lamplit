@@ -28,8 +28,10 @@ function pictureUrl(id: string): string | undefined {
 
 /**
  * 看圖選句: a picture and a few sentences; pick the one that describes it. The right
- * sentence is spoken once answered. The Chinese shows only after answering: before that
- * it would let the learner match the picture without reading the English.
+ * sentence is spoken once answered. The Chinese shows only after answering (before that
+ * it would let the learner match the picture without reading the English), and only on the
+ * right sentence and the one picked, so the answered question still fits a phone screen.
+ * For the same reason the feedback does not repeat the right sentence: its key is marked.
  */
 export function PictureChoose({ question, onAnswered }: MinigameProps<PictureQuestion>) {
   const clock = useAnswerClock();
@@ -83,7 +85,7 @@ export function PictureChoose({ question, onAnswered }: MinigameProps<PictureQue
             >
               <span class="mg-say">
                 <span lang="en">{option.en}</span>
-                {showZh && picked !== null && <span class="mg-pair-zh">{option.zh}</span>}
+                {showZh && state !== '' && <span class="mg-pair-zh">{option.zh}</span>}
               </span>
             </button>
           );
@@ -91,11 +93,7 @@ export function PictureChoose({ question, onAnswered }: MinigameProps<PictureQue
       </div>
       <FeedbackSlot>
         {picked !== null && (
-          <Feedback
-            correct={isRight}
-            hint={isRight ? undefined : '再看一次圖裡的人在做什麼。'}
-            answer={right?.en}
-          />
+          <Feedback correct={isRight} hint={isRight ? undefined : '再看一次圖裡的人在做什麼。'} />
         )}
       </FeedbackSlot>
     </div>
