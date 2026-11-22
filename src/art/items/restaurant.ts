@@ -1,4 +1,693 @@
+/** Item icons for the restaurant unit. */
 import type { PixelSprite } from '../../game/sprites';
+import { withShadow } from './draw';
 
-/** Word pictures of the restaurant (none drawn yet). */
-export const RESTAURANT_ITEMS: Readonly<Record<string, PixelSprite>> = {};
+// ---------------------------------------------------------------------------
+// Menu: a standing folded menu, red cover with a gold fork and knife on the
+// left, the page of dishes and prices on the right.
+// O lit outline, o shade outline, r cover, m cover shade, P fold, h gold emblem,
+// w page, g page shade, R heading, G dish lines, a prices, z shadow.
+
+const MENU: PixelSprite = {
+  rows: withShadow(
+    [
+      '........................',
+      '........................',
+      '..OOOOO..........OOOOo..',
+      '..OrrrrOOOOOOOOOOwwwwo..',
+      '..OrrrrrrrmPgwwwwwwwwo..',
+      '..OrrrrrrrmPgwwwwwwwwo..',
+      '..OrhrhrrhmPgwRRRRwwwo..',
+      '..OrhrhrhhmPgwwwwwwwwo..',
+      '..OrhhhrhhmPgwGGGGwawo..',
+      '..OrrhrrhhmPgwwwwwwwwo..',
+      '..OrrhrrhhmPgwGGGwwawo..',
+      '..OrrhrrhhmPgwwwwwwwwo..',
+      '..OrrhrrrhmPgwGGGGwawo..',
+      '..OrrhrrrhmPgwwwwwwwwo..',
+      '..OrrhrrrhmPgwGGGwwawo..',
+      '..OrrhrrrhmPgwwwwwwwwo..',
+      '..OrrrrrrrmPgwGGGGwawo..',
+      '..OrhhhhhhmPgwwwwwwwwo..',
+      '..OrrrrrrmmPgwwwwwwggo..',
+      '..Orrmmoooooooooowwggo..',
+      '..ooooo..........ooooo..',
+      '........................',
+      '........................',
+      '........................',
+    ],
+    { cx: 12, cy: 20.8, rx: 11, ry: 1.8, key: 'z' },
+  ),
+  legend: {
+    O: 'maroon',
+    o: 'plum',
+    r: 'red',
+    m: 'maroon',
+    P: 'plum',
+    h: 'honey',
+    w: 'paper',
+    g: 'fog',
+    R: 'red',
+    G: 'concrete',
+    a: 'amber',
+    z: 'fog',
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Soup: a blue bowl of pumpkin soup with a swirl of cream, a spoon in it and
+// steam rising.
+// O lit outline, o shade outline, m inner wall, k glaze light, b glaze, d glaze shade,
+// w band and cream, G band shade, h soup light, y soup, a soup shade, l herb,
+// f steam and spoon light, S spoon shade, z shadow.
+
+const SOUP: PixelSprite = {
+  rows: withShadow(
+    [
+      '........................',
+      '.......q....q...........',
+      '........q....q.......fS.',
+      '........q....q......fS..',
+      '.......q....q......fS...',
+      '......q....q......fS....',
+      '.......q....q....fS.....',
+      '................fS......',
+      '......OOOOOOOOOfSO......',
+      '...OOOmmmmmmmmfSmmooo...',
+      '..OmmhhhhhhyyfSyyyymmo..',
+      '.Obhhhyywwyylyyyyyyaabo.',
+      '.Okbbyylyywwyyyyyaabbdo.',
+      '..Okbbbbbbbbbbbbbbbbdo..',
+      '..Okkbbbbbbbbbbbbbbddo..',
+      '...Okbbbbbbbbbbbbbddo...',
+      '...OwwwwwwwwwwwwwwGGo...',
+      '....Obbbbbbbbbbbbddo....',
+      '.....Obbbbbbbbbdddo.....',
+      '.......oddddddddo.......',
+      '.......oooooooooo.......',
+      '........................',
+      '........................',
+      '........................',
+    ],
+    { cx: 12, cy: 20.6, rx: 10, ry: 1.8, key: 'z' },
+  ),
+  legend: {
+    O: 'sky',
+    o: 'deep',
+    m: 'indigo',
+    k: 'sky',
+    b: 'denim',
+    d: 'indigo',
+    w: 'paper',
+    G: 'fog',
+    h: 'honey',
+    y: 'lamp',
+    a: 'amber',
+    l: 'leaf',
+    q: 'concrete',
+    f: 'fog',
+    S: 'stone',
+    z: 'fog',
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Salad: a wooden bowl heaped with lettuce, cherry tomatoes, a slice of egg and
+// rings of purple onion.
+// M leaf outline, l lettuce, L lettuce shade, r tomato, n tomato glint, R tomato shade,
+// w egg white, g egg shade, y yolk, h yolk light, v onion,
+// E bowl lit outline, P bowl shade outline, t wood light, a wood, e wood shade, z shadow.
+
+const SALAD: PixelSprite = {
+  rows: withShadow(
+    [
+      '........................',
+      '........................',
+      '........................',
+      '.........MMM....MM......',
+      '.......MMlllMMMMllM.....',
+      '.....MMllvvlllMllllMM...',
+      '....MlllMllwwllvvlllM...',
+      '...MllrrllwyywMllvllLM..',
+      '..MllrnrRlwyhwllrrlLLM..',
+      '..MlMrrrRlMggllrnrRlLM..',
+      '.MlllMRRlvvvllMrrrRLLlM.',
+      '.MllMlllvlllvllMRRLlLLM.',
+      '.EMlMEEEMllMEEEEMlLMEEP.',
+      '.EttttttttttttttttttaaP.',
+      '.EtaaaaaaaaaaaaaaaaaeeP.',
+      '..EtaaaaaaaaaaaaaaaeeP..',
+      '..EtaaaaaaaaaaaaaaeeeP..',
+      '...EtaaaaaaaaaaaaeeeP...',
+      '....EaaaaaaaaaaeeeeP....',
+      '.....PPaaaaaaeeeePP.....',
+      '.......PPPPPPPPPP.......',
+      '........................',
+      '........................',
+      '........................',
+    ],
+    { cx: 12, cy: 20.6, rx: 10, ry: 1.8, key: 'z' },
+  ),
+  legend: {
+    M: 'moss',
+    l: 'leaf',
+    L: 'moss',
+    r: 'red',
+    n: 'neon',
+    R: 'maroon',
+    w: 'paper',
+    g: 'fog',
+    y: 'lamp',
+    h: 'honey',
+    v: 'violet',
+    E: 'ember',
+    P: 'plum',
+    t: 'tan',
+    a: 'amber',
+    e: 'ember',
+    z: 'fog',
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Steak: a grilled steak with dark grill marks on a white plate, a sprig of
+// green and a cherry tomato beside it.
+// O lit outline, o shade outline, w plate, g plate shade, E meat lit outline,
+// P meat shade outline, k fat, a seared meat, e meat shade, p grill marks,
+// l sprig, M sprig shade, r tomato, n tomato glint, R tomato shade, z shadow.
+
+const STEAK: PixelSprite = {
+  rows: withShadow(
+    [
+      '........................',
+      '........................',
+      '........................',
+      '.......OOOOOOOOOO.......',
+      '.....OOwwwwwwwwwwOO.....',
+      '....Owwwwwwwwwwwwllo....',
+      '...OwwwwEEEEEEwwllMlo...',
+      '..OwwwEEpkkappEEMllMwo..',
+      '.OwwwEkkppaaappaEMlMwwo.',
+      '.OwwEpkaappaaappePwwwwo.',
+      '.OwwEppaaappaaeppPwwwwo.',
+      '.OwwEappaaappeeepPwrrwo.',
+      '.OwwEaappaeeppeeePrnrRo.',
+      '.OwwwPeeppeeeppePwrrrRo.',
+      '.OwwwgPPPPPPPPPPgwwRRwo.',
+      '..Owwwggggggggggggwwgo..',
+      '...owwwwwwwwwwwwwwggo...',
+      '....owwwwwwwwwwwgggo....',
+      '.....ooggggggggggoo.....',
+      '.......oooooooooo.......',
+      '........................',
+      '........................',
+      '........................',
+      '........................',
+    ],
+    { cx: 12, cy: 19.6, rx: 11.5, ry: 2, key: 'z' },
+  ),
+  legend: {
+    O: 'concrete',
+    o: 'stone',
+    w: 'paper',
+    g: 'fog',
+    E: 'ember',
+    P: 'plum',
+    k: 'skin',
+    a: 'amber',
+    e: 'ember',
+    p: 'plum',
+    l: 'leaf',
+    M: 'moss',
+    r: 'red',
+    n: 'neon',
+    R: 'maroon',
+    z: 'fog',
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Dessert: a sundae in a footed glass: a chocolate and a vanilla scoop under
+// whipped cream with chocolate sauce, a cherry on top and a wafer stick.
+// M cherry stalk, r cherry, n cherry glint, R cherry shade, O cream lit outline,
+// o cream shade outline, w cream, g cream shade, c chocolate sauce, y wafer and
+// vanilla shade, a wafer shade, P chocolate outline, e chocolate, t chocolate light,
+// p chocolate shade, h vanilla, A vanilla outline, B glass light, D glass shade,
+// x glass glint, k glass, z shadow.
+
+const DESSERT: PixelSprite = {
+  rows: withShadow(
+    [
+      '.............MM.........',
+      '...........rrM.....ya...',
+      '..........rnrR....ya....',
+      '........OOrrrROO.ya.....',
+      '......OOwwwRRwwwyao.....',
+      '.....Owwwwccccwyago.....',
+      '....Owwwwcwccwcwwggo....',
+      '....Owwwwcwwcwcwgggo....',
+      '...PeteeOwwwcwgOhhhyA...',
+      '...PeeeeeOOOOOOhhhhyA...',
+      '...BBBBBBBBBBBBBBBBBD...',
+      '...BxhhhhhhhhhhhhhyyD...',
+      '....BxhhhhhhhhhhhyyD....',
+      '....BxwwwwwwwwwwwggD....',
+      '.....BxwwwwwwwwwggD.....',
+      '......BxeeeeeeeppD......',
+      '.......BxeeeeeppD.......',
+      '.........BBkkDD.........',
+      '..........BxkD..........',
+      '..........BxkD..........',
+      '.......BBBxkkkDDD.......',
+      '.......DDDDDDDDDD.......',
+      '........................',
+      '........................',
+    ],
+    { cx: 12, cy: 21.6, rx: 8.5, ry: 1.6, key: 'z' },
+  ),
+  legend: {
+    M: 'moss',
+    r: 'red',
+    n: 'neon',
+    R: 'maroon',
+    O: 'concrete',
+    o: 'stone',
+    w: 'paper',
+    g: 'fog',
+    c: 'ember',
+    y: 'lamp',
+    a: 'amber',
+    P: 'plum',
+    e: 'ember',
+    t: 'tan',
+    p: 'plum',
+    h: 'honey',
+    A: 'amber',
+    B: 'sky',
+    D: 'denim',
+    x: 'cyan',
+    k: 'sky',
+    z: 'fog',
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Music: two big beamed notes, a small pink note and a spark of sound.
+// D outline, c note light, t note, s note shade, p small note, q small note shade,
+// y spark, z shadow.
+
+const MUSIC: PixelSprite = {
+  rows: withShadow(
+    [
+      '........................',
+      '....p...................',
+      '....pp..........DDDDDDD.',
+      '....p.p.....DDDDDcccccD.',
+      '....p.p.DDDDDcccctttctD.',
+      '....p...DcccctttttttctD.',
+      '....p...DctttttttDDDctD.',
+      '....p...DctttDDDD..DctD.',
+      '..ppp...DctDD......DctD.',
+      '.pppq...DctD...y...DctD.',
+      '..pq....DctD..yyy..DctD.',
+      '........DctD...y...DctD.',
+      '........DctD.....DDDctD.',
+      '........DctD....DcctttD.',
+      '......DDDctD...DctttttD.',
+      '.....DcctttD..DctttttsD.',
+      '....DctttttD..DttttssD..',
+      '...DctttttsD...DtsssD...',
+      '...DttttssD.....DDDD....',
+      '....DtsssD..............',
+      '.....DDDD...............',
+      '........................',
+      '........................',
+      '........................',
+    ],
+    { cx: 12, cy: 20.8, rx: 10.5, ry: 1.8, key: 'z' },
+  ),
+  legend: {
+    D: 'deep',
+    c: 'cyan',
+    t: 'teal',
+    s: 'indigo',
+    p: 'neon',
+    q: 'neonDeep',
+    y: 'lamp',
+    z: 'fog',
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Movie: a clapperboard, its striped stick raised, chalk lines on the slate.
+// O lit outline, o shade outline, w white stripe, K black stripe, s slate,
+// n slate shade, S ruled lines, f chalk writing, z shadow.
+
+const MOVIE: PixelSprite = {
+  rows: withShadow(
+    [
+      '........................',
+      '................OOOOOO..',
+      '...........OOOOOKKwwwo..',
+      '......OOOOOKwwwKKwwwKo..',
+      '..OOOOwwwKKwwwKKwwwKKo..',
+      '..OKKKwwKKKwwKKKoooooo..',
+      '..OKKwwKKKwooooo........',
+      '..OKwwooooo.............',
+      '..OOOOOOOOOOOOOOOOOOOO..',
+      '..OwwwKKKwwwKKKwwwKKKo..',
+      '..OKwwwKKKwwwKKKwwwKKo..',
+      '..OKKwwwKKKwwwKKKwwwKo..',
+      '..OOOOOOOOOOOOOOOOOOOo..',
+      '..Osssssssssssssssssso..',
+      '..Osffffffssfffffffsno..',
+      '..Osssssssssssssssssno..',
+      '..OSSSSSSSSSSSSSSSSSSo..',
+      '..OsssssSsssssSsssssno..',
+      '..OsfffsSsfffsSsfffsno..',
+      '..OsssssSsssssSssnnnno..',
+      '..oooooooooooooooooooo..',
+      '........................',
+      '........................',
+      '........................',
+    ],
+    { cx: 12, cy: 20.8, rx: 11, ry: 1.8, key: 'z' },
+  ),
+  legend: {
+    O: 'stone',
+    o: 'slate',
+    w: 'paper',
+    K: 'ink',
+    s: 'slate',
+    n: 'night',
+    S: 'stone',
+    f: 'fog',
+    z: 'fog',
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Party: a striped party hat with a pom-pom and a frilly brim, confetti and a
+// curly streamer flying around it.
+// E pom-pom lit outline, P pom-pom shade outline, Y gold light, y gold, a gold shade,
+// O lit outline, o shade outline, m cone light, v cone, u cone shade, h stripe,
+// n streamer and confetti, c, r, l confetti, z shadow.
+
+const PARTY: PixelSprite = {
+  rows: withShadow(
+    [
+      '...........EE...........',
+      '..........EYyP....nn..y.',
+      '......nn..EyaP.....nn.y.',
+      '...cc......Oo......nn...',
+      '...cc.....Omvo....nn....',
+      '..........Omvo...nn..cc.',
+      '.........Omvhyo..nn..cc.',
+      '.........Omhhuo...nn....',
+      '.....rr.Omhhvuuo...nn...',
+      '.ll.....Ohhvvuuo...nn...',
+      '.ll....Ohhvvvvyyo.nn....',
+      '.......Ohvvvvhyuo....ll.',
+      '......Ohvvvvhhvuuo......',
+      '...y..Omvvvhhvvuuo......',
+      '...y.Omvvvhhvvvvyyo.rr..',
+      '.n...Omvvhhvvvvhyuo.....',
+      '.n..Omvvhhvvvvhhvuuo.cc.',
+      '....Omvhhvvvvhhvvuuo....',
+      '...YyyYyyYyyYyyyyyyaa...',
+      '...aa.aa.aa.aa.aa.aa....',
+      '........................',
+      '........................',
+      '........................',
+      '........................',
+    ],
+    { cx: 12, cy: 20.4, rx: 10, ry: 1.8, key: 'z' },
+  ),
+  legend: {
+    E: 'ember',
+    P: 'plum',
+    Y: 'honey',
+    y: 'lamp',
+    a: 'amber',
+    O: 'dusk',
+    o: 'indigo',
+    m: 'mauve',
+    v: 'violet',
+    u: 'dusk',
+    h: 'honey',
+    n: 'neon',
+    c: 'cyan',
+    r: 'red',
+    l: 'leaf',
+    z: 'fog',
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Game: a light grey game controller with a black cross pad and four coloured
+// buttons.
+// O lit outline, o shade outline, w shell light, g shell, G shell shade, K cross pad,
+// S small buttons, Y, y, a yellow button, k, b, d blue button, n, r, R red button,
+// l, M green button, z shadow.
+
+const GAME: PixelSprite = {
+  rows: withShadow(
+    [
+      '........................',
+      '........................',
+      '........................',
+      '........................',
+      '........................',
+      '....OOOO........OOOO....',
+      '...OOOOOOOOOOOOOOOOOO...',
+      '..Owwwwwwwwwwwwwwwwwwo..',
+      '.OwggKKggggggggggYyggGo.',
+      '.OwggKKggggggggggyaggGo.',
+      '.OwKKKKKKgSggSgkbggnrGo.',
+      '.OwKKKKKKggggggbdggrRGo.',
+      '.OwggKKggggggggggllggGo.',
+      '.OwggKKgggggggggglMggGo.',
+      '.OwggggggGGGGGGgggggGGo.',
+      '.OwgggggGooooooggggGGGo.',
+      '.OwggggGo......OggggGGo.',
+      '..OggGGo........OgGGGo..',
+      '...oooo..........oooo...',
+      '........................',
+      '........................',
+      '........................',
+      '........................',
+      '........................',
+    ],
+    { cx: 12, cy: 19, rx: 11.5, ry: 2, key: 'z' },
+  ),
+  legend: {
+    O: 'stone',
+    o: 'slate',
+    w: 'paper',
+    g: 'fog',
+    G: 'concrete',
+    K: 'ink',
+    S: 'stone',
+    Y: 'honey',
+    y: 'lamp',
+    a: 'amber',
+    k: 'sky',
+    b: 'denim',
+    d: 'indigo',
+    n: 'neon',
+    r: 'red',
+    R: 'maroon',
+    l: 'leaf',
+    M: 'moss',
+    z: 'fog',
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Wine: a green bottle of red wine with a red cap and a white label, and a
+// stemmed glass filled with wine.
+// r foil, label band and wine, R their shade, y gold ring, a gold shade,
+// M bottle outline and shade, l bottle, K bottle shade outline, w label and glass,
+// g their shade, G label print, B glass light, D glass shade, x glass glint,
+// k glass, n wine light, z shadow.
+
+const WINE: PixelSprite = {
+  rows: withShadow(
+    [
+      '........................',
+      '.....rrR................',
+      '.....rrR................',
+      '.....rrR................',
+      '.....yya................',
+      '.....lMK.....BBBBBBBB...',
+      '.....lMK....BxwwwwwwgD..',
+      '....MllMK...BxwwwwwwgD..',
+      '...MlllMMK..BnnnnnnnrD..',
+      '..MlwllMMMK.BnrrrrrrRD..',
+      '..MlwllMMMK.BnrrrrrrRD..',
+      '..MllllMMMK.BrrrrrrRRD..',
+      '..MwwwwwwgK..BrrrrRRD...',
+      '..MwwwwwwgK...BrrRRD....',
+      '..MrrrrrrRK....BBDD.....',
+      '..MwwwwwwgK.....BD......',
+      '..MwGGGGwgK.....BD......',
+      '..MwwwwwwgK.....BD......',
+      '..MllllMMMK.....BD......',
+      '..MllllMMMK...BBxkDD....',
+      '..KKKKKKKKK..BBBBDDDD...',
+      '........................',
+      '........................',
+      '........................',
+    ],
+    { cx: 12, cy: 20.8, rx: 11, ry: 1.6, key: 'z' },
+  ),
+  legend: {
+    r: 'red',
+    R: 'maroon',
+    y: 'lamp',
+    a: 'amber',
+    M: 'moss',
+    l: 'leaf',
+    K: 'ink',
+    w: 'paper',
+    g: 'fog',
+    G: 'concrete',
+    B: 'sky',
+    D: 'denim',
+    x: 'cyan',
+    k: 'sky',
+    n: 'neon',
+    z: 'fog',
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Birthday: a whole round cake, white icing dripping over pink sides, on a
+// plate, with three lit candles.
+// y flame, h flame core, a flame base, c, t blue candle, b, B violet candle,
+// l, M green candle, O lit outline, o shade outline, w icing, g icing shade,
+// n cake side, N side shade, S plate outline, z shadow.
+
+const BIRTHDAY: PixelSprite = {
+  rows: withShadow(
+    [
+      '......y....y....y.......',
+      '......hy...hy...hy......',
+      '......ya...ya...ya......',
+      '......ct...bB...lM......',
+      '......ct...bB...lM......',
+      '......ct...bB...lM......',
+      '......ct...bB...lM......',
+      '......ctOOObBOOOlM......',
+      '....OOctwwwbBwwwlMOO....',
+      '...OwwctwwwbBwwwlMwwo...',
+      '...Owwwggwwwggwwwggwo...',
+      '...Owwwwwwwwwwwwwwwgo...',
+      '...Owwnwwwwnnwwwwnwgo...',
+      '...OwnnnwwnnnnwwnnnNo...',
+      '...OnnnnnnnnnnnnnnNNo...',
+      '...OnwnnwnnwnnwnnwNNo...',
+      '...OnnnnnnnnnnnnnNNNo...',
+      '.SSOnnNNNNNNNNNNNNNNoSS.',
+      '.SwwooooooooooooooooggS.',
+      '..SSggggggggggggggggSS..',
+      '....SSSSSSSSSSSSSSSS....',
+      '........................',
+      '........................',
+      '........................',
+    ],
+    { cx: 12, cy: 20.6, rx: 11, ry: 1.8, key: 'z' },
+  ),
+  legend: {
+    y: 'lamp',
+    h: 'honey',
+    a: 'amber',
+    c: 'cyan',
+    t: 'teal',
+    b: 'mauve',
+    B: 'violet',
+    l: 'leaf',
+    M: 'moss',
+    O: 'neonDeep',
+    o: 'maroon',
+    w: 'paper',
+    g: 'fog',
+    n: 'neon',
+    N: 'neonDeep',
+    S: 'stone',
+    z: 'fog',
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Check: a long till receipt with a bold total, lying across a round black bill
+// tray with a gold coin beside it.
+// O lit outline, o shade outline, w paper, K print, G item lines, R total,
+// S tray lit outline, t tray rim light, s tray rim shade, n tray, k tray shade outline,
+// E coin lit outline, P coin shade outline, h coin light, y gold, a gold shade, z shadow.
+
+const CHECK: PixelSprite = {
+  rows: withShadow(
+    [
+      '........................',
+      '.......O.O.O.O..........',
+      '......OwOwOwOwo.........',
+      '......Owwwwwwwo.........',
+      '......OwKKKKKwo.........',
+      '......Owwwwwwwo.........',
+      '......OwGGGwGwo.........',
+      '......Owwwwwwwo.........',
+      '......OwGGwwGwo.........',
+      '......OwwwwwwwoSS.......',
+      '.....SOwGGGwGwottSS.....',
+      '...SStOwwwwwwwottttSS...',
+      '..SttnOwKKKKKwonEEEttk..',
+      '.SttnnOwwwwwwwoEhhyPssk.',
+      '.SttnnOwKKwRRwoEhyyPssk.',
+      '.SttnnOwwwwwwwoEyyaPssk.',
+      '.StsnnOwwwwwwwonPPPnssk.',
+      '..kssnooooooooonnnnssk..',
+      '...kkssnnnnnnnnnnsskk...',
+      '.....kksssssssssskk.....',
+      '.......kkkkkkkkkk.......',
+      '........................',
+      '........................',
+      '........................',
+    ],
+    { cx: 12, cy: 20.8, rx: 11.5, ry: 1.8, key: 'z' },
+  ),
+  legend: {
+    O: 'concrete',
+    o: 'slate',
+    w: 'paper',
+    K: 'ink',
+    G: 'concrete',
+    R: 'red',
+    S: 'concrete',
+    t: 'stone',
+    s: 'slate',
+    n: 'night',
+    k: 'ink',
+    E: 'ember',
+    P: 'plum',
+    h: 'honey',
+    y: 'lamp',
+    a: 'amber',
+    z: 'fog',
+  },
+};
+
+export const RESTAURANT_ITEMS: Readonly<Record<string, PixelSprite>> = {
+  menu: MENU,
+  soup: SOUP,
+  salad: SALAD,
+  steak: STEAK,
+  dessert: DESSERT,
+  music: MUSIC,
+  movie: MOVIE,
+  party: PARTY,
+  game: GAME,
+  wine: WINE,
+  birthday: BIRTHDAY,
+  check: CHECK,
+};
