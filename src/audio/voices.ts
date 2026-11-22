@@ -11,10 +11,16 @@ export type VoiceMode = 'neural2' | 'chirp';
 export type Speed = 'normal' | 'slow';
 
 export const VOICE_NAMES: Record<VoiceMode, Record<Role, string>> = {
-  neural2: { barista: 'en-US-Neural2-C', landlord: 'en-US-Neural2-D', guide: 'en-US-Neural2-A' },
+  neural2: {
+    barista: 'en-US-Neural2-C',
+    landlord: 'en-US-Neural2-D',
+    neighbor: 'en-US-Neural2-F',
+    guide: 'en-US-Neural2-A',
+  },
   chirp: {
     barista: 'en-US-Chirp3-HD-Achernar',
     landlord: 'en-US-Chirp3-HD-Charon',
+    neighbor: 'en-US-Chirp3-HD-Aoede',
     guide: 'en-US-Chirp3-HD-Achird',
   },
 };

@@ -55,7 +55,8 @@
 | `chunks[].accept`      | 其他可接受的寫法，用於排句子等題型                                                                                                |
 | `chunks[].note`        | 一行中文文法小抄（選填）                                                                                                          |
 | `chunks[].distractors` | 似是而非的錯誤說法，各自標上錯誤類型，用來給具體回饋                                                                              |
-| `words[].emoji`        | 備用圖。正式圖示是 `src/art/items.ts` 裡的像素圖，沒有像素圖時才顯示 emoji                                                        |
+| `words[].emoji`        | 備用圖。正式圖示是 `src/art/items/` 裡的像素圖，沒有像素圖時才顯示 emoji                                                          |
+| `words[].abstract`     | 選填。抽象或不好畫的字（welcome、okay、數字、動詞）標 `true`，不畫像素圖，一律顯示 emoji。具體名詞不要標                          |
 | `scene[].role`         | 誰的聲音：`barista`（店員）、`landlord`（房東）或 `guide`（你和詞塊、單字、對比詞的發音）                                         |
 | `scene[].speaker`      | `npc` 是角色說的，`player` 是學習者要說的                                                                                         |
 | `scene[].chunkId`      | `player` 台詞一定要有，指向它練習的詞塊                                                                                           |
@@ -117,7 +118,7 @@
 
 1. 在 `src/data/units/` 新增 JSON 檔，照上面的格式寫。
 2. 執行 `npx vitest run tests/content.test.ts`，確認內容檢查通過。
-3. 為新單字在 `src/art/items.ts` 畫 24×24 像素圖（規格見 [visual-style.md](visual-style.md)）；`tests/items.test.ts` 會檢查每個單字都有圖。
+3. 為新的具體名詞在 `src/art/items/<單元>.ts` 畫 24×24 像素圖，並登記到該檔的對照表（規格見 [visual-style.md](visual-style.md)）；`tests/items.test.ts` 會檢查每個沒標 `abstract` 的單字都有圖。
 4. 產生發音音檔，步驟見 [audio.md](audio.md) 的「產生音檔」。
 5. 上線前請英文好的人看過句子，確認自然道地。
 

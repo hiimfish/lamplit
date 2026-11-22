@@ -13,14 +13,15 @@ import { isPaletteName, PALETTE } from '../src/game/palette';
 
 const UNITS_DIR = join(__dirname, '../src/data/units');
 
-function unitWordIds(): string[] {
+/** Word ids that need a pixel icon: every word not marked `abstract`. */
+function concreteWordIds(): string[] {
   return readdirSync(UNITS_DIR)
     .filter((f) => f.endsWith('.json'))
     .flatMap((f) => {
       const unit = JSON.parse(readFileSync(join(UNITS_DIR, f), 'utf8')) as {
-        words: { id: string }[];
+        words: { id: string; abstract?: boolean }[];
       };
-      return unit.words.map((w) => w.id);
+      return unit.words.filter((w) => !w.abstract).map((w) => w.id);
     });
 }
 
@@ -44,8 +45,8 @@ describe('item icons', () => {
     expect(painted).toBeGreaterThan(ITEM_SIZE * ITEM_SIZE * 0.25);
   });
 
-  it('has an icon for every word in every unit', () => {
-    const ids = unitWordIds();
+  it('has an icon for every concrete word in every unit', () => {
+    const ids = concreteWordIds();
     expect(ids.length).toBeGreaterThan(0);
     expect(ids.filter((id) => !getItemSprite(id))).toEqual([]);
   });

@@ -1,7 +1,7 @@
 /** Shared content shapes. Content lives in src/data/units/*.json; code never hard-codes lessons. */
 
 /** Who speaks a line. Each role has one fixed voice per voice family (see src/audio/voices.ts). */
-export type Role = 'barista' | 'landlord' | 'guide';
+export type Role = 'barista' | 'landlord' | 'neighbor' | 'guide';
 
 export interface Chunk {
   /** e.g. "can_i_get". Audio id is `${unitId}.chunk.${id}`. */
@@ -23,6 +23,11 @@ export interface Word {
   zh: string;
   /** Placeholder picture until real pixel art exists. */
   emoji: string;
+  /**
+   * An abstract or hard-to-draw word (welcome, okay, numbers, verbs): it needs no
+   * pixel icon and always shows its emoji. Concrete nouns leave this out.
+   */
+  abstract?: boolean;
 }
 
 export interface SceneLine {

@@ -101,8 +101,10 @@ describe('listen-pair questions', () => {
     for (const task of unit.tasks) {
       const qs = buildTaskPractice(unit, task, makeRng(3));
       const pairs = pairQuestions(qs);
-      expect(pairs).toHaveLength(task.newPairIds!.length * 2);
-      for (const pairId of task.newPairIds!) {
+      const pairIds = task.newPairIds ?? [];
+      expect(pairs).toHaveLength(pairIds.length * 2);
+      if (pairIds.length === 0) continue;
+      for (const pairId of pairIds) {
         const forPair = pairs.filter((q) => q.itemId === `pair:${pairId}`);
         expect(forPair.map((q) => q.correctId).sort()).toEqual(
           [...forPair[0]!.options.map((o) => o.id)].sort(),

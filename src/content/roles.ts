@@ -4,5 +4,6 @@ import type { Role } from './types';
 export const ROLE_LABEL: Record<Role, string> = {
   barista: '店員',
   landlord: '房東',
+  neighbor: '鄰居',
   guide: '你',
 };

@@ -6,7 +6,7 @@
 /** Ids end up in audio file names and save keys, so keep them plain. */
 const ID_PATTERN = /^[a-z0-9_]+$/;
 
-const ROLES = ['barista', 'landlord', 'guide'];
+const ROLES = ['barista', 'landlord', 'neighbor', 'guide'];
 const SPEAKERS = ['npc', 'player'];
 
 const isObject = (value: unknown): value is Record<string, unknown> =>
