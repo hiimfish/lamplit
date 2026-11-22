@@ -50,7 +50,7 @@ src/
                     第二幕的 8 個檔（bank、communityCenter、library、repair、jobCenter、resume、interview、dayBefore）也各匯出整份舞台設定；
                     修車與維修、上班前一天各有兩張背景（`backdrops`）
   art/pictures/     看圖選句的圖（96×64）：對照表、尺寸和型別 PictureFn（index）、第一幕的 10 張（act1）、第二幕的 4 張（act2）
-  data/units/       單元內容 JSON（第一、二幕共 18 個地點）
+  data/units/       單元內容 JSON（第一到三幕共 30 個地點）
   data/wordlists/   NGSL、TSL 和補充字表（CC BY-SA 4.0，出處見那裡的 README）
 scripts/            gen-audio（產生音檔）、spike-tts（聲線比較）、check-font-glyphs（字型檢查）、
                     vocab-report（用字和難度報表）

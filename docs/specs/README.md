@@ -6,22 +6,23 @@
 
 ## 文件一覽
 
-| 文件                                 | 內容                                                         |
-| ------------------------------------ | ------------------------------------------------------------ |
-| [product.md](product.md)             | 產品目標、玩家、範圍、地點與遊戲機制                         |
-| [learning.md](learning.md)           | 學習方法、任務流程、複習排程、星星與金幣                     |
-| [vocab-quiz.md](vocab-quiz.md)       | 題型、出題、批改與回饋，以及「待改進」清單                   |
-| [content.md](content.md)             | 單元內容格式、id 規則、內容檢查、新增單元的步驟              |
-| [audio.md](audio.md)                 | 發音、背景音樂、音效、音量                                   |
-| [visual-style.md](visual-style.md)   | 美術方向、配色、介面原則、版面縮放                           |
-| [ui-flow.md](ui-flow.md)             | 畫面流程、各畫面內容、無障礙要求                             |
-| [scene-stage.md](scene-stage.md)     | 劇情小劇場：角色、說話與道具動作、版面、內容格式             |
-| [architecture.md](architecture.md)   | 技術架構、存檔格式、開發指令、環境變數、開發流程、部署與維運 |
-| [curriculum.md](curriculum.md)       | 多益 600 目標、四幕的內容量、難度旋鈕、平滑規則、題型對應    |
-| [sprint.md](sprint.md)               | 衝刺路線：3 個月到多益 600 的每日內容、12 週安排、檢查點     |
-| [act1-syllabus.md](act1-syllabus.md) | 第一幕 10 個地點的詞塊、單字、文法和新題型分配表             |
-| [act2-syllabus.md](act2-syllabus.md) | 第二幕 8 個地點的詞塊、單字、文法和新題型分配表（已做）      |
-| [roadmap.md](roadmap.md)             | 進度、接下來要做的事、需要使用者處理的事、風險               |
+| 文件                                 | 內容                                                                     |
+| ------------------------------------ | ------------------------------------------------------------------------ |
+| [product.md](product.md)             | 產品目標、玩家、範圍、地點與遊戲機制                                     |
+| [learning.md](learning.md)           | 學習方法、任務流程、複習排程、星星與金幣                                 |
+| [vocab-quiz.md](vocab-quiz.md)       | 題型、出題、批改與回饋，以及「待改進」清單                               |
+| [content.md](content.md)             | 單元內容格式、id 規則、內容檢查、新增單元的步驟                          |
+| [audio.md](audio.md)                 | 發音、背景音樂、音效、音量                                               |
+| [visual-style.md](visual-style.md)   | 美術方向、配色、介面原則、版面縮放                                       |
+| [ui-flow.md](ui-flow.md)             | 畫面流程、各畫面內容、無障礙要求                                         |
+| [scene-stage.md](scene-stage.md)     | 劇情小劇場：角色、說話與道具動作、版面、內容格式                         |
+| [architecture.md](architecture.md)   | 技術架構、存檔格式、開發指令、環境變數、開發流程、部署與維運             |
+| [curriculum.md](curriculum.md)       | 多益 600 目標、四幕的內容量、難度旋鈕、平滑規則、題型對應                |
+| [sprint.md](sprint.md)               | 衝刺路線：3 個月到多益 600 的每日內容、12 週安排、檢查點                 |
+| [act1-syllabus.md](act1-syllabus.md) | 第一幕 10 個地點的詞塊、單字、文法和新題型分配表                         |
+| [act2-syllabus.md](act2-syllabus.md) | 第二幕 8 個地點的詞塊、單字、文法和新題型分配表（已做）                  |
+| [act3-syllabus.md](act3-syllabus.md) | 第三幕 12 個地點的詞塊、單字、文法和新題型分配表（內容已做，音檔未產生） |
+| [roadmap.md](roadmap.md)             | 進度、接下來要做的事、需要使用者處理的事、風險                           |
 
 ## 文件規則
 
