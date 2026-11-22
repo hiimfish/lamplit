@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { coreOrigin, CORE_H, CORE_W, STAGE_UNIT_IDS, stageFor } from '../src/art/stage';
 import { BARISTA_SPRITE, CAFE_COUNTER } from '../src/art/stage/cafe';
 import { LANDLORD_SPRITE, NEIGHBOR_SPRITE } from '../src/art/stage/moveIn';
+import { CLERK_SPRITE, STORE_COUNTER } from '../src/art/stage/store';
 import { getUnit } from '../src/content/units';
 import { recordingPainter, type Painter } from '../src/game/painter';
 import { isPaletteName } from '../src/game/palette';
@@ -45,8 +46,8 @@ function paintStage(unitId: string, w: number, h: number) {
 const cases = STAGE_UNIT_IDS.flatMap((id) => SIZES.map(([w, h]) => [id, w, h] as const));
 
 describe('stage art', () => {
-  it('has a stage for the café and the moving-in unit, none for unknown ids', () => {
-    expect(STAGE_UNIT_IDS).toEqual(expect.arrayContaining(['cafe', 'move_in']));
+  it('has a stage for the café, the moving-in unit and the store, none for unknown ids', () => {
+    expect(STAGE_UNIT_IDS).toEqual(expect.arrayContaining(['cafe', 'move_in', 'store']));
     expect(stageFor('nope')).toBeUndefined();
     expect(stageFor('__proto__')).toBeUndefined();
   });
@@ -97,6 +98,7 @@ describe('stage art', () => {
   it.each([
     ['landlord', LANDLORD_SPRITE],
     ['neighbor', NEIGHBOR_SPRITE],
+    ['clerk', CLERK_SPRITE],
   ] as const)('draws a valid 16x24 %s in palette colours', (_, sprite) => {
     expect(validateSprite(sprite)).toEqual([]);
     expect(sprite.rows).toHaveLength(PERSON_H);
@@ -156,6 +158,28 @@ describe('stage art', () => {
     expect(config.cast.guide?.side).toBe('left');
     expect(config.cast.barista?.side).toBe('right');
     expect(config.cast.barista?.clipBottom).toBe(CAFE_COUNTER.top);
+  });
+
+  it('puts the store clerk behind the counter, facing you across it', () => {
+    const { cast } = stageFor('store')!;
+    expect(cast.guide?.side).toBe('left');
+    expect(cast.clerk).toMatchObject({ side: 'right', clipBottom: STORE_COUNTER.top });
+    expect(cast.clerk?.sprite).toBe(CLERK_SPRITE);
+    // the clerk's head and shoulders show above the counter
+    expect(STORE_COUNTER.top - cast.clerk!.y).toBeGreaterThanOrEqual(16);
+    // you stand clear of the counter, in front of it
+    expect(cast.guide!.x + 16).toBeLessThanOrEqual(STORE_COUNTER.x);
+  });
+
+  it('rests store props on the counter, left of the clerk', () => {
+    const { cast, rest } = stageFor('store')!;
+    for (const side of ['left', 'right'] as const) {
+      expect(rest[side].x).toBeGreaterThanOrEqual(STORE_COUNTER.x);
+      // 24x24 pictures stand on the countertop with their shadow on it, like the café's
+      expect(rest[side].y).toBe(STORE_COUNTER.top - 20);
+    }
+    expect(rest.left.x).toBeLessThan(rest.right.x);
+    expect(rest.right.x + 24).toBeLessThanOrEqual(cast.clerk!.x + 4);
   });
 });
 

@@ -3,6 +3,7 @@ import type { Painter } from '../../game/painter';
 import { idleKey, SPRITES, type PixelSprite } from '../../game/sprites';
 import { BARISTA_SPRITE, CAFE_COUNTER, coreOrigin, CORE_H, CORE_W, paintCafe } from './cafe';
 import { HALL_TABLE, LANDLORD_SPRITE, NEIGHBOR_SPRITE, paintMoveIn } from './moveIn';
+import { CLERK_SPRITE, paintStore, STORE_COUNTER } from './store';
 
 export { coreOrigin, CORE_H, CORE_W };
 
@@ -84,8 +85,30 @@ const MOVE_IN: StageConfig = {
   },
 };
 
+/** Props on the store counter, their shadow on the countertop like the café's. */
+const STORE_PROP_TOP = STORE_COUNTER.top - 20;
+
+const STORE: StageConfig = {
+  paint: paintStore,
+  cast: {
+    guide: { sprite: walker, x: 20, y: 39, side: 'left' },
+    clerk: { sprite: CLERK_SPRITE, x: 96, y: 19, side: 'right', clipBottom: STORE_COUNTER.top },
+  },
+  want: { left: { x: 30, y: 5 }, right: { x: 64, y: 2 } },
+  ask: { left: { x: 25, y: 25 }, right: { x: 100, y: 5 } },
+  rest: {
+    left: { x: STORE_COUNTER.x, y: STORE_PROP_TOP },
+    // A little left of the café's spot, so a prop stays clear of the clerk's face.
+    right: { x: STORE_COUNTER.x + 22, y: STORE_PROP_TOP },
+  },
+};
+
 /** Units without a stage show only the chat. */
-const STAGES: Readonly<Record<string, StageConfig>> = { cafe: CAFE, move_in: MOVE_IN };
+const STAGES: Readonly<Record<string, StageConfig>> = {
+  cafe: CAFE,
+  move_in: MOVE_IN,
+  store: STORE,
+};
 
 export function stageFor(unitId: string): StageConfig | undefined {
   return Object.prototype.hasOwnProperty.call(STAGES, unitId) ? STAGES[unitId] : undefined;
