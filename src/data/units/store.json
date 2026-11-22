@@ -1,0 +1,672 @@
+{
+  "id": "store",
+  "title": "便利商店",
+  "titleEn": "Convenience Store",
+  "chunks": [
+    {
+      "id": "have_milk",
+      "en": "Excuse me, do you have milk?",
+      "zh": "不好意思，有賣牛奶嗎？",
+      "accept": ["Do you have milk?", "Excuse me, do you have any milk?"],
+      "note": "Excuse me 用來開口叫人；問店裡有沒有賣某樣東西，用 Do you have…?",
+      "distractors": [
+        { "text": "Excuse me, you have milk?", "error": "missing-word" },
+        { "text": "Excuse me, do you has milk?", "error": "other" },
+        { "text": "Excuse me, do you have milks?", "error": "plural" }
+      ]
+    },
+    {
+      "id": "where_find",
+      "en": "Where can I find it?",
+      "zh": "在哪裡可以找到？",
+      "accept": ["Where can I find it, please?"],
+      "note": "在店裡問東西放哪裡最常用的說法；it 指剛剛說的那樣東西。",
+      "distractors": [
+        { "text": "Where I can find it?", "error": "word-order" },
+        { "text": "Where can I find?", "error": "missing-word" },
+        { "text": "Where can I finding it?", "error": "other" }
+      ]
+    },
+    {
+      "id": "just_this",
+      "en": "Just this, please.",
+      "zh": "就這個，謝謝。",
+      "accept": ["Just this.", "Just this one, please."],
+      "note": "結帳時說，表示只買這一樣、沒有別的了。",
+      "distractors": [
+        { "text": "Just these, please.", "error": "plural" },
+        { "text": "This just, please.", "error": "word-order" },
+        { "text": "Just this is, please.", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "no_bag",
+      "en": "No bag, thanks.",
+      "zh": "不用袋子，謝謝。",
+      "accept": ["No bag, thank you.", "No bag.", "No bag thanks."],
+      "note": "No + 東西 = 不用那樣東西，和 No sugar 一樣。",
+      "distractors": [
+        { "text": "No a bag, thanks.", "error": "article" },
+        { "text": "Not bag, thanks.", "error": "other" },
+        { "text": "Bag no, thanks.", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "need_umbrella",
+      "en": "I need an umbrella.",
+      "zh": "我需要一把傘。",
+      "accept": ["I need an umbrella, please."],
+      "note": "umbrella 開頭是母音的音，所以用 an，不用 a（an egg；a bag、a fork）。",
+      "distractors": [
+        { "text": "I need a umbrella.", "error": "article" },
+        { "text": "I need umbrella.", "error": "article" },
+        { "text": "I need an umbrellas.", "error": "plural" }
+      ]
+    },
+    {
+      "id": "last_one",
+      "en": "Is this the last one?",
+      "zh": "這是最後一個嗎？",
+      "accept": ["Is this the last one left?"],
+      "note": "the last one = 最後一個。只有一個、大家都知道是哪個時用 the；one 代替前面說的東西。",
+      "distractors": [
+        { "text": "Is this a last one?", "error": "article" },
+        { "text": "Is this last the one?", "error": "word-order" },
+        { "text": "Is this the last ones?", "error": "plural" }
+      ]
+    },
+    {
+      "id": "heat_it_up",
+      "en": "Can you heat it up, please?",
+      "zh": "可以幫我加熱嗎？",
+      "accept": ["Can you heat it up?", "Could you heat it up, please?"],
+      "note": "heat it up = 把它加熱。it 放在 heat 和 up 中間，不說 heat up it。",
+      "distractors": [
+        { "text": "Can you heat up it, please?", "error": "word-order" },
+        { "text": "Can you hot it up, please?", "error": "other" },
+        { "text": "Can you to heat it up, please?", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "fork_too",
+      "en": "Can I get a fork, too?",
+      "zh": "也可以給我一支叉子嗎？",
+      "accept": ["Can I get a fork too?", "Can I have a fork, too?"],
+      "note": "too = 也，放在句子最後面；一支叉子是 a fork。",
+      "distractors": [
+        { "text": "Can I get fork, too?", "error": "article" },
+        { "text": "Can I too get a fork?", "error": "word-order" },
+        { "text": "Can I get a forks, too?", "error": "plural" }
+      ]
+    },
+    {
+      "id": "pay_by_card",
+      "en": "Can I pay by card?",
+      "zh": "可以刷卡嗎？",
+      "accept": ["Can I pay by credit card?", "Can I pay with a card?"],
+      "note": "by card = 用卡付錢（刷卡）。by 後面直接接 card，不加 a。",
+      "distractors": [
+        { "text": "Can I pay by a card?", "error": "article" },
+        { "text": "Can I pay card?", "error": "missing-word" },
+        { "text": "Can I by card pay?", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "get_receipt",
+      "en": "Can I get a receipt?",
+      "zh": "可以給我收據嗎？",
+      "accept": ["Can I get a receipt, please?", "Can I have a receipt?"],
+      "note": "Can I get…? 也可以用來要東西。receipt 的 p 不發音。",
+      "distractors": [
+        { "text": "Can I get receipt?", "error": "article" },
+        { "text": "Can I get a recipt?", "error": "spelling" },
+        { "text": "Can I a receipt get?", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "two_of_these",
+      "en": "Can I get two of these?",
+      "zh": "這個可以給我兩個嗎？",
+      "accept": ["Can I get two of these, please?", "Can I have two of these?"],
+      "note": "these = 這些，是 this 的複數。兩個以上要用 these，不用 this。",
+      "distractors": [
+        { "text": "Can I get two of this?", "error": "plural" },
+        { "text": "Can I get two these?", "error": "missing-word" },
+        { "text": "Can I get of these two?", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "where_batteries",
+      "en": "Where are the batteries?",
+      "zh": "電池在哪裡？",
+      "accept": ["Excuse me, where are the batteries?"],
+      "note": "batteries 是複數，所以用 are；一個電池才說 Where is the battery?",
+      "distractors": [
+        { "text": "Where is the batteries?", "error": "plural" },
+        { "text": "Where are the batterys?", "error": "spelling" },
+        { "text": "Where the batteries are?", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "nothing_else",
+      "en": "No, nothing else. Thanks.",
+      "zh": "不用了，沒有別的了，謝謝。",
+      "accept": [
+        "No, nothing else, thanks.",
+        "Nothing else, thanks.",
+        "No, nothing else. Thank you."
+      ],
+      "note": "店員問 Anything else?（還要別的嗎？）時這樣回答。else = 別的。",
+      "distractors": [
+        { "text": "No, anything else. Thanks.", "error": "other" },
+        { "text": "No, else nothing. Thanks.", "error": "word-order" },
+        { "text": "No, nothing els. Thanks.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "see_you_tomorrow",
+      "en": "Bye, see you tomorrow!",
+      "zh": "掰掰，明天見！",
+      "accept": ["Bye! See you tomorrow!", "See you tomorrow!", "Bye, see you tomorrow."],
+      "note": "see you + 時間 = 到時候見。tomorrow 前面不加 in 或 at。",
+      "distractors": [
+        { "text": "Bye, see you at tomorrow!", "error": "extra-word" },
+        { "text": "Bye, see you tommorow!", "error": "spelling" },
+        { "text": "Bye, you see tomorrow!", "error": "word-order" }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "milk", "en": "milk", "zh": "牛奶", "emoji": "🥛" },
+    { "id": "egg", "en": "egg", "zh": "蛋", "emoji": "🥚" },
+    { "id": "bread", "en": "bread", "zh": "麵包", "emoji": "🍞" },
+    { "id": "money", "en": "money", "zh": "錢", "emoji": "💵" },
+    { "id": "drink", "en": "drink", "zh": "飲料；喝", "emoji": "🧃" },
+    { "id": "bag", "en": "bag", "zh": "袋子", "emoji": "🛍️" },
+    { "id": "rain", "en": "rain", "zh": "雨；下雨", "emoji": "🌧️" },
+    { "id": "umbrella", "en": "umbrella", "zh": "雨傘", "emoji": "☂️" },
+    { "id": "battery", "en": "battery", "zh": "電池", "emoji": "🔋" },
+    { "id": "eat", "en": "eat", "zh": "吃", "emoji": "🍽️", "abstract": true },
+    { "id": "hot", "en": "hot", "zh": "熱的", "emoji": "🔥", "abstract": true },
+    { "id": "lunch", "en": "lunch", "zh": "午餐", "emoji": "🍱" },
+    { "id": "fork", "en": "fork", "zh": "叉子", "emoji": "🍴" },
+    { "id": "dollar", "en": "dollar", "zh": "元（美元）", "emoji": "💲", "abstract": true },
+    { "id": "ten", "en": "ten", "zh": "十", "emoji": "🔟", "abstract": true },
+    { "id": "twenty", "en": "twenty", "zh": "二十", "emoji": "2️⃣", "abstract": true },
+    { "id": "fifty", "en": "fifty", "zh": "五十", "emoji": "5️⃣", "abstract": true },
+    { "id": "snack", "en": "snack", "zh": "零食", "emoji": "🍿" },
+    { "id": "candy", "en": "candy", "zh": "糖果", "emoji": "🍬" },
+    { "id": "chocolate", "en": "chocolate", "zh": "巧克力", "emoji": "🍫" },
+    { "id": "newspaper", "en": "newspaper", "zh": "報紙", "emoji": "📰" },
+    { "id": "today", "en": "today", "zh": "今天", "emoji": "📅", "abstract": true },
+    { "id": "tomorrow", "en": "tomorrow", "zh": "明天", "emoji": "🗓️", "abstract": true },
+    { "id": "morning", "en": "morning", "zh": "早上", "emoji": "🌅", "abstract": true },
+    { "id": "night", "en": "night", "zh": "晚上", "emoji": "🌙", "abstract": true }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "找東西",
+      "newChunkIds": ["have_milk", "where_find"],
+      "newWordIds": ["milk", "egg", "bread"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Excuse me, do you have milk?",
+          "zh": "不好意思，有賣牛奶嗎？",
+          "chunkId": "have_milk",
+          "stage": { "act": "want", "item": "milk" }
+        },
+        {
+          "id": "t1_2",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "Yes, we do.",
+          "zh": "有，我們有賣。"
+        },
+        {
+          "id": "t1_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Where can I find it?",
+          "zh": "在哪裡可以找到？",
+          "chunkId": "where_find",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t1_4",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "It's by the eggs and bread.",
+          "zh": "在蛋和麵包旁邊。",
+          "stage": { "act": "want", "item": "egg" }
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "只買這個",
+      "newChunkIds": ["just_this", "no_bag"],
+      "newWordIds": ["money", "drink", "bag"],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "Hi! Do you want a sandwich with your drink?",
+          "zh": "嗨！飲料要不要配個三明治？"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Just this, please.",
+          "zh": "就這個，謝謝。",
+          "chunkId": "just_this",
+          "stage": { "act": "give", "item": "drink" }
+        },
+        {
+          "id": "t2_3",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "Okay. Do you need a bag for that?",
+          "zh": "好的。需要袋子裝嗎？",
+          "stage": { "act": "want", "item": "bag" }
+        },
+        {
+          "id": "t2_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "No bag, thanks.",
+          "zh": "不用袋子，謝謝。",
+          "chunkId": "no_bag",
+          "stage": { "act": "give", "item": "money" }
+        },
+        {
+          "id": "t2_5",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "Okay. Thanks, and have a good day!",
+          "zh": "好的。謝謝，祝你有美好的一天！"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "下雨了",
+      "newChunkIds": ["need_umbrella", "last_one"],
+      "newWordIds": ["rain", "umbrella", "battery"],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "Look, it's raining!",
+          "zh": "你看，下雨了！"
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I need an umbrella.",
+          "zh": "我需要一把傘。",
+          "chunkId": "need_umbrella",
+          "stage": { "act": "want", "item": "umbrella" }
+        },
+        {
+          "id": "t3_3",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "They're over there, by the batteries.",
+          "zh": "在那邊，電池旁邊。",
+          "stage": { "act": "want", "item": "battery" }
+        },
+        {
+          "id": "t3_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is this the last one?",
+          "zh": "這是最後一個嗎？",
+          "chunkId": "last_one",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t3_5",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "Yes. You got the last one!",
+          "zh": "對。你拿到最後一把了！"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "幫我加熱",
+      "newChunkIds": ["heat_it_up", "fork_too"],
+      "newWordIds": ["eat", "hot", "lunch", "fork"],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can you heat it up, please?",
+          "zh": "可以幫我加熱嗎？",
+          "chunkId": "heat_it_up",
+          "stage": { "act": "give", "item": "lunch" }
+        },
+        {
+          "id": "t4_2",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "Sure. Here, it's hot!",
+          "zh": "好的。來，很燙喔！",
+          "stage": { "act": "give", "item": "lunch" }
+        },
+        {
+          "id": "t4_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I get a fork, too?",
+          "zh": "也可以給我一支叉子嗎？",
+          "chunkId": "fork_too",
+          "stage": { "act": "want", "item": "fork" }
+        },
+        {
+          "id": "t4_4",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "Okay. Here's a fork.",
+          "zh": "好。這是叉子。",
+          "stage": { "act": "give", "item": "fork" }
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "付錢",
+      "newChunkIds": ["pay_by_card", "get_receipt"],
+      "newWordIds": ["dollar", "ten", "twenty", "fifty"],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "That's ten fifty.",
+          "zh": "十塊五。"
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I pay by card?",
+          "zh": "可以刷卡嗎？",
+          "chunkId": "pay_by_card",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t5_3",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "Sure, no problem.",
+          "zh": "可以，沒問題。"
+        },
+        {
+          "id": "t5_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I get a receipt?",
+          "zh": "可以給我收據嗎？",
+          "chunkId": "get_receipt"
+        },
+        {
+          "id": "t5_5",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "Sure. Here you go.",
+          "zh": "好的，給你。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "買兩個",
+      "newChunkIds": ["two_of_these", "where_batteries"],
+      "newWordIds": ["snack", "candy", "chocolate", "newspaper"],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "Hi! Can I help you?",
+          "zh": "嗨！需要幫忙嗎？"
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Where are the batteries?",
+          "zh": "電池在哪裡？",
+          "chunkId": "where_batteries",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t6_3",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "They're by the candy and the newspapers.",
+          "zh": "在糖果和報紙旁邊。",
+          "stage": { "act": "want", "item": "newspaper" }
+        },
+        {
+          "id": "t6_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I get two of these?",
+          "zh": "這個可以給我兩個嗎？",
+          "chunkId": "two_of_these",
+          "stage": { "act": "want", "item": "chocolate" }
+        },
+        {
+          "id": "t6_5",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "Sure. I like this snack, too.",
+          "zh": "好的。我也喜歡這個零食。",
+          "stage": { "act": "give", "item": "chocolate" }
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "明天見",
+      "newChunkIds": ["nothing_else", "see_you_tomorrow"],
+      "newWordIds": ["today", "tomorrow", "morning", "night"],
+      "spellWordIds": ["key", "box", "door", "tea", "cake"],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "Good morning! Anything else today?",
+          "zh": "早安！今天還要別的嗎？"
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "No, nothing else. Thanks.",
+          "zh": "不用了，沒有別的了，謝謝。",
+          "chunkId": "nothing_else"
+        },
+        {
+          "id": "t7_3",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "Okay. Have a good day!",
+          "zh": "好的。祝你有美好的一天！"
+        },
+        {
+          "id": "t7_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Bye, see you tomorrow!",
+          "zh": "掰掰，明天見！",
+          "chunkId": "see_you_tomorrow"
+        },
+        {
+          "id": "t7_5",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "See you tomorrow morning!",
+          "zh": "明天早上見！"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "Good morning! Can I help you?",
+          "zh": "早安！需要幫忙嗎？"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Excuse me, do you have milk?",
+          "zh": "不好意思，有賣牛奶嗎？",
+          "chunkId": "have_milk",
+          "stage": { "act": "want", "item": "milk" }
+        },
+        {
+          "id": "t8_3",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "Yes. It's by the eggs.",
+          "zh": "有。在蛋旁邊。",
+          "stage": { "act": "want", "item": "egg" }
+        },
+        {
+          "id": "t8_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Where are the batteries?",
+          "zh": "電池在哪裡？",
+          "chunkId": "where_batteries",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_5",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "They're by the door. Look, it's raining!",
+          "zh": "在門旁邊。你看，下雨了！"
+        },
+        {
+          "id": "t8_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I need an umbrella.",
+          "zh": "我需要一把傘。",
+          "chunkId": "need_umbrella",
+          "stage": { "act": "want", "item": "umbrella" }
+        },
+        {
+          "id": "t8_7",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "The umbrellas are by the door, too.",
+          "zh": "雨傘也在門旁邊。"
+        },
+        {
+          "id": "t8_8",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "Okay. Is this your lunch?",
+          "zh": "好。這是你的午餐嗎？",
+          "stage": { "act": "want", "item": "lunch" }
+        },
+        {
+          "id": "t8_9",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can you heat it up, please?",
+          "zh": "可以幫我加熱嗎？",
+          "chunkId": "heat_it_up",
+          "stage": { "act": "give", "item": "lunch" }
+        },
+        {
+          "id": "t8_10",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "Sure. That's twenty dollars.",
+          "zh": "好的。一共二十元。"
+        },
+        {
+          "id": "t8_11",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I pay by card?",
+          "zh": "可以刷卡嗎？",
+          "chunkId": "pay_by_card",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_12",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "Sure. Do you want a bag?",
+          "zh": "可以。要袋子嗎？",
+          "stage": { "act": "want", "item": "bag" }
+        },
+        {
+          "id": "t8_13",
+          "role": "guide",
+          "speaker": "player",
+          "en": "No bag, thanks.",
+          "zh": "不用袋子，謝謝。",
+          "chunkId": "no_bag"
+        },
+        {
+          "id": "t8_14",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "Okay. Anything else today?",
+          "zh": "好。今天還要別的嗎？"
+        },
+        {
+          "id": "t8_15",
+          "role": "guide",
+          "speaker": "player",
+          "en": "No, nothing else. Thanks.",
+          "zh": "不用了，沒有別的了，謝謝。",
+          "chunkId": "nothing_else"
+        },
+        {
+          "id": "t8_16",
+          "role": "clerk",
+          "speaker": "npc",
+          "en": "Have a good day!",
+          "zh": "祝你有美好的一天！"
+        },
+        {
+          "id": "t8_17",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Bye, see you tomorrow!",
+          "zh": "掰掰，明天見！",
+          "chunkId": "see_you_tomorrow"
+        }
+      ]
+    }
+  ]
+}
