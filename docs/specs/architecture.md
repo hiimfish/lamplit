@@ -92,16 +92,17 @@ tests/              Vitest 測試
 
 <!-- AUTO-GENERATED: package.json scripts -->
 
-| 指令                 | 實際執行                     | 作用                                 |
-| -------------------- | ---------------------------- | ------------------------------------ |
-| `npm run dev`        | `vite`                       | 開發伺服器（http://localhost:5173/） |
-| `npm run build`      | `tsc --noEmit && vite build` | 型別檢查加正式建置，輸出到 `dist/`   |
-| `npm run preview`    | `vite preview`               | 在本機預覽 `dist/` 的正式建置        |
-| `npm test`           | `vitest run`                 | 執行所有測試一次                     |
-| `npm run test:watch` | `vitest`                     | 監看模式，存檔時自動重跑測試         |
-| `npm run typecheck`  | `tsc --noEmit`               | 型別檢查                             |
-| `npm run lint`       | `eslint .`                   | ESLint                               |
-| `npm run format`     | `prettier --write .`         | Prettier 排版（會直接改檔案）        |
+| 指令                 | 實際執行                     | 作用                                                                          |
+| -------------------- | ---------------------------- | ----------------------------------------------------------------------------- |
+| `npm run dev`        | `vite`                       | 開發伺服器（http://localhost:5173/）                                          |
+| `npm run dev:https`  | `vite --mode https`          | 用自簽憑證的 https 開發伺服器，讓區網的手機能測錄音（見下方「手機上測錄音」） |
+| `npm run build`      | `tsc --noEmit && vite build` | 型別檢查加正式建置，輸出到 `dist/`                                            |
+| `npm run preview`    | `vite preview`               | 在本機預覽 `dist/` 的正式建置                                                 |
+| `npm test`           | `vitest run`                 | 執行所有測試一次                                                              |
+| `npm run test:watch` | `vitest`                     | 監看模式，存檔時自動重跑測試                                                  |
+| `npm run typecheck`  | `tsc --noEmit`               | 型別檢查                                                                      |
+| `npm run lint`       | `eslint .`                   | ESLint                                                                        |
+| `npm run format`     | `prettier --write .`         | Prettier 排版（會直接改檔案）                                                 |
 
 <!-- END AUTO-GENERATED -->
 
@@ -134,6 +135,14 @@ tests/              Vitest 測試
 - 專案沒有安裝模擬瀏覽器的測試環境（jsdom 或 happy-dom），所以畫面元件本身沒有自動化測試；畫面改動要在瀏覽器裡實際操作確認。
 - 場景有快照測試（`tests/streetSnapshot.test.ts`）：繪製結果的雜湊改變就會失敗。刻意改畫面時要更新雜湊，並在說明中寫明原因。
 
+### 手機上測錄音
+
+瀏覽器只在安全連線（https 或 localhost）下開放麥克風。手機用 `http://192.168.x.x` 連開發伺服器時不能錄音，畫面會顯示「錄音需要安全連線（https）」。
+
+1. 電腦執行 `npm run dev:https`，終端機的 `Network:` 那行會顯示 `https://<電腦IP>:5173/`。
+2. 手機（和電腦同一個網路）開這個網址。憑證是自己產生的，Safari 會顯示「此連線不是私人連線」：點「顯示詳細資訊」→「瀏覽此網站」。Chrome 則是「進階」→「繼續前往」。
+3. 之後就能錄音。也可以改用部署後的 GitHub Pages 網址測試。
+
 ### 程式風格
 
 - ESLint 和 Prettier（設定在 `eslint.config.js`、`.prettierrc.json`）。專案沒有 pre-commit hook，提交前要自己執行。
@@ -163,7 +172,7 @@ tests/              Vitest 測試
 
 - 網站能打開，標題畫面顯示正常，console 沒有錯誤。
 - 玩完一個任務：發音有聲音、慢速有聲音、結算後重新整理進度還在。
-- 手機上用 HTTPS 網址測試錄音（區網 http 不能錄音）。
+- 手機上用 HTTPS 網址測試錄音（區網 http 不能錄音；開發時用 `npm run dev:https`）。
 
 ### 還原
 
@@ -176,6 +185,6 @@ tests/              Vitest 測試
 | 開發時突然白屏，console 說某個模組沒有某個 export | 開發伺服器在大量改檔時讀到寫到一半的檔案。重啟 `npm run dev`                                                                                             |
 | 打開網頁後沒有聲音                                | 瀏覽器要求使用者先點一下才能播放；按標題畫面的「點一下開始」                                                                                             |
 | 某些句子用機器人聲音念                            | 那個音檔讀取失敗，改用瀏覽器內建語音；檢查 `public/audio/` 有沒有那個檔案，必要時重跑音檔腳本                                                            |
-| 手機上不能錄音                                    | 需要 HTTPS；區網 http 連線時瀏覽器不允許使用麥克風                                                                                                       |
+| 手機上不能錄音                                    | 看畫面上的訊息：提到 https 就改用 `npm run dev:https`（見「手機上測錄音」）；提到 App 就改用 Safari 或 Chrome 開啟；提到 iOS 14.5 就要更新系統           |
 | 音檔腳本失敗                                      | 確認 `.env` 有 `GOOGLE_TTS_API_KEY`、金鑰有開 Text-to-Speech API；遇到 429 或 5xx 會自動重試一次，仍失敗時結束碼不是 0，重跑即可（已成功的檔案不會重做） |
 | 想測試隔天的複習                                  | 網址加 `?debugDate=YYYY-MM-DD`，會使用獨立的除錯存檔                                                                                                     |

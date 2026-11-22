@@ -138,6 +138,12 @@ describe('listenOnce', () => {
     vi.stubGlobal('window', {});
     await expect(listenOnce().promise).rejects.toMatchObject({ code: 'unsupported' });
   });
+
+  it("rejects with 'insecure' on plain http, without creating a recognizer", async () => {
+    vi.stubGlobal('isSecureContext', false);
+    await expect(listenOnce().promise).rejects.toMatchObject({ code: 'insecure' });
+    expect(FakeRecognition.last).toBeNull();
+  });
 });
 
 describe('recognitionMessage', () => {
@@ -147,6 +153,7 @@ describe('recognitionMessage', () => {
     ['audio-capture', '找不到麥克風'],
     ['network', '網路'],
     ['timeout', '再試一次'],
+    ['insecure', 'https'],
     ['unsupported', '不支援'],
     ['aborted', '沒關係'],
   ])('maps %s to a zh-TW message', (code, fragment) => {

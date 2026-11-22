@@ -101,6 +101,11 @@ const LISTEN_TIMEOUT_MS = 8000;
 export function listenOnce(options: ListenOptions = {}): Listening {
   const lang = options.lang ?? 'en-US';
   const timeoutMs = options.timeoutMs ?? LISTEN_TIMEOUT_MS;
+  // On plain http the microphone is blocked, which would otherwise surface as a generic
+  // permission error.
+  if ((globalThis as { isSecureContext?: boolean }).isSecureContext === false) {
+    return { promise: Promise.reject(new RecognitionError('insecure')), abort: () => undefined };
+  }
   const Ctor = getCtor();
   if (!Ctor) {
     return { promise: Promise.reject(new RecognitionError('unsupported')), abort: () => undefined };
@@ -185,6 +190,8 @@ export function recognitionMessage(error: unknown): string {
       return '語音辨識需要網路，現在連不上。沒關係，繼續練習就好。';
     case 'timeout':
       return '等太久沒有聽到結果，再試一次看看。';
+    case 'insecure':
+      return '語音辨識需要安全連線（https），現在是用 http 開啟的。';
     case 'unsupported':
       return '這個瀏覽器不支援語音辨識。';
     default:
