@@ -1,0 +1,1847 @@
+{
+  "id": "airport",
+  "title": "機場",
+  "titleEn": "Airport",
+  "chunks": [
+    {
+      "id": "travel_for_work_a_lot",
+      "en": "Do you travel for work a lot?",
+      "zh": "你常出差嗎？",
+      "note": "跟同事閒聊時問對方常不常出差。a lot 放在句尾 = 常常。",
+      "distractors": [
+        {
+          "text": "Do you travels for work a lot?",
+          "error": "other"
+        },
+        {
+          "text": "Do you travel for work lot?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Do you travel for work a lots?",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "which_terminal_leave_from",
+      "en": "Which terminal does our flight leave from?",
+      "zh": "我們的班機是從第幾航廈出發？",
+      "accept": ["What terminal does our flight leave from?"],
+      "note": "問班機從哪個航廈出發。主詞 our flight 是單數，用 does，leave 用原形。",
+      "distractors": [
+        {
+          "text": "Which terminal does our flight leaves from?",
+          "error": "other"
+        },
+        {
+          "text": "Which terminal our flight leaves from?",
+          "error": "word-order"
+        },
+        {
+          "text": "Which terminel does our flight leave from?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "two_seats_together",
+      "en": "Could we get two seats together, please?",
+      "zh": "可以幫我們排兩個坐在一起的位子嗎？",
+      "accept": ["Can we get two seats together, please?"],
+      "note": "在報到櫃台請地勤把同行的人排在一起。together 放在 seats 後面。",
+      "distractors": [
+        {
+          "text": "Could we get two seat together, please?",
+          "error": "plural"
+        },
+        {
+          "text": "Could we two seats together, please?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Could we get two seats togather, please?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "suitcase_over_weight_limit",
+      "en": "Is my suitcase over the weight limit?",
+      "zh": "我的行李箱有超重嗎？",
+      "note": "託運行李時問有沒有超重。over the limit = 超過上限。",
+      "distractors": [
+        {
+          "text": "Does my suitcase over the weight limit?",
+          "error": "other"
+        },
+        {
+          "text": "Is my suitcase over weight limit?",
+          "error": "article"
+        },
+        {
+          "text": "Is my suitcase over the wieght limit?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "was_looking_for_boarding_pass",
+      "en": "Sorry, I was looking for my boarding pass.",
+      "zh": "抱歉，我剛剛在找登機證。",
+      "note": "過去進行式 was／were + V-ing：說過去某段時間正在做的事。",
+      "distractors": [
+        {
+          "text": "Sorry, I was look for my boarding pass.",
+          "error": "other"
+        },
+        {
+          "text": "Sorry, I were looking for my boarding pass.",
+          "error": "other"
+        },
+        {
+          "text": "Sorry, I was looking my boarding pass.",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "were_standing_in_wrong_line",
+      "en": "We were standing in the wrong line the whole time.",
+      "zh": "我們從頭到尾都排錯隊了。",
+      "note": "主詞是 we，過去進行式用 were + V-ing。the whole time = 從頭到尾。",
+      "distractors": [
+        {
+          "text": "We was standing in the wrong line the whole time.",
+          "error": "other"
+        },
+        {
+          "text": "We were stand in the wrong line the whole time.",
+          "error": "other"
+        },
+        {
+          "text": "We were standing in wrong line the whole time.",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "latest_version_of_itinerary",
+      "en": "Is this the latest version of our itinerary?",
+      "zh": "這是我們最新版的行程表嗎？",
+      "note": "收到更新的文件時，確認是不是最新的那一版。latest = 最新的。",
+      "distractors": [
+        {
+          "text": "Is this latest version of our itinerary?",
+          "error": "article"
+        },
+        {
+          "text": "Is this the latest versions of our itinerary?",
+          "error": "plural"
+        },
+        {
+          "text": "Is this the latest version of our itinarary?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "new_departure_time_yet",
+      "en": "Do you have a new departure time yet?",
+      "zh": "請問新的起飛時間出來了嗎？",
+      "note": "班機延誤時問櫃台。yet 放在問句句尾 = 已經……了嗎。",
+      "distractors": [
+        {
+          "text": "Do you has a new departure time yet?",
+          "error": "other"
+        },
+        {
+          "text": "Do you have new departure time yet?",
+          "error": "article"
+        },
+        {
+          "text": "Do you have a new departure time already yet?",
+          "error": "extra-word"
+        }
+      ]
+    },
+    {
+      "id": "possible_to_catch_earlier_flight",
+      "en": "Is it possible to catch an earlier flight?",
+      "zh": "有沒有可能改搭早一點的班機？",
+      "note": "問能不能改搭別班。Is it possible to + 動詞原形 = 有可能……嗎？",
+      "distractors": [
+        {
+          "text": "Is it possible catch an earlier flight?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Is it possible to catch a earlier flight?",
+          "error": "article"
+        },
+        {
+          "text": "Is it possible to catching an earlier flight?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "time_to_eat_before_we_board",
+      "en": "Do we have time to eat before we board?",
+      "zh": "登機前我們還來得及吃點東西嗎？",
+      "note": "時間子句 before：before 後面接完整的句子（we board），表示「在……之前」。",
+      "distractors": [
+        {
+          "text": "Do we have time eat before we board?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Do we have time to eat before we boarding?",
+          "error": "other"
+        },
+        {
+          "text": "Do we have time to eat before board we?",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "wait_until_they_post_gate",
+      "en": "Let's wait here until they post the new gate.",
+      "zh": "我們在這裡等到新的登機門公布吧。",
+      "note": "時間子句 until：一直……到某件事發生為止。until 後面接完整的句子，不用 will。",
+      "distractors": [
+        {
+          "text": "Let's wait here until they will post the new gate.",
+          "error": "extra-word"
+        },
+        {
+          "text": "Let's waiting here until they post the new gate.",
+          "error": "other"
+        },
+        {
+          "text": "Let's wait here until they post new gate.",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "gate_thirteen_or_thirty",
+      "en": "Did they say gate thirteen or gate thirty?",
+      "zh": "他們剛剛是說 13 號還是 30 號登機門？",
+      "accept": ["Did they say gate 13 or gate 30?"],
+      "note": "廣播沒聽清楚時跟同伴確認。thirteen 重音在後面，thirty 重音在前面。",
+      "distractors": [
+        {
+          "text": "Did they said gate thirteen or gate thirty?",
+          "error": "other"
+        },
+        {
+          "text": "Did they say gate thirteen or gate thirthy?",
+          "error": "spelling"
+        },
+        {
+          "text": "They did say gate thirteen or gate thirty?",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "window_seat_or_aisle",
+      "en": "Do you want the window seat or the aisle?",
+      "zh": "你想坐靠窗還是靠走道？",
+      "note": "找到座位時問同伴想坐哪裡。aisle 的 s 不發音，念起來像 I'll。",
+      "distractors": [
+        {
+          "text": "Do you wants the window seat or the aisle?",
+          "error": "other"
+        },
+        {
+          "text": "Do you want the window seat or the isle?",
+          "error": "spelling"
+        },
+        {
+          "text": "Do you want window seat or the aisle?",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "call_as_soon_as_we_land",
+      "en": "I'll call Ms. Carter as soon as we land.",
+      "zh": "我們一落地，我就打給 Ms. Carter。",
+      "accept": ["I will call Ms. Carter as soon as we land."],
+      "note": "說好落地後馬上要做的事。as soon as 後面用現在式，不用 will。",
+      "distractors": [
+        {
+          "text": "I'll call Ms. Carter as soon as we will land.",
+          "error": "extra-word"
+        },
+        {
+          "text": "I'll call Ms. Carter as soon we land.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I'll calling Ms. Carter as soon as we land.",
+          "error": "other"
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "id": "train",
+      "en": "train",
+      "zh": "列車；火車",
+      "emoji": "🚆"
+    },
+    {
+      "id": "airport",
+      "en": "airport",
+      "zh": "機場",
+      "emoji": "🛩️",
+      "abstract": true
+    },
+    {
+      "id": "travel",
+      "en": "travel",
+      "zh": "旅行；出遠門",
+      "emoji": "🌎",
+      "abstract": true
+    },
+    {
+      "id": "trip",
+      "en": "trip",
+      "zh": "（一趟）旅程（business trip 出差）",
+      "emoji": "🧭",
+      "abstract": true
+    },
+    {
+      "id": "fly",
+      "en": "fly",
+      "zh": "搭飛機；飛",
+      "emoji": "🕊️",
+      "abstract": true
+    },
+    {
+      "id": "easily",
+      "en": "easily",
+      "zh": "輕鬆地；很容易",
+      "emoji": "👌",
+      "abstract": true
+    },
+    {
+      "id": "flight",
+      "en": "flight",
+      "zh": "班機",
+      "emoji": "🛫",
+      "abstract": true
+    },
+    {
+      "id": "terminal",
+      "en": "terminal",
+      "zh": "航廈",
+      "emoji": "🏬",
+      "abstract": true
+    },
+    {
+      "id": "boarding_pass",
+      "en": "boarding pass",
+      "zh": "登機證",
+      "emoji": "🎟️",
+      "abstract": true
+    },
+    {
+      "id": "luggage",
+      "en": "luggage",
+      "zh": "行李",
+      "emoji": "🛅",
+      "abstract": true
+    },
+    {
+      "id": "agent",
+      "en": "agent",
+      "zh": "（航空公司的）地勤人員；櫃台人員",
+      "emoji": "🙋",
+      "abstract": true
+    },
+    {
+      "id": "suitcase",
+      "en": "suitcase",
+      "zh": "行李箱",
+      "emoji": "🧳"
+    },
+    {
+      "id": "destination",
+      "en": "destination",
+      "zh": "目的地",
+      "emoji": "📍",
+      "abstract": true
+    },
+    {
+      "id": "valid",
+      "en": "valid",
+      "zh": "有效的",
+      "emoji": "✅",
+      "abstract": true
+    },
+    {
+      "id": "domestic",
+      "en": "domestic",
+      "zh": "國內的",
+      "emoji": "🏳️",
+      "abstract": true
+    },
+    {
+      "id": "expire",
+      "en": "expire",
+      "zh": "到期；過期",
+      "emoji": "⌛",
+      "abstract": true
+    },
+    {
+      "id": "aisle",
+      "en": "aisle",
+      "zh": "走道",
+      "emoji": "↕️",
+      "abstract": true
+    },
+    {
+      "id": "security",
+      "en": "security",
+      "zh": "安檢；安全檢查",
+      "emoji": "🛡️",
+      "abstract": true
+    },
+    {
+      "id": "straight",
+      "en": "straight",
+      "zh": "直直地；直接",
+      "emoji": "➡️",
+      "abstract": true
+    },
+    {
+      "id": "tourist",
+      "en": "tourist",
+      "zh": "觀光客",
+      "emoji": "📸",
+      "abstract": true
+    },
+    {
+      "id": "anywhere",
+      "en": "anywhere",
+      "zh": "任何地方；到處（都找不到）",
+      "emoji": "🔍",
+      "abstract": true
+    },
+    {
+      "id": "guard",
+      "en": "guard",
+      "zh": "警衛；安檢人員",
+      "emoji": "👮",
+      "abstract": true
+    },
+    {
+      "id": "pocket",
+      "en": "pocket",
+      "zh": "口袋",
+      "emoji": "🩳",
+      "abstract": true
+    },
+    {
+      "id": "crew",
+      "en": "crew",
+      "zh": "機組人員",
+      "emoji": "👥",
+      "abstract": true
+    },
+    {
+      "id": "wallet",
+      "en": "wallet",
+      "zh": "皮夾",
+      "emoji": "👛"
+    },
+    {
+      "id": "belt",
+      "en": "belt",
+      "zh": "皮帶",
+      "emoji": "🥋"
+    },
+    {
+      "id": "rental",
+      "en": "rental",
+      "zh": "租用的（rental car 租車）",
+      "emoji": "🚙",
+      "abstract": true
+    },
+    {
+      "id": "possibility",
+      "en": "possibility",
+      "zh": "可能性",
+      "emoji": "🎲",
+      "abstract": true
+    },
+    {
+      "id": "version",
+      "en": "version",
+      "zh": "版本",
+      "emoji": "🔄",
+      "abstract": true
+    },
+    {
+      "id": "departure",
+      "en": "departure",
+      "zh": "出發；起飛",
+      "emoji": "↗️",
+      "abstract": true
+    },
+    {
+      "id": "itinerary",
+      "en": "itinerary",
+      "zh": "行程表",
+      "emoji": "🗓️",
+      "abstract": true
+    },
+    {
+      "id": "shuttle",
+      "en": "shuttle",
+      "zh": "接駁車",
+      "emoji": "🚐",
+      "abstract": true
+    },
+    {
+      "id": "storm",
+      "en": "storm",
+      "zh": "暴風雨",
+      "emoji": "⛈️"
+    },
+    {
+      "id": "arrival",
+      "en": "arrival",
+      "zh": "抵達",
+      "emoji": "↘️",
+      "abstract": true
+    },
+    {
+      "id": "airline",
+      "en": "airline",
+      "zh": "航空公司",
+      "emoji": "🪽",
+      "abstract": true
+    },
+    {
+      "id": "unexpected",
+      "en": "unexpected",
+      "zh": "突發的；意想不到的",
+      "emoji": "😮",
+      "abstract": true
+    },
+    {
+      "id": "ground",
+      "en": "ground",
+      "zh": "地面",
+      "emoji": "⬇️",
+      "abstract": true
+    },
+    {
+      "id": "catch",
+      "en": "catch",
+      "zh": "趕上；搭上",
+      "emoji": "⏱️",
+      "abstract": true
+    },
+    {
+      "id": "unclear",
+      "en": "unclear",
+      "zh": "不清楚；還不確定",
+      "emoji": "🌫️",
+      "abstract": true
+    },
+    {
+      "id": "weather",
+      "en": "weather",
+      "zh": "天氣",
+      "emoji": "🌦️",
+      "abstract": true
+    },
+    {
+      "id": "depart",
+      "en": "depart",
+      "zh": "出發；起飛",
+      "emoji": "👋",
+      "abstract": true
+    },
+    {
+      "id": "plane",
+      "en": "plane",
+      "zh": "飛機",
+      "emoji": "✈️"
+    },
+    {
+      "id": "passenger",
+      "en": "passenger",
+      "zh": "乘客",
+      "emoji": "🧍",
+      "abstract": true
+    },
+    {
+      "id": "lounge",
+      "en": "lounge",
+      "zh": "（機場）貴賓室；休息室",
+      "emoji": "😌",
+      "abstract": true
+    },
+    {
+      "id": "gate",
+      "en": "gate",
+      "zh": "登機門",
+      "emoji": "🚏",
+      "abstract": true
+    },
+    {
+      "id": "mile",
+      "en": "mile",
+      "zh": "英里",
+      "emoji": "📐",
+      "abstract": true
+    },
+    {
+      "id": "except",
+      "en": "except",
+      "zh": "除了……以外",
+      "emoji": "➖",
+      "abstract": true
+    },
+    {
+      "id": "post",
+      "en": "post",
+      "zh": "公布；張貼",
+      "emoji": "🆕",
+      "abstract": true
+    },
+    {
+      "id": "suddenly",
+      "en": "suddenly",
+      "zh": "突然",
+      "emoji": "⚡",
+      "abstract": true
+    },
+    {
+      "id": "announce",
+      "en": "announce",
+      "zh": "廣播；宣布",
+      "emoji": "🗣️",
+      "abstract": true
+    },
+    {
+      "id": "stretch",
+      "en": "stretch",
+      "zh": "伸展（stretch my legs 起來走一走）",
+      "emoji": "🤸",
+      "abstract": true
+    },
+    {
+      "id": "cloudy",
+      "en": "cloudy",
+      "zh": "多雲的；陰陰的",
+      "emoji": "🌥️",
+      "abstract": true
+    },
+    {
+      "id": "abroad",
+      "en": "abroad",
+      "zh": "在國外；到國外",
+      "emoji": "🌐",
+      "abstract": true
+    },
+    {
+      "id": "frequent",
+      "en": "frequent",
+      "zh": "頻繁的；常常的",
+      "emoji": "🔁",
+      "abstract": true
+    },
+    {
+      "id": "attendant",
+      "en": "attendant",
+      "zh": "服務員（flight attendant 空服員）",
+      "emoji": "💁",
+      "abstract": true
+    },
+    {
+      "id": "opposite",
+      "en": "opposite",
+      "zh": "對面的；另一邊的",
+      "emoji": "↔️",
+      "abstract": true
+    },
+    {
+      "id": "baggage",
+      "en": "baggage",
+      "zh": "行李（航空公司的說法）",
+      "emoji": "🛄",
+      "abstract": true
+    },
+    {
+      "id": "prohibit",
+      "en": "prohibit",
+      "zh": "禁止",
+      "emoji": "🚫"
+    },
+    {
+      "id": "valuable",
+      "en": "valuable",
+      "zh": "貴重的（valuables 貴重物品）",
+      "emoji": "💎",
+      "abstract": true
+    },
+    {
+      "id": "cabin",
+      "en": "cabin",
+      "zh": "機艙",
+      "emoji": "🚠",
+      "abstract": true
+    },
+    {
+      "id": "announcement",
+      "en": "announcement",
+      "zh": "廣播；公告",
+      "emoji": "📢"
+    },
+    {
+      "id": "cooperation",
+      "en": "cooperation",
+      "zh": "合作；配合",
+      "emoji": "🤝",
+      "abstract": true
+    },
+    {
+      "id": "unattended",
+      "en": "unattended",
+      "zh": "沒人看管的",
+      "emoji": "⚠️",
+      "abstract": true
+    },
+    {
+      "id": "safely",
+      "en": "safely",
+      "zh": "安全地",
+      "emoji": "🦺",
+      "abstract": true
+    },
+    {
+      "id": "land",
+      "en": "land",
+      "zh": "降落；落地",
+      "emoji": "🛬",
+      "abstract": true
+    },
+    {
+      "id": "distance",
+      "en": "distance",
+      "zh": "距離",
+      "emoji": "📏",
+      "abstract": true
+    },
+    {
+      "id": "exit",
+      "en": "exit",
+      "zh": "出口",
+      "emoji": "🏃"
+    },
+    {
+      "id": "onto",
+      "en": "onto",
+      "zh": "到……上面",
+      "emoji": "⤴️",
+      "abstract": true
+    },
+    {
+      "id": "row",
+      "en": "row",
+      "zh": "（座位的）排",
+      "emoji": "🔢",
+      "abstract": true
+    },
+    {
+      "id": "pilot",
+      "en": "pilot",
+      "zh": "機長；飛行員",
+      "emoji": "🧑‍✈️"
+    },
+    {
+      "id": "smooth",
+      "en": "smooth",
+      "zh": "平穩的；順利的",
+      "emoji": "〰️",
+      "abstract": true
+    },
+    {
+      "id": "hurry",
+      "en": "hurry",
+      "zh": "趕快；趕時間",
+      "emoji": "💨",
+      "abstract": true
+    },
+    {
+      "id": "overhead",
+      "en": "overhead",
+      "zh": "頭頂上方的（座位上方的置物櫃）",
+      "emoji": "⬆️",
+      "abstract": true
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "第一次出差",
+      "backdrop": "main",
+      "newChunkIds": ["travel_for_work_a_lot", "which_terminal_leave_from"],
+      "newWordIds": ["train", "airport", "travel", "trip", "fly", "easily", "flight", "terminal"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Here we are at the airport. Your first business trip!",
+          "zh": "到機場了。你第一次出差耶！"
+        },
+        {
+          "id": "t1_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you travel for work a lot?",
+          "zh": "你常出差嗎？",
+          "chunkId": "travel_for_work_a_lot"
+        },
+        {
+          "id": "t1_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Pretty often. I fly to Chicago two or three times a year.",
+          "zh": "滿常的。我一年要飛芝加哥兩三次。"
+        },
+        {
+          "id": "t1_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "After a few trips, you'll do all this easily.",
+          "zh": "多跑幾趟，這些你就駕輕就熟了。"
+        },
+        {
+          "id": "t1_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Which terminal does our flight leave from?",
+          "zh": "我們的班機是從第幾航廈出發？",
+          "chunkId": "which_terminal_leave_from"
+        },
+        {
+          "id": "t1_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Terminal B. We can take the airport train from here.",
+          "zh": "B 航廈。我們可以從這裡搭機場電車過去。",
+          "stage": {
+            "act": "want",
+            "item": "train"
+          }
+        },
+        {
+          "id": "t1_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "It's free, and it comes every five minutes.",
+          "zh": "免費的，而且每五分鐘就一班。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "櫃台報到",
+      "newChunkIds": ["two_seats_together", "suitcase_over_weight_limit"],
+      "newWordIds": [
+        "boarding_pass",
+        "luggage",
+        "agent",
+        "suitcase",
+        "destination",
+        "valid",
+        "domestic",
+        "expire",
+        "aisle"
+      ],
+      "fills": [
+        {
+          "id": "ask_the_agent",
+          "en": "Please ask the ___ at the counter for a new boarding pass.",
+          "zh": "請找櫃台的地勤人員拿一張新的登機證。",
+          "options": ["agent", "suitcase", "aisle", "destination"],
+          "answer": 0,
+          "note": "在櫃台幫你辦手續的人是 agent。"
+        },
+        {
+          "id": "id_expires",
+          "en": "My ID ___ next month, but it is still valid today.",
+          "zh": "我的證件下個月到期，不過今天還是有效的。",
+          "options": ["expire", "expires", "expiring", "to expire"],
+          "answer": 1,
+          "note": "主詞 my ID 是單數，現在式動詞加 s。",
+          "grammar": true
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "airline_agent",
+          "speaker": "npc",
+          "en": "Good morning. Flight 482, and Chicago is your final destination?",
+          "zh": "早安。482 班機，最後的目的地是芝加哥嗎？"
+        },
+        {
+          "id": "t2_2",
+          "role": "airline_agent",
+          "speaker": "npc",
+          "en": "Great. Can I see both of your IDs, please?",
+          "zh": "好的。可以看一下兩位的證件嗎？"
+        },
+        {
+          "id": "t2_3",
+          "role": "airline_agent",
+          "speaker": "npc",
+          "en": "Yours expires next month, but it's still valid today.",
+          "zh": "您的證件下個月到期，不過今天還是有效的。"
+        },
+        {
+          "id": "t2_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could we get two seats together, please?",
+          "zh": "可以幫我們排兩個坐在一起的位子嗎？",
+          "chunkId": "two_seats_together"
+        },
+        {
+          "id": "t2_5",
+          "role": "airline_agent",
+          "speaker": "npc",
+          "en": "Sure. I have a window and an aisle seat together.",
+          "zh": "沒問題。我這裡有靠窗和靠走道連在一起的位子。"
+        },
+        {
+          "id": "t2_6",
+          "role": "airline_agent",
+          "speaker": "npc",
+          "en": "Are you checking any luggage today?",
+          "zh": "今天有要託運行李嗎？"
+        },
+        {
+          "id": "t2_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is my suitcase over the weight limit?",
+          "zh": "我的行李箱有超重嗎？",
+          "chunkId": "suitcase_over_weight_limit",
+          "stage": {
+            "act": "want",
+            "item": "suitcase"
+          }
+        },
+        {
+          "id": "t2_8",
+          "role": "airline_agent",
+          "speaker": "npc",
+          "en": "No, it's under the limit for domestic flights. Here are your boarding passes.",
+          "zh": "沒有，沒超過國內線的上限。這是兩位的登機證。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "過安檢",
+      "backdrop": "main",
+      "newChunkIds": ["was_looking_for_boarding_pass", "were_standing_in_wrong_line"],
+      "newWordIds": [
+        "security",
+        "straight",
+        "tourist",
+        "anywhere",
+        "guard",
+        "pocket",
+        "crew",
+        "wallet",
+        "belt"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "There you are! I couldn't see you anywhere.",
+          "zh": "你在這裡！我到處都看不到你。"
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sorry, I was looking for my boarding pass.",
+          "zh": "抱歉，我剛剛在找登機證。",
+          "chunkId": "was_looking_for_boarding_pass"
+        },
+        {
+          "id": "t3_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "In your pocket, right? Keep it in your wallet.",
+          "zh": "在你口袋裡對吧？把它收在皮夾裡啦。",
+          "stage": {
+            "act": "want",
+            "item": "wallet"
+          }
+        },
+        {
+          "id": "t3_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Wait. That guard says this line is for crew only.",
+          "zh": "等一下，那個警衛說這一排只給機組人員走。"
+        },
+        {
+          "id": "t3_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We were standing in the wrong line the whole time.",
+          "zh": "我們從頭到尾都排錯隊了。",
+          "chunkId": "were_standing_in_wrong_line"
+        },
+        {
+          "id": "t3_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "My fault. I wasn't paying attention.",
+          "zh": "我的錯，我沒注意看。"
+        },
+        {
+          "id": "t3_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Let's go straight to the line behind those tourists.",
+          "zh": "我們直接去排那群觀光客後面那一排吧。"
+        },
+        {
+          "id": "t3_8",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "And take off your belt before security.",
+          "zh": "還有，過安檢前先把皮帶拿下來。",
+          "stage": {
+            "act": "want",
+            "item": "belt"
+          }
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀新版行程表",
+      "backdrop": "coworker",
+      "newChunkIds": ["latest_version_of_itinerary"],
+      "newWordIds": [
+        "rental",
+        "possibility",
+        "version",
+        "departure",
+        "itinerary",
+        "shuttle",
+        "storm",
+        "arrival",
+        "airline",
+        "unexpected"
+      ],
+      "passages": [
+        {
+          "id": "new_itinerary_email",
+          "kind": "email",
+          "title": "New version of your itinerary",
+          "lines": [
+            "Hi both,",
+            "The airline changed the time of your flight home on Saturday evening, so I'm sending you a new version of your itinerary. Please use this one, not the old one.",
+            "Your departure today is the same. Flight 482 leaves at 1:10 p.m., and the arrival time in Chicago is 3:05 p.m.",
+            "There may be a storm near Chicago this afternoon, so there is a possibility of a delay. If anything unexpected happens, call me.",
+            "You don't need a rental car. A free shuttle to your rooms leaves the airport every 30 minutes, so you can get there easily.",
+            "Have a good trip!",
+            "Ms. Carter"
+          ],
+          "questions": [
+            {
+              "en": "Why did Ms. Carter write this email?",
+              "zh": "Ms. Carter 為什麼寫這封信？",
+              "options": ["To send a new itinerary", "To cancel the trip", "To book a rental car"],
+              "answer": 0
+            },
+            {
+              "en": "What may cause a delay?",
+              "zh": "什麼可能造成延誤？",
+              "options": ["Heavy traffic", "A storm", "A long line"],
+              "answer": 1
+            },
+            {
+              "en": "How will they leave the airport?",
+              "zh": "他們要怎麼離開機場？",
+              "options": ["By rental car", "By train", "By shuttle"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Check your email. Ms. Carter just sent us something.",
+          "zh": "你看一下信箱，Ms. Carter 剛寄東西給我們。"
+        },
+        {
+          "id": "t4_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is this the latest version of our itinerary?",
+          "zh": "這是我們最新版的行程表嗎？",
+          "chunkId": "latest_version_of_itinerary"
+        },
+        {
+          "id": "t4_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Yes. The airline changed our flight home on Saturday.",
+          "zh": "對。航空公司改了我們星期六回程的班機。"
+        },
+        {
+          "id": "t4_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Our departure today is the same, at one ten.",
+          "zh": "今天的出發時間不變，一點十分。"
+        },
+        {
+          "id": "t4_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "But there's a storm near Chicago this afternoon.",
+          "zh": "不過今天下午芝加哥附近有暴風雨。",
+          "stage": {
+            "act": "want",
+            "item": "storm"
+          }
+        },
+        {
+          "id": "t4_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "So there's a real possibility we'll be late.",
+          "zh": "所以我們很有可能會晚到。"
+        },
+        {
+          "id": "t4_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "At least we don't need a rental car. There's a free shuttle.",
+          "zh": "還好我們不用租車，有免費的接駁車。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "班機延誤",
+      "backdrop": "coworker",
+      "newChunkIds": ["new_departure_time_yet", "possible_to_catch_earlier_flight"],
+      "newWordIds": [
+        "ground",
+        "catch",
+        "unclear",
+        "weather",
+        "depart",
+        "plane",
+        "passenger",
+        "lounge",
+        "gate"
+      ],
+      "talks": [
+        {
+          "id": "gate_delay",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "coworker",
+              "en": "Hi. Our flight to Chicago is delayed. What's going on?",
+              "zh": "你好。我們往芝加哥的班機延誤了，是怎麼回事？"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "airline_agent",
+              "en": "The plane is still on the ground in Chicago because of the weather.",
+              "zh": "因為天氣的關係，飛機還停在芝加哥的地面上。"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "coworker",
+              "en": "I see. When do you think it will depart?",
+              "zh": "了解。你覺得大概什麼時候會起飛？"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "airline_agent",
+              "en": "It's still unclear, but we hope to leave around two thirty.",
+              "zh": "現在還不確定，不過我們希望兩點半左右可以起飛。"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "coworker",
+              "en": "Okay. Can we wait in the lounge?",
+              "zh": "好。我們可以去貴賓室等嗎？"
+            },
+            {
+              "id": "t5_talk_6",
+              "role": "airline_agent",
+              "en": "Sorry, the lounge is only for members. There's a coffee shop next to this gate.",
+              "zh": "抱歉，貴賓室只開放給會員。這個登機門旁邊有一家咖啡店。"
+            },
+            {
+              "id": "t5_talk_7",
+              "role": "coworker",
+              "en": "Great. We'll wait there.",
+              "zh": "太好了，我們就在那裡等。"
+            },
+            {
+              "id": "t5_talk_8",
+              "role": "airline_agent",
+              "en": "Just please don't go too far.",
+              "zh": "只是請不要走太遠。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "Why is the flight delayed?",
+              "zh": "班機為什麼延誤？",
+              "options": ["Bad weather", "A problem with the crew", "Too many passengers"],
+              "answer": 0
+            },
+            {
+              "en": "When may the flight leave?",
+              "zh": "班機大概什麼時候會起飛？",
+              "options": ["Around 1:10", "Around 2:30", "Around 3:05"],
+              "answer": 1
+            },
+            {
+              "en": "Where does the agent tell them to wait?",
+              "zh": "地勤建議他們在哪裡等？",
+              "options": ["In the lounge", "On the plane", "At a coffee shop"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "airline_agent",
+          "speaker": "npc",
+          "en": "Hi there. Are you asking about the Chicago flight?",
+          "zh": "你好。是要問往芝加哥的班機嗎？"
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you have a new departure time yet?",
+          "zh": "請問新的起飛時間出來了嗎？",
+          "chunkId": "new_departure_time_yet"
+        },
+        {
+          "id": "t5_3",
+          "role": "airline_agent",
+          "speaker": "npc",
+          "en": "Not yet, sorry. The plane is still on the ground in Chicago.",
+          "zh": "還沒有，不好意思。飛機還停在芝加哥的地面上。",
+          "stage": {
+            "act": "want",
+            "item": "plane"
+          }
+        },
+        {
+          "id": "t5_4",
+          "role": "airline_agent",
+          "speaker": "npc",
+          "en": "The weather there is bad, so it's unclear right now.",
+          "zh": "那邊天氣很差，所以現在還說不準。"
+        },
+        {
+          "id": "t5_5",
+          "role": "airline_agent",
+          "speaker": "npc",
+          "en": "We're hoping it can depart around two thirty.",
+          "zh": "我們希望兩點半左右可以起飛。"
+        },
+        {
+          "id": "t5_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is it possible to catch an earlier flight?",
+          "zh": "有沒有可能改搭早一點的班機？",
+          "chunkId": "possible_to_catch_earlier_flight"
+        },
+        {
+          "id": "t5_7",
+          "role": "airline_agent",
+          "speaker": "npc",
+          "en": "I'm afraid the twelve forty is full. I can't add any more passengers.",
+          "zh": "恐怕十二點四十那班已經滿了，沒辦法再加乘客。"
+        },
+        {
+          "id": "t5_8",
+          "role": "airline_agent",
+          "speaker": "npc",
+          "en": "Please stay near the gate. I'll know more soon.",
+          "zh": "請待在登機門附近，我很快會有新的消息。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "等登機",
+      "backdrop": "coworker",
+      "newChunkIds": ["time_to_eat_before_we_board", "wait_until_they_post_gate"],
+      "newWordIds": [
+        "mile",
+        "except",
+        "post",
+        "suddenly",
+        "announce",
+        "stretch",
+        "cloudy",
+        "abroad",
+        "frequent"
+      ],
+      "cloze": [
+        {
+          "lineId": "t6_1",
+          "word": "cloudy",
+          "distractors": ["valid", "domestic"]
+        },
+        {
+          "lineId": "t6_3",
+          "word": "pizza",
+          "distractors": ["storm", "belt"]
+        },
+        {
+          "lineId": "t6_7",
+          "word": "stretch",
+          "distractors": ["expire", "depart"]
+        }
+      ],
+      "textFills": [
+        {
+          "id": "flight_update_message",
+          "kind": "message",
+          "title": "Flight 482 Update",
+          "lines": [
+            "Dear passengers,",
+            "Flight 482 to Chicago is delayed because of bad weather. The plane will depart from a new gate.",
+            "Please stay near this gate ___ we post the new gate on the screens.",
+            "Frequent passengers with a member card may wait in the ___.",
+            "Thank you for ___ patient."
+          ],
+          "zh": [
+            "各位旅客好：",
+            "往芝加哥的 482 班機因為天氣不好延誤了，飛機會改從新的登機門起飛。",
+            "在我們把新的登機門公布在螢幕上之前，請待在這個登機門附近。",
+            "有會員卡的常客可以在貴賓室等候。",
+            "謝謝您耐心等候。"
+          ],
+          "blanks": [
+            {
+              "options": ["until", "unless", "because", "except"],
+              "answer": 0,
+              "note": "一直等到公布為止，用 until。"
+            },
+            {
+              "options": ["lounge", "pocket", "wallet", "belt"],
+              "answer": 0,
+              "note": "可以坐著等的地方是貴賓室 lounge。"
+            },
+            {
+              "options": ["be", "being", "been", "to be"],
+              "answer": 1,
+              "note": "for 後面的動詞要用 V-ing。"
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Still cloudy out there. This could be a long wait.",
+          "zh": "外面還是陰陰的。可能要等很久喔。"
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do we have time to eat before we board?",
+          "zh": "登機前我們還來得及吃點東西嗎？",
+          "chunkId": "time_to_eat_before_we_board"
+        },
+        {
+          "id": "t6_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Sure. Everything here is open except the pizza place.",
+          "zh": "可以啊。這裡除了披薩店，其他都有開。"
+        },
+        {
+          "id": "t6_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Hold on. Did they just announce a gate change?",
+          "zh": "等一下。他們剛剛是不是廣播說要換登機門？"
+        },
+        {
+          "id": "t6_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Right, but the screen doesn't say which gate yet.",
+          "zh": "對，可是螢幕上還沒寫是哪個登機門。"
+        },
+        {
+          "id": "t6_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let's wait here until they post the new gate.",
+          "zh": "我們在這裡等到新的登機門公布吧。",
+          "chunkId": "wait_until_they_post_gate"
+        },
+        {
+          "id": "t6_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Good idea. I'll stretch my legs and get us some sandwiches.",
+          "zh": "好主意。我起來走一走，順便買兩個三明治。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "聽機場廣播",
+      "backdrop": "coworker",
+      "newChunkIds": ["gate_thirteen_or_thirty"],
+      "newWordIds": [
+        "attendant",
+        "opposite",
+        "baggage",
+        "prohibit",
+        "valuable",
+        "cabin",
+        "announcement",
+        "cooperation",
+        "unattended",
+        "safely"
+      ],
+      "talks": [
+        {
+          "id": "gate_change_announcement",
+          "kind": "monologue",
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "announcer",
+              "en": "Attention, please. This is an announcement for passengers on Flight 482 to Chicago.",
+              "zh": "各位旅客請注意，這是往芝加哥 482 班機的廣播。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "announcer",
+              "en": "Your flight will now leave from gate thirty, on the opposite side of the terminal.",
+              "zh": "您的班機改從 30 號登機門出發，在航廈的另一邊。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "announcer",
+              "en": "Boarding will begin at two o'clock, starting with group one.",
+              "zh": "兩點開始登機，從第一組開始。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "announcer",
+              "en": "Space in the cabin is limited, so please bring only one bag on board.",
+              "zh": "機艙空間有限，請每人只帶一件行李上機。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "announcer",
+              "en": "Our flight attendants will be happy to help you.",
+              "zh": "我們的空服員很樂意協助您。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "announcer",
+              "en": "Please keep your valuables with you at all times.",
+              "zh": "請隨時把貴重物品帶在身上。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "announcer",
+              "en": "Leaving your baggage unattended is prohibited.",
+              "zh": "行李不可以放著無人看管。"
+            },
+            {
+              "id": "t7_talk_8",
+              "role": "announcer",
+              "en": "Thank you for your cooperation. We hope to get you to Chicago safely.",
+              "zh": "謝謝您的配合，我們希望讓您平安抵達芝加哥。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "Which gate will the flight leave from?",
+              "zh": "班機改從幾號登機門出發？",
+              "options": ["Gate 13", "Gate 30", "Gate 33"],
+              "answer": 1
+            },
+            {
+              "en": "When does boarding begin?",
+              "zh": "幾點開始登機？",
+              "options": ["At 1:10", "At 2:00", "At 2:30"],
+              "answer": 1
+            },
+            {
+              "en": "What does the announcement ask passengers not to do?",
+              "zh": "廣播請旅客不要做什麼？",
+              "options": ["Eat at the gate", "Use their phones", "Leave bags unattended"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Wait, that announcement was for us. We're changing gates.",
+          "zh": "等等，剛剛那個廣播是在說我們。我們要換登機門。",
+          "stage": {
+            "act": "want",
+            "item": "announcement"
+          }
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Did they say gate thirteen or gate thirty?",
+          "zh": "他們剛剛是說 13 號還是 30 號登機門？",
+          "chunkId": "gate_thirteen_or_thirty"
+        },
+        {
+          "id": "t7_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Thirty. It's all the way on the opposite side.",
+          "zh": "30 號。在另一頭，很遠。"
+        },
+        {
+          "id": "t7_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Boarding starts at two, so we should go now.",
+          "zh": "兩點就開始登機了，我們現在就該走了。"
+        },
+        {
+          "id": "t7_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Keep your wallet and phone with you, okay?",
+          "zh": "皮夾和手機要帶在身上喔。"
+        },
+        {
+          "id": "t7_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "And only one bag in the cabin, they said. Mine might be too big!",
+          "zh": "他們還說機艙裡只能帶一件行李。我的可能太大了！"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "登機入座",
+      "backdrop": "coworker",
+      "newChunkIds": ["window_seat_or_aisle", "call_as_soon_as_we_land"],
+      "newWordIds": [
+        "land",
+        "distance",
+        "exit",
+        "onto",
+        "row",
+        "pilot",
+        "smooth",
+        "hurry",
+        "overhead"
+      ],
+      "spellWordIds": ["coupon", "apologize", "case", "loss", "poor"],
+      "cloze": [
+        {
+          "lineId": "t8_5",
+          "word": "smooth",
+          "distractors": ["unattended", "valid"]
+        },
+        {
+          "lineId": "t8_6",
+          "word": "exit",
+          "distractors": ["storm", "wallet"]
+        },
+        {
+          "lineId": "t8_7",
+          "word": "land",
+          "distractors": ["expire", "stretch"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Here's row twelve. Hurry, people are waiting.",
+          "zh": "12 排在這裡。快點，後面有人在等。"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you want the window seat or the aisle?",
+          "zh": "你想坐靠窗還是靠走道？",
+          "chunkId": "window_seat_or_aisle"
+        },
+        {
+          "id": "t8_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "You take the window. I like the aisle.",
+          "zh": "你坐靠窗吧，我喜歡靠走道。"
+        },
+        {
+          "id": "t8_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "I'll put your bag in the overhead.",
+          "zh": "我幫你把包包放到上面的置物櫃。"
+        },
+        {
+          "id": "t8_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "The pilot says it'll be a smooth flight.",
+          "zh": "機長說這趟應該會飛得很平穩。",
+          "stage": {
+            "act": "want",
+            "item": "pilot"
+          }
+        },
+        {
+          "id": "t8_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "And look, we're right by the exit.",
+          "zh": "而且你看，我們就在出口旁邊。",
+          "stage": {
+            "act": "want",
+            "item": "exit"
+          }
+        },
+        {
+          "id": "t8_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll call Ms. Carter as soon as we land.",
+          "zh": "我們一落地，我就打給 Ms. Carter。",
+          "chunkId": "call_as_soon_as_we_land"
+        },
+        {
+          "id": "t8_8",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Good. She'll want to know we're safe.",
+          "zh": "好。她會想知道我們平安到了。"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "backdrop": "coworker",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Ms. Carter sent our travel plans again. Check your email.",
+          "zh": "Ms. Carter 又寄了一次我們的行程，你看一下信箱。"
+        },
+        {
+          "id": "t9_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is this the latest version of our itinerary?",
+          "zh": "這是我們最新版的行程表嗎？",
+          "chunkId": "latest_version_of_itinerary"
+        },
+        {
+          "id": "t9_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Yes. Wait, our flight's delayed. Let's ask at the counter.",
+          "zh": "對。等等，我們的班機延誤了。去櫃台問問看吧。"
+        },
+        {
+          "id": "t9_4",
+          "role": "airline_agent",
+          "speaker": "npc",
+          "en": "Hi. How can I help you two?",
+          "zh": "你好，請問兩位需要什麼協助？"
+        },
+        {
+          "id": "t9_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you have a new departure time yet?",
+          "zh": "請問新的起飛時間出來了嗎？",
+          "chunkId": "new_departure_time_yet"
+        },
+        {
+          "id": "t9_6",
+          "role": "airline_agent",
+          "speaker": "npc",
+          "en": "Not yet. The plane is still on the ground because of the storm.",
+          "zh": "還沒有。因為暴風雨，飛機還停在地面上。"
+        },
+        {
+          "id": "t9_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is it possible to catch an earlier flight?",
+          "zh": "有沒有可能改搭早一點的班機？",
+          "chunkId": "possible_to_catch_earlier_flight"
+        },
+        {
+          "id": "t9_8",
+          "role": "airline_agent",
+          "speaker": "npc",
+          "en": "Let me check. Yes, I have two seats on the twelve forty.",
+          "zh": "我查一下。有，十二點四十那班還有兩個位子。"
+        },
+        {
+          "id": "t9_9",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could we get two seats together, please?",
+          "zh": "可以幫我們排兩個坐在一起的位子嗎？",
+          "chunkId": "two_seats_together"
+        },
+        {
+          "id": "t9_10",
+          "role": "airline_agent",
+          "speaker": "npc",
+          "en": "Sorry, one window and one aisle. Can I see your boarding passes?",
+          "zh": "抱歉，一個靠窗，一個靠走道。可以看一下兩位的登機證嗎？"
+        },
+        {
+          "id": "t9_11",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sorry, I was looking for my boarding pass.",
+          "zh": "抱歉，我剛剛在找登機證。",
+          "chunkId": "was_looking_for_boarding_pass"
+        },
+        {
+          "id": "t9_12",
+          "role": "airline_agent",
+          "speaker": "npc",
+          "en": "No problem. Here are your new ones. You board in twenty minutes.",
+          "zh": "沒關係。這是新的登機證，二十分鐘後登機。"
+        },
+        {
+          "id": "t9_13",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Twenty minutes. I could really eat something.",
+          "zh": "二十分鐘啊。我好想吃點東西。"
+        },
+        {
+          "id": "t9_14",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do we have time to eat before we board?",
+          "zh": "登機前我們還來得及吃點東西嗎？",
+          "chunkId": "time_to_eat_before_we_board"
+        },
+        {
+          "id": "t9_15",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Just a quick sandwich. Wait, listen. They're announcing our gate.",
+          "zh": "只能吃個三明治。等等，你聽，他們在廣播我們的登機門。"
+        },
+        {
+          "id": "t9_16",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Did they say gate thirteen or gate thirty?",
+          "zh": "他們剛剛是說 13 號還是 30 號登機門？",
+          "chunkId": "gate_thirteen_or_thirty"
+        },
+        {
+          "id": "t9_17",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Thirteen. It's just a short distance from here.",
+          "zh": "13 號，離這裡很近。"
+        },
+        {
+          "id": "t9_18",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you travel for work a lot?",
+          "zh": "你常出差嗎？",
+          "chunkId": "travel_for_work_a_lot"
+        },
+        {
+          "id": "t9_19",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "A lot. By the way, someone should tell Ms. Carter about the new flight.",
+          "zh": "很常啊。對了，要有人跟 Ms. Carter 說我們換班機了。"
+        },
+        {
+          "id": "t9_20",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll call Ms. Carter as soon as we land.",
+          "zh": "我們一落地，我就打給 Ms. Carter。",
+          "chunkId": "call_as_soon_as_we_land"
+        },
+        {
+          "id": "t9_21",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Great. Now let's go get that sandwich.",
+          "zh": "太好了。那我們去買三明治吧。"
+        }
+      ]
+    }
+  ]
+}
