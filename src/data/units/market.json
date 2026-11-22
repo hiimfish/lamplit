@@ -1,0 +1,672 @@
+{
+  "id": "market",
+  "title": "超市與市集",
+  "titleEn": "Supermarket & Market",
+  "chunks": [
+    {
+      "id": "where_apples",
+      "en": "Excuse me, where are the apples?",
+      "zh": "不好意思，蘋果在哪裡？",
+      "accept": ["Where are the apples?"],
+      "note": "在店裡找不到東西時，用 Excuse me 開口問店員。apples 是複數，所以用 are。",
+      "distractors": [
+        { "text": "Excuse me, where is the apples?", "error": "plural" },
+        { "text": "Excuse me, where the apples are?", "error": "word-order" },
+        { "text": "Excuse me, where are the apple?", "error": "plural" }
+      ]
+    },
+    {
+      "id": "i_see_them",
+      "en": "Thanks, I see them.",
+      "zh": "謝謝，我看到了。",
+      "accept": ["Thank you, I see them.", "Thanks, I see them now."],
+      "note": "找到東西時這樣回答。them 指剛剛說的那些東西（複數）；只有一個時說 I see it。",
+      "distractors": [
+        { "text": "Thanks, I see they.", "error": "other" },
+        { "text": "Thanks, I them see.", "error": "word-order" },
+        { "text": "Thanks, I am see them.", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "try_one",
+      "en": "Can I try one?",
+      "zh": "我可以試吃一個嗎？",
+      "accept": ["Can I try one, please?", "Could I try one?"],
+      "note": "想試吃、試用時說。one 代替前面說的東西，不用再說一次名字。",
+      "distractors": [
+        { "text": "Can I try a one?", "error": "article" },
+        { "text": "Can I one try?", "error": "word-order" },
+        { "text": "Can I trying one?", "error": "other" }
+      ]
+    },
+    {
+      "id": "looks_good",
+      "en": "This looks really good.",
+      "zh": "這看起來很好吃。",
+      "accept": ["It looks really good.", "This looks so good."],
+      "note": "look + 形容詞 = 看起來…。主詞是 this，所以 look 要加 s；really 放在 good 前面加強語氣。",
+      "distractors": [
+        { "text": "This look really good.", "error": "other" },
+        { "text": "This looks good really.", "error": "word-order" },
+        { "text": "This is looks really good.", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "rice_and_eggs",
+      "en": "I need some rice and some eggs.",
+      "zh": "我需要一些米和一些蛋。",
+      "accept": ["I need some rice and eggs."],
+      "note": "rice 不可數：不加 s，也不說 a rice。egg 可數：兩個以上加 s。some 兩種都可以用。",
+      "distractors": [
+        { "text": "I need some rices and some eggs.", "error": "plural" },
+        { "text": "I need some rice and some egg.", "error": "plural" },
+        { "text": "I need a rice and some eggs.", "error": "article" }
+      ]
+    },
+    {
+      "id": "two_bottles",
+      "en": "Two bottles of water, please.",
+      "zh": "兩瓶水，謝謝。",
+      "accept": ["Two bottles of water.", "Can I get two bottles of water, please?"],
+      "note": "water 不可數，要數的時候數瓶子：a bottle of water、two bottles of water。s 加在 bottle 上。",
+      "distractors": [
+        { "text": "Two bottle of water, please.", "error": "plural" },
+        { "text": "Two bottles of waters, please.", "error": "plural" },
+        { "text": "Two bottles water, please.", "error": "missing-word" }
+      ]
+    },
+    {
+      "id": "one_pound",
+      "en": "One pound of chicken, please.",
+      "zh": "一磅雞肉，謝謝。",
+      "accept": ["A pound of chicken, please.", "One pound of chicken."],
+      "note": "買肉、買菜秤重時說：數字 + pound(s) of + 東西。一磅大約 450 公克。",
+      "distractors": [
+        { "text": "One pound chicken, please.", "error": "missing-word" },
+        { "text": "One pound of chickens, please.", "error": "plural" },
+        { "text": "One chicken of pound, please.", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "little_more",
+      "en": "A little more, please.",
+      "zh": "再多一點，謝謝。",
+      "accept": ["A little more.", "A little bit more, please."],
+      "note": "覺得不夠、想再加一點時說。a little = 一點點。",
+      "distractors": [
+        { "text": "A more little, please.", "error": "word-order" },
+        { "text": "A little much, please.", "error": "other" },
+        { "text": "A littel more, please.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "in_line",
+      "en": "Are you in line?",
+      "zh": "你在排隊嗎？",
+      "accept": ["Excuse me, are you in line?"],
+      "note": "不確定旁邊的人是不是在排隊時問。in line = 排隊中，line 前面不加 a 或 the。",
+      "distractors": [
+        { "text": "Are you in a line?", "error": "article" },
+        { "text": "Do you in line?", "error": "other" },
+        { "text": "Are you line in?", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "own_bag",
+      "en": "Can I use my own bag?",
+      "zh": "可以用我自己的袋子嗎？",
+      "accept": ["Can I use my own bag, please?", "Can I use my bag?"],
+      "note": "結帳時想用自己帶的袋子時問。my own = 我自己的，own 放在 my 後面。",
+      "distractors": [
+        { "text": "Can I use own my bag?", "error": "word-order" },
+        { "text": "Can I use a my own bag?", "error": "article" },
+        { "text": "Can I using my own bag?", "error": "other" }
+      ]
+    },
+    {
+      "id": "how_much_tomatoes",
+      "en": "How much are the tomatoes?",
+      "zh": "番茄怎麼賣？",
+      "accept": ["How much are these tomatoes?", "How much for the tomatoes?"],
+      "note": "問價錢用 How much。tomatoes 是複數，所以用 are；只問一樣東西說 How much is it?",
+      "distractors": [
+        { "text": "How many are the tomatoes?", "error": "other" },
+        { "text": "How much is the tomatoes?", "error": "plural" },
+        { "text": "How much are the tomatos?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "how_many_bag",
+      "en": "How many are in a bag?",
+      "zh": "一袋有幾個？",
+      "accept": ["How many in a bag?", "How many are there in a bag?"],
+      "note": "問數量用 How many，問的是可以數的東西；問價錢才用 How much。",
+      "distractors": [
+        { "text": "How much are in a bag?", "error": "other" },
+        { "text": "How many is in a bag?", "error": "plural" },
+        { "text": "How many are in bag?", "error": "article" }
+      ]
+    },
+    {
+      "id": "buy_one_get_one",
+      "en": "Is it buy one, get one free?",
+      "zh": "這是買一送一嗎？",
+      "accept": ["Is this buy one, get one free?", "Is it buy one get one free?"],
+      "note": "buy one, get one free = 買一送一。free 是免費，放在最後面。",
+      "distractors": [
+        { "text": "Is it buy one, get free one?", "error": "word-order" },
+        { "text": "Is it by one, get one free?", "error": "spelling" },
+        { "text": "Does it buy one, get one free?", "error": "other" }
+      ]
+    },
+    {
+      "id": "take_two",
+      "en": "Great, I'll take two.",
+      "zh": "太好了，我拿兩個。",
+      "accept": ["Great! I'll take two.", "Great, I will take two."],
+      "note": "決定要買時說 I'll take…（I'll = I will）。Great 表示聽到好消息很開心。",
+      "distractors": [
+        { "text": "Great, I'll taking two.", "error": "other" },
+        { "text": "Great, I'll two take.", "error": "word-order" },
+        { "text": "Great, I'll take too.", "error": "spelling" }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "fruit", "en": "fruit", "zh": "水果", "emoji": "🍇" },
+    { "id": "apple", "en": "apple", "zh": "蘋果", "emoji": "🍎" },
+    { "id": "orange", "en": "orange", "zh": "柳橙", "emoji": "🍊" },
+    { "id": "banana", "en": "banana", "zh": "香蕉", "emoji": "🍌" },
+    { "id": "fresh", "en": "fresh", "zh": "新鮮的", "emoji": "✨", "abstract": true },
+    { "id": "vegetable", "en": "vegetable", "zh": "蔬菜", "emoji": "🥬" },
+    { "id": "tomato", "en": "tomato", "zh": "番茄", "emoji": "🍅" },
+    { "id": "potato", "en": "potato", "zh": "馬鈴薯", "emoji": "🥔" },
+    { "id": "oil", "en": "oil", "zh": "油", "emoji": "🫒" },
+    { "id": "meat", "en": "meat", "zh": "肉", "emoji": "🥩" },
+    { "id": "salt", "en": "salt", "zh": "鹽", "emoji": "🧂" },
+    { "id": "rice", "en": "rice", "zh": "米；飯", "emoji": "🍚" },
+    { "id": "half", "en": "half", "zh": "一半", "emoji": "🌗", "abstract": true },
+    { "id": "piece", "en": "piece", "zh": "一塊；一片", "emoji": "🧩", "abstract": true },
+    { "id": "fish", "en": "fish", "zh": "魚", "emoji": "🐟" },
+    { "id": "pound", "en": "pound", "zh": "磅", "emoji": "⚖️", "abstract": true },
+    { "id": "chicken", "en": "chicken", "zh": "雞肉", "emoji": "🍗" },
+    { "id": "thirteen", "en": "thirteen", "zh": "十三", "emoji": "🔢", "abstract": true },
+    { "id": "thirty", "en": "thirty", "zh": "三十", "emoji": "🔢", "abstract": true },
+    { "id": "fifteen", "en": "fifteen", "zh": "十五", "emoji": "🔢", "abstract": true },
+    { "id": "forty", "en": "forty", "zh": "四十", "emoji": "🔢", "abstract": true },
+    { "id": "hundred", "en": "hundred", "zh": "一百", "emoji": "💯", "abstract": true },
+    { "id": "buy", "en": "buy", "zh": "買", "emoji": "🛒", "abstract": true },
+    { "id": "price", "en": "price", "zh": "價錢", "emoji": "🏷️" },
+    { "id": "each", "en": "each", "zh": "每個", "emoji": "☝️", "abstract": true },
+    { "id": "cheap", "en": "cheap", "zh": "便宜的", "emoji": "👛", "abstract": true },
+    { "id": "expensive", "en": "expensive", "zh": "貴的", "emoji": "💎", "abstract": true },
+    { "id": "free", "en": "free", "zh": "免費的", "emoji": "🆓", "abstract": true },
+    { "id": "cheese", "en": "cheese", "zh": "起司", "emoji": "🧀" },
+    { "id": "butter", "en": "butter", "zh": "奶油", "emoji": "🧈" },
+    { "id": "pizza", "en": "pizza", "zh": "披薩", "emoji": "🍕" },
+    { "id": "juice", "en": "juice", "zh": "果汁", "emoji": "🧃" }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "蘋果在哪",
+      "newChunkIds": ["where_apples", "i_see_them"],
+      "newWordIds": ["fruit", "apple", "orange", "banana"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Excuse me, where are the apples?",
+          "zh": "不好意思，蘋果在哪裡？",
+          "chunkId": "where_apples",
+          "stage": { "act": "want", "item": "apple" }
+        },
+        {
+          "id": "t1_2",
+          "role": "cashier",
+          "speaker": "npc",
+          "en": "They're with the fruit, by the bananas.",
+          "zh": "在水果區，香蕉旁邊。",
+          "stage": { "act": "want", "item": "banana" }
+        },
+        {
+          "id": "t1_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thanks, I see them.",
+          "zh": "謝謝，我看到了。",
+          "chunkId": "i_see_them"
+        },
+        {
+          "id": "t1_4",
+          "role": "cashier",
+          "speaker": "npc",
+          "en": "No problem. We have good oranges today, too.",
+          "zh": "不客氣。今天的柳橙也很不錯喔。",
+          "stage": { "act": "want", "item": "orange" }
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "市集試吃",
+      "newChunkIds": ["try_one", "looks_good"],
+      "newWordIds": ["fresh", "vegetable", "tomato", "potato"],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "vendor",
+          "speaker": "npc",
+          "en": "Good morning! Fresh potatoes and tomatoes today!",
+          "zh": "早安！今天有新鮮的馬鈴薯和番茄喔！"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I try one?",
+          "zh": "我可以試吃一個嗎？",
+          "chunkId": "try_one",
+          "stage": { "act": "want", "item": "tomato" }
+        },
+        {
+          "id": "t2_3",
+          "role": "vendor",
+          "speaker": "npc",
+          "en": "A tomato? Sure! Here, try this one.",
+          "zh": "番茄嗎？好啊！來，吃吃看這個。",
+          "stage": { "act": "give", "item": "tomato" }
+        },
+        {
+          "id": "t2_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "This looks really good.",
+          "zh": "這看起來很好吃。",
+          "chunkId": "looks_good"
+        },
+        {
+          "id": "t2_5",
+          "role": "vendor",
+          "speaker": "npc",
+          "en": "Thanks! All my vegetables are fresh this morning.",
+          "zh": "謝謝！我的菜都是今天早上現採的。",
+          "stage": { "act": "want", "item": "vegetable" }
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "一些米、兩瓶水",
+      "newChunkIds": ["rice_and_eggs", "two_bottles"],
+      "newWordIds": ["oil", "meat", "salt", "rice"],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "vendor",
+          "speaker": "npc",
+          "en": "Hi! What do you need?",
+          "zh": "嗨！需要什麼？"
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Two bottles of water, please.",
+          "zh": "兩瓶水，謝謝。",
+          "chunkId": "two_bottles"
+        },
+        {
+          "id": "t3_3",
+          "role": "vendor",
+          "speaker": "npc",
+          "en": "Sure. Any oil or salt?",
+          "zh": "好。要不要油或鹽？",
+          "stage": { "act": "want", "item": "oil" }
+        },
+        {
+          "id": "t3_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I need some rice and some eggs.",
+          "zh": "我需要一些米和一些蛋。",
+          "chunkId": "rice_and_eggs",
+          "stage": { "act": "want", "item": "rice" }
+        },
+        {
+          "id": "t3_5",
+          "role": "vendor",
+          "speaker": "npc",
+          "en": "Here you go!",
+          "zh": "來，給你！",
+          "stage": { "act": "give", "item": "rice" }
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "肉攤秤重",
+      "newChunkIds": ["one_pound", "little_more"],
+      "newWordIds": ["half", "piece", "fish", "pound", "chicken"],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "vendor",
+          "speaker": "npc",
+          "en": "Good morning! Meat or fish today?",
+          "zh": "早安！今天要肉還是魚？",
+          "stage": { "act": "want", "item": "fish" }
+        },
+        {
+          "id": "t4_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "One pound of chicken, please.",
+          "zh": "一磅雞肉，謝謝。",
+          "chunkId": "one_pound",
+          "stage": { "act": "want", "item": "chicken" }
+        },
+        {
+          "id": "t4_3",
+          "role": "vendor",
+          "speaker": "npc",
+          "en": "Okay. This piece is about half a pound.",
+          "zh": "好。這塊大概半磅。"
+        },
+        {
+          "id": "t4_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "A little more, please.",
+          "zh": "再多一點，謝謝。",
+          "chunkId": "little_more"
+        },
+        {
+          "id": "t4_5",
+          "role": "vendor",
+          "speaker": "npc",
+          "en": "Sure. One more piece. That's one pound.",
+          "zh": "好，再加一塊。這樣剛好一磅。",
+          "stage": { "act": "give", "item": "chicken" }
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "排隊結帳",
+      "newChunkIds": ["in_line", "own_bag"],
+      "newWordIds": ["thirteen", "thirty", "fifteen", "forty", "hundred"],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Are you in line?",
+          "zh": "你在排隊嗎？",
+          "chunkId": "in_line",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t5_2",
+          "role": "cashier",
+          "speaker": "npc",
+          "en": "No, I work here. I can help you.",
+          "zh": "沒有，我是這裡的店員。我來幫你結帳。"
+        },
+        {
+          "id": "t5_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I use my own bag?",
+          "zh": "可以用我自己的袋子嗎？",
+          "chunkId": "own_bag"
+        },
+        {
+          "id": "t5_4",
+          "role": "cashier",
+          "speaker": "npc",
+          "en": "Sure. That's thirteen thirty, please.",
+          "zh": "可以。一共十三塊三，謝謝。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "怎麼賣、一袋幾個",
+      "newChunkIds": ["how_much_tomatoes", "how_many_bag"],
+      "newWordIds": ["buy", "price", "each", "cheap", "expensive"],
+      "cloze": [
+        { "lineId": "t6_1", "word": "prices", "distractors": ["minutes", "corners"] },
+        { "lineId": "t6_3", "word": "cheap", "distractors": ["lost", "sorry", "alone"] },
+        { "lineId": "t6_5", "word": "buy", "distractors": ["read", "sit", "spell"] }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "vendor",
+          "speaker": "npc",
+          "en": "Hi! Good prices today!",
+          "zh": "嗨！今天價錢很好喔！"
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How much are the tomatoes?",
+          "zh": "番茄怎麼賣？",
+          "chunkId": "how_much_tomatoes",
+          "stage": { "act": "want", "item": "tomato" }
+        },
+        {
+          "id": "t6_3",
+          "role": "vendor",
+          "speaker": "npc",
+          "en": "They're cheap today. Five dollars a bag.",
+          "zh": "今天很便宜，一袋五塊。"
+        },
+        {
+          "id": "t6_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How many are in a bag?",
+          "zh": "一袋有幾個？",
+          "chunkId": "how_many_bag",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t6_5",
+          "role": "vendor",
+          "speaker": "npc",
+          "en": "Six. Or buy them for a dollar each.",
+          "zh": "六個。也可以單買，一個一塊。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "買一送一",
+      "newChunkIds": ["buy_one_get_one", "take_two"],
+      "newWordIds": ["free", "cheese", "butter", "pizza", "juice"],
+      "spellWordIds": ["bus", "map", "bank", "coin", "taxi"],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "cashier",
+          "speaker": "npc",
+          "en": "Cheese, butter, juice, and a pizza.",
+          "zh": "起司、奶油、果汁，還有一個披薩。",
+          "stage": { "act": "want", "item": "pizza" }
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is it buy one, get one free?",
+          "zh": "這是買一送一嗎？",
+          "chunkId": "buy_one_get_one",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t7_3",
+          "role": "cashier",
+          "speaker": "npc",
+          "en": "The pizza? Yes, it is!",
+          "zh": "披薩嗎？對，買一送一！"
+        },
+        {
+          "id": "t7_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Great, I'll take two.",
+          "zh": "太好了，我拿兩個。",
+          "chunkId": "take_two"
+        },
+        {
+          "id": "t7_5",
+          "role": "cashier",
+          "speaker": "npc",
+          "en": "Okay. That's fifteen dollars.",
+          "zh": "好。一共十五塊。",
+          "stage": { "act": "give", "item": "pizza" }
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "vendor",
+          "speaker": "npc",
+          "en": "Good morning! Fresh fruit and vegetables!",
+          "zh": "早安！新鮮的水果和蔬菜喔！"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Excuse me, where are the apples?",
+          "zh": "不好意思，蘋果在哪裡？",
+          "chunkId": "where_apples",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_3",
+          "role": "vendor",
+          "speaker": "npc",
+          "en": "Right here. They're really good today.",
+          "zh": "就在這裡。今天的很好吃喔。",
+          "stage": { "act": "want", "item": "apple" }
+        },
+        {
+          "id": "t8_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I try one?",
+          "zh": "我可以試吃一個嗎？",
+          "chunkId": "try_one"
+        },
+        {
+          "id": "t8_5",
+          "role": "vendor",
+          "speaker": "npc",
+          "en": "Sure, here's a piece. Anything else?",
+          "zh": "好啊，給你一片。還要別的嗎？",
+          "stage": { "act": "give", "item": "apple" }
+        },
+        {
+          "id": "t8_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I need some rice and some eggs.",
+          "zh": "我需要一些米和一些蛋。",
+          "chunkId": "rice_and_eggs",
+          "stage": { "act": "want", "item": "rice" }
+        },
+        {
+          "id": "t8_7",
+          "role": "vendor",
+          "speaker": "npc",
+          "en": "Here you go. Fresh tomatoes today, too!",
+          "zh": "來，給你。今天也有新鮮的番茄喔！",
+          "stage": { "act": "give", "item": "rice" }
+        },
+        {
+          "id": "t8_8",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How much are the tomatoes?",
+          "zh": "番茄怎麼賣？",
+          "chunkId": "how_much_tomatoes",
+          "stage": { "act": "want", "item": "tomato" }
+        },
+        {
+          "id": "t8_9",
+          "role": "vendor",
+          "speaker": "npc",
+          "en": "Three dollars a pound. Is this okay?",
+          "zh": "一磅三塊。這樣可以嗎？"
+        },
+        {
+          "id": "t8_10",
+          "role": "guide",
+          "speaker": "player",
+          "en": "A little more, please.",
+          "zh": "再多一點，謝謝。",
+          "chunkId": "little_more"
+        },
+        {
+          "id": "t8_11",
+          "role": "vendor",
+          "speaker": "npc",
+          "en": "Sure. That's one pound. Here you go!",
+          "zh": "好，這樣一磅。給你！",
+          "stage": { "act": "give", "item": "tomato" }
+        },
+        {
+          "id": "t8_12",
+          "role": "cashier",
+          "speaker": "npc",
+          "en": "Hi! The juice is really cheap today.",
+          "zh": "嗨！今天果汁很便宜喔。"
+        },
+        {
+          "id": "t8_13",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is it buy one, get one free?",
+          "zh": "這是買一送一嗎？",
+          "chunkId": "buy_one_get_one",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_14",
+          "role": "cashier",
+          "speaker": "npc",
+          "en": "Yes, it is! Do you need a bag?",
+          "zh": "對啊！需要袋子嗎？"
+        },
+        {
+          "id": "t8_15",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I use my own bag?",
+          "zh": "可以用我自己的袋子嗎？",
+          "chunkId": "own_bag"
+        },
+        {
+          "id": "t8_16",
+          "role": "cashier",
+          "speaker": "npc",
+          "en": "Sure! That's forty dollars.",
+          "zh": "可以！一共四十塊。"
+        }
+      ]
+    }
+  ]
+}
