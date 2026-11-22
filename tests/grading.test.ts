@@ -63,6 +63,15 @@ describe('gradeAnswer: telling mistakes apart', () => {
     expect(result.error).toBe(error);
   });
 
+  it('calls a full reordering a word-order mistake, even if a shorter variant is nearer', () => {
+    const slowly = ['Can you speak more slowly, please?', 'Can you speak more slowly?'];
+    expect(gradeAnswer('slowly you more speak please Can', slowly)).toEqual({
+      correct: false,
+      closest: 'Can you speak more slowly, please?',
+      error: 'word-order',
+    });
+  });
+
   it('compares against the nearest accepted answer', () => {
     expect(gradeAnswer('Can I get a latte', accept).correct).toBe(true);
     expect(gradeAnswer('Can I get a muffin', accept).closest).toBe('Can I get a latte?');

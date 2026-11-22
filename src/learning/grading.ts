@@ -95,6 +95,14 @@ export function gradeAnswer(answer: string, accepted: readonly string[]): GradeR
     }
   }
 
+  // All the right words in the wrong order is a word-order mistake, even when a shorter
+  // accepted variant happens to be nearer by letters (which would read as "extra word").
+  const answerWords = words(answer);
+  const reordered = accepted.find((candidate) => sameWordsAnyOrder(answerWords, words(candidate)));
+  if (reordered !== undefined && normalizedAnswer !== '') {
+    return { correct: false, closest: reordered, error: 'word-order' };
+  }
+
   let best: { candidate: string; distance: number } | null = null;
   for (const candidate of accepted) {
     const distance = editDistance(normalizedAnswer, normalize(candidate));
