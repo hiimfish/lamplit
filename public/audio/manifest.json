@@ -227,6 +227,315 @@
   "audio/chirp/cafe.word.window.normal.mp3": {
     "hash": "2f7ce5f535ab2ee9"
   },
+  "audio/chirp/clinic.chunk.does_it_hurt.normal.mp3": {
+    "hash": "145162687740eeef"
+  },
+  "audio/chirp/clinic.chunk.dont_feel_well.normal.mp3": {
+    "hash": "1d7f80fc3a169a3b"
+  },
+  "audio/chirp/clinic.chunk.fever_and_cough.normal.mp3": {
+    "hash": "7846d430c624c904"
+  },
+  "audio/chirp/clinic.chunk.flu_shot.normal.mp3": {
+    "hash": "6611002b82eef5eb"
+  },
+  "audio/chirp/clinic.chunk.go_to_work.normal.mp3": {
+    "hash": "b59cff8ecb38e856"
+  },
+  "audio/chirp/clinic.chunk.head_hurts.normal.mp3": {
+    "hash": "8847dec057acbe3d"
+  },
+  "audio/chirp/clinic.chunk.how_many_pills.normal.mp3": {
+    "hash": "168996b1ef6af791"
+  },
+  "audio/chirp/clinic.chunk.insurance_card.normal.mp3": {
+    "hash": "7a176603055814af"
+  },
+  "audio/chirp/clinic.chunk.is_it_serious.normal.mp3": {
+    "hash": "c4305552bae4404a"
+  },
+  "audio/chirp/clinic.chunk.make_sleepy.normal.mp3": {
+    "hash": "6ad03b5ca1979942"
+  },
+  "audio/chirp/clinic.chunk.need_appointment.normal.mp3": {
+    "hash": "8d81cacdc6105cd3"
+  },
+  "audio/chirp/clinic.chunk.something_for_cough.normal.mp3": {
+    "hash": "aca589d662fc7939"
+  },
+  "audio/chirp/clinic.chunk.thanks_for_help.normal.mp3": {
+    "hash": "7742e92d24257666"
+  },
+  "audio/chirp/clinic.chunk.with_food.normal.mp3": {
+    "hash": "f4f99872ec641ebb"
+  },
+  "audio/chirp/clinic.line.t1_1.normal.mp3": {
+    "hash": "bd01810c4ebeecd0"
+  },
+  "audio/chirp/clinic.line.t1_2.normal.mp3": {
+    "hash": "8d81cacdc6105cd3"
+  },
+  "audio/chirp/clinic.line.t1_3.normal.mp3": {
+    "hash": "59203e4951d5703f"
+  },
+  "audio/chirp/clinic.line.t1_4.normal.mp3": {
+    "hash": "7a176603055814af"
+  },
+  "audio/chirp/clinic.line.t1_5.normal.mp3": {
+    "hash": "724bda87bdc508bd"
+  },
+  "audio/chirp/clinic.line.t2_1.normal.mp3": {
+    "hash": "09d105a169027cfa"
+  },
+  "audio/chirp/clinic.line.t2_2.normal.mp3": {
+    "hash": "1d7f80fc3a169a3b"
+  },
+  "audio/chirp/clinic.line.t2_3.normal.mp3": {
+    "hash": "35eac05b97e2e46a"
+  },
+  "audio/chirp/clinic.line.t2_4.normal.mp3": {
+    "hash": "8847dec057acbe3d"
+  },
+  "audio/chirp/clinic.line.t2_5.normal.mp3": {
+    "hash": "0383ab4fc94c89c9"
+  },
+  "audio/chirp/clinic.line.t3_1.normal.mp3": {
+    "hash": "6611002b82eef5eb"
+  },
+  "audio/chirp/clinic.line.t3_2.normal.mp3": {
+    "hash": "4f09fad48aa8a74d"
+  },
+  "audio/chirp/clinic.line.t3_3.normal.mp3": {
+    "hash": "145162687740eeef"
+  },
+  "audio/chirp/clinic.line.t3_4.normal.mp3": {
+    "hash": "f9e6ab64014217b9"
+  },
+  "audio/chirp/clinic.line.t4_1.normal.mp3": {
+    "hash": "f334b95e41bb73cf"
+  },
+  "audio/chirp/clinic.line.t4_2.normal.mp3": {
+    "hash": "7846d430c624c904"
+  },
+  "audio/chirp/clinic.line.t4_3.normal.mp3": {
+    "hash": "8a8fd3dbc9161a04"
+  },
+  "audio/chirp/clinic.line.t4_4.normal.mp3": {
+    "hash": "c4305552bae4404a"
+  },
+  "audio/chirp/clinic.line.t4_5.normal.mp3": {
+    "hash": "efaf56e8c239141d"
+  },
+  "audio/chirp/clinic.line.t5_1.normal.mp3": {
+    "hash": "1ad653146953fb1e"
+  },
+  "audio/chirp/clinic.line.t5_2.normal.mp3": {
+    "hash": "168996b1ef6af791"
+  },
+  "audio/chirp/clinic.line.t5_3.normal.mp3": {
+    "hash": "9a95b4986828c7bd"
+  },
+  "audio/chirp/clinic.line.t5_4.normal.mp3": {
+    "hash": "b59cff8ecb38e856"
+  },
+  "audio/chirp/clinic.line.t5_5.normal.mp3": {
+    "hash": "4fadd0127808721c"
+  },
+  "audio/chirp/clinic.line.t6_1.normal.mp3": {
+    "hash": "778b459d663a230a"
+  },
+  "audio/chirp/clinic.line.t6_2.normal.mp3": {
+    "hash": "aca589d662fc7939"
+  },
+  "audio/chirp/clinic.line.t6_3.normal.mp3": {
+    "hash": "9ba9742e5c3ea25a"
+  },
+  "audio/chirp/clinic.line.t6_4.normal.mp3": {
+    "hash": "6ad03b5ca1979942"
+  },
+  "audio/chirp/clinic.line.t6_5.normal.mp3": {
+    "hash": "772d602ecea6b27c"
+  },
+  "audio/chirp/clinic.line.t7_1.normal.mp3": {
+    "hash": "fbb1828a227b94db"
+  },
+  "audio/chirp/clinic.line.t7_2.normal.mp3": {
+    "hash": "f4f99872ec641ebb"
+  },
+  "audio/chirp/clinic.line.t7_3.normal.mp3": {
+    "hash": "3d9360a470f0d663"
+  },
+  "audio/chirp/clinic.line.t7_4.normal.mp3": {
+    "hash": "7742e92d24257666"
+  },
+  "audio/chirp/clinic.line.t7_5.normal.mp3": {
+    "hash": "840c96c469c23a1a"
+  },
+  "audio/chirp/clinic.line.t8_1.normal.mp3": {
+    "hash": "4db3fa3234b86f80"
+  },
+  "audio/chirp/clinic.line.t8_10.normal.mp3": {
+    "hash": "8d81cacdc6105cd3"
+  },
+  "audio/chirp/clinic.line.t8_11.normal.mp3": {
+    "hash": "34be3de175c43489"
+  },
+  "audio/chirp/clinic.line.t8_12.normal.mp3": {
+    "hash": "95f03c8bd2befc48"
+  },
+  "audio/chirp/clinic.line.t8_13.normal.mp3": {
+    "hash": "aca589d662fc7939"
+  },
+  "audio/chirp/clinic.line.t8_14.normal.mp3": {
+    "hash": "a62af3460f4530f3"
+  },
+  "audio/chirp/clinic.line.t8_15.normal.mp3": {
+    "hash": "f4f99872ec641ebb"
+  },
+  "audio/chirp/clinic.line.t8_16.normal.mp3": {
+    "hash": "1da4493698e55db4"
+  },
+  "audio/chirp/clinic.line.t8_17.normal.mp3": {
+    "hash": "7742e92d24257666"
+  },
+  "audio/chirp/clinic.line.t8_2.normal.mp3": {
+    "hash": "1d7f80fc3a169a3b"
+  },
+  "audio/chirp/clinic.line.t8_3.normal.mp3": {
+    "hash": "097ad8dd7ae9e928"
+  },
+  "audio/chirp/clinic.line.t8_4.normal.mp3": {
+    "hash": "7846d430c624c904"
+  },
+  "audio/chirp/clinic.line.t8_5.normal.mp3": {
+    "hash": "5da2e83cf88600fe"
+  },
+  "audio/chirp/clinic.line.t8_6.normal.mp3": {
+    "hash": "b59cff8ecb38e856"
+  },
+  "audio/chirp/clinic.line.t8_7.normal.mp3": {
+    "hash": "64cc1f52a24bd1a6"
+  },
+  "audio/chirp/clinic.line.t8_8.normal.mp3": {
+    "hash": "6611002b82eef5eb"
+  },
+  "audio/chirp/clinic.line.t8_9.normal.mp3": {
+    "hash": "13bd7c810d046d07"
+  },
+  "audio/chirp/clinic.picture.pic1.normal.mp3": {
+    "hash": "ada2c24e81da3e9e"
+  },
+  "audio/chirp/clinic.picture.pic2.normal.mp3": {
+    "hash": "c5c0f33c21579f0b"
+  },
+  "audio/chirp/clinic.picture.pic3.normal.mp3": {
+    "hash": "9ebe9ec377d54c4d"
+  },
+  "audio/chirp/clinic.picture.pic4.normal.mp3": {
+    "hash": "0b0132f895631efc"
+  },
+  "audio/chirp/clinic.word.arm.normal.mp3": {
+    "hash": "28587b048d71bfd5"
+  },
+  "audio/chirp/clinic.word.back.normal.mp3": {
+    "hash": "aaf76b1e2dd22c99"
+  },
+  "audio/chirp/clinic.word.body.normal.mp3": {
+    "hash": "2b8845254f9272ee"
+  },
+  "audio/chirp/clinic.word.breakfast.normal.mp3": {
+    "hash": "b8e15be7f956ed58"
+  },
+  "audio/chirp/clinic.word.cold.normal.mp3": {
+    "hash": "5e6f1d2ab932d67c"
+  },
+  "audio/chirp/clinic.word.cough.normal.mp3": {
+    "hash": "0e5e499252e5f32c"
+  },
+  "audio/chirp/clinic.word.cream.normal.mp3": {
+    "hash": "f558557b3d0d630e"
+  },
+  "audio/chirp/clinic.word.dinner.normal.mp3": {
+    "hash": "77ee32f8517cae03"
+  },
+  "audio/chirp/clinic.word.doctor.normal.mp3": {
+    "hash": "e97890819a365e7e"
+  },
+  "audio/chirp/clinic.word.ear.normal.mp3": {
+    "hash": "96bf8d53e68a9920"
+  },
+  "audio/chirp/clinic.word.eye.normal.mp3": {
+    "hash": "7be3a0944845c85e"
+  },
+  "audio/chirp/clinic.word.fever.normal.mp3": {
+    "hash": "19e501624a679b42"
+  },
+  "audio/chirp/clinic.word.flu.normal.mp3": {
+    "hash": "df8c4ff4cb5d750d"
+  },
+  "audio/chirp/clinic.word.food.normal.mp3": {
+    "hash": "4b09e2a9186809b6"
+  },
+  "audio/chirp/clinic.word.form.normal.mp3": {
+    "hash": "a0cb5ee6c0ed4e18"
+  },
+  "audio/chirp/clinic.word.glass.normal.mp3": {
+    "hash": "5ac2b6bfed43ec34"
+  },
+  "audio/chirp/clinic.word.hand.normal.mp3": {
+    "hash": "255c82272c4e4751"
+  },
+  "audio/chirp/clinic.word.head.normal.mp3": {
+    "hash": "62e3723f43b44d5e"
+  },
+  "audio/chirp/clinic.word.hurt.normal.mp3": {
+    "hash": "4e4745866bc1011a"
+  },
+  "audio/chirp/clinic.word.insurance.normal.mp3": {
+    "hash": "015c097d05a830fa"
+  },
+  "audio/chirp/clinic.word.leg.normal.mp3": {
+    "hash": "eb50942e7bad8684"
+  },
+  "audio/chirp/clinic.word.mask.normal.mp3": {
+    "hash": "491619af2e047830"
+  },
+  "audio/chirp/clinic.word.meal.normal.mp3": {
+    "hash": "e246ab488d6378c9"
+  },
+  "audio/chirp/clinic.word.medicine.normal.mp3": {
+    "hash": "330d62059af714ca"
+  },
+  "audio/chirp/clinic.word.nose.normal.mp3": {
+    "hash": "d9cfcc049f07a479"
+  },
+  "audio/chirp/clinic.word.nurse.normal.mp3": {
+    "hash": "736ff919a557dddf"
+  },
+  "audio/chirp/clinic.word.pharmacy.normal.mp3": {
+    "hash": "11cbf855a1383986"
+  },
+  "audio/chirp/clinic.word.pill.normal.mp3": {
+    "hash": "8ce6d61df6f421f9"
+  },
+  "audio/chirp/clinic.word.rest.normal.mp3": {
+    "hash": "872755dc9446d45e"
+  },
+  "audio/chirp/clinic.word.shot.normal.mp3": {
+    "hash": "a136fc359127b738"
+  },
+  "audio/chirp/clinic.word.sick.normal.mp3": {
+    "hash": "3c7b5abefe14c3e6"
+  },
+  "audio/chirp/clinic.word.sleep.normal.mp3": {
+    "hash": "1a45cec2968a2ba3"
+  },
+  "audio/chirp/clinic.word.throat.normal.mp3": {
+    "hash": "12f896b000bbd455"
+  },
+  "audio/chirp/clinic.word.tissue.normal.mp3": {
+    "hash": "d89919268d57ef1e"
+  },
   "audio/chirp/clothes.chunk.fits_well.normal.mp3": {
     "hash": "ec1261dd58b9e8b6"
   },
@@ -1105,6 +1414,915 @@
   },
   "audio/chirp/move_in.word.welcome.normal.mp3": {
     "hash": "2d90dced31c33d6b"
+  },
+  "audio/chirp/park.chunk.dog_friendly.normal.mp3": {
+    "hash": "ca9d0c08265168b3"
+  },
+  "audio/chirp/park.chunk.great_time.normal.mp3": {
+    "hash": "c9da627a52a1b117"
+  },
+  "audio/chirp/park.chunk.help_yourself.normal.mp3": {
+    "hash": "e5981bd4e3828f9c"
+  },
+  "audio/chirp/park.chunk.how_can_i_help.normal.mp3": {
+    "hash": "e63f274c4de83d76"
+  },
+  "audio/chirp/park.chunk.is_it_free.normal.mp3": {
+    "hash": "2851c10b9cc4a103"
+  },
+  "audio/chirp/park.chunk.keep_in_touch.normal.mp3": {
+    "hash": "1b871fd518a63f10"
+  },
+  "audio/chirp/park.chunk.my_number.normal.mp3": {
+    "hash": "d2eb49ff2756e28f"
+  },
+  "audio/chirp/park.chunk.nice_day.normal.mp3": {
+    "hash": "c8a6f1b97eea4916"
+  },
+  "audio/chirp/park.chunk.run_every_morning.normal.mp3": {
+    "hash": "d3f3ed7ca337bd54"
+  },
+  "audio/chirp/park.chunk.run_together.normal.mp3": {
+    "hash": "cc53d249952330de"
+  },
+  "audio/chirp/park.chunk.saw_poster.normal.mp3": {
+    "hash": "3388da62b72bf472"
+  },
+  "audio/chirp/park.chunk.sign_up.normal.mp3": {
+    "hash": "7d7376f9cf1fb7ba"
+  },
+  "audio/chirp/park.chunk.something_to_drink.normal.mp3": {
+    "hash": "08902a2c9f09340f"
+  },
+  "audio/chirp/park.chunk.what_time_start.normal.mp3": {
+    "hash": "685d6dd83ffd5fb5"
+  },
+  "audio/chirp/park.line.t1_1.normal.mp3": {
+    "hash": "c8a6f1b97eea4916"
+  },
+  "audio/chirp/park.line.t1_2.normal.mp3": {
+    "hash": "227b9dc9fa7c57aa"
+  },
+  "audio/chirp/park.line.t1_3.normal.mp3": {
+    "hash": "ccdc29d6cf1d2a81"
+  },
+  "audio/chirp/park.line.t1_4.normal.mp3": {
+    "hash": "ca9d0c08265168b3"
+  },
+  "audio/chirp/park.line.t1_5.normal.mp3": {
+    "hash": "0aa5f7dc1182eab4"
+  },
+  "audio/chirp/park.line.t2_1.normal.mp3": {
+    "hash": "0d2b0bea27fb7c55"
+  },
+  "audio/chirp/park.line.t2_2.normal.mp3": {
+    "hash": "685d6dd83ffd5fb5"
+  },
+  "audio/chirp/park.line.t2_3.normal.mp3": {
+    "hash": "ba6d20a2d4d2ed60"
+  },
+  "audio/chirp/park.line.t2_4.normal.mp3": {
+    "hash": "2851c10b9cc4a103"
+  },
+  "audio/chirp/park.line.t2_5.normal.mp3": {
+    "hash": "f81a658ceedb2290"
+  },
+  "audio/chirp/park.line.t3_1.normal.mp3": {
+    "hash": "8678e52c339e397a"
+  },
+  "audio/chirp/park.line.t3_2.normal.mp3": {
+    "hash": "3388da62b72bf472"
+  },
+  "audio/chirp/park.line.t3_3.normal.mp3": {
+    "hash": "32d427353acea65c"
+  },
+  "audio/chirp/park.line.t3_4.normal.mp3": {
+    "hash": "c9da627a52a1b117"
+  },
+  "audio/chirp/park.line.t3_5.normal.mp3": {
+    "hash": "0b65bc614a91d2f8"
+  },
+  "audio/chirp/park.line.t4_1.normal.mp3": {
+    "hash": "e4e2957fae3fd3ef"
+  },
+  "audio/chirp/park.line.t4_2.normal.mp3": {
+    "hash": "e63f274c4de83d76"
+  },
+  "audio/chirp/park.line.t4_3.normal.mp3": {
+    "hash": "2aa21bae901569b6"
+  },
+  "audio/chirp/park.line.t4_4.normal.mp3": {
+    "hash": "7d7376f9cf1fb7ba"
+  },
+  "audio/chirp/park.line.t4_5.normal.mp3": {
+    "hash": "8317e4a8044d32cb"
+  },
+  "audio/chirp/park.line.t5_1.normal.mp3": {
+    "hash": "e8275da08c936121"
+  },
+  "audio/chirp/park.line.t5_2.normal.mp3": {
+    "hash": "08902a2c9f09340f"
+  },
+  "audio/chirp/park.line.t5_3.normal.mp3": {
+    "hash": "e95c85e26add796f"
+  },
+  "audio/chirp/park.line.t5_4.normal.mp3": {
+    "hash": "e5981bd4e3828f9c"
+  },
+  "audio/chirp/park.line.t5_5.normal.mp3": {
+    "hash": "086b32d601fc15c9"
+  },
+  "audio/chirp/park.line.t6_1.normal.mp3": {
+    "hash": "9a7780dec9893d06"
+  },
+  "audio/chirp/park.line.t6_2.normal.mp3": {
+    "hash": "d3f3ed7ca337bd54"
+  },
+  "audio/chirp/park.line.t6_3.normal.mp3": {
+    "hash": "ecfd88c3e2523672"
+  },
+  "audio/chirp/park.line.t6_4.normal.mp3": {
+    "hash": "cc53d249952330de"
+  },
+  "audio/chirp/park.line.t6_5.normal.mp3": {
+    "hash": "6305d069b811d80e"
+  },
+  "audio/chirp/park.line.t7_1.normal.mp3": {
+    "hash": "4049cf46512a2c75"
+  },
+  "audio/chirp/park.line.t7_2.normal.mp3": {
+    "hash": "1b871fd518a63f10"
+  },
+  "audio/chirp/park.line.t7_3.normal.mp3": {
+    "hash": "61e00049d8d340ba"
+  },
+  "audio/chirp/park.line.t7_4.normal.mp3": {
+    "hash": "d2eb49ff2756e28f"
+  },
+  "audio/chirp/park.line.t7_5.normal.mp3": {
+    "hash": "b53117dd13363b36"
+  },
+  "audio/chirp/park.line.t8_1.normal.mp3": {
+    "hash": "4885155247c02a71"
+  },
+  "audio/chirp/park.line.t8_10.normal.mp3": {
+    "hash": "3982aa36debf7b69"
+  },
+  "audio/chirp/park.line.t8_11.normal.mp3": {
+    "hash": "e63f274c4de83d76"
+  },
+  "audio/chirp/park.line.t8_12.normal.mp3": {
+    "hash": "21b09b891490d9f0"
+  },
+  "audio/chirp/park.line.t8_13.normal.mp3": {
+    "hash": "685d6dd83ffd5fb5"
+  },
+  "audio/chirp/park.line.t8_14.normal.mp3": {
+    "hash": "9307061a14388e91"
+  },
+  "audio/chirp/park.line.t8_15.normal.mp3": {
+    "hash": "d2eb49ff2756e28f"
+  },
+  "audio/chirp/park.line.t8_16.normal.mp3": {
+    "hash": "1be27b7e7d21077c"
+  },
+  "audio/chirp/park.line.t8_17.normal.mp3": {
+    "hash": "51047a07f852cb60"
+  },
+  "audio/chirp/park.line.t8_2.normal.mp3": {
+    "hash": "c8a6f1b97eea4916"
+  },
+  "audio/chirp/park.line.t8_3.normal.mp3": {
+    "hash": "c76a1fa082eaaa66"
+  },
+  "audio/chirp/park.line.t8_4.normal.mp3": {
+    "hash": "08902a2c9f09340f"
+  },
+  "audio/chirp/park.line.t8_5.normal.mp3": {
+    "hash": "5d6d9302a8e98dee"
+  },
+  "audio/chirp/park.line.t8_6.normal.mp3": {
+    "hash": "d3f3ed7ca337bd54"
+  },
+  "audio/chirp/park.line.t8_7.normal.mp3": {
+    "hash": "bdfa24087b8b4172"
+  },
+  "audio/chirp/park.line.t8_8.normal.mp3": {
+    "hash": "0aaa1248c648fb54"
+  },
+  "audio/chirp/park.line.t8_9.normal.mp3": {
+    "hash": "3388da62b72bf472"
+  },
+  "audio/chirp/park.picture.pic1.normal.mp3": {
+    "hash": "e838fafdf322aae5"
+  },
+  "audio/chirp/park.picture.pic2.normal.mp3": {
+    "hash": "237056f20d9aaf7c"
+  },
+  "audio/chirp/park.word.afternoon.normal.mp3": {
+    "hash": "fc246a06aeebcd8a"
+  },
+  "audio/chirp/park.word.ball.normal.mp3": {
+    "hash": "9a5a292f58281919"
+  },
+  "audio/chirp/park.word.camera.normal.mp3": {
+    "hash": "f1698836f2660e4f"
+  },
+  "audio/chirp/park.word.center.normal.mp3": {
+    "hash": "b15b8d7d89efa8d0"
+  },
+  "audio/chirp/park.word.class.normal.mp3": {
+    "hash": "7ecf81d5cd4991c0"
+  },
+  "audio/chirp/park.word.clean.normal.mp3": {
+    "hash": "14ae63d987261fce"
+  },
+  "audio/chirp/park.word.cloud.normal.mp3": {
+    "hash": "89d6bf007c9cc155"
+  },
+  "audio/chirp/park.word.dog.normal.mp3": {
+    "hash": "46e4602c62d25d66"
+  },
+  "audio/chirp/park.word.email.normal.mp3": {
+    "hash": "e6543001f913e802"
+  },
+  "audio/chirp/park.word.event.normal.mp3": {
+    "hash": "d697f80fa5751db1"
+  },
+  "audio/chirp/park.word.family.normal.mp3": {
+    "hash": "f9a8c32efe99933c"
+  },
+  "audio/chirp/park.word.flower.normal.mp3": {
+    "hash": "fd5fd859628a025f"
+  },
+  "audio/chirp/park.word.garden.normal.mp3": {
+    "hash": "ff2a4acbbbe53caa"
+  },
+  "audio/chirp/park.word.grass.normal.mp3": {
+    "hash": "2daac8f1004201f1"
+  },
+  "audio/chirp/park.word.hold.normal.mp3": {
+    "hash": "62b917b9dd40c359"
+  },
+  "audio/chirp/park.word.kid.normal.mp3": {
+    "hash": "eff3bc1162de5aea"
+  },
+  "audio/chirp/park.word.lake.normal.mp3": {
+    "hash": "c1009a37fd088ecc"
+  },
+  "audio/chirp/park.word.message.normal.mp3": {
+    "hash": "78e876adeb5bc07e"
+  },
+  "audio/chirp/park.word.park.normal.mp3": {
+    "hash": "7d9031e9c6efa8f3"
+  },
+  "audio/chirp/park.word.picnic.normal.mp3": {
+    "hash": "374c7a9b60167469"
+  },
+  "audio/chirp/park.word.picture.normal.mp3": {
+    "hash": "99509e5ee21636e0"
+  },
+  "audio/chirp/park.word.plant.normal.mp3": {
+    "hash": "d1bdb7aced408bc0"
+  },
+  "audio/chirp/park.word.play.normal.mp3": {
+    "hash": "ba8580b504ad8867"
+  },
+  "audio/chirp/park.word.poster.normal.mp3": {
+    "hash": "9b683248a4426802"
+  },
+  "audio/chirp/park.word.run.normal.mp3": {
+    "hash": "4cdba286c32c1c1c"
+  },
+  "audio/chirp/park.word.sky.normal.mp3": {
+    "hash": "5b50065c1734007d"
+  },
+  "audio/chirp/park.word.sport.normal.mp3": {
+    "hash": "f73d0d07d8d20f71"
+  },
+  "audio/chirp/park.word.sun.normal.mp3": {
+    "hash": "a33bab79caf546f2"
+  },
+  "audio/chirp/park.word.swim.normal.mp3": {
+    "hash": "fd7bcc5de52d413b"
+  },
+  "audio/chirp/park.word.team.normal.mp3": {
+    "hash": "e5fac576435b902c"
+  },
+  "audio/chirp/park.word.tennis.normal.mp3": {
+    "hash": "0f079db14226499c"
+  },
+  "audio/chirp/park.word.tree.normal.mp3": {
+    "hash": "3a915039b303a395"
+  },
+  "audio/chirp/park.word.volunteer.normal.mp3": {
+    "hash": "714eb285650d06f4"
+  },
+  "audio/chirp/park.word.wind.normal.mp3": {
+    "hash": "b823dd96b15b5d75"
+  },
+  "audio/chirp/post_office.chunk.be_careful.normal.mp3": {
+    "hash": "e2eb1475f5015bfb"
+  },
+  "audio/chirp/post_office.chunk.books_and_gifts.normal.mp3": {
+    "hash": "6ec09b085dbc0505"
+  },
+  "audio/chirp/post_office.chunk.box_and_tape.normal.mp3": {
+    "hash": "13ee50346f7df7e1"
+  },
+  "audio/chirp/post_office.chunk.buy_stamps.normal.mp3": {
+    "hash": "85af24184996d8b3"
+  },
+  "audio/chirp/post_office.chunk.by_air.normal.mp3": {
+    "hash": "0b8730ba35a81781"
+  },
+  "audio/chirp/post_office.chunk.how_much_cost.normal.mp3": {
+    "hash": "f444a44ec6303b6e"
+  },
+  "audio/chirp/post_office.chunk.is_this_okay.normal.mp3": {
+    "hash": "71901c57b3e6b525"
+  },
+  "audio/chirp/post_office.chunk.mailed_last_week.normal.mp3": {
+    "hash": "727872ea8e2886bf"
+  },
+  "audio/chirp/post_office.chunk.missed_delivery.normal.mp3": {
+    "hash": "3150a5a25857bc0c"
+  },
+  "audio/chirp/post_office.chunk.my_id.normal.mp3": {
+    "hash": "c9110364556beb6f"
+  },
+  "audio/chirp/post_office.chunk.pick_up_package.normal.mp3": {
+    "hash": "5f3464f3da2764b0"
+  },
+  "audio/chirp/post_office.chunk.send_to_taiwan.normal.mp3": {
+    "hash": "5e56829dd32c3c6b"
+  },
+  "audio/chirp/post_office.chunk.when_get_there.normal.mp3": {
+    "hash": "7a4c72611a0740f1"
+  },
+  "audio/chirp/post_office.chunk.write_address.normal.mp3": {
+    "hash": "71a8063ff6d37984"
+  },
+  "audio/chirp/post_office.line.t1_1.normal.mp3": {
+    "hash": "5e56829dd32c3c6b"
+  },
+  "audio/chirp/post_office.line.t1_2.normal.mp3": {
+    "hash": "c3a43bcbb7c034db"
+  },
+  "audio/chirp/post_office.line.t1_3.normal.mp3": {
+    "hash": "0b8730ba35a81781"
+  },
+  "audio/chirp/post_office.line.t1_4.normal.mp3": {
+    "hash": "fa6f13a8407f4ab0"
+  },
+  "audio/chirp/post_office.line.t2_1.normal.mp3": {
+    "hash": "0fd628b22a32398d"
+  },
+  "audio/chirp/post_office.line.t2_2.normal.mp3": {
+    "hash": "71a8063ff6d37984"
+  },
+  "audio/chirp/post_office.line.t2_3.normal.mp3": {
+    "hash": "347c71d527887ecb"
+  },
+  "audio/chirp/post_office.line.t2_4.normal.mp3": {
+    "hash": "71901c57b3e6b525"
+  },
+  "audio/chirp/post_office.line.t2_5.normal.mp3": {
+    "hash": "7ed17ca11b211d61"
+  },
+  "audio/chirp/post_office.line.t3_1.normal.mp3": {
+    "hash": "73cf421f63840422"
+  },
+  "audio/chirp/post_office.line.t3_2.normal.mp3": {
+    "hash": "3150a5a25857bc0c"
+  },
+  "audio/chirp/post_office.line.t3_3.normal.mp3": {
+    "hash": "528bcf177be16e6c"
+  },
+  "audio/chirp/post_office.line.t3_4.normal.mp3": {
+    "hash": "727872ea8e2886bf"
+  },
+  "audio/chirp/post_office.line.t3_5.normal.mp3": {
+    "hash": "9f04532ed3a64eb9"
+  },
+  "audio/chirp/post_office.line.t4_1.normal.mp3": {
+    "hash": "f2d7654f75cec81d"
+  },
+  "audio/chirp/post_office.line.t4_2.normal.mp3": {
+    "hash": "5f3464f3da2764b0"
+  },
+  "audio/chirp/post_office.line.t4_3.normal.mp3": {
+    "hash": "0bd4d9445abdffc3"
+  },
+  "audio/chirp/post_office.line.t4_4.normal.mp3": {
+    "hash": "c9110364556beb6f"
+  },
+  "audio/chirp/post_office.line.t4_5.normal.mp3": {
+    "hash": "4b1eb205abd1c1b8"
+  },
+  "audio/chirp/post_office.line.t5_1.normal.mp3": {
+    "hash": "3e0f5d37e5ebfa58"
+  },
+  "audio/chirp/post_office.line.t5_2.normal.mp3": {
+    "hash": "6ec09b085dbc0505"
+  },
+  "audio/chirp/post_office.line.t5_3.normal.mp3": {
+    "hash": "343e33e6bc9601a7"
+  },
+  "audio/chirp/post_office.line.t5_4.normal.mp3": {
+    "hash": "e2eb1475f5015bfb"
+  },
+  "audio/chirp/post_office.line.t5_5.normal.mp3": {
+    "hash": "fd0f8bde49e6b459"
+  },
+  "audio/chirp/post_office.line.t6_1.normal.mp3": {
+    "hash": "9988f4c0be2e3d6c"
+  },
+  "audio/chirp/post_office.line.t6_2.normal.mp3": {
+    "hash": "f444a44ec6303b6e"
+  },
+  "audio/chirp/post_office.line.t6_3.normal.mp3": {
+    "hash": "f00b7e571076e7a0"
+  },
+  "audio/chirp/post_office.line.t6_4.normal.mp3": {
+    "hash": "7a4c72611a0740f1"
+  },
+  "audio/chirp/post_office.line.t6_5.normal.mp3": {
+    "hash": "e24fca4df23eaee6"
+  },
+  "audio/chirp/post_office.line.t7_1.normal.mp3": {
+    "hash": "13ee50346f7df7e1"
+  },
+  "audio/chirp/post_office.line.t7_2.normal.mp3": {
+    "hash": "c6269f0ab8742f1f"
+  },
+  "audio/chirp/post_office.line.t7_3.normal.mp3": {
+    "hash": "85af24184996d8b3"
+  },
+  "audio/chirp/post_office.line.t7_4.normal.mp3": {
+    "hash": "f0a52b621e03967c"
+  },
+  "audio/chirp/post_office.line.t8_1.normal.mp3": {
+    "hash": "3a837382f9003fb2"
+  },
+  "audio/chirp/post_office.line.t8_10.normal.mp3": {
+    "hash": "5e56829dd32c3c6b"
+  },
+  "audio/chirp/post_office.line.t8_11.normal.mp3": {
+    "hash": "b3f9d8d1821f5bc0"
+  },
+  "audio/chirp/post_office.line.t8_12.normal.mp3": {
+    "hash": "71a8063ff6d37984"
+  },
+  "audio/chirp/post_office.line.t8_13.normal.mp3": {
+    "hash": "8eb9928708177b8b"
+  },
+  "audio/chirp/post_office.line.t8_14.normal.mp3": {
+    "hash": "f444a44ec6303b6e"
+  },
+  "audio/chirp/post_office.line.t8_15.normal.mp3": {
+    "hash": "7b75734dd1ddbc69"
+  },
+  "audio/chirp/post_office.line.t8_16.normal.mp3": {
+    "hash": "7a4c72611a0740f1"
+  },
+  "audio/chirp/post_office.line.t8_17.normal.mp3": {
+    "hash": "f693f036403a1898"
+  },
+  "audio/chirp/post_office.line.t8_2.normal.mp3": {
+    "hash": "3150a5a25857bc0c"
+  },
+  "audio/chirp/post_office.line.t8_3.normal.mp3": {
+    "hash": "82449f71fe4a30c3"
+  },
+  "audio/chirp/post_office.line.t8_4.normal.mp3": {
+    "hash": "c9110364556beb6f"
+  },
+  "audio/chirp/post_office.line.t8_5.normal.mp3": {
+    "hash": "fd28761cd4fe81b7"
+  },
+  "audio/chirp/post_office.line.t8_6.normal.mp3": {
+    "hash": "13ee50346f7df7e1"
+  },
+  "audio/chirp/post_office.line.t8_7.normal.mp3": {
+    "hash": "54bfc6dcde7dc797"
+  },
+  "audio/chirp/post_office.line.t8_8.normal.mp3": {
+    "hash": "6ec09b085dbc0505"
+  },
+  "audio/chirp/post_office.line.t8_9.normal.mp3": {
+    "hash": "604751a9e66d36bb"
+  },
+  "audio/chirp/post_office.picture.pic1.normal.mp3": {
+    "hash": "1ab2468daf413d0a"
+  },
+  "audio/chirp/post_office.picture.pic2.normal.mp3": {
+    "hash": "a2766a8fe5746a22"
+  },
+  "audio/chirp/post_office.word.address.normal.mp3": {
+    "hash": "d44076f6e04faead"
+  },
+  "audio/chirp/post_office.word.break.normal.mp3": {
+    "hash": "a8cef9b8818059dc"
+  },
+  "audio/chirp/post_office.word.careful.normal.mp3": {
+    "hash": "0228b3439296d804"
+  },
+  "audio/chirp/post_office.word.carry.normal.mp3": {
+    "hash": "94bd51d521f1479c"
+  },
+  "audio/chirp/post_office.word.city.normal.mp3": {
+    "hash": "164cf39982293a56"
+  },
+  "audio/chirp/post_office.word.close.normal.mp3": {
+    "hash": "02d285cb94b16856"
+  },
+  "audio/chirp/post_office.word.counter.normal.mp3": {
+    "hash": "d06a7702f0c09dd3"
+  },
+  "audio/chirp/post_office.word.country.normal.mp3": {
+    "hash": "ee658ac1040cbd40"
+  },
+  "audio/chirp/post_office.word.delivery.normal.mp3": {
+    "hash": "8bc07bfa853df7b7"
+  },
+  "audio/chirp/post_office.word.desk.normal.mp3": {
+    "hash": "ee1066573d093d29"
+  },
+  "audio/chirp/post_office.word.envelope.normal.mp3": {
+    "hash": "e970eb19ca72a03b"
+  },
+  "audio/chirp/post_office.word.fast.normal.mp3": {
+    "hash": "78d567ea12343df9"
+  },
+  "audio/chirp/post_office.word.heavy.normal.mp3": {
+    "hash": "43ef5770bfeb17d9"
+  },
+  "audio/chirp/post_office.word.kilogram.normal.mp3": {
+    "hash": "36859feca950c90f"
+  },
+  "audio/chirp/post_office.word.letter.normal.mp3": {
+    "hash": "f064d173b85c3789"
+  },
+  "audio/chirp/post_office.word.mail.normal.mp3": {
+    "hash": "6a2858308c0f1a41"
+  },
+  "audio/chirp/post_office.word.notice.normal.mp3": {
+    "hash": "4b55693089db1bd3"
+  },
+  "audio/chirp/post_office.word.number.normal.mp3": {
+    "hash": "b56f786a3340cd40"
+  },
+  "audio/chirp/post_office.word.office.normal.mp3": {
+    "hash": "38a83c23ac51d079"
+  },
+  "audio/chirp/post_office.word.online.normal.mp3": {
+    "hash": "f5db4c8230ed55e2"
+  },
+  "audio/chirp/post_office.word.open.normal.mp3": {
+    "hash": "4fea84be8de5b344"
+  },
+  "audio/chirp/post_office.word.order.normal.mp3": {
+    "hash": "6f847da22b5eb915"
+  },
+  "audio/chirp/post_office.word.package.normal.mp3": {
+    "hash": "be94c55c0af6db0c"
+  },
+  "audio/chirp/post_office.word.postcard.normal.mp3": {
+    "hash": "4218f87247de053e"
+  },
+  "audio/chirp/post_office.word.scale.normal.mp3": {
+    "hash": "cca611bfdf240d0f"
+  },
+  "audio/chirp/post_office.word.scissors.normal.mp3": {
+    "hash": "2cff963884a766f2"
+  },
+  "audio/chirp/post_office.word.slow.normal.mp3": {
+    "hash": "8b42ac0bd52ccf32"
+  },
+  "audio/chirp/post_office.word.stamp.normal.mp3": {
+    "hash": "1ce030381e04a1c2"
+  },
+  "audio/chirp/post_office.word.sticker.normal.mp3": {
+    "hash": "7d834780bc8d7a2e"
+  },
+  "audio/chirp/post_office.word.tape.normal.mp3": {
+    "hash": "8c9698a845b9b723"
+  },
+  "audio/chirp/post_office.word.toy.normal.mp3": {
+    "hash": "efaddccd8e6e5ea6"
+  },
+  "audio/chirp/post_office.word.weight.normal.mp3": {
+    "hash": "e8c2f9d7e82081d9"
+  },
+  "audio/chirp/post_office.word.write.normal.mp3": {
+    "hash": "c82d47fcb3e07721"
+  },
+  "audio/chirp/post_office.word.yesterday.normal.mp3": {
+    "hash": "ee07f02bcf33a0c2"
+  },
+  "audio/chirp/restaurant.chunk.bring_anything.normal.mp3": {
+    "hash": "ea3fa1cce53d41cd"
+  },
+  "audio/chirp/restaurant.chunk.food_was_good.normal.mp3": {
+    "hash": "77fa425042dcb561"
+  },
+  "audio/chirp/restaurant.chunk.for_fun.normal.mp3": {
+    "hash": "a712b8400757d080"
+  },
+  "audio/chirp/restaurant.chunk.get_check.normal.mp3": {
+    "hash": "f7b44ffdf9393095"
+  },
+  "audio/chirp/restaurant.chunk.have_soup.normal.mp3": {
+    "hash": "62eefd46001b189c"
+  },
+  "audio/chirp/restaurant.chunk.how_long_wait.normal.mp3": {
+    "hash": "6a4c067a4c61070b"
+  },
+  "audio/chirp/restaurant.chunk.like_cooking.normal.mp3": {
+    "hash": "83c03b00b39adc49"
+  },
+  "audio/chirp/restaurant.chunk.meet_station.normal.mp3": {
+    "hash": "4a9e7de002f1591d"
+  },
+  "audio/chirp/restaurant.chunk.recommend.normal.mp3": {
+    "hash": "567debb2f38613c8"
+  },
+  "audio/chirp/restaurant.chunk.see_you_friday.normal.mp3": {
+    "hash": "5e4fd741933f1db5"
+  },
+  "audio/chirp/restaurant.chunk.split_it.normal.mp3": {
+    "hash": "fea42297f46e4fee"
+  },
+  "audio/chirp/restaurant.chunk.table_for_two.normal.mp3": {
+    "hash": "401c12ac3f36e785"
+  },
+  "audio/chirp/restaurant.chunk.thanks_inviting.normal.mp3": {
+    "hash": "c61ad32a7ce1b8cd"
+  },
+  "audio/chirp/restaurant.chunk.was_great.normal.mp3": {
+    "hash": "34bd9ad152e22c77"
+  },
+  "audio/chirp/restaurant.line.t1_1.normal.mp3": {
+    "hash": "d95c0dd2561c8cf1"
+  },
+  "audio/chirp/restaurant.line.t1_2.normal.mp3": {
+    "hash": "401c12ac3f36e785"
+  },
+  "audio/chirp/restaurant.line.t1_3.normal.mp3": {
+    "hash": "e96a6b2100832df0"
+  },
+  "audio/chirp/restaurant.line.t1_4.normal.mp3": {
+    "hash": "6a4c067a4c61070b"
+  },
+  "audio/chirp/restaurant.line.t1_5.normal.mp3": {
+    "hash": "ab0da04d077c589e"
+  },
+  "audio/chirp/restaurant.line.t2_1.normal.mp3": {
+    "hash": "7dd4c4790d8c6836"
+  },
+  "audio/chirp/restaurant.line.t2_2.normal.mp3": {
+    "hash": "567debb2f38613c8"
+  },
+  "audio/chirp/restaurant.line.t2_3.normal.mp3": {
+    "hash": "cf4cc7f449173a98"
+  },
+  "audio/chirp/restaurant.line.t2_4.normal.mp3": {
+    "hash": "62eefd46001b189c"
+  },
+  "audio/chirp/restaurant.line.t2_5.normal.mp3": {
+    "hash": "c96bec02fc2e52e3"
+  },
+  "audio/chirp/restaurant.line.t3_1.normal.mp3": {
+    "hash": "9a8e6a2c977d4b04"
+  },
+  "audio/chirp/restaurant.line.t3_2.normal.mp3": {
+    "hash": "83c03b00b39adc49"
+  },
+  "audio/chirp/restaurant.line.t3_3.normal.mp3": {
+    "hash": "b3ee680b335e88b8"
+  },
+  "audio/chirp/restaurant.line.t3_4.normal.mp3": {
+    "hash": "a712b8400757d080"
+  },
+  "audio/chirp/restaurant.line.t3_5.normal.mp3": {
+    "hash": "7d50c6baa6b5bdfb"
+  },
+  "audio/chirp/restaurant.line.t4_1.normal.mp3": {
+    "hash": "5a32bc3b44b86de5"
+  },
+  "audio/chirp/restaurant.line.t4_2.normal.mp3": {
+    "hash": "c61ad32a7ce1b8cd"
+  },
+  "audio/chirp/restaurant.line.t4_3.normal.mp3": {
+    "hash": "6e583d3a191b027f"
+  },
+  "audio/chirp/restaurant.line.t4_4.normal.mp3": {
+    "hash": "ea3fa1cce53d41cd"
+  },
+  "audio/chirp/restaurant.line.t4_5.normal.mp3": {
+    "hash": "840aa3c54e57c4f1"
+  },
+  "audio/chirp/restaurant.line.t5_1.normal.mp3": {
+    "hash": "6469373f0f101fd9"
+  },
+  "audio/chirp/restaurant.line.t5_2.normal.mp3": {
+    "hash": "4a9e7de002f1591d"
+  },
+  "audio/chirp/restaurant.line.t5_3.normal.mp3": {
+    "hash": "001b1dd3a7c6655a"
+  },
+  "audio/chirp/restaurant.line.t5_4.normal.mp3": {
+    "hash": "5e4fd741933f1db5"
+  },
+  "audio/chirp/restaurant.line.t5_5.normal.mp3": {
+    "hash": "7d44bf1d97b8db15"
+  },
+  "audio/chirp/restaurant.line.t6_1.normal.mp3": {
+    "hash": "f7b44ffdf9393095"
+  },
+  "audio/chirp/restaurant.line.t6_2.normal.mp3": {
+    "hash": "cade57f347421bc7"
+  },
+  "audio/chirp/restaurant.line.t6_3.normal.mp3": {
+    "hash": "fea42297f46e4fee"
+  },
+  "audio/chirp/restaurant.line.t6_4.normal.mp3": {
+    "hash": "9a8a648332b72e0d"
+  },
+  "audio/chirp/restaurant.line.t6_5.normal.mp3": {
+    "hash": "73ab10c436983606"
+  },
+  "audio/chirp/restaurant.line.t7_1.normal.mp3": {
+    "hash": "900f91c1363bc5c1"
+  },
+  "audio/chirp/restaurant.line.t7_2.normal.mp3": {
+    "hash": "34bd9ad152e22c77"
+  },
+  "audio/chirp/restaurant.line.t7_3.normal.mp3": {
+    "hash": "544a0a5fb44e3dfb"
+  },
+  "audio/chirp/restaurant.line.t7_4.normal.mp3": {
+    "hash": "77fa425042dcb561"
+  },
+  "audio/chirp/restaurant.line.t7_5.normal.mp3": {
+    "hash": "71424e8e07741b69"
+  },
+  "audio/chirp/restaurant.line.t8_1.normal.mp3": {
+    "hash": "18b222ed6394878e"
+  },
+  "audio/chirp/restaurant.line.t8_10.normal.mp3": {
+    "hash": "daa55f39cde4646a"
+  },
+  "audio/chirp/restaurant.line.t8_11.normal.mp3": {
+    "hash": "5e4fd741933f1db5"
+  },
+  "audio/chirp/restaurant.line.t8_12.normal.mp3": {
+    "hash": "3a41cade02e056b5"
+  },
+  "audio/chirp/restaurant.line.t8_13.normal.mp3": {
+    "hash": "34bd9ad152e22c77"
+  },
+  "audio/chirp/restaurant.line.t8_14.normal.mp3": {
+    "hash": "b936d0f0abacde0f"
+  },
+  "audio/chirp/restaurant.line.t8_15.normal.mp3": {
+    "hash": "f7b44ffdf9393095"
+  },
+  "audio/chirp/restaurant.line.t8_16.normal.mp3": {
+    "hash": "8a7a11d63a232ede"
+  },
+  "audio/chirp/restaurant.line.t8_2.normal.mp3": {
+    "hash": "401c12ac3f36e785"
+  },
+  "audio/chirp/restaurant.line.t8_3.normal.mp3": {
+    "hash": "58c5f0e9d15d9db4"
+  },
+  "audio/chirp/restaurant.line.t8_4.normal.mp3": {
+    "hash": "567debb2f38613c8"
+  },
+  "audio/chirp/restaurant.line.t8_5.normal.mp3": {
+    "hash": "ac57429872dac7dd"
+  },
+  "audio/chirp/restaurant.line.t8_6.normal.mp3": {
+    "hash": "8bf8e4a322ec377f"
+  },
+  "audio/chirp/restaurant.line.t8_7.normal.mp3": {
+    "hash": "83c03b00b39adc49"
+  },
+  "audio/chirp/restaurant.line.t8_8.normal.mp3": {
+    "hash": "4f444d0fe6ce24fa"
+  },
+  "audio/chirp/restaurant.line.t8_9.normal.mp3": {
+    "hash": "c61ad32a7ce1b8cd"
+  },
+  "audio/chirp/restaurant.picture.pic1.normal.mp3": {
+    "hash": "ec6e5176ca16ab4b"
+  },
+  "audio/chirp/restaurant.picture.pic2.normal.mp3": {
+    "hash": "5f606e85cf184b30"
+  },
+  "audio/chirp/restaurant.word.birthday.normal.mp3": {
+    "hash": "af78aede0e461e5a"
+  },
+  "audio/chirp/restaurant.word.busy.normal.mp3": {
+    "hash": "1a6a68f07bd51d6c"
+  },
+  "audio/chirp/restaurant.word.check.normal.mp3": {
+    "hash": "fdc31194502506d3"
+  },
+  "audio/chirp/restaurant.word.cook.normal.mp3": {
+    "hash": "270d2c97348c366e"
+  },
+  "audio/chirp/restaurant.word.dance.normal.mp3": {
+    "hash": "2cb9b902f47bad6c"
+  },
+  "audio/chirp/restaurant.word.delicious.normal.mp3": {
+    "hash": "15b10f25e1ee234e"
+  },
+  "audio/chirp/restaurant.word.dessert.normal.mp3": {
+    "hash": "e9cbf78a8801ae04"
+  },
+  "audio/chirp/restaurant.word.evening.normal.mp3": {
+    "hash": "1d95fe1fce5fb33a"
+  },
+  "audio/chirp/restaurant.word.friend.normal.mp3": {
+    "hash": "c7b9384f7951877f"
+  },
+  "audio/chirp/restaurant.word.fun.normal.mp3": {
+    "hash": "f6153ba3fc8042cd"
+  },
+  "audio/chirp/restaurant.word.game.normal.mp3": {
+    "hash": "6b7efb57a3350b17"
+  },
+  "audio/chirp/restaurant.word.great.normal.mp3": {
+    "hash": "88bf87f8d7d4a6a3"
+  },
+  "audio/chirp/restaurant.word.guest.normal.mp3": {
+    "hash": "45c35ad9e1a18989"
+  },
+  "audio/chirp/restaurant.word.happy.normal.mp3": {
+    "hash": "40b17ca702d9804e"
+  },
+  "audio/chirp/restaurant.word.menu.normal.mp3": {
+    "hash": "2c48dee3af4884ac"
+  },
+  "audio/chirp/restaurant.word.movie.normal.mp3": {
+    "hash": "3e1f39a6b84e1cbb"
+  },
+  "audio/chirp/restaurant.word.music.normal.mp3": {
+    "hash": "5f7717e647fe0612"
+  },
+  "audio/chirp/restaurant.word.party.normal.mp3": {
+    "hash": "5030004f17478fe9"
+  },
+  "audio/chirp/restaurant.word.people.normal.mp3": {
+    "hash": "0c66dbee567e50ab"
+  },
+  "audio/chirp/restaurant.word.restaurant.normal.mp3": {
+    "hash": "b22a187bda4a355d"
+  },
+  "audio/chirp/restaurant.word.salad.normal.mp3": {
+    "hash": "8f8c255f355365fe"
+  },
+  "audio/chirp/restaurant.word.saturday.normal.mp3": {
+    "hash": "c872623c04988743"
+  },
+  "audio/chirp/restaurant.word.sing.normal.mp3": {
+    "hash": "425087c8cb467989"
+  },
+  "audio/chirp/restaurant.word.soup.normal.mp3": {
+    "hash": "636aff9914fe6fc3"
+  },
+  "audio/chirp/restaurant.word.steak.normal.mp3": {
+    "hash": "8a0c1f8d564901d4"
+  },
+  "audio/chirp/restaurant.word.sunday.normal.mp3": {
+    "hash": "5f1787ad6511207b"
+  },
+  "audio/chirp/restaurant.word.tax.normal.mp3": {
+    "hash": "d10979d519687edf"
+  },
+  "audio/chirp/restaurant.word.tip.normal.mp3": {
+    "hash": "661abe7520c82b71"
+  },
+  "audio/chirp/restaurant.word.together.normal.mp3": {
+    "hash": "1a15357cc2a7c04b"
+  },
+  "audio/chirp/restaurant.word.total.normal.mp3": {
+    "hash": "08347cd9101a6eaa"
+  },
+  "audio/chirp/restaurant.word.waiter.normal.mp3": {
+    "hash": "7f46c675f291564c"
+  },
+  "audio/chirp/restaurant.word.week.normal.mp3": {
+    "hash": "ce2baa883e99fd45"
+  },
+  "audio/chirp/restaurant.word.weekend.normal.mp3": {
+    "hash": "c98756703d8e24d1"
+  },
+  "audio/chirp/restaurant.word.wine.normal.mp3": {
+    "hash": "1d669f507f5bbc4a"
   },
   "audio/chirp/store.chunk.fork_too.normal.mp3": {
     "hash": "7dbb8542e19a0642"
@@ -2110,6 +3328,624 @@
   },
   "audio/neural2/cafe.word.window.slow.mp3": {
     "hash": "ca13f3794a1e8aef"
+  },
+  "audio/neural2/clinic.chunk.does_it_hurt.normal.mp3": {
+    "hash": "72ddf896d6f00cc5"
+  },
+  "audio/neural2/clinic.chunk.does_it_hurt.slow.mp3": {
+    "hash": "ff39cbfb34e6cbab"
+  },
+  "audio/neural2/clinic.chunk.dont_feel_well.normal.mp3": {
+    "hash": "8a3ee8c56f14f60c"
+  },
+  "audio/neural2/clinic.chunk.dont_feel_well.slow.mp3": {
+    "hash": "50770ac57071a747"
+  },
+  "audio/neural2/clinic.chunk.fever_and_cough.normal.mp3": {
+    "hash": "b62e10e8a8a49eb9"
+  },
+  "audio/neural2/clinic.chunk.fever_and_cough.slow.mp3": {
+    "hash": "e7e36435ac656b03"
+  },
+  "audio/neural2/clinic.chunk.flu_shot.normal.mp3": {
+    "hash": "4ce6092ffd8d7ea0"
+  },
+  "audio/neural2/clinic.chunk.flu_shot.slow.mp3": {
+    "hash": "89503e54820e428e"
+  },
+  "audio/neural2/clinic.chunk.go_to_work.normal.mp3": {
+    "hash": "8884fe1ccd456a67"
+  },
+  "audio/neural2/clinic.chunk.go_to_work.slow.mp3": {
+    "hash": "ff3f1c4696a7c095"
+  },
+  "audio/neural2/clinic.chunk.head_hurts.normal.mp3": {
+    "hash": "605b44df2db6c621"
+  },
+  "audio/neural2/clinic.chunk.head_hurts.slow.mp3": {
+    "hash": "8656900c1cf439dc"
+  },
+  "audio/neural2/clinic.chunk.how_many_pills.normal.mp3": {
+    "hash": "3e8e12d1731a7523"
+  },
+  "audio/neural2/clinic.chunk.how_many_pills.slow.mp3": {
+    "hash": "69ecbf28ea0ec9ab"
+  },
+  "audio/neural2/clinic.chunk.insurance_card.normal.mp3": {
+    "hash": "256f852f8245e7a4"
+  },
+  "audio/neural2/clinic.chunk.insurance_card.slow.mp3": {
+    "hash": "39d90c3722c50e01"
+  },
+  "audio/neural2/clinic.chunk.is_it_serious.normal.mp3": {
+    "hash": "a2b1ca4e795e4218"
+  },
+  "audio/neural2/clinic.chunk.is_it_serious.slow.mp3": {
+    "hash": "51fce70c88f1f5fb"
+  },
+  "audio/neural2/clinic.chunk.make_sleepy.normal.mp3": {
+    "hash": "cb1c0ba55a42d1c7"
+  },
+  "audio/neural2/clinic.chunk.make_sleepy.slow.mp3": {
+    "hash": "42d6012336ee1615"
+  },
+  "audio/neural2/clinic.chunk.need_appointment.normal.mp3": {
+    "hash": "71e0febce456859c"
+  },
+  "audio/neural2/clinic.chunk.need_appointment.slow.mp3": {
+    "hash": "4b5f3c64f1e6def9"
+  },
+  "audio/neural2/clinic.chunk.something_for_cough.normal.mp3": {
+    "hash": "85c63f39219c0612"
+  },
+  "audio/neural2/clinic.chunk.something_for_cough.slow.mp3": {
+    "hash": "89b0c19841ca1ed8"
+  },
+  "audio/neural2/clinic.chunk.thanks_for_help.normal.mp3": {
+    "hash": "e4a70d6e808508c6"
+  },
+  "audio/neural2/clinic.chunk.thanks_for_help.slow.mp3": {
+    "hash": "76083f1c22e30540"
+  },
+  "audio/neural2/clinic.chunk.with_food.normal.mp3": {
+    "hash": "5067fec49165b677"
+  },
+  "audio/neural2/clinic.chunk.with_food.slow.mp3": {
+    "hash": "4a2495af6cc03e15"
+  },
+  "audio/neural2/clinic.line.t1_1.normal.mp3": {
+    "hash": "e74e9107637b5124"
+  },
+  "audio/neural2/clinic.line.t1_1.slow.mp3": {
+    "hash": "5bc88edea49f663d"
+  },
+  "audio/neural2/clinic.line.t1_2.normal.mp3": {
+    "hash": "71e0febce456859c"
+  },
+  "audio/neural2/clinic.line.t1_2.slow.mp3": {
+    "hash": "4b5f3c64f1e6def9"
+  },
+  "audio/neural2/clinic.line.t1_3.normal.mp3": {
+    "hash": "db2cc587ed1544bc"
+  },
+  "audio/neural2/clinic.line.t1_3.slow.mp3": {
+    "hash": "8af7430dd8806d37"
+  },
+  "audio/neural2/clinic.line.t1_4.normal.mp3": {
+    "hash": "256f852f8245e7a4"
+  },
+  "audio/neural2/clinic.line.t1_4.slow.mp3": {
+    "hash": "39d90c3722c50e01"
+  },
+  "audio/neural2/clinic.line.t1_5.normal.mp3": {
+    "hash": "8a7d9d460b9b0f9a"
+  },
+  "audio/neural2/clinic.line.t1_5.slow.mp3": {
+    "hash": "99878ee041c05b8d"
+  },
+  "audio/neural2/clinic.line.t2_1.normal.mp3": {
+    "hash": "11aab27c3e7701e3"
+  },
+  "audio/neural2/clinic.line.t2_1.slow.mp3": {
+    "hash": "8c6da4058b11c3d2"
+  },
+  "audio/neural2/clinic.line.t2_2.normal.mp3": {
+    "hash": "8a3ee8c56f14f60c"
+  },
+  "audio/neural2/clinic.line.t2_2.slow.mp3": {
+    "hash": "50770ac57071a747"
+  },
+  "audio/neural2/clinic.line.t2_3.normal.mp3": {
+    "hash": "2e2927ec7ea05328"
+  },
+  "audio/neural2/clinic.line.t2_3.slow.mp3": {
+    "hash": "4228eb7f0557c16a"
+  },
+  "audio/neural2/clinic.line.t2_4.normal.mp3": {
+    "hash": "605b44df2db6c621"
+  },
+  "audio/neural2/clinic.line.t2_4.slow.mp3": {
+    "hash": "8656900c1cf439dc"
+  },
+  "audio/neural2/clinic.line.t2_5.normal.mp3": {
+    "hash": "9e53febe6a86e1fc"
+  },
+  "audio/neural2/clinic.line.t2_5.slow.mp3": {
+    "hash": "e2bc33b0ed2d3959"
+  },
+  "audio/neural2/clinic.line.t3_1.normal.mp3": {
+    "hash": "4ce6092ffd8d7ea0"
+  },
+  "audio/neural2/clinic.line.t3_1.slow.mp3": {
+    "hash": "89503e54820e428e"
+  },
+  "audio/neural2/clinic.line.t3_2.normal.mp3": {
+    "hash": "410a30e943fbb50b"
+  },
+  "audio/neural2/clinic.line.t3_2.slow.mp3": {
+    "hash": "61e1b4a0dc755272"
+  },
+  "audio/neural2/clinic.line.t3_3.normal.mp3": {
+    "hash": "72ddf896d6f00cc5"
+  },
+  "audio/neural2/clinic.line.t3_3.slow.mp3": {
+    "hash": "ff39cbfb34e6cbab"
+  },
+  "audio/neural2/clinic.line.t3_4.normal.mp3": {
+    "hash": "60c5328471513169"
+  },
+  "audio/neural2/clinic.line.t3_4.slow.mp3": {
+    "hash": "c1960c5cdfd754b9"
+  },
+  "audio/neural2/clinic.line.t4_1.normal.mp3": {
+    "hash": "5b7f68a100928df0"
+  },
+  "audio/neural2/clinic.line.t4_1.slow.mp3": {
+    "hash": "07be16196079caee"
+  },
+  "audio/neural2/clinic.line.t4_2.normal.mp3": {
+    "hash": "b62e10e8a8a49eb9"
+  },
+  "audio/neural2/clinic.line.t4_2.slow.mp3": {
+    "hash": "e7e36435ac656b03"
+  },
+  "audio/neural2/clinic.line.t4_3.normal.mp3": {
+    "hash": "118ef2e1d632dca8"
+  },
+  "audio/neural2/clinic.line.t4_3.slow.mp3": {
+    "hash": "cbfd7dc488b0d1cf"
+  },
+  "audio/neural2/clinic.line.t4_4.normal.mp3": {
+    "hash": "a2b1ca4e795e4218"
+  },
+  "audio/neural2/clinic.line.t4_4.slow.mp3": {
+    "hash": "51fce70c88f1f5fb"
+  },
+  "audio/neural2/clinic.line.t4_5.normal.mp3": {
+    "hash": "7a44f19ac417ec3e"
+  },
+  "audio/neural2/clinic.line.t4_5.slow.mp3": {
+    "hash": "1301bf4f5646a9bf"
+  },
+  "audio/neural2/clinic.line.t5_1.normal.mp3": {
+    "hash": "09f6699b80bca3e7"
+  },
+  "audio/neural2/clinic.line.t5_1.slow.mp3": {
+    "hash": "5d5ad1fb0117b162"
+  },
+  "audio/neural2/clinic.line.t5_2.normal.mp3": {
+    "hash": "3e8e12d1731a7523"
+  },
+  "audio/neural2/clinic.line.t5_2.slow.mp3": {
+    "hash": "69ecbf28ea0ec9ab"
+  },
+  "audio/neural2/clinic.line.t5_3.normal.mp3": {
+    "hash": "26ff8a39e1814f6b"
+  },
+  "audio/neural2/clinic.line.t5_3.slow.mp3": {
+    "hash": "c00afb0957de46b8"
+  },
+  "audio/neural2/clinic.line.t5_4.normal.mp3": {
+    "hash": "8884fe1ccd456a67"
+  },
+  "audio/neural2/clinic.line.t5_4.slow.mp3": {
+    "hash": "ff3f1c4696a7c095"
+  },
+  "audio/neural2/clinic.line.t5_5.normal.mp3": {
+    "hash": "a5bd99260b14e35f"
+  },
+  "audio/neural2/clinic.line.t5_5.slow.mp3": {
+    "hash": "dafad207cbf5c4b5"
+  },
+  "audio/neural2/clinic.line.t6_1.normal.mp3": {
+    "hash": "bb6584f80f403460"
+  },
+  "audio/neural2/clinic.line.t6_1.slow.mp3": {
+    "hash": "74f71a030f6c28d3"
+  },
+  "audio/neural2/clinic.line.t6_2.normal.mp3": {
+    "hash": "85c63f39219c0612"
+  },
+  "audio/neural2/clinic.line.t6_2.slow.mp3": {
+    "hash": "89b0c19841ca1ed8"
+  },
+  "audio/neural2/clinic.line.t6_3.normal.mp3": {
+    "hash": "09b6d59d7fca06b2"
+  },
+  "audio/neural2/clinic.line.t6_3.slow.mp3": {
+    "hash": "08bf1299ceed29f3"
+  },
+  "audio/neural2/clinic.line.t6_4.normal.mp3": {
+    "hash": "cb1c0ba55a42d1c7"
+  },
+  "audio/neural2/clinic.line.t6_4.slow.mp3": {
+    "hash": "42d6012336ee1615"
+  },
+  "audio/neural2/clinic.line.t6_5.normal.mp3": {
+    "hash": "36c93f3d3588fd98"
+  },
+  "audio/neural2/clinic.line.t6_5.slow.mp3": {
+    "hash": "bc98825a5af70217"
+  },
+  "audio/neural2/clinic.line.t7_1.normal.mp3": {
+    "hash": "4491256357fee42a"
+  },
+  "audio/neural2/clinic.line.t7_1.slow.mp3": {
+    "hash": "b07b72d0910a1424"
+  },
+  "audio/neural2/clinic.line.t7_2.normal.mp3": {
+    "hash": "5067fec49165b677"
+  },
+  "audio/neural2/clinic.line.t7_2.slow.mp3": {
+    "hash": "4a2495af6cc03e15"
+  },
+  "audio/neural2/clinic.line.t7_3.normal.mp3": {
+    "hash": "491b201073dc485f"
+  },
+  "audio/neural2/clinic.line.t7_3.slow.mp3": {
+    "hash": "ee600c1bdc3d2929"
+  },
+  "audio/neural2/clinic.line.t7_4.normal.mp3": {
+    "hash": "e4a70d6e808508c6"
+  },
+  "audio/neural2/clinic.line.t7_4.slow.mp3": {
+    "hash": "76083f1c22e30540"
+  },
+  "audio/neural2/clinic.line.t7_5.normal.mp3": {
+    "hash": "c547022a1745dc99"
+  },
+  "audio/neural2/clinic.line.t7_5.slow.mp3": {
+    "hash": "8b063481c615c1de"
+  },
+  "audio/neural2/clinic.line.t8_1.normal.mp3": {
+    "hash": "ca71c7543f471a69"
+  },
+  "audio/neural2/clinic.line.t8_1.slow.mp3": {
+    "hash": "a8e8348283211963"
+  },
+  "audio/neural2/clinic.line.t8_10.normal.mp3": {
+    "hash": "71e0febce456859c"
+  },
+  "audio/neural2/clinic.line.t8_10.slow.mp3": {
+    "hash": "4b5f3c64f1e6def9"
+  },
+  "audio/neural2/clinic.line.t8_11.normal.mp3": {
+    "hash": "b7c9ee374fc81d92"
+  },
+  "audio/neural2/clinic.line.t8_11.slow.mp3": {
+    "hash": "b7527804384f44a9"
+  },
+  "audio/neural2/clinic.line.t8_12.normal.mp3": {
+    "hash": "dfd9b4d5ea869449"
+  },
+  "audio/neural2/clinic.line.t8_12.slow.mp3": {
+    "hash": "9ea800992e1c2e42"
+  },
+  "audio/neural2/clinic.line.t8_13.normal.mp3": {
+    "hash": "85c63f39219c0612"
+  },
+  "audio/neural2/clinic.line.t8_13.slow.mp3": {
+    "hash": "89b0c19841ca1ed8"
+  },
+  "audio/neural2/clinic.line.t8_14.normal.mp3": {
+    "hash": "9fec6dfbedfb1b59"
+  },
+  "audio/neural2/clinic.line.t8_14.slow.mp3": {
+    "hash": "74b7ca5c9f9d325f"
+  },
+  "audio/neural2/clinic.line.t8_15.normal.mp3": {
+    "hash": "5067fec49165b677"
+  },
+  "audio/neural2/clinic.line.t8_15.slow.mp3": {
+    "hash": "4a2495af6cc03e15"
+  },
+  "audio/neural2/clinic.line.t8_16.normal.mp3": {
+    "hash": "bc3fd181bdb33b44"
+  },
+  "audio/neural2/clinic.line.t8_16.slow.mp3": {
+    "hash": "0164de939f23d9f7"
+  },
+  "audio/neural2/clinic.line.t8_17.normal.mp3": {
+    "hash": "e4a70d6e808508c6"
+  },
+  "audio/neural2/clinic.line.t8_17.slow.mp3": {
+    "hash": "76083f1c22e30540"
+  },
+  "audio/neural2/clinic.line.t8_2.normal.mp3": {
+    "hash": "8a3ee8c56f14f60c"
+  },
+  "audio/neural2/clinic.line.t8_2.slow.mp3": {
+    "hash": "50770ac57071a747"
+  },
+  "audio/neural2/clinic.line.t8_3.normal.mp3": {
+    "hash": "8397a23473bd9e3a"
+  },
+  "audio/neural2/clinic.line.t8_3.slow.mp3": {
+    "hash": "17f441978094fdc8"
+  },
+  "audio/neural2/clinic.line.t8_4.normal.mp3": {
+    "hash": "b62e10e8a8a49eb9"
+  },
+  "audio/neural2/clinic.line.t8_4.slow.mp3": {
+    "hash": "e7e36435ac656b03"
+  },
+  "audio/neural2/clinic.line.t8_5.normal.mp3": {
+    "hash": "f8b8812e9de0a1fb"
+  },
+  "audio/neural2/clinic.line.t8_5.slow.mp3": {
+    "hash": "54e11f1062a2e6ec"
+  },
+  "audio/neural2/clinic.line.t8_6.normal.mp3": {
+    "hash": "8884fe1ccd456a67"
+  },
+  "audio/neural2/clinic.line.t8_6.slow.mp3": {
+    "hash": "ff3f1c4696a7c095"
+  },
+  "audio/neural2/clinic.line.t8_7.normal.mp3": {
+    "hash": "7a3e800aa811d541"
+  },
+  "audio/neural2/clinic.line.t8_7.slow.mp3": {
+    "hash": "42ff425911415abc"
+  },
+  "audio/neural2/clinic.line.t8_8.normal.mp3": {
+    "hash": "4ce6092ffd8d7ea0"
+  },
+  "audio/neural2/clinic.line.t8_8.slow.mp3": {
+    "hash": "89503e54820e428e"
+  },
+  "audio/neural2/clinic.line.t8_9.normal.mp3": {
+    "hash": "57c1fe61e76817ba"
+  },
+  "audio/neural2/clinic.line.t8_9.slow.mp3": {
+    "hash": "8bed5b74b15cbfff"
+  },
+  "audio/neural2/clinic.picture.pic1.normal.mp3": {
+    "hash": "442fa49c1047779d"
+  },
+  "audio/neural2/clinic.picture.pic1.slow.mp3": {
+    "hash": "8ad1c1e48719a1e0"
+  },
+  "audio/neural2/clinic.picture.pic2.normal.mp3": {
+    "hash": "2fb97c2dc8e2a2da"
+  },
+  "audio/neural2/clinic.picture.pic2.slow.mp3": {
+    "hash": "7883902d61a31a61"
+  },
+  "audio/neural2/clinic.picture.pic3.normal.mp3": {
+    "hash": "92b54b7d1aa77b75"
+  },
+  "audio/neural2/clinic.picture.pic3.slow.mp3": {
+    "hash": "bd4294acd168d4d5"
+  },
+  "audio/neural2/clinic.picture.pic4.normal.mp3": {
+    "hash": "59979bf53cb38103"
+  },
+  "audio/neural2/clinic.picture.pic4.slow.mp3": {
+    "hash": "8430077f40239f69"
+  },
+  "audio/neural2/clinic.word.arm.normal.mp3": {
+    "hash": "1ec18221acb86191"
+  },
+  "audio/neural2/clinic.word.arm.slow.mp3": {
+    "hash": "40c6855a780fd87d"
+  },
+  "audio/neural2/clinic.word.back.normal.mp3": {
+    "hash": "02e4993875bec5ac"
+  },
+  "audio/neural2/clinic.word.back.slow.mp3": {
+    "hash": "b80ef1e7137c52c7"
+  },
+  "audio/neural2/clinic.word.body.normal.mp3": {
+    "hash": "66f65a9bd8bd1245"
+  },
+  "audio/neural2/clinic.word.body.slow.mp3": {
+    "hash": "313b629133bedd96"
+  },
+  "audio/neural2/clinic.word.breakfast.normal.mp3": {
+    "hash": "df338fede98994b9"
+  },
+  "audio/neural2/clinic.word.breakfast.slow.mp3": {
+    "hash": "49208c04f6abed0f"
+  },
+  "audio/neural2/clinic.word.cold.normal.mp3": {
+    "hash": "618af4188ea90c35"
+  },
+  "audio/neural2/clinic.word.cold.slow.mp3": {
+    "hash": "b67fa23d95395184"
+  },
+  "audio/neural2/clinic.word.cough.normal.mp3": {
+    "hash": "1928271727c55e19"
+  },
+  "audio/neural2/clinic.word.cough.slow.mp3": {
+    "hash": "bdb2127640c2f585"
+  },
+  "audio/neural2/clinic.word.cream.normal.mp3": {
+    "hash": "3f6e712574a58292"
+  },
+  "audio/neural2/clinic.word.cream.slow.mp3": {
+    "hash": "02bbfb25c1dc06f2"
+  },
+  "audio/neural2/clinic.word.dinner.normal.mp3": {
+    "hash": "7edf06de41f833d2"
+  },
+  "audio/neural2/clinic.word.dinner.slow.mp3": {
+    "hash": "d575b0143c030090"
+  },
+  "audio/neural2/clinic.word.doctor.normal.mp3": {
+    "hash": "f5c6e93fc361c3b8"
+  },
+  "audio/neural2/clinic.word.doctor.slow.mp3": {
+    "hash": "54e4583b95896705"
+  },
+  "audio/neural2/clinic.word.ear.normal.mp3": {
+    "hash": "247b767a04f081e7"
+  },
+  "audio/neural2/clinic.word.ear.slow.mp3": {
+    "hash": "d924abbfd82aeb12"
+  },
+  "audio/neural2/clinic.word.eye.normal.mp3": {
+    "hash": "808bc105125304cb"
+  },
+  "audio/neural2/clinic.word.eye.slow.mp3": {
+    "hash": "df7ded437d250a3f"
+  },
+  "audio/neural2/clinic.word.fever.normal.mp3": {
+    "hash": "a3eacb78e2b42810"
+  },
+  "audio/neural2/clinic.word.fever.slow.mp3": {
+    "hash": "586dbfbc9d06cd88"
+  },
+  "audio/neural2/clinic.word.flu.normal.mp3": {
+    "hash": "d7c5b0233d517954"
+  },
+  "audio/neural2/clinic.word.flu.slow.mp3": {
+    "hash": "08bd440fdf3d33fd"
+  },
+  "audio/neural2/clinic.word.food.normal.mp3": {
+    "hash": "1cde89c8fa72bb8a"
+  },
+  "audio/neural2/clinic.word.food.slow.mp3": {
+    "hash": "74b0dac83f4135c9"
+  },
+  "audio/neural2/clinic.word.form.normal.mp3": {
+    "hash": "e7340c6a51b4a884"
+  },
+  "audio/neural2/clinic.word.form.slow.mp3": {
+    "hash": "4672968368de6040"
+  },
+  "audio/neural2/clinic.word.glass.normal.mp3": {
+    "hash": "e79c42c2f977f73b"
+  },
+  "audio/neural2/clinic.word.glass.slow.mp3": {
+    "hash": "9d0a39d0d33010a8"
+  },
+  "audio/neural2/clinic.word.hand.normal.mp3": {
+    "hash": "0df37d7f24690371"
+  },
+  "audio/neural2/clinic.word.hand.slow.mp3": {
+    "hash": "9482d090a926f8df"
+  },
+  "audio/neural2/clinic.word.head.normal.mp3": {
+    "hash": "b86eb6ff19462981"
+  },
+  "audio/neural2/clinic.word.head.slow.mp3": {
+    "hash": "e4a9905e8182e027"
+  },
+  "audio/neural2/clinic.word.hurt.normal.mp3": {
+    "hash": "3fa5fb4758bf07d6"
+  },
+  "audio/neural2/clinic.word.hurt.slow.mp3": {
+    "hash": "0016c1303c9409f8"
+  },
+  "audio/neural2/clinic.word.insurance.normal.mp3": {
+    "hash": "6346a48c841be641"
+  },
+  "audio/neural2/clinic.word.insurance.slow.mp3": {
+    "hash": "bf595dc4aff6bf71"
+  },
+  "audio/neural2/clinic.word.leg.normal.mp3": {
+    "hash": "23c10c0deb729cad"
+  },
+  "audio/neural2/clinic.word.leg.slow.mp3": {
+    "hash": "adb4790687b609e8"
+  },
+  "audio/neural2/clinic.word.mask.normal.mp3": {
+    "hash": "64b53b2d4733e15d"
+  },
+  "audio/neural2/clinic.word.mask.slow.mp3": {
+    "hash": "04e7c05f7d15fb96"
+  },
+  "audio/neural2/clinic.word.meal.normal.mp3": {
+    "hash": "afb7b5b751b8c066"
+  },
+  "audio/neural2/clinic.word.meal.slow.mp3": {
+    "hash": "af5dea4b94271797"
+  },
+  "audio/neural2/clinic.word.medicine.normal.mp3": {
+    "hash": "c5a0ca3a6712925c"
+  },
+  "audio/neural2/clinic.word.medicine.slow.mp3": {
+    "hash": "8965f68990491a2a"
+  },
+  "audio/neural2/clinic.word.nose.normal.mp3": {
+    "hash": "196df21f649f163b"
+  },
+  "audio/neural2/clinic.word.nose.slow.mp3": {
+    "hash": "a95aa269bb2fd56e"
+  },
+  "audio/neural2/clinic.word.nurse.normal.mp3": {
+    "hash": "ba68ac91f121daf4"
+  },
+  "audio/neural2/clinic.word.nurse.slow.mp3": {
+    "hash": "00d7e0f59075f629"
+  },
+  "audio/neural2/clinic.word.pharmacy.normal.mp3": {
+    "hash": "b7a50d8f1ad675bc"
+  },
+  "audio/neural2/clinic.word.pharmacy.slow.mp3": {
+    "hash": "990db3ad87f5d0f2"
+  },
+  "audio/neural2/clinic.word.pill.normal.mp3": {
+    "hash": "2b1a8fc39297b867"
+  },
+  "audio/neural2/clinic.word.pill.slow.mp3": {
+    "hash": "9102a02c7636249f"
+  },
+  "audio/neural2/clinic.word.rest.normal.mp3": {
+    "hash": "62d93534b4890e4e"
+  },
+  "audio/neural2/clinic.word.rest.slow.mp3": {
+    "hash": "551bcead342440bb"
+  },
+  "audio/neural2/clinic.word.shot.normal.mp3": {
+    "hash": "aec21f0ecb16b583"
+  },
+  "audio/neural2/clinic.word.shot.slow.mp3": {
+    "hash": "c80ff083654c5de9"
+  },
+  "audio/neural2/clinic.word.sick.normal.mp3": {
+    "hash": "7e3954bbc50e434b"
+  },
+  "audio/neural2/clinic.word.sick.slow.mp3": {
+    "hash": "05391c84d9c32717"
+  },
+  "audio/neural2/clinic.word.sleep.normal.mp3": {
+    "hash": "e90c6f66a174005e"
+  },
+  "audio/neural2/clinic.word.sleep.slow.mp3": {
+    "hash": "9a90282487b42008"
+  },
+  "audio/neural2/clinic.word.throat.normal.mp3": {
+    "hash": "dea106cb314c1347"
+  },
+  "audio/neural2/clinic.word.throat.slow.mp3": {
+    "hash": "f5a6db6e798526a2"
+  },
+  "audio/neural2/clinic.word.tissue.normal.mp3": {
+    "hash": "fff78e1d7c692756"
+  },
+  "audio/neural2/clinic.word.tissue.slow.mp3": {
+    "hash": "9e50a349fc455cd7"
   },
   "audio/neural2/clothes.chunk.fits_well.normal.mp3": {
     "hash": "2f71cd8b34fc7ff6"
@@ -3868,6 +5704,1824 @@
   },
   "audio/neural2/move_in.word.welcome.slow.mp3": {
     "hash": "1adcb615ef7f6dc0"
+  },
+  "audio/neural2/park.chunk.dog_friendly.normal.mp3": {
+    "hash": "835d4fd333ce91c1"
+  },
+  "audio/neural2/park.chunk.dog_friendly.slow.mp3": {
+    "hash": "fbf11f8f38149569"
+  },
+  "audio/neural2/park.chunk.great_time.normal.mp3": {
+    "hash": "c8e2e6171b15b7ba"
+  },
+  "audio/neural2/park.chunk.great_time.slow.mp3": {
+    "hash": "cf52ca86a139fd37"
+  },
+  "audio/neural2/park.chunk.help_yourself.normal.mp3": {
+    "hash": "f681f244da4c7931"
+  },
+  "audio/neural2/park.chunk.help_yourself.slow.mp3": {
+    "hash": "9f636b78812f3fa9"
+  },
+  "audio/neural2/park.chunk.how_can_i_help.normal.mp3": {
+    "hash": "c33cc31a63e47f8f"
+  },
+  "audio/neural2/park.chunk.how_can_i_help.slow.mp3": {
+    "hash": "8bab4c543f770f74"
+  },
+  "audio/neural2/park.chunk.is_it_free.normal.mp3": {
+    "hash": "05ef8dc18be842a5"
+  },
+  "audio/neural2/park.chunk.is_it_free.slow.mp3": {
+    "hash": "713ea03c2d2a6e4b"
+  },
+  "audio/neural2/park.chunk.keep_in_touch.normal.mp3": {
+    "hash": "a1f0be56267f0d87"
+  },
+  "audio/neural2/park.chunk.keep_in_touch.slow.mp3": {
+    "hash": "023c9bc36123a3b5"
+  },
+  "audio/neural2/park.chunk.my_number.normal.mp3": {
+    "hash": "6263de68f694781a"
+  },
+  "audio/neural2/park.chunk.my_number.slow.mp3": {
+    "hash": "db9bb0a51954c6d1"
+  },
+  "audio/neural2/park.chunk.nice_day.normal.mp3": {
+    "hash": "f34669d62e28dacb"
+  },
+  "audio/neural2/park.chunk.nice_day.slow.mp3": {
+    "hash": "589ca01fed447d1c"
+  },
+  "audio/neural2/park.chunk.run_every_morning.normal.mp3": {
+    "hash": "55188e66af4e5592"
+  },
+  "audio/neural2/park.chunk.run_every_morning.slow.mp3": {
+    "hash": "102c24b599aae367"
+  },
+  "audio/neural2/park.chunk.run_together.normal.mp3": {
+    "hash": "462b2464b9be0c7f"
+  },
+  "audio/neural2/park.chunk.run_together.slow.mp3": {
+    "hash": "a82c8ff098079be3"
+  },
+  "audio/neural2/park.chunk.saw_poster.normal.mp3": {
+    "hash": "fe068f6e9f3394b3"
+  },
+  "audio/neural2/park.chunk.saw_poster.slow.mp3": {
+    "hash": "b5b24b1005532425"
+  },
+  "audio/neural2/park.chunk.sign_up.normal.mp3": {
+    "hash": "b8a922089332314c"
+  },
+  "audio/neural2/park.chunk.sign_up.slow.mp3": {
+    "hash": "9a11c3b0fb21583b"
+  },
+  "audio/neural2/park.chunk.something_to_drink.normal.mp3": {
+    "hash": "36723f377449b9e3"
+  },
+  "audio/neural2/park.chunk.something_to_drink.slow.mp3": {
+    "hash": "dc737f02c3224f97"
+  },
+  "audio/neural2/park.chunk.what_time_start.normal.mp3": {
+    "hash": "daaece252b8b4f34"
+  },
+  "audio/neural2/park.chunk.what_time_start.slow.mp3": {
+    "hash": "2f5af3ed251561f1"
+  },
+  "audio/neural2/park.line.t1_1.normal.mp3": {
+    "hash": "f34669d62e28dacb"
+  },
+  "audio/neural2/park.line.t1_1.slow.mp3": {
+    "hash": "589ca01fed447d1c"
+  },
+  "audio/neural2/park.line.t1_2.normal.mp3": {
+    "hash": "788e47c82d80ab7a"
+  },
+  "audio/neural2/park.line.t1_2.slow.mp3": {
+    "hash": "eba57282f8b3080e"
+  },
+  "audio/neural2/park.line.t1_3.normal.mp3": {
+    "hash": "b17d8853add1dde7"
+  },
+  "audio/neural2/park.line.t1_3.slow.mp3": {
+    "hash": "c228f9d570526fa4"
+  },
+  "audio/neural2/park.line.t1_4.normal.mp3": {
+    "hash": "835d4fd333ce91c1"
+  },
+  "audio/neural2/park.line.t1_4.slow.mp3": {
+    "hash": "fbf11f8f38149569"
+  },
+  "audio/neural2/park.line.t1_5.normal.mp3": {
+    "hash": "abbc6b8dae15ef5d"
+  },
+  "audio/neural2/park.line.t1_5.slow.mp3": {
+    "hash": "d854cd58b3fb9ace"
+  },
+  "audio/neural2/park.line.t2_1.normal.mp3": {
+    "hash": "13b332bcd722cb96"
+  },
+  "audio/neural2/park.line.t2_1.slow.mp3": {
+    "hash": "89b4c963638f15ed"
+  },
+  "audio/neural2/park.line.t2_2.normal.mp3": {
+    "hash": "daaece252b8b4f34"
+  },
+  "audio/neural2/park.line.t2_2.slow.mp3": {
+    "hash": "2f5af3ed251561f1"
+  },
+  "audio/neural2/park.line.t2_3.normal.mp3": {
+    "hash": "e1c76642b461ea8e"
+  },
+  "audio/neural2/park.line.t2_3.slow.mp3": {
+    "hash": "940b23f871c5a8e8"
+  },
+  "audio/neural2/park.line.t2_4.normal.mp3": {
+    "hash": "05ef8dc18be842a5"
+  },
+  "audio/neural2/park.line.t2_4.slow.mp3": {
+    "hash": "713ea03c2d2a6e4b"
+  },
+  "audio/neural2/park.line.t2_5.normal.mp3": {
+    "hash": "3d981863934d6d20"
+  },
+  "audio/neural2/park.line.t2_5.slow.mp3": {
+    "hash": "5f91b23f0517ad78"
+  },
+  "audio/neural2/park.line.t3_1.normal.mp3": {
+    "hash": "94716cb3cbbf4405"
+  },
+  "audio/neural2/park.line.t3_1.slow.mp3": {
+    "hash": "e6b7a599f91b2ecb"
+  },
+  "audio/neural2/park.line.t3_2.normal.mp3": {
+    "hash": "fe068f6e9f3394b3"
+  },
+  "audio/neural2/park.line.t3_2.slow.mp3": {
+    "hash": "b5b24b1005532425"
+  },
+  "audio/neural2/park.line.t3_3.normal.mp3": {
+    "hash": "47c9c9ff781cc455"
+  },
+  "audio/neural2/park.line.t3_3.slow.mp3": {
+    "hash": "c0a9097d22b89789"
+  },
+  "audio/neural2/park.line.t3_4.normal.mp3": {
+    "hash": "c8e2e6171b15b7ba"
+  },
+  "audio/neural2/park.line.t3_4.slow.mp3": {
+    "hash": "cf52ca86a139fd37"
+  },
+  "audio/neural2/park.line.t3_5.normal.mp3": {
+    "hash": "d9f955e187b5fbb3"
+  },
+  "audio/neural2/park.line.t3_5.slow.mp3": {
+    "hash": "cf9d85d426325ead"
+  },
+  "audio/neural2/park.line.t4_1.normal.mp3": {
+    "hash": "0b053125429e1b55"
+  },
+  "audio/neural2/park.line.t4_1.slow.mp3": {
+    "hash": "f2fcfc538c519143"
+  },
+  "audio/neural2/park.line.t4_2.normal.mp3": {
+    "hash": "c33cc31a63e47f8f"
+  },
+  "audio/neural2/park.line.t4_2.slow.mp3": {
+    "hash": "8bab4c543f770f74"
+  },
+  "audio/neural2/park.line.t4_3.normal.mp3": {
+    "hash": "516437abeec2b49a"
+  },
+  "audio/neural2/park.line.t4_3.slow.mp3": {
+    "hash": "9430c40c70daa3d5"
+  },
+  "audio/neural2/park.line.t4_4.normal.mp3": {
+    "hash": "b8a922089332314c"
+  },
+  "audio/neural2/park.line.t4_4.slow.mp3": {
+    "hash": "9a11c3b0fb21583b"
+  },
+  "audio/neural2/park.line.t4_5.normal.mp3": {
+    "hash": "bb2917ebdc99c34d"
+  },
+  "audio/neural2/park.line.t4_5.slow.mp3": {
+    "hash": "4df4cb384eff9ad7"
+  },
+  "audio/neural2/park.line.t5_1.normal.mp3": {
+    "hash": "8fb93a8c619b9f89"
+  },
+  "audio/neural2/park.line.t5_1.slow.mp3": {
+    "hash": "4cc112e5ff5ddc11"
+  },
+  "audio/neural2/park.line.t5_2.normal.mp3": {
+    "hash": "36723f377449b9e3"
+  },
+  "audio/neural2/park.line.t5_2.slow.mp3": {
+    "hash": "dc737f02c3224f97"
+  },
+  "audio/neural2/park.line.t5_3.normal.mp3": {
+    "hash": "8c19e26b755017af"
+  },
+  "audio/neural2/park.line.t5_3.slow.mp3": {
+    "hash": "ee74ac34434f8ac8"
+  },
+  "audio/neural2/park.line.t5_4.normal.mp3": {
+    "hash": "f681f244da4c7931"
+  },
+  "audio/neural2/park.line.t5_4.slow.mp3": {
+    "hash": "9f636b78812f3fa9"
+  },
+  "audio/neural2/park.line.t5_5.normal.mp3": {
+    "hash": "ac7755059e89d77a"
+  },
+  "audio/neural2/park.line.t5_5.slow.mp3": {
+    "hash": "a14e142266952cd9"
+  },
+  "audio/neural2/park.line.t6_1.normal.mp3": {
+    "hash": "b85d0088027ff0f5"
+  },
+  "audio/neural2/park.line.t6_1.slow.mp3": {
+    "hash": "82f1c7f19ab3a7e4"
+  },
+  "audio/neural2/park.line.t6_2.normal.mp3": {
+    "hash": "55188e66af4e5592"
+  },
+  "audio/neural2/park.line.t6_2.slow.mp3": {
+    "hash": "102c24b599aae367"
+  },
+  "audio/neural2/park.line.t6_3.normal.mp3": {
+    "hash": "f2c712dad69da7ca"
+  },
+  "audio/neural2/park.line.t6_3.slow.mp3": {
+    "hash": "61557b378d5f4496"
+  },
+  "audio/neural2/park.line.t6_4.normal.mp3": {
+    "hash": "462b2464b9be0c7f"
+  },
+  "audio/neural2/park.line.t6_4.slow.mp3": {
+    "hash": "a82c8ff098079be3"
+  },
+  "audio/neural2/park.line.t6_5.normal.mp3": {
+    "hash": "cf8270ebd9fc7f80"
+  },
+  "audio/neural2/park.line.t6_5.slow.mp3": {
+    "hash": "b7cc34e4e0db91c2"
+  },
+  "audio/neural2/park.line.t7_1.normal.mp3": {
+    "hash": "35c740949b83c32f"
+  },
+  "audio/neural2/park.line.t7_1.slow.mp3": {
+    "hash": "e452bb6cc3fa3769"
+  },
+  "audio/neural2/park.line.t7_2.normal.mp3": {
+    "hash": "a1f0be56267f0d87"
+  },
+  "audio/neural2/park.line.t7_2.slow.mp3": {
+    "hash": "023c9bc36123a3b5"
+  },
+  "audio/neural2/park.line.t7_3.normal.mp3": {
+    "hash": "0ad539093e76cd10"
+  },
+  "audio/neural2/park.line.t7_3.slow.mp3": {
+    "hash": "fb488fe32de5e962"
+  },
+  "audio/neural2/park.line.t7_4.normal.mp3": {
+    "hash": "6263de68f694781a"
+  },
+  "audio/neural2/park.line.t7_4.slow.mp3": {
+    "hash": "db9bb0a51954c6d1"
+  },
+  "audio/neural2/park.line.t7_5.normal.mp3": {
+    "hash": "f655f953d9850708"
+  },
+  "audio/neural2/park.line.t7_5.slow.mp3": {
+    "hash": "b3536fd04bff6351"
+  },
+  "audio/neural2/park.line.t8_1.normal.mp3": {
+    "hash": "03b298ba8d14812a"
+  },
+  "audio/neural2/park.line.t8_1.slow.mp3": {
+    "hash": "1c327067e6b788f0"
+  },
+  "audio/neural2/park.line.t8_10.normal.mp3": {
+    "hash": "19194bb264c467d9"
+  },
+  "audio/neural2/park.line.t8_10.slow.mp3": {
+    "hash": "d99a77d799c6f4b5"
+  },
+  "audio/neural2/park.line.t8_11.normal.mp3": {
+    "hash": "c33cc31a63e47f8f"
+  },
+  "audio/neural2/park.line.t8_11.slow.mp3": {
+    "hash": "8bab4c543f770f74"
+  },
+  "audio/neural2/park.line.t8_12.normal.mp3": {
+    "hash": "391cd248e7e1eddc"
+  },
+  "audio/neural2/park.line.t8_12.slow.mp3": {
+    "hash": "9f790e08119da794"
+  },
+  "audio/neural2/park.line.t8_13.normal.mp3": {
+    "hash": "daaece252b8b4f34"
+  },
+  "audio/neural2/park.line.t8_13.slow.mp3": {
+    "hash": "2f5af3ed251561f1"
+  },
+  "audio/neural2/park.line.t8_14.normal.mp3": {
+    "hash": "44312cfae753c943"
+  },
+  "audio/neural2/park.line.t8_14.slow.mp3": {
+    "hash": "158b8779a41b6fbe"
+  },
+  "audio/neural2/park.line.t8_15.normal.mp3": {
+    "hash": "6263de68f694781a"
+  },
+  "audio/neural2/park.line.t8_15.slow.mp3": {
+    "hash": "db9bb0a51954c6d1"
+  },
+  "audio/neural2/park.line.t8_16.normal.mp3": {
+    "hash": "dd649c966c5eb906"
+  },
+  "audio/neural2/park.line.t8_16.slow.mp3": {
+    "hash": "0fb995f93796bc53"
+  },
+  "audio/neural2/park.line.t8_17.normal.mp3": {
+    "hash": "7104201ebbab8fe9"
+  },
+  "audio/neural2/park.line.t8_17.slow.mp3": {
+    "hash": "5e81a18fc182fa5d"
+  },
+  "audio/neural2/park.line.t8_2.normal.mp3": {
+    "hash": "f34669d62e28dacb"
+  },
+  "audio/neural2/park.line.t8_2.slow.mp3": {
+    "hash": "589ca01fed447d1c"
+  },
+  "audio/neural2/park.line.t8_3.normal.mp3": {
+    "hash": "a396d9c9f09784db"
+  },
+  "audio/neural2/park.line.t8_3.slow.mp3": {
+    "hash": "45fd40e48886d8f9"
+  },
+  "audio/neural2/park.line.t8_4.normal.mp3": {
+    "hash": "36723f377449b9e3"
+  },
+  "audio/neural2/park.line.t8_4.slow.mp3": {
+    "hash": "dc737f02c3224f97"
+  },
+  "audio/neural2/park.line.t8_5.normal.mp3": {
+    "hash": "178dcd4785dc44ff"
+  },
+  "audio/neural2/park.line.t8_5.slow.mp3": {
+    "hash": "ec1301d647c155bb"
+  },
+  "audio/neural2/park.line.t8_6.normal.mp3": {
+    "hash": "55188e66af4e5592"
+  },
+  "audio/neural2/park.line.t8_6.slow.mp3": {
+    "hash": "102c24b599aae367"
+  },
+  "audio/neural2/park.line.t8_7.normal.mp3": {
+    "hash": "03cb0b650407a0af"
+  },
+  "audio/neural2/park.line.t8_7.slow.mp3": {
+    "hash": "fee723b8e86995cb"
+  },
+  "audio/neural2/park.line.t8_8.normal.mp3": {
+    "hash": "88cbd5e373ef3a92"
+  },
+  "audio/neural2/park.line.t8_8.slow.mp3": {
+    "hash": "9aa0cae0824e1893"
+  },
+  "audio/neural2/park.line.t8_9.normal.mp3": {
+    "hash": "fe068f6e9f3394b3"
+  },
+  "audio/neural2/park.line.t8_9.slow.mp3": {
+    "hash": "b5b24b1005532425"
+  },
+  "audio/neural2/park.picture.pic1.normal.mp3": {
+    "hash": "1537051fc92203fa"
+  },
+  "audio/neural2/park.picture.pic1.slow.mp3": {
+    "hash": "a43665ca684aee12"
+  },
+  "audio/neural2/park.picture.pic2.normal.mp3": {
+    "hash": "bebd82d43c6f5463"
+  },
+  "audio/neural2/park.picture.pic2.slow.mp3": {
+    "hash": "3f9320fb5dd89441"
+  },
+  "audio/neural2/park.word.afternoon.normal.mp3": {
+    "hash": "43f2585293695d20"
+  },
+  "audio/neural2/park.word.afternoon.slow.mp3": {
+    "hash": "208e8ebfdc04bafd"
+  },
+  "audio/neural2/park.word.ball.normal.mp3": {
+    "hash": "6771a4c97b79717c"
+  },
+  "audio/neural2/park.word.ball.slow.mp3": {
+    "hash": "a2fe861ee5b4b337"
+  },
+  "audio/neural2/park.word.camera.normal.mp3": {
+    "hash": "d1591494a8133576"
+  },
+  "audio/neural2/park.word.camera.slow.mp3": {
+    "hash": "19a35c0f8b16ebcd"
+  },
+  "audio/neural2/park.word.center.normal.mp3": {
+    "hash": "2bc214b9487422dd"
+  },
+  "audio/neural2/park.word.center.slow.mp3": {
+    "hash": "cb9bb10766ba0568"
+  },
+  "audio/neural2/park.word.class.normal.mp3": {
+    "hash": "d05a0bbc2a5f1949"
+  },
+  "audio/neural2/park.word.class.slow.mp3": {
+    "hash": "a45a33fa37063cb5"
+  },
+  "audio/neural2/park.word.clean.normal.mp3": {
+    "hash": "c147a0459c5130e6"
+  },
+  "audio/neural2/park.word.clean.slow.mp3": {
+    "hash": "04ff6f91c2f082e0"
+  },
+  "audio/neural2/park.word.cloud.normal.mp3": {
+    "hash": "00cadf1b61d79979"
+  },
+  "audio/neural2/park.word.cloud.slow.mp3": {
+    "hash": "013d4c3d28136790"
+  },
+  "audio/neural2/park.word.dog.normal.mp3": {
+    "hash": "50677b9ac6fc2f68"
+  },
+  "audio/neural2/park.word.dog.slow.mp3": {
+    "hash": "3ff0ae8461541c1a"
+  },
+  "audio/neural2/park.word.email.normal.mp3": {
+    "hash": "d54838d8813179b6"
+  },
+  "audio/neural2/park.word.email.slow.mp3": {
+    "hash": "c2e2aacd9d4133ab"
+  },
+  "audio/neural2/park.word.event.normal.mp3": {
+    "hash": "54d86849c85d56c6"
+  },
+  "audio/neural2/park.word.event.slow.mp3": {
+    "hash": "bf2240ebb8d37c78"
+  },
+  "audio/neural2/park.word.family.normal.mp3": {
+    "hash": "6be968d1d04f82d6"
+  },
+  "audio/neural2/park.word.family.slow.mp3": {
+    "hash": "2cb308bc6685da4d"
+  },
+  "audio/neural2/park.word.flower.normal.mp3": {
+    "hash": "16cfd4a7632f337e"
+  },
+  "audio/neural2/park.word.flower.slow.mp3": {
+    "hash": "e03db77231aaf2b8"
+  },
+  "audio/neural2/park.word.garden.normal.mp3": {
+    "hash": "6c77420bddd69843"
+  },
+  "audio/neural2/park.word.garden.slow.mp3": {
+    "hash": "204de7e1dedf919c"
+  },
+  "audio/neural2/park.word.grass.normal.mp3": {
+    "hash": "ac2545988c944a61"
+  },
+  "audio/neural2/park.word.grass.slow.mp3": {
+    "hash": "1b45079112ee3f8e"
+  },
+  "audio/neural2/park.word.hold.normal.mp3": {
+    "hash": "986bff0d26cde2a8"
+  },
+  "audio/neural2/park.word.hold.slow.mp3": {
+    "hash": "acc0a5fd1d245170"
+  },
+  "audio/neural2/park.word.kid.normal.mp3": {
+    "hash": "6928cd105a6ff8da"
+  },
+  "audio/neural2/park.word.kid.slow.mp3": {
+    "hash": "74c804bd77e5c480"
+  },
+  "audio/neural2/park.word.lake.normal.mp3": {
+    "hash": "88eb476755bad6b3"
+  },
+  "audio/neural2/park.word.lake.slow.mp3": {
+    "hash": "71823ba40cd6eaf5"
+  },
+  "audio/neural2/park.word.message.normal.mp3": {
+    "hash": "dd816bf2888ed57f"
+  },
+  "audio/neural2/park.word.message.slow.mp3": {
+    "hash": "0ac734e17f4040e6"
+  },
+  "audio/neural2/park.word.park.normal.mp3": {
+    "hash": "188bb798f610f44b"
+  },
+  "audio/neural2/park.word.park.slow.mp3": {
+    "hash": "5858f5bebdd9e3c5"
+  },
+  "audio/neural2/park.word.picnic.normal.mp3": {
+    "hash": "87502705d567dbd9"
+  },
+  "audio/neural2/park.word.picnic.slow.mp3": {
+    "hash": "a9dff3fe6ec6c196"
+  },
+  "audio/neural2/park.word.picture.normal.mp3": {
+    "hash": "12f72350530f2f69"
+  },
+  "audio/neural2/park.word.picture.slow.mp3": {
+    "hash": "918aa0be95e6b174"
+  },
+  "audio/neural2/park.word.plant.normal.mp3": {
+    "hash": "ec967a91e7e4fd80"
+  },
+  "audio/neural2/park.word.plant.slow.mp3": {
+    "hash": "e1e44b266b1c56e7"
+  },
+  "audio/neural2/park.word.play.normal.mp3": {
+    "hash": "d7771981fef1f470"
+  },
+  "audio/neural2/park.word.play.slow.mp3": {
+    "hash": "b21e8c6fe3c85e09"
+  },
+  "audio/neural2/park.word.poster.normal.mp3": {
+    "hash": "9cd14fe1a8c34f49"
+  },
+  "audio/neural2/park.word.poster.slow.mp3": {
+    "hash": "500167c665075b32"
+  },
+  "audio/neural2/park.word.run.normal.mp3": {
+    "hash": "646a2c120ee7ae9c"
+  },
+  "audio/neural2/park.word.run.slow.mp3": {
+    "hash": "df5dc0de943ee982"
+  },
+  "audio/neural2/park.word.sky.normal.mp3": {
+    "hash": "5d88ba616d38267a"
+  },
+  "audio/neural2/park.word.sky.slow.mp3": {
+    "hash": "0c12c0a4356612c5"
+  },
+  "audio/neural2/park.word.sport.normal.mp3": {
+    "hash": "c98e039e3766d129"
+  },
+  "audio/neural2/park.word.sport.slow.mp3": {
+    "hash": "bf17124d6654bdc4"
+  },
+  "audio/neural2/park.word.sun.normal.mp3": {
+    "hash": "ca41949030b3d7dd"
+  },
+  "audio/neural2/park.word.sun.slow.mp3": {
+    "hash": "4a2c9107c2071abe"
+  },
+  "audio/neural2/park.word.swim.normal.mp3": {
+    "hash": "eb2605408cb5bcc6"
+  },
+  "audio/neural2/park.word.swim.slow.mp3": {
+    "hash": "0f7ffa3ad023645f"
+  },
+  "audio/neural2/park.word.team.normal.mp3": {
+    "hash": "11ba45cdb47b8ca6"
+  },
+  "audio/neural2/park.word.team.slow.mp3": {
+    "hash": "879e23e857559aac"
+  },
+  "audio/neural2/park.word.tennis.normal.mp3": {
+    "hash": "8cdcbf32e566992e"
+  },
+  "audio/neural2/park.word.tennis.slow.mp3": {
+    "hash": "e2ab6677cc95cd44"
+  },
+  "audio/neural2/park.word.tree.normal.mp3": {
+    "hash": "7f10454f19268229"
+  },
+  "audio/neural2/park.word.tree.slow.mp3": {
+    "hash": "0a23644e8828f78c"
+  },
+  "audio/neural2/park.word.volunteer.normal.mp3": {
+    "hash": "12eca15d8c500b9b"
+  },
+  "audio/neural2/park.word.volunteer.slow.mp3": {
+    "hash": "2036e4763c6c793d"
+  },
+  "audio/neural2/park.word.wind.normal.mp3": {
+    "hash": "712e37d6c50a5028"
+  },
+  "audio/neural2/park.word.wind.slow.mp3": {
+    "hash": "4d1fe094a7bbbf83"
+  },
+  "audio/neural2/post_office.chunk.be_careful.normal.mp3": {
+    "hash": "a1c3d5dfa91a8a7a"
+  },
+  "audio/neural2/post_office.chunk.be_careful.slow.mp3": {
+    "hash": "bacd68e78c9e3801"
+  },
+  "audio/neural2/post_office.chunk.books_and_gifts.normal.mp3": {
+    "hash": "5023c929455bdf50"
+  },
+  "audio/neural2/post_office.chunk.books_and_gifts.slow.mp3": {
+    "hash": "7fdefba7eb9b14ea"
+  },
+  "audio/neural2/post_office.chunk.box_and_tape.normal.mp3": {
+    "hash": "83933dbf5fc0ffe6"
+  },
+  "audio/neural2/post_office.chunk.box_and_tape.slow.mp3": {
+    "hash": "556c72c4ca502fb6"
+  },
+  "audio/neural2/post_office.chunk.buy_stamps.normal.mp3": {
+    "hash": "e14a86813a550898"
+  },
+  "audio/neural2/post_office.chunk.buy_stamps.slow.mp3": {
+    "hash": "24a096abb598f880"
+  },
+  "audio/neural2/post_office.chunk.by_air.normal.mp3": {
+    "hash": "f47f641c04d49e5b"
+  },
+  "audio/neural2/post_office.chunk.by_air.slow.mp3": {
+    "hash": "64c3ee697dcacb91"
+  },
+  "audio/neural2/post_office.chunk.how_much_cost.normal.mp3": {
+    "hash": "ffc31e5633bbf485"
+  },
+  "audio/neural2/post_office.chunk.how_much_cost.slow.mp3": {
+    "hash": "10f2e6df5478a138"
+  },
+  "audio/neural2/post_office.chunk.is_this_okay.normal.mp3": {
+    "hash": "a59b870c12527096"
+  },
+  "audio/neural2/post_office.chunk.is_this_okay.slow.mp3": {
+    "hash": "6aa40b7673093c7b"
+  },
+  "audio/neural2/post_office.chunk.mailed_last_week.normal.mp3": {
+    "hash": "3d3ea01078d5dbac"
+  },
+  "audio/neural2/post_office.chunk.mailed_last_week.slow.mp3": {
+    "hash": "a4ce42aa41aeedbe"
+  },
+  "audio/neural2/post_office.chunk.missed_delivery.normal.mp3": {
+    "hash": "386777de9e0c21ea"
+  },
+  "audio/neural2/post_office.chunk.missed_delivery.slow.mp3": {
+    "hash": "8541ff63978b0f77"
+  },
+  "audio/neural2/post_office.chunk.my_id.normal.mp3": {
+    "hash": "8015d37e42705eae"
+  },
+  "audio/neural2/post_office.chunk.my_id.slow.mp3": {
+    "hash": "9f401683f71865a1"
+  },
+  "audio/neural2/post_office.chunk.pick_up_package.normal.mp3": {
+    "hash": "4cbedbaec4e8e60c"
+  },
+  "audio/neural2/post_office.chunk.pick_up_package.slow.mp3": {
+    "hash": "8337e4c8c9b827bf"
+  },
+  "audio/neural2/post_office.chunk.send_to_taiwan.normal.mp3": {
+    "hash": "9a098a27494d6689"
+  },
+  "audio/neural2/post_office.chunk.send_to_taiwan.slow.mp3": {
+    "hash": "893267fb93589f9d"
+  },
+  "audio/neural2/post_office.chunk.when_get_there.normal.mp3": {
+    "hash": "721f05d9ef59da57"
+  },
+  "audio/neural2/post_office.chunk.when_get_there.slow.mp3": {
+    "hash": "35eca448af64d42b"
+  },
+  "audio/neural2/post_office.chunk.write_address.normal.mp3": {
+    "hash": "1c2ba8d95041f0b8"
+  },
+  "audio/neural2/post_office.chunk.write_address.slow.mp3": {
+    "hash": "4534436605f450dd"
+  },
+  "audio/neural2/post_office.line.t1_1.normal.mp3": {
+    "hash": "9a098a27494d6689"
+  },
+  "audio/neural2/post_office.line.t1_1.slow.mp3": {
+    "hash": "893267fb93589f9d"
+  },
+  "audio/neural2/post_office.line.t1_2.normal.mp3": {
+    "hash": "8d2ccfde9eff57f5"
+  },
+  "audio/neural2/post_office.line.t1_2.slow.mp3": {
+    "hash": "8428c1f3d10ad648"
+  },
+  "audio/neural2/post_office.line.t1_3.normal.mp3": {
+    "hash": "f47f641c04d49e5b"
+  },
+  "audio/neural2/post_office.line.t1_3.slow.mp3": {
+    "hash": "64c3ee697dcacb91"
+  },
+  "audio/neural2/post_office.line.t1_4.normal.mp3": {
+    "hash": "87e077679939334b"
+  },
+  "audio/neural2/post_office.line.t1_4.slow.mp3": {
+    "hash": "9edc76cc34c36344"
+  },
+  "audio/neural2/post_office.line.t2_1.normal.mp3": {
+    "hash": "f73ac80602efc191"
+  },
+  "audio/neural2/post_office.line.t2_1.slow.mp3": {
+    "hash": "ff6ab1d0763c6c70"
+  },
+  "audio/neural2/post_office.line.t2_2.normal.mp3": {
+    "hash": "1c2ba8d95041f0b8"
+  },
+  "audio/neural2/post_office.line.t2_2.slow.mp3": {
+    "hash": "4534436605f450dd"
+  },
+  "audio/neural2/post_office.line.t2_3.normal.mp3": {
+    "hash": "08b501fdcbcc380d"
+  },
+  "audio/neural2/post_office.line.t2_3.slow.mp3": {
+    "hash": "2aa80552fc169d3e"
+  },
+  "audio/neural2/post_office.line.t2_4.normal.mp3": {
+    "hash": "a59b870c12527096"
+  },
+  "audio/neural2/post_office.line.t2_4.slow.mp3": {
+    "hash": "6aa40b7673093c7b"
+  },
+  "audio/neural2/post_office.line.t2_5.normal.mp3": {
+    "hash": "490d3134f8b4e4da"
+  },
+  "audio/neural2/post_office.line.t2_5.slow.mp3": {
+    "hash": "e7ab04b580e95751"
+  },
+  "audio/neural2/post_office.line.t3_1.normal.mp3": {
+    "hash": "8b3c91ae54f4767b"
+  },
+  "audio/neural2/post_office.line.t3_1.slow.mp3": {
+    "hash": "393b3b9bd75f96e2"
+  },
+  "audio/neural2/post_office.line.t3_2.normal.mp3": {
+    "hash": "386777de9e0c21ea"
+  },
+  "audio/neural2/post_office.line.t3_2.slow.mp3": {
+    "hash": "8541ff63978b0f77"
+  },
+  "audio/neural2/post_office.line.t3_3.normal.mp3": {
+    "hash": "82634be9294c2ed6"
+  },
+  "audio/neural2/post_office.line.t3_3.slow.mp3": {
+    "hash": "36f3bedd9f91bba7"
+  },
+  "audio/neural2/post_office.line.t3_4.normal.mp3": {
+    "hash": "3d3ea01078d5dbac"
+  },
+  "audio/neural2/post_office.line.t3_4.slow.mp3": {
+    "hash": "a4ce42aa41aeedbe"
+  },
+  "audio/neural2/post_office.line.t3_5.normal.mp3": {
+    "hash": "38a9ce702eb98137"
+  },
+  "audio/neural2/post_office.line.t3_5.slow.mp3": {
+    "hash": "b69f4028e61144e4"
+  },
+  "audio/neural2/post_office.line.t4_1.normal.mp3": {
+    "hash": "6508d89cfa643dfb"
+  },
+  "audio/neural2/post_office.line.t4_1.slow.mp3": {
+    "hash": "d812b07c0b9e1b19"
+  },
+  "audio/neural2/post_office.line.t4_2.normal.mp3": {
+    "hash": "4cbedbaec4e8e60c"
+  },
+  "audio/neural2/post_office.line.t4_2.slow.mp3": {
+    "hash": "8337e4c8c9b827bf"
+  },
+  "audio/neural2/post_office.line.t4_3.normal.mp3": {
+    "hash": "8ffa09d86d854aa8"
+  },
+  "audio/neural2/post_office.line.t4_3.slow.mp3": {
+    "hash": "85d0ec9ef1bc4a12"
+  },
+  "audio/neural2/post_office.line.t4_4.normal.mp3": {
+    "hash": "8015d37e42705eae"
+  },
+  "audio/neural2/post_office.line.t4_4.slow.mp3": {
+    "hash": "9f401683f71865a1"
+  },
+  "audio/neural2/post_office.line.t4_5.normal.mp3": {
+    "hash": "5b6c0838684af5ee"
+  },
+  "audio/neural2/post_office.line.t4_5.slow.mp3": {
+    "hash": "0b867f3841d7bf1f"
+  },
+  "audio/neural2/post_office.line.t5_1.normal.mp3": {
+    "hash": "e0673b17507e464f"
+  },
+  "audio/neural2/post_office.line.t5_1.slow.mp3": {
+    "hash": "951dd2bd91464a4d"
+  },
+  "audio/neural2/post_office.line.t5_2.normal.mp3": {
+    "hash": "5023c929455bdf50"
+  },
+  "audio/neural2/post_office.line.t5_2.slow.mp3": {
+    "hash": "7fdefba7eb9b14ea"
+  },
+  "audio/neural2/post_office.line.t5_3.normal.mp3": {
+    "hash": "dba84ebf4e8a71bd"
+  },
+  "audio/neural2/post_office.line.t5_3.slow.mp3": {
+    "hash": "5269ade6e24c1bc9"
+  },
+  "audio/neural2/post_office.line.t5_4.normal.mp3": {
+    "hash": "a1c3d5dfa91a8a7a"
+  },
+  "audio/neural2/post_office.line.t5_4.slow.mp3": {
+    "hash": "bacd68e78c9e3801"
+  },
+  "audio/neural2/post_office.line.t5_5.normal.mp3": {
+    "hash": "6ad9d385e9ff0b10"
+  },
+  "audio/neural2/post_office.line.t5_5.slow.mp3": {
+    "hash": "7b717547e2cd8f24"
+  },
+  "audio/neural2/post_office.line.t6_1.normal.mp3": {
+    "hash": "d72fc6d6a2b2b0d8"
+  },
+  "audio/neural2/post_office.line.t6_1.slow.mp3": {
+    "hash": "790fd217b4208a10"
+  },
+  "audio/neural2/post_office.line.t6_2.normal.mp3": {
+    "hash": "ffc31e5633bbf485"
+  },
+  "audio/neural2/post_office.line.t6_2.slow.mp3": {
+    "hash": "10f2e6df5478a138"
+  },
+  "audio/neural2/post_office.line.t6_3.normal.mp3": {
+    "hash": "316e15f34011aaa9"
+  },
+  "audio/neural2/post_office.line.t6_3.slow.mp3": {
+    "hash": "5b45ad8681f914f8"
+  },
+  "audio/neural2/post_office.line.t6_4.normal.mp3": {
+    "hash": "721f05d9ef59da57"
+  },
+  "audio/neural2/post_office.line.t6_4.slow.mp3": {
+    "hash": "35eca448af64d42b"
+  },
+  "audio/neural2/post_office.line.t6_5.normal.mp3": {
+    "hash": "e1f01674b08b98d0"
+  },
+  "audio/neural2/post_office.line.t6_5.slow.mp3": {
+    "hash": "4885800b469c988d"
+  },
+  "audio/neural2/post_office.line.t7_1.normal.mp3": {
+    "hash": "83933dbf5fc0ffe6"
+  },
+  "audio/neural2/post_office.line.t7_1.slow.mp3": {
+    "hash": "556c72c4ca502fb6"
+  },
+  "audio/neural2/post_office.line.t7_2.normal.mp3": {
+    "hash": "c09513b57f699bf6"
+  },
+  "audio/neural2/post_office.line.t7_2.slow.mp3": {
+    "hash": "d7067b4807da016d"
+  },
+  "audio/neural2/post_office.line.t7_3.normal.mp3": {
+    "hash": "e14a86813a550898"
+  },
+  "audio/neural2/post_office.line.t7_3.slow.mp3": {
+    "hash": "24a096abb598f880"
+  },
+  "audio/neural2/post_office.line.t7_4.normal.mp3": {
+    "hash": "18149b02e4eadb3d"
+  },
+  "audio/neural2/post_office.line.t7_4.slow.mp3": {
+    "hash": "f56a13c59dfa52a4"
+  },
+  "audio/neural2/post_office.line.t8_1.normal.mp3": {
+    "hash": "037a9c27be229720"
+  },
+  "audio/neural2/post_office.line.t8_1.slow.mp3": {
+    "hash": "44c888857c43764a"
+  },
+  "audio/neural2/post_office.line.t8_10.normal.mp3": {
+    "hash": "9a098a27494d6689"
+  },
+  "audio/neural2/post_office.line.t8_10.slow.mp3": {
+    "hash": "893267fb93589f9d"
+  },
+  "audio/neural2/post_office.line.t8_11.normal.mp3": {
+    "hash": "d21c0aa9d9d57a47"
+  },
+  "audio/neural2/post_office.line.t8_11.slow.mp3": {
+    "hash": "69c871559303d9cd"
+  },
+  "audio/neural2/post_office.line.t8_12.normal.mp3": {
+    "hash": "1c2ba8d95041f0b8"
+  },
+  "audio/neural2/post_office.line.t8_12.slow.mp3": {
+    "hash": "4534436605f450dd"
+  },
+  "audio/neural2/post_office.line.t8_13.normal.mp3": {
+    "hash": "3e61b81e6b0334dd"
+  },
+  "audio/neural2/post_office.line.t8_13.slow.mp3": {
+    "hash": "85921bd0ee4ff27d"
+  },
+  "audio/neural2/post_office.line.t8_14.normal.mp3": {
+    "hash": "ffc31e5633bbf485"
+  },
+  "audio/neural2/post_office.line.t8_14.slow.mp3": {
+    "hash": "10f2e6df5478a138"
+  },
+  "audio/neural2/post_office.line.t8_15.normal.mp3": {
+    "hash": "5ccd596ac96e47ee"
+  },
+  "audio/neural2/post_office.line.t8_15.slow.mp3": {
+    "hash": "b17fc15eef757b05"
+  },
+  "audio/neural2/post_office.line.t8_16.normal.mp3": {
+    "hash": "721f05d9ef59da57"
+  },
+  "audio/neural2/post_office.line.t8_16.slow.mp3": {
+    "hash": "35eca448af64d42b"
+  },
+  "audio/neural2/post_office.line.t8_17.normal.mp3": {
+    "hash": "228f2ff10e895125"
+  },
+  "audio/neural2/post_office.line.t8_17.slow.mp3": {
+    "hash": "015ebdbd4db4bb5e"
+  },
+  "audio/neural2/post_office.line.t8_2.normal.mp3": {
+    "hash": "386777de9e0c21ea"
+  },
+  "audio/neural2/post_office.line.t8_2.slow.mp3": {
+    "hash": "8541ff63978b0f77"
+  },
+  "audio/neural2/post_office.line.t8_3.normal.mp3": {
+    "hash": "9ff307c95c720c75"
+  },
+  "audio/neural2/post_office.line.t8_3.slow.mp3": {
+    "hash": "201363f905e0ba83"
+  },
+  "audio/neural2/post_office.line.t8_4.normal.mp3": {
+    "hash": "8015d37e42705eae"
+  },
+  "audio/neural2/post_office.line.t8_4.slow.mp3": {
+    "hash": "9f401683f71865a1"
+  },
+  "audio/neural2/post_office.line.t8_5.normal.mp3": {
+    "hash": "52f45e9bf81ecdd9"
+  },
+  "audio/neural2/post_office.line.t8_5.slow.mp3": {
+    "hash": "8a68c304ba6e1123"
+  },
+  "audio/neural2/post_office.line.t8_6.normal.mp3": {
+    "hash": "83933dbf5fc0ffe6"
+  },
+  "audio/neural2/post_office.line.t8_6.slow.mp3": {
+    "hash": "556c72c4ca502fb6"
+  },
+  "audio/neural2/post_office.line.t8_7.normal.mp3": {
+    "hash": "dbe7e24ec22bcb56"
+  },
+  "audio/neural2/post_office.line.t8_7.slow.mp3": {
+    "hash": "3694c6e96ba27f68"
+  },
+  "audio/neural2/post_office.line.t8_8.normal.mp3": {
+    "hash": "5023c929455bdf50"
+  },
+  "audio/neural2/post_office.line.t8_8.slow.mp3": {
+    "hash": "7fdefba7eb9b14ea"
+  },
+  "audio/neural2/post_office.line.t8_9.normal.mp3": {
+    "hash": "18777a3fc0699384"
+  },
+  "audio/neural2/post_office.line.t8_9.slow.mp3": {
+    "hash": "b90ac74f0b081fd9"
+  },
+  "audio/neural2/post_office.picture.pic1.normal.mp3": {
+    "hash": "fb9a4b08ad6fe7c0"
+  },
+  "audio/neural2/post_office.picture.pic1.slow.mp3": {
+    "hash": "ba7ed941317c0573"
+  },
+  "audio/neural2/post_office.picture.pic2.normal.mp3": {
+    "hash": "cdedc0838bf88e51"
+  },
+  "audio/neural2/post_office.picture.pic2.slow.mp3": {
+    "hash": "b077046f3e6d5c30"
+  },
+  "audio/neural2/post_office.word.address.normal.mp3": {
+    "hash": "946fcc9151f8274a"
+  },
+  "audio/neural2/post_office.word.address.slow.mp3": {
+    "hash": "0d1f6a7760b57b6f"
+  },
+  "audio/neural2/post_office.word.break.normal.mp3": {
+    "hash": "d958660afd33aa3b"
+  },
+  "audio/neural2/post_office.word.break.slow.mp3": {
+    "hash": "eccbd4855e04223e"
+  },
+  "audio/neural2/post_office.word.careful.normal.mp3": {
+    "hash": "5dab2e8f1f8ebddd"
+  },
+  "audio/neural2/post_office.word.careful.slow.mp3": {
+    "hash": "0b2d0238ce161a3e"
+  },
+  "audio/neural2/post_office.word.carry.normal.mp3": {
+    "hash": "3f6113ac821b63df"
+  },
+  "audio/neural2/post_office.word.carry.slow.mp3": {
+    "hash": "890f216b29703224"
+  },
+  "audio/neural2/post_office.word.city.normal.mp3": {
+    "hash": "c498ac14f8637a87"
+  },
+  "audio/neural2/post_office.word.city.slow.mp3": {
+    "hash": "a078745d6e2336ba"
+  },
+  "audio/neural2/post_office.word.close.normal.mp3": {
+    "hash": "8c3e7bc98144309f"
+  },
+  "audio/neural2/post_office.word.close.slow.mp3": {
+    "hash": "56635582640a46a1"
+  },
+  "audio/neural2/post_office.word.counter.normal.mp3": {
+    "hash": "be1fecafc7814174"
+  },
+  "audio/neural2/post_office.word.counter.slow.mp3": {
+    "hash": "5562d140d62d25e3"
+  },
+  "audio/neural2/post_office.word.country.normal.mp3": {
+    "hash": "eb6780442edcc32f"
+  },
+  "audio/neural2/post_office.word.country.slow.mp3": {
+    "hash": "59637f0fe388ef6d"
+  },
+  "audio/neural2/post_office.word.delivery.normal.mp3": {
+    "hash": "fb87ee255b2655c5"
+  },
+  "audio/neural2/post_office.word.delivery.slow.mp3": {
+    "hash": "b079c3a058287038"
+  },
+  "audio/neural2/post_office.word.desk.normal.mp3": {
+    "hash": "9a7918b934f24b67"
+  },
+  "audio/neural2/post_office.word.desk.slow.mp3": {
+    "hash": "3d5ecaefe4ddef75"
+  },
+  "audio/neural2/post_office.word.envelope.normal.mp3": {
+    "hash": "61abd720fbed8887"
+  },
+  "audio/neural2/post_office.word.envelope.slow.mp3": {
+    "hash": "ed1599df8e46a3b6"
+  },
+  "audio/neural2/post_office.word.fast.normal.mp3": {
+    "hash": "d1c79cf921ec4e07"
+  },
+  "audio/neural2/post_office.word.fast.slow.mp3": {
+    "hash": "eb7e16886704a64b"
+  },
+  "audio/neural2/post_office.word.heavy.normal.mp3": {
+    "hash": "3621c099b7304f39"
+  },
+  "audio/neural2/post_office.word.heavy.slow.mp3": {
+    "hash": "b6b185a82c506215"
+  },
+  "audio/neural2/post_office.word.kilogram.normal.mp3": {
+    "hash": "9cbda707ff175f94"
+  },
+  "audio/neural2/post_office.word.kilogram.slow.mp3": {
+    "hash": "1958efa9d38c248d"
+  },
+  "audio/neural2/post_office.word.letter.normal.mp3": {
+    "hash": "113412e5a4fdf5fb"
+  },
+  "audio/neural2/post_office.word.letter.slow.mp3": {
+    "hash": "92eaf9d545a26f4c"
+  },
+  "audio/neural2/post_office.word.mail.normal.mp3": {
+    "hash": "dae2d49d02a6a326"
+  },
+  "audio/neural2/post_office.word.mail.slow.mp3": {
+    "hash": "2ac4135fe9900f9b"
+  },
+  "audio/neural2/post_office.word.notice.normal.mp3": {
+    "hash": "cf85716ac4549391"
+  },
+  "audio/neural2/post_office.word.notice.slow.mp3": {
+    "hash": "bb96af7b22950a84"
+  },
+  "audio/neural2/post_office.word.number.normal.mp3": {
+    "hash": "418017063584cfd8"
+  },
+  "audio/neural2/post_office.word.number.slow.mp3": {
+    "hash": "0f623a45d3b0e3e2"
+  },
+  "audio/neural2/post_office.word.office.normal.mp3": {
+    "hash": "0f6b5a290688807f"
+  },
+  "audio/neural2/post_office.word.office.slow.mp3": {
+    "hash": "4b97c43376597a63"
+  },
+  "audio/neural2/post_office.word.online.normal.mp3": {
+    "hash": "8bc704fd1fe46aed"
+  },
+  "audio/neural2/post_office.word.online.slow.mp3": {
+    "hash": "cff6256c5a930aef"
+  },
+  "audio/neural2/post_office.word.open.normal.mp3": {
+    "hash": "03b8348f4ff7992e"
+  },
+  "audio/neural2/post_office.word.open.slow.mp3": {
+    "hash": "01f955bebeb4f0c0"
+  },
+  "audio/neural2/post_office.word.order.normal.mp3": {
+    "hash": "b9c6e9b274e9aa6b"
+  },
+  "audio/neural2/post_office.word.order.slow.mp3": {
+    "hash": "e3a684389c89c12c"
+  },
+  "audio/neural2/post_office.word.package.normal.mp3": {
+    "hash": "2f8035d1120aeb5e"
+  },
+  "audio/neural2/post_office.word.package.slow.mp3": {
+    "hash": "e7368813d7f4c295"
+  },
+  "audio/neural2/post_office.word.postcard.normal.mp3": {
+    "hash": "4ce43eb102ac6cbf"
+  },
+  "audio/neural2/post_office.word.postcard.slow.mp3": {
+    "hash": "3fcdf2a3c4155487"
+  },
+  "audio/neural2/post_office.word.scale.normal.mp3": {
+    "hash": "8b8ce6aa9faab848"
+  },
+  "audio/neural2/post_office.word.scale.slow.mp3": {
+    "hash": "546b9e085230e597"
+  },
+  "audio/neural2/post_office.word.scissors.normal.mp3": {
+    "hash": "cb093909f097e896"
+  },
+  "audio/neural2/post_office.word.scissors.slow.mp3": {
+    "hash": "34df7204bcf13b1c"
+  },
+  "audio/neural2/post_office.word.slow.normal.mp3": {
+    "hash": "28255f8a2c929367"
+  },
+  "audio/neural2/post_office.word.slow.slow.mp3": {
+    "hash": "5d76500815963f78"
+  },
+  "audio/neural2/post_office.word.stamp.normal.mp3": {
+    "hash": "9bff8273dcd23e22"
+  },
+  "audio/neural2/post_office.word.stamp.slow.mp3": {
+    "hash": "8dba5d58a61ef185"
+  },
+  "audio/neural2/post_office.word.sticker.normal.mp3": {
+    "hash": "031af32bb18fe793"
+  },
+  "audio/neural2/post_office.word.sticker.slow.mp3": {
+    "hash": "9374d86500459168"
+  },
+  "audio/neural2/post_office.word.tape.normal.mp3": {
+    "hash": "6ec618f2101dbe45"
+  },
+  "audio/neural2/post_office.word.tape.slow.mp3": {
+    "hash": "e7c4a0bed9f6d977"
+  },
+  "audio/neural2/post_office.word.toy.normal.mp3": {
+    "hash": "5e180870cbbb3f5d"
+  },
+  "audio/neural2/post_office.word.toy.slow.mp3": {
+    "hash": "5f692e6b1d286987"
+  },
+  "audio/neural2/post_office.word.weight.normal.mp3": {
+    "hash": "dcbcf23d8b4e6095"
+  },
+  "audio/neural2/post_office.word.weight.slow.mp3": {
+    "hash": "9b0689b0080938e0"
+  },
+  "audio/neural2/post_office.word.write.normal.mp3": {
+    "hash": "af873c77477def5d"
+  },
+  "audio/neural2/post_office.word.write.slow.mp3": {
+    "hash": "c903925b7989f48f"
+  },
+  "audio/neural2/post_office.word.yesterday.normal.mp3": {
+    "hash": "8e4cf5391ac97314"
+  },
+  "audio/neural2/post_office.word.yesterday.slow.mp3": {
+    "hash": "08fce2ac0bab0e9f"
+  },
+  "audio/neural2/restaurant.chunk.bring_anything.normal.mp3": {
+    "hash": "23b40ada4af7f0f8"
+  },
+  "audio/neural2/restaurant.chunk.bring_anything.slow.mp3": {
+    "hash": "a7a1acff8d8c2d27"
+  },
+  "audio/neural2/restaurant.chunk.food_was_good.normal.mp3": {
+    "hash": "3e36a41cb9f56273"
+  },
+  "audio/neural2/restaurant.chunk.food_was_good.slow.mp3": {
+    "hash": "4f762890134db5f3"
+  },
+  "audio/neural2/restaurant.chunk.for_fun.normal.mp3": {
+    "hash": "af7c2db44627a782"
+  },
+  "audio/neural2/restaurant.chunk.for_fun.slow.mp3": {
+    "hash": "55768c22e736dddf"
+  },
+  "audio/neural2/restaurant.chunk.get_check.normal.mp3": {
+    "hash": "6c0c355281941c3b"
+  },
+  "audio/neural2/restaurant.chunk.get_check.slow.mp3": {
+    "hash": "7ffa67e7c4aacc4a"
+  },
+  "audio/neural2/restaurant.chunk.have_soup.normal.mp3": {
+    "hash": "e59b625ac357c4fb"
+  },
+  "audio/neural2/restaurant.chunk.have_soup.slow.mp3": {
+    "hash": "c0efe59ee08be658"
+  },
+  "audio/neural2/restaurant.chunk.how_long_wait.normal.mp3": {
+    "hash": "663ce296ed0e2fd6"
+  },
+  "audio/neural2/restaurant.chunk.how_long_wait.slow.mp3": {
+    "hash": "fe0928ec5ae80bcb"
+  },
+  "audio/neural2/restaurant.chunk.like_cooking.normal.mp3": {
+    "hash": "9e7a682f36b4ee91"
+  },
+  "audio/neural2/restaurant.chunk.like_cooking.slow.mp3": {
+    "hash": "c11639ce82137323"
+  },
+  "audio/neural2/restaurant.chunk.meet_station.normal.mp3": {
+    "hash": "f5f81a2c6cf13f43"
+  },
+  "audio/neural2/restaurant.chunk.meet_station.slow.mp3": {
+    "hash": "b269513211885fc0"
+  },
+  "audio/neural2/restaurant.chunk.recommend.normal.mp3": {
+    "hash": "9d929195cb5dc450"
+  },
+  "audio/neural2/restaurant.chunk.recommend.slow.mp3": {
+    "hash": "61b46f18dce67bde"
+  },
+  "audio/neural2/restaurant.chunk.see_you_friday.normal.mp3": {
+    "hash": "e6a2099e1773be13"
+  },
+  "audio/neural2/restaurant.chunk.see_you_friday.slow.mp3": {
+    "hash": "26ccfb6a8135c4fa"
+  },
+  "audio/neural2/restaurant.chunk.split_it.normal.mp3": {
+    "hash": "3fc516b5c70a8e26"
+  },
+  "audio/neural2/restaurant.chunk.split_it.slow.mp3": {
+    "hash": "76fe750c921271a5"
+  },
+  "audio/neural2/restaurant.chunk.table_for_two.normal.mp3": {
+    "hash": "7a8cf42acf76c9a2"
+  },
+  "audio/neural2/restaurant.chunk.table_for_two.slow.mp3": {
+    "hash": "1071477c5acdbacf"
+  },
+  "audio/neural2/restaurant.chunk.thanks_inviting.normal.mp3": {
+    "hash": "6ce7049693c53114"
+  },
+  "audio/neural2/restaurant.chunk.thanks_inviting.slow.mp3": {
+    "hash": "018838d072820b66"
+  },
+  "audio/neural2/restaurant.chunk.was_great.normal.mp3": {
+    "hash": "44294a1acb939e72"
+  },
+  "audio/neural2/restaurant.chunk.was_great.slow.mp3": {
+    "hash": "ca2dab690af31baa"
+  },
+  "audio/neural2/restaurant.line.t1_1.normal.mp3": {
+    "hash": "81e6f8fc9d1de092"
+  },
+  "audio/neural2/restaurant.line.t1_1.slow.mp3": {
+    "hash": "f37346517e42ec21"
+  },
+  "audio/neural2/restaurant.line.t1_2.normal.mp3": {
+    "hash": "7a8cf42acf76c9a2"
+  },
+  "audio/neural2/restaurant.line.t1_2.slow.mp3": {
+    "hash": "1071477c5acdbacf"
+  },
+  "audio/neural2/restaurant.line.t1_3.normal.mp3": {
+    "hash": "effa7d5b3c166ae5"
+  },
+  "audio/neural2/restaurant.line.t1_3.slow.mp3": {
+    "hash": "9cd29b8b9a8a70f4"
+  },
+  "audio/neural2/restaurant.line.t1_4.normal.mp3": {
+    "hash": "663ce296ed0e2fd6"
+  },
+  "audio/neural2/restaurant.line.t1_4.slow.mp3": {
+    "hash": "fe0928ec5ae80bcb"
+  },
+  "audio/neural2/restaurant.line.t1_5.normal.mp3": {
+    "hash": "770d757b4f4716c2"
+  },
+  "audio/neural2/restaurant.line.t1_5.slow.mp3": {
+    "hash": "27774c4eb10a7dd5"
+  },
+  "audio/neural2/restaurant.line.t2_1.normal.mp3": {
+    "hash": "262d26ff0b2779d9"
+  },
+  "audio/neural2/restaurant.line.t2_1.slow.mp3": {
+    "hash": "2f31cc58975bf821"
+  },
+  "audio/neural2/restaurant.line.t2_2.normal.mp3": {
+    "hash": "9d929195cb5dc450"
+  },
+  "audio/neural2/restaurant.line.t2_2.slow.mp3": {
+    "hash": "61b46f18dce67bde"
+  },
+  "audio/neural2/restaurant.line.t2_3.normal.mp3": {
+    "hash": "025bc3e40bc2aa52"
+  },
+  "audio/neural2/restaurant.line.t2_3.slow.mp3": {
+    "hash": "f545aaf48c6bd570"
+  },
+  "audio/neural2/restaurant.line.t2_4.normal.mp3": {
+    "hash": "e59b625ac357c4fb"
+  },
+  "audio/neural2/restaurant.line.t2_4.slow.mp3": {
+    "hash": "c0efe59ee08be658"
+  },
+  "audio/neural2/restaurant.line.t2_5.normal.mp3": {
+    "hash": "1d4a54fce75c0e83"
+  },
+  "audio/neural2/restaurant.line.t2_5.slow.mp3": {
+    "hash": "218c025429061050"
+  },
+  "audio/neural2/restaurant.line.t3_1.normal.mp3": {
+    "hash": "aa8367dcb5b4e49b"
+  },
+  "audio/neural2/restaurant.line.t3_1.slow.mp3": {
+    "hash": "5c49d00d00ad5d4e"
+  },
+  "audio/neural2/restaurant.line.t3_2.normal.mp3": {
+    "hash": "9e7a682f36b4ee91"
+  },
+  "audio/neural2/restaurant.line.t3_2.slow.mp3": {
+    "hash": "c11639ce82137323"
+  },
+  "audio/neural2/restaurant.line.t3_3.normal.mp3": {
+    "hash": "7d57f3f8265e9c41"
+  },
+  "audio/neural2/restaurant.line.t3_3.slow.mp3": {
+    "hash": "f845d1a5018e5725"
+  },
+  "audio/neural2/restaurant.line.t3_4.normal.mp3": {
+    "hash": "af7c2db44627a782"
+  },
+  "audio/neural2/restaurant.line.t3_4.slow.mp3": {
+    "hash": "55768c22e736dddf"
+  },
+  "audio/neural2/restaurant.line.t3_5.normal.mp3": {
+    "hash": "29cb5870968570e0"
+  },
+  "audio/neural2/restaurant.line.t3_5.slow.mp3": {
+    "hash": "5aa4cc9c65992cb6"
+  },
+  "audio/neural2/restaurant.line.t4_1.normal.mp3": {
+    "hash": "368557bf17143b28"
+  },
+  "audio/neural2/restaurant.line.t4_1.slow.mp3": {
+    "hash": "8b8b0ad2d858de50"
+  },
+  "audio/neural2/restaurant.line.t4_2.normal.mp3": {
+    "hash": "6ce7049693c53114"
+  },
+  "audio/neural2/restaurant.line.t4_2.slow.mp3": {
+    "hash": "018838d072820b66"
+  },
+  "audio/neural2/restaurant.line.t4_3.normal.mp3": {
+    "hash": "e63b809e2954fdaf"
+  },
+  "audio/neural2/restaurant.line.t4_3.slow.mp3": {
+    "hash": "f9c7797338a6885d"
+  },
+  "audio/neural2/restaurant.line.t4_4.normal.mp3": {
+    "hash": "23b40ada4af7f0f8"
+  },
+  "audio/neural2/restaurant.line.t4_4.slow.mp3": {
+    "hash": "a7a1acff8d8c2d27"
+  },
+  "audio/neural2/restaurant.line.t4_5.normal.mp3": {
+    "hash": "4ab65d13f4cecc56"
+  },
+  "audio/neural2/restaurant.line.t4_5.slow.mp3": {
+    "hash": "7418af8870377cd4"
+  },
+  "audio/neural2/restaurant.line.t5_1.normal.mp3": {
+    "hash": "d2297a77418a16ba"
+  },
+  "audio/neural2/restaurant.line.t5_1.slow.mp3": {
+    "hash": "5f909783f5dfc7a5"
+  },
+  "audio/neural2/restaurant.line.t5_2.normal.mp3": {
+    "hash": "f5f81a2c6cf13f43"
+  },
+  "audio/neural2/restaurant.line.t5_2.slow.mp3": {
+    "hash": "b269513211885fc0"
+  },
+  "audio/neural2/restaurant.line.t5_3.normal.mp3": {
+    "hash": "f542d2660f2948bf"
+  },
+  "audio/neural2/restaurant.line.t5_3.slow.mp3": {
+    "hash": "df72a8105b6515d0"
+  },
+  "audio/neural2/restaurant.line.t5_4.normal.mp3": {
+    "hash": "e6a2099e1773be13"
+  },
+  "audio/neural2/restaurant.line.t5_4.slow.mp3": {
+    "hash": "26ccfb6a8135c4fa"
+  },
+  "audio/neural2/restaurant.line.t5_5.normal.mp3": {
+    "hash": "ae28d0568ac9f5dc"
+  },
+  "audio/neural2/restaurant.line.t5_5.slow.mp3": {
+    "hash": "87e76859a302cf20"
+  },
+  "audio/neural2/restaurant.line.t6_1.normal.mp3": {
+    "hash": "6c0c355281941c3b"
+  },
+  "audio/neural2/restaurant.line.t6_1.slow.mp3": {
+    "hash": "7ffa67e7c4aacc4a"
+  },
+  "audio/neural2/restaurant.line.t6_2.normal.mp3": {
+    "hash": "caecb3786b17eff1"
+  },
+  "audio/neural2/restaurant.line.t6_2.slow.mp3": {
+    "hash": "ca8285b37d1be99e"
+  },
+  "audio/neural2/restaurant.line.t6_3.normal.mp3": {
+    "hash": "3fc516b5c70a8e26"
+  },
+  "audio/neural2/restaurant.line.t6_3.slow.mp3": {
+    "hash": "76fe750c921271a5"
+  },
+  "audio/neural2/restaurant.line.t6_4.normal.mp3": {
+    "hash": "d24ec0e339362008"
+  },
+  "audio/neural2/restaurant.line.t6_4.slow.mp3": {
+    "hash": "0d93d0652fb535fb"
+  },
+  "audio/neural2/restaurant.line.t6_5.normal.mp3": {
+    "hash": "eae52a944e8945fa"
+  },
+  "audio/neural2/restaurant.line.t6_5.slow.mp3": {
+    "hash": "44a8a58cc8d13da9"
+  },
+  "audio/neural2/restaurant.line.t7_1.normal.mp3": {
+    "hash": "82dbfcaa3ee2ee04"
+  },
+  "audio/neural2/restaurant.line.t7_1.slow.mp3": {
+    "hash": "652663d60e9243bc"
+  },
+  "audio/neural2/restaurant.line.t7_2.normal.mp3": {
+    "hash": "44294a1acb939e72"
+  },
+  "audio/neural2/restaurant.line.t7_2.slow.mp3": {
+    "hash": "ca2dab690af31baa"
+  },
+  "audio/neural2/restaurant.line.t7_3.normal.mp3": {
+    "hash": "85e4519dce1fcd7d"
+  },
+  "audio/neural2/restaurant.line.t7_3.slow.mp3": {
+    "hash": "69b99b9848d04d3b"
+  },
+  "audio/neural2/restaurant.line.t7_4.normal.mp3": {
+    "hash": "3e36a41cb9f56273"
+  },
+  "audio/neural2/restaurant.line.t7_4.slow.mp3": {
+    "hash": "4f762890134db5f3"
+  },
+  "audio/neural2/restaurant.line.t7_5.normal.mp3": {
+    "hash": "764bfbe65dc6d2ee"
+  },
+  "audio/neural2/restaurant.line.t7_5.slow.mp3": {
+    "hash": "373644005394ebdd"
+  },
+  "audio/neural2/restaurant.line.t8_1.normal.mp3": {
+    "hash": "a711dd1662197e58"
+  },
+  "audio/neural2/restaurant.line.t8_1.slow.mp3": {
+    "hash": "ecbbdac2b5d5996d"
+  },
+  "audio/neural2/restaurant.line.t8_10.normal.mp3": {
+    "hash": "6efd2eeade97be8f"
+  },
+  "audio/neural2/restaurant.line.t8_10.slow.mp3": {
+    "hash": "d6f55b0a70ab0636"
+  },
+  "audio/neural2/restaurant.line.t8_11.normal.mp3": {
+    "hash": "e6a2099e1773be13"
+  },
+  "audio/neural2/restaurant.line.t8_11.slow.mp3": {
+    "hash": "26ccfb6a8135c4fa"
+  },
+  "audio/neural2/restaurant.line.t8_12.normal.mp3": {
+    "hash": "0958cf5aea36dd4d"
+  },
+  "audio/neural2/restaurant.line.t8_12.slow.mp3": {
+    "hash": "1166006831e785f3"
+  },
+  "audio/neural2/restaurant.line.t8_13.normal.mp3": {
+    "hash": "44294a1acb939e72"
+  },
+  "audio/neural2/restaurant.line.t8_13.slow.mp3": {
+    "hash": "ca2dab690af31baa"
+  },
+  "audio/neural2/restaurant.line.t8_14.normal.mp3": {
+    "hash": "8d9f2454d73ae382"
+  },
+  "audio/neural2/restaurant.line.t8_14.slow.mp3": {
+    "hash": "14a14c39663ba71f"
+  },
+  "audio/neural2/restaurant.line.t8_15.normal.mp3": {
+    "hash": "6c0c355281941c3b"
+  },
+  "audio/neural2/restaurant.line.t8_15.slow.mp3": {
+    "hash": "7ffa67e7c4aacc4a"
+  },
+  "audio/neural2/restaurant.line.t8_16.normal.mp3": {
+    "hash": "788d9c49be6ba462"
+  },
+  "audio/neural2/restaurant.line.t8_16.slow.mp3": {
+    "hash": "e11d22d08c9077f8"
+  },
+  "audio/neural2/restaurant.line.t8_2.normal.mp3": {
+    "hash": "7a8cf42acf76c9a2"
+  },
+  "audio/neural2/restaurant.line.t8_2.slow.mp3": {
+    "hash": "1071477c5acdbacf"
+  },
+  "audio/neural2/restaurant.line.t8_3.normal.mp3": {
+    "hash": "6ddcd977ad545824"
+  },
+  "audio/neural2/restaurant.line.t8_3.slow.mp3": {
+    "hash": "6958e19f5f3f30d1"
+  },
+  "audio/neural2/restaurant.line.t8_4.normal.mp3": {
+    "hash": "9d929195cb5dc450"
+  },
+  "audio/neural2/restaurant.line.t8_4.slow.mp3": {
+    "hash": "61b46f18dce67bde"
+  },
+  "audio/neural2/restaurant.line.t8_5.normal.mp3": {
+    "hash": "e9a454ba5b1f268a"
+  },
+  "audio/neural2/restaurant.line.t8_5.slow.mp3": {
+    "hash": "dd78285516b8bfbf"
+  },
+  "audio/neural2/restaurant.line.t8_6.normal.mp3": {
+    "hash": "55338c5f67763c59"
+  },
+  "audio/neural2/restaurant.line.t8_6.slow.mp3": {
+    "hash": "12a1b2d9a00ad249"
+  },
+  "audio/neural2/restaurant.line.t8_7.normal.mp3": {
+    "hash": "9e7a682f36b4ee91"
+  },
+  "audio/neural2/restaurant.line.t8_7.slow.mp3": {
+    "hash": "c11639ce82137323"
+  },
+  "audio/neural2/restaurant.line.t8_8.normal.mp3": {
+    "hash": "e88d332e03313af7"
+  },
+  "audio/neural2/restaurant.line.t8_8.slow.mp3": {
+    "hash": "242154a71e14bc8d"
+  },
+  "audio/neural2/restaurant.line.t8_9.normal.mp3": {
+    "hash": "6ce7049693c53114"
+  },
+  "audio/neural2/restaurant.line.t8_9.slow.mp3": {
+    "hash": "018838d072820b66"
+  },
+  "audio/neural2/restaurant.picture.pic1.normal.mp3": {
+    "hash": "9f7f8b1dde041ce4"
+  },
+  "audio/neural2/restaurant.picture.pic1.slow.mp3": {
+    "hash": "48bcaaefe07c57af"
+  },
+  "audio/neural2/restaurant.picture.pic2.normal.mp3": {
+    "hash": "97251dbac77c9921"
+  },
+  "audio/neural2/restaurant.picture.pic2.slow.mp3": {
+    "hash": "8c2238d9368b1f4f"
+  },
+  "audio/neural2/restaurant.word.birthday.normal.mp3": {
+    "hash": "740c576177096b75"
+  },
+  "audio/neural2/restaurant.word.birthday.slow.mp3": {
+    "hash": "c4c8482dbbe95f26"
+  },
+  "audio/neural2/restaurant.word.busy.normal.mp3": {
+    "hash": "22585d9aa227f058"
+  },
+  "audio/neural2/restaurant.word.busy.slow.mp3": {
+    "hash": "fed9308464713391"
+  },
+  "audio/neural2/restaurant.word.check.normal.mp3": {
+    "hash": "13caac7073488118"
+  },
+  "audio/neural2/restaurant.word.check.slow.mp3": {
+    "hash": "286813d6d2518adc"
+  },
+  "audio/neural2/restaurant.word.cook.normal.mp3": {
+    "hash": "5e721999740da0a5"
+  },
+  "audio/neural2/restaurant.word.cook.slow.mp3": {
+    "hash": "5967f808beba9a38"
+  },
+  "audio/neural2/restaurant.word.dance.normal.mp3": {
+    "hash": "bdd3d24c29252b83"
+  },
+  "audio/neural2/restaurant.word.dance.slow.mp3": {
+    "hash": "038779c033516484"
+  },
+  "audio/neural2/restaurant.word.delicious.normal.mp3": {
+    "hash": "e5b135727bcdbd83"
+  },
+  "audio/neural2/restaurant.word.delicious.slow.mp3": {
+    "hash": "16f3050a6f158296"
+  },
+  "audio/neural2/restaurant.word.dessert.normal.mp3": {
+    "hash": "b88f824f2dd4570e"
+  },
+  "audio/neural2/restaurant.word.dessert.slow.mp3": {
+    "hash": "0638b50958ff7986"
+  },
+  "audio/neural2/restaurant.word.evening.normal.mp3": {
+    "hash": "f04bd0ae88e62335"
+  },
+  "audio/neural2/restaurant.word.evening.slow.mp3": {
+    "hash": "87f7bac9d03e32fe"
+  },
+  "audio/neural2/restaurant.word.friend.normal.mp3": {
+    "hash": "c4ff70056165668b"
+  },
+  "audio/neural2/restaurant.word.friend.slow.mp3": {
+    "hash": "9fd4fc02a3623aef"
+  },
+  "audio/neural2/restaurant.word.fun.normal.mp3": {
+    "hash": "eff1fb178aa114fa"
+  },
+  "audio/neural2/restaurant.word.fun.slow.mp3": {
+    "hash": "c24706bbcfa4b4e6"
+  },
+  "audio/neural2/restaurant.word.game.normal.mp3": {
+    "hash": "fdd2d2912f50eef9"
+  },
+  "audio/neural2/restaurant.word.game.slow.mp3": {
+    "hash": "9bec0d65e7c76dac"
+  },
+  "audio/neural2/restaurant.word.great.normal.mp3": {
+    "hash": "09fcd5546652d57a"
+  },
+  "audio/neural2/restaurant.word.great.slow.mp3": {
+    "hash": "d5f67aff32dbe813"
+  },
+  "audio/neural2/restaurant.word.guest.normal.mp3": {
+    "hash": "1d76cf75f06737cf"
+  },
+  "audio/neural2/restaurant.word.guest.slow.mp3": {
+    "hash": "34f3ec7f08c47b95"
+  },
+  "audio/neural2/restaurant.word.happy.normal.mp3": {
+    "hash": "34c219a270b192a8"
+  },
+  "audio/neural2/restaurant.word.happy.slow.mp3": {
+    "hash": "0bb943498f4b78e0"
+  },
+  "audio/neural2/restaurant.word.menu.normal.mp3": {
+    "hash": "903091e203c42284"
+  },
+  "audio/neural2/restaurant.word.menu.slow.mp3": {
+    "hash": "a3f39e72b7b6d81d"
+  },
+  "audio/neural2/restaurant.word.movie.normal.mp3": {
+    "hash": "6f37de29c285208c"
+  },
+  "audio/neural2/restaurant.word.movie.slow.mp3": {
+    "hash": "243b6f59030c0687"
+  },
+  "audio/neural2/restaurant.word.music.normal.mp3": {
+    "hash": "7164fe263fd93cb1"
+  },
+  "audio/neural2/restaurant.word.music.slow.mp3": {
+    "hash": "deca8d9243b8ea82"
+  },
+  "audio/neural2/restaurant.word.party.normal.mp3": {
+    "hash": "64d0c04ceacc677d"
+  },
+  "audio/neural2/restaurant.word.party.slow.mp3": {
+    "hash": "3cbcbff9635f6277"
+  },
+  "audio/neural2/restaurant.word.people.normal.mp3": {
+    "hash": "6dc227dffbe0cc01"
+  },
+  "audio/neural2/restaurant.word.people.slow.mp3": {
+    "hash": "a62837ecf4768e25"
+  },
+  "audio/neural2/restaurant.word.restaurant.normal.mp3": {
+    "hash": "f74bcd08b8313358"
+  },
+  "audio/neural2/restaurant.word.restaurant.slow.mp3": {
+    "hash": "c6f4ee44745b30c6"
+  },
+  "audio/neural2/restaurant.word.salad.normal.mp3": {
+    "hash": "c934344af1eec9ef"
+  },
+  "audio/neural2/restaurant.word.salad.slow.mp3": {
+    "hash": "c600f8ee23ba4abc"
+  },
+  "audio/neural2/restaurant.word.saturday.normal.mp3": {
+    "hash": "43e69f01c319f38c"
+  },
+  "audio/neural2/restaurant.word.saturday.slow.mp3": {
+    "hash": "1414ae8eae1c91a5"
+  },
+  "audio/neural2/restaurant.word.sing.normal.mp3": {
+    "hash": "a8356c73b70d6123"
+  },
+  "audio/neural2/restaurant.word.sing.slow.mp3": {
+    "hash": "8baa0b50f5157e3f"
+  },
+  "audio/neural2/restaurant.word.soup.normal.mp3": {
+    "hash": "3f1c5e1722913e0e"
+  },
+  "audio/neural2/restaurant.word.soup.slow.mp3": {
+    "hash": "528be75be62b1e7f"
+  },
+  "audio/neural2/restaurant.word.steak.normal.mp3": {
+    "hash": "0697e0b049b4cef3"
+  },
+  "audio/neural2/restaurant.word.steak.slow.mp3": {
+    "hash": "dcda8f78a192bd08"
+  },
+  "audio/neural2/restaurant.word.sunday.normal.mp3": {
+    "hash": "73c9e4d76d2e6577"
+  },
+  "audio/neural2/restaurant.word.sunday.slow.mp3": {
+    "hash": "cf70ad60d0103f5f"
+  },
+  "audio/neural2/restaurant.word.tax.normal.mp3": {
+    "hash": "223a2d714d667dd8"
+  },
+  "audio/neural2/restaurant.word.tax.slow.mp3": {
+    "hash": "a45064a6285db204"
+  },
+  "audio/neural2/restaurant.word.tip.normal.mp3": {
+    "hash": "e559549aa52d6ca1"
+  },
+  "audio/neural2/restaurant.word.tip.slow.mp3": {
+    "hash": "203648c85da0053d"
+  },
+  "audio/neural2/restaurant.word.together.normal.mp3": {
+    "hash": "007db783977c01d2"
+  },
+  "audio/neural2/restaurant.word.together.slow.mp3": {
+    "hash": "d08d1e7bc050c231"
+  },
+  "audio/neural2/restaurant.word.total.normal.mp3": {
+    "hash": "6ee86ae21efa7f14"
+  },
+  "audio/neural2/restaurant.word.total.slow.mp3": {
+    "hash": "db65993ddb1a8543"
+  },
+  "audio/neural2/restaurant.word.waiter.normal.mp3": {
+    "hash": "17b9e7b054fec10b"
+  },
+  "audio/neural2/restaurant.word.waiter.slow.mp3": {
+    "hash": "f225af77f318dd58"
+  },
+  "audio/neural2/restaurant.word.week.normal.mp3": {
+    "hash": "4999c8659b299463"
+  },
+  "audio/neural2/restaurant.word.week.slow.mp3": {
+    "hash": "4c60ee781dc2a33a"
+  },
+  "audio/neural2/restaurant.word.weekend.normal.mp3": {
+    "hash": "5ff244e268da9c8d"
+  },
+  "audio/neural2/restaurant.word.weekend.slow.mp3": {
+    "hash": "b596c0a347e63ff3"
+  },
+  "audio/neural2/restaurant.word.wine.normal.mp3": {
+    "hash": "222f7e5007ca01cf"
+  },
+  "audio/neural2/restaurant.word.wine.slow.mp3": {
+    "hash": "2f9d2fb231fdf5a1"
   },
   "audio/neural2/store.chunk.fork_too.normal.mp3": {
     "hash": "03063996f46effd2"
