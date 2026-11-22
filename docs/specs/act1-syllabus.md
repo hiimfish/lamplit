@@ -387,3 +387,14 @@
 - Is it buy one, get one free?（是不是太長、太像廣告詞）
 - I missed the delivery.（美國比較常說 I missed my package.）
 - Can you help me with this box?（搬家時很自然，但玩家要對房東說嗎？也可以改成對鄰居說）
+
+2026-11-22 寫好搬家第一天、咖啡廳 t4～t7 之後，再加上這些：
+
+- 搬家 t4_3 Yes, I can. Can you open the door?（要不要改成 Sure. 開頭？玩家下一句就是 Sure, no problem.）
+- 搬家 t5_5 No problem. You can take the bus.（回答「我沒有車」用 No problem 自然嗎？）
+- 搬家 t6_1 Yes? Can I help you?（鄰居開門時說）
+- 搬家 t6_5 I live in number seven.（公寓號碼不說 apartment）
+- 搬家 t7_4 新房客對老鄰居說 Call me if you need anything. 自然嗎？
+- 咖啡廳 t5_5 Small hot latte. Do you want a cookie?（口語的覆誦點單）
+- 咖啡廳 t6：free 一次是「免費」（It's free.），一次是「空的」（a free one inside），會不會混淆
+- 咖啡廳 t7_3 I'm on my break. Is this one taken?（店員休息時問）

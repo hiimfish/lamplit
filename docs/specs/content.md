@@ -102,17 +102,18 @@
 
 ### 搬家第一天（`move_in`）
 
-- 6 個詞塊、6 個單字、6 組對比詞、3 個任務、15 句劇情台詞。NPC 是房東 Mr. Bell（`landlord`）。
-- 任務：見到房東（自我介紹）、名字怎麼拼（How do you spell that?）、垃圾怎麼丟（Can you speak more slowly, please?）。
-- 對比詞：fan/van、light/right、bed/bad、sink/think、ship/sheep、cap/cup，每個任務兩組。
-- 單字像素圖：鑰匙、箱子、門、椅子、檯燈、垃圾桶都有。對比詞不用圖（聽辨題只靠聲音）。
-- 小劇場：新家玄關和房東 Mr. Bell；4 句台詞有道具提示（給鑰匙、兩次問號、講垃圾時的垃圾桶），見 [scene-stage.md](scene-stage.md)。
+- 14 個詞塊、22 個單字（11 個標 `abstract`：welcome、okay、neighbor、two～nine）、6 組對比詞、7 個任務、35 句劇情台詞。NPC 是房東 Mr. Bell（`landlord`，t1～t5）和鄰居 Lena（`neighbor`，t6～t7）。
+- 任務：見到房東（自我介紹）、名字怎麼拼（How do you spell that?）、垃圾怎麼丟（Can you speak more slowly, please?）、搬箱子、聊聊自己、認識鄰居、請鄰居進來坐。
+- 對比詞：fan/van、light/right、bed/bad、sink/think、ship/sheep、cap/cup，t1～t3 每個任務兩組；t4～t7 沒有對比詞。
+- 單字像素圖：鑰匙、箱子、門、椅子、檯燈、垃圾桶、房間、家、汽車、手機、沙發。對比詞不用圖（聽辨題只靠聲音）。
+- 小劇場：新家玄關，房東或鄰居（只畫這個任務有說話的角色）；12 句台詞有道具提示，見 [scene-stage.md](scene-stage.md)。
 - 英文句子還沒請人審閱，發音還沒請使用者試聽。
 
 ### 咖啡廳（`cafe`）
 
-- 6 個詞塊、6 個單字、3 個任務、10 句劇情台詞。
-- 單字像素圖：拿鐵、茶、瑪芬、水、蛋糕、三明治都有。
+- 14 個詞塊、21 個單字（4 個標 `abstract`：outside、inside、sit、read）、7 個任務、30 句劇情台詞。
+- 任務：點一杯拿鐵、內用還是外帶、付錢、冰的不加糖、大杯小杯、外面有位子嗎、這裡有人坐嗎。
+- 單字像素圖：拿鐵、茶、瑪芬、水、蛋糕、三明治、冰咖啡、冰塊、糖、餅乾、小中大杯（三個杯子排一排，標出那一個）、桌子、窗戶、座位（高腳椅）、書。
 
 ## 新增一個單元
 
