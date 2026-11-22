@@ -251,13 +251,6 @@
       "scene": [
         {
           "id": "t4_1",
-          "role": "barista",
-          "speaker": "npc",
-          "en": "Good morning! What can I get you?",
-          "zh": "早安！要點什麼？"
-        },
-        {
-          "id": "t4_2",
           "role": "guide",
           "speaker": "player",
           "en": "Can I get an iced coffee?",
@@ -266,15 +259,15 @@
           "stage": { "act": "want", "item": "coffee" }
         },
         {
-          "id": "t4_3",
+          "id": "t4_2",
           "role": "barista",
           "speaker": "npc",
-          "en": "Got it. Do you want sugar?",
+          "en": "Sure. Do you want sugar?",
           "zh": "好的。要加糖嗎？",
           "stage": { "act": "want", "item": "sugar" }
         },
         {
-          "id": "t4_4",
+          "id": "t4_3",
           "role": "guide",
           "speaker": "player",
           "en": "No sugar, please.",
@@ -282,11 +275,11 @@
           "chunkId": "no_sugar"
         },
         {
-          "id": "t4_5",
+          "id": "t4_4",
           "role": "barista",
           "speaker": "npc",
-          "en": "One iced coffee, no sugar. Here you go.",
-          "zh": "一杯冰咖啡，不加糖。給你。",
+          "en": "Here you go.",
+          "zh": "給你。",
           "stage": { "act": "give", "item": "coffee" }
         }
       ]
@@ -299,13 +292,6 @@
       "scene": [
         {
           "id": "t5_1",
-          "role": "barista",
-          "speaker": "npc",
-          "en": "One hot latte? What size do you want?",
-          "zh": "一杯熱拿鐵？要什麼大小？"
-        },
-        {
-          "id": "t5_2",
           "role": "guide",
           "speaker": "player",
           "en": "What sizes do you have?",
@@ -314,14 +300,14 @@
           "stage": { "act": "ask" }
         },
         {
-          "id": "t5_3",
+          "id": "t5_2",
           "role": "barista",
           "speaker": "npc",
           "en": "Small, medium, or large.",
           "zh": "小杯、中杯，還是大杯。"
         },
         {
-          "id": "t5_4",
+          "id": "t5_3",
           "role": "guide",
           "speaker": "player",
           "en": "A small one, please.",
@@ -330,11 +316,11 @@
           "stage": { "act": "want", "item": "small" }
         },
         {
-          "id": "t5_5",
+          "id": "t5_4",
           "role": "barista",
           "speaker": "npc",
-          "en": "Small hot latte. Do you want a cookie?",
-          "zh": "小杯熱拿鐵。要不要來塊餅乾？",
+          "en": "Okay. Do you want a cookie?",
+          "zh": "好的。要不要來塊餅乾？",
           "stage": { "act": "want", "item": "cookie" }
         }
       ]
@@ -381,8 +367,8 @@
           "id": "t6_5",
           "role": "barista",
           "speaker": "npc",
-          "en": "No, but there's a free one inside.",
-          "zh": "沒有，不過裡面有空的。",
+          "en": "No, but there's one inside.",
+          "zh": "沒有，不過裡面有。",
           "stage": { "act": "want", "item": "table" }
         }
       ]
