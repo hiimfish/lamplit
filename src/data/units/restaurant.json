@@ -172,7 +172,7 @@
     }
   ],
   "words": [
-    { "id": "people", "en": "people", "zh": "人們", "emoji": "👥", "abstract": true },
+    { "id": "people", "en": "people", "zh": "人", "emoji": "👥", "abstract": true },
     { "id": "friend", "en": "friend", "zh": "朋友", "emoji": "🧑‍🤝‍🧑", "abstract": true },
     { "id": "restaurant", "en": "restaurant", "zh": "餐廳", "emoji": "🍴", "abstract": true },
     { "id": "waiter", "en": "waiter", "zh": "服務生", "emoji": "🤵", "abstract": true },
@@ -193,7 +193,7 @@
     { "id": "birthday", "en": "birthday", "zh": "生日", "emoji": "🎂" },
     { "id": "week", "en": "week", "zh": "一週", "emoji": "📅", "abstract": true },
     { "id": "weekend", "en": "weekend", "zh": "週末", "emoji": "🏖️", "abstract": true },
-    { "id": "evening", "en": "evening", "zh": "傍晚", "emoji": "🌆", "abstract": true },
+    { "id": "evening", "en": "evening", "zh": "晚上；傍晚", "emoji": "🌆", "abstract": true },
     { "id": "saturday", "en": "Saturday", "zh": "星期六", "emoji": "📅", "abstract": true },
     { "id": "sunday", "en": "Sunday", "zh": "星期日", "emoji": "📅", "abstract": true },
     { "id": "check", "en": "check", "zh": "帳單", "emoji": "🧾" },
@@ -298,8 +298,8 @@
           "id": "t2_5",
           "role": "server",
           "speaker": "npc",
-          "en": "Sure. It comes with salad and dessert.",
-          "zh": "好的。這道有附沙拉和甜點。"
+          "en": "Sure. It comes with a small salad.",
+          "zh": "好的。這道有附一份小沙拉。"
         }
       ]
     },
@@ -459,19 +459,12 @@
           "id": "t5_1",
           "role": "friend",
           "speaker": "npc",
-          "en": "Let's see a movie this week!",
-          "zh": "這禮拜一起去看電影吧！",
+          "en": "Let's see a movie this week! Friday evening?",
+          "zh": "這禮拜一起去看電影吧！星期五晚上呢？",
           "stage": { "act": "want", "item": "movie" }
         },
         {
           "id": "t5_2",
-          "role": "friend",
-          "speaker": "npc",
-          "en": "I work Saturday and Sunday. Friday evening?",
-          "zh": "我星期六、星期日要上班。星期五晚上呢？"
-        },
-        {
-          "id": "t5_3",
           "role": "guide",
           "speaker": "player",
           "en": "Let's meet in front of the station.",
@@ -479,7 +472,7 @@
           "chunkId": "meet_station"
         },
         {
-          "id": "t5_4",
+          "id": "t5_3",
           "role": "friend",
           "speaker": "npc",
           "en": "Sure! At seven?",
@@ -487,12 +480,19 @@
           "stage": { "act": "ask" }
         },
         {
-          "id": "t5_5",
+          "id": "t5_4",
           "role": "guide",
           "speaker": "player",
           "en": "See you on Friday at seven!",
           "zh": "星期五七點見！",
           "chunkId": "see_you_friday"
+        },
+        {
+          "id": "t5_5",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "Great! I work Saturday and Sunday.",
+          "zh": "太好了！我星期六、日都要上班。"
         }
       ]
     },
@@ -537,15 +537,15 @@
           "role": "server",
           "speaker": "npc",
           "en": "No problem. The total is forty with tax.",
-          "zh": "沒問題。含稅總共四十元。",
+          "zh": "沒問題。含稅總共四十塊。",
           "stage": { "act": "give", "item": "check" }
         },
         {
           "id": "t6_5",
           "role": "server",
           "speaker": "npc",
-          "en": "Thanks for the tip! Have a good night.",
-          "zh": "謝謝你們的小費！晚安。"
+          "en": "Here's your card. Thanks for the tip!",
+          "zh": "這是你的卡。謝謝你們的小費！"
         }
       ]
     },
@@ -591,8 +591,8 @@
           "id": "t7_5",
           "role": "friend",
           "speaker": "npc",
-          "en": "Fun! I was busy at work all weekend.",
-          "zh": "聽起來好好玩！我整個週末都在忙工作。"
+          "en": "Sounds delicious! I was busy all weekend. No fun!",
+          "zh": "聽起來好好吃！我整個週末都在忙，一點都不好玩。"
         }
       ]
     },
@@ -662,8 +662,8 @@
           "id": "t8_8",
           "role": "friend",
           "speaker": "npc",
-          "en": "Nice! Come to my birthday party on Friday!",
-          "zh": "真好！星期五來參加我的生日派對吧！"
+          "en": "Nice! Come to my birthday party on Friday. I'm cooking!",
+          "zh": "真好！星期五來參加我的生日派對吧，我要下廚！"
         },
         {
           "id": "t8_9",
@@ -677,8 +677,8 @@
           "id": "t8_10",
           "role": "friend",
           "speaker": "npc",
-          "en": "I'm so happy! It's at seven.",
-          "zh": "太開心了！七點開始。"
+          "en": "I'm so happy you can come! It's at seven.",
+          "zh": "你能來我好開心！七點開始。"
         },
         {
           "id": "t8_11",

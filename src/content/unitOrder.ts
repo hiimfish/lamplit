@@ -6,4 +6,8 @@ export const UNIT_ORDER: readonly string[] = [
   'street',
   'market',
   'clothes',
+  'clinic',
+  'restaurant',
+  'post_office',
+  'park',
 ];

@@ -18,7 +18,7 @@
     {
       "id": "dog_friendly",
       "en": "Is your dog friendly?",
-      "zh": "你的狗友善嗎？",
+      "zh": "你的狗親人嗎？",
       "note": "想摸別人的狗之前先問這句。friendly = 友善、親人；主詞是 your dog，所以用 Is。",
       "distractors": [
         { "text": "Is friendly your dog?", "error": "word-order" },
@@ -52,7 +52,7 @@
     {
       "id": "saw_poster",
       "en": "I saw your poster.",
-      "zh": "我看到你的海報了。",
+      "zh": "我看到你們的海報了。",
       "note": "saw 是 see 的過去式。不規則動詞不加 -ed（不說 seed），要一個一個記。",
       "distractors": [
         { "text": "I seed your poster.", "error": "other" },
@@ -135,7 +135,7 @@
     {
       "id": "run_every_morning",
       "en": "I run here every morning.",
-      "zh": "我每天早上在這裡跑步。",
+      "zh": "我每天早上都在這裡跑步。",
       "accept": ["Every morning, I run here."],
       "note": "說習慣用現在簡單式。every morning = 每天早上；morning 不加 s，前面也不加 in。",
       "distractors": [
@@ -241,7 +241,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "Is your dog friendly?",
-          "zh": "你的狗友善嗎？",
+          "zh": "你的狗親人嗎？",
           "chunkId": "dog_friendly",
           "stage": { "act": "ask" }
         },
@@ -250,7 +250,7 @@
           "role": "neighbor",
           "speaker": "npc",
           "en": "Yes, very! She likes people.",
-          "zh": "很友善喔！牠很喜歡人。"
+          "zh": "很親人喔！牠很喜歡人。"
         }
       ]
     },
@@ -320,7 +320,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "I saw your poster.",
-          "zh": "我看到你的海報了。",
+          "zh": "我看到你們的海報了。",
           "chunkId": "saw_poster",
           "stage": { "act": "want", "item": "poster" }
         },
@@ -515,7 +515,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "I run here every morning.",
-          "zh": "我每天早上在這裡跑步。",
+          "zh": "我每天早上都在這裡跑步。",
           "chunkId": "run_every_morning"
         },
         {
@@ -556,8 +556,8 @@
           "id": "t7_1",
           "role": "neighbor",
           "speaker": "npc",
-          "en": "I'm going to see my family next week.",
-          "zh": "我下星期要回去看家人。"
+          "en": "I'm going to see my family for two months.",
+          "zh": "我要回去看家人，去兩個月。"
         },
         {
           "id": "t7_2",
@@ -571,8 +571,8 @@
           "id": "t7_3",
           "role": "neighbor",
           "speaker": "npc",
-          "en": "Yes! Message me. I never read my email.",
-          "zh": "好啊！傳訊息給我吧，我都不看電子郵件。",
+          "en": "Yes! Can I message you? I don't read email.",
+          "zh": "好啊！我可以傳訊息給你嗎？我都不看電子郵件。",
           "stage": { "act": "want", "item": "message" }
         },
         {
@@ -644,7 +644,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "I run here every morning.",
-          "zh": "我每天早上在這裡跑步。",
+          "zh": "我每天早上都在這裡跑步。",
           "chunkId": "run_every_morning"
         },
         {
@@ -667,7 +667,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "I saw your poster.",
-          "zh": "我看到你的海報了。",
+          "zh": "我看到你們的海報了。",
           "chunkId": "saw_poster"
         },
         {
@@ -706,8 +706,8 @@
           "id": "t8_14",
           "role": "volunteer",
           "speaker": "npc",
-          "en": "At one, by the lake. What's your number?",
-          "zh": "一點，在湖邊。你的電話幾號？"
+          "en": "At one, by the lake. Can I get your number?",
+          "zh": "一點，在湖邊。可以跟你要個電話嗎？"
         },
         {
           "id": "t8_15",

@@ -66,7 +66,7 @@
     {
       "id": "missed_delivery",
       "en": "I missed the delivery.",
-      "zh": "我錯過了送貨。",
+      "zh": "包裹送來的時候我不在。",
       "accept": ["I missed my delivery.", "I missed a delivery."],
       "note": "miss → missed，也是加 -ed 的過去式，這裡的 -ed 唸 /t/。意思是送貨來的時候你不在，沒收到。",
       "distractors": [
@@ -114,7 +114,7 @@
     {
       "id": "be_careful",
       "en": "Please be careful with it.",
-      "zh": "請小心處理。",
+      "zh": "麻煩小心一點。",
       "accept": ["Be careful with it, please.", "Please be careful with this."],
       "note": "be careful with + 東西 = 小心對待它。careful 是形容詞，前面要有 be。",
       "distractors": [
@@ -150,7 +150,7 @@
     {
       "id": "box_and_tape",
       "en": "I need a box and some tape.",
-      "zh": "我需要一個箱子和一些膠帶。",
+      "zh": "我需要一個箱子和膠帶。",
       "accept": ["I need some tape and a box.", "I need a box and tape."],
       "note": "box 可以數，用 a；tape 不可數，用 some，不加 s。",
       "distractors": [
@@ -307,11 +307,29 @@
           "id": "t3_1",
           "role": "postal_clerk",
           "speaker": "npc",
-          "en": "Not there yet? When did you mail it?",
-          "zh": "還沒到嗎？你什麼時候寄的？"
+          "en": "Hi. Is that a delivery notice?",
+          "zh": "嗨。那張是招領通知單嗎？",
+          "stage": { "act": "want", "item": "notice" }
         },
         {
           "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I missed the delivery.",
+          "zh": "包裹送來的時候我不在。",
+          "chunkId": "missed_delivery",
+          "stage": { "act": "give", "item": "notice" }
+        },
+        {
+          "id": "t3_3",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "From yesterday? Here you go. An online order?",
+          "zh": "昨天的啊？來，給你。是網購的東西嗎？",
+          "stage": { "act": "give", "item": "package" }
+        },
+        {
+          "id": "t3_4",
           "role": "guide",
           "speaker": "player",
           "en": "I mailed it last week.",
@@ -319,29 +337,11 @@
           "chunkId": "mailed_last_week"
         },
         {
-          "id": "t3_3",
-          "role": "postal_clerk",
-          "speaker": "npc",
-          "en": "It takes ten days. Is that a notice?",
-          "zh": "大概要十天。那張是通知單嗎？",
-          "stage": { "act": "want", "item": "notice" }
-        },
-        {
-          "id": "t3_4",
-          "role": "guide",
-          "speaker": "player",
-          "en": "I missed the delivery.",
-          "zh": "我錯過了送貨。",
-          "chunkId": "missed_delivery",
-          "stage": { "act": "give", "item": "notice" }
-        },
-        {
           "id": "t3_5",
           "role": "postal_clerk",
           "speaker": "npc",
-          "en": "From yesterday? Your online order is here.",
-          "zh": "昨天的啊？你網購的東西在我們這裡。",
-          "stage": { "act": "want", "item": "package" }
+          "en": "Oh! It came back. It needs more stamps.",
+          "zh": "喔！被退回來了。郵票貼不夠。"
         }
       ]
     },
@@ -367,7 +367,7 @@
           "id": "counter_guide",
           "rows": [
             { "label": "Counter 1", "value": "Stamps and mail" },
-            { "label": "Counter 2", "value": "Package pick-up" },
+            { "label": "Counter 2", "value": "Pick up packages" },
             { "label": "Help desk", "value": "By the door" }
           ],
           "question": { "en": "Where do you pick up a package?", "zh": "包裹要去哪裡領？" },
@@ -473,7 +473,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "Please be careful with it.",
-          "zh": "請小心處理。",
+          "zh": "麻煩小心一點。",
           "chunkId": "be_careful"
         },
         {
@@ -517,8 +517,8 @@
           "id": "t6_3",
           "role": "postal_clerk",
           "speaker": "npc",
-          "en": "Fast mail is fifty dollars. Slow is thirty.",
-          "zh": "快的五十元，慢的三十元。"
+          "en": "The fast way is fifty dollars. Slow is thirty.",
+          "zh": "快的五十塊，慢的三十塊。"
         },
         {
           "id": "t6_4",
@@ -549,7 +549,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "I need a box and some tape.",
-          "zh": "我需要一個箱子和一些膠帶。",
+          "zh": "我需要一個箱子和膠帶。",
           "chunkId": "box_and_tape",
           "stage": { "act": "want", "item": "tape" }
         },
@@ -557,7 +557,7 @@
           "id": "t7_2",
           "role": "postal_clerk",
           "speaker": "npc",
-          "en": "Here. Scissors, too.",
+          "en": "Here you go. Scissors, too.",
           "zh": "來。剪刀也給你。",
           "stage": { "act": "give", "item": "scissors" }
         },
@@ -574,8 +574,8 @@
           "id": "t7_4",
           "role": "postal_clerk",
           "speaker": "npc",
-          "en": "Yes. Stamps, envelopes, postcards, stickers!",
-          "zh": "可以。郵票、信封、明信片、貼紙都有！"
+          "en": "Yes. Envelopes, postcards, and stickers, too!",
+          "zh": "可以。信封、明信片、貼紙也都有！"
         }
       ]
     },
@@ -591,7 +591,7 @@
           "role": "postal_clerk",
           "speaker": "npc",
           "en": "Good morning! Is that a delivery notice?",
-          "zh": "早安！那張是送貨通知單嗎？",
+          "zh": "早安！那張是招領通知單嗎？",
           "stage": { "act": "want", "item": "notice" }
         },
         {
@@ -599,7 +599,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "I missed the delivery.",
-          "zh": "我錯過了送貨。",
+          "zh": "包裹送來的時候我不在。",
           "chunkId": "missed_delivery",
           "stage": { "act": "give", "item": "notice" }
         },
@@ -631,7 +631,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "I need a box and some tape.",
-          "zh": "我需要一個箱子和一些膠帶。",
+          "zh": "我需要一個箱子和膠帶。",
           "chunkId": "box_and_tape",
           "stage": { "act": "want", "item": "tape" }
         },
@@ -686,8 +686,8 @@
           "id": "t8_13",
           "role": "postal_clerk",
           "speaker": "npc",
-          "en": "Right here. Good. Now I need the weight.",
-          "zh": "寫這裡。好了。接著要秤一下重量。",
+          "en": "Right here. Good. Now I'll check the weight.",
+          "zh": "寫這裡。好了。接著我秤一下重量。",
           "stage": { "act": "want", "item": "scale" }
         },
         {
@@ -703,7 +703,7 @@
           "role": "postal_clerk",
           "speaker": "npc",
           "en": "Two kilograms. That's thirty dollars by air.",
-          "zh": "兩公斤。寄航空是三十元。"
+          "zh": "兩公斤。寄航空是三十塊。"
         },
         {
           "id": "t8_16",

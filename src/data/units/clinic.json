@@ -138,7 +138,7 @@
       "id": "make_sleepy",
       "en": "Does it make you sleepy?",
       "zh": "吃了會想睡嗎？",
-      "accept": ["Does it make me sleepy?", "Will it make me sleepy?"],
+      "accept": ["Will it make you sleepy?", "Will it make me sleepy?"],
       "note": "make you sleepy = 讓人想睡，整句當固定說法記。這裡的 you 是指「吃的人」，也包括自己。",
       "distractors": [
         { "text": "Does it makes you sleepy?", "error": "other" },
@@ -149,7 +149,7 @@
     {
       "id": "with_food",
       "en": "Do I take it with food?",
-      "zh": "要跟食物一起吃嗎？",
+      "zh": "要配東西吃嗎？",
       "accept": ["Should I take it with food?", "Do I take this with food?"],
       "note": "take it = 吃這個藥；with food = 配著東西一起吃，food 前面不加 a。",
       "distractors": [
@@ -339,8 +339,8 @@
           "id": "t3_4",
           "role": "doctor",
           "speaker": "npc",
-          "en": "A little. Put your hand on your leg.",
-          "zh": "有一點。把手放在腿上。"
+          "en": "A little. Now put your hand on your leg.",
+          "zh": "有一點。來，手放在腿上。"
         }
       ]
     },
@@ -400,8 +400,8 @@
           "id": "t4_3",
           "role": "doctor",
           "speaker": "npc",
-          "en": "Let me see. Your nose and throat are red.",
-          "zh": "我看看。你的鼻子和喉嚨都紅紅的。",
+          "en": "Okay. Let me see your nose and throat.",
+          "zh": "好，我看一下你的鼻子和喉嚨。",
           "stage": { "act": "want", "item": "nose" }
         },
         {
@@ -504,7 +504,7 @@
           "role": "doctor",
           "speaker": "npc",
           "en": "No. Your body needs rest and sleep.",
-          "zh": "不行。你的身體需要休息和睡眠。"
+          "zh": "不行。你要多休息、多睡覺。"
         }
       ]
     },
@@ -581,32 +581,32 @@
           "role": "guide",
           "speaker": "player",
           "en": "Do I take it with food?",
-          "zh": "要跟食物一起吃嗎？",
+          "zh": "要配東西吃嗎？",
           "chunkId": "with_food"
         },
         {
           "id": "t7_3",
           "role": "pharmacist",
           "speaker": "npc",
-          "en": "Yes, after a meal. Breakfast and dinner.",
-          "zh": "要，飯後吃。早餐和晚餐後。",
-          "stage": { "act": "want", "item": "breakfast" }
-        },
-        {
-          "id": "t7_4",
-          "role": "pharmacist",
-          "speaker": "npc",
-          "en": "With a glass of water.",
-          "zh": "配一杯水。",
+          "en": "Yes, after meals, with a glass of water.",
+          "zh": "要，飯後吃，配一杯水。",
           "stage": { "act": "want", "item": "glass" }
         },
         {
-          "id": "t7_5",
+          "id": "t7_4",
           "role": "guide",
           "speaker": "player",
           "en": "Thanks for your help.",
           "zh": "謝謝你的幫忙。",
           "chunkId": "thanks_for_help"
+        },
+        {
+          "id": "t7_5",
+          "role": "pharmacist",
+          "speaker": "npc",
+          "en": "Sure. Breakfast and dinner, okay?",
+          "zh": "不客氣。早餐和晚餐後吃喔。",
+          "stage": { "act": "want", "item": "breakfast" }
         }
       ]
     },
@@ -622,7 +622,7 @@
           "role": "doctor",
           "speaker": "npc",
           "en": "Good morning. How can I help you?",
-          "zh": "早安。有什麼需要幫忙的嗎？"
+          "zh": "早安。今天怎麼了？"
         },
         {
           "id": "t8_2",
@@ -652,8 +652,8 @@
           "id": "t8_5",
           "role": "doctor",
           "speaker": "npc",
-          "en": "It's a cold. The pharmacy has cough medicine.",
-          "zh": "是感冒。藥局有咳嗽藥。",
+          "en": "It's just a cold. Get cough medicine at the pharmacy.",
+          "zh": "只是感冒。去藥局買咳嗽藥就好。",
           "stage": { "act": "want", "item": "pharmacy" }
         },
         {
@@ -708,8 +708,8 @@
           "id": "t8_12",
           "role": "pharmacist",
           "speaker": "npc",
-          "en": "Hi. You look sick. Here's a mask.",
-          "zh": "嗨。你好像生病了，口罩給你。",
+          "en": "Hi. That's a bad cough! Here's a mask.",
+          "zh": "嗨。你咳得好厲害！口罩給你。",
           "stage": { "act": "give", "item": "mask" }
         },
         {
@@ -733,7 +733,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "Do I take it with food?",
-          "zh": "要跟食物一起吃嗎？",
+          "zh": "要配東西吃嗎？",
           "chunkId": "with_food"
         },
         {
