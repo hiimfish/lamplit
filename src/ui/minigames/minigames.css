@@ -482,3 +482,8 @@
   grid-template-columns: 1fr;
   gap: calc(3 * var(--px));
 }
+
+/* A sideways phone is short: a smaller picture keeps every sentence on screen before answering. */
+:root[data-orientation='landscape'] .mg-picture {
+  width: min(100%, calc(96 * var(--px)));
+}
