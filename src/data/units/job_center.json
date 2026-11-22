@@ -1,0 +1,915 @@
+{
+  "id": "job_center",
+  "title": "就業服務站",
+  "titleEn": "Job Center",
+  "chunks": [
+    {
+      "id": "moved_to_town_in_august",
+      "en": "I moved to town in August.",
+      "zh": "我八月搬來這裡的。",
+      "note": "說自己什麼時候搬來。moved 是 move 的過去式；月份前面用 in。",
+      "distractors": [
+        { "text": "I moved to town at August.", "error": "other" },
+        { "text": "I moveed to town in August.", "error": "spelling" },
+        { "text": "I moved to town in the August.", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "like_to_find_a_job_here",
+      "en": "I'd like to find a job here.",
+      "zh": "我想在這裡找工作。",
+      "accept": ["I would like to find a job here."],
+      "note": "客氣地說自己想做什麼：I'd like to + 動詞原形。I'd = I would。",
+      "distractors": [
+        { "text": "I'd like find a job here.", "error": "missing-word" },
+        { "text": "I'd like to find job here.", "error": "article" },
+        { "text": "I'd like to finding a job here.", "error": "other" }
+      ]
+    },
+    {
+      "id": "worked_in_an_office_in_taiwan",
+      "en": "I worked in an office in Taiwan.",
+      "zh": "我在台灣是坐辦公室的。",
+      "note": "介紹以前的工作。office 開頭是母音，所以用 an，不用 a。",
+      "distractors": [
+        { "text": "I worked in a office in Taiwan.", "error": "article" },
+        { "text": "I worked in an offices in Taiwan.", "error": "plural" },
+        { "text": "I worked in an office at Taiwan.", "error": "other" }
+      ]
+    },
+    {
+      "id": "looking_for_something_similar",
+      "en": "I'm looking for something similar.",
+      "zh": "我想找差不多的工作。",
+      "accept": ["I am looking for something similar."],
+      "note": "look for = 找。similar 放在 something 後面，意思是「差不多的東西」。",
+      "distractors": [
+        { "text": "I'm looking something similar.", "error": "missing-word" },
+        { "text": "I'm looking for similar something.", "error": "word-order" },
+        { "text": "I'm look for something similar.", "error": "other" }
+      ]
+    },
+    {
+      "id": "prefer_a_smaller_company",
+      "en": "I'd prefer a smaller company.",
+      "zh": "我比較想去小一點的公司。",
+      "accept": ["I would prefer a smaller company."],
+      "note": "比較級：短的形容詞加 -er（small → smaller），意思是「比較……」。",
+      "distractors": [
+        { "text": "I'd prefer a more small company.", "error": "other" },
+        { "text": "I'd prefer a smaler company.", "error": "spelling" },
+        { "text": "I'd prefer smaller company.", "error": "article" }
+      ]
+    },
+    {
+      "id": "weekends_off_would_be_better",
+      "en": "Weekends off would be better for me.",
+      "zh": "週末能休假對我來說比較好。",
+      "note": "比較級：better 是 good 的比較級，不說 gooder，也不說 more better。",
+      "distractors": [
+        { "text": "Weekends off would be more better for me.", "error": "extra-word" },
+        { "text": "Weekends off would be gooder for me.", "error": "other" },
+        { "text": "Weekends off would better for me.", "error": "missing-word" }
+      ]
+    },
+    {
+      "id": "full_time_or_part_time",
+      "en": "Is this job full time or part time?",
+      "zh": "這份是全職還是兼職？",
+      "accept": ["Is this job full-time or part-time?"],
+      "note": "看到徵人廣告先問這句。full time 全職、part time 兼職。",
+      "distractors": [
+        { "text": "Is this job full time or part times?", "error": "plural" },
+        { "text": "Does this job full time or part time?", "error": "other" },
+        { "text": "Is job full time or part time?", "error": "missing-word" }
+      ]
+    },
+    {
+      "id": "how_do_i_apply_for_it",
+      "en": "How do I apply for it?",
+      "zh": "要怎麼應徵？",
+      "note": "apply for + 工作 = 應徵這份工作。it 指剛剛說的那份工作。",
+      "distractors": [
+        { "text": "How I do apply for it?", "error": "word-order" },
+        { "text": "How do I applying for it?", "error": "other" },
+        { "text": "How do I aply for it?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "which_one_would_you_choose",
+      "en": "Which one would you choose?",
+      "zh": "如果是你，你會選哪一個？",
+      "note": "拿不定主意時請對方給意見。would you 是「如果是你，你會……」。",
+      "distractors": [
+        { "text": "Which one you would choose?", "error": "word-order" },
+        { "text": "Which one would you to choose?", "error": "extra-word" },
+        { "text": "Which one would you chooses?", "error": "other" }
+      ]
+    },
+    {
+      "id": "does_the_office_job_pay_overtime",
+      "en": "Does the office job pay overtime?",
+      "zh": "辦公室那份有加班費嗎？",
+      "note": "問有沒有加班費。主詞 the office job 是一份工作，用 Does，pay 不加 s。",
+      "distractors": [
+        { "text": "Does the office job pays overtime?", "error": "other" },
+        { "text": "Does office job pay overtime?", "error": "article" },
+        { "text": "Does the office job pay overtine?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "enjoy_working_with_people",
+      "en": "I enjoy working with people.",
+      "zh": "我喜歡跟人打交道。",
+      "note": "動名詞：enjoy 後面的動詞要加 -ing（enjoy working），不說 enjoy to work。",
+      "distractors": [
+        { "text": "I enjoy to work with people.", "error": "other" },
+        { "text": "I enjoy work with people.", "error": "other" },
+        { "text": "I enjoy working with peoples.", "error": "plural" }
+      ]
+    },
+    {
+      "id": "decided_to_apply_for_the_office_job",
+      "en": "I decided to apply for the office job.",
+      "zh": "我決定應徵辦公室那份工作。",
+      "note": "不定詞：decide 後面接 to + 動詞原形（decided to apply），不加 -ing。",
+      "distractors": [
+        { "text": "I decided applying for the office job.", "error": "other" },
+        { "text": "I decided to applied for the office job.", "error": "other" },
+        { "text": "I decided to apply the office job.", "error": "missing-word" }
+      ]
+    },
+    {
+      "id": "what_do_i_need_for_the_application",
+      "en": "What do I need for the application?",
+      "zh": "申請要準備哪些東西？",
+      "note": "問申請要準備什麼。What do I need for…? = ……需要什麼？",
+      "distractors": [
+        { "text": "What I need for the application?", "error": "missing-word" },
+        { "text": "What do I needs for the application?", "error": "other" },
+        { "text": "What do I need for the aplication?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "should_i_bring_anything_tomorrow",
+      "en": "Should I bring anything tomorrow?",
+      "zh": "我明天要帶什麼東西嗎？",
+      "note": "問明天要不要帶東西。問句裡用 anything；should 後面接動詞原形。",
+      "distractors": [
+        { "text": "Should I to bring anything tomorrow?", "error": "extra-word" },
+        { "text": "Should I brings anything tomorrow?", "error": "other" },
+        { "text": "Should bring I anything tomorrow?", "error": "word-order" }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "id": "myself",
+      "en": "myself",
+      "zh": "我自己（about myself 關於我自己）",
+      "emoji": "🙋",
+      "abstract": true
+    },
+    { "id": "counselor", "en": "counselor", "zh": "就業顧問", "emoji": "🧑‍💼" },
+    { "id": "age", "en": "age", "zh": "年齡", "emoji": "🎂", "abstract": true },
+    { "id": "area", "en": "area", "zh": "地區", "emoji": "🗺️", "abstract": true },
+    { "id": "level", "en": "level", "zh": "程度；等級", "emoji": "📶", "abstract": true },
+    { "id": "company", "en": "company", "zh": "公司", "emoji": "🏢", "abstract": true },
+    {
+      "id": "example",
+      "en": "example",
+      "zh": "例子（for example 例如）",
+      "emoji": "💡",
+      "abstract": true
+    },
+    { "id": "experience", "en": "experience", "zh": "經驗", "emoji": "⭐", "abstract": true },
+    { "id": "actually", "en": "actually", "zh": "其實", "emoji": "❗", "abstract": true },
+    { "id": "clerk", "en": "clerk", "zh": "職員；辦事員", "emoji": "🗂️", "abstract": true },
+    { "id": "assistant", "en": "assistant", "zh": "助理", "emoji": "🧑‍💻" },
+    { "id": "high", "en": "high", "zh": "高的", "emoji": "⬆️", "abstract": true },
+    { "id": "less", "en": "less", "zh": "比較少", "emoji": "➖", "abstract": true },
+    { "id": "quite", "en": "quite", "zh": "相當", "emoji": "👌", "abstract": true },
+    {
+      "id": "least",
+      "en": "least",
+      "zh": "最少（at least 至少）",
+      "emoji": "🔻",
+      "abstract": true
+    },
+    { "id": "low", "en": "low", "zh": "低的", "emoji": "⬇️", "abstract": true },
+    { "id": "salary", "en": "salary", "zh": "薪水（月薪）", "emoji": "💵", "abstract": true },
+    { "id": "require", "en": "require", "zh": "需要；要求", "emoji": "☑️", "abstract": true },
+    { "id": "position", "en": "position", "zh": "職位", "emoji": "🪑", "abstract": true },
+    { "id": "benefit", "en": "benefit", "zh": "福利", "emoji": "🎁", "abstract": true },
+    { "id": "apply", "en": "apply", "zh": "應徵；申請", "emoji": "✍️", "abstract": true },
+    { "id": "ad", "en": "ad", "zh": "廣告", "emoji": "📰", "abstract": true },
+    { "id": "wage", "en": "wage", "zh": "工資（時薪）", "emoji": "🪙", "abstract": true },
+    { "id": "common", "en": "common", "zh": "常見的", "emoji": "👥", "abstract": true },
+    { "id": "compare", "en": "compare", "zh": "比較", "emoji": "⚖️", "abstract": true },
+    { "id": "employee", "en": "employee", "zh": "員工", "emoji": "🪪", "abstract": true },
+    { "id": "task", "en": "task", "zh": "工作項目", "emoji": "📋", "abstract": true },
+    { "id": "shift", "en": "shift", "zh": "班（早班、晚班）", "emoji": "🌙", "abstract": true },
+    { "id": "hire", "en": "hire", "zh": "僱用；錄取", "emoji": "🤝", "abstract": true },
+    { "id": "overtime", "en": "overtime", "zh": "加班", "emoji": "⏰", "abstract": true },
+    { "id": "become", "en": "become", "zh": "成為", "emoji": "🦋", "abstract": true },
+    {
+      "id": "person",
+      "en": "person",
+      "zh": "人（people person 喜歡跟人相處的人）",
+      "emoji": "🧍",
+      "abstract": true
+    },
+    { "id": "able", "en": "able", "zh": "能夠（be able to）", "emoji": "💪", "abstract": true },
+    { "id": "decide", "en": "decide", "zh": "決定", "emoji": "✅", "abstract": true },
+    { "id": "enjoy", "en": "enjoy", "zh": "喜歡；享受", "emoji": "😊", "abstract": true },
+    { "id": "choice", "en": "choice", "zh": "選擇", "emoji": "🔀", "abstract": true },
+    { "id": "career", "en": "career", "zh": "職涯；事業", "emoji": "📈", "abstract": true },
+    {
+      "id": "offer",
+      "en": "offer",
+      "zh": "提供；給（offer you an interview）",
+      "emoji": "🤲",
+      "abstract": true
+    },
+    {
+      "id": "possible",
+      "en": "possible",
+      "zh": "可能的（as soon as possible 盡快）",
+      "emoji": "🆗",
+      "abstract": true
+    },
+    { "id": "local", "en": "local", "zh": "本地的", "emoji": "📍", "abstract": true },
+    { "id": "chance", "en": "chance", "zh": "機會", "emoji": "🍀", "abstract": true },
+    {
+      "id": "application",
+      "en": "application",
+      "zh": "申請（書）",
+      "emoji": "📝",
+      "abstract": true
+    },
+    { "id": "candidate", "en": "candidate", "zh": "應徵者", "emoji": "🙋‍♀️", "abstract": true },
+    { "id": "employer", "en": "employer", "zh": "雇主", "emoji": "🏬", "abstract": true }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "登記求職",
+      "newChunkIds": ["moved_to_town_in_august", "like_to_find_a_job_here"],
+      "newWordIds": ["myself", "counselor", "age", "area", "level"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Hi there! I'm Ms. Lopez, the job counselor.",
+          "zh": "嗨！我是就業顧問 Lopez。"
+        },
+        {
+          "id": "t1_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I moved to town in August.",
+          "zh": "我八月搬來這裡的。",
+          "chunkId": "moved_to_town_in_august"
+        },
+        {
+          "id": "t1_3",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Welcome to town! I moved here myself, years ago.",
+          "zh": "歡迎！我自己也是好幾年前搬來的。"
+        },
+        {
+          "id": "t1_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'd like to find a job here.",
+          "zh": "我想在這裡找工作。",
+          "chunkId": "like_to_find_a_job_here"
+        },
+        {
+          "id": "t1_5",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Great. Let's start with this form.",
+          "zh": "好啊，我們先從這張表開始。"
+        },
+        {
+          "id": "t1_6",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Please write your age and the area you live in.",
+          "zh": "請寫上你的年齡和住的地區。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "以前的工作",
+      "newChunkIds": ["worked_in_an_office_in_taiwan", "looking_for_something_similar"],
+      "newWordIds": ["company", "example", "experience", "actually", "clerk", "assistant"],
+      "fills": [
+        {
+          "id": "office_assistant",
+          "en": "She works as an ___ at a big company.",
+          "zh": "她在一家大公司當助理。",
+          "options": ["assistant", "example", "experience", "level"],
+          "answer": 0,
+          "note": "在公司做的職位：assistant 是助理。"
+        },
+        {
+          "id": "looking_for_similar",
+          "en": "I'm ___ for something similar.",
+          "zh": "我想找差不多的工作。",
+          "options": ["looking", "look", "looks", "looked"],
+          "answer": 0,
+          "note": "I'm 後面接 -ing：I'm looking。",
+          "chunkId": "looking_for_something_similar"
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "So, tell me about your work experience.",
+          "zh": "那跟我說說你的工作經驗吧。",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I worked in an office in Taiwan.",
+          "zh": "我在台灣是坐辦公室的。",
+          "chunkId": "worked_in_an_office_in_taiwan"
+        },
+        {
+          "id": "t2_3",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "I see. It says here you were a clerk.",
+          "zh": "了解，這裡寫你以前是職員。"
+        },
+        {
+          "id": "t2_4",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "And what kind of job do you want now?",
+          "zh": "那你現在想找什麼樣的工作？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t2_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm looking for something similar.",
+          "zh": "我想找差不多的工作。",
+          "chunkId": "looking_for_something_similar"
+        },
+        {
+          "id": "t2_6",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Good. Actually, a lot of companies here need assistants.",
+          "zh": "很好。其實這裡很多公司都在找助理。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "想要的條件",
+      "newChunkIds": ["prefer_a_smaller_company", "weekends_off_would_be_better"],
+      "newWordIds": ["high", "less", "quite", "least", "low", "salary"],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Do you want a big company or a small one?",
+          "zh": "你想去大公司還是小公司？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'd prefer a smaller company.",
+          "zh": "我比較想去小一點的公司。",
+          "chunkId": "prefer_a_smaller_company"
+        },
+        {
+          "id": "t3_3",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Sure. But the salary can be a bit lower.",
+          "zh": "可以啊。不過薪水可能會低一點。"
+        },
+        {
+          "id": "t3_4",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "And what about days? Is Saturday okay?",
+          "zh": "那上班的日子呢？星期六可以嗎？"
+        },
+        {
+          "id": "t3_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Weekends off would be better for me.",
+          "zh": "週末能休假對我來說比較好。",
+          "chunkId": "weekends_off_would_be_better"
+        },
+        {
+          "id": "t3_6",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "No problem. Quite a few office jobs have weekends off.",
+          "zh": "沒問題。週末休假的辦公室工作還不少。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "看求職廣告",
+      "newChunkIds": ["full_time_or_part_time", "how_do_i_apply_for_it"],
+      "newWordIds": ["require", "position", "benefit", "apply", "ad", "wage"],
+      "passages": [
+        {
+          "id": "harbor_trading_ad",
+          "kind": "ad",
+          "title": "Office Assistant at Harbor Trading",
+          "lines": [
+            "Position: full time, Monday to Friday, 9:00 to 5:00",
+            "Salary: $3,200 a month, good benefits",
+            "Requires: English and one year of office experience",
+            "To apply, see Ms. Lopez at the Job Center."
+          ],
+          "questions": [
+            {
+              "en": "How do you apply for this job?",
+              "zh": "要怎麼應徵這份工作？",
+              "options": ["See Ms. Lopez", "Call the company", "Send an email"],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "rosas_ad",
+          "kind": "ad",
+          "title": "Waiter Wanted at Rosa's Restaurant",
+          "lines": [
+            "Part time: evenings and weekends",
+            "Wage: $17 an hour",
+            "No experience required. We teach you!",
+            "Come in and ask for Rosa after 2:00."
+          ],
+          "questions": [
+            {
+              "en": "How much experience does this job require?",
+              "zh": "這份工作要多少經驗？",
+              "options": ["No experience", "One year", "Two years"],
+              "answer": 0
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Look at this ad from Harbor Trading. They need an assistant.",
+          "zh": "你看 Harbor Trading 的這則廣告，他們在找助理。",
+          "stage": { "act": "want", "item": "assistant" }
+        },
+        {
+          "id": "t4_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is this job full time or part time?",
+          "zh": "這份是全職還是兼職？",
+          "chunkId": "full_time_or_part_time",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t4_3",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Full time, Monday to Friday, nine to five.",
+          "zh": "全職，星期一到五，九點到五點。"
+        },
+        {
+          "id": "t4_4",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "The position has good benefits, too.",
+          "zh": "這個職位的福利也不錯。"
+        },
+        {
+          "id": "t4_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How do I apply for it?",
+          "zh": "要怎麼應徵？",
+          "chunkId": "how_do_i_apply_for_it"
+        },
+        {
+          "id": "t4_6",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Through me. It requires office experience, and you have that.",
+          "zh": "透過我就行。它要求有辦公室經驗，你剛好有。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "比較兩份工作",
+      "newChunkIds": ["which_one_would_you_choose", "does_the_office_job_pay_overtime"],
+      "newWordIds": ["common", "compare", "employee", "task", "shift", "hire", "overtime"],
+      "talks": [
+        {
+          "id": "t5_talk",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "passerby",
+              "en": "Ms. Lopez, which job pays more?",
+              "zh": "Lopez 小姐，哪份工作薪水比較高？"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "counselor",
+              "en": "The restaurant's wage is higher, but it's all evening shifts.",
+              "zh": "餐廳的時薪比較高，但全都是晚班。"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "passerby",
+              "en": "Evenings? What about the office job?",
+              "zh": "晚上？那辦公室那份呢？"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "counselor",
+              "en": "It pays less, but it's Monday to Friday.",
+              "zh": "錢比較少，但是星期一到五上班。"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "passerby",
+              "en": "Then I want the office job.",
+              "zh": "那我想要辦公室那份。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "Which job has evening shifts?",
+              "zh": "哪一份工作是晚班？",
+              "options": ["The restaurant job", "The office job", "The bank job"],
+              "answer": 0
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Okay, let's compare these two jobs.",
+          "zh": "好，我們來比較一下這兩份工作。"
+        },
+        {
+          "id": "t5_2",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "The restaurant pays more, but the shifts are late.",
+          "zh": "餐廳錢比較多，可是班都很晚。"
+        },
+        {
+          "id": "t5_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Does the office job pay overtime?",
+          "zh": "辦公室那份有加班費嗎？",
+          "chunkId": "does_the_office_job_pay_overtime"
+        },
+        {
+          "id": "t5_4",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Yes, but overtime isn't very common there.",
+          "zh": "有，不過那邊不常加班。"
+        },
+        {
+          "id": "t5_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Which one would you choose?",
+          "zh": "如果是你，你會選哪一個？",
+          "chunkId": "which_one_would_you_choose",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t5_6",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "The office job. And they want to hire someone now.",
+          "zh": "辦公室那份。而且他們現在就要找人。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "決定應徵",
+      "newChunkIds": ["enjoy_working_with_people", "decided_to_apply_for_the_office_job"],
+      "newWordIds": ["become", "person", "able", "decide", "enjoy", "choice", "career"],
+      "cloze": [
+        {
+          "lineId": "t6_2",
+          "word": "office",
+          "distractors": ["bank", "library"]
+        },
+        {
+          "lineId": "t6_4",
+          "word": "people",
+          "distractors": ["cars", "books"]
+        },
+        {
+          "lineId": "t6_6",
+          "word": "career",
+          "distractors": ["lunch", "weekend"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "So, did you decide?",
+          "zh": "那你決定了嗎？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I decided to apply for the office job.",
+          "zh": "我決定應徵辦公室那份工作。",
+          "chunkId": "decided_to_apply_for_the_office_job"
+        },
+        {
+          "id": "t6_3",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Great choice! Why that one?",
+          "zh": "選得好！為什麼選那份？"
+        },
+        {
+          "id": "t6_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I enjoy working with people.",
+          "zh": "我喜歡跟人打交道。",
+          "chunkId": "enjoy_working_with_people"
+        },
+        {
+          "id": "t6_5",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "I can tell. You're a people person.",
+          "zh": "看得出來，你很喜歡跟人相處。"
+        },
+        {
+          "id": "t6_6",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "This could become a great career for you.",
+          "zh": "這份工作有機會變成你很好的事業。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "下一步：準備申請",
+      "newChunkIds": ["what_do_i_need_for_the_application", "should_i_bring_anything_tomorrow"],
+      "newWordIds": [
+        "offer",
+        "possible",
+        "local",
+        "chance",
+        "application",
+        "candidate",
+        "employer"
+      ],
+      "spellWordIds": ["wall", "house", "tool", "engine", "tire"],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "I just talked to Harbor Trading.",
+          "zh": "我剛跟 Harbor Trading 聯絡過。"
+        },
+        {
+          "id": "t7_2",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "They want local candidates, so you have a good chance.",
+          "zh": "他們想找本地的應徵者，所以你機會很大。"
+        },
+        {
+          "id": "t7_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What do I need for the application?",
+          "zh": "申請要準備哪些東西？",
+          "chunkId": "what_do_i_need_for_the_application"
+        },
+        {
+          "id": "t7_4",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "A form, and a page about your work experience.",
+          "zh": "一張表，再加一頁寫你的工作經驗。"
+        },
+        {
+          "id": "t7_5",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "I'm running a workshop for that tomorrow at ten.",
+          "zh": "我明天十點有個工作坊，就是教這個。"
+        },
+        {
+          "id": "t7_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Should I bring anything tomorrow?",
+          "zh": "我明天要帶什麼東西嗎？",
+          "chunkId": "should_i_bring_anything_tomorrow",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t7_7",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Just your passport. Let's send it as soon as possible.",
+          "zh": "帶護照就好。我們盡快把它寄出去。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Hi there! Are you new in town?",
+          "zh": "嗨！你剛搬來嗎？"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I moved to town in August.",
+          "zh": "我八月搬來這裡的。",
+          "chunkId": "moved_to_town_in_august"
+        },
+        {
+          "id": "t8_3",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Welcome! What kind of work did you do before?",
+          "zh": "歡迎！你以前做什麼工作？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I worked in an office in Taiwan.",
+          "zh": "我在台灣是坐辦公室的。",
+          "chunkId": "worked_in_an_office_in_taiwan"
+        },
+        {
+          "id": "t8_5",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Good. You'll be able to use that experience.",
+          "zh": "不錯，那些經驗你用得上。"
+        },
+        {
+          "id": "t8_6",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Do you want a big company this time?",
+          "zh": "這次想去大公司嗎？"
+        },
+        {
+          "id": "t8_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'd prefer a smaller company.",
+          "zh": "我比較想去小一點的公司。",
+          "chunkId": "prefer_a_smaller_company"
+        },
+        {
+          "id": "t8_8",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Then I have two ads here: a restaurant and an office.",
+          "zh": "那我這裡有兩則廣告：一家餐廳、一間辦公室。"
+        },
+        {
+          "id": "t8_9",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is this job full time or part time?",
+          "zh": "這份是全職還是兼職？",
+          "chunkId": "full_time_or_part_time"
+        },
+        {
+          "id": "t8_10",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "The office job is full time, and they offer benefits.",
+          "zh": "辦公室那份是全職，而且有福利。"
+        },
+        {
+          "id": "t8_11",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Does the office job pay overtime?",
+          "zh": "辦公室那份有加班費嗎？",
+          "chunkId": "does_the_office_job_pay_overtime"
+        },
+        {
+          "id": "t8_12",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Yes, but employees there don't work much overtime.",
+          "zh": "有，不過那邊的員工不太常加班。"
+        },
+        {
+          "id": "t8_13",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "The tasks are phone calls, emails, and meeting people.",
+          "zh": "工作內容是接電話、回信，還有跟人見面。"
+        },
+        {
+          "id": "t8_14",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I enjoy working with people.",
+          "zh": "我喜歡跟人打交道。",
+          "chunkId": "enjoy_working_with_people"
+        },
+        {
+          "id": "t8_15",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Then it's a great choice for you.",
+          "zh": "那這份工作很適合你。"
+        },
+        {
+          "id": "t8_16",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I decided to apply for the office job.",
+          "zh": "我決定應徵辦公室那份工作。",
+          "chunkId": "decided_to_apply_for_the_office_job"
+        },
+        {
+          "id": "t8_17",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Great! Come to my workshop tomorrow. We'll do the application.",
+          "zh": "太好了！明天來我的工作坊，我們一起寫申請。"
+        },
+        {
+          "id": "t8_18",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Should I bring anything tomorrow?",
+          "zh": "我明天要帶什麼東西嗎？",
+          "chunkId": "should_i_bring_anything_tomorrow"
+        },
+        {
+          "id": "t8_19",
+          "role": "counselor",
+          "speaker": "npc",
+          "en": "Just your passport. See you at ten!",
+          "zh": "帶護照就好。十點見！"
+        }
+      ]
+    }
+  ]
+}
