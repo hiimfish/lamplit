@@ -50,7 +50,7 @@ describe('minimal pair content', () => {
   });
 
   it('rejects unknown pair references', () => {
-    expect(problemsFor((u) => u.tasks[0]!.newPairIds.push('nope'))).not.toEqual([]);
+    expect(problemsFor((u) => u.tasks[0]!.newPairIds!.push('nope'))).not.toEqual([]);
   });
 
   it('rejects unknown roles but knows the landlord', () => {
