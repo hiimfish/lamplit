@@ -1273,8 +1273,7 @@
           "role": "manager",
           "speaker": "npc",
           "en": "So, did Mr. Hughes reply?",
-          "zh": "那 Mr. Hughes 回信了嗎？",
-          "stage": { "act": "ask" }
+          "zh": "那 Mr. Hughes 回信了嗎？"
         },
         {
           "id": "t9_17",
