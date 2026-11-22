@@ -1,0 +1,1248 @@
+{
+  "id": "repair",
+  "title": "修車與維修",
+  "titleEn": "Repairs",
+  "chunks": [
+    {
+      "id": "my_kitchen_sink_is_leaking",
+      "en": "My kitchen sink is leaking.",
+      "zh": "我廚房的水槽在漏水。",
+      "accept": ["My kitchen sink's leaking."],
+      "note": "東西漏水時這樣報修。is leaking 表示現在正在漏。",
+      "distractors": [
+        {
+          "text": "My kitchen sink is leak.",
+          "error": "other"
+        },
+        {
+          "text": "My kitchen sink leaking.",
+          "error": "missing-word"
+        },
+        {
+          "text": "My kitchen sink is leacking.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "water_all_over_the_floor",
+      "en": "There's water all over the floor.",
+      "zh": "地上都是水。",
+      "accept": ["There is water all over the floor."],
+      "note": "There's = There is。all over the floor 是「整個地上都是」。",
+      "distractors": [
+        {
+          "text": "There's water all over floor.",
+          "error": "article"
+        },
+        {
+          "text": "There's water all the over floor.",
+          "error": "word-order"
+        },
+        {
+          "text": "There's waters all over the floor.",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "can_someone_come_fix_it_today",
+      "en": "Can someone come and fix it today?",
+      "zh": "今天可以找人來修嗎？",
+      "accept": ["Can someone come fix it today?", "Can somebody come and fix it today?"],
+      "note": "請人來修東西。come and fix 兩個動詞都用原形。",
+      "distractors": [
+        {
+          "text": "Can someone come and fixes it today?",
+          "error": "other"
+        },
+        {
+          "text": "Can someone come and fix today?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Can someone come fix and it today?",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "im_home_all_afternoon",
+      "en": "I'm home all afternoon.",
+      "zh": "我整個下午都在家。",
+      "accept": ["I am home all afternoon.", "I'm at home all afternoon."],
+      "note": "約時間時說自己哪時在家。all afternoon 前面不加 in。",
+      "distractors": [
+        {
+          "text": "I'm home in all afternoon.",
+          "error": "extra-word"
+        },
+        {
+          "text": "I home all afternoon.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I'm home all afternoons.",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "should_i_take_all_these_things_out",
+      "en": "Should I take all these things out?",
+      "zh": "要我先把這些東西都拿出來嗎？",
+      "accept": ["Should I take all of these things out?"],
+      "note": "問對方「我該不該…」：Should I + 動詞原形…?",
+      "distractors": [
+        {
+          "text": "Should I to take all these things out?",
+          "error": "extra-word"
+        },
+        {
+          "text": "Should I take all these thing out?",
+          "error": "plural"
+        },
+        {
+          "text": "I should take all these things out?",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "it_seems_okay_now",
+      "en": "It seems okay now.",
+      "zh": "現在看起來好了。",
+      "accept": ["It seems OK now."],
+      "note": "修好後試一下，說「看起來沒問題了」。",
+      "distractors": [
+        {
+          "text": "It seem okay now.",
+          "error": "other"
+        },
+        {
+          "text": "It's seems okay now.",
+          "error": "extra-word"
+        },
+        {
+          "text": "It seems okey now.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "i_just_bought_this_used_car",
+      "en": "I just bought this used car.",
+      "zh": "我剛買了這台二手車。",
+      "note": "bought 是 buy 的過去式；used car = 二手車。",
+      "distractors": [
+        {
+          "text": "I just buyed this used car.",
+          "error": "other"
+        },
+        {
+          "text": "I just bought this use car.",
+          "error": "spelling"
+        },
+        {
+          "text": "I just bought used this car.",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "it_makes_a_strange_noise",
+      "en": "It makes a strange noise when I drive.",
+      "zh": "我開車的時候它會發出怪聲。",
+      "note": "說車子的毛病：It makes a … noise。",
+      "distractors": [
+        {
+          "text": "It makes strange noise when I drive.",
+          "error": "article"
+        },
+        {
+          "text": "It make a strange noise when I drive.",
+          "error": "other"
+        },
+        {
+          "text": "It makes a noise strange when I drive.",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "i_dont_need_a_whole_new_engine",
+      "en": "So I don't need a whole new engine?",
+      "zh": "所以我不用換一整顆新引擎？",
+      "note": "So 開頭，確認剛聽到的事：「所以…？」",
+      "distractors": [
+        {
+          "text": "So I don't need a new whole engine?",
+          "error": "word-order"
+        },
+        {
+          "text": "So I doesn't need a whole new engine?",
+          "error": "other"
+        },
+        {
+          "text": "So I don't need whole new engine?",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "do_i_really_need_new_tires",
+      "en": "Do I really need new tires?",
+      "zh": "輪胎真的要換新的嗎？",
+      "note": "覺得不一定要換時問。really 放在 need 前面。",
+      "distractors": [
+        {
+          "text": "Do I really need new tire?",
+          "error": "plural"
+        },
+        {
+          "text": "Do I really needs new tires?",
+          "error": "other"
+        },
+        {
+          "text": "I do really need new tires?",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "thats_a_bit_too_expensive",
+      "en": "That's a bit too expensive for me.",
+      "zh": "這對我來說有點太貴了。",
+      "accept": ["That is a bit too expensive for me."],
+      "note": "too + 形容詞 = 太…（超過能接受的）。a bit 讓語氣客氣一點。",
+      "distractors": [
+        {
+          "text": "That's a bit to expensive for me.",
+          "error": "spelling"
+        },
+        {
+          "text": "That's bit too expensive for me.",
+          "error": "missing-word"
+        },
+        {
+          "text": "That's a bit expensive too for me.",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "lets_just_fix_the_brakes",
+      "en": "Let's just fix the brakes for now.",
+      "zh": "那先修煞車就好。",
+      "accept": ["Let us just fix the brakes for now."],
+      "note": "Let's + 動詞原形；for now = 目前先這樣。",
+      "distractors": [
+        {
+          "text": "Let's just fixing the brakes for now.",
+          "error": "other"
+        },
+        {
+          "text": "Let's just fix brakes for now.",
+          "error": "article"
+        },
+        {
+          "text": "Let's just fix the brakes now for.",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "im_here_for_my_car",
+      "en": "Hi, I'm here for my car.",
+      "zh": "你好，我來牽車。",
+      "accept": ["Hi, I am here for my car.", "Hello, I'm here for my car."],
+      "note": "到店裡取車、取東西時說：I’m here for + 東西。",
+      "distractors": [
+        {
+          "text": "Hi, I'm here for me car.",
+          "error": "other"
+        },
+        {
+          "text": "Hi, I here for my car.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Hi, I'm for here my car.",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "it_sounds_really_good_now",
+      "en": "It sounds really good now.",
+      "zh": "現在聲音聽起來很正常了。",
+      "note": "sound 當動詞是「聽起來」，後面接 good，不接 well。",
+      "distractors": [
+        {
+          "text": "It sounds really well now.",
+          "error": "other"
+        },
+        {
+          "text": "It sound really good now.",
+          "error": "other"
+        },
+        {
+          "text": "It's sounds really good now.",
+          "error": "extra-word"
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "id": "happen",
+      "en": "happen",
+      "zh": "發生",
+      "emoji": "❓",
+      "abstract": true
+    },
+    {
+      "id": "wall",
+      "en": "wall",
+      "zh": "牆壁",
+      "emoji": "🧱"
+    },
+    {
+      "id": "floor",
+      "en": "floor",
+      "zh": "地板",
+      "emoji": "🟫",
+      "abstract": true
+    },
+    {
+      "id": "apartment",
+      "en": "apartment",
+      "zh": "公寓",
+      "emoji": "🏢",
+      "abstract": true
+    },
+    {
+      "id": "leak",
+      "en": "leak",
+      "zh": "漏水",
+      "emoji": "💧",
+      "abstract": true
+    },
+    {
+      "id": "house",
+      "en": "house",
+      "zh": "房子（Mr. Bell 自己的家）",
+      "emoji": "🏡"
+    },
+    {
+      "id": "worry",
+      "en": "worry",
+      "zh": "擔心",
+      "emoji": "😟",
+      "abstract": true
+    },
+    {
+      "id": "quickly",
+      "en": "quickly",
+      "zh": "很快地",
+      "emoji": "⚡",
+      "abstract": true
+    },
+    {
+      "id": "fix",
+      "en": "fix",
+      "zh": "修理",
+      "emoji": "🔧",
+      "abstract": true
+    },
+    {
+      "id": "tool",
+      "en": "tool",
+      "zh": "工具",
+      "emoji": "🧰"
+    },
+    {
+      "id": "plumber",
+      "en": "plumber",
+      "zh": "水電師傅",
+      "emoji": "🪠",
+      "abstract": true
+    },
+    {
+      "id": "fall",
+      "en": "fall",
+      "zh": "掉下去",
+      "emoji": "⬇️",
+      "abstract": true
+    },
+    {
+      "id": "drop",
+      "en": "drop",
+      "zh": "（不小心）弄掉",
+      "emoji": "🫳",
+      "abstract": true
+    },
+    {
+      "id": "pull",
+      "en": "pull",
+      "zh": "拉",
+      "emoji": "👈",
+      "abstract": true
+    },
+    {
+      "id": "push",
+      "en": "push",
+      "zh": "推",
+      "emoji": "👉",
+      "abstract": true
+    },
+    {
+      "id": "dark",
+      "en": "dark",
+      "zh": "暗的",
+      "emoji": "🌑",
+      "abstract": true
+    },
+    {
+      "id": "cabinet",
+      "en": "cabinet",
+      "zh": "（水槽下的）櫃子",
+      "emoji": "🗄️"
+    },
+    {
+      "id": "shop",
+      "en": "shop",
+      "zh": "修車廠；店",
+      "emoji": "🏪",
+      "abstract": true
+    },
+    {
+      "id": "sound",
+      "en": "sound",
+      "zh": "聲音",
+      "emoji": "🔊",
+      "abstract": true
+    },
+    {
+      "id": "trouble",
+      "en": "trouble",
+      "zh": "問題；毛病",
+      "emoji": "⚠️",
+      "abstract": true
+    },
+    {
+      "id": "estimate",
+      "en": "estimate",
+      "zh": "估價",
+      "emoji": "🧾",
+      "abstract": true
+    },
+    {
+      "id": "engine",
+      "en": "engine",
+      "zh": "引擎",
+      "emoji": "⚙️"
+    },
+    {
+      "id": "mechanic",
+      "en": "mechanic",
+      "zh": "修車師傅",
+      "emoji": "🧑‍🔧"
+    },
+    {
+      "id": "probably",
+      "en": "probably",
+      "zh": "大概；可能",
+      "emoji": "🤔",
+      "abstract": true
+    },
+    {
+      "id": "damage",
+      "en": "damage",
+      "zh": "損壞",
+      "emoji": "💥",
+      "abstract": true
+    },
+    {
+      "id": "replace",
+      "en": "replace",
+      "zh": "更換",
+      "emoji": "🔄",
+      "abstract": true
+    },
+    {
+      "id": "tire",
+      "en": "tire",
+      "zh": "輪胎",
+      "emoji": "🛞"
+    },
+    {
+      "id": "repair",
+      "en": "repair",
+      "zh": "修理",
+      "emoji": "🔩",
+      "abstract": true
+    },
+    {
+      "id": "brake",
+      "en": "brake",
+      "zh": "煞車",
+      "emoji": "🛑",
+      "abstract": true
+    },
+    {
+      "id": "enough",
+      "en": "enough",
+      "zh": "足夠的",
+      "emoji": "👌",
+      "abstract": true
+    },
+    {
+      "id": "finish",
+      "en": "finish",
+      "zh": "完成；修好",
+      "emoji": "🏁",
+      "abstract": true
+    },
+    {
+      "id": "speed",
+      "en": "speed",
+      "zh": "速度",
+      "emoji": "💨",
+      "abstract": true
+    },
+    {
+      "id": "safety",
+      "en": "safety",
+      "zh": "安全",
+      "emoji": "🦺",
+      "abstract": true
+    },
+    {
+      "id": "accident",
+      "en": "accident",
+      "zh": "意外；車禍",
+      "emoji": "🚨",
+      "abstract": true
+    },
+    {
+      "id": "dangerous",
+      "en": "dangerous",
+      "zh": "危險的",
+      "emoji": "☠️",
+      "abstract": true
+    },
+    {
+      "id": "almost",
+      "en": "almost",
+      "zh": "幾乎；快要",
+      "emoji": "⏳",
+      "abstract": true
+    },
+    {
+      "id": "full",
+      "en": "full",
+      "zh": "滿的",
+      "emoji": "🈵",
+      "abstract": true
+    },
+    {
+      "id": "fill",
+      "en": "fill",
+      "zh": "加滿；裝滿",
+      "emoji": "🫗",
+      "abstract": true
+    },
+    {
+      "id": "gas",
+      "en": "gas",
+      "zh": "汽油",
+      "emoji": "⛽"
+    },
+    {
+      "id": "inspection",
+      "en": "inspection",
+      "zh": "檢查",
+      "emoji": "🔍",
+      "abstract": true
+    },
+    {
+      "id": "warranty",
+      "en": "warranty",
+      "zh": "保固",
+      "emoji": "📜",
+      "abstract": true
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "打電話報修：廚房漏水",
+      "newChunkIds": ["my_kitchen_sink_is_leaking", "water_all_over_the_floor"],
+      "newWordIds": ["happen", "wall", "floor", "apartment", "leak"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Hi, this is Mr. Bell. What's up?",
+          "zh": "喂，我是 Bell。怎麼了嗎？"
+        },
+        {
+          "id": "t1_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "My kitchen sink is leaking.",
+          "zh": "我廚房的水槽在漏水。",
+          "chunkId": "my_kitchen_sink_is_leaking"
+        },
+        {
+          "id": "t1_3",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "That's not good. Is it a big leak?",
+          "zh": "不妙。漏得很嚴重嗎？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t1_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "There's water all over the floor.",
+          "zh": "地上都是水。",
+          "chunkId": "water_all_over_the_floor"
+        },
+        {
+          "id": "t1_5",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Sorry. That happens in these old apartments.",
+          "zh": "抱歉。這種老公寓常會這樣。"
+        },
+        {
+          "id": "t1_6",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Okay. Turn off the water under the sink for now.",
+          "zh": "好。先把水槽下面的水關掉。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "約時間來修",
+      "newChunkIds": ["can_someone_come_fix_it_today", "im_home_all_afternoon"],
+      "newWordIds": ["house", "worry", "quickly", "fix", "tool", "plumber"],
+      "fills": [
+        {
+          "id": "repair_fill_1",
+          "en": "Can someone come and ___ it today?",
+          "zh": "今天可以找人來修嗎？",
+          "options": ["fix", "fixes", "fixing"],
+          "answer": 0,
+          "note": "come and 後面的動詞也用原形。",
+          "chunkId": "can_someone_come_fix_it_today"
+        },
+        {
+          "id": "repair_fill_2",
+          "en": "The water is coming out of the ___.",
+          "zh": "水從牆壁裡流出來。",
+          "options": ["wall", "tool", "plumber"],
+          "answer": 0,
+          "note": "水會從牆壁流出來，工具和師傅不會。"
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Hi, it's Mr. Bell. The plumber's busy until Friday.",
+          "zh": "嗨，我是 Bell。水電師傅要到星期五才有空。"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can someone come and fix it today?",
+          "zh": "今天可以找人來修嗎？",
+          "chunkId": "can_someone_come_fix_it_today"
+        },
+        {
+          "id": "t2_3",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "I can do it. I have tools at my house.",
+          "zh": "我自己來修吧。我家裡有工具。",
+          "stage": { "act": "want", "item": "tool" }
+        },
+        {
+          "id": "t2_4",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "When's a good time for you?",
+          "zh": "你什麼時候方便？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t2_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm home all afternoon.",
+          "zh": "我整個下午都在家。",
+          "chunkId": "im_home_all_afternoon"
+        },
+        {
+          "id": "t2_6",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Great. Don't worry, I can fix it quickly.",
+          "zh": "好。別擔心，我很快就能修好。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "房東上門修水槽",
+      "newChunkIds": ["should_i_take_all_these_things_out", "it_seems_okay_now"],
+      "newWordIds": ["fall", "drop", "pull", "push", "dark", "cabinet"],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Let's see. It's really dark in this cabinet.",
+          "zh": "我看看。這個櫃子裡面好暗。",
+          "stage": { "act": "want", "item": "cabinet" }
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Should I take all these things out?",
+          "zh": "要我先把這些東西都拿出來嗎？",
+          "chunkId": "should_i_take_all_these_things_out",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t3_3",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Yes, please. Pull them out slowly so nothing falls.",
+          "zh": "好，麻煩你。慢慢拉出來，東西才不會掉。"
+        },
+        {
+          "id": "t3_4",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Sorry, I dropped my tool. Can you get it?",
+          "zh": "抱歉，我的工具掉了。你可以幫我撿嗎？"
+        },
+        {
+          "id": "t3_5",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "There, all done. Try the water now.",
+          "zh": "好，修好了。你開水試試看。"
+        },
+        {
+          "id": "t3_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "It seems okay now.",
+          "zh": "現在看起來好了。",
+          "chunkId": "it_seems_okay_now"
+        },
+        {
+          "id": "t3_7",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Good. You can push your things back in.",
+          "zh": "很好。你可以把東西推回去了。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "把剛買的二手車開去修車廠",
+      "newChunkIds": ["i_just_bought_this_used_car", "it_makes_a_strange_noise"],
+      "newWordIds": ["shop", "sound", "trouble", "estimate", "engine", "mechanic"],
+      "passages": [
+        {
+          "id": "repair_estimate",
+          "kind": "message",
+          "title": "Car shop (Tony)",
+          "lines": [
+            "Hi, this is Tony at the shop. I checked your car.",
+            "The engine is OK. The trouble is in the back.",
+            "Estimate: back of the car $280, oil change $60. Total $340.",
+            "Please call me before 5:00 today."
+          ],
+          "questions": [
+            {
+              "en": "Where is the trouble?",
+              "zh": "問題出在哪裡？",
+              "options": ["In the engine", "In the back", "In the lights"],
+              "answer": 1
+            },
+            {
+              "en": "How much is the total?",
+              "zh": "全部加起來多少錢？",
+              "options": ["$60", "$280", "$340"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "Welcome to the shop! I'm Tony, the mechanic.",
+          "zh": "歡迎光臨！我是修車師傅 Tony。"
+        },
+        {
+          "id": "t4_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I just bought this used car.",
+          "zh": "我剛買了這台二手車。",
+          "chunkId": "i_just_bought_this_used_car"
+        },
+        {
+          "id": "t4_3",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "Right, Mr. Bell told me. For job interviews.",
+          "zh": "對，Bell 先生跟我說過了。要開去面試嘛。"
+        },
+        {
+          "id": "t4_4",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "So, what's the trouble?",
+          "zh": "那車子有什麼問題？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t4_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "It makes a strange noise when I drive.",
+          "zh": "我開車的時候它會發出怪聲。",
+          "chunkId": "it_makes_a_strange_noise"
+        },
+        {
+          "id": "t4_6",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "That sound could be the engine.",
+          "zh": "那個聲音可能是引擎。",
+          "stage": { "act": "want", "item": "engine" }
+        },
+        {
+          "id": "t4_7",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "Let me look. I can send you an estimate later.",
+          "zh": "我看一下，晚一點傳估價給你。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "師傅說明估價",
+      "newChunkIds": ["i_dont_need_a_whole_new_engine", "do_i_really_need_new_tires"],
+      "newWordIds": ["probably", "damage", "replace", "tire", "repair", "brake"],
+      "talks": [
+        {
+          "id": "repair_talk",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "passerby",
+              "en": "Hi, my car lights don't work.",
+              "zh": "你好，我的車燈不會亮。"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "mechanic",
+              "en": "Let me check. Yes, I can fix them today.",
+              "zh": "我看看。嗯，今天就能修好。"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "passerby",
+              "en": "Great! When can I pick it up?",
+              "zh": "太好了！我什麼時候可以來拿車？"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "mechanic",
+              "en": "At four this afternoon. It's sixty dollars.",
+              "zh": "今天下午四點。六十塊。"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "passerby",
+              "en": "Okay, see you at four.",
+              "zh": "好，四點見。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "When can she pick up her car?",
+              "zh": "什麼時候可以來拿車？",
+              "options": ["At two", "At four", "At six"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "Hi! Did you get my message?",
+          "zh": "嗨！有收到我的訊息嗎？"
+        },
+        {
+          "id": "t5_2",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "I checked the engine, and it looks okay.",
+          "zh": "我檢查過引擎了，看起來沒問題。"
+        },
+        {
+          "id": "t5_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "So I don't need a whole new engine?",
+          "zh": "所以我不用換一整顆新引擎？",
+          "chunkId": "i_dont_need_a_whole_new_engine"
+        },
+        {
+          "id": "t5_4",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "No. It's your brakes. There's some damage.",
+          "zh": "不用。是煞車，有點損壞。"
+        },
+        {
+          "id": "t5_5",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "I can repair them. I'd also replace your tires.",
+          "zh": "煞車我可以修。還有，輪胎我建議換掉。",
+          "stage": { "act": "want", "item": "tire" }
+        },
+        {
+          "id": "t5_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do I really need new tires?",
+          "zh": "輪胎真的要換新的嗎？",
+          "chunkId": "do_i_really_need_new_tires"
+        },
+        {
+          "id": "t5_7",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "Probably. They're really old.",
+          "zh": "大概要喔，它們已經很舊了。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "決定先修哪些",
+      "newChunkIds": ["thats_a_bit_too_expensive", "lets_just_fix_the_brakes"],
+      "newWordIds": ["enough", "finish", "speed", "safety", "accident", "dangerous"],
+      "cloze": [
+        {
+          "lineId": "t6_3",
+          "word": "dangerous",
+          "distractors": ["delicious", "free"]
+        },
+        {
+          "lineId": "t6_4",
+          "word": "accidents",
+          "distractors": ["parties", "classes"]
+        },
+        {
+          "lineId": "t6_7",
+          "word": "months",
+          "distractors": ["dollars", "people"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "With four new tires, it's $740.",
+          "zh": "加上四個新輪胎，總共七百四十塊。"
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "That's a bit too expensive for me.",
+          "zh": "這對我來說有點太貴了。",
+          "chunkId": "thats_a_bit_too_expensive"
+        },
+        {
+          "id": "t6_3",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "I understand. But bad brakes are dangerous.",
+          "zh": "我懂。可是煞車壞了很危險。"
+        },
+        {
+          "id": "t6_4",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "I see accidents all the time.",
+          "zh": "我常常看到車禍。"
+        },
+        {
+          "id": "t6_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let's just fix the brakes for now.",
+          "zh": "那先修煞車就好。",
+          "chunkId": "lets_just_fix_the_brakes"
+        },
+        {
+          "id": "t6_6",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "Good call. Safety first.",
+          "zh": "好決定，安全第一。"
+        },
+        {
+          "id": "t6_7",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "Your tires are good enough for a few months.",
+          "zh": "你的輪胎再撐幾個月沒問題。"
+        },
+        {
+          "id": "t6_8",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "I can finish it by tomorrow.",
+          "zh": "我明天就可以修好。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "取車付款",
+      "newChunkIds": ["im_here_for_my_car", "it_sounds_really_good_now"],
+      "newWordIds": ["almost", "full", "fill", "gas", "inspection", "warranty"],
+      "spellWordIds": ["magazine", "print", "paper", "file", "board"],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Hi, I'm here for my car.",
+          "zh": "你好，我來牽車。",
+          "chunkId": "im_here_for_my_car"
+        },
+        {
+          "id": "t7_2",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "Hi! It's almost done. I'm just finishing the inspection.",
+          "zh": "嗨！快好了，我在做最後的檢查。"
+        },
+        {
+          "id": "t7_3",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "Okay, all good. Take it for a short drive.",
+          "zh": "好，都沒問題。你開一小段試試看。"
+        },
+        {
+          "id": "t7_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "It sounds really good now.",
+          "zh": "現在聲音聽起來很正常了。",
+          "chunkId": "it_sounds_really_good_now"
+        },
+        {
+          "id": "t7_5",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "Yes. And the new brakes have a warranty for one year.",
+          "zh": "對啊。新的煞車有一年保固。"
+        },
+        {
+          "id": "t7_6",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "By the way, you're almost out of gas. Fill it up today.",
+          "zh": "對了，你快沒油了，今天記得去加滿。",
+          "stage": { "act": "want", "item": "gas" }
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "Hi there! What can I do for you?",
+          "zh": "嗨！需要什麼嗎？"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Hi, I'm here for my car.",
+          "zh": "你好，我來牽車。",
+          "chunkId": "im_here_for_my_car"
+        },
+        {
+          "id": "t8_3",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "Sure! Sorry, the shop's full today. Ten more minutes?",
+          "zh": "好！抱歉，今天店裡很滿。再等十分鐘好嗎？"
+        },
+        {
+          "id": "t8_4",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "No problem, we can wait. So, how is the apartment?",
+          "zh": "沒關係，我們可以等。對了，公寓住得還好嗎？"
+        },
+        {
+          "id": "t8_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "My kitchen sink is leaking.",
+          "zh": "我廚房的水槽在漏水。",
+          "chunkId": "my_kitchen_sink_is_leaking"
+        },
+        {
+          "id": "t8_6",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Again? Sorry. I think we need to replace it.",
+          "zh": "又漏了？抱歉。我看要整個換掉了。"
+        },
+        {
+          "id": "t8_7",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Can I come by today?",
+          "zh": "我今天過去可以嗎？"
+        },
+        {
+          "id": "t8_8",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm home all afternoon.",
+          "zh": "我整個下午都在家。",
+          "chunkId": "im_home_all_afternoon"
+        },
+        {
+          "id": "t8_9",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Good, see you at three. Wait, is that your car?",
+          "zh": "好，三點見。咦，那是你的車嗎？"
+        },
+        {
+          "id": "t8_10",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I just bought this used car.",
+          "zh": "我剛買了這台二手車。",
+          "chunkId": "i_just_bought_this_used_car"
+        },
+        {
+          "id": "t8_11",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "Here are your keys. Try the brakes.",
+          "zh": "鑰匙給你。試一下煞車。"
+        },
+        {
+          "id": "t8_12",
+          "role": "guide",
+          "speaker": "player",
+          "en": "It seems okay now.",
+          "zh": "現在看起來好了。",
+          "chunkId": "it_seems_okay_now"
+        },
+        {
+          "id": "t8_13",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "And the noise?",
+          "zh": "那怪聲呢？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_14",
+          "role": "guide",
+          "speaker": "player",
+          "en": "It sounds really good now.",
+          "zh": "現在聲音聽起來很正常了。",
+          "chunkId": "it_sounds_really_good_now"
+        },
+        {
+          "id": "t8_15",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "Great. But your tires are really old.",
+          "zh": "很好。不過你的輪胎真的很舊了。",
+          "stage": { "act": "want", "item": "tire" }
+        },
+        {
+          "id": "t8_16",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do I really need new tires?",
+          "zh": "輪胎真的要換新的嗎？",
+          "chunkId": "do_i_really_need_new_tires"
+        },
+        {
+          "id": "t8_17",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "In a month or two. Today, I can do them for $400.",
+          "zh": "一兩個月內要換。今天換的話四百塊。"
+        },
+        {
+          "id": "t8_18",
+          "role": "guide",
+          "speaker": "player",
+          "en": "That's a bit too expensive for me.",
+          "zh": "這對我來說有點太貴了。",
+          "chunkId": "thats_a_bit_too_expensive"
+        },
+        {
+          "id": "t8_19",
+          "role": "mechanic",
+          "speaker": "npc",
+          "en": "No problem. Come back next month.",
+          "zh": "沒關係，下個月再來。"
+        }
+      ]
+    }
+  ]
+}
