@@ -62,6 +62,7 @@
 | `scene[].chunkId`      | `player` 台詞一定要有，指向它練習的詞塊                                                                                           |
 | `scene[].stage`        | 小劇場的道具動作（選填）：`want`／`give` 加單字 id，或 `ask`；見 [scene-stage.md](scene-stage.md)                                 |
 | `pairs[]`              | 最小對比詞（選填），給聽辨挑戰用：`id`、`focus`（例如「f／v」）、`note`（一行發音提示）、`a`／`b` 兩個字（各有 `id`、`en`、`zh`） |
+| `tasks[].kind`         | 任務種類（選填）：不寫是一般任務；`roleplay` 是角色扮演大挑戰，只複習，不教新內容                                                 |
 | `tasks[].newPairIds`   | 這個任務新教的對比詞（選填）                                                                                                      |
 
 對比詞的例子（`move_in.json`）：
@@ -93,6 +94,7 @@
 - `role` 和 `speaker` 是合法值。
 - 對比詞：id 和兩個字的 id 符合格式、不重複；有 `focus`；兩個字都有 `en`、`zh` 而且不一樣；任務的 `newPairIds` 都存在。
 - `stage` 的 `act` 合法；`want`／`give` 的 `item` 是同單元的單字，`ask` 不帶 `item`。
+- `kind` 只能是 `roleplay`。角色扮演任務：`newChunkIds`、`newWordIds` 是空的，沒有 `newPairIds`；第一句是 NPC 說的，每句 `player` 台詞前面都是 NPC 的台詞；至少 2 句 `player` 台詞；台詞用的詞塊都在同一個單元更早的任務教過。
 
 不合格的單元不會被載入，開發模式下會在 console 顯示警告。`tests/content.test.ts` 會檢查 `src/data/units/` 裡的每個單元。
 
@@ -102,17 +104,17 @@
 
 ### 搬家第一天（`move_in`）
 
-- 14 個詞塊、22 個單字（11 個標 `abstract`：welcome、okay、neighbor、two～nine）、6 組對比詞、7 個任務、35 句劇情台詞。NPC 是房東 Mr. Bell（`landlord`，t1～t5）和鄰居 Lena（`neighbor`，t6～t7）。
-- 任務：見到房東（自我介紹）、名字怎麼拼（How do you spell that?）、垃圾怎麼丟（Can you speak more slowly, please?）、搬箱子、聊聊自己、認識鄰居、請鄰居進來坐。
+- 14 個詞塊、22 個單字（11 個標 `abstract`：welcome、okay、neighbor、two～nine）、6 組對比詞、8 個任務、48 句劇情台詞。NPC 是房東 Mr. Bell（`landlord`，t1～t5、t8）和鄰居 Lena（`neighbor`，t6～t7）。
+- 任務：見到房東（自我介紹）、名字怎麼拼（How do you spell that?）、垃圾怎麼丟（Can you speak more slowly, please?）、搬箱子、聊聊自己、認識鄰居、請鄰居進來坐，最後是角色扮演大挑戰（和房東重演第一天：自我介紹、從哪裡來、一個人住、聽不懂請他說慢一點，你說 6 句）。
 - 對比詞：fan/van、light/right、bed/bad、sink/think、ship/sheep、cap/cup，t1～t3 每個任務兩組；t4～t7 沒有對比詞。
 - 單字像素圖：鑰匙、箱子、門、椅子、檯燈、垃圾桶、房間、家、汽車、手機、沙發。對比詞不用圖（聽辨題只靠聲音）。
-- 小劇場：新家玄關，房東或鄰居（只畫這個任務有說話的角色）；12 句台詞有道具提示，見 [scene-stage.md](scene-stage.md)。
+- 小劇場：新家玄關，房東或鄰居（只畫這個任務有說話的角色）；16 句台詞有道具提示，見 [scene-stage.md](scene-stage.md)。
 - 英文句子還沒請人審閱，發音還沒請使用者試聽。
 
 ### 咖啡廳（`cafe`）
 
-- 14 個詞塊、21 個單字（4 個標 `abstract`：outside、inside、sit、read）、7 個任務、28 句劇情台詞。
-- 任務：點一杯拿鐵、內用還是外帶、付錢、冰的不加糖、大杯小杯、外面有位子嗎、這裡有人坐嗎。
+- 14 個詞塊、21 個單字（4 個標 `abstract`：outside、inside、sit、read）、8 個任務、41 句劇情台詞。
+- 任務：點一杯拿鐵、內用還是外帶、付錢、冰的不加糖、大杯小杯、外面有位子嗎、這裡有人坐嗎，最後是角色扮演大挑戰（從點冰咖啡到付錢拿飲料，中間聽不懂請店員再說一次，你說 6 句）。
 - 單字像素圖：拿鐵、茶、瑪芬、水、蛋糕、三明治、冰咖啡、冰塊、糖、餅乾、小中大杯（三個杯子排一排，標出那一個）、桌子、窗戶、座位（高腳椅）、書。
 
 ## 新增一個單元

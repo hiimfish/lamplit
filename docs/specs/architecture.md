@@ -25,7 +25,7 @@ src/
   layout.ts         整數倍縮放的版面計算
   styles.css        全域樣式和配色變數
   game/             Phaser 街景：palette、painter、street/（配置與繪製）、scenes/TitleScene
-  ui/               Preact 畫面：App、TownScreen、TaskScreen、SceneStory、IntroCards、
+  ui/               Preact 畫面：App、TownScreen、TaskScreen、SceneStory、ChatLines（對話紀錄）、RolePlay（角色扮演大挑戰）、IntroCards、
                     ResultScreen、ReviewScreen、SettingsPanel、ItemIcon、焦點與對話框工具
   ui/stage/         劇情小劇場：SceneStage（畫面；TaskStage 讓整個任務都顯示）、stageState（每一句和劇情結束後的舞台狀態）；
                     劇情之後由 audio/pronounce 的 nowPlaying 和 content/units 的 speakerOf 決定誰在跳動
