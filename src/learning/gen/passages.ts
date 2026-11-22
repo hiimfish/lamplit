@@ -1,7 +1,7 @@
 /**
  * 讀短文 (TOEIC Part 7): one question per ChoiceQuestion of each PassageItem of a task,
- * each carrying the whole passage; the questions on one passage come one after another.
- * Minimal version; the rendering is src/ui/minigames/ReadPassage.tsx.
+ * each carrying the whole passage; the questions on one passage come one after another,
+ * in the order the content gives them. The rendering is src/ui/minigames/ReadPassage.tsx.
  */
 import type { PassageKind, Task } from '../../content/types';
 import { NO_ITEM } from '../questions';
@@ -20,11 +20,41 @@ export interface PassageQuestion {
   zh: string;
   options: { id: string; label: string }[];
   correctId: string;
+  /**
+   * Index in `lines` of the line that holds the answer, highlighted after answering:
+   * the first line containing the right option's text as whole words, ignoring case.
+   * Absent when no line does (then nothing is highlighted rather than a guess).
+   */
+  answerLine?: number;
   /** Which question on this passage it is (0-based), and how many there are. */
   index: number;
   total: number;
   /** Always NO_ITEM: reading a passage is not one item to review. */
   itemId: string;
+}
+
+const isWordChar = (ch: string | undefined) => ch !== undefined && /[a-z0-9]/i.test(ch);
+
+/**
+ * Index of the first line that contains `answer` (ignoring case and surrounding space),
+ * not as part of a longer word: "May" is found in "April and May." but not in "Mayor".
+ * Returns -1 when no line does.
+ */
+export function findAnswerLine(lines: readonly string[], answer: string): number {
+  const needle = answer.trim().toLowerCase().replace(/\s+/g, ' ');
+  if (needle === '') return -1;
+  return lines.findIndex((line) => {
+    const hay = line.toLowerCase().replace(/\s+/g, ' ');
+    for (let at = hay.indexOf(needle); at >= 0; at = hay.indexOf(needle, at + 1)) {
+      const before = hay[at - 1];
+      const after = hay[at + needle.length];
+      // Only a letter or digit glued to the match makes it part of another word.
+      const gluedBefore = isWordChar(before) && isWordChar(needle[0]);
+      const gluedAfter = isWordChar(after) && isWordChar(needle[needle.length - 1]);
+      if (!gluedBefore && !gluedAfter) return true;
+    }
+    return false;
+  });
 }
 
 /** Passage questions for the task's `passages`, in order, options in a shuffled order. */
@@ -45,6 +75,8 @@ export function passageQuestions(task: Task, rng: Rng): PassageQuestion[] {
         itemId: NO_ITEM,
       };
       if (passage.title) question.title = passage.title;
+      const line = findAnswerLine(passage.lines, q.options[q.answer] ?? '');
+      if (line >= 0) question.answerLine = line;
       return question;
     }),
   );

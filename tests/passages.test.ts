@@ -1,9 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import type { PassageItem, Task, Unit } from '../src/content/types';
 import type { TaskCheckContext } from '../src/content/checks/common';
-import { checkPassages, PASSAGE_MAX_WORDS } from '../src/content/checks/passages';
+import {
+  checkPassages,
+  PASSAGE_MAX_WORDS,
+  PASSAGE_MIN_WORDS,
+} from '../src/content/checks/passages';
 import { validateUnit } from '../src/content/validate';
-import { passageQuestions } from '../src/learning/gen/passages';
+import { findAnswerLine, passageQuestions } from '../src/learning/gen/passages';
 import { buildTaskPractice, makeRng } from '../src/learning/questionGen';
 import { NO_ITEM } from '../src/learning/questions';
 
@@ -11,12 +15,15 @@ const passage = (over: Partial<PassageItem> = {}): PassageItem => ({
   id: 'p1',
   kind: 'notice',
   title: 'Job Fair',
-  lines: ['Come to the job fair on Monday.', 'It starts at 10 a.m.'],
+  lines: [
+    'Come to the job fair on Monday at the Job Center.',
+    'It starts at 10 a.m. and it is free.',
+  ],
   questions: [
     {
       en: 'When is the job fair?',
       zh: '就業博覽會是哪天？',
-      options: ['Monday', 'Friday'],
+      options: ['Monday', 'Friday', 'Sunday'],
       answer: 0,
     },
     {
@@ -38,6 +45,8 @@ const context = (): TaskCheckContext => {
   };
 };
 const problems = (passages: unknown) => checkPassages({ passages }, context());
+/** The problems of one passage, as one string to match against. */
+const said = (p: unknown) => problems([p]).join('\n');
 
 const task = (over: Partial<Task> = {}): Task => ({
   id: 't1',
@@ -57,38 +66,122 @@ const unit = (passages: PassageItem[]): Unit => ({
   tasks: [task({ passages })],
 });
 
+const words = (n: number) => Array.from({ length: n }, () => 'word').join(' ');
+
 describe('checkPassages (讀短文)', () => {
-  it('accepts a good passage and a task without passages', () => {
+  it('accepts good passages of every kind and a task without passages', () => {
     expect(problems([passage()])).toEqual([]);
-    expect(problems([passage({ title: undefined, kind: 'email' })])).toEqual([]);
+    for (const kind of ['message', 'flyer', 'notice', 'ad', 'form', 'email'] as const) {
+      expect(problems([passage({ kind })])).toEqual([]);
+    }
+    expect(problems([passage({ title: undefined, kind: 'flyer' })])).toEqual([]);
+    expect(problems([passage(), passage({ id: 'p2' })])).toEqual([]);
     expect(checkPassages({}, context())).toEqual([]);
     expect(validateUnit(unit([passage()]))).toEqual([]);
   });
 
-  it('rejects an empty list, bad or repeated ids and bad kinds', () => {
+  it('rejects an empty list and more than 2 passages in a task', () => {
     expect(problems([])).not.toEqual([]);
-    expect(problems([passage({ id: 'Job-Fair' })])).not.toEqual([]);
-    expect(problems([passage(), passage()])).not.toEqual([]);
-    expect(problems([{ ...passage(), kind: 'poem' }])).not.toEqual([]);
-    expect(problems([passage({ title: '' })])).not.toEqual([]);
+    expect(problems('nope')).not.toEqual([]);
+    const three = [passage(), passage({ id: 'p2' }), passage({ id: 'p3' })];
+    expect(problems(three).join()).toMatch(/3 passages \(at most 2\)/);
   });
 
-  it(`needs lines, at most ${PASSAGE_MAX_WORDS} words with the title`, () => {
-    expect(problems([passage({ lines: [] })])).not.toEqual([]);
-    expect(problems([passage({ lines: ['ok', ''] })])).not.toEqual([]);
-    const words = (n: number) => Array.from({ length: n }, () => 'word').join(' ');
-    expect(problems([passage({ title: 'Job Fair', lines: [words(78)] })])).toEqual([]);
-    expect(problems([passage({ title: 'Job Fair', lines: [words(79)] })])).not.toEqual([]);
+  it('rejects bad or repeated ids, also across tasks of a unit', () => {
+    expect(said(passage({ id: 'Job-Fair' }))).toMatch(/bad id/);
+    expect(problems([passage(), passage()]).join()).toMatch(/duplicate id/);
+    const ctx = context();
+    expect(checkPassages({ passages: [passage()] }, ctx)).toEqual([]);
+    expect(checkPassages({ passages: [passage()] }, ctx).join()).toMatch(/duplicate id/);
   });
 
-  it('needs 1 to 3 good questions', () => {
+  it('rejects a bad kind, naming the good ones', () => {
+    expect(said({ ...passage(), kind: 'poem' })).toMatch(/bad kind "poem".*message, flyer/);
+    expect(said({ ...passage(), kind: undefined })).toMatch(/bad kind/);
+  });
+
+  it('rejects an empty title, and a message or email without one', () => {
+    expect(said(passage({ title: '' }))).toMatch(/empty title/);
+    expect(said(passage({ title: '   ' }))).toMatch(/empty title/);
+    expect(said({ ...passage(), title: 3 })).toMatch(/empty title/);
+    expect(said(passage({ title: undefined, kind: 'message' }))).toMatch(
+      /needs a title: the sender/,
+    );
+    expect(said(passage({ title: undefined, kind: 'email' }))).toMatch(
+      /needs a title: the subject/,
+    );
+  });
+
+  it('needs at least 2 lines, each real text', () => {
+    expect(said(passage({ lines: [] }))).toMatch(/at least 2 lines/);
+    expect(
+      said(passage({ lines: ['Come to the job fair on Monday at ten in the morning.'] })),
+    ).toMatch(/at least 2 lines/);
+    expect(said({ ...passage(), lines: 'Come on Monday.' })).toMatch(/at least 2 lines/);
+    const good = passage().lines[0]!;
+    expect(said(passage({ lines: [good, ''] }))).toMatch(/line 2 is empty/);
+    expect(said(passage({ lines: ['  ', good] }))).toMatch(/line 1 is empty/);
+    expect(said({ ...passage(), lines: [good, 7] })).toMatch(/line 2 is empty or not text/);
+  });
+
+  it(`needs ${PASSAGE_MIN_WORDS} to ${PASSAGE_MAX_WORDS} words with the title`, () => {
+    // "Job Fair" is 2 words.
+    expect(problems([passage({ lines: [words(38), words(40)] })])).toEqual([]);
+    expect(said(passage({ lines: [words(38), words(41)] }))).toMatch(/81 words .*max 80/);
+    expect(problems([passage({ lines: [words(6), words(7)] })])).toEqual([]);
+    expect(said(passage({ lines: [words(6), words(6)] }))).toMatch(/14 words .*min 15/);
+    expect(said(passage({ title: undefined, lines: [words(7), words(7)] }))).toMatch(/14 words/);
+  });
+
+  it('needs 1 to 3 good, different questions', () => {
     const q = passage().questions[0]!;
-    expect(problems([passage({ questions: [] })])).not.toEqual([]);
-    expect(problems([passage({ questions: [q, q, q, q] })])).not.toEqual([]);
-    expect(problems([passage({ questions: [{ ...q, zh: '' }] })])).not.toEqual([]);
-    expect(problems([passage({ questions: [{ ...q, options: ['Monday'] }] })])).not.toEqual([]);
-    expect(problems([passage({ questions: [{ ...q, options: ['a', 'A'] }] })])).not.toEqual([]);
-    expect(problems([passage({ questions: [{ ...q, answer: 2 }] })])).not.toEqual([]);
+    const other = passage().questions[1]!;
+    const third = {
+      ...q,
+      en: 'Where is the job fair?',
+      options: ['At the Job Center', 'At the bank'],
+    };
+    expect(problems([passage({ questions: [q, other, third] })])).toEqual([]);
+    expect(problems([passage({ questions: [{ ...q, options: ['a', 'b', 'c', 'd'] }] })])).toEqual(
+      [],
+    );
+    expect(said(passage({ questions: [] }))).toMatch(/1 to 3 questions/);
+    expect(said({ ...passage(), questions: undefined })).toMatch(/1 to 3 questions/);
+    expect(said(passage({ questions: [q, other, third, q] }))).toMatch(/1 to 3 questions/);
+    expect(said(passage({ questions: [{ ...q, zh: '' }] }))).toMatch(/question 1 needs en and zh/);
+    expect(said(passage({ questions: [{ ...q, options: ['Monday'] }] }))).toMatch(/2 to 4/);
+    expect(said(passage({ questions: [{ ...q, options: ['a', 'b', 'c', 'd', 'e'] }] }))).toMatch(
+      /2 to 4/,
+    );
+    expect(said(passage({ questions: [{ ...q, options: ['a', 'A'] }] }))).toMatch(/2 to 4/);
+    expect(said(passage({ questions: [{ ...q, answer: 3 }] }))).toMatch(/bad answer/);
+    expect(said(passage({ questions: [q, { ...other, en: 'WHEN is the job fair? ' }] }))).toMatch(
+      /question 2 asks the same as question 1/,
+    );
+  });
+
+  it('reports the task through validateUnit', () => {
+    const report = validateUnit(unit([passage({ kind: 'email', title: undefined })]));
+    expect(report.join()).toMatch(/task "t1" passage "p1" is an email and needs a title/);
+  });
+});
+
+describe('findAnswerLine', () => {
+  const lines = ['Story Time for Kids: April and May.', 'Ask the Mayor at 10:00.', 'Total $520.'];
+
+  it('finds the first line with the answer as whole words, ignoring case and spaces', () => {
+    expect(findAnswerLine(lines, 'may')).toBe(0);
+    expect(findAnswerLine(lines, ' april  and MAY ')).toBe(0);
+    expect(findAnswerLine(lines, '$520')).toBe(2);
+    expect(findAnswerLine(lines, '10:00')).toBe(1);
+    expect(findAnswerLine(['The Mayor came.', 'In May.'], 'May')).toBe(1);
+  });
+
+  it('finds nothing rather than guess', () => {
+    expect(findAnswerLine(lines, 'June')).toBe(-1);
+    expect(findAnswerLine(lines, 'Mayo')).toBe(-1);
+    expect(findAnswerLine(lines, '52')).toBe(-1);
+    expect(findAnswerLine(lines, '')).toBe(-1);
   });
 });
 
@@ -115,13 +208,57 @@ describe('passageQuestions', () => {
     );
   });
 
+  it('marks the line that holds the answer, or none', () => {
+    const [first, second] = passageQuestions(task({ passages: [passage()] }), makeRng(1));
+    expect(first?.answerLine).toBe(0);
+    expect(second?.answerLine).toBe(1);
+    const q = { en: 'Is it free?', zh: '免費嗎？', options: ['Yes', 'No'], answer: 0 };
+    const [none] = passageQuestions(task({ passages: [passage({ questions: [q] })] }), makeRng(1));
+    expect(none).not.toHaveProperty('answerLine');
+  });
+
+  it('leaves out a missing title', () => {
+    const [q] = passageQuestions(
+      task({ passages: [passage({ title: undefined, kind: 'flyer' })] }),
+      makeRng(1),
+    );
+    expect(q).not.toHaveProperty('title');
+  });
+
+  it('is deterministic for a seed and shuffles the options', () => {
+    const many = passage({
+      questions: [{ en: 'Which?', zh: '哪個？', options: ['a', 'b', 'c', 'd'], answer: 2 }],
+    });
+    const run = (seed: number) => passageQuestions(task({ passages: [many] }), makeRng(seed));
+    expect(run(7)).toEqual(run(7));
+    const orders = new Set(
+      Array.from({ length: 20 }, (_, s) =>
+        run(s)[0]!
+          .options.map((o) => o.label)
+          .join(),
+      ),
+    );
+    expect(orders.size).toBeGreaterThan(1);
+    for (let s = 0; s < 20; s++) {
+      const q = run(s)[0]!;
+      expect(q.options.find((o) => o.id === q.correctId)?.label).toBe('c');
+    }
+  });
+
   it('comes in the task practice before arranging, questions on one passage together', () => {
     const passages = [passage(), passage({ id: 'p2' })];
-    const kinds = buildTaskPractice(unit(passages), task({ passages }), makeRng(1)).map(
-      (q) => q.kind,
+    const questions = buildTaskPractice(unit(passages), task({ passages }), makeRng(1));
+    const reads = questions.filter((q) => q.kind === 'read-passage');
+    const first = questions.findIndex((q) => q.kind === 'read-passage');
+    expect(questions.slice(first, first + 4).map((q) => q.kind)).toEqual(
+      Array(4).fill('read-passage'),
     );
-    const first = kinds.indexOf('read-passage');
-    expect(kinds.slice(first, first + 4)).toEqual(Array(4).fill('read-passage'));
-    expect(first).toBeLessThan(kinds.indexOf('arrange'));
+    expect(reads.map((q) => (q.kind === 'read-passage' ? [q.passageId, q.index] : []))).toEqual([
+      ['p1', 0],
+      ['p1', 1],
+      ['p2', 0],
+      ['p2', 1],
+    ]);
+    expect(first).toBeLessThan(questions.findIndex((q) => q.kind === 'arrange'));
   });
 });

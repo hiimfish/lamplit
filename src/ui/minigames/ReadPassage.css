@@ -1,23 +1,208 @@
-/* 讀短文 (ReadPassage.tsx): a paper note with a title and lines of text. */
-.passage {
-  align-self: center;
-  box-sizing: border-box;
-  width: min(100%, calc(200 * var(--px)));
-  padding: calc(5 * var(--px)) calc(8 * var(--px));
+/*
+ * 讀短文 (ReadPassage.tsx): a paper box with the text, the question and keys under it
+ * (portrait) or beside it (landscape). Nothing here animates, so "reduce motion" needs no
+ * extra rule.
+ *
+ * Sizes are in logical pixels (calc(N * var(--px))). The text keeps the story's 11 px with
+ * line height 1.5, so an 80-word text is about 12 to 15 lines. It cannot always fit with
+ * the question, so the box has a maximum height and scrolls inside itself:
+ *
+ * Portrait: the UI area is the viewport minus the scene (--scene-h). Besides the box it
+ * holds about 212 px: the card padding (10), the bar and progress strip (35), the prompt
+ * (14), a two-line question and two lines of Chinese (59), two rows of 44-CSS-px keys
+ * (about 72 at the usual 1.33 CSS px per logical px), the gaps and a few px to spare. The
+ * box gets the rest, but never less than 60 px (3 lines), so very short screens scroll
+ * the card rather than show a useless slit. At 390x844 that is about 240 px, so most
+ * texts fit whole.
+ *
+ * Landscape: the card is widened like the story's and the text stands on the left, the
+ * question and keys on the right. The card is at most the scene height minus 30 (rim and
+ * padding); the bar, progress strip, prompt and gaps take about 47 more, so the box gets
+ * the scene height minus 81.
+ */
+
+.rp-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(4 * var(--px));
+}
+
+.rp-count {
+  flex: none;
+  font-size: calc(11 * var(--px));
+  color: var(--ink);
+}
+
+.rp-layout,
+.rp-ask {
   display: flex;
   flex-direction: column;
-  gap: calc(2 * var(--px));
+  gap: calc(4 * var(--px));
+  min-width: 0;
+}
+
+/* Holds the box and its "▼ 還有" tag. */
+.rp-frame {
+  position: relative;
+  min-width: 0;
+}
+
+.rp-paper {
+  /* position: relative so a line's offsetTop is measured from the box. */
+  position: relative;
+  box-sizing: border-box;
+  max-height: max(calc(60 * var(--px)), calc(100vh - var(--scene-h) - 212 * var(--px)));
+  max-height: max(calc(60 * var(--px)), calc(100dvh - var(--scene-h) - 212 * var(--px)));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: calc(5 * var(--px)) calc(7 * var(--px));
   font-size: calc(11 * var(--px));
-  background: var(--paper);
-  color: var(--ink);
-  box-shadow: inset 0 0 0 var(--px) var(--ink);
-}
-
-.passage-title {
-  font-weight: bold;
-}
-
-.passage-line {
-  margin: 0;
   line-height: 1.5;
+  color: var(--ink);
+  background: var(--paper);
+  border: var(--px) solid var(--ink);
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink) var(--paper);
+}
+
+.rp-paper:focus-visible {
+  outline: var(--line) dotted var(--ink);
+  outline-offset: var(--px);
+}
+
+.rp-text,
+.rp-bubble {
+  display: flex;
+  flex-direction: column;
+  gap: calc(3 * var(--px));
+}
+
+.rp-line {
+  margin: 0;
+  padding: 0 calc(2 * var(--px));
+  overflow-wrap: anywhere;
+}
+
+/* The line that holds the answer: lamp fill and an ink rim, so not by colour alone. */
+.rp-line.rp-hit {
+  background: var(--lamp);
+  outline: var(--px) solid var(--ink);
+}
+
+/* More text below: a small ink tag on the box's bottom edge. A label, not a key. */
+.rp-more {
+  position: absolute;
+  right: calc(2 * var(--px));
+  bottom: calc(2 * var(--px));
+  padding: 0 calc(3 * var(--px));
+  font-size: calc(11 * var(--px));
+  line-height: 1.3;
+  color: var(--paper);
+  background: var(--ink);
+  pointer-events: none;
+}
+
+/* Heading of a flyer, an ad and a form: centred over a dotted rule. */
+.rp-heading {
+  padding: 0 calc(2 * var(--px)) calc(2 * var(--px));
+  text-align: center;
+  letter-spacing: var(--px);
+  border-bottom: var(--px) dotted var(--ink);
+}
+
+/* Flyer: a double rim, everything centred. */
+.rp-flyer {
+  border: calc(3 * var(--px)) double var(--ink);
+}
+
+.rp-flyer .rp-line {
+  text-align: center;
+}
+
+/* Ad: a dashed rim like a cut-out, a centred heading over left-aligned lines. */
+.rp-ad {
+  border-style: dashed;
+}
+
+/* Notice: the heading is an ink bar across the top of the box. */
+.rp-notice .rp-heading {
+  margin: calc(-5 * var(--px)) calc(-7 * var(--px)) var(--px);
+  padding: var(--px) calc(7 * var(--px));
+  color: var(--paper);
+  background: var(--ink);
+  border-bottom: 0;
+}
+
+/* Message: the sender above a speech bubble on a lamp-tinted screen. */
+.rp-message {
+  background: var(--lamp-tint);
+}
+
+.rp-sender {
+  margin-bottom: calc(3 * var(--px));
+}
+
+.rp-bubble {
+  position: relative;
+  margin-left: calc(4 * var(--px));
+  padding: calc(3 * var(--px)) calc(4 * var(--px));
+  background: var(--paper);
+  border: var(--px) solid var(--ink);
+}
+
+/* A stepped tail on the bubble's left, covering its rim where they meet. */
+.rp-bubble::before {
+  content: '';
+  position: absolute;
+  top: calc(4 * var(--px));
+  left: calc(-5 * var(--px));
+  width: calc(5 * var(--px));
+  height: calc(5 * var(--px));
+  box-sizing: border-box;
+  background: var(--paper);
+  border: var(--px) solid var(--ink);
+  border-right: 0;
+}
+
+/* Email: the subject line over a rule. */
+.rp-subject {
+  padding-bottom: calc(2 * var(--px));
+  border-bottom: var(--px) solid var(--ink);
+}
+
+/* Form: "Label: value" lines as two columns, the value on a dotted line like a filled-in field. */
+.rp-row {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: calc(4 * var(--px));
+  align-items: end;
+}
+
+.rp-label::after {
+  content: ':';
+}
+
+.rp-value {
+  border-bottom: var(--px) dotted var(--ink);
+}
+
+/* Landscape: text and question side by side, in a card as wide as the story's. */
+:root[data-orientation='landscape'] .flow-card:has(.rp) {
+  max-width: calc(440 * var(--px));
+}
+
+:root[data-orientation='landscape'] .rp-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: start;
+  gap: calc(6 * var(--px));
+}
+
+:root[data-orientation='landscape'] .rp-ask {
+  gap: calc(3 * var(--px));
+}
+
+:root[data-orientation='landscape'] .rp-paper {
+  max-height: max(calc(60 * var(--px)), calc(var(--scene-h) - 81 * var(--px)));
 }
