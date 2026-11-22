@@ -11,8 +11,12 @@ export type VoiceMode = 'neural2' | 'chirp';
 export type Speed = 'normal' | 'slow';
 
 export const VOICE_NAMES: Record<VoiceMode, Record<Role, string>> = {
-  neural2: { barista: 'en-US-Neural2-C', guide: 'en-US-Neural2-A' },
-  chirp: { barista: 'en-US-Chirp3-HD-Achernar', guide: 'en-US-Chirp3-HD-Achird' },
+  neural2: { barista: 'en-US-Neural2-C', landlord: 'en-US-Neural2-D', guide: 'en-US-Neural2-A' },
+  chirp: {
+    barista: 'en-US-Chirp3-HD-Achernar',
+    landlord: 'en-US-Chirp3-HD-Charon',
+    guide: 'en-US-Chirp3-HD-Achird',
+  },
 };
 
 /** Neural2 slow rate (it honours speakingRate, a steady ~1.32x longer). */

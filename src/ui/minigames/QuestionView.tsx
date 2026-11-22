@@ -8,6 +8,7 @@ import type { AnswerResult, Question } from '../../learning/questions';
 import { focusAndReveal, focusLost, focusStatic } from '../focus';
 import { Arrange } from './Arrange';
 import { ChooseReply } from './ChooseReply';
+import { ListenPair } from './ListenPair';
 import { ListenPick } from './ListenPick';
 import { Speak } from './Speak';
 import './minigames.css';
@@ -51,6 +52,9 @@ function Body({ question, onAnswer }: QuestionViewProps) {
   switch (question.kind) {
     case 'listen-pick':
       view = <ListenPick question={question} onAnswered={onAnswered} />;
+      break;
+    case 'listen-pair':
+      view = <ListenPair question={question} onAnswered={onAnswered} />;
       break;
     case 'arrange':
       view = <Arrange question={question} onAnswered={onAnswered} />;

@@ -27,10 +27,10 @@ src/
   game/             Phaser 街景：palette、painter、street/（配置與繪製）、scenes/TitleScene
   ui/               Preact 畫面：App、TownScreen、TaskScreen、SceneStory、IntroCards、
                     ResultScreen、ReviewScreen、SettingsPanel、ItemIcon、焦點與對話框工具
-  ui/minigames/     題型元件：ListenPick、ChooseReply、Arrange、Speak、QuestionView，
-                    以及錄音和辨識的 hook
+  ui/minigames/     題型元件：ListenPick、ListenPair（聽辨挑戰）、ChooseReply、Arrange、
+                    Speak、QuestionView，以及錄音和辨識的 hook
   learning/         出題、批改、錯誤提示、FSRS 排程、練習與複習的規則
-  content/          單元型別、載入、內容檢查、音檔項目
+  content/          單元型別、載入、內容檢查、音檔項目、角色的中文名稱（roles）
   core/             共用狀態、存檔、設定
   audio/            發音播放、音軌與音量、背景音樂、音效、錄音、語音辨識
   art/              單字像素圖

@@ -77,6 +77,37 @@
   font-size: calc(11 * var(--px));
 }
 
+/* Listening discrimination: the contrast being trained, and big two-line word keys. */
+.mg-focus {
+  margin: 0;
+  font-size: calc(11 * var(--px));
+  color: var(--ink);
+}
+
+.pixel-button.mg-pair-option {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--px);
+  min-height: calc(var(--tap) * 1.5);
+}
+
+.mg-pair-en {
+  font-size: calc(22 * var(--px));
+}
+
+.mg-pair-zh {
+  font-size: calc(11 * var(--px));
+}
+
+/* With the column layout the ○ / × mark sits at the top right instead of the line end. */
+.mg-pair-option.right::after,
+.mg-pair-option.wrong::after {
+  position: absolute;
+  top: calc(2 * var(--px));
+  right: calc(2 * var(--px));
+}
+
 /* Answered keys stay readable although disabled; the right and the chosen wrong one keep a coloured rim. */
 .pixel-button.mg-option.right:disabled,
 .pixel-button.mg-option.wrong:disabled,

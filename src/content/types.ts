@@ -1,7 +1,7 @@
 /** Shared content shapes. Content lives in src/data/units/*.json; code never hard-codes lessons. */
 
 /** Who speaks a line. Each role has one fixed voice per voice family (see src/audio/voices.ts). */
-export type Role = 'barista' | 'guide';
+export type Role = 'barista' | 'landlord' | 'guide';
 
 export interface Chunk {
   /** e.g. "can_i_get". Audio id is `${unitId}.chunk.${id}`. */
@@ -44,8 +44,28 @@ export interface Task {
   newChunkIds: string[];
   /** Word ids introduced here. */
   newWordIds: string[];
+  /** Minimal pair ids introduced here (optional; most units have none). */
+  newPairIds?: string[];
   /** The short story played first, in order. */
   scene: SceneLine[];
+}
+
+/** One word of a minimal pair. Audio id is `${unitId}.pair.${id}`; ids are unique across the unit's pairs. */
+export interface PairSide {
+  id: string;
+  en: string;
+  zh: string;
+}
+
+/** Two words that differ by one sound (ship / sheep), for listening discrimination. */
+export interface MinimalPair {
+  id: string;
+  /** The contrast, e.g. "f／v". */
+  focus: string;
+  /** One-line pronunciation tip in Chinese. */
+  note?: string;
+  a: PairSide;
+  b: PairSide;
 }
 
 export interface Unit {
@@ -54,6 +74,8 @@ export interface Unit {
   titleEn: string;
   chunks: Chunk[];
   words: Word[];
+  /** Minimal pairs for the listening-discrimination question (optional). */
+  pairs?: MinimalPair[];
   tasks: Task[];
 }
 

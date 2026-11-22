@@ -1,6 +1,9 @@
 import type { AudioItem, Unit } from './types';
 
-/** Every spoken thing in a unit: chunks, words and scene lines (main text only, no `accept` variants). */
+/**
+ * Every spoken thing in a unit: chunks, words, both sides of each minimal pair and scene
+ * lines (main text only, no `accept` variants).
+ */
 export function unitToAudioItems(unit: Unit): AudioItem[] {
   const items: AudioItem[] = [];
   for (const chunk of unit.chunks) {
@@ -8,6 +11,11 @@ export function unitToAudioItems(unit: Unit): AudioItem[] {
   }
   for (const word of unit.words) {
     items.push({ id: `${unit.id}.word.${word.id}`, text: word.en, role: 'guide' });
+  }
+  for (const pair of unit.pairs ?? []) {
+    for (const side of [pair.a, pair.b]) {
+      items.push({ id: `${unit.id}.pair.${side.id}`, text: side.en, role: 'guide' });
+    }
   }
   for (const task of unit.tasks) {
     for (const line of task.scene) {

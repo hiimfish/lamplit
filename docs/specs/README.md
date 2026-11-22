@@ -15,6 +15,7 @@
 | [audio.md](audio.md)               | 發音、背景音樂、音效、音量                                   |
 | [visual-style.md](visual-style.md) | 美術方向、配色、介面原則、版面縮放                           |
 | [ui-flow.md](ui-flow.md)           | 畫面流程、各畫面內容、無障礙要求                             |
+| [scene-stage.md](scene-stage.md)   | 劇情小劇場：角色、說話與道具動作、版面、內容格式             |
 | [architecture.md](architecture.md) | 技術架構、存檔格式、開發指令、環境變數、開發流程、部署與維運 |
 | [roadmap.md](roadmap.md)           | 進度、接下來要做的事、需要使用者處理的事、風險               |
 

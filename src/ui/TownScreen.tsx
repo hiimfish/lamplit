@@ -85,7 +85,7 @@ export function TownScreen() {
                   class="pixel-button task-row"
                   disabled={!unlocked}
                   onClick={() => startTask(unit.id, task.id)}
-                  data-testid={`task-${task.id}`}
+                  data-testid={`task-${unit.id}-${task.id}`}
                 >
                   <span class="task-name">{task.title}</span>
                   <span class={`task-state${!unlocked ? '' : record ? ' stars' : ' new'}`}>

@@ -66,6 +66,33 @@ describe('validateUnit catches broken content', () => {
   });
 });
 
+describe('ids across units', () => {
+  // Save cards and getItem use `chunk:<id>` / `word:<id>` / `pair:<id>` with no unit prefix,
+  // so the same id in two units would share one review card and resolve to the wrong unit.
+  it('never reuses a chunk, word, pair or pair-side id in two units', () => {
+    const seen = new Map<string, string>();
+    const clashes: string[] = [];
+    for (const unit of UNITS) {
+      const ids = [
+        ...unit.chunks.map((c) => `chunk:${c.id}`),
+        ...unit.words.map((w) => `word:${w.id}`),
+        ...(unit.pairs ?? []).map((p) => `pair:${p.id}`),
+        ...(unit.pairs ?? []).flatMap((p) => [`side:${p.a.id}`, `side:${p.b.id}`]),
+      ];
+      for (const id of ids) {
+        const owner = seen.get(id);
+        if (owner && owner !== unit.id) clashes.push(`${id} in ${owner} and ${unit.id}`);
+        seen.set(id, unit.id);
+      }
+    }
+    expect(clashes).toEqual([]);
+  });
+
+  it('plays the moving-in unit before the café', () => {
+    expect(UNITS.map((u) => u.id).slice(0, 2)).toEqual(['move_in', 'cafe']);
+  });
+});
+
 describe('getItem / taskItemIds', () => {
   it('looks up chunks and words with their audio ids', () => {
     expect(getItem('chunk:can_i_get')).toMatchObject({

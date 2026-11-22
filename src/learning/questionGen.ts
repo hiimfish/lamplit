@@ -2,13 +2,14 @@
  * Builds the questions for a task or a review session. Pure: all randomness comes from a
  * seeded RNG so tests are deterministic.
  *
- * Item ids: `chunk:<id>` and `word:<id>` (also used in AnswerResult.itemId).
+ * Item ids: `chunk:<id>`, `word:<id>` and `pair:<id>` (also used in AnswerResult.itemId).
  */
-import type { Chunk, Task, Unit, Word } from '../content/types';
+import type { Chunk, MinimalPair, Task, Unit, Word } from '../content/types';
 import { normalize } from './grading';
 import type {
   ArrangeQuestion,
   ChooseReplyQuestion,
+  ListenPairQuestion,
   ListenPickQuestion,
   Question,
   SpeakQuestion,
@@ -42,6 +43,7 @@ function shuffle<T>(items: readonly T[], rng: Rng): T[] {
 
 const chunkItemId = (id: string) => `chunk:${id}`;
 const wordItemId = (id: string) => `word:${id}`;
+const pairItemId = (id: string) => `pair:${id}`;
 
 const MAX_OPTIONS = 4;
 
@@ -167,6 +169,7 @@ function chooseReplies(unit: Unit, task: Task, rng: Rng): ChooseReplyQuestion[] 
     const correctId = chunk.id;
     result.push({
       kind: 'choose-reply',
+      npcRole: previous.role,
       npcAudioId: `${unit.id}.line.${previous.id}`,
       npcText: previous.en,
       options: shuffle([{ id: correctId, text: correctText }, ...wrong], rng),
@@ -175,6 +178,33 @@ function chooseReplies(unit: Unit, task: Task, rng: Rng): ChooseReplyQuestion[] 
     });
   });
   return result;
+}
+
+/** Plays one side of a minimal pair; the two options are both sides in random order. */
+function listenPair(unit: Unit, pair: MinimalPair, side: 'a' | 'b', rng: Rng): ListenPairQuestion {
+  const target = pair[side];
+  const options = shuffle([pair.a, pair.b], rng).map((s) => ({
+    id: s.id,
+    label: s.en,
+    zh: s.zh,
+    audioId: `${unit.id}.pair.${s.id}`,
+  }));
+  return {
+    kind: 'listen-pair',
+    audioId: `${unit.id}.pair.${target.id}`,
+    focus: pair.focus,
+    options,
+    correctId: target.id,
+    itemId: pairItemId(pair.id),
+  };
+}
+
+/** Both sides of each pair, once each; the side order is random so it can't be guessed. */
+function pairQuestions(unit: Unit, pairs: MinimalPair[], rng: Rng): ListenPairQuestion[] {
+  return pairs.flatMap((pair) => {
+    const sides: ('a' | 'b')[] = rng() < 0.5 ? ['a', 'b'] : ['b', 'a'];
+    return sides.map((side) => listenPair(unit, pair, side, rng));
+  });
 }
 
 function compact(questions: (Question | null)[]): Question[] {
@@ -189,9 +219,13 @@ export function buildTaskPractice(unit: Unit, task: Task, rng: Rng): Question[] 
   const chunks = task.newChunkIds
     .map((id) => unit.chunks.find((c) => c.id === id))
     .filter((c): c is Chunk => c !== undefined);
+  const pairs = (task.newPairIds ?? [])
+    .map((id) => unit.pairs?.find((p) => p.id === id))
+    .filter((p): p is MinimalPair => p !== undefined);
 
   return [
     ...compact(words.map((w) => listenPickWord(unit, w, rng))),
+    ...pairQuestions(unit, pairs, rng),
     ...compact(chunks.map((c) => listenPickChunk(unit, c, rng))),
     ...chooseReplies(unit, task, rng),
     ...compact(chunks.map((c) => arrangeChunk(unit, c, rng))),
@@ -216,6 +250,9 @@ export function buildReviewQuestions(unit: Unit, itemIds: string[], rng: Rng): Q
         ? (arrangeChunk(unit, chunk, rng) ?? listenPickChunk(unit, chunk, rng))
         : (listenPickChunk(unit, chunk, rng) ?? arrangeChunk(unit, chunk, rng));
       if (q) questions.push(q);
+    } else if (kind === 'pair') {
+      const pair = unit.pairs?.find((p) => p.id === id);
+      if (pair) questions.push(listenPair(unit, pair, rng() < 0.5 ? 'a' : 'b', rng));
     }
   }
   return questions;

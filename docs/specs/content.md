@@ -50,21 +50,37 @@
 }
 ```
 
-| 欄位                   | 說明                                                                       |
-| ---------------------- | -------------------------------------------------------------------------- |
-| `chunks[].accept`      | 其他可接受的寫法，用於排句子等題型                                         |
-| `chunks[].note`        | 一行中文文法小抄（選填）                                                   |
-| `chunks[].distractors` | 似是而非的錯誤說法，各自標上錯誤類型，用來給具體回饋                       |
-| `words[].emoji`        | 備用圖。正式圖示是 `src/art/items.ts` 裡的像素圖，沒有像素圖時才顯示 emoji |
-| `scene[].role`         | 誰的聲音：`barista`（店員）或 `guide`（你和詞塊、單字的發音）              |
-| `scene[].speaker`      | `npc` 是角色說的，`player` 是學習者要說的                                  |
-| `scene[].chunkId`      | `player` 台詞一定要有，指向它練習的詞塊                                    |
+| 欄位                   | 說明                                                                                                                              |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `chunks[].accept`      | 其他可接受的寫法，用於排句子等題型                                                                                                |
+| `chunks[].note`        | 一行中文文法小抄（選填）                                                                                                          |
+| `chunks[].distractors` | 似是而非的錯誤說法，各自標上錯誤類型，用來給具體回饋                                                                              |
+| `words[].emoji`        | 備用圖。正式圖示是 `src/art/items.ts` 裡的像素圖，沒有像素圖時才顯示 emoji                                                        |
+| `scene[].role`         | 誰的聲音：`barista`（店員）、`landlord`（房東）或 `guide`（你和詞塊、單字、對比詞的發音）                                         |
+| `scene[].speaker`      | `npc` 是角色說的，`player` 是學習者要說的                                                                                         |
+| `scene[].chunkId`      | `player` 台詞一定要有，指向它練習的詞塊                                                                                           |
+| `scene[].stage`        | 小劇場的道具動作（選填）：`want`／`give` 加單字 id，或 `ask`；見 [scene-stage.md](scene-stage.md)                                 |
+| `pairs[]`              | 最小對比詞（選填），給聽辨挑戰用：`id`、`focus`（例如「f／v」）、`note`（一行發音提示）、`a`／`b` 兩個字（各有 `id`、`en`、`zh`） |
+| `tasks[].newPairIds`   | 這個任務新教的對比詞（選填）                                                                                                      |
+
+對比詞的例子（`move_in.json`）：
+
+```json
+{
+  "id": "fan_van",
+  "focus": "f／v",
+  "note": "兩個都是上排牙齒輕碰下唇。f 只吹氣；v 喉嚨要震動。",
+  "a": { "id": "fan", "en": "fan", "zh": "電風扇" },
+  "b": { "id": "van", "en": "van", "zh": "廂型車" }
+}
+```
 
 ## id 規則
 
-- 單元、詞塊、單字、台詞、任務的 id 只能用小寫英文、數字和底線：`^[a-z0-9_]+$`。
-- 學習項目 id：`chunk:<詞塊 id>`、`word:<單字 id>`，用於存檔和複習。
-- 音檔 id：`<單元>.<類型>.<id>`，例如 `cafe.chunk.can_i_get`、`cafe.word.latte`、`cafe.line.t1_1`。音檔腳本和播放程式都會拒絕不符合格式的 id。
+- 單元、詞塊、單字、對比詞（和它的兩個字）、台詞、任務的 id 只能用小寫英文、數字和底線：`^[a-z0-9_]+$`。
+- 學習項目 id：`chunk:<詞塊 id>`、`word:<單字 id>`、`pair:<對比詞 id>`，用於存檔和複習。一組對比詞是一個學習項目。
+- 學習項目 id 不含單元，所以**不同單元不能用同一個詞塊、單字或對比詞 id**，否則會共用複習卡片、查到別的單元。`tests/content.test.ts` 會檢查。
+- 音檔 id：`<單元>.<類型>.<id>`，例如 `cafe.chunk.can_i_get`、`cafe.word.latte`、`cafe.line.t1_1`、`move_in.pair.fan`。音檔腳本和播放程式都會拒絕不符合格式的 id。
 
 ## 內容檢查
 
@@ -74,10 +90,24 @@
 - 任務引用的詞塊、單字和台詞的 `chunkId` 都存在。
 - 每句 `player` 台詞都有 `chunkId`。
 - `role` 和 `speaker` 是合法值。
+- 對比詞：id 和兩個字的 id 符合格式、不重複；有 `focus`；兩個字都有 `en`、`zh` 而且不一樣；任務的 `newPairIds` 都存在。
+- （未做）`stage` 的 `act` 合法；`want`／`give` 的 `item` 是同單元的單字，`ask` 不帶 `item`。
 
 不合格的單元不會被載入，開發模式下會在 console 顯示警告。`tests/content.test.ts` 會檢查 `src/data/units/` 裡的每個單元。
 
-## 咖啡廳的現況
+## 現有單元
+
+小鎮畫面依 `src/content/units.ts` 的 `UNIT_ORDER` 排列：搬家第一天在前，咖啡廳在後。兩個單元都一開始就能玩，單元之間沒有解鎖條件。
+
+### 搬家第一天（`move_in`）
+
+- 6 個詞塊、6 個單字、6 組對比詞、3 個任務、15 句劇情台詞。NPC 是房東 Mr. Bell（`landlord`）。
+- 任務：見到房東（自我介紹）、名字怎麼拼（How do you spell that?）、垃圾怎麼丟（Can you speak more slowly, please?）。
+- 對比詞：fan/van、light/right、bed/bad、sink/think、ship/sheep、cap/cup，每個任務兩組。
+- 單字像素圖：鑰匙、箱子、門、椅子、檯燈、垃圾桶都有。對比詞不用圖（聽辨題只靠聲音）。
+- 英文句子還沒請人審閱，發音還沒請使用者試聽。
+
+### 咖啡廳（`cafe`）
 
 - 6 個詞塊、6 個單字、3 個任務、10 句劇情台詞。
 - 單字像素圖：拿鐵、茶、瑪芬、水、蛋糕、三明治都有。

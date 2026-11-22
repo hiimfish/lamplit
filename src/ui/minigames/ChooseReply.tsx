@@ -1,4 +1,5 @@
 import { useState } from 'preact/hooks';
+import { ROLE_LABEL } from '../../content/roles';
 import type { ChooseReplyQuestion } from '../../learning/questions';
 import { En } from '../En';
 import { Feedback, FeedbackSlot, ReplayBar, hintFor, play, useAnswerClock } from './shared';
@@ -24,7 +25,7 @@ export function ChooseReply({ question, onAnswered }: MinigameProps<ChooseReplyQ
 
   return (
     <div class="mg">
-      <p class="mg-prompt">店員說了這句，你要怎麼回？</p>
+      <p class="mg-prompt">{ROLE_LABEL[question.npcRole]}說了這句，你要怎麼回？</p>
       <div class="mg-npc-row">
         <div class="mg-npc">
           <span class="mg-npc-text" data-testid="npc-text" lang="en">

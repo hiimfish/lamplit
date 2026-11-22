@@ -6,7 +6,7 @@
 /** Ids end up in audio file names and save keys, so keep them plain. */
 const ID_PATTERN = /^[a-z0-9_]+$/;
 
-const ROLES = ['barista', 'guide'];
+const ROLES = ['barista', 'landlord', 'guide'];
 const SPEAKERS = ['npc', 'player'];
 
 const isObject = (value: unknown): value is Record<string, unknown> =>
@@ -53,13 +53,19 @@ export function validateUnit(unit: unknown): string[] {
   const chunkIds = ids(chunks ?? [], 'chunk');
   const wordIds = ids(words ?? [], 'word');
   ids(tasks ?? [], 'task');
+  const pairIds = checkPairs(unit.pairs, problems, where);
 
   // Line audio ids are `${unitId}.line.${id}`, so line ids are unique across the unit.
   const lineIds = new Set<string>();
   for (const task of tasks ?? []) {
     const taskId = String(task.id);
-    const refs = (key: 'newChunkIds' | 'newWordIds', known: Set<string>, kind: string) => {
+    const refs = (
+      key: 'newChunkIds' | 'newWordIds' | 'newPairIds',
+      known: Set<string>,
+      kind: string,
+    ) => {
       const value = task[key];
+      if (value === undefined && key === 'newPairIds') return;
       if (!Array.isArray(value)) {
         problems.push(where(`task "${taskId}" ${key} must be a list`));
         return;
@@ -72,6 +78,7 @@ export function validateUnit(unit: unknown): string[] {
     };
     refs('newChunkIds', chunkIds, 'chunk');
     refs('newWordIds', wordIds, 'word');
+    refs('newPairIds', pairIds, 'pair');
 
     const scene = list(task.scene);
     if (!scene) {
@@ -97,4 +104,58 @@ export function validateUnit(unit: unknown): string[] {
     }
   }
   return problems;
+}
+
+/**
+ * Minimal pairs are optional. Pair ids are unique; side ids are unique across every side of
+ * every pair (their audio id is `${unitId}.pair.${sideId}`); the two sides must sound different.
+ * Returns the valid pair ids.
+ */
+function checkPairs(
+  value: unknown,
+  problems: string[],
+  where: (path: string) => string,
+): Set<string> {
+  const pairIds = new Set<string>();
+  if (value === undefined) return pairIds;
+  const pairs = list(value);
+  if (!pairs) {
+    problems.push(where('pairs must be a list'));
+    return pairIds;
+  }
+  const sideIds = new Set<string>();
+  pairs.forEach((pair, i) => {
+    const id = pair.id;
+    if (typeof id !== 'string' || !ID_PATTERN.test(id)) {
+      problems.push(where(`pair[${i}] has bad id "${String(id)}"`));
+    } else if (pairIds.has(id)) {
+      problems.push(where(`duplicate pair id "${id}"`));
+    } else {
+      pairIds.add(id);
+    }
+    if (!isText(pair.focus)) problems.push(where(`pair "${String(id)}" needs focus`));
+    const sides = [pair.a, pair.b];
+    sides.forEach((side, s) => {
+      const label = `pair "${String(id)}" side ${s === 0 ? 'a' : 'b'}`;
+      if (!isObject(side)) {
+        problems.push(where(`${label} is missing`));
+        return;
+      }
+      if (typeof side.id !== 'string' || !ID_PATTERN.test(side.id)) {
+        problems.push(where(`${label} has bad id "${String(side.id)}"`));
+      } else if (sideIds.has(side.id)) {
+        problems.push(where(`duplicate pair side id "${side.id}"`));
+      } else {
+        sideIds.add(side.id);
+      }
+      if (!isText(side.en) || !isText(side.zh)) problems.push(where(`${label} needs en and zh`));
+    });
+    const [a, b] = sides;
+    if (isObject(a) && isObject(b) && isText(a.en) && isText(b.en)) {
+      if (a.en.trim().toLowerCase() === b.en.trim().toLowerCase()) {
+        problems.push(where(`pair "${String(id)}" has the same word on both sides`));
+      }
+    }
+  });
+  return pairIds;
 }

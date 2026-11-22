@@ -1,0 +1,255 @@
+{
+  "id": "move_in",
+  "title": "搬家第一天",
+  "titleEn": "Moving In",
+  "chunks": [
+    {
+      "id": "just_moved_in",
+      "en": "Yes, I just moved in.",
+      "zh": "對，我剛搬進來。",
+      "accept": ["I just moved in."],
+      "note": "just + 過去式 = 剛剛才做了某件事。",
+      "distractors": [
+        { "text": "Yes, I just move in.", "error": "other" },
+        { "text": "Yes, I just moved.", "error": "missing-word" }
+      ]
+    },
+    {
+      "id": "nice_to_meet_you",
+      "en": "Nice to meet you.",
+      "zh": "很高興認識你。",
+      "distractors": [{ "text": "Nice meet you.", "error": "missing-word" }]
+    },
+    {
+      "id": "from_taiwan",
+      "en": "I'm from Taiwan.",
+      "zh": "我來自台灣。",
+      "accept": ["I am from Taiwan."],
+      "note": "I'm = I am。說從哪裡來，要用 from。",
+      "distractors": [
+        { "text": "I from Taiwan.", "error": "missing-word" },
+        { "text": "I'm come from Taiwan.", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "spell_that",
+      "en": "How do you spell that?",
+      "zh": "那個怎麼拼？",
+      "note": "聽不懂名字時很好用，對方會一個字母一個字母念給你聽。",
+      "distractors": [
+        { "text": "How you spell that?", "error": "missing-word" },
+        { "text": "How do you spell it that?", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "more_slowly",
+      "en": "Can you speak more slowly, please?",
+      "zh": "可以請你說慢一點嗎？",
+      "accept": ["Can you speak more slowly?"],
+      "note": "slowly 是「慢慢地」，用來說「怎麼」說話。",
+      "distractors": [
+        { "text": "Can you speak more slow, please?", "error": "other" },
+        { "text": "Can you more slowly speak, please?", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "got_it",
+      "en": "Got it. Thanks!",
+      "zh": "了解，謝謝！",
+      "accept": ["Got it, thanks!"],
+      "note": "Got it. 是口語的「懂了／知道了」。"
+    }
+  ],
+  "words": [
+    { "id": "key", "en": "key", "zh": "鑰匙", "emoji": "🔑" },
+    { "id": "box", "en": "box", "zh": "箱子", "emoji": "📦" },
+    { "id": "door", "en": "door", "zh": "門", "emoji": "🚪" },
+    { "id": "chair", "en": "chair", "zh": "椅子", "emoji": "🪑" },
+    { "id": "lamp", "en": "lamp", "zh": "檯燈", "emoji": "💡" },
+    { "id": "trash_can", "en": "trash can", "zh": "垃圾桶", "emoji": "🗑️" }
+  ],
+  "pairs": [
+    {
+      "id": "fan_van",
+      "focus": "f／v",
+      "note": "兩個都是上排牙齒輕碰下唇。f 只吹氣；v 喉嚨要震動。",
+      "a": { "id": "fan", "en": "fan", "zh": "電風扇" },
+      "b": { "id": "van", "en": "van", "zh": "廂型車" }
+    },
+    {
+      "id": "light_right",
+      "focus": "l／r",
+      "note": "l 舌尖頂住上排牙齒後面；r 舌頭往後捲，不碰到任何地方。",
+      "a": { "id": "light", "en": "light", "zh": "燈" },
+      "b": { "id": "right", "en": "right", "zh": "右邊" }
+    },
+    {
+      "id": "bed_bad",
+      "focus": "e／a",
+      "note": "bad 的嘴巴比 bed 張得更大，嘴角往兩邊拉。",
+      "a": { "id": "bed", "en": "bed", "zh": "床" },
+      "b": { "id": "bad", "en": "bad", "zh": "不好的" }
+    },
+    {
+      "id": "sink_think",
+      "focus": "s／th",
+      "note": "th 把舌尖輕輕放在上下牙齒中間吹氣；s 的舌頭留在牙齒後面。",
+      "a": { "id": "sink", "en": "sink", "zh": "水槽" },
+      "b": { "id": "think", "en": "think", "zh": "想" }
+    },
+    {
+      "id": "ship_sheep",
+      "focus": "短 i／長 ee",
+      "note": "ship 短而放鬆；sheep 嘴角拉開，聲音拉長。",
+      "a": { "id": "ship", "en": "ship", "zh": "船" },
+      "b": { "id": "sheep", "en": "sheep", "zh": "綿羊" }
+    },
+    {
+      "id": "cap_cup",
+      "focus": "a／u",
+      "note": "cap 嘴巴張大、嘴角往兩邊拉；cup 嘴巴微開放鬆，像短短的「阿」。",
+      "a": { "id": "cap", "en": "cap", "zh": "帽子" },
+      "b": { "id": "cup", "en": "cup", "zh": "杯子" }
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "見到房東",
+      "newChunkIds": ["just_moved_in", "nice_to_meet_you"],
+      "newWordIds": ["key", "box"],
+      "newPairIds": ["fan_van", "light_right"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Hi! You must be the new tenant.",
+          "zh": "嗨！你一定是新房客吧。"
+        },
+        {
+          "id": "t1_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Yes, I just moved in.",
+          "zh": "對，我剛搬進來。",
+          "chunkId": "just_moved_in"
+        },
+        {
+          "id": "t1_3",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Welcome! I'm Mr. Bell, your landlord.",
+          "zh": "歡迎！我是 Bell 先生，你的房東。"
+        },
+        {
+          "id": "t1_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Nice to meet you.",
+          "zh": "很高興認識你。",
+          "chunkId": "nice_to_meet_you"
+        },
+        {
+          "id": "t1_5",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Nice to meet you, too. Here's your key.",
+          "zh": "我也很高興認識你。這是你的鑰匙。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "名字怎麼拼",
+      "newChunkIds": ["from_taiwan", "spell_that"],
+      "newWordIds": ["door", "chair"],
+      "newPairIds": ["bed_bad", "sink_think"],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "So, where are you from?",
+          "zh": "那你是從哪裡來的？"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm from Taiwan.",
+          "zh": "我來自台灣。",
+          "chunkId": "from_taiwan"
+        },
+        {
+          "id": "t2_3",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Cool! If you need help, call me. My last name is Bell.",
+          "zh": "酷！需要幫忙就打給我。我姓 Bell。"
+        },
+        {
+          "id": "t2_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How do you spell that?",
+          "zh": "那個怎麼拼？",
+          "chunkId": "spell_that"
+        },
+        {
+          "id": "t2_5",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "B, E, L, L. Bell, like a bell.",
+          "zh": "B、E、L、L。Bell，就是鈴鐺的 bell。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "垃圾怎麼丟",
+      "newChunkIds": ["more_slowly", "got_it"],
+      "newWordIds": ["lamp", "trash_can"],
+      "newPairIds": ["ship_sheep", "cap_cup"],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Trash goes out on Monday night, and recycling goes out on Thursday.",
+          "zh": "垃圾星期一晚上拿出去，回收是星期四。"
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can you speak more slowly, please?",
+          "zh": "可以請你說慢一點嗎？",
+          "chunkId": "more_slowly"
+        },
+        {
+          "id": "t3_3",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Sure. Trash, on Monday. Recycling, on Thursday.",
+          "zh": "好。垃圾，星期一。回收，星期四。"
+        },
+        {
+          "id": "t3_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Got it. Thanks!",
+          "zh": "了解，謝謝！",
+          "chunkId": "got_it"
+        },
+        {
+          "id": "t3_5",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "You're welcome. Enjoy your new home!",
+          "zh": "不客氣。祝你住得愉快！"
+        }
+      ]
+    }
+  ]
+}

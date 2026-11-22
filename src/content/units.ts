@@ -1,13 +1,13 @@
 import type { Role, Unit } from './types';
 import { validateUnit } from './validate';
 
-/** Units in play order. Only the café exists for now. */
+/** Every unit JSON file; UNIT_ORDER sets the play order (unlisted units go last). */
 const modules = import.meta.glob<unknown>('../data/units/*.json', {
   eager: true,
   import: 'default',
 });
 
-const UNIT_ORDER = ['cafe'];
+const UNIT_ORDER = ['move_in', 'cafe'];
 
 /** Keeps only units that pass validateUnit; broken ones are skipped (with a warning in dev). */
 function validUnits(raw: Record<string, unknown>): Unit[] {
@@ -35,7 +35,7 @@ export function getUnit(id: string): Unit | undefined {
 
 export interface ItemInfo {
   itemId: string;
-  kind: 'chunk' | 'word';
+  kind: 'chunk' | 'word' | 'pair';
   unitId: string;
   text: string;
   zh: string;
@@ -44,12 +44,38 @@ export interface ItemInfo {
   role: Role;
   emoji?: string;
   note?: string;
+  /** Minimal pairs only: the contrast (e.g. "f／v") and both words with their audio. */
+  focus?: string;
+  sides?: { id: string; en: string; zh: string; audioId: string }[];
 }
 
-/** Looks up `chunk:<id>` or `word:<id>` across all units. */
+/** Looks up `chunk:<id>`, `word:<id>` or `pair:<id>` across all units. */
 export function getItem(itemId: string): ItemInfo | undefined {
   const [kind, id] = itemId.split(':');
   for (const unit of UNITS) {
+    if (kind === 'pair') {
+      const pair = unit.pairs?.find((p) => p.id === id);
+      if (pair) {
+        const sides = [pair.a, pair.b].map((s) => ({
+          id: s.id,
+          en: s.en,
+          zh: s.zh,
+          audioId: `${unit.id}.pair.${s.id}`,
+        }));
+        return {
+          itemId,
+          kind: 'pair',
+          unitId: unit.id,
+          text: `${pair.a.en} / ${pair.b.en}`,
+          zh: `${pair.a.zh} / ${pair.b.zh}`,
+          audioId: `${unit.id}.pair.${pair.a.id}`,
+          role: 'guide',
+          note: pair.note,
+          focus: pair.focus,
+          sides,
+        };
+      }
+    }
     if (kind === 'chunk') {
       const chunk = unit.chunks.find((c) => c.id === id);
       if (chunk) {
@@ -87,10 +113,15 @@ export function lineAudioId(unitId: string, lineId: string): string {
   return `${unitId}.line.${lineId}`;
 }
 
-/** Item ids a task teaches, chunks first. */
-export function taskItemIds(task: { newChunkIds: string[]; newWordIds: string[] }): string[] {
+/** Item ids a task teaches: chunks, then words, then minimal pairs. */
+export function taskItemIds(task: {
+  newChunkIds: string[];
+  newWordIds: string[];
+  newPairIds?: string[];
+}): string[] {
   return [
     ...task.newChunkIds.map((id) => `chunk:${id}`),
     ...task.newWordIds.map((id) => `word:${id}`),
+    ...(task.newPairIds ?? []).map((id) => `pair:${id}`),
   ];
 }

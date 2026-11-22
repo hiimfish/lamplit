@@ -1,4 +1,5 @@
 /** Question shapes produced by questionGen and rendered by the minigame components. */
+import type { Role } from '../content/types';
 
 export interface ListenPickQuestion {
   kind: 'listen-pick';
@@ -21,9 +22,28 @@ export interface ArrangeQuestion {
   itemId: string;
 }
 
+/**
+ * Listening discrimination: hear one word of a minimal pair (ship / sheep) and pick it.
+ * After answering, both words can be played to compare.
+ */
+export interface ListenPairQuestion {
+  kind: 'listen-pair';
+  /** Audio id of the word being tested. */
+  audioId: string;
+  /** The contrast, e.g. "f／v". */
+  focus: string;
+  /** Exactly the two sides of the pair, in display order (also used for comparing). */
+  options: { id: string; label: string; zh: string; audioId: string }[];
+  correctId: string;
+  /** `pair:<id>`. */
+  itemId: string;
+}
+
 /** The NPC says something; pick the most natural reply. */
 export interface ChooseReplyQuestion {
   kind: 'choose-reply';
+  /** Who said the NPC line, for the prompt (店員說了這句…). */
+  npcRole: Role;
   npcAudioId: string;
   npcText: string;
   options: { id: string; text: string; error?: string }[];
@@ -40,7 +60,8 @@ export interface SpeakQuestion {
   itemId: string;
 }
 
-export type Question = ListenPickQuestion | ArrangeQuestion | ChooseReplyQuestion | SpeakQuestion;
+export type Question =
+  ListenPickQuestion | ListenPairQuestion | ArrangeQuestion | ChooseReplyQuestion | SpeakQuestion;
 
 export interface AnswerResult {
   itemId: string;

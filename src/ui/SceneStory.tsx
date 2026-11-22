@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { playAudio, stopAudio } from '../audio/pronounce';
+import { ROLE_LABEL } from '../content/roles';
 import type { Task, Unit } from '../content/types';
 import { lineAudioId } from '../content/units';
 import { settingsStore } from '../core/settings';
@@ -48,7 +49,9 @@ export function SceneStory({ unit, task, onDone }: Props) {
               class={`bubble${index === shown - 1 ? ' current' : ''}`}
               onClick={() => play(index, false)}
             >
-              <span class="bubble-who">{line.speaker === 'npc' ? '店員' : '你'}</span>
+              <span class="bubble-who">
+                {line.speaker === 'npc' ? ROLE_LABEL[line.role] : ROLE_LABEL.guide}
+              </span>
               <span class="bubble-en" lang="en">
                 {line.en}
               </span>
