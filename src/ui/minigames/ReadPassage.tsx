@@ -13,12 +13,13 @@ import type { MinigameProps } from './shared';
  *
  * Layout. The text sits in a paper box that keeps the story's type size (11 logical px)
  * with a roomier line height. On a phone held upright an 80-word text, the question and
- * four options do not all fit, so the box gets a maximum height (the room left under the
- * scene once the bar, the prompt, a two-line question with its Chinese and two rows of
- * keys are taken, see ReadPassage.css) and scrolls inside itself; the question and keys
- * stay below it, always on screen. When more text is hidden below, a small "▼ 還有" tag sits
- * on the box's bottom edge; it is a label, not a key, and disappears at the end of the
- * text. In landscape the text and the question stand side by side.
+ * four options do not all fit, so the box gives way: the question, the keys and later the
+ * feedback take the height they need and the box takes what is left (never less than
+ * about four lines), scrolling inside itself; see ReadPassage.css. When more text is
+ * hidden below, a small "▼ 還有" tag sits on the box's bottom edge; it is a label, not a
+ * key, and disappears at the end of the text. A ResizeObserver keeps it right as the box
+ * shrinks or grows. In landscape the text and the question stand side by side, and the
+ * question column scrolls on its own only when it must.
  *
  * Several questions on one passage. QuestionView remounts this component for every
  * question, so the box's scroll position is remembered here (module state, keyed by the
@@ -122,6 +123,7 @@ export function ReadPassage({ question, onAnswered }: MinigameProps<PassageQuest
   const [picked, setPicked] = useState<string | null>(null);
   const [more, setMore] = useState(false);
   const boxRef = useRef<HTMLDivElement>(null);
+  const askRef = useRef<HTMLDivElement>(null);
   const isRight = picked === question.correctId;
   const answer = question.options.find((o) => o.id === question.correctId)?.label ?? '';
   const hit = picked !== null && question.answerLine !== undefined ? question.answerLine : -1;
@@ -177,9 +179,14 @@ export function ReadPassage({ question, onAnswered }: MinigameProps<PassageQuest
     return () => observer.disconnect();
   }, []);
 
-  // After the answer, bring the highlighted line into the box's view (the box only, never
-  // the page, and never animated).
+  // After the answer, bring the feedback and the highlighted line into view, scrolling only
+  // the question column and the box (never the page) and never animated.
   useLayoutEffect(() => {
+    // In landscape the question column may scroll: show the feedback at its end.
+    const ask = askRef.current;
+    if (picked !== null && ask && ask.scrollHeight > ask.clientHeight) {
+      ask.scrollTop = ask.scrollHeight;
+    }
     const box = boxRef.current;
     const line = box?.querySelector<HTMLElement>('[data-hit="true"]');
     if (!box || !line) return;
@@ -189,7 +196,7 @@ export function ReadPassage({ question, onAnswered }: MinigameProps<PassageQuest
       box.scrollTop = Math.max(0, top - Math.floor(box.clientHeight / 3));
       onScroll();
     }
-  }, [hit]);
+  }, [picked, hit]);
 
   // Number keys pick an option; once answered, Enter is left to the focused 繼續.
   useEffect(() => {
@@ -236,7 +243,7 @@ export function ReadPassage({ question, onAnswered }: MinigameProps<PassageQuest
             </span>
           )}
         </div>
-        <div class="rp-ask">
+        <div class="rp-ask" ref={askRef}>
           <div class="mg-say">
             <p class="mg-sentence" data-testid="passage-question" lang="en">
               {question.en}

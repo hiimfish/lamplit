@@ -4,22 +4,46 @@
  * extra rule.
  *
  * Sizes are in logical pixels (calc(N * var(--px))). The text keeps the story's 11 px with
- * line height 1.5, so an 80-word text is about 12 to 15 lines. It cannot always fit with
- * the question, so the box has a maximum height and scrolls inside itself:
+ * line height 1.5, so an 80-word text is about 12 to 15 lines; with the question and four
+ * options it does not always fit a phone held upright.
  *
- * Portrait: the UI area is the viewport minus the scene (--scene-h). Besides the box it
- * holds about 212 px: the card padding (10), the bar and progress strip (35), the prompt
- * (14), a two-line question and two lines of Chinese (59), two rows of 44-CSS-px keys
- * (about 72 at the usual 1.33 CSS px per logical px), the gaps and a few px to spare. The
- * box gets the rest, but never less than 60 px (3 lines), so very short screens scroll
- * the card rather than show a useless slit. At 390x844 that is about 240 px, so most
- * texts fit whole.
+ * The box gives way. The card, the practice column, the question root and this screen
+ * form one chain of flex columns down to the box, each allowed to shrink (min-height: 0;
+ * flow.css keeps those from shrinking for the other screens, so the overrides below only
+ * apply when a passage is on screen). The heading, the question, the keys and, after the
+ * answer, the feedback and 繼續 take the height they need; the box is the one flexible
+ * child and takes what is left, scrolling inside itself. It never gets smaller than about
+ * four lines (--rp-floor); only when even that does not fit does the card itself scroll.
+ * After the answer the box shrinks again to make room for the feedback before the card
+ * has to scroll.
  *
- * Landscape: the card is widened like the story's and the text stands on the left, the
- * question and keys on the right. The card is at most the scene height minus 30 (rim and
- * padding); the bar, progress strip, prompt and gaps take about 47 more, so the box gets
- * the scene height minus 81.
+ * In landscape the card is given the full height it may have, and the grid's single row
+ * is that height: the text is on the left (the same flexible box), the question and keys
+ * on the right, and the right column scrolls only when it does not fit.
  */
+
+.flow-card:has(.rp) {
+  /* Four lines of 16.5 px, the padding and the rim (a flyer's double rim is 3 px). */
+  --rp-floor: calc(82 * var(--px));
+}
+
+.flow-card .practice:has(.rp),
+.flow-card .practice > .mg-root:has(.rp),
+.mg-root > .rp {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.mg-root:has(.rp) > .mg-continue,
+.rp-head,
+.rp-ask {
+  flex: none;
+}
+
+.rp {
+  display: flex;
+  flex-direction: column;
+}
 
 .rp-head {
   display: flex;
@@ -42,18 +66,27 @@
   min-width: 0;
 }
 
-/* Holds the box and its "▼ 還有" tag. */
+.rp-layout {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+/* Holds the box and its "▼ 還有" tag; shrinks with the box, down to the floor. */
 .rp-frame {
   position: relative;
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
   min-width: 0;
+  min-height: var(--rp-floor, calc(82 * var(--px)));
 }
 
 .rp-paper {
   /* position: relative so a line's offsetTop is measured from the box. */
   position: relative;
   box-sizing: border-box;
-  max-height: max(calc(60 * var(--px)), calc(100vh - var(--scene-h) - 212 * var(--px)));
-  max-height: max(calc(60 * var(--px)), calc(100dvh - var(--scene-h) - 212 * var(--px)));
+  flex: 0 1 auto;
+  min-height: var(--rp-floor, calc(82 * var(--px)));
   overflow-y: auto;
   overscroll-behavior: contain;
   padding: calc(5 * var(--px)) calc(7 * var(--px));
@@ -187,22 +220,33 @@
   border-bottom: var(--px) dotted var(--ink);
 }
 
-/* Landscape: text and question side by side, in a card as wide as the story's. */
+/*
+ * Landscape: text and question side by side, in a card as wide as the story's and as tall
+ * as it may be (its max-height in flow.css), so the row below has a definite height.
+ */
 :root[data-orientation='landscape'] .flow-card:has(.rp) {
   max-width: calc(440 * var(--px));
+  height: calc(100% - 4 * var(--px));
 }
 
 :root[data-orientation='landscape'] .rp-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
   align-items: start;
   gap: calc(6 * var(--px));
 }
 
-:root[data-orientation='landscape'] .rp-ask {
-  gap: calc(3 * var(--px));
+:root[data-orientation='landscape'] .rp-frame {
+  max-height: 100%;
 }
 
-:root[data-orientation='landscape'] .rp-paper {
-  max-height: max(calc(60 * var(--px)), calc(var(--scene-h) - 81 * var(--px)));
+/* The right column scrolls on its own only when the question and keys do not fit. */
+:root[data-orientation='landscape'] .rp-ask {
+  gap: calc(3 * var(--px));
+  max-height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink) var(--paper);
 }
