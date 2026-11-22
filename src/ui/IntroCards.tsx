@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
-import { playAudio } from '../audio/pronounce';
+import { playAudio, stopAudio } from '../audio/pronounce';
 import { getItem, taskItemIds, type ItemInfo } from '../content/units';
 import type { Task } from '../content/types';
 import { settingsStore } from '../core/settings';
@@ -56,6 +56,8 @@ export function IntroCards({ task, onDone }: Props) {
   useEffect(() => {
     if (!item) onDone();
   }, [item]);
+  // 開始練習 or 先回小鎮 while a card is speaking: don't let it run on.
+  useEffect(() => () => stopAudio(), []);
   if (!item) return null;
   const last = index >= items.length - 1;
   const iconId = iconIdOf(item.itemId);

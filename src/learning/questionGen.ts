@@ -121,8 +121,16 @@ export function shuffleBlocks(
   return [...blocks];
 }
 
+/**
+ * Trims punctuation off the ends of a word block, so "latte," or "please?" can't give away
+ * where it goes. Inner apostrophes and hyphens (I'm, take-out) and accented letters stay.
+ */
+function blockText(word: string): string {
+  return word.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '');
+}
+
 function arrangeChunk(unit: Unit, chunk: Chunk, rng: Rng): ArrangeQuestion | null {
-  const words = chunk.en.split(/\s+/).filter(Boolean);
+  const words = chunk.en.split(/\s+/).map(blockText).filter(Boolean);
   if (words.length < 2) return null;
   const accepted = [chunk.en, ...(chunk.accept ?? [])];
   return {

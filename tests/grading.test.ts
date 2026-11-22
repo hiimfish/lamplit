@@ -16,6 +16,14 @@ describe('normalize', () => {
     expect(normalize('')).toBe('');
     expect(normalize('?!')).toBe('');
   });
+
+  it('strips accents instead of dropping accented letters', () => {
+    expect(normalize('Café')).toBe('cafe');
+    expect(normalize('naïve résumé')).toBe('naive resume');
+    // Precomposed and combining forms of é match.
+    expect(normalize('café')).toBe(normalize('café'));
+    expect(gradeAnswer('a cafe latte', ['A café latte.']).correct).toBe(true);
+  });
 });
 
 describe('editDistance', () => {

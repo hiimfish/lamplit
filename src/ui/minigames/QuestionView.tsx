@@ -4,6 +4,7 @@
  * so the feedback stays on screen until then.
  */
 import { useEffect, useRef, useState } from 'preact/hooks';
+import { stopAudio } from '../../audio/pronounce';
 import type { AnswerResult, Question } from '../../learning/questions';
 import { focusAndReveal, focusLost, focusStatic } from '../focus';
 import { Arrange } from './Arrange';
@@ -38,8 +39,11 @@ function Body({ question, onAnswer }: QuestionViewProps) {
   const rootRef = useRef<HTMLDivElement>(null);
 
   // The previous question's 繼續 is gone: start the new question at its prompt.
+  // Leaving the question (繼續 or 先回小鎮) silences whatever it was playing; the
+  // cleanup runs on unmount, before the next question's autoplay effect.
   useEffect(() => {
     if (focusLost()) focusStatic(rootRef.current?.querySelector('.mg-prompt'));
+    return () => stopAudio();
   }, []);
 
   // The answered keys are disabled, so focus 繼續. On short screens the feedback

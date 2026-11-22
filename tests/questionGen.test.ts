@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import cafe from '../src/data/units/cafe.json';
 import type { Unit } from '../src/content/types';
+import { gradeAnswer, normalize } from '../src/learning/grading';
 import { buildReviewQuestions, buildTaskPractice, makeRng } from '../src/learning/questionGen';
 import type { Question } from '../src/learning/questions';
 
@@ -59,8 +60,12 @@ describe('buildTaskPractice', () => {
           expect(new Set(labels).size).toBe(labels.length);
         }
         if (q.kind === 'arrange') {
-          expect(q.blocks.join(' ')).not.toBe(q.accepted[0]);
-          expect([...q.blocks].sort()).toEqual([...q.accepted[0]!.split(' ')].sort());
+          expect(gradeAnswer(q.blocks.join(' '), q.accepted).correct).toBe(false);
+          const sortedWords = (text: string) => normalize(text).split(' ').sort();
+          expect(sortedWords(q.blocks.join(' '))).toEqual(sortedWords(q.accepted[0]!));
+          for (const block of q.blocks) {
+            expect(block).toMatch(/^[\p{L}\p{N}](.*[\p{L}\p{N}])?$/u);
+          }
         }
       }
     }

@@ -15,9 +15,14 @@ export interface GradeResult {
   error?: ErrorType;
 }
 
-/** Lowercase, straighten quotes, drop punctuation (keeping apostrophes inside words), squash spaces. */
+/**
+ * Strip accents (café -> cafe), lowercase, straighten quotes, drop punctuation (keeping
+ * apostrophes inside words), squash spaces.
+ */
 export function normalize(text: string): string {
   return text
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
     .toLowerCase()
     .replace(/[\u2018\u2019\u02bc]/g, "'")
     .replace(/[^a-z0-9'\s]/g, ' ')
