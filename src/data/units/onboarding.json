@@ -1,0 +1,1210 @@
+{
+  "id": "onboarding",
+  "title": "報到與人事",
+  "titleEn": "Onboarding & HR",
+  "chunks": [
+    {
+      "id": "new_office_assistant",
+      "en": "Good morning, I'm the new office assistant.",
+      "zh": "早安，我是新來的辦公室助理。",
+      "accept": ["Good morning, I am the new office assistant."],
+      "note": "第一天到公司報到，先打招呼再說自己是誰。",
+      "distractors": [
+        { "text": "Good morning, I'm new office assistant.", "error": "article" },
+        { "text": "Good morning, I'm the office new assistant.", "error": "word-order" },
+        { "text": "Good morning, I'm the new office assistent.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "badge_open_front_door",
+      "en": "Does this badge open the front door?",
+      "zh": "這張識別證可以開大門嗎？",
+      "note": "問東西能不能用。主詞是 this badge，用 Does，後面動詞用原形。",
+      "distractors": [
+        { "text": "Does this badge opens the front door?", "error": "other" },
+        { "text": "Do this badge open the front door?", "error": "other" },
+        { "text": "Does this badge open front door?", "error": "article" }
+      ]
+    },
+    {
+      "id": "who_put_as_supervisor",
+      "en": "Who should I put as my supervisor?",
+      "zh": "主管這一欄我要填誰？",
+      "note": "填表格時問某一欄要寫誰。put 某人 as… = 把某人填成……。",
+      "distractors": [
+        { "text": "Who should I put my supervisor?", "error": "missing-word" },
+        { "text": "Who I should put as my supervisor?", "error": "word-order" },
+        { "text": "Who should I put as my supervisior?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "when_need_forms_back",
+      "en": "When do you need these forms back?",
+      "zh": "這些表格什麼時候要交回來？",
+      "accept": ["When do you need the forms back?"],
+      "note": "問交件期限。back 放在句尾，表示「交回來」。",
+      "distractors": [
+        { "text": "When you need these forms back?", "error": "missing-word" },
+        { "text": "When do you need these form back?", "error": "plural" },
+        { "text": "When do you need back these forms?", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "is_lunch_provided",
+      "en": "Is lunch provided, or should I bring my own?",
+      "zh": "公司有供應午餐嗎？還是要自己帶？",
+      "note": "被動式：is＋過去分詞（provided）= 被提供，不必說是誰提供的。",
+      "distractors": [
+        { "text": "Is lunch provide, or should I bring my own?", "error": "other" },
+        { "text": "Does lunch provided, or should I bring my own?", "error": "other" },
+        { "text": "Is lunch provided, or should I bring my?", "error": "missing-word" }
+      ]
+    },
+    {
+      "id": "allowed_to_eat_at_desks",
+      "en": "Are we allowed to eat at our desks?",
+      "zh": "我們可以在座位上吃東西嗎？",
+      "note": "被動式問句：Are we allowed to＋原形動詞？= 我們可以……嗎？",
+      "distractors": [
+        { "text": "Are we allow to eat at our desks?", "error": "other" },
+        { "text": "Are we allowed eat at our desks?", "error": "missing-word" },
+        { "text": "Do we allowed to eat at our desks?", "error": "other" }
+      ]
+    },
+    {
+      "id": "call_carter_before_nine",
+      "en": "So I should call Ms. Carter before nine, right?",
+      "zh": "所以我要在九點前打給 Ms. Carter，對嗎？",
+      "accept": ["So I should call Ms. Carter before 9, right?"],
+      "note": "讀完規定跟對方確認你懂得對不對。句尾加 right? = 對吧？",
+      "distractors": [
+        { "text": "So I should calling Ms. Carter before nine, right?", "error": "other" },
+        { "text": "So I should call to Ms. Carter before nine, right?", "error": "extra-word" },
+        { "text": "So I should call Ms. Carter before nine, rigth?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "how_many_vacation_days",
+      "en": "How many vacation days do I get?",
+      "zh": "我有幾天特休？",
+      "note": "問有幾天假。數得出來的東西用 How many＋複數名詞。",
+      "distractors": [
+        { "text": "How much vacation days do I get?", "error": "other" },
+        { "text": "How many vacation day do I get?", "error": "plural" },
+        { "text": "How many vacation days I get?", "error": "missing-word" }
+      ]
+    },
+    {
+      "id": "paid_every_two_weeks",
+      "en": "Are we paid every two weeks?",
+      "zh": "我們是每兩個禮拜發一次薪水嗎？",
+      "note": "問多久發一次薪水。be paid = 領到薪水，是被動式。",
+      "distractors": [
+        { "text": "Are we pay every two weeks?", "error": "other" },
+        { "text": "Are we paid every two week?", "error": "plural" },
+        { "text": "Are we paid every the two weeks?", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "need_few_more_minutes",
+      "en": "I just need a few more minutes.",
+      "zh": "我再幾分鐘就好。",
+      "note": "數量詞：a few＋可數的複數名詞 = 幾個；a few more = 再幾個。",
+      "distractors": [
+        { "text": "I just need a little more minutes.", "error": "other" },
+        { "text": "I just need a few more minute.", "error": "plural" },
+        { "text": "I just need a few more minits.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "plenty_of_time",
+      "en": "Sure, I have plenty of time this afternoon.",
+      "zh": "沒問題，我今天下午時間很充裕。",
+      "note": "數量詞：plenty of＋名詞 = 很多、足夠，可數不可數都能用。",
+      "distractors": [
+        { "text": "Sure, I have plenty time this afternoon.", "error": "missing-word" },
+        { "text": "Sure, I have plenty of times this afternoon.", "error": "plural" },
+        { "text": "Sure, I have plenty of time in this afternoon.", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "excited_part_of_team",
+      "en": "I'm excited to be part of the team.",
+      "zh": "很高興能加入這個團隊。",
+      "accept": ["I am excited to be part of the team.", "I'm excited to be a part of the team."],
+      "note": "加入新團隊時說。excited to＋原形動詞 = 很期待做某事。",
+      "distractors": [
+        { "text": "I'm exciting to be part of the team.", "error": "other" },
+        { "text": "I'm excited to part of the team.", "error": "missing-word" },
+        { "text": "I'm excited to be part of team.", "error": "article" }
+      ]
+    },
+    {
+      "id": "finish_rest_first_thing",
+      "en": "I'll finish the rest first thing tomorrow.",
+      "zh": "剩下的我明天一早就做完。",
+      "accept": ["I will finish the rest first thing tomorrow."],
+      "note": "事情今天做不完時說。the rest = 剩下的；first thing = 一早。",
+      "distractors": [
+        { "text": "I'll finishing the rest first thing tomorrow.", "error": "other" },
+        { "text": "I'll finish rest first thing tomorrow.", "error": "article" },
+        { "text": "I'll finish the rest first thing tomorow.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "going_to_like_it_here",
+      "en": "I think I'm going to like it here.",
+      "zh": "我覺得我會喜歡這裡。",
+      "accept": ["I think I am going to like it here."],
+      "note": "說你對新環境的感覺。be going to＋原形 = 覺得之後會……。",
+      "distractors": [
+        { "text": "I think I going to like it here.", "error": "missing-word" },
+        { "text": "I think I'm going to liking it here.", "error": "other" },
+        { "text": "I think I'm going to like it hear.", "error": "spelling" }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "human", "en": "human", "zh": "人的；人力的", "emoji": "🧍", "abstract": true },
+    { "id": "staff", "en": "staff", "zh": "員工（全體）", "emoji": "👥", "abstract": true },
+    { "id": "access", "en": "access", "zh": "進出的權限", "emoji": "🔓", "abstract": true },
+    {
+      "id": "resource",
+      "en": "resource",
+      "zh": "資源（human resources 人資）",
+      "emoji": "🧩",
+      "abstract": true
+    },
+    {
+      "id": "orientation",
+      "en": "orientation",
+      "zh": "新人訓練（到職說明）",
+      "emoji": "🧭",
+      "abstract": true
+    },
+    { "id": "badge", "en": "badge", "zh": "識別證", "emoji": "🪪" },
+    { "id": "supervisor", "en": "supervisor", "zh": "直屬主管", "emoji": "🧑‍⚖️", "abstract": true },
+    { "id": "contact", "en": "contact", "zh": "聯絡人；聯絡", "emoji": "📞", "abstract": true },
+    { "id": "official", "en": "official", "zh": "正式的", "emoji": "🔏", "abstract": true },
+    { "id": "daughter", "en": "daughter", "zh": "女兒", "emoji": "👧" },
+    {
+      "id": "identification",
+      "en": "identification",
+      "zh": "身分證明",
+      "emoji": "🆔",
+      "abstract": true
+    },
+    { "id": "emergency", "en": "emergency", "zh": "緊急狀況", "emoji": "🚨", "abstract": true },
+    {
+      "id": "payroll",
+      "en": "payroll",
+      "zh": "薪資作業；發薪名單",
+      "emoji": "💰",
+      "abstract": true
+    },
+    { "id": "provide", "en": "provide", "zh": "提供", "emoji": "🤲", "abstract": true },
+    { "id": "department", "en": "department", "zh": "部門", "emoji": "🏬", "abstract": true },
+    { "id": "facility", "en": "facility", "zh": "設施", "emoji": "🚻", "abstract": true },
+    { "id": "tour", "en": "tour", "zh": "參觀；導覽", "emoji": "🚶", "abstract": true },
+    { "id": "receptionist", "en": "receptionist", "zh": "櫃台接待人員", "emoji": "💁" },
+    { "id": "locate", "en": "locate", "zh": "位於（be located）", "emoji": "📍", "abstract": true },
+    { "id": "entrance", "en": "entrance", "zh": "入口", "emoji": "↪️", "abstract": true },
+    { "id": "policy", "en": "policy", "zh": "規定；政策", "emoji": "📏", "abstract": true },
+    {
+      "id": "organization",
+      "en": "organization",
+      "zh": "組織；機構",
+      "emoji": "🕸️",
+      "abstract": true
+    },
+    { "id": "identify", "en": "identify", "zh": "辨識；確認身分", "emoji": "🔍", "abstract": true },
+    { "id": "professional", "en": "professional", "zh": "專業的", "emoji": "🎯", "abstract": true },
+    {
+      "id": "workplace",
+      "en": "workplace",
+      "zh": "工作場所；職場",
+      "emoji": "🏗️",
+      "abstract": true
+    },
+    {
+      "id": "confidential",
+      "en": "confidential",
+      "zh": "保密的；機密的",
+      "emoji": "🤫",
+      "abstract": true
+    },
+    { "id": "absent", "en": "absent", "zh": "沒來上班；缺席", "emoji": "🚫", "abstract": true },
+    { "id": "handbook", "en": "handbook", "zh": "（員工）手冊", "emoji": "📘", "abstract": true },
+    { "id": "vacation", "en": "vacation", "zh": "休假；假期", "emoji": "🏖️" },
+    { "id": "health", "en": "health", "zh": "健康", "emoji": "💓" },
+    { "id": "worker", "en": "worker", "zh": "工作人員；員工", "emoji": "👷", "abstract": true },
+    { "id": "earn", "en": "earn", "zh": "賺得；累積（假）", "emoji": "📈", "abstract": true },
+    { "id": "eligible", "en": "eligible", "zh": "符合資格的", "emoji": "✅", "abstract": true },
+    {
+      "id": "paycheck",
+      "en": "paycheck",
+      "zh": "（每次發的）薪水",
+      "emoji": "💸",
+      "abstract": true
+    },
+    { "id": "enroll", "en": "enroll", "zh": "加保；報名加入", "emoji": "🖊️", "abstract": true },
+    { "id": "role", "en": "role", "zh": "職務；角色", "emoji": "🎭", "abstract": true },
+    { "id": "knowledge", "en": "knowledge", "zh": "知識；了解", "emoji": "🧠", "abstract": true },
+    {
+      "id": "responsibility",
+      "en": "responsibility",
+      "zh": "職責；責任",
+      "emoji": "🫡",
+      "abstract": true
+    },
+    {
+      "id": "assignment",
+      "en": "assignment",
+      "zh": "交辦的工作；任務",
+      "emoji": "📥",
+      "abstract": true
+    },
+    { "id": "familiar", "en": "familiar", "zh": "熟悉的", "emoji": "👌", "abstract": true },
+    {
+      "id": "plenty",
+      "en": "plenty",
+      "zh": "很多；充足（plenty of）",
+      "emoji": "🈵",
+      "abstract": true
+    },
+    {
+      "id": "routine",
+      "en": "routine",
+      "zh": "例行工作；固定流程",
+      "emoji": "🔁",
+      "abstract": true
+    },
+    { "id": "product", "en": "product", "zh": "產品", "emoji": "🛒", "abstract": true },
+    { "id": "sell", "en": "sell", "zh": "賣；銷售", "emoji": "💲", "abstract": true },
+    { "id": "culture", "en": "culture", "zh": "（公司）文化", "emoji": "🌐", "abstract": true },
+    {
+      "id": "director",
+      "en": "director",
+      "zh": "總經理（公司負責人）",
+      "emoji": "👨‍💼",
+      "abstract": true
+    },
+    { "id": "ability", "en": "ability", "zh": "能力", "emoji": "🌟", "abstract": true },
+    { "id": "introduction", "en": "introduction", "zh": "介紹", "emoji": "👋", "abstract": true },
+    { "id": "senior", "en": "senior", "zh": "資深的", "emoji": "🎖️", "abstract": true },
+    { "id": "overview", "en": "overview", "zh": "概況；簡介", "emoji": "🔭", "abstract": true },
+    { "id": "smile", "en": "smile", "zh": "微笑", "emoji": "😊", "abstract": true },
+    { "id": "procedure", "en": "procedure", "zh": "流程；程序", "emoji": "🪜", "abstract": true },
+    {
+      "id": "permanent",
+      "en": "permanent",
+      "zh": "正式的；長期的",
+      "emoji": "♾️",
+      "abstract": true
+    },
+    {
+      "id": "temporary",
+      "en": "temporary",
+      "zh": "暫時的；臨時的",
+      "emoji": "⏳",
+      "abstract": true
+    },
+    {
+      "id": "paperwork",
+      "en": "paperwork",
+      "zh": "要填的文件；文書作業",
+      "emoji": "📑",
+      "abstract": true
+    },
+    { "id": "submit", "en": "submit", "zh": "繳交；送出", "emoji": "📤", "abstract": true },
+    { "id": "flexible", "en": "flexible", "zh": "有彈性的", "emoji": "🤸", "abstract": true }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "第一天報到",
+      "newChunkIds": ["new_office_assistant", "badge_open_front_door"],
+      "newWordIds": ["human", "staff", "access", "resource", "orientation", "badge"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Good morning, I'm the new office assistant.",
+          "zh": "早安，我是新來的辦公室助理。",
+          "chunkId": "new_office_assistant"
+        },
+        {
+          "id": "t1_2",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Welcome! I'm Ms. Reed from Human Resources. HR for short.",
+          "zh": "歡迎！我是人力資源部的 Reed，簡稱人資。"
+        },
+        {
+          "id": "t1_3",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "I'll do your orientation this morning.",
+          "zh": "今天早上由我幫你做到職說明。"
+        },
+        {
+          "id": "t1_4",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "First, a picture for your badge. Look at the camera, please.",
+          "zh": "先拍識別證的照片。請看鏡頭。"
+        },
+        {
+          "id": "t1_5",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Great. Here's your badge. All staff wear one.",
+          "zh": "很好。這是你的識別證，所有員工都要戴。",
+          "stage": { "act": "give", "item": "badge" }
+        },
+        {
+          "id": "t1_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Does this badge open the front door?",
+          "zh": "這張識別證可以開大門嗎？",
+          "chunkId": "badge_open_front_door"
+        },
+        {
+          "id": "t1_7",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Yes. It gives you access to the whole office.",
+          "zh": "可以。整間辦公室你都能進出。"
+        },
+        {
+          "id": "t1_8",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Okay, let's sit down. I have some forms for you.",
+          "zh": "好，我們坐下來吧。我有幾張表格要給你填。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "填報到表格",
+      "newChunkIds": ["who_put_as_supervisor", "when_need_forms_back"],
+      "newWordIds": [
+        "supervisor",
+        "contact",
+        "official",
+        "daughter",
+        "identification",
+        "emergency",
+        "payroll"
+      ],
+      "fills": [
+        {
+          "id": "emergency_contact",
+          "en": "Who is your emergency ___?",
+          "zh": "你的緊急聯絡人是誰？",
+          "options": ["contact", "badge", "payroll", "access"],
+          "answer": 0,
+          "note": "emergency contact＝緊急聯絡人。"
+        },
+        {
+          "id": "two_forms_identification",
+          "en": "I need two forms of ___, like your passport.",
+          "zh": "我需要兩種身分證明，像是你的護照。",
+          "options": ["identification", "orientation", "payroll", "staff"],
+          "answer": 0,
+          "note": "護照是一種身分證明：identification。"
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Now, a few forms. This one is for payroll.",
+          "zh": "接下來填幾張表格。這張是薪資用的。"
+        },
+        {
+          "id": "t2_2",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Write your official name, the one on your passport.",
+          "zh": "寫你的正式名字，就是護照上那個。"
+        },
+        {
+          "id": "t2_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Who should I put as my supervisor?",
+          "zh": "主管這一欄我要填誰？",
+          "chunkId": "who_put_as_supervisor"
+        },
+        {
+          "id": "t2_4",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Ms. Carter. You'll meet her again this afternoon.",
+          "zh": "Carter。你今天下午會再見到她。"
+        },
+        {
+          "id": "t2_5",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "This last one asks for an emergency contact.",
+          "zh": "最後這張要填緊急聯絡人。"
+        },
+        {
+          "id": "t2_6",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Most people put a family member. I put my daughter.",
+          "zh": "大部分的人都填家人。我是填我女兒。",
+          "stage": { "act": "want", "item": "daughter" }
+        },
+        {
+          "id": "t2_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "When do you need these forms back?",
+          "zh": "這些表格什麼時候要交回來？",
+          "chunkId": "when_need_forms_back"
+        },
+        {
+          "id": "t2_8",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "By Friday is fine. Take your time.",
+          "zh": "星期五前交就可以了，慢慢來。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "參觀辦公室",
+      "newChunkIds": ["is_lunch_provided", "allowed_to_eat_at_desks"],
+      "newWordIds": [
+        "provide",
+        "department",
+        "facility",
+        "tour",
+        "receptionist",
+        "locate",
+        "entrance"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Let me show you around. Kate is our receptionist.",
+          "zh": "我帶你到處看看。Kate 是我們的櫃台。",
+          "stage": { "act": "want", "item": "receptionist" }
+        },
+        {
+          "id": "t3_2",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "And this is the kitchen. Coffee and tea are provided.",
+          "zh": "這裡是茶水間。咖啡和茶公司都有提供。"
+        },
+        {
+          "id": "t3_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is lunch provided, or should I bring my own?",
+          "zh": "公司有供應午餐嗎？還是要自己帶？",
+          "chunkId": "is_lunch_provided"
+        },
+        {
+          "id": "t3_4",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Sorry, lunch isn't. Most of us bring something from home.",
+          "zh": "午餐就沒有了，不好意思。我們大多是從家裡帶。"
+        },
+        {
+          "id": "t3_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Are we allowed to eat at our desks?",
+          "zh": "我們可以在座位上吃東西嗎？",
+          "chunkId": "allowed_to_eat_at_desks"
+        },
+        {
+          "id": "t3_6",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Yes, you are. Cups are kept in this cabinet.",
+          "zh": "可以啊。杯子都放在這個櫃子裡。"
+        },
+        {
+          "id": "t3_7",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "The meeting room is located next to the kitchen.",
+          "zh": "會議室就在茶水間隔壁。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀員工手冊",
+      "newChunkIds": ["call_carter_before_nine"],
+      "newWordIds": [
+        "policy",
+        "organization",
+        "identify",
+        "professional",
+        "workplace",
+        "confidential",
+        "absent",
+        "handbook"
+      ],
+      "passages": [
+        {
+          "id": "your_first_week",
+          "kind": "notice",
+          "title": "Your First Week",
+          "lines": [
+            "Welcome to Harbor Trading! We are a small organization, and we want a friendly, professional workplace.",
+            "Badge: Wear your badge every day. It identifies you as staff.",
+            "Sick days: Call your supervisor before 9:00 on any day you are absent.",
+            "Your information: All your forms are kept in the HR office. They are confidential.",
+            "Facilities: The kitchen and the meeting room are open to all staff.",
+            "Questions about a policy? Ask Ms. Reed."
+          ],
+          "questions": [
+            {
+              "en": "You are sick. What should you do?",
+              "zh": "你生病了，應該怎麼做？",
+              "options": [
+                "Call your supervisor before 9:00",
+                "Wear your badge",
+                "Go to the HR office"
+              ],
+              "answer": 0
+            },
+            {
+              "en": "Who should you ask about a policy?",
+              "zh": "對規定有問題要問誰？",
+              "options": ["Your supervisor", "Ms. Reed", "The receptionist"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "This is the staff handbook. Please read the first page.",
+          "zh": "這是員工手冊，請先看第一頁。"
+        },
+        {
+          "id": "t4_2",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Look at the part about sick days. That policy is important.",
+          "zh": "看一下請病假那一段，那條規定很重要。"
+        },
+        {
+          "id": "t4_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "So I should call Ms. Carter before nine, right?",
+          "zh": "所以我要在九點前打給 Ms. Carter，對嗎？",
+          "chunkId": "call_carter_before_nine"
+        },
+        {
+          "id": "t4_4",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Right. She's your supervisor, so call her, not me.",
+          "zh": "對。她是你的主管，所以打給她，不是打給我。"
+        },
+        {
+          "id": "t4_5",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "And don't worry, your forms stay with me. They're confidential.",
+          "zh": "還有別擔心，你的表格都放我這裡，會保密的。"
+        },
+        {
+          "id": "t4_6",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Any questions about a policy? Just ask me.",
+          "zh": "對規定有任何問題，直接問我就好。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "特休和發薪日",
+      "newChunkIds": ["how_many_vacation_days", "paid_every_two_weeks"],
+      "newWordIds": ["vacation", "health", "worker", "earn", "eligible", "paycheck", "enroll"],
+      "talks": [
+        {
+          "id": "health_insurance",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "guide",
+              "en": "Is there health insurance, too?",
+              "zh": "也有健康保險嗎？"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "hr",
+              "en": "Yes. All full time workers are eligible for health insurance.",
+              "zh": "有。所有全職員工都符合健康保險的資格。"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "guide",
+              "en": "Great. What do I need to do?",
+              "zh": "太好了。我需要做什麼？"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "hr",
+              "en": "You need to enroll online by this Friday.",
+              "zh": "你要在這個星期五以前上網加保。"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "guide",
+              "en": "Okay. And I get ten vacation days this year, right?",
+              "zh": "好。還有我今年有十天特休，對嗎？"
+            },
+            {
+              "id": "t5_talk_6",
+              "role": "hr",
+              "en": "Right, ten in your first year.",
+              "zh": "對，第一年十天。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "How many vacation days does the new worker get?",
+              "zh": "新員工有幾天特休？",
+              "options": ["Five", "Ten", "Twenty"],
+              "answer": 1
+            },
+            {
+              "en": "What does the new worker need to do by Friday?",
+              "zh": "新員工星期五以前要做什麼？",
+              "options": ["Enroll in health insurance", "Get a new badge", "Call Ms. Carter"],
+              "answer": 0
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "That's it for the tour. Any other questions for me?",
+          "zh": "參觀就到這裡。還有什麼問題要問我嗎？"
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How many vacation days do I get?",
+          "zh": "我有幾天特休？",
+          "chunkId": "how_many_vacation_days"
+        },
+        {
+          "id": "t5_3",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Ten days in your first year. You earn them from your first month.",
+          "zh": "第一年十天，從第一個月就開始累積。",
+          "stage": { "act": "want", "item": "vacation" }
+        },
+        {
+          "id": "t5_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Are we paid every two weeks?",
+          "zh": "我們是每兩個禮拜發一次薪水嗎？",
+          "chunkId": "paid_every_two_weeks"
+        },
+        {
+          "id": "t5_5",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Yes. Payday is every other Friday.",
+          "zh": "對，每隔一個星期五發薪。"
+        },
+        {
+          "id": "t5_6",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Your first paycheck comes next week.",
+          "zh": "你的第一份薪水下個禮拜就會入帳。"
+        },
+        {
+          "id": "t5_7",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Any more questions, come and see me. My door is always open.",
+          "zh": "還有問題就來找我，我隨時都在。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "第一批小工作",
+      "newChunkIds": ["need_few_more_minutes", "plenty_of_time"],
+      "newWordIds": [
+        "role",
+        "knowledge",
+        "responsibility",
+        "assignment",
+        "familiar",
+        "plenty",
+        "routine"
+      ],
+      "cloze": [
+        { "lineId": "t6_3", "word": "role", "distractors": ["daughter", "lunch"] },
+        { "lineId": "t6_4", "word": "team", "distractors": ["kitchen", "badge"] },
+        { "lineId": "t6_6", "word": "afternoon", "distractors": ["kitchen", "entrance"] }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Hi there! Are you done with Ms. Reed's forms?",
+          "zh": "嗨！Reed 的表格填完了嗎？"
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I just need a few more minutes.",
+          "zh": "我再幾分鐘就好。",
+          "chunkId": "need_few_more_minutes"
+        },
+        {
+          "id": "t6_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "That's okay. First, let me explain your role.",
+          "zh": "沒關係。我先跟你說明一下你的職務。"
+        },
+        {
+          "id": "t6_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Your main responsibility is to help the team: filing, mail, orders.",
+          "zh": "你主要的職責是協助團隊：歸檔、信件、訂單。"
+        },
+        {
+          "id": "t6_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I have several small jobs for you today.",
+          "zh": "我今天有幾件小事要交給你。"
+        },
+        {
+          "id": "t6_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sure, I have plenty of time this afternoon.",
+          "zh": "沒問題，我今天下午時間很充裕。",
+          "chunkId": "plenty_of_time"
+        },
+        {
+          "id": "t6_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Great. Here's your first assignment. Are you familiar with Excel?",
+          "zh": "太好了。這是你的第一份工作。你熟悉 Excel 嗎？"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "認識公司和同事",
+      "newChunkIds": ["excited_part_of_team"],
+      "newWordIds": [
+        "product",
+        "sell",
+        "culture",
+        "director",
+        "ability",
+        "introduction",
+        "senior",
+        "overview"
+      ],
+      "talks": [
+        {
+          "id": "company_overview",
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "manager",
+              "en": "Here's a short overview of the company.",
+              "zh": "我簡單介紹一下公司的概況。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "manager",
+              "en": "We sell desk lamps and other products for the home and office.",
+              "zh": "我們賣桌燈，還有其他居家和辦公室用的產品。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "guide",
+              "en": "Do we sell to stores?",
+              "zh": "我們是賣給店家嗎？"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "manager",
+              "en": "Yes, only to stores. Mr. Ellis is our director.",
+              "zh": "對，只賣給店家。Ellis 先生是我們的總經理。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "manager",
+              "en": "He started the company almost twenty years ago.",
+              "zh": "他快二十年前創立了這家公司。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "guide",
+              "en": "Who should I ask when I have a question?",
+              "zh": "我有問題的時候要問誰？"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "manager",
+              "en": "Dan is our senior sales person. He sits next to you. Ask him first.",
+              "zh": "Dan 是我們資深的業務，他坐你隔壁。先問他。"
+            },
+            {
+              "id": "t7_talk_8",
+              "role": "manager",
+              "en": "Our shipping department is in the warehouse.",
+              "zh": "我們的出貨部門在倉庫那邊。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "What does the company sell?",
+              "zh": "這家公司賣什麼？",
+              "options": ["Desk lamps", "Computers", "Clothes"],
+              "answer": 0
+            },
+            {
+              "en": "Who should the new worker ask first?",
+              "zh": "新員工有問題要先問誰？",
+              "options": ["Mr. Ellis", "Dan", "Ms. Reed"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Time for a few introductions. You met Ms. Reed already.",
+          "zh": "來介紹一下大家。Reed 你已經見過了。"
+        },
+        {
+          "id": "t7_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "We're a small team, only six people.",
+          "zh": "我們是個小團隊，只有六個人。"
+        },
+        {
+          "id": "t7_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "In our culture, we ask questions and help each other.",
+          "zh": "我們的文化就是：有問題就問，互相幫忙。"
+        },
+        {
+          "id": "t7_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Your ability to speak Chinese is important here, too.",
+          "zh": "你會說中文的能力在這裡也很重要。"
+        },
+        {
+          "id": "t7_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Our new products are made in Taiwan.",
+          "zh": "我們的新產品是在台灣做的。"
+        },
+        {
+          "id": "t7_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm excited to be part of the team.",
+          "zh": "很高興能加入這個團隊。",
+          "chunkId": "excited_part_of_team"
+        },
+        {
+          "id": "t7_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "We're happy to have you. Your knowledge of Chinese will help.",
+          "zh": "我們很高興有你加入。你懂中文會很有幫助。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "第一天下班前",
+      "newChunkIds": ["finish_rest_first_thing", "going_to_like_it_here"],
+      "newWordIds": [
+        "smile",
+        "procedure",
+        "permanent",
+        "temporary",
+        "paperwork",
+        "submit",
+        "flexible"
+      ],
+      "spellWordIds": ["elevator", "suit", "tie", "sweater", "clock"],
+      "cloze": [
+        { "lineId": "t8_3", "word": "smiling", "distractors": ["crying", "sleeping"] },
+        { "lineId": "t8_4", "word": "paperwork", "distractors": ["coffee", "lunch"] },
+        { "lineId": "t8_6", "word": "badge", "distractors": ["daughter", "lunch"] }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "So, how was your first day?",
+          "zh": "那麼，第一天過得怎麼樣？"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I think I'm going to like it here.",
+          "zh": "我覺得我會喜歡這裡。",
+          "chunkId": "going_to_like_it_here"
+        },
+        {
+          "id": "t8_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "You're still smiling. That's a good sign.",
+          "zh": "你還在笑，這是好兆頭。"
+        },
+        {
+          "id": "t8_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Did you submit all your paperwork?",
+          "zh": "你的文件都交了嗎？"
+        },
+        {
+          "id": "t8_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll finish the rest first thing tomorrow.",
+          "zh": "剩下的我明天一早就做完。",
+          "chunkId": "finish_rest_first_thing"
+        },
+        {
+          "id": "t8_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "That's fine. Your permanent badge will be ready on Friday.",
+          "zh": "沒關係。你的正式識別證星期五會做好。",
+          "stage": { "act": "want", "item": "badge" }
+        },
+        {
+          "id": "t8_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Tomorrow I'll show you our procedure for orders.",
+          "zh": "明天我再教你處理新訂單的流程。"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Good morning! Can I help you?",
+          "zh": "早安！有什麼需要幫忙的嗎？"
+        },
+        {
+          "id": "t9_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Good morning, I'm the new office assistant.",
+          "zh": "早安，我是新來的辦公室助理。",
+          "chunkId": "new_office_assistant"
+        },
+        {
+          "id": "t9_3",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Welcome! I'm Ms. Reed. Here's your temporary badge.",
+          "zh": "歡迎！我是 Reed。這是你的臨時識別證。",
+          "stage": { "act": "give", "item": "badge" }
+        },
+        {
+          "id": "t9_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Does this badge open the front door?",
+          "zh": "這張識別證可以開大門嗎？",
+          "chunkId": "badge_open_front_door"
+        },
+        {
+          "id": "t9_5",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "It does, and the staff entrance, too. Now, please fill out these forms.",
+          "zh": "可以，員工入口也能開。好，接下來請你填這些表格。"
+        },
+        {
+          "id": "t9_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Who should I put as my supervisor?",
+          "zh": "主管這一欄我要填誰？",
+          "chunkId": "who_put_as_supervisor"
+        },
+        {
+          "id": "t9_7",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Ms. Carter. And here's the handbook. Read the part about sick days.",
+          "zh": "Carter。還有這是員工手冊，看一下請病假那一段。"
+        },
+        {
+          "id": "t9_8",
+          "role": "guide",
+          "speaker": "player",
+          "en": "So I should call Ms. Carter before nine, right?",
+          "zh": "所以我要在九點前打給 Ms. Carter，對嗎？",
+          "chunkId": "call_carter_before_nine"
+        },
+        {
+          "id": "t9_9",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Exactly. Any other questions?",
+          "zh": "沒錯。還有其他問題嗎？"
+        },
+        {
+          "id": "t9_10",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How many vacation days do I get?",
+          "zh": "我有幾天特休？",
+          "chunkId": "how_many_vacation_days"
+        },
+        {
+          "id": "t9_11",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Ten in your first year. And coffee is provided in the kitchen.",
+          "zh": "第一年十天。對了，茶水間有提供咖啡。"
+        },
+        {
+          "id": "t9_12",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is lunch provided, or should I bring my own?",
+          "zh": "公司有供應午餐嗎？還是要自己帶？",
+          "chunkId": "is_lunch_provided"
+        },
+        {
+          "id": "t9_13",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Bring your own, sorry. Look, here's Ms. Carter now.",
+          "zh": "要自己帶，不好意思。你看，Carter 來了。"
+        },
+        {
+          "id": "t9_14",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Welcome! Are you almost done here?",
+          "zh": "歡迎！你這邊快好了嗎？"
+        },
+        {
+          "id": "t9_15",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I just need a few more minutes.",
+          "zh": "我再幾分鐘就好。",
+          "chunkId": "need_few_more_minutes"
+        },
+        {
+          "id": "t9_16",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Take your time. Everyone is excited to meet you.",
+          "zh": "慢慢來。大家都很期待見到你。"
+        },
+        {
+          "id": "t9_17",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm excited to be part of the team.",
+          "zh": "很高興能加入這個團隊。",
+          "chunkId": "excited_part_of_team"
+        },
+        {
+          "id": "t9_18",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. So, what do you think of us so far?",
+          "zh": "很好。那麼，到目前為止你覺得我們怎麼樣？"
+        },
+        {
+          "id": "t9_19",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I think I'm going to like it here.",
+          "zh": "我覺得我會喜歡這裡。",
+          "chunkId": "going_to_like_it_here"
+        },
+        {
+          "id": "t9_20",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Great. We're flexible about lunch, so come find me after.",
+          "zh": "太好了。午餐時間很有彈性，吃完再來找我。"
+        },
+        {
+          "id": "t9_21",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Then I'll explain your role and your routine.",
+          "zh": "到時候我再跟你說明你的職務和例行工作。"
+        }
+      ]
+    }
+  ]
+}
