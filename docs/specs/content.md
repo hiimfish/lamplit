@@ -125,5 +125,5 @@
 
 ## 尚未做到
 
-- 用 NGSL 高頻字表自動檢查用字：部分做到。`node scripts/vocab-report.mjs` 會列出每個任務的用字和難度（見 [curriculum.md](curriculum.md) 的「用字分析」），但還沒有在測試裡擋下不合格的內容。
+- 用 NGSL 高頻字表自動檢查用字：部分做到。`node scripts/vocab-report.mjs` 會列出每個任務的用字和難度，平滑規則 3、4、6 由 `tests/smoothness.test.ts` 擋下（見 [curriculum.md](curriculum.md) 的「用字分析」）；「用字有沒有超出這一幕的頻率範圍」還沒檢查。
 - KK 音標：計畫用開源發音字典 CMUdict 轉換。像素字型缺大部分音標符號，見 [visual-style.md](visual-style.md) 的「字型」。
