@@ -19,4 +19,5 @@ export const UNIT_ORDER: readonly string[] = [
   'interview',
   'day_before',
   'onboarding',
+  'office',
 ];
