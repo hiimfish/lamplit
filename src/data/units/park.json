@@ -1,0 +1,737 @@
+{
+  "id": "park",
+  "title": "公園與社區",
+  "titleEn": "Park & Community",
+  "chunks": [
+    {
+      "id": "nice_day",
+      "en": "Nice day, isn't it?",
+      "zh": "天氣真好，對吧？",
+      "accept": ["It's a nice day, isn't it?"],
+      "note": "在外面遇到人，用這句開口聊天。句尾的 isn't it? 是「對吧？」，整句當固定說法記。",
+      "distractors": [
+        { "text": "Nice day, it isn't?", "error": "word-order" },
+        { "text": "Nice day, isn't?", "error": "missing-word" },
+        { "text": "Nice day, aren't it?", "error": "other" }
+      ]
+    },
+    {
+      "id": "dog_friendly",
+      "en": "Is your dog friendly?",
+      "zh": "你的狗友善嗎？",
+      "note": "想摸別人的狗之前先問這句。friendly = 友善、親人；主詞是 your dog，所以用 Is。",
+      "distractors": [
+        { "text": "Is friendly your dog?", "error": "word-order" },
+        { "text": "Does your dog friendly?", "error": "other" },
+        { "text": "Is your dog freindly?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "what_time_start",
+      "en": "What time does it start?",
+      "zh": "幾點開始？",
+      "accept": ["When does it start?"],
+      "note": "問活動、課程幾點開始。What time 後面是 does it + 動詞原形，start 不加 s。",
+      "distractors": [
+        { "text": "What time does it starts?", "error": "other" },
+        { "text": "What time it does start?", "error": "word-order" },
+        { "text": "What time does start?", "error": "missing-word" }
+      ]
+    },
+    {
+      "id": "is_it_free",
+      "en": "Is it free?",
+      "zh": "免費嗎？",
+      "note": "free 在這裡是「免費的」。問活動或東西要不要錢，就這樣問。",
+      "distractors": [
+        { "text": "Is it a free?", "error": "article" },
+        { "text": "Does it free?", "error": "other" },
+        { "text": "Is free it?", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "saw_poster",
+      "en": "I saw your poster.",
+      "zh": "我看到你的海報了。",
+      "note": "saw 是 see 的過去式。不規則動詞不加 -ed（不說 seed），要一個一個記。",
+      "distractors": [
+        { "text": "I seed your poster.", "error": "other" },
+        { "text": "I did saw your poster.", "error": "extra-word" },
+        { "text": "I saw you poster.", "error": "other" }
+      ]
+    },
+    {
+      "id": "great_time",
+      "en": "I had a great time.",
+      "zh": "我玩得很開心。",
+      "accept": ["I had a good time."],
+      "note": "had 是 have 的過去式，不規則（不說 haved）。have a great time = 玩得很開心。",
+      "distractors": [
+        { "text": "I haved a great time.", "error": "other" },
+        { "text": "I had great time.", "error": "article" },
+        { "text": "I had a time great.", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "how_can_i_help",
+      "en": "How can I help?",
+      "zh": "我可以幫什麼忙？",
+      "accept": ["How can I help you?", "What can I do to help?"],
+      "note": "想幫忙、但不知道要做什麼時問。How 開頭的問句，can 要放在 I 前面。",
+      "distractors": [
+        { "text": "How I can help?", "error": "word-order" },
+        { "text": "How can I helping?", "error": "other" },
+        { "text": "How can I to help?", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "sign_up",
+      "en": "Can I sign up here?",
+      "zh": "可以在這裡報名嗎？",
+      "accept": ["Can I sign up here, please?", "Could I sign up here?"],
+      "note": "sign up = 報名、登記，兩個字連在一起說。sign 的 g 不發音，別拼成 sing。",
+      "distractors": [
+        { "text": "Can I sign here up?", "error": "word-order" },
+        { "text": "Can I sing up here?", "error": "spelling" },
+        { "text": "Can I signing up here?", "error": "other" }
+      ]
+    },
+    {
+      "id": "something_to_drink",
+      "en": "Do you want something to drink?",
+      "zh": "你要喝點什麼嗎？",
+      "accept": ["Would you like something to drink?", "Do you want anything to drink?"],
+      "note": "請人喝東西時問。something to drink = 喝的東西；吃的就說 something to eat。",
+      "distractors": [
+        { "text": "Do you want something drink?", "error": "missing-word" },
+        { "text": "Do you want to something drink?", "error": "word-order" },
+        { "text": "Do you want something to drinking?", "error": "other" }
+      ]
+    },
+    {
+      "id": "help_yourself",
+      "en": "Please help yourself.",
+      "zh": "請自己拿，別客氣。",
+      "accept": ["Help yourself.", "Help yourself, please."],
+      "note": "請客人自己拿東西吃或喝，不用客氣。yourself 是一個字，不分開寫。",
+      "distractors": [
+        { "text": "Please help you.", "error": "other" },
+        { "text": "Please help your self.", "error": "spelling" },
+        { "text": "Please yourself help.", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "run_together",
+      "en": "Do you want to run together?",
+      "zh": "要不要一起跑步？",
+      "accept": ["Want to run together?", "Do you want to go running together?"],
+      "note": "約人一起做事：Do you want to + 動詞原形…? together（一起）放在最後。",
+      "distractors": [
+        { "text": "Do you want run together?", "error": "missing-word" },
+        { "text": "Do you want to running together?", "error": "other" },
+        { "text": "Do you want to together run?", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "run_every_morning",
+      "en": "I run here every morning.",
+      "zh": "我每天早上在這裡跑步。",
+      "accept": ["Every morning, I run here."],
+      "note": "說習慣用現在簡單式。every morning = 每天早上；morning 不加 s，前面也不加 in。",
+      "distractors": [
+        { "text": "I run here every mornings.", "error": "plural" },
+        { "text": "I run here in every morning.", "error": "extra-word" },
+        { "text": "I every morning run here.", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "keep_in_touch",
+      "en": "Let's keep in touch.",
+      "zh": "保持聯絡喔。",
+      "accept": ["Let's stay in touch.", "Keep in touch!"],
+      "note": "keep in touch = 保持聯絡，有一陣子見不到面時說。Let's 後面接動詞原形。",
+      "distractors": [
+        { "text": "Let's keep touch.", "error": "missing-word" },
+        { "text": "Let's keeping in touch.", "error": "other" },
+        { "text": "Let's keep in tuch.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "my_number",
+      "en": "Here's my number.",
+      "zh": "這是我的電話號碼。",
+      "accept": ["Here is my number.", "Here's my phone number."],
+      "note": "把電話號碼給人時說。Here's = Here is；number 在這裡就是 phone number。",
+      "distractors": [
+        { "text": "Here my number.", "error": "missing-word" },
+        { "text": "Here's me number.", "error": "other" },
+        { "text": "Here's my numbers.", "error": "plural" }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "park", "en": "park", "zh": "公園", "emoji": "🏞️" },
+    { "id": "tree", "en": "tree", "zh": "樹", "emoji": "🌳" },
+    { "id": "dog", "en": "dog", "zh": "狗", "emoji": "🐕" },
+    { "id": "flower", "en": "flower", "zh": "花", "emoji": "🌷" },
+    { "id": "class", "en": "class", "zh": "課程", "emoji": "🧑‍🏫", "abstract": true },
+    { "id": "event", "en": "event", "zh": "活動", "emoji": "🎪", "abstract": true },
+    { "id": "center", "en": "center", "zh": "中心", "emoji": "🏢", "abstract": true },
+    { "id": "afternoon", "en": "afternoon", "zh": "下午", "emoji": "🌤️", "abstract": true },
+    { "id": "poster", "en": "poster", "zh": "海報", "emoji": "🪧" },
+    { "id": "sun", "en": "sun", "zh": "太陽", "emoji": "☀️" },
+    { "id": "sky", "en": "sky", "zh": "天空", "emoji": "🌌", "abstract": true },
+    { "id": "wind", "en": "wind", "zh": "風", "emoji": "🌬️", "abstract": true },
+    { "id": "cloud", "en": "cloud", "zh": "雲", "emoji": "☁️" },
+    { "id": "grass", "en": "grass", "zh": "草地", "emoji": "🌱" },
+    { "id": "team", "en": "team", "zh": "隊；小組", "emoji": "👥", "abstract": true },
+    { "id": "plant", "en": "plant", "zh": "植物；種", "emoji": "🪴" },
+    { "id": "clean", "en": "clean", "zh": "打掃；乾淨的", "emoji": "🧹", "abstract": true },
+    { "id": "garden", "en": "garden", "zh": "花園", "emoji": "🏡", "abstract": true },
+    { "id": "volunteer", "en": "volunteer", "zh": "志工", "emoji": "🙋", "abstract": true },
+    { "id": "play", "en": "play", "zh": "玩", "emoji": "🤾", "abstract": true },
+    { "id": "hold", "en": "hold", "zh": "拿著", "emoji": "🤲", "abstract": true },
+    { "id": "kid", "en": "kid", "zh": "小孩", "emoji": "🧒", "abstract": true },
+    { "id": "ball", "en": "ball", "zh": "球", "emoji": "⚽" },
+    { "id": "picnic", "en": "picnic", "zh": "野餐", "emoji": "🧺" },
+    { "id": "run", "en": "run", "zh": "跑步", "emoji": "🏃", "abstract": true },
+    { "id": "sport", "en": "sport", "zh": "運動", "emoji": "🏅", "abstract": true },
+    { "id": "lake", "en": "lake", "zh": "湖", "emoji": "🛶" },
+    { "id": "swim", "en": "swim", "zh": "游泳", "emoji": "🏊", "abstract": true },
+    { "id": "tennis", "en": "tennis", "zh": "網球", "emoji": "🎾" },
+    { "id": "family", "en": "family", "zh": "家人", "emoji": "👨‍👩‍👧", "abstract": true },
+    { "id": "picture", "en": "picture", "zh": "照片", "emoji": "🖼️" },
+    { "id": "message", "en": "message", "zh": "訊息", "emoji": "💬" },
+    { "id": "email", "en": "email", "zh": "電子郵件", "emoji": "📧", "abstract": true },
+    { "id": "camera", "en": "camera", "zh": "相機", "emoji": "📷" }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "公園散步",
+      "newChunkIds": ["nice_day", "dog_friendly"],
+      "newWordIds": ["park", "tree", "dog", "flower"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Nice day, isn't it?",
+          "zh": "天氣真好，對吧？",
+          "chunkId": "nice_day"
+        },
+        {
+          "id": "t1_2",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "It is! Look at the flowers on that tree.",
+          "zh": "是啊！你看那棵樹上的花。",
+          "stage": { "act": "want", "item": "flower" }
+        },
+        {
+          "id": "t1_3",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "This is my dog, Coco. She likes this park.",
+          "zh": "這是我的狗 Coco，牠很喜歡這個公園。",
+          "stage": { "act": "want", "item": "dog" }
+        },
+        {
+          "id": "t1_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is your dog friendly?",
+          "zh": "你的狗友善嗎？",
+          "chunkId": "dog_friendly",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t1_5",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Yes, very! She likes people.",
+          "zh": "很友善喔！牠很喜歡人。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "看活動公告",
+      "newChunkIds": ["what_time_start", "is_it_free"],
+      "newWordIds": ["class", "event", "center", "afternoon", "poster"],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "Hi! This poster is for our cooking class.",
+          "zh": "嗨！這張海報是我們烹飪課的。",
+          "stage": { "act": "want", "item": "poster" }
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What time does it start?",
+          "zh": "幾點開始？",
+          "chunkId": "what_time_start",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t2_3",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "At three this afternoon, at the community center.",
+          "zh": "今天下午三點，在社區中心。"
+        },
+        {
+          "id": "t2_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is it free?",
+          "zh": "免費嗎？",
+          "chunkId": "is_it_free"
+        },
+        {
+          "id": "t2_5",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "Yes! All our events are free.",
+          "zh": "免費！我們的活動全部免費。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "上次的活動",
+      "newChunkIds": ["saw_poster", "great_time"],
+      "newWordIds": ["sun", "sky", "wind", "cloud", "grass"],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "Hi! How did you know about our event?",
+          "zh": "嗨！你怎麼知道我們的活動的？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I saw your poster.",
+          "zh": "我看到你的海報了。",
+          "chunkId": "saw_poster",
+          "stage": { "act": "want", "item": "poster" }
+        },
+        {
+          "id": "t3_3",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "Good! So, how was it?",
+          "zh": "太好了！那你覺得怎麼樣？"
+        },
+        {
+          "id": "t3_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I had a great time.",
+          "zh": "我玩得很開心。",
+          "chunkId": "great_time"
+        },
+        {
+          "id": "t3_5",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "Me too! Sun, blue sky, and music on the grass.",
+          "zh": "我也是！有太陽、有藍天，還能坐在草地上聽音樂。",
+          "stage": { "act": "want", "item": "sun" }
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "當志工",
+      "newChunkIds": ["how_can_i_help", "sign_up"],
+      "newWordIds": ["team", "plant", "clean", "garden", "volunteer"],
+      "signs": [
+        {
+          "id": "garden_team",
+          "heading": "Garden Team",
+          "rows": [
+            { "label": "We need volunteers!" },
+            { "label": "Saturday morning", "value": "9:00" },
+            { "label": "Sign up at the center" }
+          ],
+          "question": { "en": "Where do you sign up?", "zh": "要在哪裡報名？" },
+          "options": ["At the park", "At the center", "At the library"],
+          "answer": 1
+        },
+        {
+          "id": "weekend_events",
+          "heading": "This Weekend at the Center",
+          "rows": [
+            { "label": "Dance class", "value": "Saturday afternoon" },
+            { "label": "Movie night", "value": "Sunday evening" }
+          ],
+          "question": { "en": "When is the dance class?", "zh": "舞蹈課是什麼時候？" },
+          "options": ["Saturday morning", "Sunday evening", "Saturday afternoon"],
+          "answer": 2
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "We need more volunteers for the garden.",
+          "zh": "我們的花園需要更多志工。",
+          "stage": { "act": "want", "item": "flower" }
+        },
+        {
+          "id": "t4_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How can I help?",
+          "zh": "我可以幫什麼忙？",
+          "chunkId": "how_can_i_help",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t4_3",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "You can plant flowers or clean the park.",
+          "zh": "你可以種花，或是打掃公園。",
+          "stage": { "act": "want", "item": "plant" }
+        },
+        {
+          "id": "t4_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I sign up here?",
+          "zh": "可以在這裡報名嗎？",
+          "chunkId": "sign_up"
+        },
+        {
+          "id": "t4_5",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "Sure! I'm Ben. Welcome to the team.",
+          "zh": "當然！我是 Ben。歡迎加入我們的小組。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "野餐",
+      "newChunkIds": ["something_to_drink", "help_yourself"],
+      "newWordIds": ["play", "hold", "kid", "ball", "picnic"],
+      "pictures": [
+        {
+          "id": "pic1",
+          "pictureId": "sleeping_sofa",
+          "options": [
+            { "en": "He is reading on the sofa.", "zh": "他在沙發上看書。" },
+            { "en": "He is sleeping on the sofa.", "zh": "他在沙發上睡覺。" },
+            { "en": "He is sleeping on the bus.", "zh": "他在公車上睡覺。" }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "pic2",
+          "pictureId": "playing_ball",
+          "options": [
+            { "en": "The kids are playing with a dog.", "zh": "孩子們在跟狗玩。" },
+            { "en": "The kids are sleeping on the grass.", "zh": "孩子們在草地上睡覺。" },
+            { "en": "The kids are playing with a ball.", "zh": "孩子們在玩球。" }
+          ],
+          "answer": 2
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Sorry I'm late! Some kids wanted to play ball with Coco.",
+          "zh": "抱歉我遲到了！有幾個小朋友想跟 Coco 玩球。",
+          "stage": { "act": "want", "item": "ball" }
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you want something to drink?",
+          "zh": "你要喝點什麼嗎？",
+          "chunkId": "something_to_drink",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t5_3",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Yes, please! This picnic looks so good.",
+          "zh": "好啊，麻煩你！野餐的東西看起來好好吃。",
+          "stage": { "act": "want", "item": "picnic" }
+        },
+        {
+          "id": "t5_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Please help yourself.",
+          "zh": "請自己拿，別客氣。",
+          "chunkId": "help_yourself"
+        },
+        {
+          "id": "t5_5",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Thanks! Can you hold my cup?",
+          "zh": "謝謝！可以幫我拿一下杯子嗎？"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "一起運動",
+      "newChunkIds": ["run_together", "run_every_morning"],
+      "newWordIds": ["run", "sport", "lake", "swim", "tennis"],
+      "cloze": [
+        { "lineId": "t6_3", "word": "lake", "distractors": ["cake", "bank"] },
+        { "lineId": "t6_3", "word": "tennis", "distractors": ["taxi", "tissue"] },
+        { "lineId": "t6_5", "word": "dog", "distractors": ["door", "desk"] }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Morning! Do you play any sports?",
+          "zh": "早安！你有在做什麼運動嗎？"
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I run here every morning.",
+          "zh": "我每天早上在這裡跑步。",
+          "chunkId": "run_every_morning"
+        },
+        {
+          "id": "t6_3",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Nice! I swim in the lake and play tennis.",
+          "zh": "不錯耶！我會去湖裡游泳，也打網球。",
+          "stage": { "act": "want", "item": "tennis" }
+        },
+        {
+          "id": "t6_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you want to run together?",
+          "zh": "要不要一起跑步？",
+          "chunkId": "run_together",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t6_5",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Sure! My dog likes to run, too.",
+          "zh": "好啊！我的狗也很喜歡跑步。",
+          "stage": { "act": "want", "item": "dog" }
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "保持聯絡",
+      "newChunkIds": ["keep_in_touch", "my_number"],
+      "newWordIds": ["family", "picture", "message", "email", "camera"],
+      "spellWordIds": ["mail", "stamp", "city", "desk", "tape"],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "I'm going to see my family next week.",
+          "zh": "我下星期要回去看家人。"
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let's keep in touch.",
+          "zh": "保持聯絡喔。",
+          "chunkId": "keep_in_touch"
+        },
+        {
+          "id": "t7_3",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Yes! Message me. I never read my email.",
+          "zh": "好啊！傳訊息給我吧，我都不看電子郵件。",
+          "stage": { "act": "want", "item": "message" }
+        },
+        {
+          "id": "t7_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Here's my number.",
+          "zh": "這是我的電話號碼。",
+          "chunkId": "my_number"
+        },
+        {
+          "id": "t7_5",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Thanks! I'll take my camera and send you pictures.",
+          "zh": "謝謝！我會帶相機去，再傳照片給你。",
+          "stage": { "act": "want", "item": "camera" }
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Good morning! Say hi, Coco!",
+          "zh": "早安！Coco，打個招呼！",
+          "stage": { "act": "want", "item": "dog" }
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Nice day, isn't it?",
+          "zh": "天氣真好，對吧？",
+          "chunkId": "nice_day"
+        },
+        {
+          "id": "t8_3",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "It is! No clouds, no wind. But it's so hot!",
+          "zh": "是啊！沒有雲，也沒有風。不過好熱喔！",
+          "stage": { "act": "want", "item": "sun" }
+        },
+        {
+          "id": "t8_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you want something to drink?",
+          "zh": "你要喝點什麼嗎？",
+          "chunkId": "something_to_drink"
+        },
+        {
+          "id": "t8_5",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Yes, please! Do you come here every day?",
+          "zh": "好啊，謝謝！你每天都來這裡嗎？"
+        },
+        {
+          "id": "t8_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I run here every morning.",
+          "zh": "我每天早上在這裡跑步。",
+          "chunkId": "run_every_morning"
+        },
+        {
+          "id": "t8_7",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Nice! Look, the garden team is here.",
+          "zh": "不錯耶！你看，花園小組來了。",
+          "stage": { "act": "want", "item": "flower" }
+        },
+        {
+          "id": "t8_8",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "Hi! Are you here to help?",
+          "zh": "嗨！你是來幫忙的嗎？"
+        },
+        {
+          "id": "t8_9",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I saw your poster.",
+          "zh": "我看到你的海報了。",
+          "chunkId": "saw_poster"
+        },
+        {
+          "id": "t8_10",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "Great! We need more volunteers today.",
+          "zh": "太好了！我們今天需要更多志工。"
+        },
+        {
+          "id": "t8_11",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How can I help?",
+          "zh": "我可以幫什麼忙？",
+          "chunkId": "how_can_i_help",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_12",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "Plant these flowers. Then come to our picnic!",
+          "zh": "把這些花種下去。種完來參加我們的野餐！",
+          "stage": { "act": "give", "item": "flower" }
+        },
+        {
+          "id": "t8_13",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What time does it start?",
+          "zh": "幾點開始？",
+          "chunkId": "what_time_start"
+        },
+        {
+          "id": "t8_14",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "At one, by the lake. What's your number?",
+          "zh": "一點，在湖邊。你的電話幾號？"
+        },
+        {
+          "id": "t8_15",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Here's my number.",
+          "zh": "這是我的電話號碼。",
+          "chunkId": "my_number"
+        },
+        {
+          "id": "t8_16",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "Got it! Welcome to the team.",
+          "zh": "收到！歡迎加入我們的小組。"
+        },
+        {
+          "id": "t8_17",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "See? You have friends here now!",
+          "zh": "你看，你在這裡有朋友了！"
+        }
+      ]
+    }
+  ]
+}
