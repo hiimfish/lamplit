@@ -332,6 +332,40 @@ describe('listening cloze questions (聽力填空)', () => {
   });
 });
 
+describe('a cloze on the plural of a taught word', () => {
+  const units = [moveInJson as Unit, unit];
+  const t1 = unit.tasks[0]!;
+  const line = (en: string): Task['scene'][number] => ({
+    id: 'x1',
+    role: 'barista',
+    speaker: 'npc',
+    en,
+    zh: en,
+  });
+  const itemIdOf = (en: string, word: string) =>
+    buildTaskPractice(
+      unit,
+      {
+        ...t1,
+        scene: [line(en)],
+        cloze: [{ lineId: 'x1', word, distractors: ['seats', 'tables'] }],
+      },
+      makeRng(3),
+      units,
+    ).find((q): q is ClozeQuestion => q.kind === 'cloze')?.itemId;
+
+  it('is scheduled as that word (-s and -es)', () => {
+    expect(itemIdOf('Two cookies, please.', 'cookies')).toBe('word:cookie');
+    expect(itemIdOf('Where are the boxes?', 'boxes')).toBe('word:box');
+    expect(itemIdOf('Two sandwiches, please.', 'sandwiches')).toBe('word:sandwich');
+  });
+
+  it('prefers the word itself, and leaves other words alone', () => {
+    expect(itemIdOf('A cookie, please.', 'cookie')).toBe('word:cookie');
+    expect(itemIdOf('Yes, it is.', 'is')).toBe('');
+  });
+});
+
 describe('sign questions (讀招牌／價目)', () => {
   const t1 = unit.tasks[0]!;
   const sign = {

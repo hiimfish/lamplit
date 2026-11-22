@@ -266,9 +266,22 @@ function cutAtWord(
 const capitalized = (text: string) => text.charAt(0).toUpperCase() + text.slice(1);
 
 /**
+ * The taught word that `text` is: the word itself, or its plain plural (minutes, boxes),
+ * so that a blanked plural still counts for that word's review card.
+ */
+function taughtWord(units: readonly Unit[], text: string): Word | undefined {
+  const words = units.flatMap((u) => u.words);
+  return (
+    words.find((w) => sameText(w.en, text)) ??
+    words.find((w) => sameText(`${w.en}s`, text) || sameText(`${w.en}es`, text))
+  );
+}
+
+/**
  * Listening cloze questions (聽力填空) for the task's `cloze` items. When the missing word
  * starts with a capital in the line, every option gets one, so the capital gives nothing away.
- * The answer is scheduled as the taught word when it is one (looked up in `units`), else as
+ * The answer is scheduled as the taught word when it is one or its plural (looked up in
+ * `units`), else as
  * the line's chunk, else not at all.
  */
 function clozeQuestions(unit: Unit, task: Task, rng: Rng, units: readonly Unit[]): ClozeQuestion[] {
@@ -277,7 +290,7 @@ function clozeQuestions(unit: Unit, task: Task, rng: Rng, units: readonly Unit[]
     const cut = line ? cutAtWord(line.en, item.word) : null;
     if (!line || !cut) return [];
     const label = /^[A-Z]/.test(cut.found) ? capitalized : (text: string) => text;
-    const word = units.flatMap((u) => u.words).find((w) => sameText(w.en, cut.found));
+    const word = taughtWord(units, cut.found);
     const itemId = word ? wordItemId(word.id) : line.chunkId ? chunkItemId(line.chunkId) : NO_ITEM;
     const options = [cut.found, ...item.distractors.map(label)].map((text, i) => ({
       id: `o${i}`,

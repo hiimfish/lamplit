@@ -214,7 +214,7 @@ const isIndex = (value: unknown, length: number): boolean =>
 
 /**
  * 聽力填空: each item blanks one word of a line of this task and offers 2 or 3 wrong words.
- * (tests/content.test.ts checks that the blanked word was taught by then.)
+ * (tests/smoothness.test.ts checks that the blanked word was taught by then.)
  */
 function checkCloze(
   value: unknown,
