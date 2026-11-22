@@ -1,0 +1,1469 @@
+{
+  "id": "meeting",
+  "title": "會議",
+  "titleEn": "Meeting",
+  "chunks": [
+    {
+      "id": "would_you_rather_meet_morning_or_afternoon",
+      "en": "Would you rather meet in the morning or the afternoon?",
+      "zh": "您比較想早上開，還是下午開？",
+      "accept": [
+        "Would you rather meet in the morning or in the afternoon?",
+        "Would you rather meet in the morning or afternoon?"
+      ],
+      "note": "請對方二選一。Would you rather…? 是客氣地問「比較想要哪一個」。",
+      "distractors": [
+        {
+          "text": "Would you rather to meet in the morning or the afternoon?",
+          "error": "extra-word"
+        },
+        {
+          "text": "Would rather you meet in the morning or the afternoon?",
+          "error": "word-order"
+        },
+        {
+          "text": "Would you rather meet on the morning or the afternoon?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "does_thursday_at_ten_work_for_you",
+      "en": "Does Thursday at ten work for you?",
+      "zh": "星期四早上十點您方便嗎？",
+      "accept": ["Does Thursday at 10 work for you?"],
+      "note": "提一個時間，問對方方不方便。work for you＝對你來說可以。",
+      "distractors": [
+        {
+          "text": "Do Thursday at ten work for you?",
+          "error": "other"
+        },
+        {
+          "text": "Does Thursday at ten works for you?",
+          "error": "other"
+        },
+        {
+          "text": "Does Thursday at ten work you?",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "how_do_i_book_the_conference_room",
+      "en": "How do I book the conference room?",
+      "zh": "會議室要怎麼訂？",
+      "note": "問預約的方法。book 當動詞是「預訂」。",
+      "distractors": [
+        {
+          "text": "How I book the conference room?",
+          "error": "missing-word"
+        },
+        {
+          "text": "How do I book conference room?",
+          "error": "article"
+        },
+        {
+          "text": "How do I books the conference room?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "is_the_room_free_between_ten_and_eleven",
+      "en": "Is the room free between ten and eleven?",
+      "zh": "那間十點到十一點有空嗎？",
+      "accept": ["Is the room free between 10 and 11?"],
+      "note": "問某段時間有沒有空。between A and B＝在 A 和 B 之間。",
+      "distractors": [
+        {
+          "text": "Is the room free between ten or eleven?",
+          "error": "other"
+        },
+        {
+          "text": "Is room free between ten and eleven?",
+          "error": "article"
+        },
+        {
+          "text": "Is the room free between ten to eleven?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "should_i_add_anything_else_to_the_agenda",
+      "en": "Should I add anything else to the agenda?",
+      "zh": "議程還需要加什麼嗎？",
+      "note": "問對方還要不要補充。anything else＝其他任何事情。",
+      "distractors": [
+        {
+          "text": "Should I add anything other to the agenda?",
+          "error": "other"
+        },
+        {
+          "text": "Should I add anything else the agenda?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Should I adding anything else to the agenda?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "if_we_start_on_time_well_finish_by_eleven",
+      "en": "If we start on time, we'll finish by eleven.",
+      "zh": "準時開始的話，十一點前就能結束。",
+      "accept": [
+        "If we start on time, we will finish by eleven.",
+        "If we start on time, we'll finish by 11."
+      ],
+      "note": "第一條件句：If＋現在式，後半句用 will；if 後面不用 will。",
+      "distractors": [
+        {
+          "text": "If we will start on time, we'll finish by eleven.",
+          "error": "extra-word"
+        },
+        {
+          "text": "If we started on time, we'll finish by eleven.",
+          "error": "other"
+        },
+        {
+          "text": "If we start on the time, we'll finish by eleven.",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "would_you_mind_sending_me_your_slides",
+      "en": "Would you mind sending me your slides today?",
+      "zh": "可以麻煩你今天把投影片傳給我嗎？",
+      "note": "客氣地請人幫忙。Would you mind 後面接 -ing。",
+      "distractors": [
+        {
+          "text": "Would you mind send me your slides today?",
+          "error": "other"
+        },
+        {
+          "text": "Would you mind to send me your slides today?",
+          "error": "other"
+        },
+        {
+          "text": "Would you mind sending your slides me today?",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "heres_a_quick_update_on_the_filing_system",
+      "en": "Here's a quick update on the new filing system.",
+      "zh": "我簡單報告一下新歸檔系統的進度。",
+      "accept": ["Here is a quick update on the new filing system."],
+      "note": "開始報告進度。update on＋事情＝那件事的最新進度。",
+      "distractors": [
+        {
+          "text": "Here's quick update on the new filing system.",
+          "error": "article"
+        },
+        {
+          "text": "Here's a quickly update on the new filing system.",
+          "error": "other"
+        },
+        {
+          "text": "Here's a quick update at the new filing system.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "so_far_everything_is_on_schedule",
+      "en": "So far, everything is on schedule.",
+      "zh": "到目前為止都照進度在走。",
+      "accept": ["So far everything is on schedule."],
+      "note": "報告到目前的狀況。on schedule＝照進度；everything 動詞用 is。",
+      "distractors": [
+        {
+          "text": "So far, everything are on schedule.",
+          "error": "other"
+        },
+        {
+          "text": "So far, everything is in schedule.",
+          "error": "other"
+        },
+        {
+          "text": "So far, everything on schedule.",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "im_not_against_the_idea_but_big_change",
+      "en": "I'm not against the idea, but it's a big change.",
+      "zh": "我不是反對這個想法，只是變動滿大的。",
+      "accept": ["I am not against the idea, but it's a big change."],
+      "note": "委婉表達保留：先說不反對，再用 but 說出顧慮。",
+      "distractors": [
+        {
+          "text": "I'm not against idea, but it's a big change.",
+          "error": "article"
+        },
+        {
+          "text": "I'm not against the idea, but it's a big changes.",
+          "error": "plural"
+        },
+        {
+          "text": "I not against the idea, but it's a big change.",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "i_prefer_the_one_thats_easier_to_use",
+      "en": "I prefer the one that's easier to use.",
+      "zh": "我比較喜歡好上手的那一個。",
+      "accept": [
+        "I prefer the one that is easier to use.",
+        "I prefer the one which is easier to use."
+      ],
+      "note": "關係子句 that：that's easier to use 說明是哪一個 the one，指東西用 that。",
+      "distractors": [
+        {
+          "text": "I prefer the one who's easier to use.",
+          "error": "other"
+        },
+        {
+          "text": "I prefer the one that's more easier to use.",
+          "error": "extra-word"
+        },
+        {
+          "text": "I prefer the one that easier to use.",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "could_you_go_over_the_second_point_again",
+      "en": "Could you go over the second point again?",
+      "zh": "第二點可以請您再說一次嗎？",
+      "note": "沒聽清楚時請對方再講一次。go over＝重新講一遍。",
+      "distractors": [
+        {
+          "text": "Could you go over the two point again?",
+          "error": "other"
+        },
+        {
+          "text": "Could you go over second point again?",
+          "error": "article"
+        },
+        {
+          "text": "Could you go over the second points again?",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "which_of_these_should_i_work_on_first",
+      "en": "Which of these should I work on first?",
+      "zh": "這幾件事我應該先做哪一件？",
+      "note": "事情很多時請主管排先後。which of these＝這些當中的哪一個。",
+      "distractors": [
+        {
+          "text": "Which of these I should work on first?",
+          "error": "word-order"
+        },
+        {
+          "text": "Which of this should I work on first?",
+          "error": "other"
+        },
+        {
+          "text": "Which of these should I work first?",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "that_makes_sense_to_me",
+      "en": "That makes sense to me.",
+      "zh": "我覺得很合理。",
+      "note": "聽完對方的理由，表示同意。make sense＝有道理。",
+      "distractors": [
+        {
+          "text": "That make sense to me.",
+          "error": "other"
+        },
+        {
+          "text": "That makes a sense to me.",
+          "error": "article"
+        },
+        {
+          "text": "That makes sense me.",
+          "error": "missing-word"
+        }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "between", "en": "between", "zh": "在……之間", "emoji": "↔️", "abstract": true },
+    {
+      "id": "business",
+      "en": "business",
+      "zh": "商務；公事；生意",
+      "emoji": "💼",
+      "abstract": true
+    },
+    { "id": "rather", "en": "rather", "zh": "寧願；比較想", "emoji": "👉", "abstract": true },
+    {
+      "id": "either",
+      "en": "either",
+      "zh": "兩個都可以（任一個）",
+      "emoji": "🤷",
+      "abstract": true
+    },
+    {
+      "id": "reschedule",
+      "en": "reschedule",
+      "zh": "改時間；改期",
+      "emoji": "🔁",
+      "abstract": true
+    },
+    { "id": "cancel", "en": "cancel", "zh": "取消", "emoji": "❌", "abstract": true },
+    { "id": "weekly", "en": "weekly", "zh": "每週的", "emoji": "🗓️", "abstract": true },
+    { "id": "group", "en": "group", "zh": "一群人；團體", "emoji": "👥", "abstract": true },
+    { "id": "second", "en": "second", "zh": "第二的", "emoji": "🥈", "abstract": true },
+    { "id": "side", "en": "side", "zh": "邊；側", "emoji": "◀️", "abstract": true },
+    {
+      "id": "conference",
+      "en": "conference",
+      "zh": "會議（conference room 會議室）",
+      "emoji": "🧑‍🤝‍🧑",
+      "abstract": true
+    },
+    { "id": "attend", "en": "attend", "zh": "出席；參加", "emoji": "🪑", "abstract": true },
+    {
+      "id": "attendee",
+      "en": "attendee",
+      "zh": "出席的人；與會者",
+      "emoji": "🙋",
+      "abstract": true
+    },
+    { "id": "calendar", "en": "calendar", "zh": "行事曆", "emoji": "📅" },
+    { "id": "projector", "en": "projector", "zh": "投影機", "emoji": "📽️" },
+    { "id": "point", "en": "point", "zh": "重點；要點", "emoji": "📍", "abstract": true },
+    { "id": "report", "en": "report", "zh": "報告", "emoji": "📑", "abstract": true },
+    { "id": "lead", "en": "lead", "zh": "主持；帶領", "emoji": "🧭", "abstract": true },
+    {
+      "id": "present",
+      "en": "present",
+      "zh": "（在會議上）報告；發表",
+      "emoji": "🎤",
+      "abstract": true
+    },
+    {
+      "id": "item",
+      "en": "item",
+      "zh": "項目（agenda item 議程項目）",
+      "emoji": "🔹",
+      "abstract": true
+    },
+    { "id": "proposal", "en": "proposal", "zh": "提案", "emoji": "📨", "abstract": true },
+    { "id": "update", "en": "update", "zh": "最新進度；更新", "emoji": "🔄", "abstract": true },
+    { "id": "agenda", "en": "agenda", "zh": "議程", "emoji": "📋", "abstract": true },
+    { "id": "result", "en": "result", "zh": "結果；成果", "emoji": "🏁", "abstract": true },
+    { "id": "program", "en": "program", "zh": "程式；軟體", "emoji": "💾", "abstract": true },
+    { "id": "figure", "en": "figure", "zh": "數字；數據", "emoji": "🔢", "abstract": true },
+    {
+      "id": "involve",
+      "en": "involve",
+      "zh": "牽涉到；需要……參與",
+      "emoji": "🧩",
+      "abstract": true
+    },
+    { "id": "entire", "en": "entire", "zh": "整個的；全部的", "emoji": "⭕", "abstract": true },
+    { "id": "suggestion", "en": "suggestion", "zh": "建議", "emoji": "🗯️", "abstract": true },
+    { "id": "topic", "en": "topic", "zh": "主題；議題", "emoji": "💭", "abstract": true },
+    { "id": "refreshment", "en": "refreshment", "zh": "茶點", "emoji": "🍩", "abstract": true },
+    { "id": "slide", "en": "slide", "zh": "投影片", "emoji": "📊" },
+    { "id": "fact", "en": "fact", "zh": "事實（in fact 其實）", "emoji": "☑️", "abstract": true },
+    { "id": "build", "en": "build", "zh": "建立；一步一步做起來", "emoji": "🏗️", "abstract": true },
+    {
+      "id": "base",
+      "en": "base",
+      "zh": "以……為根據（based on 根據）",
+      "emoji": "⚓",
+      "abstract": true
+    },
+    { "id": "progress", "en": "progress", "zh": "進度；進展", "emoji": "📶", "abstract": true },
+    { "id": "overall", "en": "overall", "zh": "整體來說；整體的", "emoji": "🌐", "abstract": true },
+    { "id": "arrange", "en": "arrange", "zh": "整理；安排", "emoji": "🗂️", "abstract": true },
+    { "id": "brief", "en": "brief", "zh": "簡短的", "emoji": "⏱️", "abstract": true },
+    { "id": "currently", "en": "currently", "zh": "目前", "emoji": "🕒", "abstract": true },
+    { "id": "against", "en": "against", "zh": "反對", "emoji": "🙅", "abstract": true },
+    { "id": "view", "en": "view", "zh": "看法；觀點", "emoji": "👀", "abstract": true },
+    { "id": "consider", "en": "consider", "zh": "考慮", "emoji": "🤔", "abstract": true },
+    {
+      "id": "sense",
+      "en": "sense",
+      "zh": "道理（make sense 有道理）",
+      "emoji": "🧠",
+      "abstract": true
+    },
+    {
+      "id": "absolutely",
+      "en": "absolutely",
+      "zh": "當然；完全同意",
+      "emoji": "👍",
+      "abstract": true
+    },
+    { "id": "convince", "en": "convince", "zh": "說服", "emoji": "🗣️", "abstract": true },
+    { "id": "switch", "en": "switch", "zh": "換成；改用", "emoji": "🔀", "abstract": true },
+    { "id": "disagree", "en": "disagree", "zh": "不同意", "emoji": "👎", "abstract": true },
+    {
+      "id": "effect",
+      "en": "effect",
+      "zh": "效果（take effect 開始實施）",
+      "emoji": "💥",
+      "abstract": true
+    },
+    {
+      "id": "note",
+      "en": "note",
+      "zh": "筆記；記錄（take notes 做記錄）",
+      "emoji": "✍️",
+      "abstract": true
+    },
+    { "id": "decision", "en": "decision", "zh": "決定；決議", "emoji": "✔️", "abstract": true },
+    {
+      "id": "action",
+      "en": "action",
+      "zh": "行動（action item 待辦事項）",
+      "emoji": "⚡",
+      "abstract": true
+    },
+    { "id": "majority", "en": "majority", "zh": "大多數", "emoji": "🗳️", "abstract": true },
+    { "id": "postpone", "en": "postpone", "zh": "延後", "emoji": "⏭️", "abstract": true },
+    { "id": "intend", "en": "intend", "zh": "打算", "emoji": "🎯", "abstract": true },
+    { "id": "upcoming", "en": "upcoming", "zh": "即將到來的", "emoji": "🔜", "abstract": true },
+    { "id": "conclude", "en": "conclude", "zh": "結束；做結論", "emoji": "🔚", "abstract": true },
+    {
+      "id": "assume",
+      "en": "assume",
+      "zh": "（我）想應該是；假定",
+      "emoji": "🧐",
+      "abstract": true
+    },
+    {
+      "id": "effective",
+      "en": "effective",
+      "zh": "有效的；有成效的",
+      "emoji": "✨",
+      "abstract": true
+    },
+    { "id": "neither", "en": "neither", "zh": "兩個都不", "emoji": "🚫", "abstract": true },
+    {
+      "id": "improvement",
+      "en": "improvement",
+      "zh": "進步；改善",
+      "emoji": "📈",
+      "abstract": true
+    },
+    { "id": "contribute", "en": "contribute", "zh": "貢獻；出力", "emoji": "🤲", "abstract": true },
+    {
+      "id": "participate",
+      "en": "participate",
+      "zh": "參與；參加",
+      "emoji": "🙌",
+      "abstract": true
+    },
+    { "id": "confidence", "en": "confidence", "zh": "信心", "emoji": "🦁", "abstract": true },
+    { "id": "feedback", "en": "feedback", "zh": "回饋意見", "emoji": "🗨️", "abstract": true }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "改會議時間",
+      "newChunkIds": [
+        "would_you_rather_meet_morning_or_afternoon",
+        "does_thursday_at_ten_work_for_you"
+      ],
+      "newWordIds": ["between", "business", "rather", "either", "reschedule", "cancel", "weekly"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I'll be away on business next Monday, so I need your help.",
+          "zh": "我下星期一要出差，所以需要你幫忙。"
+        },
+        {
+          "id": "t1_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "But let's not cancel our weekly meeting. Can you reschedule it?",
+          "zh": "不過週會不要取消。你可以幫忙改個時間嗎？"
+        },
+        {
+          "id": "t1_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Would you rather meet in the morning or the afternoon?",
+          "zh": "您比較想早上開，還是下午開？",
+          "chunkId": "would_you_rather_meet_morning_or_afternoon"
+        },
+        {
+          "id": "t1_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Either is fine. I'm free any day between Tuesday and Thursday.",
+          "zh": "都可以。星期二到星期四我哪天都有空。"
+        },
+        {
+          "id": "t1_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Does Thursday at ten work for you?",
+          "zh": "星期四早上十點您方便嗎？",
+          "chunkId": "does_thursday_at_ten_work_for_you"
+        },
+        {
+          "id": "t1_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Great, that works. Please let the team know today.",
+          "zh": "很好，可以。今天麻煩你跟大家說一聲。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "訂會議室",
+      "newChunkIds": [
+        "how_do_i_book_the_conference_room",
+        "is_the_room_free_between_ten_and_eleven"
+      ],
+      "newWordIds": [
+        "group",
+        "second",
+        "side",
+        "conference",
+        "attend",
+        "attendee",
+        "calendar",
+        "projector"
+      ],
+      "fills": [
+        {
+          "id": "six_attendees",
+          "en": "We have six ___, so we need six chairs.",
+          "zh": "我們有六個與會者，所以需要六張椅子。",
+          "options": ["attendees", "projectors", "calendars", "sides"],
+          "answer": 0,
+          "note": "要坐椅子的是人：attendee 是出席的人。"
+        },
+        {
+          "id": "dan_booked_room",
+          "en": "Yesterday, Dan ___ the conference room for us.",
+          "zh": "Dan 昨天幫我們訂了會議室。",
+          "options": ["book", "books", "booked", "booking"],
+          "answer": 2,
+          "note": "有 yesterday，是過去的事，用過去式 booked。",
+          "grammar": true
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "So you're planning Thursday's meeting, right?",
+          "zh": "所以星期四的會是你在安排，對吧？"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How do I book the conference room?",
+          "zh": "會議室要怎麼訂？",
+          "chunkId": "how_do_i_book_the_conference_room"
+        },
+        {
+          "id": "t2_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Come with me. It's up on the second floor.",
+          "zh": "跟我來，在二樓。"
+        },
+        {
+          "id": "t2_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "See the calendar on the side of the door? We share this room with other companies.",
+          "zh": "看到門邊那本行事曆了嗎？這間是跟其他公司共用的。",
+          "stage": { "act": "want", "item": "calendar" }
+        },
+        {
+          "id": "t2_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is the room free between ten and eleven?",
+          "zh": "那間十點到十一點有空嗎？",
+          "chunkId": "is_the_room_free_between_ten_and_eleven"
+        },
+        {
+          "id": "t2_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Let me look. Yes, Thursday morning is free. Just write our group's name in.",
+          "zh": "我看一下。有，星期四早上沒人訂。把我們組的名字寫上去就好。"
+        },
+        {
+          "id": "t2_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "And it has a projector, so bring your laptop.",
+          "zh": "這間還有投影機，記得帶筆電。",
+          "stage": { "act": "want", "item": "projector" }
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "排議程",
+      "newChunkIds": [
+        "should_i_add_anything_else_to_the_agenda",
+        "if_we_start_on_time_well_finish_by_eleven"
+      ],
+      "newWordIds": ["point", "report", "lead", "present", "item", "proposal", "update", "agenda"],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Okay, let's plan Thursday's agenda together.",
+          "zh": "好，我們一起來排星期四的議程。"
+        },
+        {
+          "id": "t3_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "First, Dan will present the January sales report.",
+          "zh": "首先，Dan 報告一月的業績。"
+        },
+        {
+          "id": "t3_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Then you'll give a short update on the filing system.",
+          "zh": "接著你簡單報告一下歸檔系統的進度。"
+        },
+        {
+          "id": "t3_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Should I add anything else to the agenda?",
+          "zh": "議程還需要加什麼嗎？",
+          "chunkId": "should_i_add_anything_else_to_the_agenda"
+        },
+        {
+          "id": "t3_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Yes. Add Dan's proposal as item three, and the June fair last.",
+          "zh": "要。把 Dan 的提案放第三項，六月的展覽放最後。"
+        },
+        {
+          "id": "t3_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "But that's four items in one hour.",
+          "zh": "不過一個小時要討論四項。"
+        },
+        {
+          "id": "t3_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "If we start on time, we'll finish by eleven.",
+          "zh": "準時開始的話，十一點前就能結束。",
+          "chunkId": "if_we_start_on_time_well_finish_by_eleven"
+        },
+        {
+          "id": "t3_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good point. I'll lead it, and we'll start right at ten.",
+          "zh": "有道理。我來主持，十點整準時開始。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀會議通知",
+      "newChunkIds": ["would_you_mind_sending_me_your_slides"],
+      "newWordIds": [
+        "result",
+        "program",
+        "figure",
+        "involve",
+        "entire",
+        "suggestion",
+        "topic",
+        "refreshment",
+        "slide"
+      ],
+      "passages": [
+        {
+          "id": "meeting_notice",
+          "kind": "email",
+          "title": "Team meeting moved to Thursday",
+          "lines": [
+            "Hi team,",
+            "I'm away on business on Monday, so this week's meeting is rescheduled to Thursday, 10:00-11:00, in the conference room on the second floor. Please attend.",
+            "Agenda:",
+            "1. January sales report (Dan will present the results and the main figures)",
+            "2. Update on the new filing system",
+            "3. A new program for our reports (Dan's proposal)",
+            "4. The June fair (This topic involves the entire team.)",
+            "Please read the attached report before the meeting. If you have a suggestion for another topic, email me by Wednesday noon.",
+            "The projector is ready for Dan's slides. Coffee and refreshments are provided.",
+            "Thanks,",
+            "Ms. Carter"
+          ],
+          "questions": [
+            {
+              "en": "Why is the meeting on Thursday this week?",
+              "zh": "這週的會議為什麼改到星期四？",
+              "options": [
+                "Ms. Carter is away on Monday.",
+                "The room is busy on Monday.",
+                "Monday is a holiday."
+              ],
+              "answer": 0
+            },
+            {
+              "en": "What should everyone do before the meeting?",
+              "zh": "開會前大家要先做什麼？",
+              "options": ["Book the room", "Read the report", "Buy coffee"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Hi, did you see Ms. Carter's email about Thursday?",
+          "zh": "嘿，你有看到 Ms. Carter 寄的星期四開會的信嗎？"
+        },
+        {
+          "id": "t4_2",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "I'm first on the agenda, with the sales results.",
+          "zh": "議程第一項就是我，要報告業績。"
+        },
+        {
+          "id": "t4_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "My slides are done. The figures look pretty good.",
+          "zh": "投影片做好了，數字看起來還不錯。"
+        },
+        {
+          "id": "t4_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Would you mind sending me your slides today?",
+          "zh": "可以麻煩你今天把投影片傳給我嗎？",
+          "chunkId": "would_you_mind_sending_me_your_slides"
+        },
+        {
+          "id": "t4_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Not at all. I'll email them after lunch.",
+          "zh": "當然不會。吃完午餐我就寄給你。",
+          "stage": { "act": "give", "item": "slide" }
+        },
+        {
+          "id": "t4_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Then you can test them on the projector before Thursday.",
+          "zh": "這樣你星期四之前就可以先用投影機試試看。"
+        },
+        {
+          "id": "t4_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Let me know if anything looks wrong.",
+          "zh": "有什麼不對的地方再跟我說。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "報告進度",
+      "newChunkIds": [
+        "heres_a_quick_update_on_the_filing_system",
+        "so_far_everything_is_on_schedule"
+      ],
+      "newWordIds": [
+        "fact",
+        "build",
+        "base",
+        "progress",
+        "overall",
+        "arrange",
+        "brief",
+        "currently"
+      ],
+      "talks": [
+        {
+          "id": "filing_report",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "guide",
+              "en": "We're building the new filing system step by step.",
+              "zh": "新的歸檔系統我們是一步一步建起來的。"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "guide",
+              "en": "Currently, about half of the files are in it.",
+              "zh": "目前大約一半的檔案已經放進去了。"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "manager",
+              "en": "And how are they arranged?",
+              "zh": "那檔案是怎麼整理的？"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "guide",
+              "en": "By year. Only last year's orders are left.",
+              "zh": "照年份。只剩去年的訂單還沒弄。"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "manager",
+              "en": "When will you finish those?",
+              "zh": "那些什麼時候會做完？"
+            },
+            {
+              "id": "t5_talk_6",
+              "role": "guide",
+              "en": "By the end of the month.",
+              "zh": "月底前。"
+            },
+            {
+              "id": "t5_talk_7",
+              "role": "manager",
+              "en": "Based on your progress so far, that sounds right.",
+              "zh": "照你到目前的進度來看，應該沒問題。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "What is the update about?",
+              "zh": "這次報告的是哪件事？",
+              "options": ["The filing system", "The sales report", "The June fair"],
+              "answer": 0
+            },
+            {
+              "en": "When will the work be finished?",
+              "zh": "工作什麼時候會完成？",
+              "options": ["By Thursday", "By the end of the week", "By the end of the month"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Okay, next item. Can you give us your update? Keep it brief.",
+          "zh": "好，下一項。可以請你報告一下進度嗎？簡短就好。"
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Here's a quick update on the new filing system.",
+          "zh": "我簡單報告一下新歸檔系統的進度。",
+          "chunkId": "heres_a_quick_update_on_the_filing_system"
+        },
+        {
+          "id": "t5_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Great, go ahead. How's it going so far?",
+          "zh": "好，請說。目前做得怎麼樣？"
+        },
+        {
+          "id": "t5_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "So far, everything is on schedule.",
+          "zh": "到目前為止都照進度在走。",
+          "chunkId": "so_far_everything_is_on_schedule"
+        },
+        {
+          "id": "t5_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good to hear. In fact, I think you're a little ahead of schedule.",
+          "zh": "很好。其實我覺得你還有點超前。"
+        },
+        {
+          "id": "t5_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Overall, I'm very happy with your progress.",
+          "zh": "整體來說，我對你的進度很滿意。"
+        },
+        {
+          "id": "t5_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Thanks. Now let's move on to Dan's proposal.",
+          "zh": "謝謝。接下來是 Dan 的提案。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "討論提案",
+      "newChunkIds": [
+        "im_not_against_the_idea_but_big_change",
+        "i_prefer_the_one_thats_easier_to_use"
+      ],
+      "newWordIds": [
+        "against",
+        "view",
+        "consider",
+        "sense",
+        "absolutely",
+        "convince",
+        "switch",
+        "disagree"
+      ],
+      "cloze": [
+        {
+          "lineId": "t6_1",
+          "word": "switch",
+          "distractors": ["attend", "cancel"]
+        },
+        {
+          "lineId": "t6_2",
+          "word": "view",
+          "distractors": ["slide", "calendar"]
+        },
+        {
+          "lineId": "t6_7",
+          "word": "convince",
+          "distractors": ["attend", "cancel"]
+        }
+      ],
+      "textFills": [
+        {
+          "id": "dan_program_email",
+          "kind": "email",
+          "title": "The new program",
+          "lines": [
+            "Hi team,",
+            "Thanks for listening to my proposal on Thursday. I know some of you ___ with it, and that's okay.",
+            "The program ___ I showed you is free for one month.",
+            "___ Then we can decide together at the next meeting.",
+            "Thanks, Dan"
+          ],
+          "zh": [
+            "大家好：",
+            "謝謝大家星期四聽我的提案。我知道有些人不同意，這沒關係。",
+            "我給大家看的那個程式可以免費用一個月。",
+            "請在這星期試用看看，再告訴我你的看法。下次開會我們再一起決定。",
+            "謝謝，Dan"
+          ],
+          "blanks": [
+            {
+              "options": ["disagree", "convince", "switch", "consider"],
+              "answer": 0,
+              "note": "disagree with＝不同意，後面才接得上 with。"
+            },
+            {
+              "options": ["that", "who", "where", "what"],
+              "answer": 0,
+              "note": "說明是哪一個程式，指東西用 that。"
+            },
+            {
+              "options": [
+                "Please try it this week and tell me your view.",
+                "Coffee and refreshments are provided.",
+                "The room is free between ten and eleven.",
+                "I'm away on business next Monday."
+              ],
+              "answer": 0,
+              "note": "下一句說「然後一起決定」，前面要先試用。"
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Here's my proposal. Let's switch our reports to a new program.",
+          "zh": "我的提案是這樣：報告改用新的程式來做。"
+        },
+        {
+          "id": "t6_2",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "No more paper. What's your view?",
+          "zh": "不再印紙本。你覺得呢？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t6_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm not against the idea, but it's a big change.",
+          "zh": "我不是反對這個想法，只是變動滿大的。",
+          "chunkId": "im_not_against_the_idea_but_big_change"
+        },
+        {
+          "id": "t6_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "That makes sense. One program has lots of tools, and the other is really simple.",
+          "zh": "有道理。有一個程式功能很多，另一個很簡單。"
+        },
+        {
+          "id": "t6_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I prefer the one that's easier to use.",
+          "zh": "我比較喜歡好上手的那一個。",
+          "chunkId": "i_prefer_the_one_thats_easier_to_use"
+        },
+        {
+          "id": "t6_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Absolutely. I'll consider that one first.",
+          "zh": "完全同意。那我先考慮那一個。"
+        },
+        {
+          "id": "t6_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Now I just need to convince Ms. Carter.",
+          "zh": "現在只要說服 Ms. Carter 就好了。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "聽主管總結",
+      "newChunkIds": ["could_you_go_over_the_second_point_again"],
+      "newWordIds": [
+        "effect",
+        "note",
+        "decision",
+        "action",
+        "majority",
+        "postpone",
+        "intend",
+        "upcoming",
+        "conclude"
+      ],
+      "talks": [
+        {
+          "id": "carter_summary",
+          "kind": "monologue",
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "manager",
+              "en": "Before we conclude, here are today's decisions.",
+              "zh": "結束之前，我說一下今天的決議。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "manager",
+              "en": "First, January sales were better than December.",
+              "zh": "第一，一月的業績比十二月好。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "manager",
+              "en": "Second, the majority liked Dan's proposal. We'll try the new program for one month.",
+              "zh": "第二，大多數人贊成 Dan 的提案。新程式我們先試用一個月。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "manager",
+              "en": "It takes effect on March first, and I intend to decide in April.",
+              "zh": "三月一日開始實施，我打算四月再做決定。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "manager",
+              "en": "Third, we don't have all the prices for the upcoming fair yet.",
+              "zh": "第三，快到的展覽價錢還沒到齊。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "manager",
+              "en": "So we'll postpone that topic to next week.",
+              "zh": "所以這個議題延到下週。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "manager",
+              "en": "Now, the action items. I'd like Dan to show everyone the new program.",
+              "zh": "最後是待辦事項。我請 Dan 教大家用新程式。"
+            },
+            {
+              "id": "t7_talk_8",
+              "role": "manager",
+              "en": "And please send your notes to the whole team today.",
+              "zh": "還有，請你今天把會議記錄寄給全組。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "When will the new program start?",
+              "zh": "新程式什麼時候開始用？",
+              "options": ["On March first", "Next week", "In April"],
+              "answer": 0
+            },
+            {
+              "en": "Which topic will wait until next week?",
+              "zh": "哪個議題延到下週？",
+              "options": ["The sales report", "The upcoming fair", "The new program"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "So those are the decisions. Any questions?",
+          "zh": "以上就是今天的決議。有問題嗎？"
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could you go over the second point again?",
+          "zh": "第二點可以請您再說一次嗎？",
+          "chunkId": "could_you_go_over_the_second_point_again"
+        },
+        {
+          "id": "t7_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Sure. The majority liked Dan's proposal.",
+          "zh": "好。大多數人贊成 Dan 的提案。"
+        },
+        {
+          "id": "t7_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "We'll try his program for a month. It takes effect on March first.",
+          "zh": "他的程式我們先試用一個月，三月一日開始。"
+        },
+        {
+          "id": "t7_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Then I'll make the final decision in April.",
+          "zh": "然後我四月再做最後決定。"
+        },
+        {
+          "id": "t7_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Can you start next week's agenda? Put the fair first.",
+          "zh": "你可以先排下週的議程嗎？展覽放第一項。"
+        },
+        {
+          "id": "t7_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Should I add anything else to the agenda?",
+          "zh": "議程還需要加什麼嗎？",
+          "chunkId": "should_i_add_anything_else_to_the_agenda"
+        },
+        {
+          "id": "t7_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Not yet. Just send your notes to everyone today.",
+          "zh": "先不用。今天把會議記錄寄給大家就好。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "會後跟進",
+      "newChunkIds": ["which_of_these_should_i_work_on_first", "that_makes_sense_to_me"],
+      "newWordIds": [
+        "assume",
+        "effective",
+        "neither",
+        "improvement",
+        "contribute",
+        "participate",
+        "confidence",
+        "feedback"
+      ],
+      "spellWordIds": ["link", "error", "correct", "reply", "site"],
+      "cloze": [
+        {
+          "lineId": "t8_2",
+          "word": "effective",
+          "distractors": ["upcoming", "weekly"]
+        },
+        {
+          "lineId": "t8_3",
+          "word": "improvement",
+          "distractors": ["calendar", "agenda"]
+        },
+        {
+          "lineId": "t8_6",
+          "word": "forget",
+          "distractors": ["attend", "present"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Do you have a minute? I have some feedback for you.",
+          "zh": "你有空嗎？我想給你一點回饋。"
+        },
+        {
+          "id": "t8_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Your update was short and effective. Nice work.",
+          "zh": "你的報告簡短又有效果，做得很好。"
+        },
+        {
+          "id": "t8_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "You spoke with real confidence, too. That's a big improvement.",
+          "zh": "而且你講得很有信心，進步很多。"
+        },
+        {
+          "id": "t8_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Now, you have two action items: the notes and next week's agenda.",
+          "zh": "你現在有兩件待辦事項：會議記錄和下週的議程。"
+        },
+        {
+          "id": "t8_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Which of these should I work on first?",
+          "zh": "這幾件事我應該先做哪一件？",
+          "chunkId": "which_of_these_should_i_work_on_first"
+        },
+        {
+          "id": "t8_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "The notes, or minutes. People forget things fast after a meeting.",
+          "zh": "會議記錄，也就是 minutes。開完會大家很快就忘了。"
+        },
+        {
+          "id": "t8_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "That makes sense to me.",
+          "zh": "我覺得很合理。",
+          "chunkId": "that_makes_sense_to_me"
+        },
+        {
+          "id": "t8_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. I assume the agenda can wait until Friday, then.",
+          "zh": "很好。那議程我想等到星期五應該沒關係。"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I'm seeing a client next Monday, so let's move our weekly meeting.",
+          "zh": "我下星期一要跟客戶見面，週會改個時間吧。"
+        },
+        {
+          "id": "t9_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Would you rather meet in the morning or the afternoon?",
+          "zh": "您比較想早上開，還是下午開？",
+          "chunkId": "would_you_rather_meet_morning_or_afternoon"
+        },
+        {
+          "id": "t9_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "The morning, please. Either Tuesday or Thursday is fine.",
+          "zh": "早上好了。星期二或星期四都可以。"
+        },
+        {
+          "id": "t9_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Does Thursday at ten work for you?",
+          "zh": "星期四早上十點您方便嗎？",
+          "chunkId": "does_thursday_at_ten_work_for_you"
+        },
+        {
+          "id": "t9_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Thursday's good for me too. But the room is often busy.",
+          "zh": "星期四我也可以。不過會議室常常有人用。"
+        },
+        {
+          "id": "t9_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is the room free between ten and eleven?",
+          "zh": "那間十點到十一點有空嗎？",
+          "chunkId": "is_the_room_free_between_ten_and_eleven"
+        },
+        {
+          "id": "t9_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Let me check the calendar. Yes, it is.",
+          "zh": "我查一下行事曆。有，沒人訂。"
+        },
+        {
+          "id": "t9_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Great. Then Dan's sales results can come first.",
+          "zh": "太好了。那第一項就是 Dan 報告業績。"
+        },
+        {
+          "id": "t9_9",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Should I add anything else to the agenda?",
+          "zh": "議程還需要加什麼嗎？",
+          "chunkId": "should_i_add_anything_else_to_the_agenda"
+        },
+        {
+          "id": "t9_10",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Yes, the filing system. How's it going, by the way?",
+          "zh": "要，加上歸檔系統。對了，那個進行得怎麼樣？"
+        },
+        {
+          "id": "t9_11",
+          "role": "guide",
+          "speaker": "player",
+          "en": "So far, everything is on schedule.",
+          "zh": "到目前為止都照進度在走。",
+          "chunkId": "so_far_everything_is_on_schedule"
+        },
+        {
+          "id": "t9_12",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "And my slides for the sales results are ready.",
+          "zh": "還有，業績的投影片我做好了。"
+        },
+        {
+          "id": "t9_13",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Would you mind sending me your slides today?",
+          "zh": "可以麻煩你今天把投影片傳給我嗎？",
+          "chunkId": "would_you_mind_sending_me_your_slides"
+        },
+        {
+          "id": "t9_14",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Not at all. I'll email them after lunch.",
+          "zh": "當然不會。吃完午餐就寄給你。",
+          "stage": { "act": "give", "item": "slide" }
+        },
+        {
+          "id": "t9_15",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "We're also choosing between two new programs. Which one do you like?",
+          "zh": "我們也在兩個新程式之間挑一個。你喜歡哪一個？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t9_16",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I prefer the one that's easier to use.",
+          "zh": "我比較喜歡好上手的那一個。",
+          "chunkId": "i_prefer_the_one_thats_easier_to_use"
+        },
+        {
+          "id": "t9_17",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Me too. So, three things for you: the calendar, the agenda and the notes.",
+          "zh": "我也是。那你有三件事：行事曆、議程和會議記錄。"
+        },
+        {
+          "id": "t9_18",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could you go over the second point again?",
+          "zh": "第二點可以請您再說一次嗎？",
+          "chunkId": "could_you_go_over_the_second_point_again"
+        },
+        {
+          "id": "t9_19",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "The agenda. Send it out by Wednesday, so everyone can get ready.",
+          "zh": "議程。星期三前寄出去，大家才能先準備。"
+        },
+        {
+          "id": "t9_20",
+          "role": "guide",
+          "speaker": "player",
+          "en": "That makes sense to me.",
+          "zh": "我覺得很合理。",
+          "chunkId": "that_makes_sense_to_me"
+        }
+      ]
+    }
+  ]
+}
