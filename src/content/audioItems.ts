@@ -1,8 +1,9 @@
 import type { AudioItem, Unit } from './types';
 
 /**
- * Every spoken thing in a unit: chunks, words, both sides of each minimal pair and scene
- * lines (main text only, no `accept` variants).
+ * Every spoken thing in a unit: chunks, words, both sides of each minimal pair, scene
+ * lines (main text only, no `accept` variants), the right sentence of each picture and
+ * the lines of each conversation to hear.
  */
 export function unitToAudioItems(unit: Unit): AudioItem[] {
   const items: AudioItem[] = [];
@@ -26,6 +27,12 @@ export function unitToAudioItems(unit: Unit): AudioItem[] {
       const right = picture.options[picture.answer];
       if (right)
         items.push({ id: `${unit.id}.picture.${picture.id}`, text: right.en, role: 'guide' });
+    }
+    // 聽對話答題: each line in its speaker's voice, `${unitId}.talk.${lineId}`.
+    for (const talk of task.talks ?? []) {
+      for (const line of talk.lines) {
+        items.push({ id: `${unit.id}.talk.${line.id}`, text: line.en, role: line.role });
+      }
     }
   }
   const seen = new Set<string>();

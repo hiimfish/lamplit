@@ -4,7 +4,8 @@
  * and a 1–100 difficulty score. Pure functions over the word list files in
  * src/data/wordlists (passed in as text, so both tests and node scripts can use it).
  */
-import type { Unit } from './types';
+import type { Act } from './acts';
+import type { SceneLine, Task, Unit } from './types';
 
 export interface WordListSources {
   ngslStats: string;
@@ -339,21 +340,52 @@ export function difficultyScore(
   return Math.min(100, Math.max(1, Math.round(1 + 99 * raw)));
 }
 
-/** Smoothness rules (docs/specs/curriculum.md, 平滑規則), Act 1 values. */
-const SMOOTHNESS = {
+/** Smoothness rules (docs/specs/curriculum.md, 平滑規則): the limits of one act. */
+export interface SmoothnessLimits {
   /** Stories this many words long are judged by coverage; shorter ones by a count. */
+  longText: number;
+  minCoverage: number;
+  /** Untaught words allowed in a short story... */
+  maxUnplanned: number;
+  /** ...each at least this frequent (NGSL rank scale). */
+  maxUnplannedRank: number;
+  /** The score may rise at most this much from one task to the next... */
+  maxRise: number;
+  /** ...and drop at most this much (an easier task is a breather; a new place may start lower). */
+  maxDrop: number;
+  maxItemGrowth: number;
+}
+
+const ACT1_SMOOTHNESS: SmoothnessLimits = {
   longText: 50,
   minCoverage: 0.98,
-  /** Untaught words allowed in a short story... */
   maxUnplanned: 1,
-  /** ...each at least this frequent (NGSL rank scale). */
   maxUnplannedRank: 1000,
-  /** The score may rise at most this much from one task to the next... */
   maxRise: 3,
-  /** ...and drop at most this much (an easier task is a breather; a new place may start lower). */
   maxDrop: 5,
   maxItemGrowth: 1,
-} as const;
+};
+
+/** Act 2 allows a rarer untaught word in a short story and a little less coverage in a long text. */
+const ACT2_SMOOTHNESS: SmoothnessLimits = {
+  ...ACT1_SMOOTHNESS,
+  minCoverage: 0.95,
+  maxUnplannedRank: 1800,
+};
+
+/** Limits by act (index 0 is Act 1). Acts 3 and 4 use the Act 2 values for now. */
+const SMOOTHNESS: readonly SmoothnessLimits[] = [
+  ACT1_SMOOTHNESS,
+  ACT2_SMOOTHNESS,
+  ACT2_SMOOTHNESS,
+  ACT2_SMOOTHNESS,
+];
+
+/** The limits for a unit, by the act it is in (src/content/acts.ts); a unit in no act uses Act 1's. */
+export function smoothnessFor(unitId: string, acts: readonly Act[]): SmoothnessLimits {
+  const act = acts.findIndex((a) => a.places.some((place) => place.unitId === unitId));
+  return SMOOTHNESS[act] ?? ACT1_SMOOTHNESS;
+}
 
 /** The last profile before index `i` that is not review-only, if any. */
 export function previousTeaching(
@@ -367,12 +399,19 @@ export function previousTeaching(
   return undefined;
 }
 
-/** Every break of the smoothness rules, in play order, as one Chinese line each. */
-export function smoothnessBreaks(profiles: readonly TaskProfile[], lists: WordLists): string[] {
-  const S = SMOOTHNESS;
+/**
+ * Every break of the smoothness rules, in play order, as one Chinese line each. Each task
+ * is held to the limits of its unit's act in `acts` (pass ACTS from src/content/acts.ts).
+ */
+export function smoothnessBreaks(
+  profiles: readonly TaskProfile[],
+  lists: WordLists,
+  acts: readonly Act[],
+): string[] {
   const pct = (n: number) => `${(n * 100).toFixed(0)}%`;
   const breaks: string[] = [];
   profiles.forEach((p, i) => {
+    const S = smoothnessFor(p.unitId, acts);
     // Review-only tasks are left out of the curve: compare with the last task that teaches.
     const prev = p.review ? undefined : previousTeaching(profiles, i);
     const where = `${p.unitId}/${p.taskId}`;
@@ -405,4 +444,32 @@ export function smoothnessBreaks(profiles: readonly TaskProfile[], lists: WordLi
     }
   });
   return breaks;
+}
+
+/**
+ * Every English text a task's questions show besides the story, as lines to profile like a
+ * story (tests/smoothness.test.ts checks they use only taught words): cloze words and their
+ * wrong choices; signs with their question and options; picture sentences; each fill
+ * sentence with each option in the blank; passages (title, lines, questions, options); and
+ * talks (lines, questions, options).
+ */
+export function questionTexts(task: Task): SceneLine[] {
+  const choices = (questions: readonly { en: string; options: string[] }[]) =>
+    questions.flatMap((q) => [q.en, ...q.options]);
+  const texts = [
+    ...(task.cloze ?? []).flatMap((c) => [c.word, ...c.distractors]),
+    ...(task.signs ?? []).flatMap((s) => [
+      s.heading ?? '',
+      ...s.rows.flatMap((r) => [r.label, r.value ?? '']),
+      s.question.en,
+      ...s.options,
+    ]),
+    ...(task.pictures ?? []).flatMap((p) => p.options.map((o) => o.en)),
+    ...(task.fills ?? []).flatMap((f) => f.options.map((o) => f.en.replace('___', o))),
+    ...(task.passages ?? []).flatMap((p) => [p.title ?? '', ...p.lines, ...choices(p.questions)]),
+    ...(task.talks ?? []).flatMap((t) => [...t.lines.map((l) => l.en), ...choices(t.questions)]),
+  ];
+  return texts
+    .filter((en) => en !== '')
+    .map((en, i) => ({ id: `q${i}`, role: 'guide', speaker: 'npc', en, zh: en }));
 }

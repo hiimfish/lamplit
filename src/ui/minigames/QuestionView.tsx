@@ -10,12 +10,15 @@ import { focusAndReveal, focusLost, focusStatic } from '../focus';
 import { Arrange } from './Arrange';
 import { ChooseReply } from './ChooseReply';
 import { Cloze } from './Cloze';
+import { Fill } from './Fill';
 import { ListenPair } from './ListenPair';
 import { ListenPick } from './ListenPick';
 import { PictureChoose } from './PictureChoose';
+import { ReadPassage } from './ReadPassage';
 import { ReadSign } from './ReadSign';
 import { Speak } from './Speak';
 import { Spell } from './Spell';
+import { Talk } from './Talk';
 import './minigames.css';
 
 export interface QuestionViewProps {
@@ -84,6 +87,15 @@ function Body({ question, onAnswer }: QuestionViewProps) {
       break;
     case 'picture':
       view = <PictureChoose question={question} onAnswered={onAnswered} />;
+      break;
+    case 'fill':
+      view = <Fill question={question} onAnswered={onAnswered} />;
+      break;
+    case 'read-passage':
+      view = <ReadPassage question={question} onAnswered={onAnswered} />;
+      break;
+    case 'talk':
+      view = <Talk question={question} onAnswered={onAnswered} />;
       break;
   }
 

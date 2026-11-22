@@ -1,0 +1,27 @@
+/* 句子填空 (Fill.tsx): one sentence with a blank, like the cloze line. */
+.fill-sentence {
+  margin: 0;
+  font-size: calc(11 * var(--px));
+  line-height: 1.8;
+  color: var(--ink);
+}
+
+.fill-blank {
+  display: inline-block;
+  min-width: calc(34 * var(--px));
+  margin: 0 calc(2 * var(--px));
+  padding: 0 calc(3 * var(--px));
+  text-align: center;
+  background: var(--paper);
+  box-shadow: inset 0 0 0 var(--px) var(--dim);
+  border-bottom: var(--line) solid var(--neon);
+}
+
+.fill-blank:empty::before {
+  content: '\00a0';
+}
+
+.fill-blank.filled {
+  box-shadow: inset 0 0 0 var(--px) var(--good);
+  border-bottom-color: var(--good);
+}

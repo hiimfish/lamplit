@@ -68,6 +68,9 @@
 | `tasks[].cloze`        | 聽力填空的題目（選填），見下方「聽力填空、讀招牌、看圖選句」                                                                            |
 | `tasks[].signs`        | 讀招牌／價目的題目（選填），同上                                                                                                        |
 | `tasks[].pictures`     | 看圖選句的題目（選填），同上                                                                                                            |
+| `tasks[].fills`        | 句子填空的題目（選填），見下方「句子填空、讀短文、聽對話答題」                                                                          |
+| `tasks[].passages`     | 讀短文的題目（選填），同上                                                                                                              |
+| `tasks[].talks`        | 聽對話答題的題目（選填），同上                                                                                                          |
 
 對比詞的例子（`move_in.json`）：
 
@@ -160,14 +163,90 @@
 - 這些題目的英文只能用那個任務之前教過的字（包含這個任務教的），見下方「內容檢查」。
 - 畫面上選項的順序每次打亂，所以 `answer` 寫的是 JSON 裡的位置。
 
+### 句子填空、讀短文、聽對話答題
+
+狀態：部分做到（2026-11-22，只有骨架）。第二幕要用的三個任務欄位，都是選填。型別是 `types.ts` 的 `FillItem`、`PassageItem`、`TalkItem`，題目共用 `ChoiceQuestion`。欄位、內容檢查、出題和畫面都已接好並有最小版本，還沒有單元用到；每種題型各自的檔案見 [vocab-quiz.md](vocab-quiz.md)。
+
+```json
+{
+  "fills": [
+    {
+      "id": "fill1",
+      "en": "I ___ a new job.",
+      "zh": "我需要一份新工作。",
+      "options": ["need", "needs", "needing"],
+      "answer": 0,
+      "note": "主詞是 I，動詞用原形。",
+      "chunkId": "need_job"
+    }
+  ],
+  "passages": [
+    {
+      "id": "fair",
+      "kind": "notice",
+      "title": "Job Fair",
+      "lines": ["Come to the job fair on Monday.", "It starts at 10 a.m."],
+      "questions": [
+        {
+          "en": "When does it start?",
+          "zh": "幾點開始？",
+          "options": ["9 a.m.", "10 a.m."],
+          "answer": 1
+        }
+      ]
+    }
+  ],
+  "talks": [
+    {
+      "id": "talk1",
+      "lines": [
+        { "id": "k1_1", "role": "clerk", "en": "Can I help you?", "zh": "需要幫忙嗎？" },
+        { "id": "k1_2", "role": "friend", "en": "I want to open an account.", "zh": "我想開戶。" },
+        { "id": "k1_3", "role": "clerk", "en": "Sure. Please sit down.", "zh": "好的，請坐。" }
+      ],
+      "questions": [
+        {
+          "en": "Where are they?",
+          "zh": "他們在哪裡？",
+          "options": ["At a bank", "At a park"],
+          "answer": 0
+        }
+      ]
+    }
+  ]
+}
+```
+
+| 欄位                   | 說明                                                                                                              |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `fills[].id`           | 題目的 id，整個單元內不重複                                                                                       |
+| `fills[].en`           | 有一個空格的句子，空格寫成 `___`，剛好一個                                                                        |
+| `fills[].zh`           | 整句的中文，答完才顯示                                                                                            |
+| `fills[].options`      | 3 或 4 個字或短語，各不相同                                                                                       |
+| `fills[].answer`       | 正確答案是第幾個（從 0 算）                                                                                       |
+| `fills[].note`         | 一行中文說明為什麼（選填），答完顯示                                                                              |
+| `fills[].chunkId`      | 句子是這個單元到這個任務為止教過的詞塊時填（選填）：答這題算那個詞塊的一次複習                                    |
+| `passages[].id`        | 短文的 id，整個單元內不重複                                                                                       |
+| `passages[].kind`      | `message`、`flyer`、`notice`、`ad`、`form`、`email` 其中一個                                                      |
+| `passages[].title`     | 標題或寄件人（選填），例如 `Job Fair`、`Tony (repair shop)`                                                       |
+| `passages[].lines`     | 內文，一行或一段一個；標題加內文最多 80 個字（用空白分開來數）                                                    |
+| `passages[].questions` | 1 到 3 個問題，每個有 `en`、`zh`、2 到 4 個不同的 `options` 和 `answer`                                           |
+| `talks[].id`           | 對話的 id，整個單元內不重複                                                                                       |
+| `talks[].lines`        | 3 到 6 句，剛好兩個人說：每句有 `id`、`role`、`en`、`zh`。音檔 id 是 `<單元>.talk.<id>`，句子 id 整個單元內不重複 |
+| `talks[].questions`    | 1 到 3 個問題，格式和短文的一樣                                                                                   |
+
+- 角色扮演大挑戰的任務也不能有這三個欄位。
+- 英文（填空句子放進每個選項、短文的標題、內文、問題和選項、對話的台詞、問題和選項）只能用那個任務之前教過的字，和上面三種題型同一個檢查。
+- 對話的角色不用出現在那個地點的小劇場上。
+
 ## id 規則
 
 - 單元、詞塊、單字、對比詞（和它的兩個字）、台詞、任務、招牌、看圖選句題目的 id 只能用小寫英文、數字和底線：`^[a-z0-9_]+$`。圖片的 `pictureId` 也是。
 - 學習項目 id：`chunk:<詞塊 id>`、`word:<單字 id>`、`pair:<對比詞 id>`，用於存檔和複習。一組對比詞是一個學習項目。
 - 學習項目 id 不含單元，所以**不同單元不能用同一個詞塊、單字或對比詞 id**，否則會共用複習卡片、查到別的單元。`tests/content.test.ts` 會檢查。
-- 音檔 id：`<單元>.<類型>.<id>`，例如 `cafe.chunk.can_i_get`、`cafe.word.latte`、`cafe.line.t1_1`、`move_in.pair.fan`、`clinic.picture.pic1`（看圖選句的正確句子，2026-11-22 新增）。音檔腳本和播放程式都會拒絕不符合格式的 id。
+- 音檔 id：`<單元>.<類型>.<id>`，例如 `cafe.chunk.can_i_get`、`cafe.word.latte`、`cafe.line.t1_1`、`move_in.pair.fan`、`clinic.picture.pic1`（看圖選句的正確句子，2026-11-22 新增）、`bank.talk.k1_1`（聽對話答題的一句，用那句的角色聲線，2026-11-22 新增）。音檔腳本和播放程式都會拒絕不符合格式的 id。
 - 聽力填空和讀招牌沒有自己的音檔：填空播的是那句台詞的音檔，招牌題沒有聲音。
-- 讀招牌和看圖選句不是某一個詞塊或單字，所以沒有學習項目 id，也不會有複習卡片（程式裡的 `NO_ITEM`）。聽力填空挖的字如果是教過的單字，就用那個單字的 `word:<id>`。
+- 讀招牌和看圖選句不是某一個詞塊或單字，所以沒有學習項目 id，也不會有複習卡片（程式裡的 `NO_ITEM`）。讀短文、聽對話答題也一樣；句子填空有 `chunkId` 時算那個詞塊，沒有時是 `NO_ITEM`。聽力填空挖的字如果是教過的單字，就用那個單字的 `word:<id>`。
 
 ## 內容檢查
 
@@ -180,22 +259,24 @@
 - 對比詞：id 和兩個字的 id 符合格式、不重複；有 `focus`；兩個字都有 `en`、`zh` 而且不一樣；任務的 `newPairIds` 都存在。
 - `stage` 的 `act` 合法；`want`／`give` 的 `item` 是同單元的單字，`ask` 不帶 `item`。
 - `spellWordIds` 有寫的話，是不重複、格式正確的單字 id 清單，不能是空的。`tests/content.test.ts` 再檢查每個字都在這個任務之前教過（照遊玩順序，可以是更早的單元）。
-- `kind` 只能是 `roleplay`。角色扮演任務：`newChunkIds`、`newWordIds` 是空的，沒有 `newPairIds`，也沒有 `cloze`、`signs`、`pictures`；第一句是 NPC 說的，每句 `player` 台詞前面都是 NPC 的台詞；至少 2 句 `player` 台詞；台詞用的詞塊都在同一個單元更早的任務教過。
+- `kind` 只能是 `roleplay`。角色扮演任務：`newChunkIds`、`newWordIds` 是空的，沒有 `newPairIds`，也沒有 `cloze`、`signs`、`pictures`、`fills`、`passages`、`talks`；第一句是 NPC 說的，每句 `player` 台詞前面都是 NPC 的台詞；至少 2 句 `player` 台詞；台詞用的詞塊都在同一個單元更早的任務教過。
 - `cloze`（2026-11-22）：不能是空清單；`lineId` 是這個任務的台詞；`word` 是一個字，而且在那句台詞裡；同一句不能挖同一個字兩次；`distractors` 是 2 或 3 個不同的字，不能和答案一樣。
 - `signs`（2026-11-22）：不能是空清單；id 符合格式，整個單元內不重複；`heading` 有寫就不能是空的；至少一行，每行有 `label`；全部加起來最多 15 個字；問題有 `en` 和 `zh`；2 到 4 個不同的答案；`answer` 指到其中一個。
 - `pictures`（2026-11-22）：不能是空清單；id 和 `pictureId` 符合格式，id 在整個單元內不重複；2 到 4 個句子，都有 `en` 和 `zh`，英文不重複；`answer` 指到其中一個。
+- `fills`、`passages`、`talks`（2026-11-22，部分做到：最小版本）：檢查各在 `src/content/checks/fills.ts`、`passages.ts`、`talks.ts`。不能是空清單；id 符合格式，整個單元內不重複（對話的句子 id 也是）；填空句子剛好一個 `___`，3 或 4 個不同的選項，`chunkId` 是到這個任務為止教過的詞塊；短文的 `kind` 合法，有內文，最多 80 個字；對話 3 到 6 句、剛好兩個角色、角色合法、每句有 `en` 和 `zh`；每個問題有 `en`、`zh`，2 到 4 個不同的選項，`answer` 指到其中一個，每篇短文或對話 1 到 3 題。
 
 不合格的單元不會被載入，開發模式下會在 console 顯示警告。`tests/content.test.ts` 會檢查 `src/data/units/` 裡的每個單元。
 
 `validateUnit` 以外，還有這些測試在擋內容：
 
 - `tests/content.test.ts`：不同單元不重複用 id；打字拼字的字都在那個任務之前教過；每個單元最後一個任務是角色扮演，每句「你」的台詞出一題。
-- `tests/smoothness.test.ts`：平滑規則 3、4、6；聽力填空、讀招牌、看圖選句用的英文（挖掉的字、干擾選項、招牌、問題、答案、句子）都只用那個任務之前教過的字。
+- `tests/smoothness.test.ts`：平滑規則 3、4、6（限制依單元所在的幕）；聽力填空、讀招牌、看圖選句、句子填空、讀短文、聽對話答題用的英文（挖掉的字、干擾選項、招牌、問題、答案、句子、短文、對話）都只用那個任務之前教過的字（`vocab.ts` 的 `questionTexts`）。
 - `tests/pictures.test.ts`：每個 `pictureId` 都真的有圖。
 - `tests/items.test.ts`：每個沒標 `abstract` 的單字都有像素圖。
 - `tests/stageArt.test.ts`：每個單元裡有台詞的角色，都在那個單元的小劇場設定裡。
 - `tests/stageState.test.ts`：兩個 NPC 不會站在同一點；站在 `beside` 位置說的台詞沒有 `want`、`ask`。
-- `tests/audioItems.test.ts`：看圖選句只有正確的那一句會變成音檔項目，用「你」的聲線（用一個小的測試單元檢查）。
+- `tests/audioItems.test.ts`：看圖選句只有正確的那一句會變成音檔項目，用「你」的聲線；聽對話答題每句一個音檔項目，用那句的角色聲線（用小的測試單元檢查）。
+- `tests/fills.test.ts`、`tests/passages.test.ts`、`tests/talks.test.ts`：三種新題型的內容檢查和出題（用小的測試資料）。
 
 ## 現有單元
 

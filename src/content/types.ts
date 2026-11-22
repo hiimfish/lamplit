@@ -104,6 +104,12 @@ export interface Task {
   signs?: SignItem[];
   /** Pictures to describe (看圖選句): pick the sentence that matches. */
   pictures?: PictureItem[];
+  /** Sentences to complete (句子填空): pick the word that fits the blank. */
+  fills?: FillItem[];
+  /** Short texts to read (讀短文), 1 to 3 questions each. */
+  passages?: PassageItem[];
+  /** Short conversations to hear (聽對話答題), 1 to 3 questions each. */
+  talks?: TalkItem[];
   /** The short story played first, in order. */
   scene: SceneLine[];
 }
@@ -141,6 +147,68 @@ interface PictureItem {
   options: { en: string; zh: string }[];
   /** Index of the right option. */
   answer: number;
+}
+
+/** One multiple-choice question about a text or a conversation. */
+export interface ChoiceQuestion {
+  en: string;
+  zh: string;
+  /** 2 to 4 answers, each different. */
+  options: string[];
+  /** Index of the right option. */
+  answer: number;
+}
+
+/** 句子填空 (TOEIC Part 5): read one sentence with a blank and pick what fits. No audio. */
+export interface FillItem {
+  /** Unique in the unit. */
+  id: string;
+  /** The sentence with the blank written as "___", exactly once. */
+  en: string;
+  /** Chinese of the whole sentence, shown after answering. */
+  zh: string;
+  /** 3 or 4 words or short phrases, each different. */
+  options: string[];
+  /** Index of the right option. */
+  answer: number;
+  /** One-line note in Chinese on why, shown after answering. */
+  note?: string;
+  /** If the sentence is a chunk of this unit taught by now: the answer counts for its review card. */
+  chunkId?: string;
+}
+
+export type PassageKind = 'message' | 'flyer' | 'notice' | 'ad' | 'form' | 'email';
+
+/** 讀短文 (TOEIC Part 7): a message, flyer, notice, ad, form or email of up to 80 words, 1-3 questions. */
+export interface PassageItem {
+  /** Unique in the unit. */
+  id: string;
+  kind: PassageKind;
+  /** Heading or sender, e.g. "Job Fair" or "Tony (repair shop)". */
+  title?: string;
+  /** The text, one entry per line or paragraph. */
+  lines: string[];
+  questions: ChoiceQuestion[];
+}
+
+/** One line of a conversation to hear. Audio id is `${unitId}.talk.${id}`; ids are unique in the unit. */
+export interface TalkLine {
+  id: string;
+  role: Role;
+  en: string;
+  zh: string;
+}
+
+/**
+ * 聽對話答題 (TOEIC Part 3): hear a short conversation, then answer 1-3 questions about it.
+ * Its speakers need not be on the location's stage.
+ */
+export interface TalkItem {
+  /** Unique in the unit. */
+  id: string;
+  /** 3 to 6 lines by two speakers. */
+  lines: TalkLine[];
+  questions: ChoiceQuestion[];
 }
 
 /** One word of a minimal pair. Audio id is `${unitId}.pair.${id}`; ids are unique across the unit's pairs. */

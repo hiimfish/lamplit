@@ -1,0 +1,23 @@
+/* 讀短文 (ReadPassage.tsx): a paper note with a title and lines of text. */
+.passage {
+  align-self: center;
+  box-sizing: border-box;
+  width: min(100%, calc(200 * var(--px)));
+  padding: calc(5 * var(--px)) calc(8 * var(--px));
+  display: flex;
+  flex-direction: column;
+  gap: calc(2 * var(--px));
+  font-size: calc(11 * var(--px));
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: inset 0 0 0 var(--px) var(--ink);
+}
+
+.passage-title {
+  font-weight: bold;
+}
+
+.passage-line {
+  margin: 0;
+  line-height: 1.5;
+}

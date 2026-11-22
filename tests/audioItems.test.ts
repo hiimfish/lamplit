@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import cafe from '../src/data/units/cafe.json';
 import type { Unit } from '../src/content/types';
 import { unitToAudioItems } from '../src/content/audioItems';
+import { isValidAudioId } from '../src/audio/voices';
 
 const unit = cafe as unknown as Unit;
 
@@ -59,6 +60,45 @@ describe('unitToAudioItems', () => {
     expect(unitToAudioItems(withPicture)).toEqual([
       { id: 'u.picture.p1', text: 'She is reading a book.', role: 'guide' },
     ]);
+  });
+
+  it('speaks each line of a talk in its speaker voice, with a valid audio id', () => {
+    const withTalk: Unit = {
+      id: 'bank',
+      title: 't',
+      titleEn: 't',
+      chunks: [],
+      words: [],
+      tasks: [
+        {
+          id: 't1',
+          title: 't',
+          newChunkIds: [],
+          newWordIds: [],
+          scene: [],
+          talks: [
+            {
+              id: 'k1',
+              lines: [
+                { id: 'k1_1', role: 'clerk', en: 'Can I help you?', zh: '需要幫忙嗎？' },
+                { id: 'k1_2', role: 'friend', en: 'Yes, please.', zh: '好，麻煩你。' },
+                { id: 'k1_3', role: 'clerk', en: 'Sit down, please.', zh: '請坐。' },
+              ],
+              questions: [
+                { en: 'Who helps?', zh: '誰幫忙？', options: ['A clerk', 'A friend'], answer: 0 },
+              ],
+            },
+          ],
+        },
+      ],
+    };
+    const result = unitToAudioItems(withTalk);
+    expect(result).toEqual([
+      { id: 'bank.talk.k1_1', text: 'Can I help you?', role: 'clerk' },
+      { id: 'bank.talk.k1_2', text: 'Yes, please.', role: 'friend' },
+      { id: 'bank.talk.k1_3', text: 'Sit down, please.', role: 'clerk' },
+    ]);
+    expect(result.every((item) => isValidAudioId(item.id))).toBe(true);
   });
 
   it('keeps one item when ids collide and skips accept variants', () => {

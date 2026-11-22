@@ -3,8 +3,21 @@
  * human-readable problems; an empty list means the unit is safe to use.
  */
 
-/** Ids end up in audio file names and save keys, so keep them plain. */
-const ID_PATTERN = /^[a-z0-9_]+$/;
+import {
+  ID_PATTERN,
+  allDifferent,
+  isIndex,
+  isObject,
+  isText,
+  list,
+  sameText,
+  textList,
+  wordCount,
+  type TaskCheckContext,
+} from './checks/common';
+import { checkFills } from './checks/fills';
+import { checkPassages } from './checks/passages';
+import { checkTalks } from './checks/talks';
 
 const ROLES = [
   'barista',
@@ -33,15 +46,6 @@ const ROLES = [
   'guide',
 ];
 const SPEAKERS = ['npc', 'player'];
-
-const isObject = (value: unknown): value is Record<string, unknown> =>
-  typeof value === 'object' && value !== null && !Array.isArray(value);
-
-const isText = (value: unknown): value is string => typeof value === 'string' && value !== '';
-
-function list(value: unknown): Record<string, unknown>[] | null {
-  return Array.isArray(value) ? value.map((v) => (isObject(v) ? v : {})) : null;
-}
 
 export function validateUnit(unit: unknown): string[] {
   const problems: string[] = [];
@@ -87,6 +91,14 @@ export function validateUnit(unit: unknown): string[] {
   const pictureIds = new Set<string>();
   /** Chunks introduced by the tasks before the current one. */
   const taughtChunks = new Set<string>();
+  // Fill, passage and talk ids (and talk line ids) are unique across the unit too.
+  const idSpaces = new Map<string, Set<string>>();
+  const seen = (kind: string) => {
+    let ids = idSpaces.get(kind);
+    if (!ids) idSpaces.set(kind, (ids = new Set()));
+    return ids;
+  };
+  const isRole = (value: unknown) => typeof value === 'string' && ROLES.includes(value);
   for (const task of tasks ?? []) {
     const taskId = String(task.id);
     if (task.kind !== undefined && task.kind !== 'roleplay') {
@@ -138,7 +150,7 @@ export function validateUnit(unit: unknown): string[] {
     ids(scene, 'line', lineIds);
     for (const line of scene) {
       const lineId = String(line.id);
-      if (typeof line.role !== 'string' || !ROLES.includes(line.role)) {
+      if (!isRole(line.role)) {
         problems.push(where(`line "${lineId}" has bad role "${String(line.role)}"`));
       }
       if (typeof line.speaker !== 'string' || !SPEAKERS.includes(line.speaker)) {
@@ -158,6 +170,13 @@ export function validateUnit(unit: unknown): string[] {
     if (task.cloze !== undefined) checkCloze(task.cloze, scene, report);
     if (task.signs !== undefined) checkSigns(task.signs, signIds, report);
     if (task.pictures !== undefined) checkPictures(task.pictures, pictureIds, report);
+    const newChunks = Array.isArray(task.newChunkIds) ? task.newChunkIds.filter(isText) : [];
+    const ctx: TaskCheckContext = {
+      seen,
+      taughtChunks: new Set([...taughtChunks, ...newChunks]),
+      isRole,
+    };
+    for (const check of [checkFills, checkPassages, checkTalks]) check(task, ctx).forEach(report);
     if (task.kind === 'roleplay') checkRolePlay(task, scene, taughtChunks, report);
     if (Array.isArray(task.newChunkIds)) {
       for (const id of task.newChunkIds) if (typeof id === 'string') taughtChunks.add(id);
@@ -182,7 +201,7 @@ function checkRolePlay(
     report('is a role-play and must not teach new items');
   }
   // A role-play has no practice round, so these questions would never be asked.
-  for (const key of ['cloze', 'signs', 'pictures']) {
+  for (const key of ['cloze', 'signs', 'pictures', 'fills', 'passages', 'talks']) {
     if (task[key] !== undefined) report(`is a role-play and must not have ${key}`);
   }
   if (scene[0]?.speaker !== 'npc') report('role-play must start with an NPC line');
@@ -202,22 +221,6 @@ function checkRolePlay(
 
 /** One word: letters, with an apostrophe or hyphen inside (don't, T-shirt). */
 const ONE_WORD = /^[a-z]+(['-][a-z]+)*$/i;
-
-const sameText = (a: string, b: string) => a.trim().toLowerCase() === b.trim().toLowerCase();
-
-/** True when every text differs from the others, ignoring case. */
-const allDifferent = (texts: string[]) =>
-  new Set(texts.map((t) => t.trim().toLowerCase())).size === texts.length;
-
-/** A list of `min` to `max` different non-empty texts, or null. */
-function textList(value: unknown, min: number, max: number): string[] | null {
-  if (!Array.isArray(value) || value.length < min || value.length > max) return null;
-  const texts = value.filter(isText);
-  return texts.length === value.length && allDifferent(texts) ? texts : null;
-}
-
-const isIndex = (value: unknown, length: number): boolean =>
-  typeof value === 'number' && Number.isInteger(value) && value >= 0 && value < length;
 
 /**
  * 聽力填空: each item blanks one word of a line of this task and offers 2 or 3 wrong words.
@@ -284,7 +287,7 @@ function checkSigns(value: unknown, seen: Set<string>, report: (problem: string)
       report(`${label} needs rows, each with a label`);
     } else {
       const text = [sign.heading, ...rows.flatMap((r) => [r.label, r.value])].filter(isText);
-      const words = text.join(' ').split(/\s+/).filter(Boolean).length;
+      const words = wordCount(text.join(' '));
       if (words > SIGN_MAX_WORDS) report(`${label} has ${words} words (max ${SIGN_MAX_WORDS})`);
     }
     const question = sign.question;

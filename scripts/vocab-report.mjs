@@ -10,6 +10,7 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { ACTS } from '../src/content/acts.ts';
 import { UNIT_ORDER } from '../src/content/unitOrder.ts';
 import {
   parseWordLists,
@@ -69,6 +70,6 @@ profiles.forEach((p, i) => {
   if (p.unplanned.length) console.log(`  沒教過：${p.unplanned.join(' ')}`);
 });
 
-const breaks = smoothnessBreaks(profiles, lists);
+const breaks = smoothnessBreaks(profiles, lists, ACTS);
 console.log(`\n不符合平滑規則（${breaks.length}）：`);
 for (const b of breaks) console.log(`- ${b}`);

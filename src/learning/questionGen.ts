@@ -20,36 +20,12 @@ import {
   type SpeakQuestion,
   type SpellQuestion,
 } from './questions';
+import { chunkItemId, pairItemId, shuffle, wordItemId, type Rng } from './gen/common';
+import { fillQuestions } from './gen/fills';
+import { passageQuestions } from './gen/passages';
+import { talkQuestions } from './gen/talks';
 
-/** Returns numbers in [0, 1). */
-export type Rng = () => number;
-
-/** Small seeded generator (mulberry32). */
-export function makeRng(seed: number): Rng {
-  let a = seed >>> 0;
-  return () => {
-    a = (a + 0x6d2b79f5) >>> 0;
-    let t = a;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-function shuffle<T>(items: readonly T[], rng: Rng): T[] {
-  const out = [...items];
-  for (let i = out.length - 1; i > 0; i--) {
-    const j = Math.floor(rng() * (i + 1));
-    const a = out[i] as T;
-    out[i] = out[j] as T;
-    out[j] = a;
-  }
-  return out;
-}
-
-const chunkItemId = (id: string) => `chunk:${id}`;
-const wordItemId = (id: string) => `word:${id}`;
-const pairItemId = (id: string) => `pair:${id}`;
+export { makeRng, type Rng } from './gen/common';
 
 const MAX_OPTIONS = 4;
 
@@ -358,7 +334,9 @@ export function spellMarks(typed: string, answer: string): ('right' | 'wrong')[]
 
 /**
  * Ordered practice for one task, easy to hard. Listening cloze comes after the
- * listen-and-pick questions, signs to read and pictures after choosing replies, typing questions
+ * listen-and-pick questions, signs to read and pictures after choosing replies, then
+ * sentence fills, passages to read and conversations to hear (one sentence, then a short
+ * text, then a conversation heard only once), all before arranging; typing questions
  * (`spellWordIds`) after arranging and before speaking. Typed and blanked words are looked
  * up in `units` (pass every unit, since they may come from an earlier one).
  */
@@ -386,6 +364,9 @@ export function buildTaskPractice(
     ...chooseReplies(unit, task, rng),
     ...signQuestions(task, rng),
     ...pictureQuestions(unit, task, rng),
+    ...fillQuestions(task, rng),
+    ...passageQuestions(task, rng),
+    ...talkQuestions(unit, task, rng),
     ...compact(chunks.map((c) => arrangeChunk(unit, c, rng))),
     ...compact((task.spellWordIds ?? []).map((id) => spellWord(units, id))),
     ...chunks.map((c) => speakChunk(unit, c)),

@@ -1,5 +1,14 @@
 /** Question shapes produced by questionGen and rendered by the minigame components. */
 import type { Role } from '../content/types';
+import type { FillQuestion } from './gen/fills';
+import type { PassageQuestion } from './gen/passages';
+import type { TalkQuestion } from './gen/talks';
+
+/**
+ * The Act 2 kinds are defined next to their generators in ./gen (one folder of files
+ * per question type) and re-exported here.
+ */
+export type { FillQuestion, PassageQuestion, TalkQuestion };
 
 export interface ListenPickQuestion {
   kind: 'listen-pick';
@@ -86,8 +95,9 @@ export interface SpellQuestion {
 }
 
 /**
- * Item id of a question that is about no single chunk or word (a sign to read): it counts
- * for the round and the day, but no review card is made for it.
+ * Item id of a question that is about no single chunk or word (a sign or a passage to
+ * read, a conversation to hear): it counts for the round and the day, but no review
+ * card is made for it.
  */
 export const NO_ITEM = '';
 
@@ -151,7 +161,10 @@ export type Question =
   | SpellQuestion
   | ClozeQuestion
   | SignQuestion
-  | PictureQuestion;
+  | PictureQuestion
+  | FillQuestion
+  | PassageQuestion
+  | TalkQuestion;
 
 export interface AnswerResult {
   itemId: string;
