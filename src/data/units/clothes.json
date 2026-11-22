@@ -150,7 +150,7 @@
     {
       "id": "return_this",
       "en": "Can I return this?",
-      "zh": "我可以退這個嗎？",
+      "zh": "這個可以退嗎？",
       "accept": ["Can I return this, please?", "Could I return this?"],
       "note": "return = 退貨。Can I 後面接原形動詞，return 後面直接接東西。",
       "distractors": [
@@ -183,7 +183,7 @@
     { "id": "red", "en": "red", "zh": "紅色", "emoji": "🔴", "abstract": true },
     { "id": "blue", "en": "blue", "zh": "藍色", "emoji": "🔵", "abstract": true },
     { "id": "wear", "en": "wear", "zh": "穿；戴", "emoji": "👕", "abstract": true },
-    { "id": "warm", "en": "warm", "zh": "溫暖的", "emoji": "☀️", "abstract": true },
+    { "id": "warm", "en": "warm", "zh": "溫暖的；保暖的", "emoji": "☀️", "abstract": true },
     { "id": "coat", "en": "coat", "zh": "大衣", "emoji": "🧥" },
     { "id": "hat", "en": "hat", "zh": "帽子", "emoji": "🎩" },
     { "id": "shoe", "en": "shoe", "zh": "鞋子", "emoji": "👟" },
@@ -202,7 +202,7 @@
     { "id": "sale", "en": "sale", "zh": "特價", "emoji": "🏷️", "abstract": true },
     { "id": "percent", "en": "percent", "zh": "百分比", "emoji": "🧮", "abstract": true },
     { "id": "pair", "en": "pair", "zh": "一雙；一對", "emoji": "✌️", "abstract": true },
-    { "id": "return", "en": "return", "zh": "退回", "emoji": "↩️", "abstract": true },
+    { "id": "return", "en": "return", "zh": "退貨", "emoji": "↩️", "abstract": true },
     { "id": "wrong", "en": "wrong", "zh": "錯的", "emoji": "❌", "abstract": true },
     { "id": "exchange", "en": "exchange", "zh": "換貨", "emoji": "🔄", "abstract": true },
     { "id": "gift", "en": "gift", "zh": "禮物", "emoji": "🎁" },
@@ -329,8 +329,8 @@
           "id": "t3_3",
           "role": "assistant",
           "speaker": "npc",
-          "en": "You mean Sam? He's at lunch. I can help.",
-          "zh": "你是說 Sam 嗎？他去吃午餐了，我來幫你。"
+          "en": "You mean Sam? He's helping someone else. I can help.",
+          "zh": "你是說 Sam 嗎？他在幫別的客人了，我來幫你。"
         },
         {
           "id": "t3_4",
@@ -345,7 +345,7 @@
           "id": "t3_5",
           "role": "assistant",
           "speaker": "npc",
-          "en": "Sure. Coats are by the hats and shoes.",
+          "en": "Sure. They're by the hats and shoes.",
           "zh": "好的。外套在帽子和鞋子那邊。",
           "stage": { "act": "want", "item": "hat" }
         }
@@ -378,7 +378,7 @@
           "role": "assistant",
           "speaker": "npc",
           "en": "Sure, go ahead.",
-          "zh": "當然，請便。"
+          "zh": "當然可以！"
         },
         {
           "id": "t4_4",
@@ -433,8 +433,8 @@
           "heading": "Shirts",
           "rows": [{ "label": "Buy two, get one free" }],
           "question": {
-            "en": "You buy two shirts. How many do you get?",
-            "zh": "你買兩件襯衫，總共可以拿到幾件？"
+            "en": "You pay for two shirts. How many do you take home?",
+            "zh": "你付兩件襯衫的錢，總共可以帶走幾件？"
           },
           "options": ["Two", "Three", "Four"],
           "answer": 1
@@ -528,8 +528,8 @@
           "id": "t6_5",
           "role": "assistant",
           "speaker": "npc",
-          "en": "Great! Shoes are ten dollars a pair today.",
-          "zh": "太好了！今天鞋子一雙十元。",
+          "en": "Great! Shoes are on sale, too. Ten dollars a pair.",
+          "zh": "太好了！鞋子也在特價，一雙十塊。",
           "stage": { "act": "want", "item": "shoe" }
         }
       ]
@@ -545,8 +545,8 @@
           "id": "t7_1",
           "role": "assistant",
           "speaker": "npc",
-          "en": "Hi again! Is the scarf the wrong color?",
-          "zh": "嗨，又見面了！圍巾的顏色不對嗎？",
+          "en": "Hi again! Is something wrong with the scarf?",
+          "zh": "嗨，又見面了！圍巾有什麼問題嗎？",
           "stage": { "act": "want", "item": "scarf" }
         },
         {
@@ -554,7 +554,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "Can I return this?",
-          "zh": "我可以退這個嗎？",
+          "zh": "這個可以退嗎？",
           "chunkId": "return_this",
           "stage": { "act": "give", "item": "scarf" }
         },
@@ -601,7 +601,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "Can I return this?",
-          "zh": "我可以退這個嗎？",
+          "zh": "這個可以退嗎？",
           "chunkId": "return_this",
           "stage": { "act": "give", "item": "scarf" }
         },
@@ -625,9 +625,8 @@
           "id": "t8_5",
           "role": "assistant",
           "speaker": "npc",
-          "en": "Right here. What are you looking for?",
-          "zh": "就在這邊。你想找什麼樣的？",
-          "stage": { "act": "ask" }
+          "en": "Right here. But these aren't very warm.",
+          "zh": "就在這邊。不過這些不太保暖。"
         },
         {
           "id": "t8_6",

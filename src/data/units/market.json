@@ -47,7 +47,7 @@
       "note": "look + 形容詞 = 看起來…。主詞是 this，所以 look 要加 s；really 放在 good 前面加強語氣。",
       "distractors": [
         { "text": "This look really good.", "error": "other" },
-        { "text": "This looks good really.", "error": "word-order" },
+        { "text": "This really good looks.", "error": "word-order" },
         { "text": "This is looks really good.", "error": "extra-word" }
       ]
     },
@@ -371,8 +371,8 @@
           "id": "t4_3",
           "role": "vendor",
           "speaker": "npc",
-          "en": "Okay. This piece is about half a pound.",
-          "zh": "好。這塊大概半磅。"
+          "en": "Okay. This piece is a little small.",
+          "zh": "好。這塊有點小。"
         },
         {
           "id": "t4_4",
@@ -411,8 +411,8 @@
           "id": "t5_2",
           "role": "cashier",
           "speaker": "npc",
-          "en": "No, I work here. I can help you.",
-          "zh": "沒有，我是這裡的店員。我來幫你結帳。"
+          "en": "Oh, no, I work here! I can help you.",
+          "zh": "喔，不是啦，我是這裡的店員！我來幫你結帳。"
         },
         {
           "id": "t5_3",
@@ -494,8 +494,8 @@
           "id": "t7_1",
           "role": "cashier",
           "speaker": "npc",
-          "en": "Cheese, butter, juice, and a pizza.",
-          "zh": "起司、奶油、果汁，還有一個披薩。",
+          "en": "Cheese, butter, juice, and just one pizza?",
+          "zh": "起司、奶油、果汁，披薩只買一個嗎？",
           "stage": { "act": "want", "item": "pizza" }
         },
         {
@@ -511,8 +511,8 @@
           "id": "t7_3",
           "role": "cashier",
           "speaker": "npc",
-          "en": "The pizza? Yes, it is!",
-          "zh": "披薩嗎？對，買一送一！"
+          "en": "Yes, it is! Go get one more.",
+          "zh": "對啊！快去再拿一個。"
         },
         {
           "id": "t7_4",
@@ -521,14 +521,6 @@
           "en": "Great, I'll take two.",
           "zh": "太好了，我拿兩個。",
           "chunkId": "take_two"
-        },
-        {
-          "id": "t7_5",
-          "role": "cashier",
-          "speaker": "npc",
-          "en": "Okay. That's fifteen dollars.",
-          "zh": "好。一共十五塊。",
-          "stage": { "act": "give", "item": "pizza" }
         }
       ]
     },
@@ -624,16 +616,16 @@
           "id": "t8_11",
           "role": "vendor",
           "speaker": "npc",
-          "en": "Sure. That's one pound. Here you go!",
-          "zh": "好，這樣一磅。給你！",
+          "en": "Sure, that's one pound. Have a good day!",
+          "zh": "好，這樣一磅。祝你有美好的一天！",
           "stage": { "act": "give", "item": "tomato" }
         },
         {
           "id": "t8_12",
           "role": "cashier",
           "speaker": "npc",
-          "en": "Hi! The juice is really cheap today.",
-          "zh": "嗨！今天果汁很便宜喔。"
+          "en": "Hi! Just these two juices today?",
+          "zh": "嗨！今天就這兩瓶果汁嗎？"
         },
         {
           "id": "t8_13",
@@ -663,8 +655,8 @@
           "id": "t8_16",
           "role": "cashier",
           "speaker": "npc",
-          "en": "Sure! That's forty dollars.",
-          "zh": "可以！一共四十塊。"
+          "en": "Sure! That's four dollars.",
+          "zh": "可以！一共四塊。"
         }
       ]
     }

@@ -55,7 +55,7 @@
       "id": "need_coins",
       "en": "I need some coins for the bus.",
       "zh": "我需要一些零錢搭公車。",
-      "accept": ["I need coins for the bus.", "For the bus, I need some coins."],
+      "accept": ["I need coins for the bus."],
       "note": "some 用在肯定句：有一些，不說幾個。後面可以數的東西用複數（coins）。",
       "distractors": [
         { "text": "I need some coin for the bus.", "error": "plural" },
@@ -67,7 +67,7 @@
       "id": "any_change",
       "en": "Do you have any change?",
       "zh": "你有零錢嗎？",
-      "accept": ["Do you have change?", "Do you have some change?"],
+      "accept": ["Do you have change?"],
       "note": "any 用在問句和否定句（肯定句用 some）。change 當「零錢」時不加 s。",
       "distractors": [
         { "text": "Do you have any changes?", "error": "plural" },
@@ -114,7 +114,7 @@
     {
       "id": "my_stop",
       "en": "Is this my stop?",
-      "zh": "這是我要下的站嗎？",
+      "zh": "我是在這站下車嗎？",
       "accept": ["Excuse me, is this my stop?"],
       "note": "my stop = 我要下車的那一站。不確定到站了沒，就這樣問司機。",
       "distractors": [
@@ -151,7 +151,7 @@
       "id": "im_lost",
       "en": "Sorry, I'm lost. Can you help me?",
       "zh": "不好意思，我迷路了。可以幫我嗎？",
-      "accept": ["Sorry, can you help me? I'm lost.", "Can you help me? Sorry, I'm lost."],
+      "accept": ["Sorry, can you help me? I'm lost."],
       "note": "I'm lost = 我迷路了，不能少了 'm（am）。開口先說 Sorry，再請對方幫忙。",
       "distractors": [
         { "text": "Sorry, I lost. Can you help me?", "error": "missing-word" },
@@ -304,22 +304,14 @@
       "scene": [
         {
           "id": "t3_1",
-          "role": "guide",
-          "speaker": "player",
-          "en": "Do you have any change?",
-          "zh": "你有零錢嗎？",
-          "chunkId": "any_change",
+          "role": "passerby",
+          "speaker": "npc",
+          "en": "Are you okay?",
+          "zh": "你還好嗎？",
           "stage": { "act": "ask" }
         },
         {
           "id": "t3_2",
-          "role": "passerby",
-          "speaker": "npc",
-          "en": "Change? What for?",
-          "zh": "零錢？要做什麼用？"
-        },
-        {
-          "id": "t3_3",
           "role": "guide",
           "speaker": "player",
           "en": "I need some coins for the bus.",
@@ -328,11 +320,27 @@
           "stage": { "act": "want", "item": "coin" }
         },
         {
-          "id": "t3_4",
+          "id": "t3_3",
           "role": "passerby",
           "speaker": "npc",
-          "en": "Sure, here. The driver doesn't give change.",
-          "zh": "好啊，給你。司機不找零的。",
+          "en": "Right. Drivers don't give change.",
+          "zh": "對啊，司機不找零的。"
+        },
+        {
+          "id": "t3_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you have any change?",
+          "zh": "你有零錢嗎？",
+          "chunkId": "any_change",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t3_5",
+          "role": "passerby",
+          "speaker": "npc",
+          "en": "Sure, here.",
+          "zh": "有啊，給你。",
           "stage": { "act": "give", "item": "coin" }
         }
       ]
@@ -388,8 +396,8 @@
           "id": "t5_1",
           "role": "driver",
           "speaker": "npc",
-          "en": "No seats, sorry. Stand at the front.",
-          "zh": "抱歉，沒位子了。請站前面。"
+          "en": "Sorry, no seats. You can stand at the front.",
+          "zh": "抱歉，沒位子了。你可以站前面。"
         },
         {
           "id": "t5_2",
@@ -404,15 +412,15 @@
           "id": "t5_3",
           "role": "driver",
           "speaker": "npc",
-          "en": "About half an hour.",
-          "zh": "大概半小時。"
+          "en": "Downtown? About half an hour.",
+          "zh": "到市中心嗎？大概半小時。"
         },
         {
           "id": "t5_4",
           "role": "guide",
           "speaker": "player",
           "en": "Is this my stop?",
-          "zh": "這是我要下的站嗎？",
+          "zh": "我是在這站下車嗎？",
           "chunkId": "my_stop",
           "stage": { "act": "ask" }
         },
@@ -420,8 +428,8 @@
           "id": "t5_5",
           "role": "driver",
           "speaker": "npc",
-          "en": "No. Wait five more minutes.",
-          "zh": "還沒。再等五分鐘。"
+          "en": "Not this one. Five more minutes.",
+          "zh": "不是這一站，還要五分鐘。"
         }
       ]
     },
@@ -431,8 +439,8 @@
       "newChunkIds": ["next_bus", "bus_late"],
       "newWordIds": ["monday", "tuesday", "wednesday", "thursday", "friday"],
       "cloze": [
+        { "lineId": "t6_2", "word": "nine", "distractors": ["five", "two"] },
         { "lineId": "t6_4", "word": "minutes", "distractors": ["dollars", "tickets"] },
-        { "lineId": "t6_5", "word": "left", "distractors": ["last", "light"] },
         { "lineId": "t6_5", "word": "bus", "distractors": ["box", "bank"] }
       ],
       "scene": [
@@ -471,8 +479,8 @@
           "id": "t6_5",
           "role": "passerby",
           "speaker": "npc",
-          "en": "Look left! Here comes the bus.",
-          "zh": "看左邊！公車來了。",
+          "en": "Look! Here comes the bus now.",
+          "zh": "你看！公車來了。",
           "stage": { "act": "want", "item": "bus" }
         }
       ]
@@ -531,8 +539,8 @@
           "id": "t8_1",
           "role": "passerby",
           "speaker": "npc",
-          "en": "Hi. Are you looking for the bus stop?",
-          "zh": "嗨，你在找公車站嗎？",
+          "en": "Hi. Waiting for the bus? This isn't the stop.",
+          "zh": "嗨，在等公車嗎？這裡不是公車站喔。",
           "stage": { "act": "want", "item": "bus" }
         },
         {
