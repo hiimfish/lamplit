@@ -18,6 +18,7 @@
 | [scene-stage.md](scene-stage.md)     | 劇情小劇場：角色、說話與道具動作、版面、內容格式             |
 | [architecture.md](architecture.md)   | 技術架構、存檔格式、開發指令、環境變數、開發流程、部署與維運 |
 | [curriculum.md](curriculum.md)       | 多益 600 目標、四幕的內容量、難度旋鈕、平滑規則、題型對應    |
+| [sprint.md](sprint.md)               | 衝刺路線：3 個月到多益 600 的每日內容、12 週安排、檢查點     |
 | [act1-syllabus.md](act1-syllabus.md) | 第一幕 10 個地點的詞塊、單字、文法和新題型分配表             |
 | [roadmap.md](roadmap.md)             | 進度、接下來要做的事、需要使用者處理的事、風險               |
 
