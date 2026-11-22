@@ -1,0 +1,991 @@
+{
+  "id": "day_before",
+  "title": "上班前一天",
+  "titleEn": "The Day Before Work",
+  "chunks": [
+    {
+      "id": "so_happy_to_hear_that",
+      "en": "I'm so happy to hear that!",
+      "zh": "聽到這個消息我好開心！",
+      "accept": ["I am so happy to hear that!"],
+      "note": "聽到對方說好消息時的反應。that 指對方剛說的事。",
+      "distractors": [
+        {
+          "text": "I'm so happy hear that!",
+          "error": "missing-word"
+        },
+        {
+          "text": "I'm so happy to here that!",
+          "error": "spelling"
+        },
+        {
+          "text": "I'm so happy to hearing that!",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "looking_forward_to_working_with_you",
+      "en": "I'm looking forward to working with you.",
+      "zh": "很期待跟您一起工作。",
+      "accept": ["I am looking forward to working with you."],
+      "note": "接到工作時對主管說。look forward to 後面接 V-ing。",
+      "distractors": [
+        {
+          "text": "I'm looking forward to work with you.",
+          "error": "other"
+        },
+        {
+          "text": "I'm looking forward working with you.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I'm looking froward to working with you.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "which_floor_is_your_office_on",
+      "en": "Which floor is your office on?",
+      "zh": "你們辦公室在幾樓？",
+      "accept": ["What floor is your office on?"],
+      "note": "問辦公室在幾樓。on the third floor 的 on 留在句尾。",
+      "distractors": [
+        {
+          "text": "Which floor your office is on?",
+          "error": "word-order"
+        },
+        {
+          "text": "Which floors is your office on?",
+          "error": "plural"
+        },
+        {
+          "text": "Which flor is your office on?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "wait_for_you_in_the_lobby",
+      "en": "Should I wait for you in the lobby?",
+      "zh": "我要在大廳等您嗎？",
+      "note": "問對方要你怎麼做。wait for 人 = 等某人。",
+      "distractors": [
+        {
+          "text": "Should I wait you in the lobby?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Should I waiting for you in the lobby?",
+          "error": "other"
+        },
+        {
+          "text": "Should I wait for you in lobby?",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "ill_be_there_by_eight_thirty",
+      "en": "Sure, I'll be there by eight thirty.",
+      "zh": "好，我八點半前會到。",
+      "accept": ["Sure, I will be there by eight thirty.", "Sure, I'll be there by 8:30."],
+      "note": "答應別人用 will：I'll = I will，後面接動詞原形。",
+      "distractors": [
+        {
+          "text": "Sure, I'll there by eight thirty.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Sure, I'll to be there by eight thirty.",
+          "error": "extra-word"
+        },
+        {
+          "text": "Sure, I'll be there by eigth thirty.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "dont_worry_i_wont_be_late",
+      "en": "Don't worry, I won't be late.",
+      "zh": "別擔心，我不會遲到的。",
+      "accept": ["Don't worry, I will not be late."],
+      "note": "won't = will not，保證不會發生：won't + 動詞原形。",
+      "distractors": [
+        {
+          "text": "Don't worry, I won't late.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Don't worry, I won't late be.",
+          "error": "word-order"
+        },
+        {
+          "text": "Don't worry, I won't being late.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "i_just_got_your_email",
+      "en": "Thanks, I just got your email.",
+      "zh": "謝謝，我剛收到您的信。",
+      "accept": ["Thank you, I just got your email."],
+      "note": "剛收到對方的信時說。just 放在 got 前面 = 剛剛。",
+      "distractors": [
+        {
+          "text": "Thanks, I just get your email.",
+          "error": "other"
+        },
+        {
+          "text": "Thanks, I got just your email.",
+          "error": "word-order"
+        },
+        {
+          "text": "Thanks, I just got your emial.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "do_i_need_to_wear_a_suit",
+      "en": "Do I need to wear a suit?",
+      "zh": "我需要穿西裝嗎？",
+      "note": "問該怎麼穿。Do I need to 後面接動詞原形。",
+      "distractors": [
+        {
+          "text": "Do I need wear a suit?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Do I need to wear suit?",
+          "error": "article"
+        },
+        {
+          "text": "Do I need to wearing a suit?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "guess_what_i_start_on_monday",
+      "en": "Guess what, I start work on Monday!",
+      "zh": "你猜怎麼樣，我星期一就要開始上班了！",
+      "note": "說好消息前先吊胃口。星期幾前面用 on。",
+      "distractors": [
+        {
+          "text": "Guess what, I start work in Monday!",
+          "error": "other"
+        },
+        {
+          "text": "Guess what, I starts work on Monday!",
+          "error": "other"
+        },
+        {
+          "text": "Guess what, I start a work on Monday!",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "my_family_will_be_so_happy",
+      "en": "My family in Taiwan will be so happy.",
+      "zh": "我在台灣的家人一定會很開心。",
+      "note": "will 也能說你很確定的事：家人一定會開心。",
+      "distractors": [
+        {
+          "text": "My family in Taiwan will so happy.",
+          "error": "missing-word"
+        },
+        {
+          "text": "My family in Taiwan will be so happily.",
+          "error": "other"
+        },
+        {
+          "text": "My family in the Taiwan will be so happy.",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "leave_early_to_miss_traffic",
+      "en": "I'm going to leave early to miss the traffic.",
+      "zh": "我要早點出門，避開塞車。",
+      "accept": ["I am going to leave early to miss the traffic."],
+      "note": "決定好的計畫用 be going to；to miss = 為了避開。",
+      "distractors": [
+        {
+          "text": "I'm going leave early to miss the traffic.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I'm going to leaving early to miss the traffic.",
+          "error": "other"
+        },
+        {
+          "text": "I'm going to leave early to miss the traffics.",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "go_across_the_bridge",
+      "en": "So I have to go across the bridge?",
+      "zh": "所以我要過那座橋？",
+      "note": "have to = 必須；句首 So 是在確認對方的意思。",
+      "distractors": [
+        {
+          "text": "So I have go across the bridge?",
+          "error": "missing-word"
+        },
+        {
+          "text": "So I has to go across the bridge?",
+          "error": "other"
+        },
+        {
+          "text": "So I have to go across bridge?",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "everything_is_ready_first_day",
+      "en": "Everything is ready for my first day.",
+      "zh": "第一天要用的東西都準備好了。",
+      "note": "東西都準備好了。everything 算一個整體，動詞用 is。",
+      "distractors": [
+        {
+          "text": "Everything are ready for my first day.",
+          "error": "other"
+        },
+        {
+          "text": "Everything is ready for my first days.",
+          "error": "plural"
+        },
+        {
+          "text": "Everything is ready my first day.",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "thanks_for_all_your_help_since",
+      "en": "Thanks for all your help since I moved here.",
+      "zh": "謝謝你從我搬來以後幫了我這麼多。",
+      "accept": ["Thank you for all your help since I moved here."],
+      "note": "謝謝一直幫你的人。since 後面接過去式 moved。",
+      "distractors": [
+        {
+          "text": "Thanks for all your help since I move here.",
+          "error": "other"
+        },
+        {
+          "text": "Thanks for all your helps since I moved here.",
+          "error": "plural"
+        },
+        {
+          "text": "Thanks for your all help since I moved here.",
+          "error": "word-order"
+        }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "moment", "en": "moment", "zh": "一下（片刻）", "emoji": "⏳", "abstract": true },
+    { "id": "finally", "en": "finally", "zh": "終於", "emoji": "🎉", "abstract": true },
+    { "id": "news", "en": "news", "zh": "消息", "emoji": "📢", "abstract": true },
+    { "id": "accept", "en": "accept", "zh": "接受", "emoji": "🤝", "abstract": true },
+    { "id": "everyone", "en": "everyone", "zh": "大家；每個人", "emoji": "👥", "abstract": true },
+    { "id": "excited", "en": "excited", "zh": "很興奮；很期待", "emoji": "🤩", "abstract": true },
+    { "id": "above", "en": "above", "zh": "在……上面", "emoji": "⬆️", "abstract": true },
+    { "id": "arrive", "en": "arrive", "zh": "抵達；到", "emoji": "🚶", "abstract": true },
+    { "id": "noon", "en": "noon", "zh": "中午", "emoji": "🕛", "abstract": true },
+    { "id": "exactly", "en": "exactly", "zh": "確切地；剛好", "emoji": "🎯", "abstract": true },
+    { "id": "lobby", "en": "lobby", "zh": "大廳", "emoji": "🛋️", "abstract": true },
+    { "id": "below", "en": "below", "zh": "在……下面", "emoji": "⬇️", "abstract": true },
+    { "id": "elevator", "en": "elevator", "zh": "電梯", "emoji": "🛗" },
+    { "id": "early", "en": "early", "zh": "早的；提早", "emoji": "🌅", "abstract": true },
+    { "id": "soon", "en": "soon", "zh": "很快；不久", "emoji": "⏱️", "abstract": true },
+    { "id": "receive", "en": "receive", "zh": "收到", "emoji": "📥", "abstract": true },
+    { "id": "ready", "en": "ready", "zh": "準備好的", "emoji": "✅", "abstract": true },
+    { "id": "promise", "en": "promise", "zh": "保證；答應", "emoji": "🤞", "abstract": true },
+    { "id": "confirm", "en": "confirm", "zh": "確認", "emoji": "☑️", "abstract": true },
+    { "id": "schedule", "en": "schedule", "zh": "行程表；時間表", "emoji": "🗓️", "abstract": true },
+    { "id": "instead", "en": "instead", "zh": "改成；取而代之", "emoji": "🔄", "abstract": true },
+    { "id": "normal", "en": "normal", "zh": "平常的；一般的", "emoji": "👌", "abstract": true },
+    { "id": "casual", "en": "casual", "zh": "休閒的（便服）", "emoji": "🩳", "abstract": true },
+    { "id": "suit", "en": "suit", "zh": "西裝", "emoji": "🤵" },
+    { "id": "tie", "en": "tie", "zh": "領帶", "emoji": "🪢" },
+    { "id": "sweater", "en": "sweater", "zh": "毛衣", "emoji": "🧶" },
+    { "id": "formal", "en": "formal", "zh": "正式的", "emoji": "🎩", "abstract": true },
+    { "id": "real", "en": "real", "zh": "真正的", "emoji": "💯", "abstract": true },
+    { "id": "holiday", "en": "holiday", "zh": "（年底）假期", "emoji": "🎄", "abstract": true },
+    {
+      "id": "beautiful",
+      "en": "beautiful",
+      "zh": "漂亮的；美麗的",
+      "emoji": "💐",
+      "abstract": true
+    },
+    { "id": "husband", "en": "husband", "zh": "先生（丈夫）", "emoji": "🧔" },
+    { "id": "favorite", "en": "favorite", "zh": "最喜歡的", "emoji": "❤️", "abstract": true },
+    { "id": "celebrate", "en": "celebrate", "zh": "慶祝", "emoji": "🥳", "abstract": true },
+    { "id": "proud", "en": "proud", "zh": "驕傲；以……為榮", "emoji": "😊", "abstract": true },
+    { "id": "along", "en": "along", "zh": "沿著", "emoji": "🛣️", "abstract": true },
+    { "id": "toward", "en": "toward", "zh": "朝著；往", "emoji": "➡️", "abstract": true },
+    { "id": "pass", "en": "pass", "zh": "經過", "emoji": "🚗", "abstract": true },
+    { "id": "middle", "en": "middle", "zh": "中間", "emoji": "⏺️", "abstract": true },
+    { "id": "direction", "en": "direction", "zh": "方向", "emoji": "🧭", "abstract": true },
+    { "id": "traffic", "en": "traffic", "zh": "交通；車流", "emoji": "🚦" },
+    { "id": "route", "en": "route", "zh": "路線", "emoji": "🗺️", "abstract": true },
+    { "id": "life", "en": "life", "zh": "生活", "emoji": "🌱", "abstract": true },
+    { "id": "wonder", "en": "wonder", "zh": "想知道；好奇", "emoji": "🤔", "abstract": true },
+    { "id": "stuff", "en": "stuff", "zh": "東西", "emoji": "🎒", "abstract": true },
+    { "id": "anyone", "en": "anyone", "zh": "任何人", "emoji": "🙋", "abstract": true },
+    { "id": "anyway", "en": "anyway", "zh": "反正；總之", "emoji": "🤷", "abstract": true },
+    { "id": "clock", "en": "clock", "zh": "時鐘；鬧鐘", "emoji": "⏰" },
+    { "id": "colleague", "en": "colleague", "zh": "同事", "emoji": "🧑‍🤝‍🧑", "abstract": true }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "錄取通知",
+      "newChunkIds": ["so_happy_to_hear_that", "looking_forward_to_working_with_you"],
+      "newWordIds": ["moment", "finally", "news", "accept", "everyone", "excited"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Hi, this is Ms. Carter from Harbor Trading.",
+          "zh": "嗨，我是 Harbor Trading 的 Carter。"
+        },
+        {
+          "id": "t1_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Do you have a moment? I have some good news.",
+          "zh": "你現在方便講一下嗎？我有個好消息。"
+        },
+        {
+          "id": "t1_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "We all liked you, and we'd like to offer you the job.",
+          "zh": "我們大家都很喜歡你，想請你來上班。"
+        },
+        {
+          "id": "t1_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm so happy to hear that!",
+          "zh": "聽到這個消息我好開心！",
+          "chunkId": "so_happy_to_hear_that"
+        },
+        {
+          "id": "t1_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Great! So can I tell everyone you accept?",
+          "zh": "太好了！那我可以跟大家說你接受了嗎？"
+        },
+        {
+          "id": "t1_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm looking forward to working with you.",
+          "zh": "很期待跟您一起工作。",
+          "chunkId": "looking_forward_to_working_with_you"
+        },
+        {
+          "id": "t1_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "So are we. Everyone here is excited to meet you.",
+          "zh": "我們也是。這裡大家都很期待見到你。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "辦公室在哪裡",
+      "newChunkIds": ["which_floor_is_your_office_on", "wait_for_you_in_the_lobby"],
+      "newWordIds": ["above", "arrive", "noon", "exactly", "lobby", "below", "elevator"],
+      "fills": [
+        {
+          "id": "lunch_at_noon",
+          "en": "We usually have lunch at ___ in the office.",
+          "zh": "我們通常中午在辦公室吃午餐。",
+          "options": ["noon", "morning", "today", "week"],
+          "answer": 0,
+          "note": "at noon 是固定說法，at 不接 today。"
+        },
+        {
+          "id": "arrives_exactly",
+          "en": "Ms. Carter always ___ at exactly eight.",
+          "zh": "Carter 女士總是八點整準時到。",
+          "options": ["arrive", "arrives", "arriving", "to arrive"],
+          "answer": 1,
+          "note": "主詞是她一個人，現在式動詞加 s：arrives。"
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "So, Monday is your first day with us.",
+          "zh": "那麼，星期一是你來上班的第一天。"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Which floor is your office on?",
+          "zh": "你們辦公室在幾樓？",
+          "chunkId": "which_floor_is_your_office_on"
+        },
+        {
+          "id": "t2_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "The third floor, right above a small bank.",
+          "zh": "三樓，就在一家小銀行的樓上。"
+        },
+        {
+          "id": "t2_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "The elevator is in the lobby, on your right.",
+          "zh": "電梯在大廳，在你的右手邊。",
+          "stage": { "act": "want", "item": "elevator" }
+        },
+        {
+          "id": "t2_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Should I wait for you in the lobby?",
+          "zh": "我要在大廳等您嗎？",
+          "chunkId": "wait_for_you_in_the_lobby"
+        },
+        {
+          "id": "t2_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Yes, please. I can come down and meet you.",
+          "zh": "好，麻煩你。我可以下樓去接你。"
+        },
+        {
+          "id": "t2_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And then we can have lunch together at noon.",
+          "zh": "然後中午我們可以一起吃午餐。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "答應會準時",
+      "newChunkIds": ["ill_be_there_by_eight_thirty", "dont_worry_i_wont_be_late"],
+      "newWordIds": ["early", "soon", "receive", "ready", "promise", "confirm", "schedule"],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Can you come in a little early on Monday?",
+          "zh": "星期一你可以早一點來嗎？"
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sure, I'll be there by eight thirty.",
+          "zh": "好，我八點半前會到。",
+          "chunkId": "ill_be_there_by_eight_thirty"
+        },
+        {
+          "id": "t3_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. We have a team meeting at nine.",
+          "zh": "很好。我們九點有團隊會議。"
+        },
+        {
+          "id": "t3_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Don't worry, I won't be late.",
+          "zh": "別擔心，我不會遲到的。",
+          "chunkId": "dont_worry_i_wont_be_late"
+        },
+        {
+          "id": "t3_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I know. I'll send you your schedule soon.",
+          "zh": "我知道。我很快會把你的行程表寄給你。"
+        },
+        {
+          "id": "t3_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Please confirm when you receive it, okay?",
+          "zh": "收到的時候請回覆確認一下，好嗎？"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀報到須知",
+      "newChunkIds": ["i_just_got_your_email", "do_i_need_to_wear_a_suit"],
+      "newWordIds": ["instead", "normal", "casual", "suit", "tie", "sweater", "formal"],
+      "passages": [
+        {
+          "id": "first_day_email",
+          "kind": "email",
+          "title": "Your First Day on Monday",
+          "lines": [
+            "Welcome to Harbor Trading! Please arrive at 8:30.",
+            "Wait for me in the lobby on the first floor. We'll take the elevator up together.",
+            "Please bring your ID and your bank card.",
+            "Dress: casual. No suit or tie. A normal shirt or sweater is fine.",
+            "Ms. Carter"
+          ],
+          "questions": [
+            {
+              "en": "What should you bring on Monday?",
+              "zh": "星期一要帶什麼？",
+              "options": ["Your resume", "Your bank card", "Your laptop"],
+              "answer": 1
+            },
+            {
+              "en": "What should you wear?",
+              "zh": "應該穿什麼？",
+              "options": ["A suit and tie", "A formal dress", "A normal shirt"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Hi, it's Ms. Carter again. Did you get my email?",
+          "zh": "嗨，又是我，Carter。你收到我的信了嗎？"
+        },
+        {
+          "id": "t4_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thanks, I just got your email.",
+          "zh": "謝謝，我剛收到您的信。",
+          "chunkId": "i_just_got_your_email"
+        },
+        {
+          "id": "t4_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. Do you have any questions about Monday?",
+          "zh": "很好。關於星期一你有什麼問題嗎？"
+        },
+        {
+          "id": "t4_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do I need to wear a suit?",
+          "zh": "我需要穿西裝嗎？",
+          "chunkId": "do_i_need_to_wear_a_suit"
+        },
+        {
+          "id": "t4_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "No, you don't. We're pretty casual here. No suit, no tie.",
+          "zh": "不用。我們這裡滿隨興的，不用西裝也不用領帶。"
+        },
+        {
+          "id": "t4_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Just wear a normal shirt or a sweater instead.",
+          "zh": "穿一般的襯衫或毛衣就可以了。",
+          "stage": { "act": "want", "item": "sweater" }
+        },
+        {
+          "id": "t4_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "We only dress up for formal meetings.",
+          "zh": "我們只有正式會議才會穿得比較正式。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "鄰居來道賀",
+      "newChunkIds": ["guess_what_i_start_on_monday", "my_family_will_be_so_happy"],
+      "newWordIds": ["real", "holiday", "beautiful", "husband", "favorite", "celebrate", "proud"],
+      "talks": [
+        {
+          "id": "dinner_invite",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "neighbor",
+              "en": "These flowers are for you. Let's celebrate!",
+              "zh": "這束花送你。我們來慶祝吧！"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "guide",
+              "en": "They're beautiful! Thank you so much.",
+              "zh": "好漂亮！真的很謝謝你。"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "neighbor",
+              "en": "Come to dinner at our place on Saturday at six.",
+              "zh": "星期六六點來我們家吃晚餐吧。"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "guide",
+              "en": "I'd love to! What can I bring?",
+              "zh": "好啊！我可以帶什麼過去？"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "neighbor",
+              "en": "Nothing. My husband is going to cook your favorite food.",
+              "zh": "什麼都不用帶。我先生要煮你最喜歡吃的菜。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "When is the dinner?",
+              "zh": "晚餐是什麼時候？",
+              "options": ["Friday at six", "Saturday at six", "Saturday at nine"],
+              "answer": 1
+            },
+            {
+              "en": "Who is going to cook?",
+              "zh": "誰會下廚？",
+              "options": ["The neighbor", "Her husband", "You"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Hi! I was just walking by. How are you?",
+          "zh": "嗨！我剛好經過。你最近好嗎？"
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Guess what, I start work on Monday!",
+          "zh": "你猜怎麼樣，我星期一就要開始上班了！",
+          "chunkId": "guess_what_i_start_on_monday"
+        },
+        {
+          "id": "t5_3",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Really? You finally got a real office job!",
+          "zh": "真的嗎？你終於找到真正的辦公室工作了！"
+        },
+        {
+          "id": "t5_4",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "I'm so proud of you. We have to celebrate!",
+          "zh": "我真替你驕傲。我們一定要慶祝一下！"
+        },
+        {
+          "id": "t5_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "My family in Taiwan will be so happy.",
+          "zh": "我在台灣的家人一定會很開心。",
+          "chunkId": "my_family_will_be_so_happy"
+        },
+        {
+          "id": "t5_6",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Of course! Will you go home for the holidays?",
+          "zh": "那當然！你年底放假會回去嗎？"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "規劃上班路線",
+      "newChunkIds": ["leave_early_to_miss_traffic", "go_across_the_bridge"],
+      "newWordIds": ["along", "toward", "pass", "middle", "direction", "traffic", "route"],
+      "cloze": [
+        {
+          "lineId": "t6_3",
+          "word": "drive",
+          "distractors": ["eat", "sleep"]
+        },
+        {
+          "lineId": "t6_5",
+          "word": "bridge",
+          "distractors": ["elevator", "sweater"]
+        },
+        {
+          "lineId": "t6_6",
+          "word": "route",
+          "distractors": ["clock", "suit"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Traffic is really bad in the morning, you know.",
+          "zh": "你知道嗎，早上真的很塞。"
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm going to leave early to miss the traffic.",
+          "zh": "我要早點出門，避開塞車。",
+          "chunkId": "leave_early_to_miss_traffic"
+        },
+        {
+          "id": "t6_3",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Good idea. Drive along Park Road toward the city.",
+          "zh": "好主意。你就沿著 Park Road 往市區的方向開。"
+        },
+        {
+          "id": "t6_4",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Harbor Trading is across the water from here.",
+          "zh": "Harbor Trading 在水的對岸。"
+        },
+        {
+          "id": "t6_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "So I have to go across the bridge?",
+          "zh": "所以我要過那座橋？",
+          "chunkId": "go_across_the_bridge"
+        },
+        {
+          "id": "t6_6",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Yes, it's the fastest route. You'll pass the park.",
+          "zh": "對，那是最快的路線。你會經過公園。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "新生活的前一晚",
+      "newChunkIds": ["everything_is_ready_first_day", "thanks_for_all_your_help_since"],
+      "newWordIds": ["life", "wonder", "stuff", "anyone", "anyway", "clock", "colleague"],
+      "spellWordIds": ["manager", "interview", "strong", "future", "goal"],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Hi! I just came by. Big day tomorrow, right?",
+          "zh": "嗨！我順道過來看看。明天是大日子，對吧？"
+        },
+        {
+          "id": "t7_2",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Do you have all your stuff for tomorrow?",
+          "zh": "明天要帶的東西都弄好了嗎？"
+        },
+        {
+          "id": "t7_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Everything is ready for my first day.",
+          "zh": "第一天要用的東西都準備好了。",
+          "chunkId": "everything_is_ready_first_day"
+        },
+        {
+          "id": "t7_4",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Great. I wonder what your new colleagues are like.",
+          "zh": "太好了。不知道你的新同事是什麼樣的人。"
+        },
+        {
+          "id": "t7_5",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Anyway, tomorrow is the start of a new life!",
+          "zh": "總之，明天就是新生活的開始了！"
+        },
+        {
+          "id": "t7_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thanks for all your help since I moved here.",
+          "zh": "謝謝你從我搬來以後幫了我這麼多。",
+          "chunkId": "thanks_for_all_your_help_since"
+        },
+        {
+          "id": "t7_7",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "You're welcome. Now set your clock and go to bed!",
+          "zh": "不客氣。現在快去設好鬧鐘，然後上床睡覺！",
+          "stage": { "act": "want", "item": "clock" }
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Hi, it's Ms. Carter. Did you receive my email?",
+          "zh": "嗨，我是 Carter。你收到我的信了嗎？"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thanks, I just got your email.",
+          "zh": "謝謝，我剛收到您的信。",
+          "chunkId": "i_just_got_your_email"
+        },
+        {
+          "id": "t8_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. Do you have any questions about Monday?",
+          "zh": "很好。關於星期一你有什麼問題嗎？"
+        },
+        {
+          "id": "t8_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Should I wait for you in the lobby?",
+          "zh": "我要在大廳等您嗎？",
+          "chunkId": "wait_for_you_in_the_lobby"
+        },
+        {
+          "id": "t8_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Yes. Can you be there a little early?",
+          "zh": "對。你可以早一點到嗎？"
+        },
+        {
+          "id": "t8_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sure, I'll be there by eight thirty.",
+          "zh": "好，我八點半前會到。",
+          "chunkId": "ill_be_there_by_eight_thirty"
+        },
+        {
+          "id": "t8_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Great. Everyone is excited to meet you.",
+          "zh": "太好了。大家都很期待見到你。"
+        },
+        {
+          "id": "t8_8",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm looking forward to working with you.",
+          "zh": "很期待跟您一起工作。",
+          "chunkId": "looking_forward_to_working_with_you"
+        },
+        {
+          "id": "t8_9",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "See you on Monday, then. Have a good weekend!",
+          "zh": "那就星期一見囉。週末愉快！"
+        },
+        {
+          "id": "t8_10",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "So? Who was that on the phone?",
+          "zh": "怎麼樣？剛剛是誰打來的？"
+        },
+        {
+          "id": "t8_11",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Guess what, I start work on Monday!",
+          "zh": "你猜怎麼樣，我星期一就要開始上班了！",
+          "chunkId": "guess_what_i_start_on_monday"
+        },
+        {
+          "id": "t8_12",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "That's great news! How are you getting there?",
+          "zh": "真是好消息！你要怎麼去上班？"
+        },
+        {
+          "id": "t8_13",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm going to leave early to miss the traffic.",
+          "zh": "我要早點出門，避開塞車。",
+          "chunkId": "leave_early_to_miss_traffic"
+        },
+        {
+          "id": "t8_14",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Good idea. A new job and a new life!",
+          "zh": "好主意。新工作、新生活！"
+        },
+        {
+          "id": "t8_15",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thanks for all your help since I moved here.",
+          "zh": "謝謝你從我搬來以後幫了我這麼多。",
+          "chunkId": "thanks_for_all_your_help_since"
+        },
+        {
+          "id": "t8_16",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "You're welcome! Promise to tell me all about your first day.",
+          "zh": "不客氣啦！答應我，上班第一天的事都要跟我說喔。"
+        }
+      ]
+    }
+  ]
+}
