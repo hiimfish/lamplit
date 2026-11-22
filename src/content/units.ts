@@ -1,5 +1,6 @@
 import { unitToAudioItems } from './audioItems';
 import type { Role, Unit } from './types';
+import { UNIT_ORDER } from './unitOrder';
 import { validateUnit } from './validate';
 
 /** Every unit JSON file; UNIT_ORDER sets the play order (unlisted units go last). */
@@ -7,8 +8,6 @@ const modules = import.meta.glob<unknown>('../data/units/*.json', {
   eager: true,
   import: 'default',
 });
-
-const UNIT_ORDER = ['move_in', 'cafe'];
 
 /** Keeps only units that pass validateUnit; broken ones are skipped (with a warning in dev). */
 function validUnits(raw: Record<string, unknown>): Unit[] {
