@@ -113,7 +113,7 @@
       "en": "It seems okay now.",
       "zh": "現在看起來好了。",
       "accept": ["It seems OK now."],
-      "note": "修好後試一下，說「看起來沒問題了」。",
+      "note": "修好後試一下時說。seem = 看起來，主詞 it 是單數，所以用 seems。",
       "distractors": [
         {
           "text": "It seem okay now.",
@@ -600,7 +600,7 @@
           "id": "t1_3",
           "role": "landlord",
           "speaker": "npc",
-          "en": "That's not good. Is it a big leak?",
+          "en": "That's not good. How bad is the leak?",
           "zh": "不妙。漏得很嚴重嗎？",
           "stage": { "act": "ask" }
         },
@@ -645,11 +645,11 @@
         },
         {
           "id": "repair_fill_2",
-          "en": "The water is coming out of the ___.",
-          "zh": "水從牆壁裡流出來。",
-          "options": ["wall", "tool", "plumber"],
+          "en": "There's a picture ___ the wall.",
+          "zh": "牆上有一幅畫。",
+          "options": ["on", "at", "under"],
           "answer": 0,
-          "note": "水會從牆壁流出來，工具和師傅不會。"
+          "note": "掛在牆面上用 on。"
         }
       ],
       "scene": [
@@ -735,8 +735,8 @@
           "id": "t3_4",
           "role": "landlord",
           "speaker": "npc",
-          "en": "Sorry, I dropped my tool. Can you get it?",
-          "zh": "抱歉，我的工具掉了。你可以幫我撿嗎？"
+          "en": "I dropped my tool. Can you get it for me?",
+          "zh": "我的工具掉了。可以幫我撿一下嗎？"
         },
         {
           "id": "t3_5",
@@ -774,15 +774,15 @@
           "title": "Car shop (Tony)",
           "lines": [
             "Hi, this is Tony at the shop. I checked your car.",
-            "The engine is OK. The trouble is in the back.",
-            "Estimate: back of the car $280, oil change $60. Total $340.",
+            "The engine is OK. The noise is coming from the back.",
+            "Estimate: $280 to fix that and $60 for an oil change. Total $340.",
             "Please call me before 5:00 today."
           ],
           "questions": [
             {
-              "en": "Where is the trouble?",
-              "zh": "問題出在哪裡？",
-              "options": ["In the engine", "In the back", "In the lights"],
+              "en": "Where is the noise coming from?",
+              "zh": "怪聲是從哪裡來的？",
+              "options": ["The engine", "The back of the car", "The car lights"],
               "answer": 1
             },
             {
@@ -814,8 +814,8 @@
           "id": "t4_3",
           "role": "mechanic",
           "speaker": "npc",
-          "en": "Right, Mr. Bell told me. For job interviews.",
-          "zh": "對，Bell 先生跟我說過了。要開去面試嘛。"
+          "en": "Right, Mr. Bell said you're looking for a job.",
+          "zh": "對，Bell 先生說你在找工作。"
         },
         {
           "id": "t4_4",
@@ -934,7 +934,7 @@
           "id": "t5_5",
           "role": "mechanic",
           "speaker": "npc",
-          "en": "I can repair them. I'd also replace your tires.",
+          "en": "I can repair them. And I'd replace your tires, too.",
           "zh": "煞車我可以修。還有，輪胎我建議換掉。",
           "stage": { "act": "want", "item": "tire" }
         },
@@ -997,8 +997,8 @@
           "id": "t6_3",
           "role": "mechanic",
           "speaker": "npc",
-          "en": "I understand. But bad brakes are dangerous.",
-          "zh": "我懂。可是煞車壞了很危險。"
+          "en": "I understand. But bad brakes are dangerous at any speed.",
+          "zh": "我懂。可是煞車不好，不管開多快都很危險。"
         },
         {
           "id": "t6_4",
@@ -1118,15 +1118,15 @@
           "id": "t8_3",
           "role": "mechanic",
           "speaker": "npc",
-          "en": "Sure! Sorry, the shop's full today. Ten more minutes?",
-          "zh": "好！抱歉，今天店裡很滿。再等十分鐘好嗎？"
+          "en": "Sure! Sorry, the shop's full of cars today. Ten more minutes?",
+          "zh": "好！抱歉，今天店裡車子很多。再等十分鐘好嗎？"
         },
         {
           "id": "t8_4",
           "role": "landlord",
           "speaker": "npc",
-          "en": "No problem, we can wait. So, how is the apartment?",
-          "zh": "沒關係，我們可以等。對了，公寓住得還好嗎？"
+          "en": "Hi! I'm waiting for my car, too. How's the apartment?",
+          "zh": "嗨！我也在等我的車。公寓住得還好嗎？"
         },
         {
           "id": "t8_5",
@@ -1162,8 +1162,8 @@
           "id": "t8_9",
           "role": "landlord",
           "speaker": "npc",
-          "en": "Good, see you at three. Wait, is that your car?",
-          "zh": "好，三點見。咦，那是你的車嗎？"
+          "en": "Good, see you at three. Is that your new car?",
+          "zh": "好，三點見。那是你的新車嗎？"
         },
         {
           "id": "t8_10",
@@ -1224,8 +1224,8 @@
           "id": "t8_17",
           "role": "mechanic",
           "speaker": "npc",
-          "en": "In a month or two. Today, I can do them for $400.",
-          "zh": "一兩個月內要換。今天換的話四百塊。"
+          "en": "Yes, in a few months. Four new ones are $400.",
+          "zh": "要，再過幾個月。四個新輪胎要四百塊。"
         },
         {
           "id": "t8_18",
@@ -1239,8 +1239,8 @@
           "id": "t8_19",
           "role": "mechanic",
           "speaker": "npc",
-          "en": "No problem. Come back next month.",
-          "zh": "沒關係，下個月再來。"
+          "en": "No problem. Come back any time.",
+          "zh": "沒關係，隨時再來。"
         }
       ]
     }

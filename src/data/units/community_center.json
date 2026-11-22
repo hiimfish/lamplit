@@ -250,8 +250,8 @@
           "id": "t1_5",
           "role": "volunteer",
           "speaker": "npc",
-          "en": "Then try the computer course. Students learn fast.",
-          "zh": "那就去上電腦課吧。學生都學得很快。"
+          "en": "Then try the computer course. Students really like it.",
+          "zh": "那就去上電腦課吧。學生都很喜歡。"
         }
       ]
     },
@@ -435,8 +435,8 @@
           "id": "t4_5",
           "role": "instructor",
           "speaker": "npc",
-          "en": "Yes, from October. Seats are available now.",
-          "zh": "有，十月開始。現在還有空位。"
+          "en": "Yes, starting in October. And there are seats available.",
+          "zh": "有，十月開始。而且現在還有空位。"
         },
         {
           "id": "t4_6",
@@ -511,8 +511,8 @@
           "id": "t5_5",
           "role": "instructor",
           "speaker": "npc",
-          "en": "Sure. Then type your name on the keyboard.",
-          "zh": "好啊。然後用鍵盤打你的名字。",
+          "en": "Sure. Now find the letter A on the keyboard.",
+          "zh": "好啊。現在在鍵盤上找到字母 A。",
           "stage": { "act": "want", "item": "keyboard" }
         },
         {
@@ -654,7 +654,7 @@
           "id": "t8_1",
           "role": "instructor",
           "speaker": "npc",
-          "en": "That's all for tonight. Any questions?",
+          "en": "That's all for today. Any questions?",
           "zh": "今天就上到這裡。有問題嗎？"
         },
         {
@@ -669,8 +669,8 @@
           "id": "t8_3",
           "role": "instructor",
           "speaker": "npc",
-          "en": "Sure. Open this, then type your name. See?",
-          "zh": "好啊。打開這個，然後打你的名字。懂了嗎？"
+          "en": "Sure. Put your hand on the mouse, like this. See?",
+          "zh": "好啊。把手放在滑鼠上，像這樣。懂了嗎？"
         },
         {
           "id": "t8_4",
@@ -722,8 +722,8 @@
           "id": "t8_10",
           "role": "instructor",
           "speaker": "npc",
-          "en": "Then try my next course. It's for office jobs.",
-          "zh": "那來上我的下一門課吧，很適合想做辦公室工作的人。"
+          "en": "Then take my next course. It's all about office work.",
+          "zh": "那來上我的下一門課吧，內容都是辦公室的工作。"
         },
         {
           "id": "t8_11",
@@ -767,15 +767,15 @@
           "id": "t8_16",
           "role": "instructor",
           "speaker": "npc",
-          "en": "Sure. Oh, look, Ben is here.",
-          "zh": "可以。喔，你看，Ben 來了。"
+          "en": "Sure. And look, here's Ben!",
+          "zh": "可以。你看，Ben 來了！"
         },
         {
           "id": "t8_17",
           "role": "volunteer",
           "speaker": "npc",
-          "en": "Hi! I'm going to take that course, too.",
-          "zh": "嗨！我也要去上那門課。"
+          "en": "Hi! I'm going to take that course, too. We'll be classmates!",
+          "zh": "嗨！我也要去上那門課。我們會是同學喔！"
         },
         {
           "id": "t8_18",

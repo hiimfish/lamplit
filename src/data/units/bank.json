@@ -229,8 +229,8 @@
           "id": "t1_3",
           "role": "teller",
           "speaker": "npc",
-          "en": "Sure! There's just one person before you.",
-          "zh": "好的！你前面只有一位。"
+          "en": "Sure! There are just two people before you.",
+          "zh": "好的！你前面只有兩個人。"
         },
         {
           "id": "t1_4",
@@ -291,8 +291,8 @@
           "id": "t2_5",
           "role": "teller",
           "speaker": "npc",
-          "en": "Great. And the name is the same, too.",
-          "zh": "很好。上面的名字也一樣。"
+          "en": "Great. And it's the same name as on your passport.",
+          "zh": "很好。名字也跟護照上的一樣。"
         }
       ]
     },
@@ -306,8 +306,8 @@
           "id": "t3_1",
           "role": "teller",
           "speaker": "npc",
-          "en": "Here's the form. The questions are easy.",
-          "zh": "表格在這裡。上面的問題都很簡單。"
+          "en": "All done? The questions are easy, right?",
+          "zh": "填好了嗎？問題都很簡單吧？"
         },
         {
           "id": "t3_2",
@@ -434,8 +434,8 @@
       "fills": [
         {
           "id": "bank_f1",
-          "en": "There ___ a bank near my home.",
-          "zh": "我家附近有一家銀行。",
+          "en": "There ___ a bank on my street.",
+          "zh": "我住的那條街上有一家銀行。",
           "options": ["is", "are", "am"],
           "answer": 0,
           "note": "a bank 是一個，用 There is。"
@@ -493,8 +493,8 @@
           "id": "t5_5",
           "role": "teller",
           "speaker": "npc",
-          "en": "Right now. It's a great way to start saving.",
-          "zh": "現在就可以用。這是開始存錢的好方法。"
+          "en": "Right now. It's good to save a little every week.",
+          "zh": "現在就可以用。每個禮拜存一點是好事喔。"
         }
       ]
     },
@@ -560,8 +560,8 @@
           "id": "t7_1",
           "role": "teller",
           "speaker": "npc",
-          "en": "Here's your credit card. Don't spend all your money!",
-          "zh": "這是你的信用卡。別把錢都花光喔！",
+          "en": "Here's your new credit card. Don't spend too much!",
+          "zh": "這是你的新信用卡。別花太多喔！",
           "stage": { "act": "give", "item": "credit" }
         },
         {
@@ -592,7 +592,7 @@
           "id": "t7_5",
           "role": "teller",
           "speaker": "npc",
-          "en": "Do a transfer. The rate is different every day.",
+          "en": "With a transfer. The rate is different every day.",
           "zh": "用轉帳。不過匯率每天都不一樣喔。"
         }
       ]
@@ -623,8 +623,8 @@
           "id": "t8_3",
           "role": "teller",
           "speaker": "npc",
-          "en": "Sure. First, I need some information.",
-          "zh": "好的。首先，我需要一些資料。"
+          "en": "Sure. First, you must show me some ID.",
+          "zh": "好的。首先，你必須給我看證件。"
         },
         {
           "id": "t8_4",

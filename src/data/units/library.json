@@ -614,8 +614,8 @@
           "id": "t1_5",
           "role": "librarian",
           "speaker": "npc",
-          "en": "Here you are. I'm Helen, one of the librarians.",
-          "zh": "好了，給你。我是 Helen，這裡的圖書館員之一。"
+          "en": "Here's your card. I'm Helen, one of the librarians.",
+          "zh": "這是你的借書證。我是 Helen，這裡的館員。"
         },
         {
           "id": "t1_6",
@@ -744,7 +744,7 @@
           "id": "t3_5",
           "role": "librarian",
           "speaker": "npc",
-          "en": "That's okay. You can keep them two more weeks.",
+          "en": "That's okay. You can keep them for two more weeks.",
           "zh": "沒關係。你可以再借兩個禮拜。"
         },
         {
@@ -768,15 +768,15 @@
           "title": "Library Notices",
           "lines": [
             "JOB FAIR: Saturday, October 3, 11:00–3:00, at the Job Center",
-            "English Talk Night: every Tuesday, January to June. Sign up at the desk by December.",
+            "Tuesday English Night: January to June. Sign up at the desk by December.",
             "Book Sale: March 14",
             "Reading Time for Kids: February, April and May",
             "Summer hours start in June."
           ],
           "questions": [
             {
-              "en": "When does English Talk Night start?",
-              "zh": "英語聊天夜什麼時候開始？",
+              "en": "When does Tuesday English Night start?",
+              "zh": "星期二英語之夜什麼時候開始？",
               "options": ["In January", "In June", "In December"],
               "answer": 0
             }
@@ -806,8 +806,8 @@
           "id": "t4_3",
           "role": "librarian",
           "speaker": "npc",
-          "en": "A job fair? You can meet people and talk about jobs.",
-          "zh": "就業博覽會？你可以去認識人，聊聊工作的事。"
+          "en": "A job fair? Companies come, and you can talk to them about jobs.",
+          "zh": "就業博覽會？很多公司會來，你可以跟他們聊工作的事。"
         },
         {
           "id": "t4_4",
@@ -927,7 +927,7 @@
           "id": "t5_6",
           "role": "librarian",
           "speaker": "npc",
-          "en": "Our computers have a limit of one hour.",
+          "en": "Our computers have a time limit of one hour.",
           "zh": "我們的電腦一次限用一小時。"
         }
       ]
@@ -941,17 +941,17 @@
         {
           "lineId": "t6_2",
           "word": "file",
-          "distractors": ["salad", "pizza"]
+          "distractors": ["door", "bag"]
         },
         {
           "lineId": "t6_5",
           "word": "copy",
-          "distractors": ["shoe", "bus"]
+          "distractors": ["week", "box"]
         },
         {
           "lineId": "t6_6",
           "word": "paper",
-          "distractors": ["soup", "rice"]
+          "distractors": ["time", "help"]
         }
       ],
       "scene": [
@@ -1030,7 +1030,7 @@
           "id": "t7_3",
           "role": "librarian",
           "speaker": "npc",
-          "en": "Thanks. Calls aren't allowed in the quiet room.",
+          "en": "Thanks. We don't allow calls in the quiet room.",
           "zh": "謝謝。安靜閱覽室裡不能講電話。"
         },
         {
@@ -1212,8 +1212,8 @@
           "id": "t8_19",
           "role": "librarian",
           "speaker": "npc",
-          "en": "Thanks. Please put it away in the library.",
-          "zh": "謝謝。在圖書館裡請把手機收起來。"
+          "en": "Thanks. Please put it away when you're in here.",
+          "zh": "謝謝。在館內請把手機收起來。"
         }
       ]
     }
