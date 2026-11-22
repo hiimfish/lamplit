@@ -779,10 +779,7 @@
           "speaker": "npc",
           "en": "There it goes. Go ahead, you take this one.",
           "zh": "響了。來，這通你接。",
-          "stage": {
-            "act": "want",
-            "item": "telephone"
-          }
+          "stage": { "act": "want", "item": "telephone" }
         },
         {
           "id": "t1_4",
@@ -1482,10 +1479,7 @@
           "speaker": "npc",
           "en": "Sorry, bad signal. I can hardly hear you.",
           "zh": "抱歉，收訊不好。我幾乎聽不到你的聲音。",
-          "stage": {
-            "act": "want",
-            "item": "signal"
-          }
+          "stage": { "act": "want", "item": "signal" }
         },
         {
           "id": "t8_7",
