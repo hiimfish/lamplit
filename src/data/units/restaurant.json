@@ -1,0 +1,734 @@
+{
+  "id": "restaurant",
+  "title": "餐廳與聚會",
+  "titleEn": "Restaurant & Friends",
+  "chunks": [
+    {
+      "id": "table_for_two",
+      "en": "A table for two, please.",
+      "zh": "兩位，謝謝。",
+      "accept": ["Table for two, please.", "A table for two."],
+      "note": "進餐廳時告訴帶位的人有幾位：a table for + 人數。for two = 兩個人的。",
+      "distractors": [
+        { "text": "A table for too, please.", "error": "spelling" },
+        { "text": "A tables for two, please.", "error": "plural" },
+        { "text": "A table two for, please.", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "how_long_wait",
+      "en": "How long is the wait?",
+      "zh": "要等多久？",
+      "accept": ["How long is the wait, please?"],
+      "note": "How long…? 問要多久。這裡的 wait 是名詞「等候的時間」，前面要有 the。",
+      "distractors": [
+        { "text": "How long is wait?", "error": "article" },
+        { "text": "How long the wait is?", "error": "word-order" },
+        { "text": "How long is the weight?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "recommend",
+      "en": "What do you recommend?",
+      "zh": "你推薦什麼？",
+      "accept": ["What would you recommend?"],
+      "note": "不知道點什麼的時候問服務生。recommend = 推薦。",
+      "distractors": [
+        { "text": "What you recommend?", "error": "missing-word" },
+        { "text": "What do you recomend?", "error": "spelling" },
+        { "text": "What does you recommend?", "error": "other" }
+      ]
+    },
+    {
+      "id": "have_soup",
+      "en": "I'll have the soup, please.",
+      "zh": "我要湯，謝謝。",
+      "accept": ["I'll have the soup.", "I will have the soup, please."],
+      "note": "I'll have… 是點餐的說法（I'll = I will）。菜單上的那道湯，說 the soup。",
+      "distractors": [
+        { "text": "I'll having the soup, please.", "error": "other" },
+        { "text": "I'll have the soop, please.", "error": "spelling" },
+        { "text": "I'll the soup have, please.", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "like_cooking",
+      "en": "I really like cooking.",
+      "zh": "我很喜歡做菜。",
+      "accept": ["I really like to cook."],
+      "note": "like + 動詞-ing = 喜歡做某件事：cook → cooking、sing → singing。",
+      "distractors": [
+        { "text": "I really like cook.", "error": "other" },
+        { "text": "I like really cooking.", "error": "word-order" },
+        { "text": "I really like to cooking.", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "for_fun",
+      "en": "What do you do for fun?",
+      "zh": "你平常喜歡做什麼？",
+      "accept": ["What do you like to do for fun?"],
+      "note": "問對方的興趣。for fun = 為了好玩。第一個 do 幫忙造問句，第二個 do 才是「做」。",
+      "distractors": [
+        { "text": "What do you for fun?", "error": "missing-word" },
+        { "text": "What do you do for a fun?", "error": "article" },
+        { "text": "What do you do for funny?", "error": "other" }
+      ]
+    },
+    {
+      "id": "thanks_inviting",
+      "en": "Thanks for inviting me.",
+      "zh": "謝謝你邀請我。",
+      "accept": ["Thank you for inviting me."],
+      "note": "Thanks for + 動詞-ing = 謝謝你做了某件事。invite（邀請）去掉 e 再加 ing。",
+      "distractors": [
+        { "text": "Thanks for invite me.", "error": "other" },
+        { "text": "Thanks inviting me.", "error": "missing-word" },
+        { "text": "Thanks for inviteing me.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "bring_anything",
+      "en": "Can I bring anything?",
+      "zh": "要我帶什麼嗎？",
+      "accept": ["Can I bring something?", "Should I bring anything?"],
+      "note": "朋友邀你去家裡時的客氣話。bring = 帶來，anything = 任何東西。",
+      "distractors": [
+        { "text": "Can I bringing anything?", "error": "other" },
+        { "text": "Can bring I anything?", "error": "word-order" },
+        { "text": "Can I bring anythings?", "error": "plural" }
+      ]
+    },
+    {
+      "id": "see_you_friday",
+      "en": "See you on Friday at seven!",
+      "zh": "星期五七點見！",
+      "accept": ["See you Friday at seven!", "See you at seven on Friday!"],
+      "note": "時間介系詞：星期幾前面用 on，幾點前面用 at（on Friday、at seven）。",
+      "distractors": [
+        { "text": "See you at Friday on seven!", "error": "other" },
+        { "text": "See you in Friday at seven!", "error": "other" },
+        { "text": "See you on Friday seven!", "error": "missing-word" }
+      ]
+    },
+    {
+      "id": "meet_station",
+      "en": "Let's meet in front of the station.",
+      "zh": "我們在車站前面見吧。",
+      "note": "地點介系詞：in front of + 地方 = 在…前面，三個字要一起用。Let's… = 我們…吧。",
+      "distractors": [
+        { "text": "Let's meet in front the station.", "error": "missing-word" },
+        { "text": "Let's meet in front of station.", "error": "article" },
+        { "text": "Let's meet on front of the station.", "error": "other" }
+      ]
+    },
+    {
+      "id": "get_check",
+      "en": "Can we get the check, please?",
+      "zh": "可以結帳嗎？",
+      "accept": ["Can we get the check?", "Can we have the check, please?"],
+      "note": "在餐廳吃完要結帳時說。check = 帳單（美國說法）。兩個人一起吃，所以用 we。",
+      "distractors": [
+        { "text": "Can we get check, please?", "error": "article" },
+        { "text": "Can we get the chek, please?", "error": "spelling" },
+        { "text": "Can we the check get, please?", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "split_it",
+      "en": "Can we split it?",
+      "zh": "可以分開付嗎？",
+      "accept": ["Can we split the check?"],
+      "note": "split = 分開。split it = 把帳單（it）分開，各付各的。",
+      "distractors": [
+        { "text": "Can we it split?", "error": "word-order" },
+        { "text": "Can we splits it?", "error": "other" },
+        { "text": "Can we spilt it?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "was_great",
+      "en": "It was great, thanks.",
+      "zh": "很棒，謝謝。",
+      "accept": ["It was great, thank you."],
+      "note": "過去式：was 是 is / am 的過去式，講已經過去的事。It is great. → It was great.",
+      "distractors": [
+        { "text": "It were great, thanks.", "error": "other" },
+        { "text": "It was grate, thanks.", "error": "spelling" },
+        { "text": "It great was, thanks.", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "food_was_good",
+      "en": "The food was really good.",
+      "zh": "東西很好吃。",
+      "accept": ["The food was very good."],
+      "note": "be 動詞過去式：is / am → was，are → were。food 不可數，所以用 was，不用 were。",
+      "distractors": [
+        { "text": "The food were really good.", "error": "other" },
+        { "text": "The foods was really good.", "error": "plural" },
+        { "text": "The food was realy good.", "error": "spelling" }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "people", "en": "people", "zh": "人們", "emoji": "👥", "abstract": true },
+    { "id": "friend", "en": "friend", "zh": "朋友", "emoji": "🧑‍🤝‍🧑", "abstract": true },
+    { "id": "restaurant", "en": "restaurant", "zh": "餐廳", "emoji": "🍴", "abstract": true },
+    { "id": "waiter", "en": "waiter", "zh": "服務生", "emoji": "🤵", "abstract": true },
+    { "id": "menu", "en": "menu", "zh": "菜單", "emoji": "📋" },
+    { "id": "soup", "en": "soup", "zh": "湯", "emoji": "🍲" },
+    { "id": "salad", "en": "salad", "zh": "沙拉", "emoji": "🥗" },
+    { "id": "steak", "en": "steak", "zh": "牛排", "emoji": "🥩" },
+    { "id": "dessert", "en": "dessert", "zh": "甜點", "emoji": "🍮" },
+    { "id": "music", "en": "music", "zh": "音樂", "emoji": "🎵" },
+    { "id": "movie", "en": "movie", "zh": "電影", "emoji": "🎬" },
+    { "id": "sing", "en": "sing", "zh": "唱歌", "emoji": "🎤", "abstract": true },
+    { "id": "dance", "en": "dance", "zh": "跳舞", "emoji": "💃", "abstract": true },
+    { "id": "cook", "en": "cook", "zh": "做菜", "emoji": "🧑‍🍳", "abstract": true },
+    { "id": "party", "en": "party", "zh": "派對", "emoji": "🎉" },
+    { "id": "game", "en": "game", "zh": "遊戲", "emoji": "🎮" },
+    { "id": "wine", "en": "wine", "zh": "葡萄酒", "emoji": "🍷" },
+    { "id": "guest", "en": "guest", "zh": "客人", "emoji": "🙋", "abstract": true },
+    { "id": "birthday", "en": "birthday", "zh": "生日", "emoji": "🎂" },
+    { "id": "week", "en": "week", "zh": "一週", "emoji": "📅", "abstract": true },
+    { "id": "weekend", "en": "weekend", "zh": "週末", "emoji": "🏖️", "abstract": true },
+    { "id": "evening", "en": "evening", "zh": "傍晚", "emoji": "🌆", "abstract": true },
+    { "id": "saturday", "en": "Saturday", "zh": "星期六", "emoji": "📅", "abstract": true },
+    { "id": "sunday", "en": "Sunday", "zh": "星期日", "emoji": "📅", "abstract": true },
+    { "id": "check", "en": "check", "zh": "帳單", "emoji": "🧾" },
+    { "id": "total", "en": "total", "zh": "總共", "emoji": "🧮", "abstract": true },
+    { "id": "together", "en": "together", "zh": "一起", "emoji": "🤝", "abstract": true },
+    { "id": "tax", "en": "tax", "zh": "稅", "emoji": "💸", "abstract": true },
+    { "id": "tip", "en": "tip", "zh": "小費", "emoji": "💰", "abstract": true },
+    { "id": "great", "en": "great", "zh": "很棒的", "emoji": "👍", "abstract": true },
+    { "id": "happy", "en": "happy", "zh": "開心的", "emoji": "😊", "abstract": true },
+    { "id": "fun", "en": "fun", "zh": "好玩的", "emoji": "🎈", "abstract": true },
+    { "id": "busy", "en": "busy", "zh": "忙的", "emoji": "🐝", "abstract": true },
+    { "id": "delicious", "en": "delicious", "zh": "好吃的", "emoji": "😋", "abstract": true }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "兩位",
+      "newChunkIds": ["table_for_two", "how_long_wait"],
+      "newWordIds": ["people", "friend", "restaurant", "waiter"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "server",
+          "speaker": "npc",
+          "en": "Hi, welcome! How many people?",
+          "zh": "嗨，歡迎光臨！請問幾位？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t1_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "A table for two, please.",
+          "zh": "兩位，謝謝。",
+          "chunkId": "table_for_two"
+        },
+        {
+          "id": "t1_3",
+          "role": "server",
+          "speaker": "npc",
+          "en": "Sorry, the restaurant is full right now.",
+          "zh": "不好意思，餐廳現在客滿了。"
+        },
+        {
+          "id": "t1_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How long is the wait?",
+          "zh": "要等多久？",
+          "chunkId": "how_long_wait",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t1_5",
+          "role": "server",
+          "speaker": "npc",
+          "en": "About ten minutes. Is your friend here?",
+          "zh": "大概十分鐘。你朋友到了嗎？"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "點餐",
+      "newChunkIds": ["recommend", "have_soup"],
+      "newWordIds": ["menu", "soup", "salad", "steak", "dessert"],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "server",
+          "speaker": "npc",
+          "en": "Hi, I'm your waiter. Here's the menu.",
+          "zh": "嗨，我是你們的服務生。這是菜單。",
+          "stage": { "act": "give", "item": "menu" }
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What do you recommend?",
+          "zh": "你推薦什麼？",
+          "chunkId": "recommend"
+        },
+        {
+          "id": "t2_3",
+          "role": "server",
+          "speaker": "npc",
+          "en": "The steak is great. So is the soup.",
+          "zh": "牛排很棒，湯也很不錯。",
+          "stage": { "act": "want", "item": "steak" }
+        },
+        {
+          "id": "t2_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll have the soup, please.",
+          "zh": "我要湯，謝謝。",
+          "chunkId": "have_soup",
+          "stage": { "act": "want", "item": "soup" }
+        },
+        {
+          "id": "t2_5",
+          "role": "server",
+          "speaker": "npc",
+          "en": "Sure. It comes with salad and dessert.",
+          "zh": "好的。這道有附沙拉和甜點。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "聊興趣",
+      "newChunkIds": ["like_cooking", "for_fun"],
+      "newWordIds": ["music", "movie", "sing", "dance", "cook"],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "This soup is so good. Do you cook?",
+          "zh": "這湯好好喝。你會做菜嗎？",
+          "stage": { "act": "want", "item": "soup" }
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I really like cooking.",
+          "zh": "我很喜歡做菜。",
+          "chunkId": "like_cooking"
+        },
+        {
+          "id": "t3_3",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "Nice! I can't cook at all.",
+          "zh": "真好！我完全不會做菜。"
+        },
+        {
+          "id": "t3_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What do you do for fun?",
+          "zh": "你平常喜歡做什麼？",
+          "chunkId": "for_fun",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t3_5",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "Movies and music! I like singing and dancing.",
+          "zh": "看電影和聽音樂！我喜歡唱歌和跳舞。",
+          "stage": { "act": "want", "item": "music" }
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "朋友的派對",
+      "newChunkIds": ["thanks_inviting", "bring_anything"],
+      "newWordIds": ["party", "game", "wine", "guest", "birthday"],
+      "signs": [
+        {
+          "id": "menu_prices",
+          "heading": "Menu",
+          "rows": [
+            { "label": "Soup", "value": "$6" },
+            { "label": "Salad", "value": "$8" },
+            { "label": "Steak", "value": "$20" },
+            { "label": "Dessert", "value": "$7" }
+          ],
+          "question": { "en": "How much is the steak?", "zh": "牛排多少錢？" },
+          "options": ["$6", "$8", "$20"],
+          "answer": 2
+        },
+        {
+          "id": "party_card",
+          "heading": "Birthday Party",
+          "rows": [
+            { "label": "When", "value": "Thursday, 7:00" },
+            { "label": "Where", "value": "12 Bridge Road" },
+            { "label": "Bring", "value": "a game" }
+          ],
+          "question": { "en": "What day is the party?", "zh": "派對是星期幾？" },
+          "options": ["Thursday", "Tuesday", "Friday"],
+          "answer": 0
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "Thursday is my birthday. Come to my party!",
+          "zh": "星期四是我生日。來參加我的派對吧！",
+          "stage": { "act": "want", "item": "birthday" }
+        },
+        {
+          "id": "t4_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thanks for inviting me.",
+          "zh": "謝謝你邀請我。",
+          "chunkId": "thanks_inviting"
+        },
+        {
+          "id": "t4_3",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "It's a small party. Only ten guests.",
+          "zh": "只是個小派對，才十個客人。",
+          "stage": { "act": "want", "item": "party" }
+        },
+        {
+          "id": "t4_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I bring anything?",
+          "zh": "要我帶什麼嗎？",
+          "chunkId": "bring_anything",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t4_5",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "Just a game! We have food and wine.",
+          "zh": "帶個遊戲就好！吃的和酒我們都有。",
+          "stage": { "act": "want", "item": "game" }
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "約時間地點",
+      "newChunkIds": ["see_you_friday", "meet_station"],
+      "newWordIds": ["week", "weekend", "evening", "saturday", "sunday"],
+      "pictures": [
+        {
+          "id": "pic1",
+          "pictureId": "eating_pizza",
+          "options": [
+            { "en": "She is eating soup.", "zh": "她在喝湯。" },
+            { "en": "She is drinking coffee.", "zh": "她在喝咖啡。" },
+            { "en": "She is eating pizza.", "zh": "她在吃披薩。" }
+          ],
+          "answer": 2
+        },
+        {
+          "id": "pic2",
+          "pictureId": "buying_apples",
+          "options": [
+            { "en": "He is buying apples.", "zh": "他在買蘋果。" },
+            { "en": "He is buying a hat.", "zh": "他在買帽子。" },
+            { "en": "He is eating pizza.", "zh": "他在吃披薩。" }
+          ],
+          "answer": 0
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "Let's see a movie this week!",
+          "zh": "這禮拜一起去看電影吧！",
+          "stage": { "act": "want", "item": "movie" }
+        },
+        {
+          "id": "t5_2",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "I work Saturday and Sunday. Friday evening?",
+          "zh": "我星期六、星期日要上班。星期五晚上呢？"
+        },
+        {
+          "id": "t5_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let's meet in front of the station.",
+          "zh": "我們在車站前面見吧。",
+          "chunkId": "meet_station"
+        },
+        {
+          "id": "t5_4",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "Sure! At seven?",
+          "zh": "好啊！七點？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t5_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "See you on Friday at seven!",
+          "zh": "星期五七點見！",
+          "chunkId": "see_you_friday"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "結帳",
+      "newChunkIds": ["get_check", "split_it"],
+      "newWordIds": ["check", "total", "together", "tax", "tip"],
+      "cloze": [
+        { "lineId": "t6_2", "word": "together", "distractors": ["tomorrow", "again"] },
+        { "lineId": "t6_4", "word": "tax", "distractors": ["taxi", "table"] },
+        { "lineId": "t6_5", "word": "tip", "distractors": ["tax", "total"] }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can we get the check, please?",
+          "zh": "可以結帳嗎？",
+          "chunkId": "get_check",
+          "stage": { "act": "want", "item": "check" }
+        },
+        {
+          "id": "t6_2",
+          "role": "server",
+          "speaker": "npc",
+          "en": "Sure. All together?",
+          "zh": "好的。一起算嗎？"
+        },
+        {
+          "id": "t6_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can we split it?",
+          "zh": "可以分開付嗎？",
+          "chunkId": "split_it",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t6_4",
+          "role": "server",
+          "speaker": "npc",
+          "en": "No problem. The total is forty with tax.",
+          "zh": "沒問題。含稅總共四十元。",
+          "stage": { "act": "give", "item": "check" }
+        },
+        {
+          "id": "t6_5",
+          "role": "server",
+          "speaker": "npc",
+          "en": "Thanks for the tip! Have a good night.",
+          "zh": "謝謝你們的小費！晚安。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "週末過得如何",
+      "newChunkIds": ["was_great", "food_was_good"],
+      "newWordIds": ["great", "happy", "fun", "busy", "delicious"],
+      "spellWordIds": ["head", "hand", "nose", "mask", "pill"],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "Hi! How was your weekend?",
+          "zh": "嗨！週末過得怎麼樣？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "It was great, thanks.",
+          "zh": "很棒，謝謝。",
+          "chunkId": "was_great"
+        },
+        {
+          "id": "t7_3",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "You were at the new restaurant, right?",
+          "zh": "你去了那間新開的餐廳，對吧？"
+        },
+        {
+          "id": "t7_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "The food was really good.",
+          "zh": "東西很好吃。",
+          "chunkId": "food_was_good"
+        },
+        {
+          "id": "t7_5",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "Fun! I was busy at work all weekend.",
+          "zh": "聽起來好好玩！我整個週末都在忙工作。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "server",
+          "speaker": "npc",
+          "en": "Good evening! How many people?",
+          "zh": "晚安！請問幾位？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "A table for two, please.",
+          "zh": "兩位，謝謝。",
+          "chunkId": "table_for_two"
+        },
+        {
+          "id": "t8_3",
+          "role": "server",
+          "speaker": "npc",
+          "en": "This way, please. Here's the menu.",
+          "zh": "這邊請。這是菜單。",
+          "stage": { "act": "give", "item": "menu" }
+        },
+        {
+          "id": "t8_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What do you recommend?",
+          "zh": "你推薦什麼？",
+          "chunkId": "recommend"
+        },
+        {
+          "id": "t8_5",
+          "role": "server",
+          "speaker": "npc",
+          "en": "The steak is delicious today.",
+          "zh": "今天的牛排很好吃。",
+          "stage": { "act": "want", "item": "steak" }
+        },
+        {
+          "id": "t8_6",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "Steak for me! Do you cook at home?",
+          "zh": "那我要牛排！你在家會做菜嗎？"
+        },
+        {
+          "id": "t8_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I really like cooking.",
+          "zh": "我很喜歡做菜。",
+          "chunkId": "like_cooking"
+        },
+        {
+          "id": "t8_8",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "Nice! Come to my birthday party on Friday!",
+          "zh": "真好！星期五來參加我的生日派對吧！"
+        },
+        {
+          "id": "t8_9",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thanks for inviting me.",
+          "zh": "謝謝你邀請我。",
+          "chunkId": "thanks_inviting"
+        },
+        {
+          "id": "t8_10",
+          "role": "friend",
+          "speaker": "npc",
+          "en": "I'm so happy! It's at seven.",
+          "zh": "太開心了！七點開始。"
+        },
+        {
+          "id": "t8_11",
+          "role": "guide",
+          "speaker": "player",
+          "en": "See you on Friday at seven!",
+          "zh": "星期五七點見！",
+          "chunkId": "see_you_friday"
+        },
+        {
+          "id": "t8_12",
+          "role": "server",
+          "speaker": "npc",
+          "en": "How was your dinner?",
+          "zh": "今天的晚餐還可以嗎？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_13",
+          "role": "guide",
+          "speaker": "player",
+          "en": "It was great, thanks.",
+          "zh": "很棒，謝謝。",
+          "chunkId": "was_great"
+        },
+        {
+          "id": "t8_14",
+          "role": "server",
+          "speaker": "npc",
+          "en": "Any dessert today?",
+          "zh": "今天要來點甜點嗎？",
+          "stage": { "act": "want", "item": "dessert" }
+        },
+        {
+          "id": "t8_15",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can we get the check, please?",
+          "zh": "可以結帳嗎？",
+          "chunkId": "get_check"
+        },
+        {
+          "id": "t8_16",
+          "role": "server",
+          "speaker": "npc",
+          "en": "Sure. Here you go. Good night!",
+          "zh": "好的，帳單在這裡。晚安！",
+          "stage": { "act": "give", "item": "check" }
+        }
+      ]
+    }
+  ]
+}
