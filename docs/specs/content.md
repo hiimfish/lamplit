@@ -97,7 +97,7 @@
 
 ## 現有單元
 
-小鎮畫面依 `src/content/units.ts` 的 `UNIT_ORDER` 排列：搬家第一天在前，咖啡廳在後。兩個單元都一開始就能玩，單元之間沒有解鎖條件。
+小鎮畫面依 `src/content/unitOrder.ts` 的 `UNIT_ORDER` 排列（用字分析腳本也照這個順序）：搬家第一天在前，咖啡廳在後。兩個單元都一開始就能玩，單元之間沒有解鎖條件。
 
 ### 搬家第一天（`move_in`）
 
@@ -123,5 +123,5 @@
 
 ## 尚未做到
 
-- 用 NGSL 高頻字表自動檢查用字。
+- 用 NGSL 高頻字表自動檢查用字：部分做到。`node scripts/vocab-report.mjs` 會列出每個任務的用字和難度（見 [curriculum.md](curriculum.md) 的「用字分析」），但還沒有在測試裡擋下不合格的內容。
 - KK 音標：計畫用開源發音字典 CMUdict 轉換。像素字型缺大部分音標符號，見 [visual-style.md](visual-style.md) 的「字型」。
