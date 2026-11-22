@@ -3,6 +3,7 @@ import { validateSprite, type PixelSprite } from '../../game/sprites';
 import { CAFE_ITEMS } from './cafe';
 import { ITEM_SIZE } from './draw';
 import { MOVE_IN_ITEMS } from './moveIn';
+import { STORE_ITEMS } from './store';
 
 /**
  * Item icons for word pictures in the HTML UI, drawn like a specimen sheet:
@@ -13,7 +14,7 @@ import { MOVE_IN_ITEMS } from './moveIn';
  * Each sprite is a string grid ('.' is transparent) plus a legend of palette
  * names, the same format as the street sprites. Keyed by word id.
  *
- * The pictures live in one file per unit (cafe.ts, moveIn.ts); the shared
+ * The pictures live in one file per unit (cafe.ts, moveIn.ts, store.ts); the shared
  * drawing helpers are in draw.ts.
  */
 
@@ -22,6 +23,7 @@ export { ITEM_SIZE };
 export const ITEM_SPRITES: Readonly<Record<string, PixelSprite>> = {
   ...CAFE_ITEMS,
   ...MOVE_IN_ITEMS,
+  ...STORE_ITEMS,
 };
 
 export function getItemSprite(id: string): PixelSprite | undefined {
