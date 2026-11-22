@@ -8,6 +8,7 @@ import { validateUnit } from '../src/content/validate';
 import { fillQuestions } from '../src/learning/gen/fills';
 import { buildTaskPractice, makeRng } from '../src/learning/questionGen';
 import { NO_ITEM } from '../src/learning/questions';
+import { fillPrompt } from '../src/ui/minigames/Fill';
 
 const fill = (over: Partial<FillItem> = {}): FillItem => ({
   id: 'f1',
@@ -286,6 +287,24 @@ describe('grammar fills (文法填空)', () => {
     ).toEqual([]);
   });
 
+  it('does not ask the 4 options to share a stem (who / which / where are fine)', () => {
+    expect(
+      grammar({
+        en: 'This is the office ___ I work.',
+        zh: '這是我工作的辦公室。',
+        options: ['who', 'which', 'where', 'what'],
+        answer: 2,
+      }),
+    ).toEqual([]);
+  });
+
+  it('keeps the size limits of a plain fill', () => {
+    expect(grammar({ options: ['need', 'needs', 'needing', 'to be so needed'] })).toEqual([
+      expect.stringContaining('longer than 3 words'),
+    ]);
+    expect(grammar({ answer: 4 })).toEqual([expect.stringContaining('answer must be the index')]);
+  });
+
   it('needs exactly 4 options, and grammar only as true', () => {
     expect(grammar({ options: ['need', 'needs', 'needing'] })).toEqual([
       expect.stringContaining('needs exactly 4 options'),
@@ -302,5 +321,19 @@ describe('grammar fills (文法填空)', () => {
     expect(q?.grammar).toBe(true);
     const [plain] = fillQuestions(task({ fills: [fill()] }), makeRng(1));
     expect(plain).not.toHaveProperty('grammar');
+  });
+
+  it('keeps all 4 options and the answer in the question', () => {
+    const [q] = fillQuestions(
+      task({ fills: [fill({ grammar: true, options: ['need', 'needs', 'needing', 'needed'] })] }),
+      makeRng(3),
+    );
+    expect(q?.options.map((o) => o.id).sort()).toEqual(['o0', 'o1', 'o2', 'o3']);
+    expect(q?.answer).toBe('need');
+  });
+
+  it('labels the screen 文法填空, and a plain fill not', () => {
+    expect(fillPrompt({ grammar: true })).toMatch(/^文法填空/);
+    expect(fillPrompt({})).not.toContain('文法');
   });
 });

@@ -14,6 +14,7 @@ import {
   optionForKey,
   pauseBeforeMs,
   playConversation,
+  talkWords,
   type ConversationDeps,
 } from '../src/ui/minigames/Talk';
 
@@ -442,6 +443,31 @@ describe('monologues (聽獨白答題)', () => {
     ]);
   });
 
+  it('keeps its own limits in Act 3: 10 lines by one speaker, no run rule', () => {
+    const act3 = (): TaskCheckContext => ({ ...context(), act: 3 });
+    expect(checkTalks({ talks: [voicemail(10)] }, act3())).toEqual([]);
+    expect(checkTalks({ talks: [voicemail(11)] }, act3())[0]).toContain('3 to 10');
+  });
+
+  it('plays its lines with the short same-speaker pause after the lead-in', () => {
+    const roles = voicemail(4).lines;
+    expect([0, 1, 2, 3].map((i) => pauseBeforeMs(roles, i))).toEqual([
+      LEAD_IN_MS,
+      PAUSE_SAME_SPEAKER_MS,
+      PAUSE_SAME_SPEAKER_MS,
+      PAUSE_SAME_SPEAKER_MS,
+    ]);
+  });
+
+  it('says 獨白 on the screen', () => {
+    const words = talkWords({ monologue: true });
+    expect(words.prompt).toBe('聽獨白，回答問題');
+    expect(words.idle).toContain('獨白');
+    expect(words.transcript).toContain('獨白');
+    expect(words.wrongHint).toContain('獨白');
+    expect(Object.values(talkWords({})).join('')).not.toContain('獨白');
+  });
+
   it('marks the questions as a monologue', () => {
     const qs = talkQuestions(unit([]), task({ talks: [voicemail(5) as TalkItem] }), makeRng(1));
     expect(qs.every((q) => q.monologue === true && q.speakers.length === 1)).toBe(true);
@@ -474,6 +500,32 @@ describe('talks with a table (聽對話答題加圖表)', () => {
     ).toEqual([]);
     const qs = talkQuestions(unit([]), task({ talks: [talk({ table })] }), makeRng(1));
     expect(qs.map((q) => q.table)).toEqual([table, table]);
+  });
+
+  it('accepts the largest table: 5 rows of 4 cells of 3 words, on an 8-line Act 3 talk', () => {
+    const rows = Array.from({ length: 5 }, (_, r) =>
+      Array.from({ length: 4 }, (_, c) => `cell ${r} ${c}`),
+    );
+    const eight = Array.from({ length: 8 }, (_, i) => line(i % 2, { id: `w${i}` }));
+    expect(
+      checkTalks(
+        { talks: [{ ...talk(), lines: eight, table: { rows } }] },
+        { ...context(), act: 3 },
+      ),
+    ).toEqual([]);
+  });
+
+  it('keeps tables off a talk without two speakers', () => {
+    const one = lines.map((l) => ({ ...l, role: 'clerk' }));
+    expect(with_({ lines: one, table })).toContainEqual(
+      expect.stringContaining('exactly two speakers'),
+    );
+  });
+
+  it('points the screen at the table', () => {
+    expect(talkWords({ table }).prompt).toContain('表格');
+    expect(talkWords({ table }).wrongHint).toContain('表格');
+    expect(talkWords({}).prompt).toBe('聽對話，回答問題');
   });
 
   it('rejects bad tables', () => {

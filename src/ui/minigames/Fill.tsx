@@ -14,6 +14,11 @@ function optionForKey(e: KeyboardEvent, count: number): number | null {
   return Number.isInteger(n) && n >= 1 && n <= count ? n - 1 : null;
 }
 
+/** The prompt: 文法填空 (`grammar`) names itself; a plain 句子填空 asks for the word that fits. */
+export function fillPrompt(question: Pick<FillQuestion, 'grammar'>): string {
+  return question.grammar ? '文法填空：選出正確的形式' : '選出最適合放進空格的字';
+}
+
 /**
  * The boxed gap in the sentence. Every option sits in the same grid cell, all but the
  * shown one invisible, so the gap is exactly as wide as the longest option and does not
@@ -37,8 +42,8 @@ function Gap({ question, shown }: { question: FillQuestion; shown: string | null
 }
 
 /**
- * 句子填空 (TOEIC Part 5): one sentence with a blank and 3 or 4 words or phrases; pick
- * the one that fits. No audio. The pick goes into the gap at once, so the learner sees
+ * 句子填空 and 文法填空 (TOEIC Part 5): one sentence with a blank and 3 or 4 words or
+ * phrases (a grammar fill always has 4, and its prompt says 文法填空); pick the one that fits. No audio. The pick goes into the gap at once, so the learner sees
  * the whole sentence: a right pick turns the gap green; a wrong one stays in the sentence
  * struck through, with the right answer in the gap beside it. Then the Chinese of the
  * sentence and the note show. Nothing animates, so there is nothing to turn off for
@@ -76,8 +81,8 @@ export function Fill({ question, onAnswered }: MinigameProps<FillQuestion>) {
 
   return (
     <div class="mg fill">
-      <p class="mg-prompt">
-        {question.grammar ? '文法填空：選出正確的形式' : '選出最適合放進空格的字'}
+      <p class="mg-prompt" data-testid="fill-prompt">
+        {fillPrompt(question)}
       </p>
       <div class="mg-say">
         <p class="fill-sentence" data-testid="fill-sentence" lang="en">

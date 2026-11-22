@@ -3,6 +3,8 @@
  * tabs (the one talking is a solid ink tab with ▶, never colour alone) and one square per
  * line. After answering: the transcript, one boxed line per speech (story bubbles from
  * flow.css) with its 慢速 key. Nothing here animates.
+ * A monologue (聽獨白) has one tab; a talk with a table (加圖表) shows the table under the
+ * prompt throughout (bottom of this file).
  */
 .talk-stage {
   display: flex;
@@ -47,10 +49,16 @@
   text-align: center;
 }
 
+/*
+ * A monologue's 10 squares (87 px) and "第 10／10 句" take about 170 of the 270 logical px
+ * an upright phone gives; wrapping is only a safety net for a narrower screen.
+ */
 .talk-progress {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  gap: calc(6 * var(--px));
+  gap: calc(3 * var(--px)) calc(6 * var(--px));
 }
 
 .talk-dots {
@@ -125,26 +133,68 @@
   padding: calc(4 * var(--px)) calc(6 * var(--px));
 }
 
-/* A talk's table (Part 3 with a graphic), minimal version: plain text on paper, ruled cells. */
+/*
+ * A talk's table (Part 3 with a graphic). The game's one font at the body size (11): the
+ * pixel font has no smaller size that stays sharp. On a phone held upright the card has
+ * about 270 logical px inside, so 4 columns get about 65 each, or 10 letters: a cell of up
+ * to 3 words wraps onto a second line inside its column instead of widening the table
+ * (overflow-wrap: anywhere also lets one very long word break rather than overflow).
+ * Columns size to their content, so a short "$40" column leaves room to a long one.
+ * The header row is solid ink with paper text (like the speaking tab, never colour alone);
+ * body cells are ruled in dim on paper. The box scrolls sideways only as a last resort.
+ */
+.talk-table-box {
+  display: flex;
+  flex-direction: column;
+  gap: calc(2 * var(--px));
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.talk-table-title {
+  margin: 0;
+  font-size: calc(11 * var(--px));
+  color: var(--ink);
+}
+
 .talk-table {
   width: 100%;
+  table-layout: auto;
   border-collapse: collapse;
   background: var(--paper);
   color: var(--ink);
   font-size: calc(11 * var(--px));
-  line-height: 1.4;
-}
-
-.talk-table caption {
-  padding-bottom: calc(2 * var(--px));
-  color: var(--paper);
-  font-weight: bold;
-  text-align: left;
+  line-height: 1.25;
+  box-shadow: 0 0 0 var(--px) var(--ink);
 }
 
 .talk-table th,
 .talk-table td {
-  padding: calc(1 * var(--px)) calc(3 * var(--px));
+  padding: var(--px) calc(3 * var(--px));
   border: var(--px) solid var(--dim);
   text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.talk-table th {
+  font-weight: normal;
+  color: var(--paper);
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+:root[data-orientation='landscape'] .talk-table {
+  line-height: 1.15;
+}
+
+:root[data-orientation='landscape'] .talk-table th,
+:root[data-orientation='landscape'] .talk-table td {
+  padding: 0 calc(3 * var(--px));
+}
+
+/* With a table on screen the listening box gives up some height in landscape. */
+:root[data-orientation='landscape'] .talk-with-table .talk-stage {
+  padding: calc(3 * var(--px)) calc(6 * var(--px));
+  gap: calc(2 * var(--px));
 }

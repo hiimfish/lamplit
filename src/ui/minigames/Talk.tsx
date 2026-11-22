@@ -141,46 +141,92 @@ export function optionForKey(e: KeyboardEvent, count: number): number | null {
   return index < count ? index : null;
 }
 
+/** The Chinese wording of the screen, which differs for a monologue and a talk with a table. */
+export interface TalkWords {
+  prompt: string;
+  /** Under the speaker tabs when nothing is playing. */
+  idle: string;
+  /** While it plays. */
+  playing: string;
+  /** Over the transcript, after answering. */
+  transcript: string;
+  /** In the feedback after a wrong pick. */
+  wrongHint: string;
+}
+
+export function talkWords(question: Pick<TalkQuestion, 'monologue' | 'table'>): TalkWords {
+  const what = question.monologue ? '獨白' : '對話';
+  return {
+    prompt: question.monologue
+      ? '聽獨白，回答問題'
+      : question.table
+        ? '看表格，聽對話，回答問題'
+        : '聽對話，回答問題',
+    idle: `按「再聽一次」播放${what}`,
+    playing: '仔細聽，聽完會出現問題',
+    transcript: `${what}內容（點一句再聽一次）`,
+    wrongHint: question.table
+      ? `看看下面的${what}和上面的表格，找出答案。`
+      : `看看下面的${what}，找出答案在哪一句。`,
+  };
+}
+
 /**
- * The table of a talk with a graphic (minimal version: plain text, the first row the
- * header), shown while listening and while answering.
+ * The table of a talk with a graphic (TOEIC Part 3 with a graphic): an optional title,
+ * then the header row (solid ink, like the speaking tab) and the body rows ruled on paper.
+ * It is shown from the start, so it can be read before and while listening, and stays
+ * while answering. Plain text in the game's one font at the body size; long cells wrap
+ * inside their column, so 4 columns of 3 words fit a phone held upright.
  */
 function TalkTableView({ table }: { table: TalkTable }) {
   const [header, ...rows] = table.rows;
   return (
-    <table class="talk-table" data-testid="talk-table" lang="en">
-      {table.title && <caption>{table.title}</caption>}
-      {header && (
-        <thead>
-          <tr>
-            {header.map((cell, i) => (
-              <th key={i} scope="col">
-                {cell}
-              </th>
-            ))}
-          </tr>
-        </thead>
+    <div class="talk-table-box">
+      {table.title && (
+        <p class="talk-table-title" lang="en" data-testid="talk-table-title">
+          {table.title}
+        </p>
       )}
-      <tbody>
-        {rows.map((row, r) => (
-          <tr key={r}>
-            {row.map((cell, i) => (
-              <td key={i}>{cell}</td>
-            ))}
-          </tr>
-        ))}
-      </tbody>
-    </table>
+      <table class="talk-table" data-testid="talk-table" lang="en">
+        {header && (
+          <thead>
+            <tr>
+              {header.map((cell, i) => (
+                <th key={i} scope="col">
+                  {cell}
+                </th>
+              ))}
+            </tr>
+          </thead>
+        )}
+        <tbody>
+          {rows.map((row, r) => (
+            <tr key={r}>
+              {row.map((cell, i) => (
+                <td key={i}>{cell}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
 /**
- * 聽對話答題 (TOEIC Part 3) and 聽獨白答題 (Part 4, `monologue`): the conversation plays line by line with no text, only the two
+ * 聽對話答題 (TOEIC Part 3): the conversation plays line by line with no text, only the two
  * speaker tags (the one talking marked) and a line count; then the question and its answers
  * show. The first question on a talk plays it; later questions on the same talk start at
  * the question. 再聽一次 plays the whole conversation again and counts as help. After
  * answering, the conversation shows as text, one boxed line per speech, each with its own
  * replay and 慢速 keys.
+ *
+ * 聽獨白答題 (Part 4, `monologue`): the same screen with one speaker tag (the role's
+ * Chinese name); its 3 to 10 lines play with the short same-speaker pause, and the line
+ * squares still fit on one row. In the transcript the name tag shows on the first line only.
+ *
+ * 聽對話答題加圖表 (Part 3 with a graphic, `table`): the table sits under the prompt from
+ * the start and stays while listening and answering.
  */
 export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
   const clock = useAnswerClock();
@@ -199,6 +245,7 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
   const answer = question.options.find((o) => o.id === question.correctId)?.label ?? '';
   const total = question.lines.length;
   const speaking = question.lines[current]?.role;
+  const words = talkWords(question);
 
   const playAll = async () => {
     const mine = ++token.current;
@@ -267,9 +314,11 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
   }, [showQuestion, answered]);
 
   return (
-    <div class="mg talk">
+    <div
+      class={`mg talk${question.monologue ? ' talk-monologue' : ''}${question.table ? ' talk-with-table' : ''}`}
+    >
       <p class="mg-prompt">
-        {question.monologue ? '聽獨白，回答問題' : '聽對話，回答問題'}
+        {words.prompt}
         {question.total > 1 && `（${question.index + 1}／${question.total}）`}
       </p>
       {question.table && <TalkTableView table={question.table} />}
@@ -335,7 +384,7 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
             </span>
           </div>
           <p class="talk-hint" role="status">
-            {playing ? '仔細聽，聽完會出現問題' : '按「再聽一次」播放對話'}
+            {playing ? words.playing : words.idle}
           </p>
         </div>
       )}
@@ -343,7 +392,7 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
         {answered && (
           <Feedback
             correct={isRight}
-            hint={isRight ? undefined : '看看下面的對話，找出答案在哪一句。'}
+            hint={isRight ? undefined : words.wrongHint}
             answer={answer}
             answerLabel="正確答案"
           />
@@ -351,9 +400,11 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
       </FeedbackSlot>
       {answered && (
         <div class="talk-transcript" data-testid="talk-transcript">
-          <p class="talk-transcript-title">對話內容（點一句再聽一次）</p>
+          <p class="talk-transcript-title">{words.transcript}</p>
           {question.lines.map((line, i) => {
             const now = i === current;
+            // A monologue has one speaker: the name tag on its first line is enough.
+            const tagged = !question.monologue || i === 0 || now;
             return (
               <div
                 key={line.audioId}
@@ -366,14 +417,16 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
                   aria-current={now ? 'true' : undefined}
                   onClick={() => playLine(i, false)}
                 >
-                  <span class="bubble-who">
-                    {now && (
-                      <span class="talk-mark" aria-hidden="true">
-                        ▶
-                      </span>
-                    )}
-                    {ROLE_LABEL[line.role]}
-                  </span>
+                  {tagged && (
+                    <span class="bubble-who">
+                      {now && (
+                        <span class="talk-mark" aria-hidden="true">
+                          ▶
+                        </span>
+                      )}
+                      {ROLE_LABEL[line.role]}
+                    </span>
+                  )}
                   <span class="bubble-en" lang="en">
                     {line.en}
                   </span>
