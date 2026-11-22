@@ -863,13 +863,13 @@
             {
               "id": "t7_talk_3",
               "role": "guide",
-              "en": "Do we sell to stores?",
+              "en": "Do we sell to shops?",
               "zh": "我們是賣給店家嗎？"
             },
             {
               "id": "t7_talk_4",
               "role": "manager",
-              "en": "Yes, only to stores. Mr. Ellis is our director.",
+              "en": "Yes, only to shops. Mr. Ellis is our director.",
               "zh": "對，只賣給店家。Ellis 先生是我們的總經理。"
             },
             {
@@ -887,14 +887,14 @@
             {
               "id": "t7_talk_7",
               "role": "manager",
-              "en": "Dan is our senior sales person. He sits next to you. Ask him first.",
-              "zh": "Dan 是我們資深的業務，他坐你隔壁。先問他。"
+              "en": "Our senior sales person is Dan. He sits next to you. Ask him first.",
+              "zh": "我們資深的業務是 Dan，他坐你隔壁。先問他。"
             },
             {
               "id": "t7_talk_8",
               "role": "manager",
-              "en": "Our shipping department is in the warehouse.",
-              "zh": "我們的出貨部門在倉庫那邊。"
+              "en": "We don't have big departments. There are only six of us.",
+              "zh": "我們沒有什麼大部門，總共只有六個人。"
             }
           ],
           "questions": [
@@ -907,7 +907,7 @@
             {
               "en": "Who should the new worker ask first?",
               "zh": "新員工有問題要先問誰？",
-              "options": ["Mr. Ellis", "Dan", "Ms. Reed"],
+              "options": ["The director", "The senior sales person", "Ms. Reed"],
               "answer": 1
             }
           ]
@@ -981,7 +981,7 @@
       ],
       "spellWordIds": ["elevator", "suit", "tie", "sweater", "clock"],
       "cloze": [
-        { "lineId": "t8_3", "word": "smiling", "distractors": ["crying", "sleeping"] },
+        { "lineId": "t8_3", "word": "smiling", "distractors": ["eating", "sleeping"] },
         { "lineId": "t8_4", "word": "paperwork", "distractors": ["coffee", "lunch"] },
         { "lineId": "t8_6", "word": "badge", "distractors": ["daughter", "lunch"] }
       ],
