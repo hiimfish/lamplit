@@ -657,7 +657,7 @@ function paintLamp(p: Painter, x: number, oy: number): void {
 // vest with a yellow band over a white T-shirt, bare forearms, grey trousers,
 // a clipboard with the sign-up sheet held in front of him.
 
-const VOLUNTEER_SPRITE: PixelSprite = {
+export const VOLUNTEER_SPRITE: PixelSprite = {
   rows: [
     '................',
     '.....cccccc.....',

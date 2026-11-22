@@ -588,7 +588,7 @@ const SERVER_SPRITE: PixelSprite = {
 // wavy golden hair to her shoulders, a pale blue denim jacket over a white top,
 // a dark blue skirt, grey tights and white trainers.
 
-const FRIEND_SPRITE: PixelSprite = {
+export const FRIEND_SPRITE: PixelSprite = {
   rows: [
     '................',
     '.....hhhhhh.....',
