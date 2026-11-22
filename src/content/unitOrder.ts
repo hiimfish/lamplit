@@ -10,4 +10,12 @@ export const UNIT_ORDER: readonly string[] = [
   'restaurant',
   'post_office',
   'park',
+  'bank',
+  'community_center',
+  'library',
+  'repair',
+  'job_center',
+  'resume',
+  'interview',
+  'day_before',
 ];
