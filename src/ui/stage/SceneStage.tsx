@@ -2,13 +2,7 @@ import type { CSSProperties } from 'preact';
 import { createPortal } from 'preact/compat';
 import { useEffect } from 'preact/hooks';
 import { spriteRuns, type PixelRun } from '../../art/items';
-import {
-  actorSpot,
-  coreOrigin,
-  stageFor,
-  type StageConfig,
-  type StageSide,
-} from '../../art/stage';
+import { actorSpot, coreOrigin, stageFor, type StageConfig, type StageSide } from '../../art/stage';
 import type { Role, SceneLine, Unit } from '../../content/types';
 import { appStore } from '../../core/appState';
 import { useStore } from '../../core/store';
