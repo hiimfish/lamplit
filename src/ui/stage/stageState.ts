@@ -1,3 +1,4 @@
+import type { StageConfig } from '../../art/stage';
 import type { Role, SceneLine } from '../../content/types';
 
 /** A thought or question bubble over the speaker of the newest line. */
@@ -66,6 +67,17 @@ export function stageAfter(lines: readonly SceneLine[]): StageView {
 /** The player is on every stage, whether or not they speak in the task. */
 const PLAYER: Role = 'guide';
 
+/** The NPC of a scene: the role of its first line not said by the player. */
+export function sceneNpc(lines: readonly SceneLine[]): Role | undefined {
+  return lines.find((line) => line.role !== PLAYER)?.role;
+}
+
+/** The stage's own backdrop for this scene's NPC, or its `paint` when it has none. */
+export function paintFor(config: StageConfig, lines: readonly SceneLine[]): StageConfig['paint'] {
+  const npc = sceneNpc(lines);
+  return (npc && config.backdrops?.[npc]) || config.paint;
+}
+
 /**
  * Which of a stage's cast stand on the stage while the first `shown` lines of a
  * task's scene are on screen: the player always; the first NPC who speaks in
@@ -79,7 +91,7 @@ export function rolesOnStage(
   lines: readonly SceneLine[],
   shown: number = lines.length,
 ): Role[] {
-  const firstNpc = lines.find((line) => line.role !== PLAYER)?.role;
+  const firstNpc = sceneNpc(lines);
   const joined = new Set(lines.slice(0, Math.max(0, shown)).map((line) => line.role));
   return cast.filter((role) => role === PLAYER || role === firstNpc || joined.has(role));
 }

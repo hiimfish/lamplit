@@ -1,16 +1,18 @@
 import { describe, expect, it } from 'vitest';
+import type { StageConfig } from '../src/art/stage/config';
 import { coreOrigin, CORE_H, CORE_W, STAGE_UNIT_IDS, stageFor } from '../src/art/stage';
 import { BARISTA_SPRITE, CAFE_COUNTER } from '../src/art/stage/cafe';
 import { NEIGHBOR_SPRITE } from '../src/art/stage/moveIn';
 import { CLERK_SPRITE, STORE_COUNTER } from '../src/art/stage/store';
 import { VOICE_NAMES } from '../src/audio/voices';
 import { ROLE_LABEL } from '../src/content/roles';
-import type { Role } from '../src/content/types';
+import type { Role, SceneLine } from '../src/content/types';
 import { getUnit } from '../src/content/units';
 import { recordingPainter, type Painter } from '../src/game/painter';
 import { isPaletteName } from '../src/game/palette';
 import { PERSON_H, PERSON_W, validateSprite } from '../src/game/sprites';
 import { computeLayout } from '../src/layout';
+import { paintFor } from '../src/ui/stage/stageState';
 import {
   CORE_VIEW_W,
   CORE_VIEW_X,
@@ -31,7 +33,7 @@ const SIZES: readonly [number, number][] = [
 ];
 
 /** Records every rect and notes any that fall outside the w x h stage. */
-function paintStage(unitId: string, w: number, h: number) {
+function paintStage(unitId: string, w: number, h: number, backdropRole?: Role) {
   const config = stageFor(unitId);
   if (!config) throw new Error(`no stage for ${unitId}`);
   const recorder = recordingPainter();
@@ -42,7 +44,9 @@ function paintStage(unitId: string, w: number, h: number) {
       recorder.rect(x, y, rw, rh, color, alpha);
     },
   };
-  config.paint(p, w, h);
+  const paint = backdropRole ? config.backdrops?.[backdropRole] : config.paint;
+  if (!paint) throw new Error(`no backdrop for ${backdropRole} in ${unitId}`);
+  paint(p, w, h);
   return { record: recorder.record, outside };
 }
 
@@ -81,6 +85,37 @@ describe('stage art', () => {
 
   it.each(cases)('%s at %ix%i paints the same picture every time', (id, w, h) => {
     expect(paintStage(id, w, h).record.hash).toBe(paintStage(id, w, h).record.hash);
+  });
+
+  // Every backdrop (a stage may paint another background for one NPC) is held to the same rules.
+  const backdropCases = STAGE_UNIT_IDS.flatMap((id) =>
+    (Object.keys(stageFor(id)!.backdrops ?? {}) as Role[]).flatMap((role) =>
+      SIZES.map(([w, h]) => [id, role, w, h] as const),
+    ),
+  );
+
+  it.each(backdropCases)(
+    '%s backdrop for %s at %ix%i: palette colours only, whole pixels, inside the stage, same every time',
+    (id, role, w, h) => {
+      const { record, outside } = paintStage(id, w, h, role);
+      expect(record.ops).toBeGreaterThan(0);
+      expect([...record.colors].every(isPaletteName)).toBe(true);
+      expect(record.fractional).toBe(0);
+      expect(outside).toBe(0);
+      expect(paintStage(id, w, h, role).record.hash).toBe(record.hash);
+    },
+  );
+
+  it('chooses the backdrop of the scene NPC, else paint', () => {
+    const paint = () => {};
+    const kitchen = () => {};
+    const config = { paint, backdrops: { landlord: kitchen } } as unknown as StageConfig;
+    const line = (role: Role) => ({ id: role, role, text: '' }) as unknown as SceneLine;
+    expect(paintFor(config, [line('guide'), line('landlord'), line('mechanic')])).toBe(kitchen);
+    expect(paintFor(config, [line('mechanic'), line('landlord')])).toBe(paint);
+    expect(paintFor(config, [line('guide')])).toBe(paint);
+    expect(paintFor(config, [])).toBe(paint);
+    expect(paintFor({ paint } as unknown as StageConfig, [line('landlord')])).toBe(paint);
   });
 
   it('centres the core across and puts a little floor under it', () => {

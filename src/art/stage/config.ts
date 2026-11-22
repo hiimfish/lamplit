@@ -35,6 +35,12 @@ interface StageActor {
 export interface StageConfig {
   /** Paints the background to fill a w x h stage (at least the core), core centred at the bottom. */
   paint(p: Painter, w: number, h: number): void;
+  /**
+   * A different background for a scene whose first NPC line is said by this
+   * role (a landlord in the kitchen, a mechanic in the shop). Same contract as
+   * `paint`; a role with no entry here, and a scene with no NPC line, use `paint`.
+   */
+  backdrops?: Partial<Record<Role, (p: Painter, w: number, h: number) => void>>;
   cast: Partial<Record<Role, StageActor>>;
   /** Top left of a 28x28 thought bubble over each side's character. */
   want: Record<StageSide, Point>;

@@ -10,7 +10,7 @@ import { canvasPainter } from '../../game/painter';
 import type { PixelSprite } from '../../game/sprites';
 import { ItemIcon } from '../ItemIcon';
 import { stageArea, stageCanvasSize, type StageArea } from './stageArea';
-import { rolesOnStage, type StageView } from './stageState';
+import { paintFor, rolesOnStage, sceneNpc, type StageView } from './stageState';
 import './stage.css';
 
 function hasStage(unitId: string): boolean {
@@ -61,14 +61,18 @@ const u = (n: number): string => `calc(${n} * var(--sp))`;
 
 const backgrounds = new Map<string, string>();
 
-/** Paints a stage background of w x h stage pixels once and keeps it as an image URL. */
+/** Paints the scene's stage background of w x h stage pixels once and keeps it as an image URL. */
 function backgroundUrl(
   unitId: string,
   config: StageConfig,
+  scene: readonly SceneLine[],
   w: number,
   h: number,
 ): string | undefined {
-  const key = `${unitId}:${w}x${h}`;
+  // The backdrop in use is part of the key: a location with two backgrounds keeps both.
+  const npc = sceneNpc(scene);
+  const backdrop = npc && config.backdrops?.[npc] ? npc : '';
+  const key = `${unitId}:${backdrop}:${w}x${h}`;
   const cached = backgrounds.get(key);
   if (cached) return cached;
   if (typeof document === 'undefined') return undefined;
@@ -77,9 +81,9 @@ function backgroundUrl(
   canvas.height = h;
   const ctx = canvas.getContext('2d');
   if (!ctx) return undefined;
-  config.paint(canvasPainter(ctx), w, h);
+  paintFor(config, scene)(canvasPainter(ctx), w, h);
   const url = canvas.toDataURL('image/png');
-  if (backgrounds.size >= 8) backgrounds.clear(); // only a few screen sizes are ever live
+  if (backgrounds.size >= 16) backgrounds.clear(); // only a few screen sizes are ever live
   backgrounds.set(key, url);
   return url;
 }
@@ -278,7 +282,7 @@ export function SceneStage({ unit, scene, view, beat, talking, area }: Props) {
   if (!config) return null;
   const { w: W, h: H } = stageCanvasSize(area);
   const place: Placing = { config, ...coreOrigin(W, H) };
-  const bg = backgroundUrl(unit.id, config, W, H);
+  const bg = backgroundUrl(unit.id, config, scene, W, H);
   const roles = rolesOnStage(Object.keys(config.cast) as Role[], scene, beat);
   const emoji: EmojiOf = (item) => unit.words.find((w) => w.id === item)?.emoji;
 

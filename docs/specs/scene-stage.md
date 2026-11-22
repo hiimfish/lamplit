@@ -202,7 +202,9 @@
 ### 舞台設定
 
 - `src/art/stage/config.ts`（2026-11-22 新增）放共用的型別和「你」：
-  - `StageConfig`：一個場景的整份設定：`paint`（背景繪製函式，任意大小）、`cast`（每個 `role` 的角色圖、位置、站哪一邊，選填 `clipBottom` 和 `beside`）、`want`／`ask`（左右兩邊泡泡的位置）、`rest`（左右兩邊道具放的位置）。
+  - `StageConfig`：一個場景的整份設定：`paint`（背景繪製函式，任意大小）、選填 `backdrops`（見下）、`cast`（每個 `role` 的角色圖、位置、站哪一邊，選填 `clipBottom` 和 `beside`）、`want`／`ask`（左右兩邊泡泡的位置）、`rest`（左右兩邊道具放的位置）。
+  - `backdrops?: Partial<Record<Role, (p: Painter, w: number, h: number) => void>>`：同一個地點的任務發生在兩個地方時（修理店：房東在你家廚房、技師在修車廠；面試前一天：經理是電話、鄰居在你家門口），讓某個 NPC 的場景改用另一張背景。規則：看這個任務場景裡第一句不是你說的台詞，由誰說（`sceneNpc`）；`backdrops` 有那個角色就用它畫背景，沒有就用 `paint`；場景裡沒有 NPC 台詞也用 `paint`。沒設 `backdrops` 的場景完全照舊。每個 `backdrops` 的函式和 `paint` 一樣：任意大小、只用調色盤顏色、整數座標、不超出舞台、同樣輸入畫出同樣畫面，測試對每一張都檢查。背景圖快取的鍵含用的是哪一張（`單元:角色:寬x高`），所以兩張背景不會互相蓋掉。選擇的程式是 `stageState.ts` 的 `paintFor(config, scene)`；任務畫面和小鎮畫面都用它（小鎮畫面顯示的是一個真的任務的場景，所以跟著那個任務選背景）。
+    範例：`backdrops: { landlord: paintRepairKitchen }`，`paint` 畫修車廠。
   - `StageSide`：`left` 或 `right`。
   - `GUIDE_ACTOR`：你。每個場景都是主角 `walker` 的站姿，在 (20, 39)、左邊。
 - 新的 7 個場景各自在自己的檔案組好設定並匯出：`STREET_STAGE`、`MARKET_STAGE`、`CLOTHES_STAGE`、`CLINIC_STAGE`、`RESTAURANT_STAGE`、`POST_OFFICE_STAGE`、`PARK_STAGE`。`src/art/stage/index.ts` 只把它們依單元 id 列進對照表。
@@ -365,6 +367,7 @@
 
 ## 測試
 
+- `backdrops`：每個地點的每一張背景都用和 `paint` 一樣的幾種大小檢查（調色盤顏色、整數、不超出、同樣畫面）；選擇規則用小的假設定測：第一個 NPC 有背景就用它、沒有就用 `paint`、場景沒有 NPC 台詞用 `paint`。
 - `tests/stageState.test.ts`：每一句的泡泡、`give` 之後道具留在櫃檯、每個任務重新開始；劇情結束後沒有泡泡、道具都停在櫃檯不滑動。`rolesOnStage` 用自己組的小任務測：只有房東說話時畫房東、不畫鄰居；只有鄰居說話時相反；你一定在（沒有台詞也在）；不在 `cast` 裡的說話者不畫；搬家第一天和房東的任務都不會出現鄰居。
 - `tests/stageArt.test.ts`：在幾種大小（只有核心、手機、比核心窄的橫向欄、又寬又高）下都只用調色盤的顏色、沒有小數座標、不超出舞台、同樣輸入畫出同樣的畫面；核心置中、比核心窄時兩邊平均裁掉；角色、泡泡和道具都在核心中間 96 像素內；咖啡廳店員、房東、鄰居、便利商店店員圖都通過 `validateSprite`、16×24、只用調色盤顏色；鄰居和房東站同一個位置；便利商店店員在櫃檯後面、下半身被櫃檯遮住，頭和肩膀露出櫃檯，你站在櫃檯左邊；便利商店的道具放在檯面上、在店員左邊；`stageArea` 在幾種螢幕下倍率是整數、背景圖蓋滿區域。2026-11-22 起，下面幾項對每一個有舞台的單元（十個）都檢查：幾種大小的繪製檢查；`cast` 裡每張角色圖都合格；單元裡有台詞的每個 `role` 都在 `cast` 裡，你在 (20, 39)、左邊，NPC 都在右邊；角色、泡泡、道具都在核心內，而且在中間 96 像素內。只有咖啡廳的畫面有雜湊值鎖住，新的 7 個場景沒有。
 - `tests/content.test.ts`：合法的提示通過；錯的 `act`、缺 `item`、`item` 不存在、`ask` 帶 `item` 都要報錯；`speakerOf` 對台詞回傳那句的角色，對詞塊、單字、對比詞回傳 `guide`，不存在的 id 回傳空值。
