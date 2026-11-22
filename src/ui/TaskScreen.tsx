@@ -181,7 +181,7 @@ export function TaskScreen() {
   const rolePlay = task.kind === 'roleplay';
   const inStory = !rolePlay && phase === 'story';
   const talking = heard ? speakerOf(heard) : undefined;
-  const shown = rolePlay ? rolePlayShown : storyShown;
+  const shown = rolePlay ? rolePlayShown : inStory ? storyShown : task.scene.length;
   const view = rolePlay || inStory ? stageAt(task.scene, shown) : stageAfter(task.scene);
   return (
     <div class={`flow${frame ? ' has-stage' : ''}`} data-testid="task">

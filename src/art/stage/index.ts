@@ -21,6 +21,12 @@ interface StageActor {
   side: StageSide;
   /** Hide everything below this core y (a character standing behind the counter). */
   clipBottom?: number;
+  /**
+   * Where this NPC stands when another NPC is on the stage too (two NPCs who
+   * share a spot when alone). Bubbles stay at the side's usual place, so lines
+   * said from here carry no want/ask cue (tests check this).
+   */
+  beside?: Point;
 }
 
 /** Everything a unit needs to show the little stage above its story. */
@@ -61,7 +67,14 @@ const MOVE_IN: StageConfig = {
     guide: { sprite: walker, x: 20, y: 39, side: 'left' },
     landlord: { sprite: LANDLORD_SPRITE, x: 88, y: 39, side: 'right' },
     // Same spot as the landlord: each task shows only the NPCs who speak in it.
-    neighbor: { sprite: NEIGHBOR_SPRITE, x: 88, y: 39, side: 'right' },
+    // With the landlord there too, she stands in the open front door.
+    neighbor: {
+      sprite: NEIGHBOR_SPRITE,
+      x: 88,
+      y: 39,
+      side: 'right',
+      beside: { x: 107, y: 39 },
+    },
   },
   want: { left: { x: 30, y: 5 }, right: { x: 58, y: 8 } },
   ask: { left: { x: 25, y: 25 }, right: { x: 92, y: 25 } },
@@ -76,6 +89,24 @@ const STAGES: Readonly<Record<string, StageConfig>> = { cafe: CAFE, move_in: MOV
 
 export function stageFor(unitId: string): StageConfig | undefined {
   return Object.prototype.hasOwnProperty.call(STAGES, unitId) ? STAGES[unitId] : undefined;
+}
+
+/** The player's role: on every stage, never counted as an NPC. */
+const PLAYER: Role = 'guide';
+
+/**
+ * Where `role` stands while `roles` are on the stage: its `beside` spot when
+ * another NPC is there too, its own spot otherwise. Undefined when not in the cast.
+ */
+export function actorSpot(
+  config: StageConfig,
+  role: Role,
+  roles: readonly Role[],
+): Point | undefined {
+  const actor = config.cast[role];
+  if (!actor) return undefined;
+  const npcs = roles.filter((r) => r !== PLAYER && config.cast[r]);
+  return npcs.length > 1 && actor.beside ? actor.beside : { x: actor.x, y: actor.y };
 }
 
 /** Unit ids that have a stage (for tests). */

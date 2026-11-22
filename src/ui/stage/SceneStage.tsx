@@ -2,7 +2,13 @@ import type { CSSProperties } from 'preact';
 import { createPortal } from 'preact/compat';
 import { useEffect } from 'preact/hooks';
 import { spriteRuns, type PixelRun } from '../../art/items';
-import { coreOrigin, stageFor, type StageConfig, type StageSide } from '../../art/stage';
+import {
+  actorSpot,
+  coreOrigin,
+  stageFor,
+  type StageConfig,
+  type StageSide,
+} from '../../art/stage';
 import type { Role, SceneLine, Unit } from '../../content/types';
 import { appStore } from '../../core/appState';
 import { useStore } from '../../core/store';
@@ -28,7 +34,11 @@ interface Props {
   /** The current task's story: only the NPCs who speak in it are drawn. */
   scene: readonly SceneLine[];
   view: StageView;
-  /** Changes with every new story line, so a new bubble pops again. */
+  /**
+   * How many scene lines are on screen (all of them once the story is over). An
+   * NPC who joins mid-scene appears at their first line; it also changes with
+   * every new line, so a new bubble pops again.
+   */
   beat: number;
   /** The role whose line is being heard right now (bobs while it plays). */
   talking: Role | undefined;
@@ -145,11 +155,12 @@ function StageCast({
   const { config, ox, oy } = place;
   const actors = roles.flatMap((role) => {
     const actor = config.cast[role];
-    return actor ? [[role, actor] as const] : [];
+    const spot = actorSpot(config, role, roles);
+    return actor && spot ? [[role, actor, spot] as const] : [];
   });
   return (
     <>
-      {actors.map(([role, actor]) => {
+      {actors.map(([role, actor, spot]) => {
         const actorClass = `stage-actor${talking === role ? ' talking' : ''}`;
         if (actor.clipBottom === undefined) {
           return (
@@ -157,7 +168,7 @@ function StageCast({
               key={role}
               sprite={actor.sprite}
               class={actorClass}
-              style={placeAt(place, actor)}
+              style={placeAt(place, spot)}
             />
           );
         }
@@ -168,7 +179,7 @@ function StageCast({
             class="stage-clip"
             data-role={role}
             style={{
-              left: u(ox + actor.x),
+              left: u(ox + spot.x),
               top: 0,
               width: u(16),
               height: u(oy + actor.clipBottom),
@@ -177,7 +188,7 @@ function StageCast({
             <SpriteSvg
               sprite={actor.sprite}
               class={actorClass}
-              style={{ left: 0, top: u(oy + actor.y) }}
+              style={{ left: 0, top: u(oy + spot.y) }}
             />
           </div>
         );
@@ -186,7 +197,14 @@ function StageCast({
   );
 }
 
-/** Things handed over: each rests on the receiver's side, sliding there when just given. */
+/** How far a later prop on the same side rests from the one before it (stage pixels). */
+const PROP_STEP = 14;
+
+/**
+ * Things handed over: each rests on the receiver's side, sliding there when
+ * just given. A second prop on the same side rests one step further in, so a
+ * box and a key do not cover each other.
+ */
 function StageProps({
   place,
   props,
@@ -197,11 +215,15 @@ function StageProps({
   emoji: EmojiOf;
 }) {
   const { config } = place;
+  const onSide: Record<StageSide, number> = { left: 0, right: 0 };
   return (
     <>
       {props.map((prop) => {
         const from = sideOf(config, prop.giver);
-        const end = config.rest[other(from)];
+        const to = other(from);
+        const inward = to === 'left' ? 1 : -1;
+        const rest = config.rest[to];
+        const end = { x: rest.x + inward * PROP_STEP * onSide[to]++, y: rest.y };
         const dx = config.rest[from].x - end.x;
         return (
           <div
@@ -263,7 +285,7 @@ function SceneStage({ unit, scene, view, beat, talking, area }: Props) {
   const { w: W, h: H } = stageCanvasSize(area);
   const place: Placing = { config, ...coreOrigin(W, H) };
   const bg = backgroundUrl(unit.id, config, W, H);
-  const roles = rolesOnStage(Object.keys(config.cast) as Role[], scene);
+  const roles = rolesOnStage(Object.keys(config.cast) as Role[], scene, beat);
   const emoji: EmojiOf = (item) => unit.words.find((w) => w.id === item)?.emoji;
 
   return (

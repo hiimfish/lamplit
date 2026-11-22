@@ -585,26 +585,11 @@
           "id": "t8_3",
           "role": "landlord",
           "speaker": "npc",
-          "en": "Welcome! I'm Mr. Bell.",
-          "zh": "歡迎！我是 Bell 先生。"
+          "en": "Welcome! I'm Mr. Bell. Where are you from?",
+          "zh": "歡迎！我是 Bell 先生。你是哪裡人？"
         },
         {
           "id": "t8_4",
-          "role": "guide",
-          "speaker": "player",
-          "en": "Nice to meet you.",
-          "zh": "很高興認識你。",
-          "chunkId": "nice_to_meet_you"
-        },
-        {
-          "id": "t8_5",
-          "role": "landlord",
-          "speaker": "npc",
-          "en": "Nice to meet you. Where are you from?",
-          "zh": "很高興認識你。你是哪裡人？"
-        },
-        {
-          "id": "t8_6",
           "role": "guide",
           "speaker": "player",
           "en": "I'm from Taiwan.",
@@ -612,7 +597,7 @@
           "chunkId": "from_taiwan"
         },
         {
-          "id": "t8_7",
+          "id": "t8_5",
           "role": "landlord",
           "speaker": "npc",
           "en": "Good. Do you live here alone?",
@@ -620,7 +605,7 @@
           "stage": { "act": "ask" }
         },
         {
-          "id": "t8_8",
+          "id": "t8_6",
           "role": "guide",
           "speaker": "player",
           "en": "Yes, I live alone.",
@@ -628,7 +613,7 @@
           "chunkId": "live_alone"
         },
         {
-          "id": "t8_9",
+          "id": "t8_7",
           "role": "landlord",
           "speaker": "npc",
           "en": "Here are your boxes.",
@@ -636,7 +621,7 @@
           "stage": { "act": "give", "item": "box" }
         },
         {
-          "id": "t8_10",
+          "id": "t8_8",
           "role": "guide",
           "speaker": "player",
           "en": "Can you help me with this box?",
@@ -645,30 +630,15 @@
           "stage": { "act": "ask" }
         },
         {
-          "id": "t8_11",
+          "id": "t8_9",
           "role": "landlord",
           "speaker": "npc",
-          "en": "Yes, I can. Can you open the door?",
-          "zh": "可以啊。你可以開一下門嗎？"
-        },
-        {
-          "id": "t8_12",
-          "role": "guide",
-          "speaker": "player",
-          "en": "Sure, no problem.",
-          "zh": "好啊，沒問題。",
-          "chunkId": "sure_no_problem"
-        },
-        {
-          "id": "t8_13",
-          "role": "landlord",
-          "speaker": "npc",
-          "en": "The trash can is by the door.",
-          "zh": "垃圾桶在門旁邊。",
+          "en": "Yes, I can. The trash can is by the door.",
+          "zh": "可以啊。垃圾桶在門旁邊。",
           "stage": { "act": "want", "item": "trash_can" }
         },
         {
-          "id": "t8_14",
+          "id": "t8_10",
           "role": "guide",
           "speaker": "player",
           "en": "Can you speak more slowly, please?",
@@ -677,7 +647,7 @@
           "stage": { "act": "ask" }
         },
         {
-          "id": "t8_15",
+          "id": "t8_11",
           "role": "landlord",
           "speaker": "npc",
           "en": "Trash can, by the door. Here's your key.",
@@ -685,7 +655,7 @@
           "stage": { "act": "give", "item": "key" }
         },
         {
-          "id": "t8_16",
+          "id": "t8_12",
           "role": "guide",
           "speaker": "player",
           "en": "Got it. Thanks!",
@@ -693,11 +663,41 @@
           "chunkId": "got_it"
         },
         {
-          "id": "t8_17",
-          "role": "landlord",
+          "id": "t8_13",
+          "role": "neighbor",
           "speaker": "npc",
-          "en": "Have a good day!",
-          "zh": "祝你有美好的一天！"
+          "en": "Hi! Can I help you?",
+          "zh": "嗨！需要幫忙嗎？"
+        },
+        {
+          "id": "t8_14",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Hi, I'm your new neighbor.",
+          "zh": "嗨，我是你的新鄰居。",
+          "chunkId": "new_neighbor"
+        },
+        {
+          "id": "t8_15",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Nice to meet you! I'm Lena.",
+          "zh": "很高興認識你！我是 Lena。"
+        },
+        {
+          "id": "t8_16",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Please come in.",
+          "zh": "請進。",
+          "chunkId": "come_in"
+        },
+        {
+          "id": "t8_17",
+          "role": "neighbor",
+          "speaker": "npc",
+          "en": "Thanks! Call me if you need anything.",
+          "zh": "謝謝！需要什麼就打給我。"
         }
       ]
     }

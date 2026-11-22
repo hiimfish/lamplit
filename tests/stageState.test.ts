@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { SceneLine } from '../src/content/types';
-import { stageFor } from '../src/art/stage';
+import { actorSpot, STAGE_UNIT_IDS, stageFor } from '../src/art/stage';
 import { getUnit } from '../src/content/units';
 import { rolesOnStage, stageAfter, stageAt } from '../src/ui/stage/stageState';
 
@@ -155,5 +155,68 @@ describe('rolesOnStage', () => {
     for (const task of withLandlord) {
       expect(rolesOnStage(roles, task.scene)).toEqual(['guide', 'landlord']);
     }
+  });
+
+  it('brings a second NPC on only at their first line', () => {
+    const visit = [line('a', 'landlord'), line('b', 'guide'), line('c', 'neighbor')];
+    expect(rolesOnStage(cast, visit, 0)).toEqual(['guide', 'landlord']);
+    expect(rolesOnStage(cast, visit, 2)).toEqual(['guide', 'landlord']);
+    expect(rolesOnStage(cast, visit, 3)).toEqual(['guide', 'landlord', 'neighbor']);
+    expect(rolesOnStage(cast, visit)).toEqual(['guide', 'landlord', 'neighbor']);
+  });
+
+  it('shows the first NPC from the start, even when the player speaks first', () => {
+    const playerFirst = [line('a', 'guide'), line('b', 'landlord')];
+    expect(rolesOnStage(cast, playerFirst, 0)).toEqual(['guide', 'landlord']);
+    expect(rolesOnStage(cast, playerFirst, 1)).toEqual(['guide', 'landlord']);
+  });
+});
+
+describe('actorSpot', () => {
+  const moveIn = stageFor('move_in')!;
+
+  it('keeps each NPC at its own spot when alone', () => {
+    expect(actorSpot(moveIn, 'neighbor', ['guide', 'neighbor'])).toEqual({ x: 88, y: 39 });
+    expect(actorSpot(moveIn, 'landlord', ['guide', 'landlord'])).toEqual({ x: 88, y: 39 });
+  });
+
+  it('moves the neighbor to the door when the landlord is there too', () => {
+    const both: SceneLine['role'][] = ['guide', 'landlord', 'neighbor'];
+    expect(actorSpot(moveIn, 'landlord', both)).toEqual({ x: 88, y: 39 });
+    expect(actorSpot(moveIn, 'neighbor', both)).toEqual({ x: 107, y: 39 });
+  });
+
+  it('is undefined for a role not in the cast', () => {
+    expect(actorSpot(moveIn, 'barista', ['guide'])).toBeUndefined();
+  });
+
+  it('never puts two NPCs on one spot, and gives no bubble cue from a beside spot', () => {
+    for (const unitId of STAGE_UNIT_IDS) {
+      const config = stageFor(unitId)!;
+      const castRoles = Object.keys(config.cast) as SceneLine['role'][];
+      for (const task of getUnit(unitId)?.tasks ?? []) {
+        task.scene.forEach((sceneLine, index) => {
+          const roles = rolesOnStage(castRoles, task.scene, index + 1);
+          const spots = roles
+            .filter((r) => r !== 'guide')
+            .map((r) => JSON.stringify(actorSpot(config, r, roles)));
+          expect(new Set(spots).size, `${unitId}/${task.id}`).toBe(spots.length);
+          const spot = actorSpot(config, sceneLine.role, roles);
+          const actor = config.cast[sceneLine.role];
+          const fromBeside = actor?.beside !== undefined && spot === actor.beside;
+          const bubble = sceneLine.stage?.act === 'want' || sceneLine.stage?.act === 'ask';
+          expect(fromBeside && bubble, `${unitId}/${sceneLine.id}`).toBe(false);
+        });
+      }
+    }
+  });
+
+  it('has Lena walk in mid-way through the moving-in role-play', () => {
+    const t8 = getUnit('move_in')!.tasks.find((t) => t.kind === 'roleplay')!;
+    const castRoles = Object.keys(moveIn.cast) as SceneLine['role'][];
+    const first = t8.scene.findIndex((l) => l.role === 'neighbor');
+    expect(first).toBeGreaterThan(0);
+    expect(rolesOnStage(castRoles, t8.scene, first)).toEqual(['guide', 'landlord']);
+    expect(rolesOnStage(castRoles, t8.scene, first + 1)).toEqual(['guide', 'landlord', 'neighbor']);
   });
 });

@@ -67,13 +67,19 @@ export function stageAfter(lines: readonly SceneLine[]): StageView {
 const PLAYER: Role = 'guide';
 
 /**
- * Which of a stage's cast stand on the stage during one task: the player
- * always, and only the NPCs with at least one line in the task's scene. NPCs
- * of a unit can share a spot (the landlord and the neighbor both stand on the
- * right), so one who is not in this task must not be drawn over the one who is.
- * Keeps the order of `cast`.
+ * Which of a stage's cast stand on the stage while the first `shown` lines of a
+ * task's scene are on screen: the player always; the first NPC who speaks in
+ * the scene from the start; any other NPC from their first line on (they walk
+ * in mid-scene, like a neighbor at the door). An NPC with no line in the task
+ * is never drawn: NPCs of a unit can share a spot when alone (the landlord and
+ * the neighbor both stand on the right). Keeps the order of `cast`.
  */
-export function rolesOnStage(cast: readonly Role[], lines: readonly SceneLine[]): Role[] {
-  const speaking = new Set(lines.map((line) => line.role));
-  return cast.filter((role) => role === PLAYER || speaking.has(role));
+export function rolesOnStage(
+  cast: readonly Role[],
+  lines: readonly SceneLine[],
+  shown: number = lines.length,
+): Role[] {
+  const firstNpc = lines.find((line) => line.role !== PLAYER)?.role;
+  const joined = new Set(lines.slice(0, Math.max(0, shown)).map((line) => line.role));
+  return cast.filter((role) => role === PLAYER || role === firstNpc || joined.has(role));
 }
