@@ -40,6 +40,7 @@ const task = (over: Partial<TaskProfile> = {}): TaskProfile => ({
   coverage: 1,
   unplanned: [],
   score: 20,
+  review: false,
   ...over,
 });
 
@@ -66,6 +67,19 @@ describe('smoothness rules', () => {
     expect(run(24)).toHaveLength(1);
     expect(run(15)).toEqual([]);
     expect(run(14)).toHaveLength(1);
+  });
+
+  it('leaves review-only tasks out of the score curve', () => {
+    const review = task({ review: true, newItems: 0, score: 5 });
+    // The next task is compared with the last one that teaches, not with the review.
+    expect(smoothnessBreaks([task(), review, task({ score: 23, newItems: 5 })], lists)).toEqual([]);
+    expect(smoothnessBreaks([task(), review, task({ score: 24 })], lists)).toHaveLength(1);
+    expect(smoothnessBreaks([task(), review, task({ newItems: 6 })], lists)).toHaveLength(1);
+  });
+
+  it('still checks the story of a review-only task', () => {
+    const noisy = task({ review: true, unplanned: ['open', 'bus'] });
+    expect(smoothnessBreaks([task(), noisy], lists)).toHaveLength(1);
   });
 
   it('adds at most one new item per task', () => {

@@ -558,6 +558,116 @@
           "stage": { "act": "give", "item": "phone" }
         }
       ]
+    },
+    {
+      "id": "t8",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Hi! Are you new here?",
+          "zh": "嗨！你是新來的嗎？"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Yes, I just moved in.",
+          "zh": "對，我剛搬進來。",
+          "chunkId": "just_moved_in"
+        },
+        {
+          "id": "t8_3",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Welcome! I'm Mr. Bell.",
+          "zh": "歡迎！我是 Bell 先生。"
+        },
+        {
+          "id": "t8_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Nice to meet you.",
+          "zh": "很高興認識你。",
+          "chunkId": "nice_to_meet_you"
+        },
+        {
+          "id": "t8_5",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Nice to meet you. Where are you from?",
+          "zh": "很高興認識你。你是哪裡人？"
+        },
+        {
+          "id": "t8_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm from Taiwan.",
+          "zh": "我來自台灣。",
+          "chunkId": "from_taiwan"
+        },
+        {
+          "id": "t8_7",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Good. Do you live here alone?",
+          "zh": "好。你一個人住這裡嗎？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_8",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Yes, I live alone.",
+          "zh": "對，我一個人住。",
+          "chunkId": "live_alone"
+        },
+        {
+          "id": "t8_9",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "The trash can is by the door.",
+          "zh": "垃圾桶在門旁邊。",
+          "stage": { "act": "want", "item": "trash_can" }
+        },
+        {
+          "id": "t8_10",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can you speak more slowly, please?",
+          "zh": "可以請你說慢一點嗎？",
+          "chunkId": "more_slowly",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_11",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Trash can, by the door. Here's your key.",
+          "zh": "垃圾桶，在門旁邊。這是你的鑰匙。",
+          "stage": { "act": "give", "item": "key" }
+        },
+        {
+          "id": "t8_12",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Got it. Thanks!",
+          "zh": "了解，謝謝！",
+          "chunkId": "got_it"
+        },
+        {
+          "id": "t8_13",
+          "role": "landlord",
+          "speaker": "npc",
+          "en": "Have a good day!",
+          "zh": "祝你有美好的一天！"
+        }
+      ]
     }
   ]
 }

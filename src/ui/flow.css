@@ -293,7 +293,8 @@
 /* Story: handheld message box. The current line is typed out with a stepped wipe. */
 .story,
 .intro,
-.practice {
+.practice,
+.roleplay {
   display: flex;
   flex-direction: column;
   gap: calc(4 * var(--px));
@@ -315,6 +316,15 @@
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--ink) var(--paper);
+}
+
+/*
+ * Role-play: the log shares the card with an arrange question, so it stays short;
+ * it scrolls to the newest line, which is the cue for the learner's turn.
+ */
+:root[data-orientation] .roleplay .chat {
+  min-height: 0;
+  max-height: calc(64 * var(--px));
 }
 
 /* Landscape is short: the log takes what the title, heading and keys leave. */

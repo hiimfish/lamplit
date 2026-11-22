@@ -166,8 +166,12 @@ export function Arrange({ question, onAnswered }: MinigameProps<ArrangeQuestion>
 
   return (
     <div class="mg">
-      <p class="mg-prompt">把單字排成句子</p>
-      <ZhHint zh={question.zh} visible={showZh || zhRevealed} onReveal={revealZh} />
+      <p class="mg-prompt">{question.prompt ?? '把單字排成句子'}</p>
+      <ZhHint
+        zh={question.zh}
+        visible={(showZh && !question.zhOnRequest) || zhRevealed}
+        onReveal={revealZh}
+      />
       <AnswerLine blocks={question.blocks} placed={placed} grade={grade} onRemove={remove} />
       <WordPool blocks={question.blocks} placed={placed} locked={locked} onAdd={add} />
       {!locked && <CheckRow empty={placed.length === 0} onCheck={check} onReset={reset} />}

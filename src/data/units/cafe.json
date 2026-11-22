@@ -421,6 +421,117 @@
           "stage": { "act": "want", "item": "book" }
         }
       ]
+    },
+    {
+      "id": "t8",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "Hi! What can I get for you?",
+          "zh": "嗨！要點什麼？"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I get an iced coffee?",
+          "zh": "可以給我一杯冰咖啡嗎？",
+          "chunkId": "iced_coffee",
+          "stage": { "act": "want", "item": "coffee" }
+        },
+        {
+          "id": "t8_3",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "Sure. Do you want sugar?",
+          "zh": "好的。要加糖嗎？",
+          "stage": { "act": "want", "item": "sugar" }
+        },
+        {
+          "id": "t8_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "No sugar, please.",
+          "zh": "不加糖，謝謝。",
+          "chunkId": "no_sugar"
+        },
+        {
+          "id": "t8_5",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "Okay. Small, medium, or large?",
+          "zh": "好。小杯、中杯，還是大杯？"
+        },
+        {
+          "id": "t8_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "A small one, please.",
+          "zh": "小杯的，謝謝。",
+          "chunkId": "small_one",
+          "stage": { "act": "want", "item": "small" }
+        },
+        {
+          "id": "t8_7",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "For here or to go?",
+          "zh": "內用還是外帶？"
+        },
+        {
+          "id": "t8_8",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sorry, can you say that again?",
+          "zh": "不好意思，可以再說一次嗎？",
+          "chunkId": "say_again",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_9",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "For here, or to go?",
+          "zh": "內用，還是外帶？"
+        },
+        {
+          "id": "t8_10",
+          "role": "guide",
+          "speaker": "player",
+          "en": "To go, please.",
+          "zh": "外帶，謝謝。",
+          "chunkId": "to_go"
+        },
+        {
+          "id": "t8_11",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "That's six fifty.",
+          "zh": "六塊五。"
+        },
+        {
+          "id": "t8_12",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Here you go.",
+          "zh": "給你。",
+          "chunkId": "here_you_go"
+        },
+        {
+          "id": "t8_13",
+          "role": "barista",
+          "speaker": "npc",
+          "en": "Thanks! Here's your coffee.",
+          "zh": "謝謝！這是你的咖啡。",
+          "stage": { "act": "give", "item": "coffee" }
+        }
+      ]
     }
   ]
 }

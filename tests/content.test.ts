@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 import cafe from '../src/data/units/cafe.json';
 import { UNITS, getItem, getUnit, speakerOf, taskItemIds } from '../src/content/units';
 import { validateUnit } from '../src/content/validate';
+import { buildRolePlayTurns, makeRng } from '../src/learning/questionGen';
 
 const UNIT_DIR = join(__dirname, '..', 'src', 'data', 'units');
 const unitFiles = readdirSync(UNIT_DIR).filter((f) => f.endsWith('.json'));
@@ -57,8 +58,8 @@ describe('validateUnit catches broken content', () => {
   });
 
   it('rejects unknown references and player lines with no chunk', () => {
-    expect(problemsFor((u) => u.tasks[0]!.newChunkIds.push('nope'))).not.toEqual([]);
-    expect(problemsFor((u) => u.tasks[0]!.newWordIds.push('nope'))).not.toEqual([]);
+    expect(problemsFor((u) => (u.tasks[0]!.newChunkIds as string[]).push('nope'))).not.toEqual([]);
+    expect(problemsFor((u) => (u.tasks[0]!.newWordIds as string[]).push('nope'))).not.toEqual([]);
     const player = (u: ReturnType<typeof copy>) =>
       u.tasks[0]!.scene.find((l) => l.speaker === 'player') as { chunkId?: string };
     expect(problemsFor((u) => (player(u).chunkId = 'nope'))).not.toEqual([]);
@@ -169,5 +170,103 @@ describe('speakerOf', () => {
     for (const id of ['cafe.line.nope', 'nope.word.latte', 'latte', '']) {
       expect(speakerOf(id), id).toBeUndefined();
     }
+  });
+});
+
+describe('role-play tasks', () => {
+  interface RolePlayTask {
+    id: string;
+    title: string;
+    kind: string;
+    newChunkIds: string[];
+    newWordIds: string[];
+    newPairIds?: string[];
+    scene: {
+      id: string;
+      role: string;
+      speaker: string;
+      en: string;
+      zh: string;
+      chunkId?: string;
+    }[];
+  }
+  const rolePlay = (): RolePlayTask => ({
+    id: 'rp',
+    title: '角色扮演大挑戰',
+    kind: 'roleplay',
+    newChunkIds: [],
+    newWordIds: [],
+    scene: [
+      { id: 'rp_1', role: 'barista', speaker: 'npc', en: 'Hi!', zh: '嗨！' },
+      {
+        id: 'rp_2',
+        role: 'guide',
+        speaker: 'player',
+        en: 'Can I get a latte, please?',
+        zh: '一杯拿鐵',
+        chunkId: 'can_i_get',
+      },
+      {
+        id: 'rp_3',
+        role: 'barista',
+        speaker: 'npc',
+        en: 'For here or to go?',
+        zh: '內用還是外帶？',
+      },
+      {
+        id: 'rp_4',
+        role: 'guide',
+        speaker: 'player',
+        en: 'To go, please.',
+        zh: '外帶',
+        chunkId: 'to_go',
+      },
+    ],
+  });
+  /** The café unit with a role-play task added last (or first) after `edit`. */
+  const problems = (edit: (task: RolePlayTask) => void = () => {}, first = false) => {
+    const unit = copy();
+    const task = rolePlay();
+    edit(task);
+    const tasks = unit.tasks as unknown[];
+    if (first) tasks.unshift(task);
+    else tasks.push(task);
+    return validateUnit(unit);
+  };
+
+  it('accepts a review of chunks taught earlier', () => {
+    expect(problems()).toEqual([]);
+  });
+
+  it('rejects an unknown task kind', () => {
+    expect(problems((t) => (t.kind = 'boss'))).not.toEqual([]);
+  });
+
+  it('rejects new items', () => {
+    expect(problems((t) => t.newChunkIds.push('can_i_get'))).not.toEqual([]);
+    expect(problems((t) => t.newWordIds.push('latte'))).not.toEqual([]);
+    expect(problems((t) => (t.newPairIds = []))).not.toEqual([]);
+  });
+
+  it('needs an NPC line before every player line', () => {
+    expect(problems((t) => t.scene.shift())).not.toEqual([]);
+    expect(problems((t) => t.scene.splice(2, 1))).not.toEqual([]);
+  });
+
+  it('needs at least two turns', () => {
+    expect(problems((t) => t.scene.splice(2))).not.toEqual([]);
+  });
+
+  it('rejects chunks not taught before it', () => {
+    expect(problems(() => {}, true)).not.toEqual([]);
+  });
+
+  it.each(UNITS.map((u) => u.id))('%s ends with a role-play, one turn per player line', (id) => {
+    const unit = getUnit(id)!;
+    const last = unit.tasks.at(-1)!;
+    expect(last.kind).toBe('roleplay');
+    expect(unit.tasks.filter((t) => t.kind === 'roleplay')).toHaveLength(1);
+    const players = last.scene.filter((l) => l.speaker === 'player');
+    expect(buildRolePlayTurns(unit, last, makeRng(1))).toHaveLength(players.length);
   });
 });

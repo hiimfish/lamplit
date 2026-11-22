@@ -52,9 +52,17 @@ export interface StageCue {
   item?: string;
 }
 
+/**
+ * `roleplay` is a location's last task (角色扮演大挑戰): review only, no new items; the
+ * learner builds each of their own lines in a fresh conversation, with no script first.
+ */
+export type TaskKind = 'roleplay';
+
 export interface Task {
   id: string;
   title: string;
+  /** Leave out for a normal task (story, new items, practice). */
+  kind?: TaskKind;
   /** Chunk ids introduced here (2-4). */
   newChunkIds: string[];
   /** Word ids introduced here. */

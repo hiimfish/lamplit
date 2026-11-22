@@ -11,7 +11,12 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { UNIT_ORDER } from '../src/content/unitOrder.ts';
-import { parseWordLists, profileUnits, smoothnessBreaks } from '../src/content/vocab.ts';
+import {
+  parseWordLists,
+  previousTeaching,
+  profileUnits,
+  smoothnessBreaks,
+} from '../src/content/vocab.ts';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const LISTS = join(ROOT, 'src', 'data', 'wordlists');
@@ -48,11 +53,14 @@ if (args.includes('--json')) {
 const pct = (n) => `${(n * 100).toFixed(0)}%`;
 console.log(`起始已知字：NGSL 前 ${starterRank} 名\n`);
 profiles.forEach((p, i) => {
-  const prev = profiles[i - 1];
+  const prev = previousTeaching(profiles, i);
   const delta = prev ? p.score - prev.score : 0;
   const where = `${p.unitId}/${p.taskId}`;
+  const scoreText = p.review
+    ? '只複習，不算分數'
+    : `分數 ${String(p.score).padStart(3)} (${delta >= 0 ? '+' : ''}${delta})`;
   console.log(
-    `${where.padEnd(12)} 分數 ${String(p.score).padStart(3)} (${delta >= 0 ? '+' : ''}${delta})` +
+    `${where.padEnd(12)} ${scoreText}` +
       `  新項目 ${p.newItems}  詞塊平均 ${p.chunkWords.toFixed(1)} 字  字的程度 ${Math.round(p.freqLevel)}` +
       `  劇情 ${p.lines} 句、平均 ${p.avgLineWords.toFixed(1)} 字` +
       `  學過的字 ${pct(p.coverage)}`,

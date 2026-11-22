@@ -20,6 +20,13 @@ export interface ArrangeQuestion {
   blocks: string[];
   accepted: string[];
   itemId: string;
+  /** Replaces the default prompt (把單字排成句子), e.g. for a role-play turn. */
+  prompt?: string;
+  /**
+   * The Chinese shows only on 看中文 (counted as help), even with 顯示中文 on: in a
+   * role-play the conversation is the cue, and the Chinese would give the line away.
+   */
+  zhOnRequest?: boolean;
 }
 
 /**

@@ -18,6 +18,7 @@ import {
 import './flow.css';
 import { IntroCards } from './IntroCards';
 import { QuestionView } from './minigames/QuestionView';
+import { RolePlay } from './RolePlay';
 import { SceneStory } from './SceneStory';
 import { stageFrame, TaskStage } from './stage/SceneStage';
 import { stageAfter, stageAt } from './stage/stageState';
@@ -30,13 +31,15 @@ interface RunnerProps {
   /** Show hearts. A task is never failed: at 0 hearts they refill gently. */
   showHearts: boolean;
   onFinish: (results: AnswerResult[]) => void;
+  /** Told the index of the next question each time the runner moves on. */
+  onProgress?: (index: number) => void;
 }
 
 /**
  * Runs a list of questions: scheduling, save after every answer, progress, combo, hearts.
  * One runner is one practice session: each item is scheduled once, with its worst answer.
  */
-export function QuestionRunner({ questions, showHearts, onFinish }: RunnerProps) {
+export function QuestionRunner({ questions, showHearts, onFinish, onProgress }: RunnerProps) {
   const [index, setIndex] = useState(0);
   const [results, setResults] = useState<AnswerResult[]>([]);
   const [combo, setCombo] = useState(0);
@@ -77,8 +80,12 @@ export function QuestionRunner({ questions, showHearts, onFinish }: RunnerProps)
         }
       }
     }
-    if (index + 1 >= questions.length) onFinish(nextResults);
-    else setIndex(index + 1);
+    if (index + 1 >= questions.length) {
+      onFinish(nextResults);
+    } else {
+      setIndex(index + 1);
+      onProgress?.(index + 1);
+    }
   };
 
   if (!question) return null;
@@ -120,6 +127,8 @@ export function TaskScreen() {
     shown: 1,
     talking: undefined,
   });
+  /** Role-play: how many scene lines are on screen. */
+  const [rolePlayShown, setRolePlayShown] = useState(0);
   const { audioId: heard } = useStore(nowPlaying);
   useEffect(() => playMusic('cafe'), []);
 
@@ -129,7 +138,10 @@ export function TaskScreen() {
     return task ? taskItemIds(task).filter((id) => !(id in save.cards)) : [];
   }, [task]);
   const questions = useMemo(
-    () => (unit && task ? buildTaskPractice(unit, task, makeRng(currentNow().getTime())) : []),
+    () =>
+      unit && task && task.kind !== 'roleplay'
+        ? buildTaskPractice(unit, task, makeRng(currentNow().getTime()))
+        : [],
     [unit, task],
   );
 
@@ -164,10 +176,17 @@ export function TaskScreen() {
 
   // Units with a stage show it for the whole task: the story plays on it, then
   // it rests at the story's end during the intro cards and practice, where
-  // whoever is heard in a clip bobs.
+  // whoever is heard in a clip bobs. A role-play builds its scene on the stage
+  // line by line, and whoever is heard bobs.
   const frame = stageFrame(unit.id);
-  const inStory = phase === 'story';
+  const rolePlay = task.kind === 'roleplay';
+  const inStory = !rolePlay && phase === 'story';
   const talking = inStory ? beat.talking : heard ? speakerOf(heard) : undefined;
+  const view = rolePlay
+    ? stageAt(task.scene, rolePlayShown)
+    : inStory
+      ? stageAt(task.scene, beat.shown)
+      : stageAfter(task.scene);
   return (
     <div class={`flow${frame ? ' has-stage' : ''}`} data-testid="task">
       {frame && (
@@ -175,13 +194,16 @@ export function TaskScreen() {
           frame={frame}
           unit={unit}
           scene={task.scene}
-          view={inStory ? stageAt(task.scene, beat.shown) : stageAfter(task.scene)}
-          beat={beat.shown}
+          view={view}
+          beat={rolePlay ? rolePlayShown : beat.shown}
           talking={talking}
         />
       )}
       <div class="flow-card">
         <div class="flow-title">{task.title}</div>
+        {rolePlay && (
+          <RolePlay unit={unit} task={task} onShown={setRolePlayShown} onFinish={finish} />
+        )}
         {inStory && (
           <SceneStory
             unit={unit}
@@ -190,8 +212,10 @@ export function TaskScreen() {
             onBeat={(shown, talking) => setBeat({ shown, talking })}
           />
         )}
-        {phase === 'intro' && <IntroCards task={task} onDone={() => setPhase('practice')} />}
-        {phase === 'practice' && (
+        {!rolePlay && phase === 'intro' && (
+          <IntroCards task={task} onDone={() => setPhase('practice')} />
+        )}
+        {!rolePlay && phase === 'practice' && (
           <QuestionRunner questions={questions} showHearts onFinish={finish} />
         )}
         <button

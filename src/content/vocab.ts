@@ -199,6 +199,11 @@ export interface TaskProfile {
   /** Story lemmas that are neither known nor taught here, sorted. */
   unplanned: string[];
   score: number;
+  /**
+   * A review-only task (role-play): it teaches nothing, so it stays out of the score
+   * curve. Its story is still checked for untaught words.
+   */
+  review: boolean;
 }
 
 /**
@@ -279,7 +284,10 @@ export function profileUnits(
         wordRanks: words.map((w) => equivalentRank(lists, rarest(lists, w))),
         levelRanks,
         freqLevel: mean([
-          ...profiles.slice(-(LEVEL_WINDOW - 1)).flatMap((p) => p.levelRanks),
+          ...profiles
+            .filter((p) => !p.review)
+            .slice(-(LEVEL_WINDOW - 1))
+            .flatMap((p) => p.levelRanks),
           ...levelRanks,
         ]),
         chunkWords: mean(chunkTexts.map((text) => tokenize(text).length)),
@@ -289,6 +297,7 @@ export function profileUnits(
         coverage: tokens ? hits / tokens : 1,
         unplanned: [...unplanned].sort(),
         score: 0,
+        review: task.kind === 'roleplay',
       };
       profile.score = difficultyScore(profile);
       profiles.push(profile);
@@ -346,13 +355,26 @@ export const SMOOTHNESS = {
   maxItemGrowth: 1,
 } as const;
 
+/** The last profile before index `i` that is not review-only, if any. */
+export function previousTeaching(
+  profiles: readonly TaskProfile[],
+  i: number,
+): TaskProfile | undefined {
+  for (let j = i - 1; j >= 0; j--) {
+    const p = profiles[j];
+    if (p && !p.review) return p;
+  }
+  return undefined;
+}
+
 /** Every break of the smoothness rules, in play order, as one Chinese line each. */
 export function smoothnessBreaks(profiles: readonly TaskProfile[], lists: WordLists): string[] {
   const S = SMOOTHNESS;
   const pct = (n: number) => `${(n * 100).toFixed(0)}%`;
   const breaks: string[] = [];
   profiles.forEach((p, i) => {
-    const prev = profiles[i - 1];
+    // Review-only tasks are left out of the curve: compare with the last task that teaches.
+    const prev = p.review ? undefined : previousTeaching(profiles, i);
     const where = `${p.unitId}/${p.taskId}`;
     if (p.tokens >= S.longText) {
       if (p.coverage < S.minCoverage) {

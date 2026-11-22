@@ -260,3 +260,37 @@ describe('word level', () => {
     expect(l4!.freqLevel).toBeCloseTo((161 + 260 + 254 + 490) / 4);
   });
 });
+
+describe('review-only tasks', () => {
+  const word = (id: string) => ({ id, en: id, zh: '', emoji: '' });
+  const task = (id: string, newWordIds: string[], kind?: string) => ({
+    id,
+    title: '',
+    ...(kind ? { kind } : {}),
+    newChunkIds: [],
+    newWordIds,
+    scene: [{ id: `${id}_1`, role: 'landlord', speaker: 'npc', en: 'Hi.', zh: '' }],
+  });
+  const unit = {
+    id: 'review',
+    title: '',
+    titleEn: '',
+    chunks: [],
+    words: [word('home'), word('car'), word('room')],
+    tasks: [
+      task('t1', ['home']),
+      task('t2', ['car']),
+      task('t8', [], 'roleplay'),
+      task('t9', ['room']),
+    ],
+  } as unknown as Unit;
+  const profiles = profileUnits([unit], lists);
+
+  it('marks role-play tasks as review', () => {
+    expect(profiles.map((p) => p.review)).toEqual([false, false, true, false]);
+  });
+
+  it('leaves them out of the word-level window', () => {
+    expect(profiles[3]!.freqLevel).toBeCloseTo((161 + 260 + 254) / 3);
+  });
+});

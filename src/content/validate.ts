@@ -57,8 +57,13 @@ export function validateUnit(unit: unknown): string[] {
 
   // Line audio ids are `${unitId}.line.${id}`, so line ids are unique across the unit.
   const lineIds = new Set<string>();
+  /** Chunks introduced by the tasks before the current one. */
+  const taughtChunks = new Set<string>();
   for (const task of tasks ?? []) {
     const taskId = String(task.id);
+    if (task.kind !== undefined && task.kind !== 'roleplay') {
+      problems.push(where(`task "${taskId}" has bad kind "${String(task.kind)}"`));
+    }
     const refs = (
       key: 'newChunkIds' | 'newWordIds' | 'newPairIds',
       known: Set<string>,
@@ -104,8 +109,46 @@ export function validateUnit(unit: unknown): string[] {
       if (line.stage !== undefined)
         checkStage(line.stage, wordIds, (p) => problems.push(where(`line "${lineId}" ${p}`)));
     }
+    if (task.kind === 'roleplay') {
+      checkRolePlay(task, scene, taughtChunks, (p) =>
+        problems.push(where(`task "${taskId}" ${p}`)),
+      );
+    }
+    if (Array.isArray(task.newChunkIds)) {
+      for (const id of task.newChunkIds) if (typeof id === 'string') taughtChunks.add(id);
+    }
   }
   return problems;
+}
+
+/**
+ * A role-play task reviews only: nothing new, and every player line is a chunk taught
+ * earlier in the unit. Each player line follows an NPC line (the conversation so far is
+ * the learner's only cue), so the scene starts with the NPC, and there are 2+ turns.
+ */
+function checkRolePlay(
+  task: Record<string, unknown>,
+  scene: Record<string, unknown>[],
+  taughtChunks: Set<string>,
+  report: (problem: string) => void,
+): void {
+  const hasItems = (key: string) => Array.isArray(task[key]) && (task[key] as unknown[]).length > 0;
+  if (hasItems('newChunkIds') || hasItems('newWordIds') || task.newPairIds !== undefined) {
+    report('is a role-play and must not teach new items');
+  }
+  if (scene[0]?.speaker !== 'npc') report('role-play must start with an NPC line');
+  let turns = 0;
+  scene.forEach((line, i) => {
+    if (line.speaker !== 'player') return;
+    turns += 1;
+    if (i > 0 && scene[i - 1]?.speaker !== 'npc') {
+      report(`role-play line "${String(line.id)}" must follow an NPC line`);
+    }
+    if (typeof line.chunkId === 'string' && !taughtChunks.has(line.chunkId)) {
+      report(`role-play line "${String(line.id)}" uses chunk "${line.chunkId}" not taught before`);
+    }
+  });
+  if (turns < 2) report('role-play needs at least 2 player lines');
 }
 
 const STAGE_ACTS = ['want', 'ask', 'give'];

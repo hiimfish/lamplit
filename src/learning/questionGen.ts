@@ -4,7 +4,7 @@
  *
  * Item ids: `chunk:<id>`, `word:<id>` and `pair:<id>` (also used in AnswerResult.itemId).
  */
-import type { Chunk, MinimalPair, Task, Unit, Word } from '../content/types';
+import type { Chunk, MinimalPair, SceneLine, Task, Unit, Word } from '../content/types';
 import { normalize } from './grading';
 import type {
   ArrangeQuestion,
@@ -239,6 +239,48 @@ export function buildTaskPractice(unit: Unit, task: Task, rng: Rng): Question[] 
     ...compact(chunks.map((c) => arrangeChunk(unit, c, rng))),
     ...chunks.map((c) => speakChunk(unit, c)),
   ];
+}
+
+export const ROLE_PLAY_PROMPT = '換你說：把單字排成你要說的話';
+
+/**
+ * One arrange question per player line of a role-play task, in order. The learner
+ * builds the whole line (it may say more than its chunk); it is scheduled as its chunk.
+ */
+export function buildRolePlayTurns(unit: Unit, task: Task, rng: Rng): ArrangeQuestion[] {
+  return task.scene.flatMap((line) => {
+    if (line.speaker !== 'player' || !line.chunkId) return [];
+    const chunk = unit.chunks.find((c) => c.id === line.chunkId);
+    const words = line.en.split(/\s+/).map(blockText).filter(Boolean);
+    if (!chunk || words.length < 1) return [];
+    const accepted = [line.en, ...(sameText(line.en, chunk.en) ? (chunk.accept ?? []) : [])];
+    const question: ArrangeQuestion = {
+      kind: 'arrange',
+      zh: line.zh,
+      audioId: `${unit.id}.line.${line.id}`,
+      blocks: shuffleBlocks(words, accepted, rng),
+      accepted,
+      itemId: chunkItemId(chunk.id),
+      prompt: ROLE_PLAY_PROMPT,
+      zhOnRequest: true,
+    };
+    return [question];
+  });
+}
+
+/**
+ * How many scene lines are in the chat during role-play turn `turn` (0-based): every
+ * line before that turn's player line. Past the last turn, the whole scene.
+ */
+export function rolePlayShown(scene: readonly SceneLine[], turn: number): number {
+  let seen = 0;
+  for (let i = 0; i < scene.length; i++) {
+    const line = scene[i];
+    if (line?.speaker !== 'player' || !line.chunkId) continue;
+    if (seen === turn) return i;
+    seen += 1;
+  }
+  return scene.length;
 }
 
 /** Mixed listen-pick / arrange questions for due review items. Unknown ids are ignored. */

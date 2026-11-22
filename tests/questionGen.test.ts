@@ -1,8 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import cafe from '../src/data/units/cafe.json';
-import type { Unit } from '../src/content/types';
+import type { Task, Unit } from '../src/content/types';
 import { gradeAnswer, normalize } from '../src/learning/grading';
-import { buildReviewQuestions, buildTaskPractice, makeRng } from '../src/learning/questionGen';
+import {
+  ROLE_PLAY_PROMPT,
+  buildReviewQuestions,
+  buildRolePlayTurns,
+  buildTaskPractice,
+  makeRng,
+  rolePlayShown,
+} from '../src/learning/questionGen';
 import type { Question } from '../src/learning/questions';
 
 const unit = cafe as Unit;
@@ -113,5 +120,72 @@ describe('buildReviewQuestions', () => {
     expect(qs).toHaveLength(2);
     expect(qs.map((q) => q.itemId)).toEqual(['chunk:to_go', 'word:tea']);
     expect(qs.every((q) => q.kind === 'listen-pick' || q.kind === 'arrange')).toBe(true);
+  });
+});
+
+describe('role-play turns', () => {
+  const npc = (id: string, en: string) => ({
+    id,
+    role: 'barista' as const,
+    speaker: 'npc' as const,
+    en,
+    zh: '',
+  });
+  const rp: Task = {
+    id: 'rp',
+    title: '角色扮演大挑戰',
+    kind: 'roleplay',
+    newChunkIds: [],
+    newWordIds: [],
+    scene: [
+      npc('rp_1', 'Hi! What can I get for you?'),
+      {
+        id: 'rp_2',
+        role: 'guide',
+        speaker: 'player',
+        en: 'Can I get a muffin, please?',
+        zh: '可以給我一個瑪芬嗎？',
+        chunkId: 'can_i_get',
+      },
+      npc('rp_3', 'For here or to go?'),
+      {
+        id: 'rp_4',
+        role: 'guide',
+        speaker: 'player',
+        en: 'To go, please.',
+        zh: '外帶，謝謝。',
+        chunkId: 'to_go',
+      },
+      npc('rp_5', 'Here you go.'),
+    ],
+  };
+
+  it('builds one arrange question per player line, in order', () => {
+    const turns = buildRolePlayTurns(unit, rp, makeRng(1));
+    expect(turns.map((q) => q.itemId)).toEqual(['chunk:can_i_get', 'chunk:to_go']);
+    expect(turns.every((q) => q.kind === 'arrange' && q.prompt === ROLE_PLAY_PROMPT)).toBe(true);
+    expect(turns.every((q) => q.zhOnRequest)).toBe(true);
+    expect(turns[0]!.audioId).toBe('cafe.line.rp_2');
+    expect(turns[0]!.zh).toBe('可以給我一個瑪芬嗎？');
+  });
+
+  it('accepts the line, plus the chunk variants only when the line is the chunk', () => {
+    const [muffin, toGo] = buildRolePlayTurns(unit, rp, makeRng(1));
+    expect(muffin!.accepted).toEqual(['Can I get a muffin, please?']);
+    const chunk = unit.chunks.find((c) => c.id === 'to_go')!;
+    expect(toGo!.accepted).toEqual([chunk.en, ...(chunk.accept ?? [])]);
+    expect(gradeAnswer('Can I get a muffin please', muffin!.accepted).correct).toBe(true);
+  });
+
+  it.each([1, 2, 3, 4, 5, 6])('shuffles the line into blocks, never in order (seed %i)', (seed) => {
+    for (const q of buildRolePlayTurns(unit, rp, makeRng(seed))) {
+      const words = q.accepted[0]!.split(/\s+/).map((w) => w.replace(/[,.?!]+$/, ''));
+      expect([...q.blocks].sort()).toEqual([...words].sort());
+      expect(gradeAnswer(q.blocks.join(' '), q.accepted).correct).toBe(false);
+    }
+  });
+
+  it('shows every line before each turn, then the whole scene', () => {
+    expect([0, 1, 2].map((turn) => rolePlayShown(rp.scene, turn))).toEqual([1, 3, 5]);
   });
 });
