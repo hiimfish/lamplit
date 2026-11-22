@@ -1,5 +1,13 @@
 import { isPaletteName, PALETTE } from '../../game/palette';
 import { validateSprite, type PixelSprite } from '../../game/sprites';
+import { BANK_ITEMS } from './bank';
+import { COMMUNITY_CENTER_ITEMS } from './communityCenter';
+import { LIBRARY_ITEMS } from './library';
+import { REPAIR_ITEMS } from './repair';
+import { JOB_CENTER_ITEMS } from './jobCenter';
+import { RESUME_ITEMS } from './resume';
+import { INTERVIEW_ITEMS } from './interview';
+import { DAY_BEFORE_ITEMS } from './dayBefore';
 import { CAFE_ITEMS } from './cafe';
 import { CLINIC_ITEMS } from './clinic';
 import { CLOTHES_ITEMS } from './clothes';
@@ -38,6 +46,14 @@ export const ITEM_SPRITES: Readonly<Record<string, PixelSprite>> = {
   ...RESTAURANT_ITEMS,
   ...POST_OFFICE_ITEMS,
   ...PARK_ITEMS,
+  ...BANK_ITEMS,
+  ...COMMUNITY_CENTER_ITEMS,
+  ...LIBRARY_ITEMS,
+  ...REPAIR_ITEMS,
+  ...JOB_CENTER_ITEMS,
+  ...RESUME_ITEMS,
+  ...INTERVIEW_ITEMS,
+  ...DAY_BEFORE_ITEMS,
 };
 
 export function getItemSprite(id: string): PixelSprite | undefined {

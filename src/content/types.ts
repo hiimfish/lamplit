@@ -18,6 +18,13 @@ export type Role =
   | 'friend'
   | 'postal_clerk'
   | 'volunteer'
+  | 'teller'
+  | 'instructor'
+  | 'librarian'
+  | 'mechanic'
+  | 'counselor'
+  | 'front_desk'
+  | 'manager'
   | 'guide';
 
 export interface Chunk {

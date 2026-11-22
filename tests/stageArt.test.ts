@@ -3,6 +3,9 @@ import { coreOrigin, CORE_H, CORE_W, STAGE_UNIT_IDS, stageFor } from '../src/art
 import { BARISTA_SPRITE, CAFE_COUNTER } from '../src/art/stage/cafe';
 import { NEIGHBOR_SPRITE } from '../src/art/stage/moveIn';
 import { CLERK_SPRITE, STORE_COUNTER } from '../src/art/stage/store';
+import { VOICE_NAMES } from '../src/audio/voices';
+import { ROLE_LABEL } from '../src/content/roles';
+import type { Role } from '../src/content/types';
 import { getUnit } from '../src/content/units';
 import { recordingPainter, type Painter } from '../src/game/painter';
 import { isPaletteName } from '../src/game/palette';
@@ -241,4 +244,33 @@ describe('stageArea', () => {
     expect(Math.floor(a.w / a.scale)).toBeGreaterThanOrEqual(CORE_VIEW_W);
     expect(canvas.h).toBeGreaterThanOrEqual(CORE_H);
   });
+});
+
+describe('Act 2 placeholder stages', () => {
+  const ACT2_CAST: Record<string, Role[]> = {
+    bank: ['teller'],
+    community_center: ['instructor', 'volunteer'],
+    library: ['librarian'],
+    repair: ['landlord', 'mechanic'],
+    job_center: ['counselor'],
+    resume: ['counselor', 'friend'],
+    interview: ['front_desk', 'manager'],
+    day_before: ['manager', 'neighbor'],
+  };
+
+  it.each(Object.entries(ACT2_CAST))(
+    '%s casts its roles, each with a label and voices',
+    (id, roles) => {
+      const config = stageFor(id);
+      expect(config).toBeDefined();
+      for (const role of roles) {
+        expect(config!.cast[role], role).toBeDefined();
+        expect(ROLE_LABEL[role]).toBeTruthy();
+        expect(VOICE_NAMES.chirp[role]).toMatch(/^en-US-Chirp3-HD-/);
+      }
+      // two roles of one location never share a Neural2 voice
+      const voices = roles.map((r) => VOICE_NAMES.neural2[r]);
+      expect(new Set(voices).size).toBe(voices.length);
+    },
+  );
 });

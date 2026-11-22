@@ -18,5 +18,12 @@ export const ROLE_LABEL: Record<Role, string> = {
   friend: '朋友',
   postal_clerk: '郵局人員',
   volunteer: '志工',
+  teller: '銀行行員',
+  instructor: '課程老師',
+  librarian: '圖書館員',
+  mechanic: '修車師傅',
+  counselor: '就業顧問',
+  front_desk: '前台人員',
+  manager: '主管',
   guide: '你',
 };

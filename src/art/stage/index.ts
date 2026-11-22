@@ -1,5 +1,13 @@
 import type { Role } from '../../content/types';
 import { BARISTA_SPRITE, CAFE_COUNTER, coreOrigin, CORE_H, CORE_W, paintCafe } from './cafe';
+import { BANK_STAGE } from './bank';
+import { COMMUNITY_CENTER_STAGE } from './communityCenter';
+import { LIBRARY_STAGE } from './library';
+import { REPAIR_STAGE } from './repair';
+import { JOB_CENTER_STAGE } from './jobCenter';
+import { RESUME_STAGE } from './resume';
+import { INTERVIEW_STAGE } from './interview';
+import { DAY_BEFORE_STAGE } from './dayBefore';
 import { CLINIC_STAGE } from './clinic';
 import { CLOTHES_STAGE } from './clothes';
 import { GUIDE_ACTOR, type StageConfig, type StageSide } from './config';
@@ -83,6 +91,14 @@ const STAGES: Readonly<Record<string, StageConfig>> = {
   restaurant: RESTAURANT_STAGE,
   post_office: POST_OFFICE_STAGE,
   park: PARK_STAGE,
+  bank: BANK_STAGE,
+  community_center: COMMUNITY_CENTER_STAGE,
+  library: LIBRARY_STAGE,
+  repair: REPAIR_STAGE,
+  job_center: JOB_CENTER_STAGE,
+  resume: RESUME_STAGE,
+  interview: INTERVIEW_STAGE,
+  day_before: DAY_BEFORE_STAGE,
 };
 
 export function stageFor(unitId: string): StageConfig | undefined {
