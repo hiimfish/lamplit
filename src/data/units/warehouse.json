@@ -1,0 +1,1810 @@
+{
+  "id": "warehouse",
+  "title": "倉庫與出貨",
+  "titleEn": "Warehouse & Shipping",
+  "chunks": [
+    {
+      "id": "asked_me_to_help_out_here",
+      "en": "Ms. Carter asked me to help out here this month.",
+      "zh": "Ms. Carter 請我這個月來這邊幫忙。",
+      "note": "到別的部門報到時，說明自己為什麼來。ask 人 to 做事 = 請某人做某事。",
+      "distractors": [
+        {
+          "text": "Ms. Carter asked me help out here this month.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Ms. Carter asked me to helps out here this month.",
+          "error": "other"
+        },
+        {
+          "text": "Ms. Carter asked to me help out here this month.",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "this_place_is_huge_where_do_i_start",
+      "en": "This place is huge, so where do I start?",
+      "zh": "這裡好大，我要從哪裡開始？",
+      "accept": ["This place is huge. So where do I start?"],
+      "note": "第一次到一個很大的地方幫忙，問對方要從哪裡做起。",
+      "distractors": [
+        {
+          "text": "This place is huge, so where I start?",
+          "error": "missing-word"
+        },
+        {
+          "text": "This place is a huge, so where do I start?",
+          "error": "article"
+        },
+        {
+          "text": "This place is huge, so where do I starts?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "numbers_still_dont_match",
+      "en": "I counted again, but the numbers still don't match.",
+      "zh": "我又數了一次，數字還是對不起來。",
+      "note": "盤點時數字跟清單對不上就這樣說。match = 相符、對得上。",
+      "distractors": [
+        {
+          "text": "I counted again, but the number still don't match.",
+          "error": "plural"
+        },
+        {
+          "text": "I counted again, but the numbers don't still match.",
+          "error": "word-order"
+        },
+        {
+          "text": "I counted again, but the numbers still not match.",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "mark_it_on_inventory_list",
+      "en": "Should I mark it on the inventory list?",
+      "zh": "我要在庫存清單上註記一下嗎？",
+      "note": "發現問題時，問要不要先記在清單上。Should I…? = 我要不要……？",
+      "distractors": [
+        {
+          "text": "Should I to mark it on the inventory list?",
+          "error": "extra-word"
+        },
+        {
+          "text": "Should I mark it on inventory list?",
+          "error": "article"
+        },
+        {
+          "text": "Should I marks it on the inventory list?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "how_are_small_orders_packed",
+      "en": "How are small orders like this usually packed?",
+      "zh": "像這種小訂單通常怎麼包？",
+      "note": "被動式的問句：How are + 東西 + 過去分詞？問東西「是怎麼被處理的」。",
+      "distractors": [
+        {
+          "text": "How are small orders like this usually pack?",
+          "error": "other"
+        },
+        {
+          "text": "How small orders like this are usually packed?",
+          "error": "word-order"
+        },
+        {
+          "text": "How is small orders like this usually packed?",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "were_these_boxes_packed_by_same_person",
+      "en": "Were these boxes packed by the same person?",
+      "zh": "這幾箱是同一個人包的嗎？",
+      "note": "過去的被動式問句：Were + 東西 + 過去分詞 + by 人？by 後面接做這件事的人。",
+      "distractors": [
+        {
+          "text": "Were these boxes pack by the same person?",
+          "error": "other"
+        },
+        {
+          "text": "Was these boxes packed by the same person?",
+          "error": "plural"
+        },
+        {
+          "text": "Were these boxes packed by same person?",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "wasnt_aware_of_rule_about_gloves",
+      "en": "Sorry, I wasn't aware of the rule about gloves.",
+      "zh": "不好意思，我不知道有戴手套的規定。",
+      "accept": ["Sorry, I was not aware of the rule about gloves."],
+      "note": "被提醒規定時道歉。be aware of = 知道、有留意到。",
+      "distractors": [
+        {
+          "text": "Sorry, I wasn't aware the rule about gloves.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Sorry, I wasn't aware of the rule about glove.",
+          "error": "plural"
+        },
+        {
+          "text": "Sorry, I didn't aware of the rule about gloves.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "want_me_to_load_rush_order_first",
+      "en": "Do you want me to load the rush order first?",
+      "zh": "要我先裝那張急單嗎？",
+      "note": "主動問要不要先做某件事。Do you want me to…? = 要我……嗎？",
+      "distractors": [
+        {
+          "text": "Do you want me load the rush order first?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Do you want I to load the rush order first?",
+          "error": "other"
+        },
+        {
+          "text": "Do you want me to loads the rush order first?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "which_truck_does_this_order_go_on",
+      "en": "Which truck does this order go on?",
+      "zh": "這張訂單要上哪一台車？",
+      "note": "問貨要裝上哪台車。go on a truck 的 on 放在句尾，不能省。",
+      "distractors": [
+        {
+          "text": "Which truck does this order go?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Which truck this order goes on?",
+          "error": "word-order"
+        },
+        {
+          "text": "Which truck does this order goes on?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "most_of_the_order_is_here",
+      "en": "Most of the order is here, but one box is missing.",
+      "zh": "這張訂單的貨大部分都在，但是少了一箱。",
+      "note": "most of the + 名詞 = ……的大部分；the order 是單數，所以用 is。",
+      "distractors": [
+        {
+          "text": "Most the order is here, but one box is missing.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Most of order is here, but one box is missing.",
+          "error": "article"
+        },
+        {
+          "text": "Most of the order is here, but one boxes is missing.",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "none_of_these_boxes_have_yellow_tag",
+      "en": "None of these boxes have a yellow tag.",
+      "zh": "這幾箱都沒有黃色吊牌。",
+      "accept": ["None of these boxes has a yellow tag."],
+      "note": "none of + 複數名詞 = 一個都沒有；口語常接 have，書面也可以用 has。",
+      "distractors": [
+        {
+          "text": "None of these box have a yellow tag.",
+          "error": "plural"
+        },
+        {
+          "text": "None these boxes have a yellow tag.",
+          "error": "missing-word"
+        },
+        {
+          "text": "None of these boxes have yellow tag.",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "storage_room_closed_until_three",
+      "en": "So the storage room is closed until three?",
+      "zh": "所以儲藏室要關到三點？",
+      "accept": [
+        "So the storage room is closed until 3?",
+        "So the storage room's closed until three?"
+      ],
+      "note": "聽完廣播跟人確認重點。until = 一直到（某個時間）。",
+      "distractors": [
+        {
+          "text": "So the storage room closed until three?",
+          "error": "missing-word"
+        },
+        {
+          "text": "So the storage room is close until three?",
+          "error": "other"
+        },
+        {
+          "text": "So the storage room is closed until the three?",
+          "error": "extra-word"
+        }
+      ]
+    },
+    {
+      "id": "status_of_the_shipment",
+      "en": "What's the status of the shipment for Mr. Hughes?",
+      "zh": "Mr. Hughes 那批貨現在狀況怎麼樣？",
+      "accept": ["What is the status of the shipment for Mr. Hughes?"],
+      "note": "問一批貨現在走到哪裡了。the status of + 東西 = ……的進度、狀態。",
+      "distractors": [
+        {
+          "text": "What's the status of shipment for Mr. Hughes?",
+          "error": "article"
+        },
+        {
+          "text": "What the status of the shipment for Mr. Hughes?",
+          "error": "missing-word"
+        },
+        {
+          "text": "What's the statuses of the shipment for Mr. Hughes?",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "let_ms_carter_know_on_its_way",
+      "en": "I'll let Ms. Carter know it's on its way.",
+      "zh": "我會跟 Ms. Carter 說貨已經在路上了。",
+      "accept": [
+        "I will let Ms. Carter know it's on its way.",
+        "I'll let Ms. Carter know it is on its way."
+      ],
+      "note": "答應會轉告別人。let 人 know = 讓某人知道；on its way = 在路上。",
+      "distractors": [
+        {
+          "text": "I'll let Ms. Carter knows it's on its way.",
+          "error": "other"
+        },
+        {
+          "text": "I'll let Ms. Carter know it's on it's way.",
+          "error": "spelling"
+        },
+        {
+          "text": "I'll let Ms. Carter to know it's on its way.",
+          "error": "extra-word"
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "id": "goods",
+      "en": "goods",
+      "zh": "貨物；商品",
+      "emoji": "🛒",
+      "abstract": true
+    },
+    {
+      "id": "stock",
+      "en": "stock",
+      "zh": "庫存；存貨",
+      "emoji": "📊",
+      "abstract": true
+    },
+    {
+      "id": "operation",
+      "en": "operation",
+      "zh": "作業；營運",
+      "emoji": "🔄",
+      "abstract": true
+    },
+    {
+      "id": "huge",
+      "en": "huge",
+      "zh": "超大的；巨大的",
+      "emoji": "🐘",
+      "abstract": true
+    },
+    {
+      "id": "shipment",
+      "en": "shipment",
+      "zh": "一批貨；出貨",
+      "emoji": "📤",
+      "abstract": true
+    },
+    {
+      "id": "warehouse",
+      "en": "warehouse",
+      "zh": "倉庫",
+      "emoji": "🏬"
+    },
+    {
+      "id": "dock",
+      "en": "dock",
+      "zh": "裝卸區（貨車停靠的地方）",
+      "emoji": "🅿️",
+      "abstract": true
+    },
+    {
+      "id": "truck",
+      "en": "truck",
+      "zh": "貨車；卡車",
+      "emoji": "🚛"
+    },
+    {
+      "id": "mark",
+      "en": "mark",
+      "zh": "做記號；註記",
+      "emoji": "✔️",
+      "abstract": true
+    },
+    {
+      "id": "match",
+      "en": "match",
+      "zh": "相符；對得上",
+      "emoji": "🧩",
+      "abstract": true
+    },
+    {
+      "id": "count",
+      "en": "count",
+      "zh": "數；清點",
+      "emoji": "🔢",
+      "abstract": true
+    },
+    {
+      "id": "inventory",
+      "en": "inventory",
+      "zh": "庫存清單；盤點",
+      "emoji": "🧮",
+      "abstract": true
+    },
+    {
+      "id": "category",
+      "en": "category",
+      "zh": "類別",
+      "emoji": "📑",
+      "abstract": true
+    },
+    {
+      "id": "empty",
+      "en": "empty",
+      "zh": "空的",
+      "emoji": "🕳️",
+      "abstract": true
+    },
+    {
+      "id": "dozen",
+      "en": "dozen",
+      "zh": "一打（十二個）",
+      "emoji": "🍩",
+      "abstract": true
+    },
+    {
+      "id": "shelf",
+      "en": "shelf",
+      "zh": "層架；架子",
+      "emoji": "🗂️"
+    },
+    {
+      "id": "rack",
+      "en": "rack",
+      "zh": "貨架（整座）",
+      "emoji": "🏗️",
+      "abstract": true
+    },
+    {
+      "id": "measure",
+      "en": "measure",
+      "zh": "量（尺寸）",
+      "emoji": "📐"
+    },
+    {
+      "id": "store",
+      "en": "store",
+      "zh": "存放；儲存",
+      "emoji": "📥",
+      "abstract": true
+    },
+    {
+      "id": "protect",
+      "en": "protect",
+      "zh": "保護",
+      "emoji": "🛡️",
+      "abstract": true
+    },
+    {
+      "id": "pack",
+      "en": "pack",
+      "zh": "包裝；裝箱",
+      "emoji": "📦",
+      "abstract": true
+    },
+    {
+      "id": "label",
+      "en": "label",
+      "zh": "標籤（貼紙）",
+      "emoji": "📛"
+    },
+    {
+      "id": "plastic",
+      "en": "plastic",
+      "zh": "塑膠",
+      "emoji": "🪣",
+      "abstract": true
+    },
+    {
+      "id": "seal",
+      "en": "seal",
+      "zh": "封（箱）；密封",
+      "emoji": "🔏",
+      "abstract": true
+    },
+    {
+      "id": "wrap",
+      "en": "wrap",
+      "zh": "包；裹",
+      "emoji": "🎀",
+      "abstract": true
+    },
+    {
+      "id": "fragile",
+      "en": "fragile",
+      "zh": "易碎的",
+      "emoji": "🥂",
+      "abstract": true
+    },
+    {
+      "id": "fire",
+      "en": "fire",
+      "zh": "火；火災",
+      "emoji": "🔥"
+    },
+    {
+      "id": "prevent",
+      "en": "prevent",
+      "zh": "預防；防止",
+      "emoji": "🚫",
+      "abstract": true
+    },
+    {
+      "id": "safe",
+      "en": "safe",
+      "zh": "安全的",
+      "emoji": "🦺",
+      "abstract": true
+    },
+    {
+      "id": "aware",
+      "en": "aware",
+      "zh": "知道；留意到",
+      "emoji": "👀",
+      "abstract": true
+    },
+    {
+      "id": "equipment",
+      "en": "equipment",
+      "zh": "設備；裝備",
+      "emoji": "🔩",
+      "abstract": true
+    },
+    {
+      "id": "warn",
+      "en": "warn",
+      "zh": "警告；提醒",
+      "emoji": "⚠️",
+      "abstract": true
+    },
+    {
+      "id": "wet",
+      "en": "wet",
+      "zh": "濕的",
+      "emoji": "💦",
+      "abstract": true
+    },
+    {
+      "id": "ladder",
+      "en": "ladder",
+      "zh": "梯子",
+      "emoji": "🪜"
+    },
+    {
+      "id": "alarm",
+      "en": "alarm",
+      "zh": "警報；警鈴",
+      "emoji": "🚨"
+    },
+    {
+      "id": "glove",
+      "en": "glove",
+      "zh": "手套",
+      "emoji": "🧤"
+    },
+    {
+      "id": "lift",
+      "en": "lift",
+      "zh": "抬；舉起",
+      "emoji": "🏋️",
+      "abstract": true
+    },
+    {
+      "id": "vehicle",
+      "en": "vehicle",
+      "zh": "車輛",
+      "emoji": "🚙",
+      "abstract": true
+    },
+    {
+      "id": "load",
+      "en": "load",
+      "zh": "裝（貨）；裝載",
+      "emoji": "🛻",
+      "abstract": true
+    },
+    {
+      "id": "capacity",
+      "en": "capacity",
+      "zh": "容量；載重量",
+      "emoji": "🈵",
+      "abstract": true
+    },
+    {
+      "id": "yard",
+      "en": "yard",
+      "zh": "（倉庫外的）場地；院子",
+      "emoji": "🚧",
+      "abstract": true
+    },
+    {
+      "id": "rush",
+      "en": "rush",
+      "zh": "趕；急件",
+      "emoji": "⚡",
+      "abstract": true
+    },
+    {
+      "id": "multiple",
+      "en": "multiple",
+      "zh": "多個的；多筆的",
+      "emoji": "✖️",
+      "abstract": true
+    },
+    {
+      "id": "maximum",
+      "en": "maximum",
+      "zh": "最大的；上限",
+      "emoji": "🔝",
+      "abstract": true
+    },
+    {
+      "id": "stack",
+      "en": "stack",
+      "zh": "一疊；疊起來",
+      "emoji": "🥞",
+      "abstract": true
+    },
+    {
+      "id": "none",
+      "en": "none",
+      "zh": "沒有任何一個",
+      "emoji": "0️⃣",
+      "abstract": true
+    },
+    {
+      "id": "handle",
+      "en": "handle",
+      "zh": "處理；經手",
+      "emoji": "🤲",
+      "abstract": true
+    },
+    {
+      "id": "inspect",
+      "en": "inspect",
+      "zh": "檢查；檢驗",
+      "emoji": "🔍"
+    },
+    {
+      "id": "disappear",
+      "en": "disappear",
+      "zh": "消失；不見",
+      "emoji": "💨",
+      "abstract": true
+    },
+    {
+      "id": "tag",
+      "en": "tag",
+      "zh": "吊牌；標籤牌",
+      "emoji": "🏷️",
+      "abstract": true
+    },
+    {
+      "id": "yellow",
+      "en": "yellow",
+      "zh": "黃色（的）",
+      "emoji": "🟡",
+      "abstract": true
+    },
+    {
+      "id": "thorough",
+      "en": "thorough",
+      "zh": "徹底的；仔細的",
+      "emoji": "🧐",
+      "abstract": true
+    },
+    {
+      "id": "accurate",
+      "en": "accurate",
+      "zh": "準確的",
+      "emoji": "🎯",
+      "abstract": true
+    },
+    {
+      "id": "shortage",
+      "en": "shortage",
+      "zh": "短少；不足",
+      "emoji": "📉",
+      "abstract": true
+    },
+    {
+      "id": "control",
+      "en": "control",
+      "zh": "控制",
+      "emoji": "🎛️",
+      "abstract": true
+    },
+    {
+      "id": "remain",
+      "en": "remain",
+      "zh": "保持；仍然",
+      "emoji": "🧍",
+      "abstract": true
+    },
+    {
+      "id": "operate",
+      "en": "operate",
+      "zh": "操作",
+      "emoji": "🕹️",
+      "abstract": true
+    },
+    {
+      "id": "maintain",
+      "en": "maintain",
+      "zh": "維持；保養",
+      "emoji": "🔧",
+      "abstract": true
+    },
+    {
+      "id": "electrical",
+      "en": "electrical",
+      "zh": "電的；用電的",
+      "emoji": "🔋",
+      "abstract": true
+    },
+    {
+      "id": "temperature",
+      "en": "temperature",
+      "zh": "溫度",
+      "emoji": "🌡️"
+    },
+    {
+      "id": "shut",
+      "en": "shut",
+      "zh": "關閉；關掉",
+      "emoji": "📴",
+      "abstract": true
+    },
+    {
+      "id": "install",
+      "en": "install",
+      "zh": "安裝",
+      "emoji": "🔌",
+      "abstract": true
+    },
+    {
+      "id": "machinery",
+      "en": "machinery",
+      "zh": "機械（總稱）",
+      "emoji": "⚙️",
+      "abstract": true
+    },
+    {
+      "id": "storage",
+      "en": "storage",
+      "zh": "儲藏；倉儲",
+      "emoji": "🗄️",
+      "abstract": true
+    },
+    {
+      "id": "contain",
+      "en": "contain",
+      "zh": "裝有；包含",
+      "emoji": "🫙",
+      "abstract": true
+    },
+    {
+      "id": "track",
+      "en": "track",
+      "zh": "追蹤",
+      "emoji": "📍",
+      "abstract": true
+    },
+    {
+      "id": "sea",
+      "en": "sea",
+      "zh": "海",
+      "emoji": "🌊"
+    },
+    {
+      "id": "collect",
+      "en": "collect",
+      "zh": "收（貨）；收取",
+      "emoji": "🧲",
+      "abstract": true
+    },
+    {
+      "id": "status",
+      "en": "status",
+      "zh": "狀態；進度",
+      "emoji": "📶",
+      "abstract": true
+    },
+    {
+      "id": "transport",
+      "en": "transport",
+      "zh": "運送；運輸",
+      "emoji": "🚂",
+      "abstract": true
+    },
+    {
+      "id": "carrier",
+      "en": "carrier",
+      "zh": "貨運公司；運送業者",
+      "emoji": "🚐",
+      "abstract": true
+    },
+    {
+      "id": "port",
+      "en": "port",
+      "zh": "港口",
+      "emoji": "⚓"
+    },
+    {
+      "id": "weigh",
+      "en": "weigh",
+      "zh": "秤重；重量是",
+      "emoji": "⚖️",
+      "abstract": true
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "到倉庫幫忙",
+      "newChunkIds": ["asked_me_to_help_out_here", "this_place_is_huge_where_do_i_start"],
+      "newWordIds": [
+        "goods",
+        "stock",
+        "operation",
+        "huge",
+        "shipment",
+        "warehouse",
+        "dock",
+        "truck"
+      ],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Hi, you must be from the office. I'm Luis.",
+          "zh": "嗨，你一定是辦公室那邊來的吧。我是 Luis。"
+        },
+        {
+          "id": "t1_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Ms. Carter asked me to help out here this month.",
+          "zh": "Ms. Carter 請我這個月來這邊幫忙。",
+          "chunkId": "asked_me_to_help_out_here"
+        },
+        {
+          "id": "t1_3",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Great. We're a small operation, so we can use the help.",
+          "zh": "太好了。我們這裡人手不多，正需要人幫忙。"
+        },
+        {
+          "id": "t1_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "This place is huge, so where do I start?",
+          "zh": "這裡好大，我要從哪裡開始？",
+          "chunkId": "this_place_is_huge_where_do_i_start"
+        },
+        {
+          "id": "t1_5",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Let's walk around first. This is our only dock.",
+          "zh": "我們先走一圈。這是我們唯一的裝卸區。"
+        },
+        {
+          "id": "t1_6",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Every truck that picks up or drops off goods stops here.",
+          "zh": "來載貨、送貨的貨車都停在這裡。",
+          "stage": {
+            "act": "want",
+            "item": "truck"
+          }
+        },
+        {
+          "id": "t1_7",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "That's our stock over there. Three big shipments go out this week.",
+          "zh": "那邊是我們的庫存。這禮拜有三批大貨要出。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "盤點庫存",
+      "newChunkIds": ["numbers_still_dont_match", "mark_it_on_inventory_list"],
+      "newWordIds": [
+        "mark",
+        "match",
+        "count",
+        "inventory",
+        "category",
+        "empty",
+        "dozen",
+        "shelf",
+        "rack"
+      ],
+      "fills": [
+        {
+          "id": "numbers_dont_match",
+          "en": "I counted again, but the numbers still don't ___.",
+          "zh": "我又數了一次，數字還是對不起來。",
+          "options": ["match", "mark", "sleep", "open"],
+          "answer": 0,
+          "note": "match = 相符、對得上。",
+          "chunkId": "numbers_still_dont_match"
+        },
+        {
+          "id": "should_i_mark",
+          "en": "Should I ___ it on the inventory list?",
+          "zh": "我要在庫存清單上註記一下嗎？",
+          "options": ["mark", "marks", "marking", "marked"],
+          "answer": 0,
+          "note": "Should 後面接動詞原形。",
+          "chunkId": "mark_it_on_inventory_list",
+          "grammar": true
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Okay, today we count the stock, one category at a time.",
+          "zh": "好，今天我們盤點庫存，一個類別一個類別來。"
+        },
+        {
+          "id": "t2_2",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "The list says five dozen small lamps on this rack.",
+          "zh": "清單上寫這座貨架上有五打小檯燈。",
+          "stage": {
+            "act": "want",
+            "item": "shelf"
+          }
+        },
+        {
+          "id": "t2_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I counted again, but the numbers still don't match.",
+          "zh": "我又數了一次，數字還是對不起來。",
+          "chunkId": "numbers_still_dont_match"
+        },
+        {
+          "id": "t2_4",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Wait. That box on the top shelf is empty. That's the problem.",
+          "zh": "等一下，最上層那個箱子是空的，問題就在這裡。"
+        },
+        {
+          "id": "t2_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Should I mark it on the inventory list?",
+          "zh": "我要在庫存清單上註記一下嗎？",
+          "chunkId": "mark_it_on_inventory_list"
+        },
+        {
+          "id": "t2_6",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Yes. Mark it, and write the real number next to it.",
+          "zh": "對，註記起來，然後在旁邊寫上實際的數量。"
+        },
+        {
+          "id": "t2_7",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Then we'll move on to the large lamps.",
+          "zh": "然後我們再去數大檯燈。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "包裝與貼標籤",
+      "newChunkIds": ["how_are_small_orders_packed", "were_these_boxes_packed_by_same_person"],
+      "newWordIds": [
+        "measure",
+        "store",
+        "protect",
+        "pack",
+        "label",
+        "plastic",
+        "seal",
+        "wrap",
+        "fragile"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Next is packing. This order is just two lamps.",
+          "zh": "接下來是包裝。這張訂單只有兩盞燈。"
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How are small orders like this usually packed?",
+          "zh": "像這種小訂單通常怎麼包？",
+          "chunkId": "how_are_small_orders_packed"
+        },
+        {
+          "id": "t3_3",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "First, we wrap each lamp in plastic to protect the glass.",
+          "zh": "首先，每盞燈都用塑膠包起來，保護玻璃。"
+        },
+        {
+          "id": "t3_4",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Then measure it and pick a box that fits.",
+          "zh": "然後量一下尺寸，挑一個剛好的箱子。"
+        },
+        {
+          "id": "t3_5",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Seal it well, and always put a Fragile label on top.",
+          "zh": "封箱要封好，上面一定要貼「易碎」標籤。",
+          "stage": {
+            "act": "give",
+            "item": "label"
+          }
+        },
+        {
+          "id": "t3_6",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Wait, look at these boxes. They don't have labels.",
+          "zh": "等等，你看這幾箱，都沒貼標籤。"
+        },
+        {
+          "id": "t3_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Were these boxes packed by the same person?",
+          "zh": "這幾箱是同一個人包的嗎？",
+          "chunkId": "were_these_boxes_packed_by_same_person"
+        },
+        {
+          "id": "t3_8",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Yes, they were packed by Tom on Friday. I'll talk to him.",
+          "zh": "對，是 Tom 星期五包的。我再去跟他說。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀安全須知",
+      "newChunkIds": ["wasnt_aware_of_rule_about_gloves"],
+      "newWordIds": [
+        "fire",
+        "prevent",
+        "safe",
+        "aware",
+        "equipment",
+        "warn",
+        "wet",
+        "ladder",
+        "alarm",
+        "glove"
+      ],
+      "passages": [
+        {
+          "id": "safety_rules",
+          "kind": "notice",
+          "title": "Warehouse Safety Rules",
+          "lines": [
+            "To prevent accidents and keep everyone safe, please follow these rules.",
+            "1. Safety equipment: Wear gloves when you pack or move boxes. Glass can cut your hands. You can find gloves in the cabinet by the door.",
+            "2. Be aware of trucks: Trucks come in and out of the dock all day. Look before you walk across.",
+            "3. Use a ladder to reach the top shelf. Never stand on boxes or racks.",
+            "4. A wet floor is not safe. If you see water or oil, clean it up right away. Then put out the sign to warn other people.",
+            "5. Emergencies: When you hear the fire alarm, stop work, leave by the nearest door, and meet in front of the office. Do not go back for your things."
+          ],
+          "questions": [
+            {
+              "en": "Where are the gloves?",
+              "zh": "手套放在哪裡？",
+              "options": ["On the top shelf", "In the cabinet by the door", "In the office"],
+              "answer": 1
+            },
+            {
+              "en": "What should you do if you see water on the floor?",
+              "zh": "看到地上有水，應該怎麼做？",
+              "options": ["Call the office", "Use a ladder", "Clean it and put out a sign"],
+              "answer": 2
+            },
+            {
+              "en": "What must you NOT do when the fire alarm rings?",
+              "zh": "火災警報響的時候，「不可以」做什麼？",
+              "options": ["Go back for your things", "Stop work", "Leave by the nearest door"],
+              "answer": 0
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Hold on! Where are your gloves?",
+          "zh": "等一下！你的手套呢？",
+          "stage": {
+            "act": "ask"
+          }
+        },
+        {
+          "id": "t4_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sorry, I wasn't aware of the rule about gloves.",
+          "zh": "不好意思，我不知道有戴手套的規定。",
+          "chunkId": "wasnt_aware_of_rule_about_gloves"
+        },
+        {
+          "id": "t4_3",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "That's okay. Did you read the sign by the door?",
+          "zh": "沒關係。你有看門邊那張告示嗎？"
+        },
+        {
+          "id": "t4_4",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "That glass can cut you, so always wear gloves in here.",
+          "zh": "那些玻璃會割傷手，所以在這裡一定要戴手套。"
+        },
+        {
+          "id": "t4_5",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "We store them in that cabinet over there. Take a pair.",
+          "zh": "手套都放在那邊的櫃子裡，拿一雙去戴。",
+          "stage": {
+            "act": "give",
+            "item": "glove"
+          }
+        },
+        {
+          "id": "t4_6",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "We want everyone to go home safe at the end of the day.",
+          "zh": "我們希望每個人下班都能平平安安回家。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "照時刻表裝車",
+      "newChunkIds": ["want_me_to_load_rush_order_first", "which_truck_does_this_order_go_on"],
+      "newWordIds": [
+        "lift",
+        "vehicle",
+        "load",
+        "capacity",
+        "yard",
+        "rush",
+        "multiple",
+        "maximum",
+        "stack"
+      ],
+      "talks": [
+        {
+          "id": "t5_talk",
+          "table": {
+            "title": "Truck Schedule",
+            "rows": [
+              ["Truck", "Arrives", "Leaves", "Goes to"],
+              ["Truck A", "9:30", "10:30", "Lake Street"],
+              ["Truck B", "12:00", "1:00", "Downtown"],
+              ["Truck C", "2:30", "3:30", "Station Road"]
+            ]
+          },
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "warehouse_lead",
+              "en": "This order is for a shop downtown, and it can't be late.",
+              "zh": "這張訂單是市中心一家店的，不能遲到。"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "guide",
+              "en": "Okay. When does it need to go out?",
+              "zh": "好。它什麼時候要出貨？"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "warehouse_lead",
+              "en": "It has to leave before two o'clock.",
+              "zh": "兩點以前一定要出發。"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "guide",
+              "en": "Got it. Which truck should I put it on?",
+              "zh": "了解。那我要把它放上哪一台車？"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "warehouse_lead",
+              "en": "Check the schedule on the wall first.",
+              "zh": "你先看一下牆上的時刻表。"
+            },
+            {
+              "id": "t5_talk_6",
+              "role": "warehouse_lead",
+              "en": "Then move the boxes to the dock.",
+              "zh": "然後把箱子搬到裝卸區。"
+            },
+            {
+              "id": "t5_talk_7",
+              "role": "guide",
+              "en": "Sure. I'll do that right now.",
+              "zh": "好，我現在就去。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "Which truck will take the order?",
+              "zh": "這張訂單會上哪一台車？",
+              "options": ["Truck A", "Truck B", "Truck C"],
+              "answer": 1
+            },
+            {
+              "en": "What does Luis say to do first?",
+              "zh": "Luis 說要先做什麼？",
+              "options": ["Call the shop", "Clean the dock", "Check the schedule"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Okay, the trucks are coming. We have multiple orders going out today.",
+          "zh": "好，貨車快來了。我們今天有好幾張訂單要出。"
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you want me to load the rush order first?",
+          "zh": "要我先裝那張急單嗎？",
+          "chunkId": "want_me_to_load_rush_order_first"
+        },
+        {
+          "id": "t5_3",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Yes, please. It's for the store downtown, and it can't be late.",
+          "zh": "好，麻煩你。那是市中心那家店的，不能遲到。"
+        },
+        {
+          "id": "t5_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Which truck does this order go on?",
+          "zh": "這張訂單要上哪一台車？",
+          "chunkId": "which_truck_does_this_order_go_on"
+        },
+        {
+          "id": "t5_5",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Truck B. It's waiting out in the yard right now.",
+          "zh": "B 車。它現在在外面的場地等。",
+          "stage": {
+            "act": "want",
+            "item": "truck"
+          }
+        },
+        {
+          "id": "t5_6",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "It's almost at maximum capacity, so stack the boxes three high.",
+          "zh": "那台車快到載重上限了，所以箱子要疊三層高。"
+        },
+        {
+          "id": "t5_7",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "And lift with your legs, not your back.",
+          "zh": "還有，抬東西要用腿出力，不要用腰。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "少了一箱",
+      "newChunkIds": ["most_of_the_order_is_here", "none_of_these_boxes_have_yellow_tag"],
+      "newWordIds": [
+        "none",
+        "handle",
+        "inspect",
+        "disappear",
+        "tag",
+        "yellow",
+        "thorough",
+        "accurate",
+        "shortage"
+      ],
+      "cloze": [
+        {
+          "lineId": "t6_1",
+          "word": "inspect",
+          "distractors": ["forget", "break"]
+        },
+        {
+          "lineId": "t6_3",
+          "word": "disappear",
+          "distractors": ["cook", "swim"]
+        },
+        {
+          "lineId": "t6_7",
+          "word": "accurate",
+          "distractors": ["hungry", "sunny"]
+        }
+      ],
+      "textFills": [
+        {
+          "id": "missing_box_email",
+          "kind": "email",
+          "title": "The missing box",
+          "lines": [
+            "Hi team,",
+            "This morning, ___ of the boxes for the Lake Street order were on the dock, but one was missing.",
+            "We found it later behind the door. Please do a ___ check before a truck leaves.",
+            "Our inventory list must be ___, or our customers get a shortage.",
+            "Thanks, Luis"
+          ],
+          "zh": [
+            "各位好：",
+            "今天早上，Lake Street 那張訂單的箱子大部分都在裝卸區，但是少了一箱。",
+            "後來我們在門後面找到了。貨車出發前，請大家仔細檢查一遍。",
+            "我們的庫存清單一定要準確，不然客戶收到的貨就會短少。",
+            "謝謝，Luis"
+          ],
+          "blanks": [
+            {
+              "options": ["most", "none", "every", "much"],
+              "answer": 0,
+              "note": "most of the + 複數名詞 = 大部分的……"
+            },
+            {
+              "options": ["thorough", "huge", "wet", "yellow"],
+              "answer": 0,
+              "note": "thorough check = 仔細徹底的檢查。"
+            },
+            {
+              "options": ["accurate", "fragile", "empty", "plastic"],
+              "answer": 0,
+              "note": "清單要「準確」才不會少貨。"
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Before it goes on the truck, let's inspect the order.",
+          "zh": "裝上車之前，我們先檢查一下這張訂單。"
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Most of the order is here, but one box is missing.",
+          "zh": "這張訂單的貨大部分都在，但是少了一箱。",
+          "chunkId": "most_of_the_order_is_here"
+        },
+        {
+          "id": "t6_3",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Missing? Boxes don't just disappear. Who handled it?",
+          "zh": "少一箱？箱子不會自己不見啊。是誰經手的？",
+          "stage": {
+            "act": "ask"
+          }
+        },
+        {
+          "id": "t6_4",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "The box we need has a yellow tag on it.",
+          "zh": "我們要找的那箱上面有黃色吊牌。"
+        },
+        {
+          "id": "t6_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "None of these boxes have a yellow tag.",
+          "zh": "這幾箱都沒有黃色吊牌。",
+          "chunkId": "none_of_these_boxes_have_yellow_tag"
+        },
+        {
+          "id": "t6_6",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Okay, let's do a thorough check of the whole dock.",
+          "zh": "好，那我們把整個裝卸區徹底找一遍。",
+          "stage": {
+            "act": "want",
+            "item": "inspect"
+          }
+        },
+        {
+          "id": "t6_7",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Our list has to be accurate, or the customer gets a shortage.",
+          "zh": "我們的清單一定要準確，不然客戶收到的貨就會少。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "倉庫廣播",
+      "newChunkIds": ["storage_room_closed_until_three"],
+      "newWordIds": [
+        "control",
+        "remain",
+        "operate",
+        "maintain",
+        "electrical",
+        "temperature",
+        "shut",
+        "install",
+        "machinery",
+        "storage"
+      ],
+      "talks": [
+        {
+          "id": "t7_talk",
+          "kind": "monologue",
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "announcer",
+              "en": "Attention, please. This is a message for everyone in the warehouse.",
+              "zh": "請注意，這是給倉庫所有人的廣播。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "announcer",
+              "en": "From one to three today, we are installing a new heating system in the storage room.",
+              "zh": "今天一點到三點，我們會在儲藏室安裝新的暖氣系統。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "announcer",
+              "en": "The new system will control the temperature inside.",
+              "zh": "新系統會控制裡面的溫度。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "announcer",
+              "en": "While we work, the doors will remain shut to maintain the temperature.",
+              "zh": "施工的時候門會一直關著，來維持溫度。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "announcer",
+              "en": "Please do not operate any machinery or electrical equipment near the storage room.",
+              "zh": "請不要在儲藏室附近操作任何機械或用電的設備。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "announcer",
+              "en": "Also, please keep all vehicles away from the storage room door.",
+              "zh": "另外，請不要讓任何車輛靠近儲藏室的門。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "announcer",
+              "en": "The dock is open as usual, and the storage room opens again at three. Thank you.",
+              "zh": "裝卸區照常運作，儲藏室三點重新開放。謝謝。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "When will the storage room open again?",
+              "zh": "儲藏室什麼時候重新開放？",
+              "options": ["At one", "At two", "At three"],
+              "answer": 2
+            },
+            {
+              "en": "What should people NOT do near the storage room?",
+              "zh": "大家「不可以」在儲藏室附近做什麼？",
+              "options": ["Load trucks", "Use machinery", "Count stock"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Did you hear that just now?",
+          "zh": "你剛剛有聽到廣播嗎？"
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "So the storage room is closed until three?",
+          "zh": "所以儲藏室要關到三點？",
+          "chunkId": "storage_room_closed_until_three"
+        },
+        {
+          "id": "t7_3",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Right. They're installing a new heating system in there.",
+          "zh": "對，他們要在裡面裝新的暖氣系統。"
+        },
+        {
+          "id": "t7_4",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "It'll control the temperature, so the lamps don't get too cold.",
+          "zh": "它會控制溫度，檯燈才不會太冷。",
+          "stage": {
+            "act": "want",
+            "item": "temperature"
+          }
+        },
+        {
+          "id": "t7_5",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Until then, the doors remain shut, so we'll work out here.",
+          "zh": "在那之前門都會關著，所以我們先在外面做。"
+        },
+        {
+          "id": "t7_6",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "And don't operate anything electrical over there, okay?",
+          "zh": "還有，不要在那邊用任何電器設備，好嗎？"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "追蹤出貨",
+      "newChunkIds": ["status_of_the_shipment", "let_ms_carter_know_on_its_way"],
+      "newWordIds": [
+        "contain",
+        "track",
+        "sea",
+        "collect",
+        "status",
+        "transport",
+        "carrier",
+        "port",
+        "weigh"
+      ],
+      "spellWordIds": ["purchase", "discount", "calculate", "increase", "reduce"],
+      "cloze": [
+        {
+          "lineId": "t8_2",
+          "word": "collected",
+          "distractors": ["cooked", "washed"]
+        },
+        {
+          "lineId": "t8_3",
+          "word": "sea",
+          "distractors": ["bike", "bus"]
+        },
+        {
+          "lineId": "t8_3",
+          "word": "port",
+          "distractors": ["bank", "library"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What's the status of the shipment for Mr. Hughes?",
+          "zh": "Mr. Hughes 那批貨現在狀況怎麼樣？",
+          "chunkId": "status_of_the_shipment"
+        },
+        {
+          "id": "t8_2",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Let me track it. The carrier collected it on Monday.",
+          "zh": "我查一下。貨運公司星期一來收走了。"
+        },
+        {
+          "id": "t8_3",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "It's going by sea, so it's at the port now.",
+          "zh": "這批走海運，所以現在在港口。",
+          "stage": {
+            "act": "want",
+            "item": "port"
+          }
+        },
+        {
+          "id": "t8_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll let Ms. Carter know it's on its way.",
+          "zh": "我會跟 Ms. Carter 說貨已經在路上了。",
+          "chunkId": "let_ms_carter_know_on_its_way"
+        },
+        {
+          "id": "t8_5",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Thanks. Sea transport is slow, so it'll take about four more weeks.",
+          "zh": "謝了。海運比較慢，大概還要四個禮拜。"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Morning! Ready for a busy day?",
+          "zh": "早！準備好忙一整天了嗎？"
+        },
+        {
+          "id": "t9_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "This place is huge, so where do I start?",
+          "zh": "這裡好大，我要從哪裡開始？",
+          "chunkId": "this_place_is_huge_where_do_i_start"
+        },
+        {
+          "id": "t9_3",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Start with that rack. It should contain four dozen lamps.",
+          "zh": "先從那座貨架開始。上面應該有四打檯燈。"
+        },
+        {
+          "id": "t9_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I counted again, but the numbers still don't match.",
+          "zh": "我又數了一次，數字還是對不起來。",
+          "chunkId": "numbers_still_dont_match"
+        },
+        {
+          "id": "t9_5",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Okay, mark it on the list. I'll check it later.",
+          "zh": "好，在清單上註記一下，我晚點再看。"
+        },
+        {
+          "id": "t9_6",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Now, this order needs packing. Wait, where are your gloves?",
+          "zh": "再來，這張訂單要包裝。等等，你的手套呢？",
+          "stage": {
+            "act": "ask"
+          }
+        },
+        {
+          "id": "t9_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sorry, I wasn't aware of the rule about gloves.",
+          "zh": "不好意思，我不知道有戴手套的規定。",
+          "chunkId": "wasnt_aware_of_rule_about_gloves"
+        },
+        {
+          "id": "t9_8",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "That's okay. They're in the cabinet by the door.",
+          "zh": "沒關係，在門邊的櫃子裡。",
+          "stage": {
+            "act": "give",
+            "item": "glove"
+          }
+        },
+        {
+          "id": "t9_9",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How are small orders like this usually packed?",
+          "zh": "像這種小訂單通常怎麼包？",
+          "chunkId": "how_are_small_orders_packed"
+        },
+        {
+          "id": "t9_10",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Wrap each lamp in plastic, seal the box, and add a label.",
+          "zh": "每盞燈用塑膠包好，封箱，再貼上標籤。"
+        },
+        {
+          "id": "t9_11",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Nice work. Next, there's a rush order for downtown.",
+          "zh": "做得好。再來，有一張要送市中心的急單。"
+        },
+        {
+          "id": "t9_12",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Which truck does this order go on?",
+          "zh": "這張訂單要上哪一台車？",
+          "chunkId": "which_truck_does_this_order_go_on"
+        },
+        {
+          "id": "t9_13",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Truck B, in the yard. Check every box before you load it.",
+          "zh": "B 車，在外面場地。裝車前每一箱都要檢查。"
+        },
+        {
+          "id": "t9_14",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Most of the order is here, but one box is missing.",
+          "zh": "這張訂單的貨大部分都在，但是少了一箱。",
+          "chunkId": "most_of_the_order_is_here"
+        },
+        {
+          "id": "t9_15",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Sorry, I left one in the storage room, and they're working in there.",
+          "zh": "抱歉，我把一箱放在儲藏室了，他們正在裡面施工。"
+        },
+        {
+          "id": "t9_16",
+          "role": "guide",
+          "speaker": "player",
+          "en": "So the storage room is closed until three?",
+          "zh": "所以儲藏室要關到三點？",
+          "chunkId": "storage_room_closed_until_three"
+        },
+        {
+          "id": "t9_17",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "Right. The truck can't wait, so that box goes out tomorrow.",
+          "zh": "對。車子不能等，所以那箱明天再出。"
+        },
+        {
+          "id": "t9_18",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "By the way, Ms. Carter asked about the order for Mr. Hughes.",
+          "zh": "對了，Ms. Carter 問到 Mr. Hughes 的那張訂單。"
+        },
+        {
+          "id": "t9_19",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What's the status of the shipment for Mr. Hughes?",
+          "zh": "Mr. Hughes 那批貨現在狀況怎麼樣？",
+          "chunkId": "status_of_the_shipment"
+        },
+        {
+          "id": "t9_20",
+          "role": "warehouse_lead",
+          "speaker": "npc",
+          "en": "The carrier collected it last week. It weighs a lot, so it's going by sea.",
+          "zh": "貨運公司上禮拜收走了。那批很重，所以走海運。",
+          "stage": {
+            "act": "want",
+            "item": "sea"
+          }
+        },
+        {
+          "id": "t9_21",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll let Ms. Carter know it's on its way.",
+          "zh": "我會跟 Ms. Carter 說貨已經在路上了。",
+          "chunkId": "let_ms_carter_know_on_its_way"
+        }
+      ]
+    }
+  ]
+}
