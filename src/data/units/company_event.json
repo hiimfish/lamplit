@@ -1,0 +1,1361 @@
+{
+  "id": "company_event",
+  "title": "公司活動",
+  "titleEn": "Company Event",
+  "chunks": [
+    {
+      "id": "date_in_mind_for_party",
+      "en": "Do you have a date in mind for the party?",
+      "zh": "派對的日期您有想法了嗎？",
+      "note": "接下活動時先問日期。have ... in mind 是「心裡已經有想法」。",
+      "distractors": [
+        { "text": "Do you have date in mind for the party?", "error": "article" },
+        { "text": "Do you have a date on mind for the party?", "error": "other" },
+        { "text": "Do you have a date in mind for the pary?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "how_many_expect_attend",
+      "en": "How many people do you expect to attend?",
+      "zh": "您估計會有多少人參加？",
+      "note": "問預估人數。expect + to + 動詞 = 預料會……。",
+      "distractors": [
+        { "text": "How much people do you expect to attend?", "error": "other" },
+        { "text": "How many people you do expect to attend?", "error": "word-order" },
+        { "text": "How many people do you expect attend?", "error": "missing-word" }
+      ]
+    },
+    {
+      "id": "venue_holds_eighty",
+      "en": "We need a venue that holds about eighty people.",
+      "zh": "我們要找一個能容納八十人左右的場地。",
+      "accept": ["We need a venue that holds about 80 people."],
+      "note": "說明需要多大的場地。hold 在這裡是「容納」。",
+      "distractors": [
+        { "text": "We need a venue that hold about eighty people.", "error": "other" },
+        { "text": "We need venue that holds about eighty people.", "error": "article" },
+        { "text": "We need a venue that holds about eigthy people.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "hall_have_stage",
+      "en": "Does the hall have a stage for the speeches?",
+      "zh": "那個宴會廳有可以致詞的舞台嗎？",
+      "note": "確認場地的設備。Does + 主詞 + have 後面用原形 have。",
+      "distractors": [
+        { "text": "Does the hall has a stage for the speeches?", "error": "other" },
+        { "text": "Does the hall have stage for the speeches?", "error": "article" },
+        { "text": "Does the hall have a stage for the speechs?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "food_delivered_and_served",
+      "en": "The food is delivered at five and served at six thirty.",
+      "zh": "餐點五點送到，六點半開始供應。",
+      "accept": ["The food is delivered at 5 and served at 6:30."],
+      "note": "被動式：食物「被」送來、「被」端上，用 is + 過去分詞。",
+      "distractors": [
+        { "text": "The food is deliver at five and served at six thirty.", "error": "other" },
+        { "text": "The food delivered at five and served at six thirty.", "error": "missing-word" },
+        { "text": "The food is delivered at five and serve at six thirty.", "error": "other" }
+      ]
+    },
+    {
+      "id": "dishes_for_guests_no_meat",
+      "en": "Are there any dishes for guests who don't eat meat?",
+      "zh": "有沒有不吃肉的來賓也能吃的菜？",
+      "accept": ["Are there any dishes for guests who do not eat meat?"],
+      "note": "關係子句：guests who don't eat meat，who 接在人後面說明是哪些人。",
+      "distractors": [
+        { "text": "Are there any dishes for guests which don't eat meat?", "error": "other" },
+        { "text": "Are there any dishes for guests who doesn't eat meat?", "error": "other" },
+        { "text": "Are there any dish for guests who don't eat meat?", "error": "plural" }
+      ]
+    },
+    {
+      "id": "send_out_invitations",
+      "en": "I'll send out the invitations before I leave today.",
+      "zh": "我今天下班前會把邀請函寄出去。",
+      "accept": ["I will send out the invitations before I leave today."],
+      "note": "答應今天內完成。before 後面用現在式 leave 講未來。",
+      "distractors": [
+        {
+          "text": "I'll send out the invitations before I will leave today.",
+          "error": "extra-word"
+        },
+        { "text": "I'll send out the invitations before I leaving today.", "error": "other" },
+        { "text": "I'll send out the invitashions before I leave today.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "help_decorate_stage",
+      "en": "Could you help me decorate the stage this afternoon?",
+      "zh": "今天下午可以幫我佈置一下舞台嗎？",
+      "note": "客氣地請人幫忙。help me + 動詞原形。",
+      "distractors": [
+        { "text": "Could you help me decorating the stage this afternoon?", "error": "other" },
+        { "text": "Could you help me decorate stage this afternoon?", "error": "article" },
+        { "text": "Could you help me decorate the stage this afternon?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "make_sure_microphone",
+      "en": "Let me make sure the microphone is working.",
+      "zh": "我確認一下麥克風有沒有聲音。",
+      "note": "說自己先檢查一下。make sure + 一個完整的句子。",
+      "distractors": [
+        { "text": "Let me make sure the microphone working.", "error": "missing-word" },
+        { "text": "Let me making sure the microphone is working.", "error": "other" },
+        { "text": "Let me make sure the microphone are working.", "error": "other" }
+      ]
+    },
+    {
+      "id": "run_out_of_food",
+      "en": "If we run out of food, I'll let the caterer know.",
+      "zh": "如果菜不夠了，我會跟外燴業者說。",
+      "accept": ["If we run out of food, I will let the caterer know."],
+      "note": "條件句：If 後面用現在式，另一半用 will。if 後面不加 will。",
+      "distractors": [
+        { "text": "If we will run out of food, I'll let the caterer know.", "error": "extra-word" },
+        { "text": "If we run out food, I'll let the caterer know.", "error": "missing-word" },
+        { "text": "If we run out of food, I'll let know the caterer.", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "group_photo_before_home",
+      "en": "Let's take a group photo before everyone goes home.",
+      "zh": "趁大家還沒回家，我們來拍張大合照吧。",
+      "accept": ["Let us take a group photo before everyone goes home."],
+      "note": "時間子句：before 後面用現在式 goes 講未來，不說 will go。",
+      "distractors": [
+        { "text": "Let's take a group photo before everyone will go home.", "error": "extra-word" },
+        { "text": "Let's take a group photo before everyone go home.", "error": "other" },
+        { "text": "Let's take group photo before everyone goes home.", "error": "article" }
+      ]
+    },
+    {
+      "id": "wasnt_expecting_this",
+      "en": "I really wasn't expecting this, but thank you so much!",
+      "zh": "我真的完全沒想到，非常謝謝大家！",
+      "accept": ["I really was not expecting this, but thank you so much!"],
+      "note": "收到意外的好消息或獎時說。wasn't expecting = 之前完全沒料到。",
+      "distractors": [
+        { "text": "I really wasn't expect this, but thank you so much!", "error": "other" },
+        { "text": "I really weren't expecting this, but thank you so much!", "error": "other" },
+        { "text": "I really wasn't expecting this, but thank you so many!", "error": "other" }
+      ]
+    },
+    {
+      "id": "thanks_encouraging_me",
+      "en": "Thank you for encouraging me all year.",
+      "zh": "謝謝您這一整年一直鼓勵我。",
+      "note": "感謝別人一直以來的支持。Thank you for + V-ing。",
+      "distractors": [
+        { "text": "Thank you for encourage me all year.", "error": "other" },
+        { "text": "Thank you to encouraging me all year.", "error": "other" },
+        { "text": "Thank you for encouraging me all years.", "error": "plural" }
+      ]
+    },
+    {
+      "id": "take_on_more_responsibility",
+      "en": "I'd love to take on more responsibility next year.",
+      "zh": "明年我很樂意多負責一些事情。",
+      "accept": ["I would love to take on more responsibility next year."],
+      "note": "表示願意多承擔工作。take on = 接下（工作、責任）。",
+      "distractors": [
+        { "text": "I'd love take on more responsibility next year.", "error": "missing-word" },
+        { "text": "I'd love to taking on more responsibility next year.", "error": "other" },
+        { "text": "I'd love to take on more responsibilty next year.", "error": "spelling" }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "social", "en": "social", "zh": "社交的；聯誼的", "emoji": "🥂", "abstract": true },
+    { "id": "activity", "en": "activity", "zh": "活動", "emoji": "🎯", "abstract": true },
+    { "id": "leader", "en": "leader", "zh": "負責人；領導者", "emoji": "🧭", "abstract": true },
+    { "id": "surprise", "en": "surprise", "zh": "驚喜", "emoji": "😮", "abstract": true },
+    { "id": "organize", "en": "organize", "zh": "籌辦；安排", "emoji": "🗂️", "abstract": true },
+    { "id": "occasion", "en": "occasion", "zh": "（特別的）場合", "emoji": "🗓️", "abstract": true },
+    { "id": "theme", "en": "theme", "zh": "主題", "emoji": "🎨", "abstract": true },
+    {
+      "id": "anniversary",
+      "en": "anniversary",
+      "zh": "週年（紀念）",
+      "emoji": "🎊",
+      "abstract": true
+    },
+    {
+      "id": "celebration",
+      "en": "celebration",
+      "zh": "慶祝活動；慶祝會",
+      "emoji": "🥳",
+      "abstract": true
+    },
+    { "id": "round", "en": "round", "zh": "圓的", "emoji": "⭕", "abstract": true },
+    { "id": "stage", "en": "stage", "zh": "舞台", "emoji": "🎭" },
+    { "id": "speech", "en": "speech", "zh": "致詞；演講", "emoji": "🗣️", "abstract": true },
+    { "id": "outdoor", "en": "outdoor", "zh": "戶外的", "emoji": "⛺", "abstract": true },
+    { "id": "perfect", "en": "perfect", "zh": "完美的；最合適的", "emoji": "👌", "abstract": true },
+    { "id": "location", "en": "location", "zh": "位置；地點", "emoji": "📍" },
+    { "id": "banquet", "en": "banquet", "zh": "宴會", "emoji": "🍽️", "abstract": true },
+    { "id": "hall", "en": "hall", "zh": "禮堂；宴會廳", "emoji": "🏛️", "abstract": true },
+    { "id": "venue", "en": "venue", "zh": "（活動）場地", "emoji": "🏟️", "abstract": true },
+    { "id": "fancy", "en": "fancy", "zh": "高級的；花俏的", "emoji": "✨", "abstract": true },
+    { "id": "serve", "en": "serve", "zh": "供應（餐點）；上菜", "emoji": "🤲", "abstract": true },
+    { "id": "chef", "en": "chef", "zh": "主廚；廚師", "emoji": "🧑‍🍳" },
+    { "id": "traditional", "en": "traditional", "zh": "傳統的", "emoji": "🏮", "abstract": true },
+    { "id": "taste", "en": "taste", "zh": "試吃；味道", "emoji": "👅", "abstract": true },
+    { "id": "beverage", "en": "beverage", "zh": "飲料", "emoji": "🍹", "abstract": true },
+    { "id": "ingredient", "en": "ingredient", "zh": "食材", "emoji": "🧄", "abstract": true },
+    { "id": "dish", "en": "dish", "zh": "（一道）菜", "emoji": "🍛", "abstract": true },
+    {
+      "id": "buffet",
+      "en": "buffet",
+      "zh": "自助式餐點（Buffet）",
+      "emoji": "🥘",
+      "abstract": true
+    },
+    {
+      "id": "vegetarian",
+      "en": "vegetarian",
+      "zh": "素食的；吃素的人",
+      "emoji": "🥦",
+      "abstract": true
+    },
+    { "id": "caterer", "en": "caterer", "zh": "外燴業者", "emoji": "🚐", "abstract": true },
+    { "id": "win", "en": "win", "zh": "贏得；抽中", "emoji": "🙌", "abstract": true },
+    { "id": "recognize", "en": "recognize", "zh": "表揚；肯定", "emoji": "👏", "abstract": true },
+    { "id": "band", "en": "band", "zh": "樂團", "emoji": "🎷", "abstract": true },
+    { "id": "host", "en": "host", "zh": "主持；主持人", "emoji": "🤵", "abstract": true },
+    { "id": "award", "en": "award", "zh": "獎；獎項", "emoji": "🏆" },
+    { "id": "lucky", "en": "lucky", "zh": "幸運的", "emoji": "🍀" },
+    { "id": "prize", "en": "prize", "zh": "獎品", "emoji": "🏅", "abstract": true },
+    {
+      "id": "entertainment",
+      "en": "entertainment",
+      "zh": "餘興節目；表演",
+      "emoji": "🎪",
+      "abstract": true
+    },
+    { "id": "invitation", "en": "invitation", "zh": "邀請函", "emoji": "📨", "abstract": true },
+    { "id": "ceremony", "en": "ceremony", "zh": "典禮", "emoji": "🎗️", "abstract": true },
+    { "id": "story", "en": "story", "zh": "故事", "emoji": "📖", "abstract": true },
+    { "id": "memory", "en": "memory", "zh": "回憶", "emoji": "💭", "abstract": true },
+    {
+      "id": "excellent",
+      "en": "excellent",
+      "zh": "非常好的；很棒的",
+      "emoji": "💯",
+      "abstract": true
+    },
+    { "id": "crowd", "en": "crowd", "zh": "人群", "emoji": "👥", "abstract": true },
+    { "id": "speaker", "en": "speaker", "zh": "喇叭；音響", "emoji": "🔊" },
+    { "id": "tonight", "en": "tonight", "zh": "今晚", "emoji": "🌙", "abstract": true },
+    { "id": "photographer", "en": "photographer", "zh": "攝影師", "emoji": "📸", "abstract": true },
+    { "id": "bowl", "en": "bowl", "zh": "碗", "emoji": "🥣" },
+    { "id": "decorate", "en": "decorate", "zh": "佈置；裝飾", "emoji": "🎈" },
+    { "id": "microphone", "en": "microphone", "zh": "麥克風", "emoji": "🎤" },
+    { "id": "laugh", "en": "laugh", "zh": "笑", "emoji": "😄", "abstract": true },
+    { "id": "treat", "en": "treat", "zh": "請客；招待", "emoji": "🤗", "abstract": true },
+    {
+      "id": "wonderful",
+      "en": "wonderful",
+      "zh": "美好的；令人開心的",
+      "emoji": "🌟",
+      "abstract": true
+    },
+    { "id": "funny", "en": "funny", "zh": "好笑的", "emoji": "🤣", "abstract": true },
+    { "id": "pleasure", "en": "pleasure", "zh": "愉快；樂意", "emoji": "😊", "abstract": true },
+    { "id": "joke", "en": "joke", "zh": "笑話", "emoji": "🤡", "abstract": true },
+    { "id": "pour", "en": "pour", "zh": "倒（飲料）", "emoji": "🫗", "abstract": true },
+    { "id": "musician", "en": "musician", "zh": "樂手；音樂家", "emoji": "🎻", "abstract": true },
+    { "id": "generous", "en": "generous", "zh": "大方的；慷慨的", "emoji": "💝", "abstract": true },
+    { "id": "guitar", "en": "guitar", "zh": "吉他", "emoji": "🎸" },
+    {
+      "id": "relationship",
+      "en": "relationship",
+      "zh": "（合作）關係",
+      "emoji": "🤝",
+      "abstract": true
+    },
+    { "id": "imagine", "en": "imagine", "zh": "想像", "emoji": "🌈", "abstract": true },
+    { "id": "dream", "en": "dream", "zh": "夢想", "emoji": "💫", "abstract": true },
+    { "id": "contribution", "en": "contribution", "zh": "貢獻", "emoji": "🧩", "abstract": true },
+    { "id": "succeed", "en": "succeed", "zh": "成功", "emoji": "🚀", "abstract": true },
+    { "id": "honor", "en": "honor", "zh": "榮幸；榮譽", "emoji": "🎖️", "abstract": true },
+    { "id": "outstanding", "en": "outstanding", "zh": "傑出的", "emoji": "🌠", "abstract": true },
+    { "id": "truly", "en": "truly", "zh": "真的；由衷地", "emoji": "💖", "abstract": true },
+    {
+      "id": "impressive",
+      "en": "impressive",
+      "zh": "令人佩服的；出色的",
+      "emoji": "😲",
+      "abstract": true
+    },
+    {
+      "id": "dedicated",
+      "en": "dedicated",
+      "zh": "盡心盡力的；投入的",
+      "emoji": "🔥",
+      "abstract": true
+    },
+    { "id": "achieve", "en": "achieve", "zh": "達成；做到", "emoji": "🏁", "abstract": true },
+    {
+      "id": "throughout",
+      "en": "throughout",
+      "zh": "整個（期間）；從頭到尾",
+      "emoji": "🔁",
+      "abstract": true
+    },
+    { "id": "encourage", "en": "encourage", "zh": "鼓勵", "emoji": "📣", "abstract": true },
+    { "id": "deserve", "en": "deserve", "zh": "應得；值得", "emoji": "👍", "abstract": true },
+    { "id": "winner", "en": "winner", "zh": "得獎者；贏家", "emoji": "🥇" },
+    {
+      "id": "congratulations",
+      "en": "congratulations",
+      "zh": "恭喜",
+      "emoji": "🎉",
+      "abstract": true
+    },
+    { "id": "admire", "en": "admire", "zh": "佩服；欣賞", "emoji": "🤩", "abstract": true },
+    {
+      "id": "embarrassed",
+      "en": "embarrassed",
+      "zh": "不好意思的；尷尬的",
+      "emoji": "😳",
+      "abstract": true
+    },
+    { "id": "praise", "en": "praise", "zh": "稱讚", "emoji": "💐", "abstract": true },
+    { "id": "pride", "en": "pride", "zh": "驕傲；自豪", "emoji": "🦁", "abstract": true }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "週年派對交給你",
+      "newChunkIds": ["date_in_mind_for_party", "how_many_expect_attend"],
+      "newWordIds": [
+        "social",
+        "activity",
+        "leader",
+        "surprise",
+        "organize",
+        "occasion",
+        "theme",
+        "anniversary",
+        "celebration"
+      ],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Did you know Harbor Trading turns twenty this month?",
+          "zh": "你知道 Harbor Trading 這個月就滿二十年了嗎？"
+        },
+        {
+          "id": "t1_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I'd like you to organize our anniversary celebration.",
+          "zh": "我想請你來籌辦我們的週年慶祝會。"
+        },
+        {
+          "id": "t1_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you have a date in mind for the party?",
+          "zh": "派對的日期您有想法了嗎？",
+          "chunkId": "date_in_mind_for_party"
+        },
+        {
+          "id": "t1_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "A Saturday evening, near the end of the month.",
+          "zh": "月底附近的某個星期六晚上。"
+        },
+        {
+          "id": "t1_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How many people do you expect to attend?",
+          "zh": "您估計會有多少人參加？",
+          "chunkId": "how_many_expect_attend"
+        },
+        {
+          "id": "t1_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "About eighty, with families. It's a social occasion.",
+          "zh": "八十人左右，包括家人。這是聯誼的場合嘛。"
+        },
+        {
+          "id": "t1_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "You're the leader on this one. Ask Dan for help.",
+          "zh": "這次由你負責，Dan 可以幫你。"
+        },
+        {
+          "id": "t1_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "We don't need a theme. Just make it a night to remember.",
+          "zh": "不用特別定主題，讓大家有個難忘的夜晚就好。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "找場地",
+      "newChunkIds": ["venue_holds_eighty", "hall_have_stage"],
+      "newWordIds": [
+        "round",
+        "stage",
+        "speech",
+        "outdoor",
+        "perfect",
+        "location",
+        "banquet",
+        "hall",
+        "venue",
+        "fancy"
+      ],
+      "fills": [
+        {
+          "id": "venue_fill",
+          "en": "We need a ___ that holds about eighty people.",
+          "zh": "我們要找一個能容納八十人左右的場地。",
+          "options": ["venue", "speech", "theme", "leader"],
+          "answer": 0,
+          "note": "能容納八十人的是場地：venue。",
+          "chunkId": "venue_holds_eighty"
+        },
+        {
+          "id": "hall_that_fill",
+          "en": "We want a venue ___ has round tables.",
+          "zh": "我們想找一個有圓桌的場地。",
+          "options": ["that", "who", "what", "where"],
+          "answer": 0,
+          "note": "說明「物」用 that；who 只用在人。",
+          "grammar": true
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "So, where are we having this party? Any ideas?",
+          "zh": "所以，這個派對要在哪裡辦？你有想法嗎？"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We need a venue that holds about eighty people.",
+          "zh": "我們要找一個能容納八十人左右的場地。",
+          "chunkId": "venue_holds_eighty"
+        },
+        {
+          "id": "t2_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "An outdoor party could be fun. But it's November.",
+          "zh": "辦戶外派對應該很好玩，可是現在是十一月耶。"
+        },
+        {
+          "id": "t2_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "What about Lakeside Hall? The location is perfect, close to the office.",
+          "zh": "Lakeside Hall 怎麼樣？地點很理想，離公司很近。",
+          "stage": { "act": "want", "item": "location" }
+        },
+        {
+          "id": "t2_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Does the hall have a stage for the speeches?",
+          "zh": "那個宴會廳有可以致詞的舞台嗎？",
+          "chunkId": "hall_have_stage"
+        },
+        {
+          "id": "t2_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Yes, a small one. And they have ten round tables.",
+          "zh": "有，一個小舞台。而且他們有十張圓桌。"
+        },
+        {
+          "id": "t2_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "It's not too fancy, but they do banquets there all the time.",
+          "zh": "不會太高級，不過他們常常辦宴會。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "訂外燴",
+      "newChunkIds": ["food_delivered_and_served", "dishes_for_guests_no_meat"],
+      "newWordIds": [
+        "serve",
+        "chef",
+        "traditional",
+        "taste",
+        "beverage",
+        "ingredient",
+        "dish",
+        "buffet",
+        "vegetarian",
+        "caterer"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Did you hear back from the caterer?",
+          "zh": "外燴那邊回你了嗎？"
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "The food is delivered at five and served at six thirty.",
+          "zh": "餐點五點送到，六點半開始供應。",
+          "chunkId": "food_delivered_and_served"
+        },
+        {
+          "id": "t3_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Great. Here's the menu. Their chef only uses fresh ingredients.",
+          "zh": "很好。菜單在這裡。他們的主廚只用新鮮的食材。"
+        },
+        {
+          "id": "t3_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Are there any dishes for guests who don't eat meat?",
+          "zh": "有沒有不吃肉的來賓也能吃的菜？",
+          "chunkId": "dishes_for_guests_no_meat"
+        },
+        {
+          "id": "t3_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Yes, the vegetarian dishes are marked in green.",
+          "zh": "有，素食的菜都用綠色標出來了。"
+        },
+        {
+          "id": "t3_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Beverages are on the back: coffee, tea and juice.",
+          "zh": "飲料在背面：咖啡、茶和果汁。"
+        },
+        {
+          "id": "t3_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "They make a traditional cake, too. Let's taste it!",
+          "zh": "他們還有做傳統的蛋糕。我們去試吃看看吧！"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀邀請函",
+      "newChunkIds": ["send_out_invitations"],
+      "newWordIds": [
+        "win",
+        "recognize",
+        "band",
+        "host",
+        "award",
+        "lucky",
+        "prize",
+        "entertainment",
+        "invitation",
+        "ceremony"
+      ],
+      "passages": [
+        {
+          "id": "party_invitation",
+          "kind": "email",
+          "title": "You're Invited to Our Anniversary Celebration!",
+          "lines": [
+            "Dear friends and coworkers,",
+            "Harbor Trading is twenty years old this month, and you are invited to our anniversary celebration!",
+            "Date: Saturday, November 22, 6:00 to 10:00 p.m.",
+            "Place: Lakeside Hall",
+            "6:00 Doors open, and beverages are served.",
+            "6:30 Buffet dinner (vegetarian dishes are available)",
+            "8:00 Award ceremony, hosted by Ms. Carter. Mr. Ellis will recognize the people who made this a great year.",
+            "8:30 Entertainment: a live band and a prize drawing. If you are lucky, you could win a new laptop!",
+            "Each employee may bring one guest. Please reply to this invitation by Friday, November 14, so we can give the caterer the final number.",
+            "We hope to see you there!",
+            "Ms. Carter"
+          ],
+          "questions": [
+            {
+              "en": "When should people reply?",
+              "zh": "最晚什麼時候要回覆？",
+              "options": [
+                "By Saturday, November 22",
+                "By Friday, November 14",
+                "By Monday, November 10"
+              ],
+              "answer": 1
+            },
+            {
+              "en": "What happens at 8:00?",
+              "zh": "八點有什麼活動？",
+              "options": ["The award ceremony", "The buffet dinner", "The live band"],
+              "answer": 0
+            },
+            {
+              "en": "How many guests can each employee bring?",
+              "zh": "每位員工可以帶幾個人？",
+              "options": ["None", "Two", "One"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I finished the party invitation. Could you check it for me?",
+          "zh": "派對的邀請函我寫好了。可以幫我看一下嗎？"
+        },
+        {
+          "id": "t4_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "At the award ceremony, Mr. Ellis will recognize a few people.",
+          "zh": "頒獎典禮上，Ellis 先生會表揚幾個人。",
+          "stage": { "act": "want", "item": "award" }
+        },
+        {
+          "id": "t4_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "After that, there's a band and a prize drawing.",
+          "zh": "之後有樂團表演和抽獎。"
+        },
+        {
+          "id": "t4_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Does everything look okay? Then it's ready to go.",
+          "zh": "都沒問題嗎？那就可以寄了。"
+        },
+        {
+          "id": "t4_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll send out the invitations before I leave today.",
+          "zh": "我今天下班前會把邀請函寄出去。",
+          "chunkId": "send_out_invitations"
+        },
+        {
+          "id": "t4_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Thanks. People need to reply by Friday, for the caterer.",
+          "zh": "謝謝。大家要在星期五前回覆，外燴那邊要知道人數。"
+        },
+        {
+          "id": "t4_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And who knows? Maybe you'll be the lucky one who wins the laptop!",
+          "zh": "而且誰知道呢？說不定你就是抽中筆電的那個幸運兒！",
+          "stage": { "act": "want", "item": "lucky" }
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "派對前的佈置",
+      "newChunkIds": ["help_decorate_stage", "make_sure_microphone"],
+      "newWordIds": [
+        "story",
+        "memory",
+        "excellent",
+        "crowd",
+        "speaker",
+        "tonight",
+        "photographer",
+        "bowl",
+        "decorate",
+        "microphone"
+      ],
+      "talks": [
+        {
+          "id": "setup_talk",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "coworker",
+              "en": "The photographer just called. He'll be half an hour late.",
+              "zh": "攝影師剛剛打來，他會晚半小時。"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "guide",
+              "en": "So he gets here at five thirty? That's okay.",
+              "zh": "所以他五點半到？那還好。"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "coworker",
+              "en": "By the door, I put up old pictures from the last twenty years.",
+              "zh": "我在門口貼了公司這二十年來的老照片。"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "guide",
+              "en": "Twenty years of memories! Every picture tells a story.",
+              "zh": "二十年的回憶！每張照片都有一個故事。"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "coworker",
+              "en": "Right. And each round table needs a bowl of fruit.",
+              "zh": "對啊。還有，每張圓桌都要放一碗水果。"
+            },
+            {
+              "id": "t5_talk_6",
+              "role": "guide",
+              "en": "I'll do that. How are the speakers?",
+              "zh": "我來放。喇叭怎麼樣了？"
+            },
+            {
+              "id": "t5_talk_7",
+              "role": "coworker",
+              "en": "I fixed the left one. The sound is excellent now.",
+              "zh": "左邊那個我修好了，現在聲音很棒。"
+            },
+            {
+              "id": "t5_talk_8",
+              "role": "coworker",
+              "en": "Guests arrive at six tonight. I hope a big crowd at the door isn't a problem.",
+              "zh": "來賓今晚六點到。希望門口人一多不會出問題。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "What time will the photographer arrive?",
+              "zh": "攝影師幾點會到？",
+              "options": ["5:00", "5:30", "6:00"],
+              "answer": 1
+            },
+            {
+              "en": "What did Dan put up by the door?",
+              "zh": "Dan 在門口貼了什麼？",
+              "options": ["Old pictures", "The menu", "A map"],
+              "answer": 0
+            },
+            {
+              "en": "What goes on each table?",
+              "zh": "每張桌子上要放什麼？",
+              "options": ["A microphone", "A speaker", "A bowl of fruit"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could you help me decorate the stage this afternoon?",
+          "zh": "今天下午可以幫我佈置一下舞台嗎？",
+          "chunkId": "help_decorate_stage"
+        },
+        {
+          "id": "t5_2",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Sure. Let's start with the lights over the stage.",
+          "zh": "好啊。先從舞台上面的燈開始吧。"
+        },
+        {
+          "id": "t5_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Mr. Ellis gives his speech up there tonight, right?",
+          "zh": "Ellis 先生今晚要在上面致詞，對吧？"
+        },
+        {
+          "id": "t5_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let me make sure the microphone is working.",
+          "zh": "我確認一下麥克風有沒有聲音。",
+          "chunkId": "make_sure_microphone",
+          "stage": { "act": "want", "item": "microphone" }
+        },
+        {
+          "id": "t5_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Good idea. I'll turn on the speakers.",
+          "zh": "好主意。我來把喇叭打開。",
+          "stage": { "act": "want", "item": "speaker" }
+        },
+        {
+          "id": "t5_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "That's loud! The whole crowd will hear you.",
+          "zh": "好大聲！全場的人都聽得到。"
+        },
+        {
+          "id": "t5_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Okay, the stage is done. Let's do the round tables next.",
+          "zh": "好，舞台弄好了。接下來弄圓桌吧。"
+        },
+        {
+          "id": "t5_8",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "The photographer gets here at five thirty, so we have time.",
+          "zh": "攝影師五點半才到，所以我們還有時間。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "派對開始",
+      "newChunkIds": ["run_out_of_food", "group_photo_before_home"],
+      "newWordIds": [
+        "laugh",
+        "treat",
+        "wonderful",
+        "funny",
+        "pleasure",
+        "joke",
+        "pour",
+        "musician",
+        "generous",
+        "guitar"
+      ],
+      "cloze": [
+        { "lineId": "t6_1", "word": "wonderful", "distractors": ["round", "vegetarian"] },
+        { "lineId": "t6_5", "word": "pour", "distractors": ["decorate", "organize"] },
+        { "lineId": "t6_2", "word": "guitar", "distractors": ["bowl", "buffet"] }
+      ],
+      "textFills": [
+        {
+          "id": "party_night_email",
+          "kind": "email",
+          "title": "Tonight's party",
+          "lines": [
+            "Hi everyone,",
+            "The party starts at six tonight. If you ___ early, please help Dan with the tables.",
+            "Our band has two musicians, and one of them is very ___. Get ready to laugh!",
+            "Please stay ___ the photographer takes a group photo at nine thirty.",
+            "Ms. Carter"
+          ],
+          "zh": [
+            "大家好：",
+            "派對今晚六點開始。如果你早到，請幫 Dan 擺桌子。",
+            "我們的樂團有兩位樂手，其中一位非常好笑。準備好笑一整晚吧！",
+            "請留到九點半攝影師拍大合照之後再走。",
+            "Carter"
+          ],
+          "blanks": [
+            {
+              "options": ["arrive", "will arrive", "arriving", "arrived"],
+              "answer": 0,
+              "note": "If 後面用現在式講未來，不加 will。"
+            },
+            {
+              "options": ["funny", "round", "vegetarian", "outdoor"],
+              "answer": 0,
+              "note": "後面說準備好笑，所以是 funny。"
+            },
+            {
+              "options": ["until", "during", "unless", "by"],
+              "answer": 0,
+              "note": "留到某件事發生為止用 until。"
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Look at everyone laughing. What a wonderful night!",
+          "zh": "你看大家笑得多開心。今晚真是太棒了！"
+        },
+        {
+          "id": "t6_2",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "That musician on the guitar is great, too.",
+          "zh": "那個彈吉他的樂手也很厲害。",
+          "stage": { "act": "want", "item": "guitar" }
+        },
+        {
+          "id": "t6_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "But the buffet is almost empty already.",
+          "zh": "可是自助餐檯已經快空了。"
+        },
+        {
+          "id": "t6_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "If we run out of food, I'll let the caterer know.",
+          "zh": "如果菜不夠了，我會跟外燴業者說。",
+          "chunkId": "run_out_of_food"
+        },
+        {
+          "id": "t6_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Thanks. Here, let me pour you some juice.",
+          "zh": "謝啦。來，我幫你倒點果汁。"
+        },
+        {
+          "id": "t6_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Mr. Ellis is so generous. Dessert is his treat!",
+          "zh": "Ellis 先生真大方，甜點是他請客！"
+        },
+        {
+          "id": "t6_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let's take a group photo before everyone goes home.",
+          "zh": "趁大家還沒回家，我們來拍張大合照吧。",
+          "chunkId": "group_photo_before_home"
+        },
+        {
+          "id": "t6_8",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Good idea! I'll go find the photographer.",
+          "zh": "好主意！我去找攝影師。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "總經理致詞",
+      "newChunkIds": ["wasnt_expecting_this"],
+      "newWordIds": [
+        "relationship",
+        "imagine",
+        "dream",
+        "contribution",
+        "succeed",
+        "honor",
+        "outstanding",
+        "truly",
+        "impressive",
+        "dedicated"
+      ],
+      "talks": [
+        {
+          "id": "ellis_speech",
+          "kind": "monologue",
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "director",
+              "en": "Thank you all for coming tonight.",
+              "zh": "謝謝大家今晚來參加。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "director",
+              "en": "Twenty years ago, Harbor Trading was two people in one small room.",
+              "zh": "二十年前，Harbor Trading 只是一個小房間裡的兩個人。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "director",
+              "en": "I had a dream, but I couldn't imagine a night like this.",
+              "zh": "我有一個夢想，但從沒想像過會有今晚這樣的場面。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "director",
+              "en": "We succeeded because of the strong relationships we built with our clients.",
+              "zh": "我們能成功，是因為和客戶建立了很好的關係。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "director",
+              "en": "And because everyone in this room made a contribution.",
+              "zh": "也因為在座的每一位都有貢獻。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "director",
+              "en": "Tonight, I also want to thank one person in particular.",
+              "zh": "今晚我還要特別感謝一個人。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "director",
+              "en": "This person joined us only a year ago and had an outstanding first year.",
+              "zh": "這位同事一年前才加入，第一年就表現得非常傑出。"
+            },
+            {
+              "id": "t7_talk_8",
+              "role": "director",
+              "en": "Truly impressive work, and always so dedicated.",
+              "zh": "工作表現真的很出色，而且一直都很投入。"
+            },
+            {
+              "id": "t7_talk_9",
+              "role": "director",
+              "en": "It is my honor to give the Employee of the Year award to our party leader!",
+              "zh": "我很榮幸把年度最佳員工獎頒給這次派對的負責人！"
+            }
+          ],
+          "questions": [
+            {
+              "en": "What was the company like twenty years ago?",
+              "zh": "二十年前公司是什麼樣子？",
+              "options": [
+                "Eighty people in a hall",
+                "Two people in one room",
+                "Ten people in an office"
+              ],
+              "answer": 1
+            },
+            {
+              "en": "Why does he say the company succeeded?",
+              "zh": "他說公司成功的原因是什麼？",
+              "options": ["Its relationships and its people", "Its low prices", "Its big office"],
+              "answer": 0
+            },
+            {
+              "en": "Who gets the award?",
+              "zh": "這個獎頒給誰？",
+              "options": [
+                "One of the first two people",
+                "A new client",
+                "Someone who joined a year ago"
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Come on up here, please. This award is for you.",
+          "zh": "請上台來。這個獎是你的。",
+          "stage": { "act": "give", "item": "award" }
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I really wasn't expecting this, but thank you so much!",
+          "zh": "我真的完全沒想到，非常謝謝大家！",
+          "chunkId": "wasnt_expecting_this"
+        },
+        {
+          "id": "t7_3",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Your first year has been truly impressive.",
+          "zh": "你這第一年的表現真的很出色。"
+        },
+        {
+          "id": "t7_4",
+          "role": "director",
+          "speaker": "npc",
+          "en": "You worked hard on every job we gave you.",
+          "zh": "交給你的每件工作你都很認真。"
+        },
+        {
+          "id": "t7_5",
+          "role": "director",
+          "speaker": "npc",
+          "en": "And you organized this whole party, too!",
+          "zh": "而且整個派對也是你籌辦的！"
+        },
+        {
+          "id": "t7_6",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Now, let's get a picture of you with the award.",
+          "zh": "來，我們幫你和獎盃拍張照。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "得獎與新的開始",
+      "newChunkIds": ["thanks_encouraging_me", "take_on_more_responsibility"],
+      "newWordIds": [
+        "achieve",
+        "throughout",
+        "encourage",
+        "deserve",
+        "winner",
+        "congratulations",
+        "admire",
+        "embarrassed",
+        "praise",
+        "pride"
+      ],
+      "spellWordIds": ["brochure", "booth", "greet", "shake", "world"],
+      "cloze": [
+        { "lineId": "t8_1", "word": "deserve", "distractors": ["decorate", "pour"] },
+        { "lineId": "t8_4", "word": "admire", "distractors": ["serve", "taste"] },
+        { "lineId": "t8_5", "word": "achieved", "distractors": ["poured", "tasted"] }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Congratulations! You really deserve this award.",
+          "zh": "恭喜！這個獎你當之無愧。",
+          "stage": { "act": "want", "item": "winner" }
+        },
+        {
+          "id": "t8_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "You look a little embarrassed. Don't be!",
+          "zh": "你看起來有點不好意思。不用這樣啦！"
+        },
+        {
+          "id": "t8_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thank you for encouraging me all year.",
+          "zh": "謝謝您這一整年一直鼓勵我。",
+          "chunkId": "thanks_encouraging_me"
+        },
+        {
+          "id": "t8_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "That was easy. I admire how hard you work.",
+          "zh": "那很容易啊。我很佩服你這麼努力。"
+        },
+        {
+          "id": "t8_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "You achieved a lot this year. Take some pride in that.",
+          "zh": "你今年做到了很多事，該為自己感到驕傲。"
+        },
+        {
+          "id": "t8_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Next year, I'd like to give you a bigger role.",
+          "zh": "明年我想讓你負責更重要的工作。"
+        },
+        {
+          "id": "t8_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'd love to take on more responsibility next year.",
+          "zh": "明年我很樂意多負責一些事情。",
+          "chunkId": "take_on_more_responsibility"
+        },
+        {
+          "id": "t8_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. Let's talk on Monday. Now go enjoy your night!",
+          "zh": "很好。我們星期一再談。現在去好好享受今晚吧！"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Here we are. So this is Lakeside Hall.",
+          "zh": "到了。這就是 Lakeside Hall。"
+        },
+        {
+          "id": "t9_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "They have two Saturdays free this month.",
+          "zh": "他們這個月有兩個星期六有空。"
+        },
+        {
+          "id": "t9_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you have a date in mind for the party?",
+          "zh": "派對的日期您有想法了嗎？",
+          "chunkId": "date_in_mind_for_party"
+        },
+        {
+          "id": "t9_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "The last one, I think. That gives us more time.",
+          "zh": "我想選後面那個，這樣我們時間比較充裕。"
+        },
+        {
+          "id": "t9_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Mr. Ellis will want to say a few words, of course.",
+          "zh": "Ellis 先生當然會想上台講幾句話。"
+        },
+        {
+          "id": "t9_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Does the hall have a stage for the speeches?",
+          "zh": "那個宴會廳有可以致詞的舞台嗎？",
+          "chunkId": "hall_have_stage"
+        },
+        {
+          "id": "t9_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Yes, a small one, over there by the windows.",
+          "zh": "有，一個小舞台，在窗戶那邊。"
+        },
+        {
+          "id": "t9_8",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let me make sure the microphone is working.",
+          "zh": "我確認一下麥克風有沒有聲音。",
+          "chunkId": "make_sure_microphone"
+        },
+        {
+          "id": "t9_9",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Sounds great from here. Loud and clear!",
+          "zh": "從這裡聽很清楚，又大聲又清楚！"
+        },
+        {
+          "id": "t9_10",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. Did they give you the menu, Dan?",
+          "zh": "很好。Dan，他們有給你菜單嗎？"
+        },
+        {
+          "id": "t9_11",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Yes. It's a buffet, and everything is fresh.",
+          "zh": "有。是自助式的，東西都很新鮮。"
+        },
+        {
+          "id": "t9_12",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Are there any dishes for guests who don't eat meat?",
+          "zh": "有沒有不吃肉的來賓也能吃的菜？",
+          "chunkId": "dishes_for_guests_no_meat"
+        },
+        {
+          "id": "t9_13",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Yes, four vegetarian dishes. They look good, too.",
+          "zh": "有，四道素食的菜，看起來也不錯。"
+        },
+        {
+          "id": "t9_14",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "But what if eighty people are really hungry?",
+          "zh": "可是如果八十個人都很餓怎麼辦？"
+        },
+        {
+          "id": "t9_15",
+          "role": "guide",
+          "speaker": "player",
+          "en": "If we run out of food, I'll let the caterer know.",
+          "zh": "如果菜不夠了，我會跟外燴業者說。",
+          "chunkId": "run_out_of_food"
+        },
+        {
+          "id": "t9_16",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Perfect. So, what's next?",
+          "zh": "太好了。那接下來呢？"
+        },
+        {
+          "id": "t9_17",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll send out the invitations before I leave today.",
+          "zh": "我今天下班前會把邀請函寄出去。",
+          "chunkId": "send_out_invitations"
+        },
+        {
+          "id": "t9_18",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Great. And Mr. Ellis wants you at his table that night.",
+          "zh": "很好。還有，Ellis 先生那天晚上想請你坐他那桌。"
+        },
+        {
+          "id": "t9_19",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I really wasn't expecting this, but thank you so much!",
+          "zh": "我真的完全沒想到，非常謝謝大家！",
+          "chunkId": "wasnt_expecting_this"
+        },
+        {
+          "id": "t9_20",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "You've done great work this year. You deserve it.",
+          "zh": "你今年表現得很好，這是你應得的。"
+        },
+        {
+          "id": "t9_21",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thank you for encouraging me all year.",
+          "zh": "謝謝您這一整年一直鼓勵我。",
+          "chunkId": "thanks_encouraging_me"
+        }
+      ]
+    }
+  ]
+}
