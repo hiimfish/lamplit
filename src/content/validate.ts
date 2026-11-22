@@ -6,7 +6,7 @@
 /** Ids end up in audio file names and save keys, so keep them plain. */
 const ID_PATTERN = /^[a-z0-9_]+$/;
 
-const ROLES = ['barista', 'landlord', 'neighbor', 'guide'];
+const ROLES = ['barista', 'landlord', 'neighbor', 'clerk', 'guide'];
 const SPEAKERS = ['npc', 'player'];
 
 const isObject = (value: unknown): value is Record<string, unknown> =>
@@ -84,6 +84,23 @@ export function validateUnit(unit: unknown): string[] {
     refs('newChunkIds', chunkIds, 'chunk');
     refs('newWordIds', wordIds, 'word');
     refs('newPairIds', pairIds, 'pair');
+    // Spelling words may come from earlier units, so only their shape is checked here
+    // (tests/content.test.ts checks that each one was taught before the task).
+    if (task.spellWordIds !== undefined) {
+      const spell = task.spellWordIds;
+      if (!Array.isArray(spell) || spell.length === 0) {
+        problems.push(where(`task "${taskId}" spellWordIds must be a non-empty list`));
+      } else {
+        for (const id of spell) {
+          if (typeof id !== 'string' || !ID_PATTERN.test(id)) {
+            problems.push(where(`task "${taskId}" has bad spell word "${String(id)}"`));
+          }
+        }
+        if (new Set(spell).size !== spell.length) {
+          problems.push(where(`task "${taskId}" spellWordIds has duplicates`));
+        }
+      }
+    }
 
     const scene = list(task.scene);
     if (!scene) {

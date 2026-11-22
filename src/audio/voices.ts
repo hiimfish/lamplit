@@ -15,12 +15,14 @@ export const VOICE_NAMES: Record<VoiceMode, Record<Role, string>> = {
     barista: 'en-US-Neural2-C',
     landlord: 'en-US-Neural2-D',
     neighbor: 'en-US-Neural2-F',
+    clerk: 'en-US-Neural2-I',
     guide: 'en-US-Neural2-A',
   },
   chirp: {
     barista: 'en-US-Chirp3-HD-Achernar',
     landlord: 'en-US-Chirp3-HD-Charon',
     neighbor: 'en-US-Chirp3-HD-Aoede',
+    clerk: 'en-US-Chirp3-HD-Puck',
     guide: 'en-US-Chirp3-HD-Achird',
   },
 };

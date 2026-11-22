@@ -57,6 +57,16 @@ describe('validateUnit catches broken content', () => {
     );
   });
 
+  it('checks the shape of spellWordIds (words from earlier units are allowed)', () => {
+    const spell = (ids: unknown) =>
+      problemsFor((u) => Object.assign(u.tasks[6]!, { spellWordIds: ids }));
+    expect(spell(['key', 'tea'])).toEqual([]);
+    expect(spell([])).not.toEqual([]);
+    expect(spell('key')).not.toEqual([]);
+    expect(spell(['Key'])).not.toEqual([]);
+    expect(spell(['key', 'key'])).not.toEqual([]);
+  });
+
   it('rejects unknown references and player lines with no chunk', () => {
     expect(problemsFor((u) => (u.tasks[0]!.newChunkIds as string[]).push('nope'))).not.toEqual([]);
     expect(problemsFor((u) => (u.tasks[0]!.newWordIds as string[]).push('nope'))).not.toEqual([]);
@@ -109,6 +119,20 @@ describe('ids across units', () => {
       }
     }
     expect(clashes).toEqual([]);
+  });
+
+  it('only spells words taught before the task (this unit or an earlier one)', () => {
+    const taught = new Set<string>();
+    const early: string[] = [];
+    for (const unit of UNITS) {
+      for (const task of unit.tasks) {
+        for (const id of task.spellWordIds ?? []) {
+          if (!taught.has(id)) early.push(`${unit.id}/${task.id} spells "${id}"`);
+        }
+        for (const id of task.newWordIds) taught.add(id);
+      }
+    }
+    expect(early).toEqual([]);
   });
 
   it('plays the moving-in unit before the café', () => {

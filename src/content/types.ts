@@ -1,7 +1,7 @@
 /** Shared content shapes. Content lives in src/data/units/*.json; code never hard-codes lessons. */
 
 /** Who speaks a line. Each role has one fixed voice per voice family (see src/audio/voices.ts). */
-export type Role = 'barista' | 'landlord' | 'neighbor' | 'guide';
+export type Role = 'barista' | 'landlord' | 'neighbor' | 'clerk' | 'guide';
 
 export interface Chunk {
   /** e.g. "can_i_get". Audio id is `${unitId}.chunk.${id}`. */
@@ -69,6 +69,11 @@ export interface Task {
   newWordIds: string[];
   /** Minimal pair ids introduced here (optional; most units have none). */
   newPairIds?: string[];
+  /**
+   * Words to spell by typing (打字拼字), practised after the new items. Word ids of
+   * this unit or an earlier one, all taught before this task; they teach nothing new.
+   */
+  spellWordIds?: string[];
   /** The short story played first, in order. */
   scene: SceneLine[];
 }
