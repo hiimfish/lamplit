@@ -30,16 +30,21 @@ src/
   ui/stage/         劇情小劇場：SceneStage（畫面；TaskStage 讓整個任務都顯示）、stageState（每一句和劇情結束後的舞台狀態）；
                     整個任務都由 audio/pronounce 的 nowPlaying 和 content/units 的 speakerOf 決定誰在跳動
   ui/minigames/     題型元件：ListenPick、ListenPair（聽辨挑戰）、ChooseReply、Arrange、
-                    Spell（打字拼字，畫面上的字母鍵盤）、Speak、QuestionView，以及錄音和辨識的 hook
-  learning/         出題、批改、錯誤提示、FSRS 排程、練習與複習的規則
+                    Spell（打字拼字，畫面上的字母鍵盤）、Cloze（聽力填空）、ReadSign（讀招牌／價目）、
+                    PictureChoose（看圖選句）、Speak、QuestionView，共用的小元件（shared），以及錄音和辨識的 hook
+  learning/         出題（questionGen）、題目的型別和 NO_ITEM（questions）、批改、錯誤提示、FSRS 排程、
+                    練習與複習的規則（sessionPlan）
   content/          單元型別、載入、內容檢查、音檔項目、角色的中文名稱（roles）、
                     單元順序（unitOrder）、用字分析和平滑度規則（vocab）
   core/             共用狀態、存檔、設定
-  audio/            發音播放、音軌與音量、背景音樂、音效、錄音、語音辨識
-  art/items/        單字像素圖：每個單元一個檔（cafe、moveIn、store）、共用繪圖工具（draw）、對照表和檢查（index）
-  art/stage/        小劇場：共用工具（common）、咖啡廳、搬家第一天和便利商店的背景與角色圖（cafe、moveIn、store）、
-                    每個單元的舞台設定（index）
-  data/units/       單元內容 JSON
+  audio/            發音播放、音軌與音量、背景音樂、音效、錄音、語音辨識、每個角色的聲線（voices）
+  art/items/        單字像素圖：每個單元一個檔（cafe、moveIn、store、street、market、clothes、clinic、
+                    restaurant、postOffice、park），共 153 個；共用繪圖工具（draw）、對照表和檢查（index）
+  art/stage/        小劇場：共用工具（common）、舞台設定的型別和「你」（config）、每個地點一個檔的背景與角色圖
+                    （cafe、moveIn、store、street、market、clothes、clinic、restaurant、postOffice、park；
+                    後 7 個檔也匯出自己的整份舞台設定）、依單元 id 列出舞台設定（index）
+  art/pictures/     看圖選句的圖（96×64）：對照表、尺寸和型別 PictureFn（index）、第一幕的 10 張（act1）
+  data/units/       單元內容 JSON（第一幕十個地點）
   data/wordlists/   NGSL、TSL 和補充字表（CC BY-SA 4.0，出處見那裡的 README）
 scripts/            gen-audio（產生音檔）、spike-tts（聲線比較）、check-font-glyphs（字型檢查）、
                     vocab-report（用字和難度報表）
@@ -141,7 +146,10 @@ tests/              Vitest 測試
 - 需要 Web Audio 的測試使用 `tests/fakeAudio.ts` 的假 AudioContext。
 - 專案沒有安裝模擬瀏覽器的測試環境（jsdom 或 happy-dom），所以畫面元件本身沒有自動化測試；畫面改動要在瀏覽器裡實際操作確認。
 - 場景有快照測試（`tests/streetSnapshot.test.ts`）：繪製結果的雜湊改變就會失敗。刻意改畫面時要更新雜湊，並在說明中寫明原因。
-- 內容的平滑度規則由 `tests/smoothness.test.ts` 檢查，和 `scripts/vocab-report.mjs` 共用 `src/content/vocab.ts` 的 `smoothnessBreaks`。改了單元內容後測試失敗時，先跑報表看是哪個任務違反了規則。
+- 內容的平滑度規則由 `tests/smoothness.test.ts` 檢查，和 `scripts/vocab-report.mjs` 共用 `src/content/vocab.ts` 的 `smoothnessBreaks`。改了單元內容後測試失敗時，先跑報表看是哪個任務違反了規則。同一個檔也檢查聽力填空、讀招牌、看圖選句的題目只用教過的字。
+- 看圖選句的圖由 `tests/pictures.test.ts` 檢查：只用調色盤顏色、整數像素、不超出 96×64、每次畫出來都一樣，而且內容裡用到的每個圖片 id 都有圖。
+- 小劇場由 `tests/stageArt.test.ts`、`tests/stageState.test.ts` 檢查每一個有舞台的單元（見 [scene-stage.md](scene-stage.md) 的「測試」）。
+- 2026-11-22 第一幕做完時：34 個測試檔、1,186 個測試，全部通過（`npm test`）。
 
 ### 手機上測錄音
 
@@ -160,7 +168,7 @@ tests/              Vitest 測試
 
 - [ ] `npm run typecheck`、`npm run lint`、`npm test`、`npm run build` 都通過
 - [ ] `npx prettier --check .` 通過
-- [ ] 改了單元內容時：`node scripts/gen-audio.mjs --dry-run` 確認要產生的音檔，產生後把 `public/audio/` 一起提交
+- [ ] 改了單元內容時：`node scripts/vocab-report.mjs` 確認沒有不符合平滑規則的地方；`node scripts/gen-audio.mjs --dry-run` 確認要產生的音檔，產生後把 `public/audio/` 一起提交
 - [ ] 改了畫面或操作時：在手機直向和電腦橫向的瀏覽器畫面都實際操作過
 - [ ] 同步更新 `docs/specs/` 裡相關的規格
 - [ ] 沒有提交 `.env`、`.tmp/`、`docs/art-image/`

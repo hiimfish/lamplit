@@ -1,6 +1,6 @@
 # 第一幕「新生活」詞塊、單字、文法分配表
 
-狀態：部分做到（2026-11-22 使用者審過）。搬家第一天和咖啡廳的 t1～t8 已照這份做（t8 是角色扮演大挑戰），第 3 節的劇情改寫也已完成；便利商店的 t1～t8 也照這份做（2026-11-22 做完）；其餘 7 個地點還沒做。規則來自 [curriculum.md](curriculum.md)。排名用 `src/data/wordlists/` 的字表和 `src/content/vocab.ts` 的查法（和 `scripts/vocab-report.mjs` 一樣）。
+狀態：已做（2026-11-22）。十個地點的 t1～t8 都照這份做完，也都排進遊玩順序（`src/content/unitOrder.ts` 的 `UNIT_ORDER`）：80 個任務、140 個詞塊、301 個單字；每個地點的 t8 是角色扮演大挑戰。`node scripts/vocab-report.mjs` 列出 0 個不符合平滑規則的地方。第 3 節的劇情改寫也已完成。做出來的內容和下面的表格有幾處不同，記在第 5 節；表格裡的中文已經改成和單元 JSON 一樣。這份分配表在 2026-11-22 由使用者審過；新寫的 7 個地點的台詞還沒請使用者看過。規則來自 [curriculum.md](curriculum.md)。排名用 `src/data/wordlists/` 的字表和 `src/content/vocab.ts` 的查法（和 `scripts/vocab-report.mjs` 一樣）。
 
 使用者 2026-11-22 決定：
 
@@ -88,7 +88,7 @@
 | Monday～Friday                            | 街道 t6（公車時刻表）                                      |
 | Saturday、Sunday、week、weekend、evening  | 餐廳 t5（約時間）                                          |
 
-還沒教的常用字：hello、fine、else、ready、soon。great 到超市 t7、friend 到餐廳 t1 才教。這些都在 NGSL 前 1000 名內（hello 除外），劇情可以拿來當「唯一一個沒教過的字」，但同一段只能用一個。見第 4 節。
+第一幕沒教的常用字：hello、fine、ready、soon（做完的十個地點都沒用到這四個字）。else 在便利商店 t7 教，great 到超市 t7、friend 到餐廳 t1 才教。這些都在 NGSL 前 1000 名內（hello 除外），劇情可以拿來當「唯一一個沒教過的字」，但同一段只能用一個。見第 4 節。
 
 ### 文法第一次出現
 
@@ -121,9 +121,21 @@
 | 題型                          | 地點與任務    | 為什麼放這裡                                                                                                                                                   |
 | ----------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 打字拼字                      | 3 便利商店 t7 | 要自己拼出來，是最難的基礎題型。等學過兩個地點的短字再開始，第一次只考搬家和咖啡廳的字（key、box、door、tea、cake）。這個任務沒有文法，項目數持平。            |
-| 聽力填空                      | 4 街道 t6     | 和打字拼字隔開一個地點。公車對話很適合挖空。第一次只挖前面學過的字（bus、stop、left、minute），不挖這個任務新教的星期。                                        |
+| 聽力填空                      | 4 街道 t6     | 和打字拼字隔開一個地點。公車對話很適合挖空。第一次只挖前面學過的字，不挖這個任務新教的星期。做出來挖的是 nine、minutes、bus 三題。                             |
 | 讀招牌／價目（多益第 7 大題） | 6 服飾店 t5   | curriculum.md 說第一幕後段，第 6 個地點是後半的開頭。數字和 price、each、cheap 已經學過，服飾店有很多價目牌和招牌（Shirts $15、Fitting Room）。                |
 | 看圖選句（多益第 1 大題）     | 7 診所 t5     | 照片描述幾乎都用現在進行式，要等服飾店 t3 教過、練了一整個地點。動作字已經學過：sit、stand、wait、walk、read、eat、drink、wear、buy。第一次只用 2 個文字選項。 |
+
+四種題型都已做（2026-11-22）。第一次出現的地方和上表一樣；之後再出現的地方是做內容時排的：
+
+| 題型         | 之後在哪裡再出現                                                                                                                               | 第一幕合計               |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| 打字拼字     | 街道到公園每個地點的 t7，各 5 個字，考上一個地點教過、有像素圖的字（例如街道 t7 考便利商店的 milk、egg、bread、bag、fork）                     | 8 個任務、40 個字        |
+| 聽力填空     | 超市到公園每個地點的 t6，各 3 題。挖的都是學過的字，有些是這個任務剛教的（例如服飾店 t6 的 percent、pair）                                     | 7 個任務、21 題          |
+| 讀招牌／價目 | 服飾店 t5 有 3 題；診所、餐廳、郵局、公園的 t4 各 2 題（例如看診時間、菜單價目、營業時間、活動公告）                                           | 5 個任務、11 題          |
+| 看圖選句     | 診所 t5 有 4 張圖，每張 2 個句子；餐廳、郵局、公園的 t5 各 2 張圖，每張 3 個句子。句子都是現在進行式（She is reading a book.），還沒有聲音選項 | 4 個任務、10 題、10 張圖 |
+
+- 這些題目用的字（挖掉的字、干擾選項、招牌上的字、問題、圖片的句子）都只能是那個任務之前教過的字，由 `tests/smoothness.test.ts` 檢查。
+- 題型的規格見 [vocab-quiz.md](vocab-quiz.md)，內容欄位見 [content.md](content.md)。
 
 ## 2. 各地點分配
 
@@ -152,16 +164,16 @@
 - NPC：`barista` 店員
 - 場景：小鎮的咖啡廳：點飲料、選大小、找位子。
 
-| 任務       | 標題               | 新詞塊（英文／中文）                                                                                              | 新單字（英文／中文／排名）                                                                 | 文法         | 新題型 | 新項目數    |
-| ---------- | ------------------ | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ------------ | ------ | ----------- |
-| t1（既有） | 點一杯拿鐵         | Can I get a latte, please?／可以給我一杯拿鐵嗎？                                                                  | latte／拿鐵／外<br>tea／茶／N1599<br>muffin／瑪芬／外                                      | —            | —      | 4           |
-| t2（既有） | 內用還是外帶       | For here or to go?／內用還是外帶？<br>To go, please.／外帶，謝謝。                                                | water／水／N322<br>cake／蛋糕／N2173                                                       | —            | —      | 4           |
-| t3（既有） | 付錢，還有聽不懂時 | How much is it?／這多少錢？<br>Sorry, can you say that again?／不好意思，可以再說一次嗎？<br>Here you go.／給你。 | sandwich／三明治／T112                                                                     | —            | —      | 4           |
-| t4         | 冰的，不加糖       | Can I get an iced coffee?／可以給我一杯冰咖啡嗎？<br>No sugar, please.／不加糖，謝謝。                            | coffee／咖啡／N1395<br>ice／冰塊／N1554<br>sugar／糖／N2234                                | —            | —      | 5           |
-| t5         | 大杯小杯           | What sizes do you have?／有哪幾種大小？<br>A small one, please.／小杯的，謝謝。                                   | small／小的／N186<br>large／大的／N210<br>medium／中的（中杯）／N689<br>cookie／餅乾／T671 | —            | —      | 6           |
-| t6         | 外面有位子嗎       | Is there Wi-Fi here?／這裡有 Wi-Fi 嗎？<br>Is there a table outside?／外面有桌子嗎？                              | table／桌子／N450<br>window／窗戶／N734<br>outside／外面／N491<br>inside／裡面／N660       | there is/are | —      | 6           |
-| t7         | 這裡有人坐嗎       | Is this seat taken?／這個位子有人坐嗎？<br>No, go ahead.／沒有，請坐。                                            | sit／坐／N356<br>seat／座位／N852<br>read／讀／N207<br>book／書／N171                      | —            | —      | 6           |
-| t8         | 角色扮演大挑戰     | —                                                                                                                 | —                                                                                          | —            | —      | 0（只複習） |
+| 任務       | 標題               | 新詞塊（英文／中文）                                                                                                            | 新單字（英文／中文／排名）                                                                                 | 文法         | 新題型 | 新項目數    |
+| ---------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------ | ------ | ----------- |
+| t1（既有） | 點一杯拿鐵         | Can I get a latte, please?／可以給我一杯拿鐵嗎？                                                                                | latte／拿鐵／外<br>tea／茶／N1599<br>muffin／瑪芬／外                                                      | —            | —      | 4           |
+| t2（既有） | 內用還是外帶       | For here or to go?／內用還是外帶？<br>To go, please.／外帶，謝謝。                                                              | water／水／N322<br>cake／蛋糕／N2173                                                                       | —            | —      | 4           |
+| t3（既有） | 付錢，還有聽不懂時 | How much is it?／這多少錢？<br>Sorry, can you say that again?／不好意思，可以再說一次嗎？<br>Here you go.／給你。（遞東西時說） | sandwich／三明治／T112                                                                                     | —            | —      | 4           |
+| t4         | 冰的，不加糖       | Can I get an iced coffee?／可以給我一杯冰咖啡嗎？<br>No sugar, please.／不加糖，謝謝。                                          | coffee／咖啡／N1395<br>ice／冰塊／N1554<br>sugar／糖／N2234                                                | —            | —      | 5           |
+| t5         | 大杯小杯           | What sizes do you have?／有哪幾種大小？<br>A small one, please.／小杯的，謝謝。                                                 | small／小的（小杯）／N186<br>large／大的（大杯）／N210<br>medium／中的（中杯）／N689<br>cookie／餅乾／T671 | —            | —      | 6           |
+| t6         | 外面有位子嗎       | Is there Wi-Fi here?／這裡有 Wi-Fi 嗎？<br>Is there a table outside?／外面有桌子嗎？                                            | table／桌子／N450<br>window／窗戶／N734<br>outside／外面／N491<br>inside／裡面／N660                       | there is/are | —      | 6           |
+| t7         | 這裡有人坐嗎       | Is this seat taken?／這個位子有人坐嗎？<br>No, go ahead.／沒有，請坐。                                                          | sit／坐／N356<br>seat／座位／N852<br>read／讀；看（書）／N207<br>book／書／N171                            | —            | —      | 6           |
+| t8         | 角色扮演大挑戰     | —                                                                                                                               | —                                                                                                          | —            | —      | 0（只複習） |
 
 小計：14 個詞塊、21 個單字。
 
@@ -194,7 +206,7 @@
 | t2   | 往哪邊走         | Which way is the station?／車站往哪邊走？<br>Left or right?／左邊還是右邊？                                                  | bank／銀行／N627<br>station／車站／N709<br>map／地圖／N1212<br>left／左邊／N126                                        | —          | —        | 6           |
 | t3   | 要準備零錢       | I need some coins for the bus.／我需要一些零錢搭公車。<br>Do you have any change?／你有零錢嗎？                              | driver／司機／N1200<br>ticket／車票／N1249<br>coin／硬幣／N2609<br>fare／車資／T32                                     | some / any | —        | 6           |
 | t4   | 這班車有到嗎     | Does this bus go downtown?／這班公車有到市中心嗎？<br>How much is the fare?／車資多少錢？                                    | school／學校／N146<br>hospital／醫院／N782<br>library／圖書館／N1162<br>museum／博物館／N1397<br>downtown／市中心／T17 | —          | —        | 7           |
-| t5   | 坐多久、在哪下車 | How long does it take?／要多久？<br>Is this my stop?／這是我要下的站嗎？                                                     | stand／站／N309<br>minute／分鐘／N366<br>hour／小時／N247<br>wait／等／N403<br>front／前面／N488                       | —          | —        | 7           |
+| t5   | 坐多久、在哪下車 | How long does it take?／要多久？<br>Is this my stop?／我是在這站下車嗎？                                                     | stand／站著／N309<br>minute／分鐘／N366<br>hour／小時／N247<br>wait／等／N403<br>front／前面／N488                     | —          | —        | 7           |
 | t6   | 下一班車         | When is the next bus?／下一班公車幾點？<br>Is the bus late today?／公車今天誤點了嗎？                                        | Monday／星期一／S<br>Tuesday／星期二／S<br>Wednesday／星期三／S<br>Thursday／星期四／S<br>Friday／星期五／S            | —          | 聽力填空 | 7           |
 | t7   | 迷路了           | Sorry, I'm lost. Can you help me?／不好意思，我迷路了。可以幫我嗎？<br>Can you show me on the map?／可以在地圖上指給我看嗎？ | walk／走路／N339<br>sign／招牌；標誌／N500<br>road／馬路／N521<br>taxi／計程車／N1148<br>bridge／橋／N1546             | —          | —        | 7           |
 | t8   | 角色扮演大挑戰   | —                                                                                                                            | —                                                                                                                      | —          | —        | 0（只複習） |
@@ -224,16 +236,16 @@
 - NPC：`assistant` 店員
 - 場景：換季了，去服飾店買外套：看顏色、問尺寸、試穿、退換貨。
 
-| 任務 | 標題           | 新詞塊（英文／中文）                                                                                        | 新單字（英文／中文／排名）                                                                                         | 文法       | 新題型       | 新項目數    |
-| ---- | -------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ---------- | ------------ | ----------- |
-| t1   | 隨便看看       | I'm just looking, thanks.／我只是看看，謝謝。<br>Where are the jackets?／外套在哪裡？                       | clothes／衣服／N956<br>shirt／襯衫／N1907<br>dress／洋裝／N899<br>jacket／夾克；外套／N2253                        | —          | —            | 6           |
-| t2   | 有黑色的嗎     | Do you have this in black?／這件有黑色的嗎？<br>What size is this?／這是什麼尺寸？                          | color／顏色／N378<br>black／黑色／N411<br>white／白色／N482<br>red／紅色／N800<br>blue／藍色／N858                 | —          | —            | 7           |
-| t3   | 在找一件外套   | I'm looking for a warm coat.／我在找一件保暖的外套。<br>Yes, someone is helping me.／有，已經有人在幫我了。 | wear／穿；戴／N526<br>warm／溫暖的／N1021<br>coat／大衣／N1863<br>hat／帽子／N1750<br>shoe／鞋子／N1476            | 現在進行式 | —            | 7           |
-| t4   | 試穿           | Can I try it on?／我可以試穿嗎？<br>Where's the fitting room?／試衣間在哪裡？                               | size／尺寸／N705<br>green／綠色／N940<br>mirror／鏡子／N2205<br>skirt／裙子／N2451<br>pants／褲子／T372            | —          | —            | 7           |
-| t5   | 合不合身       | This one fits well.／這件很合身。<br>It's a little big.／有點大。                                           | long／長的／N115<br>short／短的／N419<br>fit／合身／N700<br>tight／緊的／N2083<br>loose／鬆的／N2185               | —          | 讀招牌／價目 | 7           |
-| t6   | 有打折嗎       | Is this on sale?／這件有打折嗎？<br>I'll take it.／我買這件。                                               | new／新的／N79<br>old／舊的／N144<br>sale／特價／N398<br>percent／百分比（% off）／N549<br>pair／一雙；一對／N1092 | —          | —            | 7           |
-| t7   | 退換貨         | Can I return this?／我可以退這個嗎？<br>Here's my receipt.／這是我的收據。                                  | return／退回／N337<br>wrong／錯的／N575<br>exchange／換貨／N1015<br>gift／禮物／N1427<br>scarf／圍巾／T739         | —          | —            | 7           |
-| t8   | 角色扮演大挑戰 | —                                                                                                           | —                                                                                                                  | —          | —            | 0（只複習） |
+| 任務 | 標題           | 新詞塊（英文／中文）                                                                                        | 新單字（英文／中文／排名）                                                                                      | 文法       | 新題型       | 新項目數    |
+| ---- | -------------- | ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ---------- | ------------ | ----------- |
+| t1   | 隨便看看       | I'm just looking, thanks.／我只是看看，謝謝。<br>Where are the jackets?／外套在哪裡？                       | clothes／衣服／N956<br>shirt／襯衫／N1907<br>dress／洋裝／N899<br>jacket／夾克；外套／N2253                     | —          | —            | 6           |
+| t2   | 有黑色的嗎     | Do you have this in black?／這件有黑色的嗎？<br>What size is this?／這是什麼尺寸？                          | color／顏色／N378<br>black／黑色／N411<br>white／白色／N482<br>red／紅色／N800<br>blue／藍色／N858              | —          | —            | 7           |
+| t3   | 在找一件外套   | I'm looking for a warm coat.／我在找一件保暖的外套。<br>Yes, someone is helping me.／有，已經有人在幫我了。 | wear／穿；戴／N526<br>warm／溫暖的；保暖的／N1021<br>coat／大衣／N1863<br>hat／帽子／N1750<br>shoe／鞋子／N1476 | 現在進行式 | —            | 7           |
+| t4   | 試穿           | Can I try it on?／我可以試穿嗎？<br>Where's the fitting room?／試衣間在哪裡？                               | size／尺寸／N705<br>green／綠色／N940<br>mirror／鏡子／N2205<br>skirt／裙子／N2451<br>pants／褲子／T372         | —          | —            | 7           |
+| t5   | 合不合身       | This one fits well.／這件很合身。<br>It's a little big.／有點大。                                           | long／長的／N115<br>short／短的／N419<br>fit／合身／N700<br>tight／緊的／N2083<br>loose／鬆的／N2185            | —          | 讀招牌／價目 | 7           |
+| t6   | 有打折嗎       | Is this on sale?／這件有打折嗎？<br>I'll take it.／我買這件。                                               | new／新的／N79<br>old／舊的／N144<br>sale／特價／N398<br>percent／百分比／N549<br>pair／一雙；一對／N1092       | —          | —            | 7           |
+| t7   | 退換貨         | Can I return this?／這個可以退嗎？<br>Here's my receipt.／這是我的收據。                                    | return／退貨／N337<br>wrong／錯的／N575<br>exchange／換貨／N1015<br>gift／禮物／N1427<br>scarf／圍巾／T739      | —          | —            | 7           |
+| t8   | 角色扮演大挑戰 | —                                                                                                           | —                                                                                                               | —          | —            | 0（只複習） |
 
 小計：14 個詞塊、34 個單字。
 
@@ -250,62 +262,62 @@
 | t4   | 看醫生         | I have a fever and a cough.／我發燒又咳嗽。<br>Is it serious?／嚴重嗎？                          | cold／感冒；冷的／N867<br>throat／喉嚨／N2504<br>nose／鼻子／N2114<br>cough／咳嗽／N2774<br>fever／發燒／外        | —       | —        | 7           |
 | t5   | 醫生的交代     | How many pills do I take?／我要吃幾顆藥？<br>Can I go to work tomorrow?／我明天可以去上班嗎？    | sleep／睡覺／N827<br>rest／休息／N528<br>body／身體／N401<br>medicine／藥／N1761<br>pill／藥丸／T732               | —       | 看圖選句 | 7           |
 | t6   | 到藥局         | Do you have something for a cough?／有治咳嗽的藥嗎？<br>Does it make you sleepy?／吃了會想睡嗎？ | sick／生病的／N1716<br>tissue／面紙／N2625<br>cream／藥膏；乳霜／N2388<br>pharmacy／藥局／T423<br>mask／口罩／T484 | —       | —        | 7           |
-| t7   | 藥怎麼吃       | Do I take it with food?／要跟食物一起吃嗎？<br>Thanks for your help.／謝謝你的幫忙。             | food／食物／N367<br>glass／玻璃杯／N1042<br>meal／一餐／N1250<br>dinner／晚餐／N1117<br>breakfast／早餐／N1819     | —       | —        | 7           |
+| t7   | 藥怎麼吃       | Do I take it with food?／要配東西吃嗎？<br>Thanks for your help.／謝謝你的幫忙。                 | food／食物／N367<br>glass／玻璃杯／N1042<br>meal／一餐／N1250<br>dinner／晚餐／N1117<br>breakfast／早餐／N1819     | —       | —        | 7           |
 | t8   | 角色扮演大挑戰 | —                                                                                                | —                                                                                                                  | —       | —        | 0（只複習） |
 
 小計：14 個詞塊、34 個單字。
 
 ### 8 餐廳與聚會（`restaurant`）
 
-- NPC：`server` 服務生、`friend` 新朋友 Mia
-- 場景：和鄰居、新朋友吃飯聊天：帶位、點餐、聊興趣、約時間、聊週末。
+- NPC：`server` 服務生、`friend` 新朋友（台詞裡沒有叫出名字；小劇場的角色圖註解叫她 Mia）
+- 場景：和新朋友吃飯聊天：帶位、點餐、聊興趣、約時間、結帳、聊週末。
 
-| 任務 | 標題           | 新詞塊（英文／中文）                                                                                     | 新單字（英文／中文／排名）                                                                                      | 文法                                      | 新題型 | 新項目數    |
-| ---- | -------------- | -------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------- | ------ | ----------- |
-| t1   | 兩位           | A table for two, please.／兩位，謝謝。<br>How long is the wait?／要等多久？                              | people／人們／N57<br>friend／朋友／N208<br>restaurant／餐廳／N919<br>waiter／服務生／T40                        | —                                         | —      | 6           |
-| t2   | 點餐           | What do you recommend?／你推薦什麼？<br>I'll have the soup, please.／我要湯，謝謝。                      | menu／菜單／N2597<br>soup／湯／T326<br>salad／沙拉／T272<br>steak／牛排／T840<br>dessert／甜點／T170            | —                                         | —      | 7           |
-| t3   | 聊興趣         | I really like cooking.／我很喜歡做菜。<br>What do you do for fun?／你平常喜歡做什麼？                    | music／音樂／N392<br>movie／電影／N762<br>sing／唱歌／N873<br>dance／跳舞／N959<br>cook／做菜／N1196            | like + -ing                               | —      | 7           |
-| t4   | 朋友的派對     | Thanks for inviting me.／謝謝你邀請我。<br>Can I bring anything?／要我帶什麼嗎？                         | party／派對／N299<br>game／遊戲／N393<br>wine／葡萄酒／N1389<br>guest／客人／N1430<br>birthday／生日／T104      | —                                         | —      | 7           |
-| t5   | 約時間地點     | See you on Friday at seven!／星期五七點見！<br>Let's meet in front of the station.／我們在車站前面見吧。 | week／一週／N157<br>weekend／週末／N934<br>evening／傍晚／N679<br>Saturday／星期六／S<br>Sunday／星期日／S      | 地點和時間介系詞（at / on / in front of） | —      | 7           |
-| t6   | 結帳           | Can we get the check, please?／可以結帳嗎？<br>Can we split it?／可以分開付嗎？                          | check／帳單／N580<br>total／總共／N569<br>together／一起／N294<br>tax／稅／N787<br>tip／小費／N1659             | —                                         | —      | 7           |
-| t7   | 週末過得如何   | It was great, thanks.／很棒，謝謝。<br>The food was really good.／東西很好吃。                           | great／很棒的／N124<br>happy／開心的／N513<br>fun／好玩的／N902<br>busy／忙的／N1233<br>delicious／好吃的／T197 | 過去式（be：was / were）                  | —      | 7           |
-| t8   | 角色扮演大挑戰 | —                                                                                                        | —                                                                                                               | —                                         | —      | 0（只複習） |
+| 任務 | 標題           | 新詞塊（英文／中文）                                                                                     | 新單字（英文／中文／排名）                                                                                       | 文法                                      | 新題型 | 新項目數    |
+| ---- | -------------- | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------- | ------ | ----------- |
+| t1   | 兩位           | A table for two, please.／兩位，謝謝。<br>How long is the wait?／要等多久？                              | people／人／N57<br>friend／朋友／N208<br>restaurant／餐廳／N919<br>waiter／服務生／T40                           | —                                         | —      | 6           |
+| t2   | 點餐           | What do you recommend?／你推薦什麼？<br>I'll have the soup, please.／我要湯，謝謝。                      | menu／菜單／N2597<br>soup／湯／T326<br>salad／沙拉／T272<br>steak／牛排／T840<br>dessert／甜點／T170             | —                                         | —      | 7           |
+| t3   | 聊興趣         | I really like cooking.／我很喜歡做菜。<br>What do you do for fun?／你平常喜歡做什麼？                    | music／音樂／N392<br>movie／電影／N762<br>sing／唱歌／N873<br>dance／跳舞／N959<br>cook／做菜／N1196             | like + -ing                               | —      | 7           |
+| t4   | 朋友的派對     | Thanks for inviting me.／謝謝你邀請我。<br>Can I bring anything?／要我帶什麼嗎？                         | party／派對／N299<br>game／遊戲／N393<br>wine／葡萄酒／N1389<br>guest／客人／N1430<br>birthday／生日／T104       | —                                         | —      | 7           |
+| t5   | 約時間地點     | See you on Friday at seven!／星期五七點見！<br>Let's meet in front of the station.／我們在車站前面見吧。 | week／一週／N157<br>weekend／週末／N934<br>evening／晚上；傍晚／N679<br>Saturday／星期六／S<br>Sunday／星期日／S | 地點和時間介系詞（at / on / in front of） | —      | 7           |
+| t6   | 結帳           | Can we get the check, please?／可以結帳嗎？<br>Can we split it?／可以分開付嗎？                          | check／帳單／N580<br>total／總共／N569<br>together／一起／N294<br>tax／稅／N787<br>tip／小費／N1659              | —                                         | —      | 7           |
+| t7   | 週末過得如何   | It was great, thanks.／很棒，謝謝。<br>The food was really good.／東西很好吃。                           | great／很棒的／N124<br>happy／開心的／N513<br>fun／好玩的／N902<br>busy／忙的／N1233<br>delicious／好吃的／T197  | 過去式（be：was / were）                  | —      | 7           |
+| t8   | 角色扮演大挑戰 | —                                                                                                        | —                                                                                                                | —                                         | —      | 0（只複習） |
 
 小計：14 個詞塊、34 個單字。
 
 ### 9 郵局（`post_office`）
 
-- NPC：`postal_clerk` 郵局櫃台
+- NPC：`postal_clerk` 郵局人員
 - 場景：寄東西回台灣、填地址、處理沒收到的包裹。
 
-| 任務 | 標題           | 新詞塊（英文／中文）                                                                                  | 新單字（英文／中文／排名）                                                                                                     | 文法                   | 新題型 | 新項目數    |
-| ---- | -------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------- | ------ | ----------- |
-| t1   | 寄回台灣       | I want to send this to Taiwan.／我想把這個寄到台灣。<br>Can I send it by air?／可以寄航空嗎？         | mail／郵件；寄／N1643<br>letter／信／N358<br>package／包裹／N1319<br>stamp／郵票／N2654                                        | —                      | —      | 6           |
-| t2   | 地址寫哪裡     | Where do I write the address?／地址要寫在哪裡？<br>Is this okay?／這樣可以嗎？                        | write／寫／N121<br>number／號碼／N127<br>city／城市／N269<br>country／國家／N143<br>address／地址／N558                        | —                      | —      | 7           |
-| t3   | 包裹沒收到     | I mailed it last week.／我上星期寄的。<br>I missed the delivery.／我錯過了送貨。                      | order／訂購；訂單／N215<br>yesterday／昨天／N703<br>notice／通知單／N664<br>delivery／送貨／N1428<br>online／網路上／N1794     | 過去式（規則動詞 -ed） | —      | 7           |
-| t4   | 領包裹         | I'm here to pick up a package.／我來領包裹。<br>Here's my ID.／這是我的證件。                         | office／辦公室／N343<br>open／開；營業中／N214<br>close／關；打烊／N239<br>desk／桌子（櫃台桌）／N1588<br>counter／櫃台／N2412 | —                      | —      | 7           |
-| t5   | 裡面是什麼     | Just some books and gifts.／只是一些書和禮物。<br>Please be careful with it.／請小心處理。            | carry／搬；提／N446<br>break／打破；摔壞／N368<br>heavy／重的／N1052<br>toy／玩具／N1994<br>careful／小心的／N1637             | —                      | —      | 7           |
-| t6   | 多久會到       | How much does it cost?／要多少錢？<br>When will it get there?／什麼時候會到？                         | fast／快的／N631<br>slow／慢的／N1118<br>weight／重量／N978<br>scale／秤／N1199<br>kilogram／公斤／T1059                       | —                      | —      | 7           |
-| t7   | 買包裝用品     | I need a box and some tape.／我需要一個箱子和一些膠帶。<br>Can I buy stamps here?／這裡可以買郵票嗎？ | tape／膠帶／N1371<br>envelope／信封／N2656<br>postcard／明信片／T448<br>sticker／貼紙／T841<br>scissors／剪刀／外              | —                      | —      | 7           |
-| t8   | 角色扮演大挑戰 | —                                                                                                     | —                                                                                                                              | —                      | —      | 0（只複習） |
+| 任務 | 標題           | 新詞塊（英文／中文）                                                                              | 新單字（英文／中文／排名）                                                                                                 | 文法                   | 新題型 | 新項目數    |
+| ---- | -------------- | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ------ | ----------- |
+| t1   | 寄回台灣       | I want to send this to Taiwan.／我想把這個寄到台灣。<br>Can I send it by air?／可以寄航空嗎？     | mail／郵件；寄／N1643<br>letter／信／N358<br>package／包裹／N1319<br>stamp／郵票／N2654                                    | —                      | —      | 6           |
+| t2   | 地址寫哪裡     | Where do I write the address?／地址要寫在哪裡？<br>Is this okay?／這樣可以嗎？                    | write／寫／N121<br>number／號碼／N127<br>city／城市／N269<br>country／國家／N143<br>address／地址／N558                    | —                      | —      | 7           |
+| t3   | 包裹沒收到     | I mailed it last week.／我上星期寄的。<br>I missed the delivery.／包裹送來的時候我不在。          | order／訂購；訂單／N215<br>yesterday／昨天／N703<br>notice／通知單／N664<br>delivery／送貨／N1428<br>online／網路上／N1794 | 過去式（規則動詞 -ed） | —      | 7           |
+| t4   | 領包裹         | I'm here to pick up a package.／我來領包裹。<br>Here's my ID.／這是我的證件。                     | office／辦公室／N343<br>open／開；營業中／N214<br>close／關；打烊／N239<br>desk／辦公桌／N1588<br>counter／櫃台／N2412     | —                      | —      | 7           |
+| t5   | 裡面是什麼     | Just some books and gifts.／只是一些書和禮物。<br>Please be careful with it.／麻煩小心一點。      | carry／搬；提／N446<br>break／打破；摔壞／N368<br>heavy／重的／N1052<br>toy／玩具／N1994<br>careful／小心的／N1637         | —                      | —      | 7           |
+| t6   | 多久會到       | How much does it cost?／要多少錢？<br>When will it get there?／什麼時候會到？                     | fast／快的／N631<br>slow／慢的／N1118<br>weight／重量／N978<br>scale／秤／N1199<br>kilogram／公斤／T1059                   | —                      | —      | 7           |
+| t7   | 買包裝用品     | I need a box and some tape.／我需要一個箱子和膠帶。<br>Can I buy stamps here?／這裡可以買郵票嗎？ | tape／膠帶／N1371<br>envelope／信封／N2656<br>postcard／明信片／T448<br>sticker／貼紙／T841<br>scissors／剪刀／外          | —                      | —      | 7           |
+| t8   | 角色扮演大挑戰 | —                                                                                                 | —                                                                                                                          | —                      | —      | 0（只複習） |
 
 小計：14 個詞塊、34 個單字。
 
 ### 10 公園與社區（`park`）
 
-- NPC：`neighbor` 鄰居、`volunteer` 社區志工
+- NPC：`neighbor` 鄰居（和搬家第一天同一個角色，聲線和角色圖都沿用；她帶著狗 Coco）、`volunteer` 社區志工 Ben
 - 場景：週末去公園：聊天、看活動公告、當志工、野餐、交朋友。
 
-| 任務 | 標題           | 新詞塊（英文／中文）                                                                                | 新單字（英文／中文／排名）                                                                                                 | 文法                     | 新題型 | 新項目數    |
-| ---- | -------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------ | ----------- |
-| t1   | 公園散步       | Nice day, isn't it?／天氣真好，對吧？<br>Is your dog friendly?／你的狗會咬人嗎？（友善嗎）          | park／公園／N657<br>tree／樹／N738<br>dog／狗／N895<br>flower／花／N1301                                                   | —                        | —      | 6           |
-| t2   | 看活動公告     | What time does it start?／幾點開始？<br>Is it free?／免費嗎？                                       | class／課程／N362<br>event／活動／N442<br>center／中心／N334<br>afternoon／下午／N948<br>poster／海報／T336                | —                        | —      | 7           |
-| t3   | 上次的活動     | I saw your poster.／我看到你的海報。<br>I had a great time.／我玩得很開心。                         | sun／太陽／N1361<br>sky／天空／N1720<br>wind／風／N1013<br>cloud／雲／N2090<br>grass／草地／N2193                          | 過去式（常見不規則動詞） | —      | 7           |
-| t4   | 當志工         | How can I help?／我可以幫什麼忙？<br>Can I sign up here?／可以在這裡報名嗎？                        | team／隊；小組／N407<br>plant／植物；種／N671<br>clean／打掃；乾淨的／N842<br>garden／花園／N972<br>volunteer／志工／N1962 | —                        | —      | 7           |
-| t5   | 野餐           | Do you want something to drink?／你要喝點什麼嗎？<br>Please help yourself.／請自己拿，別客氣。      | play／玩／N158<br>hold／拿著／N222<br>kid／小孩／N529<br>ball／球／N1201<br>picnic／野餐／T209                             | —                        | —      | 7           |
-| t6   | 一起運動       | Do you want to run together?／要不要一起跑步？<br>I run here every morning.／我每天早上在這裡跑步。 | run／跑步／N192<br>sport／運動／N603<br>lake／湖／N1822<br>swim／游泳／N1391<br>tennis／網球／N1917                        | —                        | —      | 7           |
-| t7   | 保持聯絡       | Let's keep in touch.／保持聯絡喔。<br>Here's my number.／這是我的電話號碼。                         | family／家人／N172<br>picture／照片／N509<br>message／訊息／N863<br>email／電子郵件／N1169<br>camera／相機／N1390          | —                        | —      | 7           |
-| t8   | 角色扮演大挑戰 | —                                                                                                   | —                                                                                                                          | —                        | —      | 0（只複習） |
+| 任務 | 標題           | 新詞塊（英文／中文）                                                                                  | 新單字（英文／中文／排名）                                                                                                 | 文法                     | 新題型 | 新項目數    |
+| ---- | -------------- | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------ | ----------- |
+| t1   | 公園散步       | Nice day, isn't it?／天氣真好，對吧？<br>Is your dog friendly?／你的狗親人嗎？                        | park／公園／N657<br>tree／樹／N738<br>dog／狗／N895<br>flower／花／N1301                                                   | —                        | —      | 6           |
+| t2   | 看活動公告     | What time does it start?／幾點開始？<br>Is it free?／免費嗎？                                         | class／課程／N362<br>event／活動／N442<br>center／中心／N334<br>afternoon／下午／N948<br>poster／海報／T336                | —                        | —      | 7           |
+| t3   | 上次的活動     | I saw your poster.／我看到你們的海報了。<br>I had a great time.／我玩得很開心。                       | sun／太陽／N1361<br>sky／天空／N1720<br>wind／風／N1013<br>cloud／雲／N2090<br>grass／草地／N2193                          | 過去式（常見不規則動詞） | —      | 7           |
+| t4   | 當志工         | How can I help?／我可以幫什麼忙？<br>Can I sign up here?／可以在這裡報名嗎？                          | team／隊；小組／N407<br>plant／植物；種／N671<br>clean／打掃；乾淨的／N842<br>garden／花園／N972<br>volunteer／志工／N1962 | —                        | —      | 7           |
+| t5   | 野餐           | Do you want something to drink?／你要喝點什麼嗎？<br>Please help yourself.／請自己拿，別客氣。        | play／玩／N158<br>hold／拿著／N222<br>kid／小孩／N529<br>ball／球／N1201<br>picnic／野餐／T209                             | —                        | —      | 7           |
+| t6   | 一起運動       | Do you want to run together?／要不要一起跑步？<br>I run here every morning.／我每天早上都在這裡跑步。 | run／跑步／N192<br>sport／運動／N603<br>lake／湖／N1822<br>swim／游泳／N1391<br>tennis／網球／N1917                        | —                        | —      | 7           |
+| t7   | 保持聯絡       | Let's keep in touch.／保持聯絡喔。<br>Here's my number.／這是我的電話號碼。                           | family／家人／N172<br>picture／照片／N509<br>message／訊息／N863<br>email／電子郵件／N1169<br>camera／相機／N1390          | —                        | —      | 7           |
+| t8   | 角色扮演大挑戰 | —                                                                                                     | —                                                                                                                          | —                        | —      | 0（只複習） |
 
 小計：14 個詞塊、34 個單字。
 
@@ -379,7 +391,9 @@
 
 ### 角色和聲音
 
-- 新的 NPC 角色 id 有 14 個：clerk、passerby、driver、cashier、vendor、assistant、receptionist、doctor、pharmacist、server、friend、postal_clerk、neighbor、volunteer。每個都要在 `role` 加合法值、配聲線、畫角色。可以合併：例如 clerk、cashier、assistant、postal_clerk 都用「店員」聲線。
+- 已做（2026-11-22）。這份表列的 14 個 NPC 角色 id 都有了：clerk、passerby、driver、cashier、vendor、assistant、receptionist、doctor、pharmacist、server、friend、postal_clerk、neighbor、volunteer。其中 clerk 和 neighbor 之前就有，今天新增的是另外 12 個。
+- 每個角色都有自己的角色圖和自己的 Chirp 3 HD 聲線，沒有合併成「店員」聲線。Neural2 只有 9 種美國聲線，所以不同地點的角色會共用，同一個地點的兩個角色一定不同。對照表見 [audio.md](audio.md)。
+- 公園的鄰居沿用搬家第一天的 `neighbor`（同一個聲線和角色圖）。
 
 ### 句子要請英文好的人看
 
@@ -401,3 +415,41 @@
   - 搬家 t7_4 新房客對鄰居說 Call me if you need anything.（鄰居接著給電話號碼，情境說得通）
   - 咖啡廳 t7_3 I'm on my break. Is this one taken?（店員休息時問）
 - 已解決：Can you help me with this box? 在搬家 t4 是房東搬箱子進來時，玩家請房東幫忙，很自然。
+
+2026-11-22 寫好街道到公園 7 個地點之後，各做過一輪編修（改掉生硬的台詞、把幾個詞塊的中文改得比較口語，台詞裡價錢的中文用「塊」）。這 7 個地點的句子還沒請英文好的人看過，也還沒請使用者看過。
+
+## 5. 做出來和表格不同的地方（2026-11-22）
+
+用腳本把上面的表格和 `src/data/units/*.json` 逐格比對過。
+
+- **一樣的**：任務標題、每個任務的詞塊和單字（英文）、順序、新項目數、文法和新題型第一次出現的任務。
+- **中文不一樣的**：下面這些已經照單元 JSON 改進表格。
+
+| 地點   | 項目                        | 原本寫的                   | 做出來的                   |
+| ------ | --------------------------- | -------------------------- | -------------------------- |
+| 咖啡廳 | Here you go.                | 給你。                     | 給你。（遞東西時說）       |
+| 咖啡廳 | small／large                | 小的／大的                 | 小的（小杯）／大的（大杯） |
+| 咖啡廳 | read                        | 讀                         | 讀；看（書）               |
+| 街道   | Is this my stop?            | 這是我要下的站嗎？         | 我是在這站下車嗎？         |
+| 街道   | stand                       | 站                         | 站著                       |
+| 服飾店 | warm                        | 溫暖的                     | 溫暖的；保暖的             |
+| 服飾店 | percent                     | 百分比（% off）            | 百分比                     |
+| 服飾店 | Can I return this?          | 我可以退這個嗎？           | 這個可以退嗎？             |
+| 服飾店 | return                      | 退回                       | 退貨                       |
+| 診所   | Do I take it with food?     | 要跟食物一起吃嗎？         | 要配東西吃嗎？             |
+| 餐廳   | people                      | 人們                       | 人                         |
+| 餐廳   | evening                     | 傍晚                       | 晚上；傍晚                 |
+| 郵局   | I missed the delivery.      | 我錯過了送貨。             | 包裹送來的時候我不在。     |
+| 郵局   | desk                        | 桌子（櫃台桌）             | 辦公桌                     |
+| 郵局   | Please be careful with it.  | 請小心處理。               | 麻煩小心一點。             |
+| 郵局   | I need a box and some tape. | 我需要一個箱子和一些膠帶。 | 我需要一個箱子和膠帶。     |
+| 公園   | Is your dog friendly?       | 你的狗會咬人嗎？（友善嗎） | 你的狗親人嗎？             |
+| 公園   | I saw your poster.          | 我看到你的海報。           | 我看到你們的海報了。       |
+| 公園   | I run here every morning.   | 我每天早上在這裡跑步。     | 我每天早上都在這裡跑步。   |
+
+- **題型**：聽力填空第一次出現（街道 t6）挖的是 nine、minutes、bus，不是原本寫的 bus、stop、left、minute。之後每個地點怎麼再出現，見第 1 節「新題型第一次出現」下面的表。
+- **角色**：
+  - 餐廳沒有鄰居出場，只有服務生和新朋友；新朋友在台詞裡沒有名字。
+  - 診所的醫生叫 Dr. Lee，公園的志工叫 Ben，鄰居的狗叫 Coco，服飾店的台詞提到另一位店員 Sam（沒有出場）。
+  - 診所的大挑戰（t8）只有醫生和藥師，櫃台人員只在 t1 出現。
+- **沒教過的字**：新的 7 個地點有 14 段劇情各用了一個沒教過的字（turn、half、always、oh、off、something、put、let、full、sound、community、month 等），都符合「每段最多一個」的規則。每個任務的分數和用字見 [curriculum.md](curriculum.md) 的「第 1 版公式」表。

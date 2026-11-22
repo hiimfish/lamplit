@@ -50,21 +50,24 @@
 }
 ```
 
-| 欄位                   | 說明                                                                                                                                         |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `chunks[].accept`      | 其他可接受的寫法，用於排句子等題型                                                                                                           |
-| `chunks[].note`        | 一行中文文法小抄（選填）                                                                                                                     |
-| `chunks[].distractors` | 似是而非的錯誤說法，各自標上錯誤類型，用來給具體回饋                                                                                         |
-| `words[].emoji`        | 備用圖。正式圖示是 `src/art/items/` 裡的像素圖，沒有像素圖時才顯示 emoji                                                                     |
-| `words[].abstract`     | 選填。抽象或不好畫的字（welcome、okay、數字、動詞）標 `true`，不畫像素圖，一律顯示 emoji。具體名詞不要標                                     |
-| `scene[].role`         | 誰的聲音：`barista`（咖啡廳店員）、`landlord`（房東）、`neighbor`（鄰居）、`clerk`（便利商店店員）或 `guide`（你和詞塊、單字、對比詞的發音） |
-| `scene[].speaker`      | `npc` 是角色說的，`player` 是學習者要說的                                                                                                    |
-| `scene[].chunkId`      | `player` 台詞一定要有，指向它練習的詞塊                                                                                                      |
-| `scene[].stage`        | 小劇場的道具動作（選填）：`want`／`give` 加單字 id，或 `ask`；見 [scene-stage.md](scene-stage.md)                                            |
-| `pairs[]`              | 最小對比詞（選填），給聽辨挑戰用：`id`、`focus`（例如「f／v」）、`note`（一行發音提示）、`a`／`b` 兩個字（各有 `id`、`en`、`zh`）            |
-| `tasks[].kind`         | 任務種類（選填）：不寫是一般任務；`roleplay` 是角色扮演大挑戰，只複習，不教新內容                                                            |
-| `tasks[].newPairIds`   | 這個任務新教的對比詞（選填）                                                                                                                 |
-| `tasks[].spellWordIds` | 這個任務要考「打字拼字」的單字 id（選填）。必須是這個任務之前教過的字，可以來自更早的單元，例如便利商店 t7 考 key、box、door、tea、cake      |
+| 欄位                   | 說明                                                                                                                                    |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `chunks[].accept`      | 其他可接受的寫法，用於排句子等題型                                                                                                      |
+| `chunks[].note`        | 一行中文文法小抄（選填）                                                                                                                |
+| `chunks[].distractors` | 似是而非的錯誤說法，各自標上錯誤類型，用來給具體回饋                                                                                    |
+| `words[].emoji`        | 備用圖。正式圖示是 `src/art/items/` 裡的像素圖，沒有像素圖時才顯示 emoji                                                                |
+| `words[].abstract`     | 選填。抽象或不好畫的字（welcome、okay、數字、動詞）標 `true`，不畫像素圖，一律顯示 emoji。具體名詞不要標                                |
+| `scene[].role`         | 誰的聲音，共 17 個合法值：`guide`（你，以及詞塊、單字、對比詞的發音）和 16 個 NPC，見下方「角色」                                       |
+| `scene[].speaker`      | `npc` 是角色說的，`player` 是學習者要說的                                                                                               |
+| `scene[].chunkId`      | `player` 台詞一定要有，指向它練習的詞塊                                                                                                 |
+| `scene[].stage`        | 小劇場的道具動作（選填）：`want`／`give` 加單字 id，或 `ask`；見 [scene-stage.md](scene-stage.md)                                       |
+| `pairs[]`              | 最小對比詞（選填），給聽辨挑戰用：`id`、`focus`（例如「f／v」）、`note`（一行發音提示）、`a`／`b` 兩個字（各有 `id`、`en`、`zh`）       |
+| `tasks[].kind`         | 任務種類（選填）：不寫是一般任務；`roleplay` 是角色扮演大挑戰，只複習，不教新內容                                                       |
+| `tasks[].newPairIds`   | 這個任務新教的對比詞（選填）                                                                                                            |
+| `tasks[].spellWordIds` | 這個任務要考「打字拼字」的單字 id（選填）。必須是這個任務之前教過的字，可以來自更早的單元，例如便利商店 t7 考 key、box、door、tea、cake |
+| `tasks[].cloze`        | 聽力填空的題目（選填），見下方「聽力填空、讀招牌、看圖選句」                                                                            |
+| `tasks[].signs`        | 讀招牌／價目的題目（選填），同上                                                                                                        |
+| `tasks[].pictures`     | 看圖選句的題目（選填），同上                                                                                                            |
 
 對比詞的例子（`move_in.json`）：
 
@@ -78,12 +81,93 @@
 }
 ```
 
+### 角色
+
+`role` 的合法值寫在 `src/content/types.ts` 的 `Role`，`validate.ts` 也有一份同樣的清單。中文名稱在 `src/content/roles.ts`（劇情泡泡和選回應題的提示會用到），聲線在 `src/audio/voices.ts`（見 [audio.md](audio.md)）。2026-11-22 新增 12 個，現在共 17 個：
+
+| `role`         | 中文名稱 | 出現的地點                         |
+| -------------- | -------- | ---------------------------------- |
+| `guide`        | 你       | 每個地點（也念詞塊、單字、對比詞） |
+| `landlord`     | 房東     | 搬家第一天                         |
+| `neighbor`     | 鄰居     | 搬家第一天、公園與社區             |
+| `barista`      | 店員     | 咖啡廳                             |
+| `clerk`        | 店員     | 便利商店                           |
+| `passerby`     | 路人     | 街道與公車站                       |
+| `driver`       | 司機     | 街道與公車站                       |
+| `cashier`      | 收銀員   | 超市與市集                         |
+| `vendor`       | 攤販     | 超市與市集                         |
+| `assistant`    | 店員     | 服飾店                             |
+| `receptionist` | 櫃台     | 診所與藥局                         |
+| `doctor`       | 醫生     | 診所與藥局                         |
+| `pharmacist`   | 藥師     | 診所與藥局                         |
+| `server`       | 服務生   | 餐廳與聚會                         |
+| `friend`       | 朋友     | 餐廳與聚會                         |
+| `postal_clerk` | 郵局人員 | 郵局                               |
+| `volunteer`    | 志工     | 公園與社區                         |
+
+### 聽力填空、讀招牌、看圖選句
+
+2026-11-22 新增的三個任務欄位，都是選填。型別是 `types.ts` 的 `ClozeItem`、`SignItem`、`PictureItem`。題目怎麼問、怎麼批改，見 [vocab-quiz.md](vocab-quiz.md)。
+
+```json
+{
+  "cloze": [{ "lineId": "t6_2", "word": "nine", "distractors": ["five", "two"] }],
+  "signs": [
+    {
+      "id": "price_list",
+      "heading": "Today's Prices",
+      "rows": [
+        { "label": "Shirts", "value": "$15" },
+        { "label": "Pants", "value": "$30" },
+        { "label": "Coats", "value": "$50" }
+      ],
+      "question": { "en": "How much is a coat?", "zh": "一件大衣多少錢？" },
+      "options": ["$15", "$30", "$50"],
+      "answer": 2
+    }
+  ],
+  "pictures": [
+    {
+      "id": "pic1",
+      "pictureId": "reading_book",
+      "options": [
+        { "en": "She is eating a sandwich.", "zh": "她正在吃三明治。" },
+        { "en": "She is reading a book.", "zh": "她正在看書。" }
+      ],
+      "answer": 1
+    }
+  ]
+}
+```
+
+| 欄位                   | 說明                                                                                                                                 |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `cloze[].lineId`       | 要挖空的台詞，必須是**這個任務**劇情裡的一句；播的是那句台詞自己的音檔                                                               |
+| `cloze[].word`         | 要挖掉的字：一個字（字母，中間可以有撇號或連字號），而且台詞裡真的有這個字。同一句可以出兩題，但不能挖同一個字                       |
+| `cloze[].distractors`  | 2 或 3 個錯的字，各不相同，也不能和答案一樣                                                                                          |
+| `signs[].id`           | 招牌的 id，整個單元內不重複                                                                                                          |
+| `signs[].heading`      | 招牌的標題（選填）                                                                                                                   |
+| `signs[].rows`         | 招牌的每一行：`label` 一定要有；`value` 選填，會靠右顯示（價錢、時間）。標題加每一行合計最多 15 個字（用空白分開來數，`$15` 算一個） |
+| `signs[].question`     | 一個問題，`en` 和 `zh` 都要有                                                                                                        |
+| `signs[].options`      | 2 到 4 個答案，各不相同                                                                                                              |
+| `signs[].answer`       | 正確答案是第幾個（從 0 算）                                                                                                          |
+| `pictures[].id`        | 題目的 id，整個單元內不重複。正確句子的音檔 id 是 `<單元>.picture.<id>`                                                              |
+| `pictures[].pictureId` | 用哪一張圖：`src/art/pictures/` 裡的圖片 id（例如 `reading_book`）                                                                   |
+| `pictures[].options`   | 2 到 4 個句子，每個都有 `en` 和 `zh`，英文各不相同                                                                                   |
+| `pictures[].answer`    | 正確句子是第幾個（從 0 算）                                                                                                          |
+
+- 角色扮演大挑戰的任務不能有這三個欄位（大挑戰沒有練習題，寫了也不會出題）。
+- 這些題目的英文只能用那個任務之前教過的字（包含這個任務教的），見下方「內容檢查」。
+- 畫面上選項的順序每次打亂，所以 `answer` 寫的是 JSON 裡的位置。
+
 ## id 規則
 
-- 單元、詞塊、單字、對比詞（和它的兩個字）、台詞、任務的 id 只能用小寫英文、數字和底線：`^[a-z0-9_]+$`。
+- 單元、詞塊、單字、對比詞（和它的兩個字）、台詞、任務、招牌、看圖選句題目的 id 只能用小寫英文、數字和底線：`^[a-z0-9_]+$`。圖片的 `pictureId` 也是。
 - 學習項目 id：`chunk:<詞塊 id>`、`word:<單字 id>`、`pair:<對比詞 id>`，用於存檔和複習。一組對比詞是一個學習項目。
 - 學習項目 id 不含單元，所以**不同單元不能用同一個詞塊、單字或對比詞 id**，否則會共用複習卡片、查到別的單元。`tests/content.test.ts` 會檢查。
-- 音檔 id：`<單元>.<類型>.<id>`，例如 `cafe.chunk.can_i_get`、`cafe.word.latte`、`cafe.line.t1_1`、`move_in.pair.fan`。音檔腳本和播放程式都會拒絕不符合格式的 id。
+- 音檔 id：`<單元>.<類型>.<id>`，例如 `cafe.chunk.can_i_get`、`cafe.word.latte`、`cafe.line.t1_1`、`move_in.pair.fan`、`clinic.picture.pic1`（看圖選句的正確句子，2026-11-22 新增）。音檔腳本和播放程式都會拒絕不符合格式的 id。
+- 聽力填空和讀招牌沒有自己的音檔：填空播的是那句台詞的音檔，招牌題沒有聲音。
+- 讀招牌和看圖選句不是某一個詞塊或單字，所以沒有學習項目 id，也不會有複習卡片（程式裡的 `NO_ITEM`）。聽力填空挖的字如果是教過的單字，就用那個單字的 `word:<id>`。
 
 ## 內容檢查
 
@@ -96,13 +180,37 @@
 - 對比詞：id 和兩個字的 id 符合格式、不重複；有 `focus`；兩個字都有 `en`、`zh` 而且不一樣；任務的 `newPairIds` 都存在。
 - `stage` 的 `act` 合法；`want`／`give` 的 `item` 是同單元的單字，`ask` 不帶 `item`。
 - `spellWordIds` 有寫的話，是不重複、格式正確的單字 id 清單，不能是空的。`tests/content.test.ts` 再檢查每個字都在這個任務之前教過（照遊玩順序，可以是更早的單元）。
-- `kind` 只能是 `roleplay`。角色扮演任務：`newChunkIds`、`newWordIds` 是空的，沒有 `newPairIds`；第一句是 NPC 說的，每句 `player` 台詞前面都是 NPC 的台詞；至少 2 句 `player` 台詞；台詞用的詞塊都在同一個單元更早的任務教過。
+- `kind` 只能是 `roleplay`。角色扮演任務：`newChunkIds`、`newWordIds` 是空的，沒有 `newPairIds`，也沒有 `cloze`、`signs`、`pictures`；第一句是 NPC 說的，每句 `player` 台詞前面都是 NPC 的台詞；至少 2 句 `player` 台詞；台詞用的詞塊都在同一個單元更早的任務教過。
+- `cloze`（2026-11-22）：不能是空清單；`lineId` 是這個任務的台詞；`word` 是一個字，而且在那句台詞裡；同一句不能挖同一個字兩次；`distractors` 是 2 或 3 個不同的字，不能和答案一樣。
+- `signs`（2026-11-22）：不能是空清單；id 符合格式，整個單元內不重複；`heading` 有寫就不能是空的；至少一行，每行有 `label`；全部加起來最多 15 個字；問題有 `en` 和 `zh`；2 到 4 個不同的答案；`answer` 指到其中一個。
+- `pictures`（2026-11-22）：不能是空清單；id 和 `pictureId` 符合格式，id 在整個單元內不重複；2 到 4 個句子，都有 `en` 和 `zh`，英文不重複；`answer` 指到其中一個。
 
 不合格的單元不會被載入，開發模式下會在 console 顯示警告。`tests/content.test.ts` 會檢查 `src/data/units/` 裡的每個單元。
 
+`validateUnit` 以外，還有這些測試在擋內容：
+
+- `tests/content.test.ts`：不同單元不重複用 id；打字拼字的字都在那個任務之前教過；每個單元最後一個任務是角色扮演，每句「你」的台詞出一題。
+- `tests/smoothness.test.ts`：平滑規則 3、4、6；聽力填空、讀招牌、看圖選句用的英文（挖掉的字、干擾選項、招牌、問題、答案、句子）都只用那個任務之前教過的字。
+- `tests/pictures.test.ts`：每個 `pictureId` 都真的有圖。
+- `tests/items.test.ts`：每個沒標 `abstract` 的單字都有像素圖。
+- `tests/stageArt.test.ts`：每個單元裡有台詞的角色，都在那個單元的小劇場設定裡。
+- `tests/stageState.test.ts`：兩個 NPC 不會站在同一點；站在 `beside` 位置說的台詞沒有 `want`、`ask`。
+- `tests/audioItems.test.ts`：看圖選句只有正確的那一句會變成音檔項目，用「你」的聲線（用一個小的測試單元檢查）。
+
 ## 現有單元
 
-小鎮畫面依 `src/content/unitOrder.ts` 的 `UNIT_ORDER` 排列（用字分析腳本也照這個順序）：搬家第一天、咖啡廳、便利商店（`['move_in', 'cafe', 'store']`）。每個單元都一開始就能玩，單元之間沒有解鎖條件。
+第一幕的十個地點都已做（2026-11-22）：80 個任務、140 個詞塊、301 個單字（148 個標 `abstract`，153 個有像素圖）、6 組對比詞、495 句劇情台詞。街道到公園這 7 個地點是 2026-11-22 新做的。
+
+小鎮畫面依 `src/content/unitOrder.ts` 的 `UNIT_ORDER` 排列（用字分析腳本也照這個順序）：搬家第一天、咖啡廳、便利商店、街道與公車站、超市與市集、服飾店、診所與藥局、餐廳與聚會、郵局、公園與社區（`move_in`、`cafe`、`store`、`street`、`market`、`clothes`、`clinic`、`restaurant`、`post_office`、`park`）。每個單元都一開始就能玩，單元之間沒有解鎖條件。
+
+每個地點都是 14 個詞塊、8 個任務，第 8 個是角色扮演大挑戰。新題型在哪些任務出現：
+
+| 題型         | 欄位           | 出現的任務                                                                  |
+| ------------ | -------------- | --------------------------------------------------------------------------- |
+| 打字拼字     | `spellWordIds` | 便利商店到公園每個地點的 t7，各 5 個字                                      |
+| 聽力填空     | `cloze`        | 街道到公園每個地點的 t6，各 3 題                                            |
+| 讀招牌／價目 | `signs`        | 服飾店 t5（3 題）；診所、餐廳、郵局、公園的 t4（各 2 題）                   |
+| 看圖選句     | `pictures`     | 診所 t5（4 題，各 2 個句子）；餐廳、郵局、公園的 t5（各 2 題，各 3 個句子） |
 
 ### 搬家第一天（`move_in`）
 
@@ -127,15 +235,82 @@
 - 小劇場：傍晚的便利商店，店員在櫃檯後面；26 句台詞有道具提示，見 [scene-stage.md](scene-stage.md)。
 - 用字報表：0 個違反平滑規則，分數依序 25、22、25、28、27、29、25；t2、t3、t6 各有一個沒教過的字（today、oh、really），其他任務學過的字都是 100%，t8 是 99%。
 
+下面 7 個地點是 2026-11-22 做的。每個地點寫完後做過一輪編修；英文句子還沒請人審閱，台詞、發音、小劇場都還沒請使用者看過。小劇場的規格見 [scene-stage.md](scene-stage.md)。
+
+### 街道與公車站（`street`）
+
+- 14 個詞塊、31 個單字（16 個標 `abstract`：corner、left、driver、fare、downtown、stand、minute、hour、wait、front、Monday～Friday、walk）、8 個任務、49 句劇情台詞。NPC 是路人（`passerby`，t1～t3、t6～t8）和公車司機（`driver`，t4、t5、t8）。
+- 任務：公車站在哪、往哪邊走、要準備零錢（第一次教 some／any）、這班車有到嗎、坐多久在哪下車、下一班車（第一次出現聽力填空，挖 nine、minutes、bus）、迷路了（打字拼字考便利商店的 milk、egg、bread、bag、fork），最後是角色扮演大挑戰（迷路問路、借零錢、等公車，公車來了再問司機有沒有到市中心、要坐多久。17 句台詞，你說 7 句，t1～t7 每個任務複習一句）。
+- 單字像素圖（`src/art/items/street.ts`，15 個）：街道、公車、銀行、車站、地圖、車票、硬幣、學校、醫院、圖書館、博物館、招牌、馬路、計程車、橋。
+- 小劇場：傍晚的公車站，你和路人或司機隔著候車亭的長椅；28 句台詞有道具提示。
+- 用字報表：分數依序 27、27、30、29、30、29、32；t2、t5、t6 各有一個沒教過的字（turn、half、always），其他任務和 t8 學過的字都是 100%。
+
+### 超市與市集（`market`）
+
+- 14 個詞塊、32 個單字（14 個標 `abstract`：fresh、half、piece、pound、thirteen、thirty、fifteen、forty、hundred、buy、each、cheap、expensive、free）、8 個任務、48 句劇情台詞。NPC 是市集攤販（`vendor`，t2～t4、t6、t8）和超市收銀員（`cashier`，t1、t5、t7、t8）。
+- 任務：蘋果在哪、市集試吃、一些米兩瓶水（第一次教可數與不可數）、肉攤秤重、排隊結帳（聽 thirteen 和 thirty 的差別）、怎麼賣一袋幾個（第一次教 How much／How many；聽力填空 3 題）、買一送一（打字拼字考街道的 bus、map、bank、coin、taxi），最後是角色扮演大挑戰（在攤子找蘋果、試吃、買米和蛋、問番茄價錢、請老闆多給一點，再到收銀台問買一送一、用自己的袋子。16 句台詞，你說 7 句，t1～t7 每個任務複習一句）。
+- 單字像素圖（`src/art/items/market.ts`，18 個）：水果、蘋果、柳橙、香蕉、蔬菜、番茄、馬鈴薯、油、肉、鹽、米、魚、雞肉、價錢、起司、奶油、披薩、果汁。
+- 小劇場：傍晚市集的蔬果攤，攤販或收銀員在攤子後面；25 句台詞有道具提示。
+- 用字報表：分數依序 27、29、32、31、29、31、30；t1、t5 各有一個沒教過的字（bananas、oh），其他任務和 t8 都是 100%。
+
+### 服飾店（`clothes`）
+
+- 14 個詞塊、34 個單字（22 個標 `abstract`：顏色 color、black、white、red、blue、green，以及 wear、warm、size、long、short、fit、tight、loose、new、old、sale、percent、pair、return、wrong、exchange）、8 個任務、51 句劇情台詞。NPC 是店員（`assistant`）。
+- 任務：隨便看看、有黑色的嗎、在找一件外套（第一次教現在進行式）、試穿、合不合身（第一次出現讀招牌／價目，3 題：價目表、店內指引、買二送一）、有打折嗎（聽力填空 3 題）、退換貨（打字拼字考超市的 apple、fish、rice、salt、meat），最後是角色扮演大挑戰（退圍巾、找保暖的外套、問有沒有黑色、試穿、合身就買。16 句台詞，你說 7 句，t1～t7 每個任務複習一句）。
+- 單字像素圖（`src/art/items/clothes.ts`，12 個）：衣服、襯衫、洋裝、夾克、大衣、帽子、鞋子、鏡子、裙子、褲子、禮物、圍巾。
+- 小劇場：傍晚的小服飾店，店員站在試衣間的簾子前；22 句台詞有道具提示。
+- 用字報表：分數依序 27、30、33、30、31、29、28；t6、t7 各有一個沒教過的字（off、something），其他任務和 t8 都是 100%。
+
+### 診所與藥局（`clinic`）
+
+- 14 個詞塊、34 個單字（15 個標 `abstract`：doctor、nurse、insurance、back、hurt、flu、cold、throat、cough、fever、sleep、rest、body、sick、meal）、8 個任務、51 句劇情台詞。NPC 是櫃台人員（`receptionist`，只有 t1）、醫生 Dr. Lee（`doctor`，t2～t5、t8）和藥師（`pharmacist`，t6～t8）。
+- 任務：掛號、哪裡不舒服、打流感疫苗（第一次教 want to）、看醫生（讀招牌 2 題：看診時間、流感疫苗價目）、醫生的交代（第一次出現看圖選句，4 張圖，每張 2 個句子）、到藥局（聽力填空 3 題）、藥怎麼吃（打字拼字考服飾店的 shirt、dress、coat、hat、shoe），最後是角色扮演大挑戰（跟醫生說症狀、問能不能上班、想打流感疫苗，再到藥局買咳嗽藥、問怎麼吃。17 句台詞，你說 8 句，t1～t7 每個任務至少複習一句）。
+- 單字像素圖（`src/art/items/clinic.ts`，19 個）：表格、頭、眼睛、耳朵、手、手臂、腿、打針、鼻子、藥、藥丸、面紙、藥膏、藥局、口罩、食物、玻璃杯、晚餐、早餐。
+- 小劇場：傍晚的社區診所，角落是藥櫃；27 句台詞有道具提示。
+- 用字報表：分數依序 28、28、31、33、35、36、32（t6 的 36 是第一幕最高）；t3、t4 各有一個沒教過的字（put、let），其他任務和 t8 都是 100%。
+
+### 餐廳與聚會（`restaurant`）
+
+- 14 個詞塊、34 個單字（22 個標 `abstract`：people、friend、restaurant、waiter、sing、dance、cook、guest、week、weekend、evening、Saturday、Sunday、total、together、tax、tip、great、happy、fun、busy、delicious）、8 個任務、51 句劇情台詞。NPC 是服務生（`server`，t1、t2、t6、t8）和新朋友（`friend`，t3～t5、t7、t8）。
+- 任務：兩位、點餐、聊興趣（第一次教 like + -ing）、朋友的派對（讀招牌 2 題：菜單價目、生日派對卡）、約時間地點（第一次教地點和時間介系詞；看圖選句 2 張圖，每張 3 個句子）、結帳（聽力填空 3 題）、週末過得如何（第一次教 be 動詞過去式；打字拼字考診所的 head、hand、nose、mask、pill），最後是角色扮演大挑戰（帶位、請服務生推薦、和朋友聊做菜、被邀請去生日派對、約星期五七點、結帳。16 句台詞，你說 7 句，t1～t7 每個任務複習一句）。
+- 單字像素圖（`src/art/items/restaurant.ts`，12 個）：菜單、湯、沙拉、牛排、甜點、音樂、電影、派對、遊戲、葡萄酒、生日、帳單。
+- 小劇場：傍晚的小餐廳，一張兩人桌，服務生站在酒櫃前，朋友站在桌子那一頭；24 句台詞有道具提示。
+- 用字報表：分數依序 30、31、32、31、34、31、30；t1、t7 各有一個沒教過的字（full、sound），其他任務和 t8 都是 100%。
+
+### 郵局（`post_office`）
+
+- 14 個詞塊、34 個單字（16 個標 `abstract`：write、number、country、address、order、yesterday、online、open、close、carry、break、heavy、careful、fast、slow、weight）、8 個任務、50 句劇情台詞。NPC 是郵局人員（`postal_clerk`）。
+- 任務：寄回台灣、地址寫哪裡、包裹沒收到（第一次教規則動詞過去式）、領包裹（讀招牌 2 題：營業時間、櫃台指引）、裡面是什麼（看圖選句 2 張圖）、多久會到（聽力填空 3 題）、買包裝用品（打字拼字考餐廳的 menu、soup、salad、wine、game），最後是角色扮演大挑戰（拿通知單領包裹、買箱子和膠帶、把書和禮物寄到台灣、寫地址、問價錢和多久會到。17 句台詞，你說 8 句，t1～t7 每個任務至少複習一句）。
+- 單字像素圖（`src/art/items/postOffice.ts`，18 個）：郵件、信、包裹、郵票、城市、通知單、送貨、辦公室、辦公桌、櫃台、玩具、秤、公斤、膠帶、信封、明信片、貼紙、剪刀。
+- 小劇場：傍晚的小鎮郵局，郵局人員在綠色櫃台後面；23 句台詞有道具提示。
+- 用字報表：分數依序 31、29、30、30、31、33、33；t3 有一個沒教過的字（oh），其他任務和 t8 都是 100%。
+
+### 公園與社區（`park`）
+
+- 14 個詞塊、34 個單字（18 個標 `abstract`：class、event、center、afternoon、sky、wind、team、clean、garden、volunteer、play、hold、kid、run、sport、swim、family、email）、8 個任務、52 句劇情台詞。NPC 是鄰居（`neighbor`，t1、t5～t8；和搬家第一天同一個角色、聲線和角色圖，帶著狗 Coco）和社區志工 Ben（`volunteer`，t2～t4、t8）。
+- 任務：公園散步、看活動公告、上次的活動（第一次教不規則動詞過去式）、當志工（讀招牌 2 題：志工招募、週末活動）、野餐（看圖選句 2 張圖）、一起運動（聽力填空 3 題）、保持聯絡（打字拼字考郵局的 mail、stamp、city、desk、tape），最後是角色扮演大挑戰（和鄰居聊天氣、請她喝東西，志工來了之後說看到海報、問怎麼幫忙、活動幾點開始、留電話。17 句台詞，你說 7 句，t1～t7 每個任務複習一句）。
+- 單字像素圖（`src/art/items/park.ts`，16 個）：公園、樹、狗、花、海報、太陽、雲、草地、植物、球、野餐、湖、網球、照片、訊息、相機。
+- 小劇場：黃昏的公園，你和鄰居或志工隔著一張長椅，後面是草地和池塘；24 句台詞有道具提示。
+- 用字報表：分數依序 29、30、32、32、32、33、29；t2、t7 各有一個沒教過的字（community、month），其他任務和 t8 都是 100%。
+
 ## 新增一個單元
 
-1. 在 `src/data/units/` 新增 JSON 檔，照上面的格式寫。
-2. 執行 `npx vitest run tests/content.test.ts`，確認內容檢查通過。
-3. 為新的具體名詞在 `src/art/items/<單元>.ts` 畫 24×24 像素圖，並登記到該檔的對照表（規格見 [visual-style.md](visual-style.md)）；`tests/items.test.ts` 會檢查每個沒標 `abstract` 的單字都有圖。
-4. 產生發音音檔，步驟見 [audio.md](audio.md) 的「產生音檔」。
-5. 上線前請英文好的人看過句子，確認自然道地。
+1. 在 `src/data/units/` 新增 JSON 檔，照上面的格式寫，並把單元 id 加進 `src/content/unitOrder.ts` 的 `UNIT_ORDER`（沒列的單元會排在最後）。
+2. 有新角色時：在 `src/content/types.ts` 的 `Role`、`src/content/validate.ts` 的 `ROLES`、`src/content/roles.ts`（中文名稱）、`src/audio/voices.ts`（兩個聲線家族各一個聲線）都加上。
+3. 執行 `npx vitest run tests/content.test.ts tests/smoothness.test.ts`，確認內容檢查和平滑規則通過；`node scripts/vocab-report.mjs` 可以看每個任務的分數和用字。
+4. 為新的具體名詞在 `src/art/items/<單元>.ts` 畫 24×24 像素圖，並登記到該檔的對照表（規格見 [visual-style.md](visual-style.md)）；`tests/items.test.ts` 會檢查每個沒標 `abstract` 的單字都有圖。
+5. 有看圖選句時：在 `src/art/pictures/` 畫 96×64 的圖並登記圖片 id；`tests/pictures.test.ts` 會檢查。
+6. 畫小劇場並加上舞台設定，步驟見 [scene-stage.md](scene-stage.md) 的「新增地點時要做的事」。
+7. 產生發音音檔，步驟見 [audio.md](audio.md) 的「產生音檔」。
+8. 上線前請英文好的人看過句子，確認自然道地。
 
 ## 尚未做到
 
 - 用 NGSL 高頻字表自動檢查用字：部分做到。`node scripts/vocab-report.mjs` 會列出每個任務的用字和難度，平滑規則 3、4、6 由 `tests/smoothness.test.ts` 擋下（見 [curriculum.md](curriculum.md) 的「用字分析」）；「用字有沒有超出這一幕的頻率範圍」還沒檢查。
 - KK 音標：計畫用開源發音字典 CMUdict 轉換。像素字型缺大部分音標符號，見 [visual-style.md](visual-style.md) 的「字型」。
+- 第二到第四幕的內容：都還沒做，也還沒有分配表。
+- 2026-11-22 新做的 7 個地點：英文句子還沒請人審閱；台詞、發音、小劇場和看圖選句的圖都還沒請使用者看過。
+- 聽力填空、讀招牌、看圖選句、打字拼字都只在任務練習出題，還沒進今日複習（見 [vocab-quiz.md](vocab-quiz.md)）。
+- 有空白的單字（trash can）還不能考打字拼字。
+- 看圖選句的選項只有文字；多益第 1 大題的聲音選項還沒做。
+- 聽力填空挖的字如果是複數（minutes、prices、tissues），對不到教過的單字，那一題不會排複習。第一幕 21 題裡有 3 題是這樣。

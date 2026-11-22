@@ -20,7 +20,11 @@
 
 ## 資料
 
-- 還沒加入。預計使用 NGSL 高頻字表和 CMUdict 發音字典，使用前要先確認授權條款。
+- **NGSL 1.2 和 TSL 1.2 字表**（`src/data/wordlists/`，原始檔未修改）：創用 CC 姓名標示－相同方式分享 4.0（CC BY-SA 4.0）。只用在用字分析，遊戲執行時不會載入。
+  - New General Service List：Browne, C., Culligan, B. & Phillips, J. (2013)，https://www.newgeneralservicelist.com
+  - TOEIC Service List：Browne, C. & Culligan, B. (2016)，https://www.newgeneralservicelist.com
+  - 完整的出處和授權說明：`src/data/wordlists/README.md`
+- CMUdict 發音字典：還沒加入，使用前要先確認授權條款。
 
 ## 程式套件
 
