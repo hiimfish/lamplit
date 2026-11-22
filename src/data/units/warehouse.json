@@ -1321,7 +1321,7 @@
         {
           "lineId": "t6_7",
           "word": "accurate",
-          "distractors": ["hungry", "sunny"]
+          "distractors": ["hot", "cold"]
         }
       ],
       "textFills": [
@@ -1483,8 +1483,8 @@
             {
               "id": "t7_talk_7",
               "role": "announcer",
-              "en": "The dock is open as usual, and the storage room opens again at three. Thank you.",
-              "zh": "裝卸區照常運作，儲藏室三點重新開放。謝謝。"
+              "en": "The dock stays open, and the storage room opens again at three. Thank you.",
+              "zh": "裝卸區照常開放，儲藏室三點重新開放。謝謝。"
             }
           ],
           "questions": [
@@ -1573,12 +1573,12 @@
         {
           "lineId": "t8_2",
           "word": "collected",
-          "distractors": ["cooked", "washed"]
+          "distractors": ["cooked", "ate"]
         },
         {
           "lineId": "t8_3",
           "word": "sea",
-          "distractors": ["bike", "bus"]
+          "distractors": ["bus", "car"]
         },
         {
           "lineId": "t8_3",
