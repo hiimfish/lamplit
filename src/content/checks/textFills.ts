@@ -81,6 +81,8 @@ function checkItem(item: Record<string, unknown>, seen: Set<string>): string[] {
   }
   if (item.title !== undefined && !isRealText(item.title)) {
     problems.push(`${label} has an empty title: write one or leave the field out`);
+  } else if (typeof item.title === 'string' && item.title.includes('_')) {
+    problems.push(`${label} title must have no blank or "_": blanks go only in the lines`);
   }
 
   const lines = item.lines;
@@ -109,8 +111,9 @@ function checkItem(item: Record<string, unknown>, seen: Set<string>): string[] {
     blanks.length < TEXT_FILL_MIN_BLANKS ||
     blanks.length > TEXT_FILL_MAX_BLANKS
   ) {
+    const has = Array.isArray(blanks) ? ` (it has ${blanks.length})` : '';
     problems.push(
-      `${label} needs "blanks", a list of ${TEXT_FILL_MIN_BLANKS} to ${TEXT_FILL_MAX_BLANKS} blanks`,
+      `${label} needs "blanks", a list of ${TEXT_FILL_MIN_BLANKS} to ${TEXT_FILL_MAX_BLANKS} blanks${has}`,
     );
     return problems;
   }
@@ -123,7 +126,7 @@ function checkItem(item: Record<string, unknown>, seen: Set<string>): string[] {
   const count = textLines.reduce((sum, line) => sum + blankCount(line), 0);
   if (count !== blanks.length) {
     problems.push(
-      `${label} has ${count} "${BLANK}" in its lines but ${blanks.length} blanks; they must match`,
+      `${label} has ${count} "${BLANK}" in its lines but ${blanks.length} blanks; they must match (one blank per "${BLANK}", in reading order)`,
     );
   } else if (answers.every((a): a is string => a !== null)) {
     const title = isRealText(item.title) ? item.title : '';
@@ -167,7 +170,8 @@ function checkBlank(value: unknown, label: string): { answer: string | null; pro
   const options = value.options;
   let good: string[] | null = null;
   if (!Array.isArray(options) || options.length !== TEXT_FILL_OPTIONS) {
-    problems.push(`${label} needs exactly ${TEXT_FILL_OPTIONS} options`);
+    const has = Array.isArray(options) ? ` (it has ${options.length})` : '';
+    problems.push(`${label} needs exactly ${TEXT_FILL_OPTIONS} options${has}`);
   } else if (!options.every((o) => isRealText(o) && o.trim() === o && !o.includes('_'))) {
     problems.push(
       `${label} options must be non-empty texts with no "_" and no space at either end`,

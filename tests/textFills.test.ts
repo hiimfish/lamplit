@@ -8,6 +8,13 @@ import { buildTaskPractice, makeRng } from '../src/learning/questionGen';
 import { NO_ITEM } from '../src/learning/questions';
 import { FAST_MS_ARRANGE, applyAnswer } from '../src/learning/sessionPlan';
 import { createEmptySave } from '../src/core/save';
+import {
+  WIDE_OPTION_CHARS,
+  emailHeader,
+  emailShape,
+  textFillKey,
+  wideOptions,
+} from '../src/ui/minigames/TextFill';
 
 const item = (over: Partial<TextFillItem> = {}): TextFillItem => ({
   id: 'e1',
@@ -89,6 +96,7 @@ describe('checkTextFills (段落填空)', () => {
     expect(with_({ kind: 'letter' })[0]).toContain('bad kind');
     expect(with_({ title: ' ' })[0]).toContain('empty title');
     expect(with_({ title: undefined })).toEqual([]);
+    expect(with_({ title: 'Re: ___ order' })[0]).toContain('title must have no blank');
     expect(with_({ text: 'x' })[0]).toContain('unknown field "text"');
     expect(with_({ blanks: [{ ...blank0, hint: 'x' }, item().blanks[1]] })[0]).toContain(
       'unknown field "hint"',
@@ -105,9 +113,10 @@ describe('checkTextFills (段落填空)', () => {
     expect(with_({ lines: ['The meeting is ___ Monday.', 'Bye.', 'Bye.'] })[0]).toContain(
       'has 1 "___" in its lines but 2 blanks',
     );
-    expect(with_({ blanks: [blank0] })[0]).toContain('2 to 4 blanks');
+    expect(with_({ blanks: [blank0] })[0]).toContain('2 to 4 blanks (it has 1)');
     const five = Array.from({ length: 5 }, () => blank0);
-    expect(with_({ blanks: five })[0]).toContain('2 to 4 blanks');
+    expect(with_({ blanks: five })[0]).toContain('2 to 4 blanks (it has 5)');
+    expect(with_({ blanks: 'x' })[0]).toContain('2 to 4 blanks');
   });
 
   it('wants each blank as exactly three underscores, not glued to a word', () => {
@@ -121,7 +130,7 @@ describe('checkTextFills (段落填空)', () => {
 
   it('needs exactly 4 different options, a good answer and a short note', () => {
     expect(with_({ blanks: [{ ...blank0, options: ['on', 'in', 'at'] }, blank0] })[0]).toContain(
-      'exactly 4 options',
+      'exactly 4 options (it has 3)',
     );
     expect(
       with_({ blanks: [{ ...blank0, options: ['on', 'On', 'at', 'by'] }, blank0] })[0],
@@ -206,6 +215,30 @@ describe('textFillQuestions', () => {
     expect(kinds).toEqual(['fill', 'text-fill', 'text-fill', 'read-passage']);
   });
 
+  it('keeps blank order and each right answer whatever the shuffle', () => {
+    const three = item({
+      lines: ['Hi ___,', 'Thanks ___ the list.', '___'],
+      zh: ['嗨，', '謝謝清單。', '再見。'],
+      blanks: [
+        { options: ['Ann', 'Bo', 'Cy', 'Di'], answer: 2 },
+        { options: ['for', 'to', 'of', 'at'], answer: 0 },
+        { options: ['See you soon.', 'Good luck.', 'Thank you.', 'Sorry.'], answer: 3 },
+      ],
+    });
+    for (let seed = 1; seed <= 20; seed++) {
+      const qs = textFillQuestions(task({ textFills: [three] }), makeRng(seed));
+      expect(qs.map((q) => q.index)).toEqual([0, 1, 2]);
+      expect(qs.every((q) => q.total === 3)).toBe(true);
+      const right = qs.map((q) => q.options.find((o) => o.id === q.correctId)?.label);
+      expect(right).toEqual(['Cy', 'for', 'Sorry.']);
+      expect(qs[0]!.answers).toEqual(right);
+    }
+  });
+
+  it('makes no questions for a task without text fills', () => {
+    expect(textFillQuestions(task(), makeRng(1))).toEqual([]);
+  });
+
   it('uses the slow fast-answer threshold', () => {
     const now = new Date('2026-11-23T10:00:00');
     const result = { itemId: 'chunk:x', correct: true, usedHelp: false, ms: FAST_MS_ARRANGE - 1 };
@@ -213,5 +246,64 @@ describe('textFillQuestions', () => {
     const listen = applyAnswer(createEmptySave(now), { ...result, ms: 6000 }, now, 'listen-pick');
     // 6 s is fast for a text fill (under 12 s) but not for a listen-pick (4 s).
     expect(slow.cards['chunk:x']).not.toEqual(listen.cards['chunk:x']);
+  });
+});
+
+describe('TextFill screen helpers', () => {
+  const key = (k: string, over: Partial<KeyboardEvent> = {}) =>
+    ({
+      key: k,
+      ctrlKey: false,
+      metaKey: false,
+      altKey: false,
+      repeat: false,
+      target: null,
+      ...over,
+    }) as KeyboardEvent;
+
+  it('maps number keys 1-4 to options, like the Fill and Talk screens', () => {
+    expect(['1', '2', '3', '4'].map((k) => textFillKey(key(k), 4))).toEqual([0, 1, 2, 3]);
+    expect(textFillKey(key('5'), 4)).toBeNull();
+    expect(textFillKey(key('0'), 4)).toBeNull();
+    expect(textFillKey(key('a'), 4)).toBeNull();
+    expect(textFillKey(key('1', { ctrlKey: true }), 4)).toBeNull();
+    expect(textFillKey(key('1', { altKey: true }), 4)).toBeNull();
+    expect(textFillKey(key('1', { repeat: true }), 4)).toBeNull();
+  });
+
+  it('puts the keys one per row only when an option is a phrase or a sentence', () => {
+    const labels = (...l: string[]) => l.map((label) => ({ label }));
+    expect(wideOptions(labels('on', 'in', 'at', 'by'))).toBe(false);
+    expect(wideOptions(labels('attached', 'attach', 'attaching', 'attaches'))).toBe(false);
+    expect(wideOptions(labels('x'.repeat(WIDE_OPTION_CHARS), 'b'))).toBe(false);
+    expect(wideOptions(labels('Please let me know soon.', 'b'))).toBe(true);
+  });
+
+  it('reads an email title as the subject unless it names its own field', () => {
+    expect(emailHeader('Your First Day on Monday')).toEqual({
+      label: 'Subject',
+      value: 'Your First Day on Monday',
+    });
+    expect(emailHeader('From: Dan Lee')).toEqual({ label: 'From', value: 'Dan Lee' });
+    expect(emailHeader('Re: Price list')).toEqual({ label: 'Re', value: 'Price list' });
+    expect(emailHeader('Meeting at 9:00')).toEqual({ label: 'Subject', value: 'Meeting at 9:00' });
+  });
+
+  it('finds the greeting and the sign-off of an email', () => {
+    expect(
+      emailShape(['Dear Mr. Hughes,', 'Thank you ___ your email.', 'Sincerely,', 'Amy Chen']),
+    ).toEqual({ greeting: true, signOff: 2 });
+    expect(emailShape(['Hi team,', 'See you at ___.', 'Best regards,', 'Dan'])).toEqual({
+      greeting: true,
+      signOff: 2,
+    });
+    expect(emailShape(['The meeting moved to Friday.', 'Thanks!'])).toEqual({
+      greeting: false,
+      signOff: 1,
+    });
+    expect(emailShape(['Please ___ the form.', 'It is due today.'])).toEqual({
+      greeting: false,
+      signOff: -1,
+    });
   });
 });

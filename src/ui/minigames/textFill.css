@@ -1,43 +1,304 @@
 /*
- * 段落填空 (TextFill.tsx), minimal version: the text in a paper box with the current
- * blank boxed in neon, filled blanks boxed in green, then the option keys.
- * Nothing here animates or transitions.
+ * 段落填空 (TextFill.tsx): a paper box with the text and its numbered gaps, the option keys
+ * under it (portrait) or beside it (landscape). Nothing here animates or transitions, so
+ * "reduce motion" needs no extra rule.
+ *
+ * Sizes are in logical pixels (calc(N * var(--px))). The text keeps the story's 11 px with
+ * line height 1.6 (a little roomier than ReadPassage, so the boxed gaps do not touch the
+ * line above); a 90-word email is about 15 to 20 lines, and with four keys (maybe whole
+ * sentences) it does not fit a phone held upright.
+ *
+ * The box gives way, exactly as on the ReadPassage screen: the card, the practice column,
+ * the question root and this screen form one chain of flex columns down to the box, each
+ * allowed to shrink (min-height: 0; flow.css keeps those from shrinking for the other
+ * screens, so these overrides only apply while a text fill is on screen). The heading, the
+ * keys and, after the answer, the feedback and 繼續 take the height they need; the box
+ * takes what is left and scrolls inside itself, never smaller than about four lines
+ * (--tf-floor). Only when even that does not fit does the card itself scroll.
+ *
+ * In landscape the text is on the left, the keys on the right, and the right column
+ * scrolls on its own only when it does not fit.
  */
-.text-fill-box {
-  padding: calc(4 * var(--px)) calc(6 * var(--px));
-  background: var(--paper);
-  box-shadow: inset 0 0 0 var(--px) var(--dim);
-  color: var(--ink);
+
+.flow-card:has(.tf) {
+  /* Four lines of 17.6 px, the padding and the rim. */
+  --tf-floor: calc(86 * var(--px));
+}
+
+.flow-card .practice:has(.tf),
+.flow-card .practice > .mg-root:has(.tf),
+.mg-root > .tf {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.mg-root:has(.tf) > .mg-continue,
+.tf-head,
+.tf-ask {
+  flex: none;
+}
+
+.tf {
+  display: flex;
+  flex-direction: column;
+}
+
+.tf-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 calc(4 * var(--px));
+}
+
+/* "2／3": which blank of how many, in a small ink box. */
+.tf-count {
+  flex: none;
+  padding: 0 calc(3 * var(--px));
   font-size: calc(11 * var(--px));
-  line-height: 1.8;
-  overflow-wrap: break-word;
+  line-height: 1.4;
+  color: var(--ink);
+  box-shadow: inset 0 0 0 var(--px) var(--ink);
 }
 
-.text-fill-title {
-  margin: 0 0 calc(2 * var(--px));
-  font-weight: bold;
+.tf-layout,
+.tf-ask {
+  display: flex;
+  flex-direction: column;
+  gap: calc(4 * var(--px));
+  min-width: 0;
 }
 
-.text-fill-line {
-  margin: 0 0 calc(2 * var(--px));
+.tf-layout {
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
-.text-fill-gap {
-  display: inline-block;
+/* Holds the box and its "▼ 還有" tag; shrinks with the box, down to the floor. */
+.tf-frame {
+  position: relative;
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: var(--tf-floor, calc(86 * var(--px)));
+}
+
+.tf-paper {
+  /* position: relative so a gap's offsetTop is measured from the box. */
+  position: relative;
+  box-sizing: border-box;
+  flex: 0 1 auto;
+  min-height: var(--tf-floor, calc(86 * var(--px)));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: calc(5 * var(--px)) calc(7 * var(--px));
+  font-size: calc(11 * var(--px));
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  border: var(--px) solid var(--ink);
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink) var(--paper);
+}
+
+.tf-paper:focus-visible {
+  outline: var(--line) dotted var(--ink);
+  outline-offset: var(--px);
+}
+
+.tf-text,
+.tf-bubble {
+  display: flex;
+  flex-direction: column;
+  gap: calc(3 * var(--px));
+}
+
+.tf-line {
   padding: 0 calc(2 * var(--px));
-  line-height: 1.2;
 }
 
-.text-fill-gap.now {
-  box-shadow: inset 0 0 0 var(--px) var(--dim);
-  border-bottom: var(--line) solid var(--neon);
+.tf-en {
+  margin: 0;
+  overflow-wrap: anywhere;
 }
 
-.text-fill-gap.filled {
+/* The line's Chinese, shown under it after the last blank: smaller, on a dotted rule. */
+.tf-zh {
+  margin: var(--px) 0 0;
+  padding-top: var(--px);
+  font-size: calc(10 * var(--px));
+  line-height: 1.5;
+  border-top: var(--px) dotted var(--dim);
+}
+
+/* Email: the subject (or sender) line over a rule, the sign-off set apart from the body. */
+.tf-mailhead {
+  padding-bottom: calc(2 * var(--px));
+  border-bottom: var(--px) solid var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.tf-closing {
+  margin-top: calc(3 * var(--px));
+}
+
+/* The name under the closing sits right under it, as in a real letter. */
+.tf-signature {
+  margin-top: calc(-3 * var(--px));
+}
+
+/* Heading of a notice, a flyer, an ad or a form: centred over a dotted rule. */
+.tf-heading {
+  padding: 0 calc(2 * var(--px)) calc(2 * var(--px));
+  text-align: center;
+  letter-spacing: var(--px);
+  border-bottom: var(--px) dotted var(--ink);
+}
+
+/* Notice: the heading is an ink bar across the top of the box. */
+.tf-notice .tf-heading {
+  margin: calc(-5 * var(--px)) calc(-7 * var(--px)) var(--px);
+  padding: var(--px) calc(7 * var(--px));
+  color: var(--paper);
+  background: var(--ink);
+  border-bottom: 0;
+}
+
+/* Flyer: a double rim, everything centred. Ad: a dashed rim like a cut-out. */
+.tf-flyer {
+  border: calc(3 * var(--px)) double var(--ink);
+}
+
+.tf-flyer .tf-line {
+  text-align: center;
+}
+
+.tf-ad {
+  border-style: dashed;
+}
+
+/* Message: the sender above a speech bubble on a lamp-tinted screen. */
+.tf-message {
+  background: var(--lamp-tint);
+}
+
+.tf-sender {
+  margin-bottom: calc(3 * var(--px));
+}
+
+.tf-bubble {
+  margin-left: calc(4 * var(--px));
+  padding: calc(3 * var(--px)) calc(4 * var(--px));
+  background: var(--paper);
+  border: var(--px) solid var(--ink);
+}
+
+/*
+ * A numbered gap. Inline (not inline-block), with its box repeated on every line it
+ * spans, so a whole-sentence answer wraps with the text instead of pushing it around.
+ */
+.tf-gap {
+  padding: 0 calc(2 * var(--px));
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* The blank's number in a small square at the start of the gap. */
+.tf-num {
+  display: inline-block;
+  min-width: calc(8 * var(--px));
+  margin-right: calc(2 * var(--px));
+  padding: 0 var(--px);
+  font-size: calc(9 * var(--px));
+  line-height: 1.3;
+  text-align: center;
+  vertical-align: 10%;
+  color: var(--paper);
+  background: var(--ink);
+}
+
+/* Room for the missing words in an empty gap. */
+.tf-space {
+  display: inline-block;
+  width: calc(22 * var(--px));
+}
+
+/* Earlier blanks and the answered one: the right answer on a green rim and underline. */
+.tf-gap.filled {
   box-shadow: inset 0 0 0 var(--px) var(--good);
   border-bottom: var(--line) solid var(--good);
 }
 
-.text-fill-zh {
-  margin-top: calc(4 * var(--px));
+.tf-gap.filled .tf-num {
+  background: var(--good);
+}
+
+/* The blank being asked: lamp-lit, ink rim, neon underline and a neon number. */
+.tf-gap.now {
+  background: var(--lamp);
+  box-shadow: inset 0 0 0 var(--px) var(--ink);
+  border-bottom: var(--line) solid var(--neon);
+}
+
+.tf-gap.now .tf-num {
+  color: var(--ink);
+  background: var(--neon);
+}
+
+/* Later blanks: an empty gap on a dotted dim rim. */
+.tf-gap.later {
+  border: var(--px) dotted var(--dim);
+}
+
+.tf-gap.later .tf-num {
+  background: var(--dim);
+}
+
+/* More text below: a small ink tag on the box's bottom edge. A label, not a key. */
+.tf-more {
+  position: absolute;
+  right: calc(2 * var(--px));
+  bottom: calc(2 * var(--px));
+  padding: 0 calc(3 * var(--px));
+  font-size: calc(11 * var(--px));
+  line-height: 1.3;
+  color: var(--paper);
+  background: var(--ink);
+  pointer-events: none;
+}
+
+/* Keys holding a phrase or a whole sentence: one per row, wrapping inside the key. */
+.tf-options.wide .mg-options {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/*
+ * Landscape: text and keys side by side, in a card as wide as the story's and as tall as
+ * it may be, so the row below has a definite height.
+ */
+:root[data-orientation='landscape'] .flow-card:has(.tf) {
+  max-width: calc(440 * var(--px));
+  height: calc(100% - 4 * var(--px));
+}
+
+:root[data-orientation='landscape'] .tf-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  align-items: start;
+  gap: calc(6 * var(--px));
+}
+
+:root[data-orientation='landscape'] .tf-frame {
+  max-height: 100%;
+}
+
+:root[data-orientation='landscape'] .tf-ask {
+  gap: calc(3 * var(--px));
+  max-height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink) var(--paper);
 }
