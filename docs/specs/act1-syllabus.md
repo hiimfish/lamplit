@@ -1,6 +1,6 @@
 # 第一幕「新生活」詞塊、單字、文法分配表
 
-狀態：部分做到（2026-11-22 使用者審過）。搬家第一天和咖啡廳的 t1～t8 已照這份做（t8 是角色扮演大挑戰），第 3 節的劇情改寫也已完成；其餘 8 個地點還沒做。規則來自 [curriculum.md](curriculum.md)。排名用 `src/data/wordlists/` 的字表和 `src/content/vocab.ts` 的查法（和 `scripts/vocab-report.mjs` 一樣）。
+狀態：部分做到（2026-11-22 使用者審過）。搬家第一天和咖啡廳的 t1～t8 已照這份做（t8 是角色扮演大挑戰），第 3 節的劇情改寫也已完成；便利商店的 t1～t8 也照這份做（2026-11-22 做完）；其餘 7 個地點還沒做。規則來自 [curriculum.md](curriculum.md)。排名用 `src/data/wordlists/` 的字表和 `src/content/vocab.ts` 的查法（和 `scripts/vocab-report.mjs` 一樣）。
 
 使用者 2026-11-22 決定：
 

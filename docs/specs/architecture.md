@@ -30,14 +30,15 @@ src/
   ui/stage/         劇情小劇場：SceneStage（畫面；TaskStage 讓整個任務都顯示）、stageState（每一句和劇情結束後的舞台狀態）；
                     整個任務都由 audio/pronounce 的 nowPlaying 和 content/units 的 speakerOf 決定誰在跳動
   ui/minigames/     題型元件：ListenPick、ListenPair（聽辨挑戰）、ChooseReply、Arrange、
-                    Speak、QuestionView，以及錄音和辨識的 hook
+                    Spell（打字拼字，畫面上的字母鍵盤）、Speak、QuestionView，以及錄音和辨識的 hook
   learning/         出題、批改、錯誤提示、FSRS 排程、練習與複習的規則
   content/          單元型別、載入、內容檢查、音檔項目、角色的中文名稱（roles）、
                     單元順序（unitOrder）、用字分析和平滑度規則（vocab）
   core/             共用狀態、存檔、設定
   audio/            發音播放、音軌與音量、背景音樂、音效、錄音、語音辨識
-  art/items/        單字像素圖：每個單元一個檔（cafe、moveIn）、共用繪圖工具（draw）、對照表和檢查（index）
-  art/stage/        小劇場：共用工具（common）、咖啡廳和搬家第一天的背景與角色圖、每個單元的舞台設定
+  art/items/        單字像素圖：每個單元一個檔（cafe、moveIn、store）、共用繪圖工具（draw）、對照表和檢查（index）
+  art/stage/        小劇場：共用工具（common）、咖啡廳、搬家第一天和便利商店的背景與角色圖（cafe、moveIn、store）、
+                    每個單元的舞台設定（index）
   data/units/       單元內容 JSON
   data/wordlists/   NGSL、TSL 和補充字表（CC BY-SA 4.0，出處見那裡的 README）
 scripts/            gen-audio（產生音檔）、spike-tts（聲線比較）、check-font-glyphs（字型檢查）、
