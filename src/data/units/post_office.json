@@ -1,0 +1,726 @@
+{
+  "id": "post_office",
+  "title": "郵局",
+  "titleEn": "Post Office",
+  "chunks": [
+    {
+      "id": "send_to_taiwan",
+      "en": "I want to send this to Taiwan.",
+      "zh": "我想把這個寄到台灣。",
+      "accept": ["I want to send this to Taiwan, please.", "I'd like to send this to Taiwan."],
+      "note": "send A to B = 把 A 寄到 B。want to 後面接原形動詞（send）。",
+      "distractors": [
+        { "text": "I want send this to Taiwan.", "error": "missing-word" },
+        { "text": "I want to send to Taiwan this.", "error": "word-order" },
+        { "text": "I want to send this to the Taiwan.", "error": "article" }
+      ]
+    },
+    {
+      "id": "by_air",
+      "en": "Can I send it by air?",
+      "zh": "可以寄航空嗎？",
+      "accept": ["Can I send it by airmail?", "Can I send this by air?"],
+      "note": "by air = 寄航空（用飛機送）。by 後面直接接 air，不加 the，和 by card 一樣。",
+      "distractors": [
+        { "text": "Can I send it by the air?", "error": "article" },
+        { "text": "Can I send by air it?", "error": "word-order" },
+        { "text": "Can I send it with air?", "error": "other" }
+      ]
+    },
+    {
+      "id": "write_address",
+      "en": "Where do I write the address?",
+      "zh": "地址要寫在哪裡？",
+      "accept": ["Where do I write my address?", "Where should I write the address?"],
+      "note": "Where do I + 動詞…? 問「我該在哪裡…」。write 的 w 不發音。",
+      "distractors": [
+        { "text": "Where I write the address?", "error": "missing-word" },
+        { "text": "Where do I write address?", "error": "article" },
+        { "text": "Where do I write the adress?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "is_this_okay",
+      "en": "Is this okay?",
+      "zh": "這樣可以嗎？",
+      "accept": ["Is this OK?", "Is this all right?"],
+      "note": "寫好、做好之後，請對方看看有沒有問題。okay 也可以寫成 OK。",
+      "distractors": [
+        { "text": "Is okay this?", "error": "word-order" },
+        { "text": "Does this okay?", "error": "other" },
+        { "text": "Is this okey?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "mailed_last_week",
+      "en": "I mailed it last week.",
+      "zh": "我上星期寄的。",
+      "accept": ["I sent it last week."],
+      "note": "講過去的事，動詞加 -ed：mail → mailed。last week（上星期）前面不加 in 或 on。",
+      "distractors": [
+        { "text": "I mail it last week.", "error": "other" },
+        { "text": "I mailed it in last week.", "error": "extra-word" },
+        { "text": "I mailed last week it.", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "missed_delivery",
+      "en": "I missed the delivery.",
+      "zh": "我錯過了送貨。",
+      "accept": ["I missed my delivery.", "I missed a delivery."],
+      "note": "miss → missed，也是加 -ed 的過去式，這裡的 -ed 唸 /t/。意思是送貨來的時候你不在，沒收到。",
+      "distractors": [
+        { "text": "I was missed the delivery.", "error": "extra-word" },
+        { "text": "I missed the deliver.", "error": "other" },
+        { "text": "I missed the delivary.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "pick_up_package",
+      "en": "I'm here to pick up a package.",
+      "zh": "我來領包裹。",
+      "accept": ["I'm here to pick up my package.", "I am here to pick up a package."],
+      "note": "I'm here to + 動詞 = 我來（做某件事）。pick up = 領、拿。",
+      "distractors": [
+        { "text": "I'm here pick up a package.", "error": "missing-word" },
+        { "text": "I'm here to pick up package.", "error": "article" },
+        { "text": "I'm here to up pick a package.", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "my_id",
+      "en": "Here's my ID.",
+      "zh": "這是我的證件。",
+      "accept": ["Here is my ID."],
+      "note": "Here's + 東西：把東西遞給對方時說，和 Here's my receipt. 一樣。ID 兩個字母都大寫，一個一個唸。",
+      "distractors": [
+        { "text": "Here my ID.", "error": "missing-word" },
+        { "text": "Here's ID my.", "error": "word-order" },
+        { "text": "Here are my ID.", "error": "plural" }
+      ]
+    },
+    {
+      "id": "books_and_gifts",
+      "en": "Just some books and gifts.",
+      "zh": "只是一些書和禮物。",
+      "accept": ["Just books and gifts.", "Just some gifts and books."],
+      "note": "被問到裡面是什麼時這樣回答。just = 只是；some 後面可以數的東西用複數（books、gifts）。",
+      "distractors": [
+        { "text": "Just some book and gift.", "error": "plural" },
+        { "text": "Some just books and gifts.", "error": "word-order" },
+        { "text": "Just any books and gifts.", "error": "other" }
+      ]
+    },
+    {
+      "id": "be_careful",
+      "en": "Please be careful with it.",
+      "zh": "請小心處理。",
+      "accept": ["Be careful with it, please.", "Please be careful with this."],
+      "note": "be careful with + 東西 = 小心對待它。careful 是形容詞，前面要有 be。",
+      "distractors": [
+        { "text": "Please careful with it.", "error": "missing-word" },
+        { "text": "Please be careful to it.", "error": "other" },
+        { "text": "Please be carefull with it.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "how_much_cost",
+      "en": "How much does it cost?",
+      "zh": "要多少錢？",
+      "accept": ["How much will it cost?"],
+      "note": "問做一件事要花多少錢。it 前面用 does，後面的 cost 用原形，不加 s。",
+      "distractors": [
+        { "text": "How much does it costs?", "error": "other" },
+        { "text": "How much it does cost?", "error": "word-order" },
+        { "text": "How much is it cost?", "error": "other" }
+      ]
+    },
+    {
+      "id": "when_get_there",
+      "en": "When will it get there?",
+      "zh": "什麼時候會到？",
+      "accept": ["When does it get there?", "When will it arrive?"],
+      "note": "get there = 到那裡。will 講以後的事，後面接原形動詞（get）。",
+      "distractors": [
+        { "text": "When it will get there?", "error": "word-order" },
+        { "text": "When will it gets there?", "error": "other" },
+        { "text": "When will it get to there?", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "box_and_tape",
+      "en": "I need a box and some tape.",
+      "zh": "我需要一個箱子和一些膠帶。",
+      "accept": ["I need some tape and a box.", "I need a box and tape."],
+      "note": "box 可以數，用 a；tape 不可數，用 some，不加 s。",
+      "distractors": [
+        { "text": "I need a box and some tapes.", "error": "plural" },
+        { "text": "I need box and some tape.", "error": "article" },
+        { "text": "I need a box some and tape.", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "buy_stamps",
+      "en": "Can I buy stamps here?",
+      "zh": "這裡可以買郵票嗎？",
+      "accept": ["Can I buy some stamps here?", "Do you sell stamps here?"],
+      "note": "Can I + 動詞 + here? 問這裡可不可以做某件事。here 放在句子最後。",
+      "distractors": [
+        { "text": "Can I buy stamp here?", "error": "plural" },
+        { "text": "Can I buy here stamps?", "error": "word-order" },
+        { "text": "Can I buying stamps here?", "error": "other" }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "mail", "en": "mail", "zh": "郵件；寄", "emoji": "📬" },
+    { "id": "letter", "en": "letter", "zh": "信", "emoji": "💌" },
+    { "id": "package", "en": "package", "zh": "包裹", "emoji": "📦" },
+    { "id": "stamp", "en": "stamp", "zh": "郵票", "emoji": "🔖" },
+    { "id": "write", "en": "write", "zh": "寫", "emoji": "✍️", "abstract": true },
+    { "id": "number", "en": "number", "zh": "號碼", "emoji": "🔢", "abstract": true },
+    { "id": "city", "en": "city", "zh": "城市", "emoji": "🏙️" },
+    { "id": "country", "en": "country", "zh": "國家", "emoji": "🌏", "abstract": true },
+    { "id": "address", "en": "address", "zh": "地址", "emoji": "🏠", "abstract": true },
+    { "id": "order", "en": "order", "zh": "訂購；訂單", "emoji": "🛒", "abstract": true },
+    { "id": "yesterday", "en": "yesterday", "zh": "昨天", "emoji": "📆", "abstract": true },
+    { "id": "notice", "en": "notice", "zh": "通知單", "emoji": "📄" },
+    { "id": "delivery", "en": "delivery", "zh": "送貨", "emoji": "🚚" },
+    { "id": "online", "en": "online", "zh": "網路上", "emoji": "🌐", "abstract": true },
+    { "id": "office", "en": "office", "zh": "辦公室", "emoji": "🏢" },
+    { "id": "open", "en": "open", "zh": "開；營業中", "emoji": "🔓", "abstract": true },
+    { "id": "close", "en": "close", "zh": "關；打烊", "emoji": "🔒", "abstract": true },
+    { "id": "desk", "en": "desk", "zh": "辦公桌", "emoji": "🖥️" },
+    { "id": "counter", "en": "counter", "zh": "櫃台", "emoji": "🛎️" },
+    { "id": "carry", "en": "carry", "zh": "搬；提", "emoji": "🧳", "abstract": true },
+    { "id": "break", "en": "break", "zh": "打破；摔壞", "emoji": "💔", "abstract": true },
+    { "id": "heavy", "en": "heavy", "zh": "重的", "emoji": "🏋️", "abstract": true },
+    { "id": "toy", "en": "toy", "zh": "玩具", "emoji": "🧸" },
+    { "id": "careful", "en": "careful", "zh": "小心的", "emoji": "⚠️", "abstract": true },
+    { "id": "fast", "en": "fast", "zh": "快的", "emoji": "🐇", "abstract": true },
+    { "id": "slow", "en": "slow", "zh": "慢的", "emoji": "🐢", "abstract": true },
+    { "id": "weight", "en": "weight", "zh": "重量", "emoji": "⚖️", "abstract": true },
+    { "id": "scale", "en": "scale", "zh": "秤", "emoji": "⚖️" },
+    { "id": "kilogram", "en": "kilogram", "zh": "公斤", "emoji": "⚖️" },
+    { "id": "tape", "en": "tape", "zh": "膠帶", "emoji": "🩹" },
+    { "id": "envelope", "en": "envelope", "zh": "信封", "emoji": "✉️" },
+    { "id": "postcard", "en": "postcard", "zh": "明信片", "emoji": "🏞️" },
+    { "id": "sticker", "en": "sticker", "zh": "貼紙", "emoji": "⭐" },
+    { "id": "scissors", "en": "scissors", "zh": "剪刀", "emoji": "✂️" }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "寄回台灣",
+      "newChunkIds": ["send_to_taiwan", "by_air"],
+      "newWordIds": ["mail", "letter", "package", "stamp"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I want to send this to Taiwan.",
+          "zh": "我想把這個寄到台灣。",
+          "chunkId": "send_to_taiwan",
+          "stage": { "act": "give", "item": "package" }
+        },
+        {
+          "id": "t1_2",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "Sure. Big package!",
+          "zh": "好啊。好大的包裹！"
+        },
+        {
+          "id": "t1_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I send it by air?",
+          "zh": "可以寄航空嗎？",
+          "chunkId": "by_air",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t1_4",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "Yes. Letters and packages go by air.",
+          "zh": "可以。信和包裹都是寄航空。",
+          "stage": { "act": "want", "item": "letter" }
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "地址寫哪裡",
+      "newChunkIds": ["write_address", "is_this_okay"],
+      "newWordIds": ["write", "number", "city", "country", "address"],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "This package needs an address.",
+          "zh": "這個包裹要寫地址喔。",
+          "stage": { "act": "want", "item": "package" }
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Where do I write the address?",
+          "zh": "地址要寫在哪裡？",
+          "chunkId": "write_address",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t2_3",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "Right here. Street, city, and country.",
+          "zh": "寫這裡。街道、城市，還有國家。"
+        },
+        {
+          "id": "t2_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is this okay?",
+          "zh": "這樣可以嗎？",
+          "chunkId": "is_this_okay"
+        },
+        {
+          "id": "t2_5",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "Yes! And your phone number here, please.",
+          "zh": "可以！這裡再麻煩寫一下電話號碼。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "包裹沒收到",
+      "newChunkIds": ["mailed_last_week", "missed_delivery"],
+      "newWordIds": ["order", "yesterday", "notice", "delivery", "online"],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "Not there yet? When did you mail it?",
+          "zh": "還沒到嗎？你什麼時候寄的？"
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I mailed it last week.",
+          "zh": "我上星期寄的。",
+          "chunkId": "mailed_last_week"
+        },
+        {
+          "id": "t3_3",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "It takes ten days. Is that a notice?",
+          "zh": "大概要十天。那張是通知單嗎？",
+          "stage": { "act": "want", "item": "notice" }
+        },
+        {
+          "id": "t3_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I missed the delivery.",
+          "zh": "我錯過了送貨。",
+          "chunkId": "missed_delivery",
+          "stage": { "act": "give", "item": "notice" }
+        },
+        {
+          "id": "t3_5",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "From yesterday? Your online order is here.",
+          "zh": "昨天的啊？你網購的東西在我們這裡。",
+          "stage": { "act": "want", "item": "package" }
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "領包裹",
+      "newChunkIds": ["pick_up_package", "my_id"],
+      "newWordIds": ["office", "open", "close", "desk", "counter"],
+      "signs": [
+        {
+          "id": "open_hours",
+          "heading": "We Are Open",
+          "rows": [
+            { "label": "Monday to Friday", "value": "9 to 5" },
+            { "label": "Saturday", "value": "9 to 12" },
+            { "label": "Sunday", "value": "Closed" }
+          ],
+          "question": { "en": "When does it close on Saturday?", "zh": "星期六幾點關門？" },
+          "options": ["At 9", "At 12", "At 5"],
+          "answer": 1
+        },
+        {
+          "id": "counter_guide",
+          "rows": [
+            { "label": "Counter 1", "value": "Stamps and mail" },
+            { "label": "Counter 2", "value": "Package pick-up" },
+            { "label": "Help desk", "value": "By the door" }
+          ],
+          "question": { "en": "Where do you pick up a package?", "zh": "包裹要去哪裡領？" },
+          "options": ["The help desk", "Counter 1", "Counter 2"],
+          "answer": 2
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "Next, please! This counter is open.",
+          "zh": "下一位！這個櫃台有開喔。",
+          "stage": { "act": "want", "item": "counter" }
+        },
+        {
+          "id": "t4_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm here to pick up a package.",
+          "zh": "我來領包裹。",
+          "chunkId": "pick_up_package"
+        },
+        {
+          "id": "t4_3",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "Sure. Can I see your ID?",
+          "zh": "好的。可以看一下你的證件嗎？"
+        },
+        {
+          "id": "t4_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Here's my ID.",
+          "zh": "這是我的證件。",
+          "chunkId": "my_id"
+        },
+        {
+          "id": "t4_5",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "Thanks. It's in the back office.",
+          "zh": "謝謝。包裹在後面的辦公室。",
+          "stage": { "act": "want", "item": "office" }
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "裡面是什麼",
+      "newChunkIds": ["books_and_gifts", "be_careful"],
+      "newWordIds": ["carry", "break", "heavy", "toy", "careful"],
+      "pictures": [
+        {
+          "id": "pic1",
+          "pictureId": "writing_letter",
+          "options": [
+            { "en": "She is reading a book.", "zh": "她在看書。" },
+            { "en": "She is writing a letter.", "zh": "她在寫信。" },
+            { "en": "She is carrying a box.", "zh": "她在搬箱子。" }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "pic2",
+          "pictureId": "singing",
+          "options": [
+            { "en": "He is sleeping.", "zh": "他在睡覺。" },
+            { "en": "He is cooking.", "zh": "他在做菜。" },
+            { "en": "He is singing.", "zh": "他在唱歌。" }
+          ],
+          "answer": 2
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "This is heavy! What's inside? Toys?",
+          "zh": "好重喔！裡面是什麼？玩具嗎？",
+          "stage": { "act": "want", "item": "toy" }
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Just some books and gifts.",
+          "zh": "只是一些書和禮物。",
+          "chunkId": "books_and_gifts"
+        },
+        {
+          "id": "t5_3",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "Okay. Can anything inside break?",
+          "zh": "好。裡面有會摔壞的東西嗎？"
+        },
+        {
+          "id": "t5_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Please be careful with it.",
+          "zh": "請小心處理。",
+          "chunkId": "be_careful"
+        },
+        {
+          "id": "t5_5",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "I will. I carry boxes all day!",
+          "zh": "我會的。我整天都在搬箱子！"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "多久會到",
+      "newChunkIds": ["how_much_cost", "when_get_there"],
+      "newWordIds": ["fast", "slow", "weight", "scale", "kilogram"],
+      "cloze": [
+        { "lineId": "t6_1", "word": "scale", "distractors": ["school", "skirt"] },
+        { "lineId": "t6_1", "word": "slow", "distractors": ["sick", "short"] },
+        { "lineId": "t6_5", "word": "week", "distractors": ["wine", "window"] }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "Five kilograms on the scale. Fast or slow?",
+          "zh": "秤起來五公斤。要寄快的還是慢的？",
+          "stage": { "act": "want", "item": "scale" }
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How much does it cost?",
+          "zh": "要多少錢？",
+          "chunkId": "how_much_cost",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t6_3",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "Fast mail is fifty dollars. Slow is thirty.",
+          "zh": "快的五十元，慢的三十元。"
+        },
+        {
+          "id": "t6_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "When will it get there?",
+          "zh": "什麼時候會到？",
+          "chunkId": "when_get_there"
+        },
+        {
+          "id": "t6_5",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "Fast takes a week. Slow takes four.",
+          "zh": "快的一個星期，慢的要四個星期。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "買包裝用品",
+      "newChunkIds": ["box_and_tape", "buy_stamps"],
+      "newWordIds": ["tape", "envelope", "postcard", "sticker", "scissors"],
+      "spellWordIds": ["menu", "soup", "salad", "wine", "game"],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I need a box and some tape.",
+          "zh": "我需要一個箱子和一些膠帶。",
+          "chunkId": "box_and_tape",
+          "stage": { "act": "want", "item": "tape" }
+        },
+        {
+          "id": "t7_2",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "Here. Scissors, too.",
+          "zh": "來。剪刀也給你。",
+          "stage": { "act": "give", "item": "scissors" }
+        },
+        {
+          "id": "t7_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I buy stamps here?",
+          "zh": "這裡可以買郵票嗎？",
+          "chunkId": "buy_stamps",
+          "stage": { "act": "want", "item": "stamp" }
+        },
+        {
+          "id": "t7_4",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "Yes. Stamps, envelopes, postcards, stickers!",
+          "zh": "可以。郵票、信封、明信片、貼紙都有！"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "Good morning! Is that a delivery notice?",
+          "zh": "早安！那張是送貨通知單嗎？",
+          "stage": { "act": "want", "item": "notice" }
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I missed the delivery.",
+          "zh": "我錯過了送貨。",
+          "chunkId": "missed_delivery",
+          "stage": { "act": "give", "item": "notice" }
+        },
+        {
+          "id": "t8_3",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "No problem. Can I see your ID?",
+          "zh": "沒關係。可以看一下你的證件嗎？"
+        },
+        {
+          "id": "t8_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Here's my ID.",
+          "zh": "這是我的證件。",
+          "chunkId": "my_id"
+        },
+        {
+          "id": "t8_5",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "Thanks. Here's your package. Anything else?",
+          "zh": "謝謝。這是你的包裹。還需要什麼嗎？",
+          "stage": { "act": "give", "item": "package" }
+        },
+        {
+          "id": "t8_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I need a box and some tape.",
+          "zh": "我需要一個箱子和一些膠帶。",
+          "chunkId": "box_and_tape",
+          "stage": { "act": "want", "item": "tape" }
+        },
+        {
+          "id": "t8_7",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "They're on that desk. What are you mailing?",
+          "zh": "都在那張桌子上。你要寄什麼？",
+          "stage": { "act": "want", "item": "desk" }
+        },
+        {
+          "id": "t8_8",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Just some books and gifts.",
+          "zh": "只是一些書和禮物。",
+          "chunkId": "books_and_gifts"
+        },
+        {
+          "id": "t8_9",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "Nice! Where are they going?",
+          "zh": "真好！要寄到哪裡？"
+        },
+        {
+          "id": "t8_10",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I want to send this to Taiwan.",
+          "zh": "我想把這個寄到台灣。",
+          "chunkId": "send_to_taiwan"
+        },
+        {
+          "id": "t8_11",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "Okay. I need an address on the box.",
+          "zh": "好。箱子上要寫地址。"
+        },
+        {
+          "id": "t8_12",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Where do I write the address?",
+          "zh": "地址要寫在哪裡？",
+          "chunkId": "write_address",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_13",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "Right here. Good. Now I need the weight.",
+          "zh": "寫這裡。好了。接著要秤一下重量。",
+          "stage": { "act": "want", "item": "scale" }
+        },
+        {
+          "id": "t8_14",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How much does it cost?",
+          "zh": "要多少錢？",
+          "chunkId": "how_much_cost"
+        },
+        {
+          "id": "t8_15",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "Two kilograms. That's thirty dollars by air.",
+          "zh": "兩公斤。寄航空是三十元。"
+        },
+        {
+          "id": "t8_16",
+          "role": "guide",
+          "speaker": "player",
+          "en": "When will it get there?",
+          "zh": "什麼時候會到？",
+          "chunkId": "when_get_there"
+        },
+        {
+          "id": "t8_17",
+          "role": "postal_clerk",
+          "speaker": "npc",
+          "en": "In about a week. Have a good day!",
+          "zh": "大概一個星期。祝你有美好的一天！"
+        }
+      ]
+    }
+  ]
+}
