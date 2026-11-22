@@ -1,0 +1,1860 @@
+{
+  "id": "trade_fair",
+  "title": "商展",
+  "titleEn": "Trade Fair",
+  "chunks": [
+    {
+      "id": "where_put_brochures_samples",
+      "en": "Where should I put the brochures and samples?",
+      "zh": "簡介和樣品要放哪裡？",
+      "note": "佈置時問東西放哪裡。should 後面接動詞原形 put。",
+      "distractors": [
+        {
+          "text": "Where I should put the brochures and samples?",
+          "error": "word-order"
+        },
+        {
+          "text": "Where should I puts the brochures and samples?",
+          "error": "other"
+        },
+        {
+          "text": "Where should I put the broshures and samples?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "display_look_okay_from_front",
+      "en": "Does the display look okay from the front?",
+      "zh": "從正面看，這樣擺還可以嗎？",
+      "accept": ["Does the display look OK from the front?"],
+      "note": "請人站到客人的位置幫你看陳列。Does 開頭，look 用原形。",
+      "distractors": [
+        {
+          "text": "Does the display looks okay from the front?",
+          "error": "other"
+        },
+        {
+          "text": "Do the display look okay from the front?",
+          "error": "other"
+        },
+        {
+          "text": "Does the display look okay from front?",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "looking_for_anything_in_particular",
+      "en": "Hi, are you looking for anything in particular today?",
+      "zh": "您好，今天有特別想找什麼嗎？",
+      "note": "招呼走進攤位的客人。in particular = 特別、特定的。",
+      "distractors": [
+        {
+          "text": "Hi, are you looking anything in particular today?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Hi, are you look for anything in particular today?",
+          "error": "other"
+        },
+        {
+          "text": "Hi, are you looking for anything in particularly today?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "thanks_for_stopping_by",
+      "en": "Thanks for stopping by, and enjoy the rest of the fair!",
+      "zh": "謝謝您來參觀，祝您逛展愉快！",
+      "accept": ["Thank you for stopping by, and enjoy the rest of the fair!"],
+      "note": "客人要離開攤位時說。stop by = 順道過來，for 後面接 V-ing。",
+      "distractors": [
+        {
+          "text": "Thanks for stop by, and enjoy the rest of the fair!",
+          "error": "other"
+        },
+        {
+          "text": "Thanks for stoping by, and enjoy the rest of the fair!",
+          "error": "spelling"
+        },
+        {
+          "text": "Thanks for stopping by, and enjoy the rest of fair!",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "nice_to_finally_meet_in_person",
+      "en": "It's so nice to finally meet you in person.",
+      "zh": "終於見到您本人了，真高興。",
+      "accept": ["It is so nice to finally meet you in person."],
+      "note": "第一次見到只通過電話的人。so 後面接形容詞 nice，不是副詞。",
+      "distractors": [
+        {
+          "text": "It's so nicely to finally meet you in person.",
+          "error": "other"
+        },
+        {
+          "text": "It's so nice finally meet you in person.",
+          "error": "missing-word"
+        },
+        {
+          "text": "It's so nice to finally meet you in persons.",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "main_difference_is_quality",
+      "en": "The main difference is the quality of the material.",
+      "zh": "主要差在用料的品質。",
+      "note": "主詞要用名詞：difference（差別）、quality（品質）；different 是形容詞。",
+      "distractors": [
+        {
+          "text": "The main different is the quality of the material.",
+          "error": "other"
+        },
+        {
+          "text": "The main difference is quality of the material.",
+          "error": "article"
+        },
+        {
+          "text": "The main difference is the quality of the materiel.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "companies_from_all_over_world",
+      "en": "There are companies here from all over the world.",
+      "zh": "這裡有來自世界各地的公司。",
+      "note": "介紹展覽的規模。There are 後面接複數名詞 companies。",
+      "distractors": [
+        {
+          "text": "There is companies here from all over the world.",
+          "error": "other"
+        },
+        {
+          "text": "There are company here from all over the world.",
+          "error": "plural"
+        },
+        {
+          "text": "There are companies here from all over world.",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "wide_range_of_styles_sizes",
+      "en": "We have a wide range of styles and sizes.",
+      "zh": "我們的款式和尺寸選擇很多。",
+      "note": "介紹產品選擇很多。a wide range of 後面接複數名詞。",
+      "distractors": [
+        {
+          "text": "We have a wide range of style and size.",
+          "error": "plural"
+        },
+        {
+          "text": "We have wide range of styles and sizes.",
+          "error": "article"
+        },
+        {
+          "text": "We have a wide range styles and sizes.",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "give_you_one_of_my_business_cards",
+      "en": "Let me give you one of my business cards.",
+      "zh": "我給您一張我的名片。",
+      "note": "交換名片時說。one of my 後面接複數 cards。",
+      "distractors": [
+        {
+          "text": "Let me give you one of my business card.",
+          "error": "plural"
+        },
+        {
+          "text": "Let me to give you one of my business cards.",
+          "error": "extra-word"
+        },
+        {
+          "text": "Let me give you one my business cards.",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "demonstration_every_afternoon_during_fair",
+      "en": "We're giving a demonstration every afternoon during the fair.",
+      "zh": "展覽期間我們每天下午都有示範。",
+      "accept": ["We are giving a demonstration every afternoon during the fair."],
+      "note": "during＋一段期間（the fair）＝在那段期間裡；during 後面接名詞。",
+      "distractors": [
+        {
+          "text": "We're giving a demonstration every afternoon while the fair.",
+          "error": "other"
+        },
+        {
+          "text": "We're giving a demonstration every afternoons during the fair.",
+          "error": "plural"
+        },
+        {
+          "text": "We giving a demonstration every afternoon during the fair.",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "come_back_anytime_over_three_days",
+      "en": "Feel free to come back anytime over the next three days.",
+      "zh": "接下來這三天，歡迎隨時再過來。",
+      "note": "over the next three days＝在接下來這三天裡，over 也是說一段期間。",
+      "distractors": [
+        {
+          "text": "Feel free to come back anytime over the next three day.",
+          "error": "plural"
+        },
+        {
+          "text": "Feel free come back anytime over the next three days.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Feel free to coming back anytime over the next three days.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "our_display_most_creative",
+      "en": "I think our display is the most creative one here.",
+      "zh": "我覺得我們的陳列是全場最有創意的。",
+      "note": "和全場比較用 the most＋形容詞；one 代替前面的 display。",
+      "distractors": [
+        {
+          "text": "I think our display is the more creative one here.",
+          "error": "other"
+        },
+        {
+          "text": "I think our display is most creative one here.",
+          "error": "article"
+        },
+        {
+          "text": "I think our display is the most creativest one here.",
+          "error": "extra-word"
+        }
+      ]
+    },
+    {
+      "id": "just_to_confirm_two_hundred_new_model",
+      "en": "Just to confirm, that's two hundred of the new model?",
+      "zh": "跟您確認一下，是新款兩百個嗎？",
+      "accept": [
+        "Just to confirm, that's 200 of the new model?",
+        "Just to confirm, that is two hundred of the new model?"
+      ],
+      "note": "跟客人確認訂單數量。two hundred 的 hundred 不加 s。",
+      "distractors": [
+        {
+          "text": "Just to confirm, that's two hundreds of the new model?",
+          "error": "plural"
+        },
+        {
+          "text": "Just to confirm, that's two hundred the new model?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Just to confirm, that's two hundred of new model?",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "email_confirmation_first_thing_monday",
+      "en": "I'll email you the confirmation first thing Monday morning.",
+      "zh": "我星期一一早就把確認信寄給您。",
+      "accept": [
+        "I will email you the confirmation first thing Monday morning.",
+        "I'll email you the confirmation first thing on Monday morning."
+      ],
+      "note": "答應客人寄確認信。first thing Monday morning＝星期一一大早。",
+      "distractors": [
+        {
+          "text": "I'll email to you the confirmation first thing Monday morning.",
+          "error": "extra-word"
+        },
+        {
+          "text": "I'll email you the confirmasion first thing Monday morning.",
+          "error": "spelling"
+        },
+        {
+          "text": "I'll email you the confirmation first thing Monday mornings.",
+          "error": "plural"
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "id": "model",
+      "en": "model",
+      "zh": "型號；款",
+      "emoji": "🆔",
+      "abstract": true
+    },
+    {
+      "id": "trade",
+      "en": "trade",
+      "zh": "貿易",
+      "emoji": "🚢",
+      "abstract": true
+    },
+    {
+      "id": "aim",
+      "en": "aim",
+      "zh": "目的；想達成的事",
+      "emoji": "🧭",
+      "abstract": true
+    },
+    {
+      "id": "brochure",
+      "en": "brochure",
+      "zh": "簡介手冊",
+      "emoji": "📃"
+    },
+    {
+      "id": "display",
+      "en": "display",
+      "zh": "陳列；展示",
+      "emoji": "🪄",
+      "abstract": true
+    },
+    {
+      "id": "merchandise",
+      "en": "merchandise",
+      "zh": "商品（總稱）",
+      "emoji": "🛒",
+      "abstract": true
+    },
+    {
+      "id": "logo",
+      "en": "logo",
+      "zh": "商標；標誌",
+      "emoji": "🔰",
+      "abstract": true
+    },
+    {
+      "id": "booth",
+      "en": "booth",
+      "zh": "攤位",
+      "emoji": "🎪"
+    },
+    {
+      "id": "greet",
+      "en": "greet",
+      "zh": "打招呼；迎接",
+      "emoji": "👋"
+    },
+    {
+      "id": "market",
+      "en": "market",
+      "zh": "市場",
+      "emoji": "📈",
+      "abstract": true
+    },
+    {
+      "id": "represent",
+      "en": "represent",
+      "zh": "代表",
+      "emoji": "🙋",
+      "abstract": true
+    },
+    {
+      "id": "image",
+      "en": "image",
+      "zh": "圖片；影像",
+      "emoji": "🌄",
+      "abstract": true
+    },
+    {
+      "id": "visitor",
+      "en": "visitor",
+      "zh": "訪客；來參觀的人",
+      "emoji": "🧑‍🤝‍🧑",
+      "abstract": true
+    },
+    {
+      "id": "representative",
+      "en": "representative",
+      "zh": "（業務）代表",
+      "emoji": "💼",
+      "abstract": true
+    },
+    {
+      "id": "shake",
+      "en": "shake",
+      "zh": "握（手）",
+      "emoji": "🤝"
+    },
+    {
+      "id": "brand",
+      "en": "brand",
+      "zh": "品牌",
+      "emoji": "™️",
+      "abstract": true
+    },
+    {
+      "id": "retail",
+      "en": "retail",
+      "zh": "零售",
+      "emoji": "🏬",
+      "abstract": true
+    },
+    {
+      "id": "nervous",
+      "en": "nervous",
+      "zh": "緊張的",
+      "emoji": "😬",
+      "abstract": true
+    },
+    {
+      "id": "confident",
+      "en": "confident",
+      "zh": "有自信的",
+      "emoji": "😎",
+      "abstract": true
+    },
+    {
+      "id": "difference",
+      "en": "difference",
+      "zh": "差別",
+      "emoji": "↔️",
+      "abstract": true
+    },
+    {
+      "id": "quality",
+      "en": "quality",
+      "zh": "品質",
+      "emoji": "💎",
+      "abstract": true
+    },
+    {
+      "id": "feature",
+      "en": "feature",
+      "zh": "特色；功能",
+      "emoji": "🌟",
+      "abstract": true
+    },
+    {
+      "id": "popular",
+      "en": "popular",
+      "zh": "受歡迎的",
+      "emoji": "🔥",
+      "abstract": true
+    },
+    {
+      "id": "modern",
+      "en": "modern",
+      "zh": "現代的；新式的",
+      "emoji": "🆕",
+      "abstract": true
+    },
+    {
+      "id": "successful",
+      "en": "successful",
+      "zh": "成功的",
+      "emoji": "🏆",
+      "abstract": true
+    },
+    {
+      "id": "competition",
+      "en": "competition",
+      "zh": "競爭；比賽",
+      "emoji": "🥇",
+      "abstract": true
+    },
+    {
+      "id": "outdated",
+      "en": "outdated",
+      "zh": "過時的",
+      "emoji": "🕰️",
+      "abstract": true
+    },
+    {
+      "id": "competitive",
+      "en": "competitive",
+      "zh": "有競爭力的",
+      "emoji": "💪",
+      "abstract": true
+    },
+    {
+      "id": "competitor",
+      "en": "competitor",
+      "zh": "競爭對手",
+      "emoji": "🆚",
+      "abstract": true
+    },
+    {
+      "id": "world",
+      "en": "world",
+      "zh": "世界",
+      "emoji": "🌍"
+    },
+    {
+      "id": "industry",
+      "en": "industry",
+      "zh": "產業；業界",
+      "emoji": "🏭",
+      "abstract": true
+    },
+    {
+      "id": "international",
+      "en": "international",
+      "zh": "國際的",
+      "emoji": "🌐",
+      "abstract": true
+    },
+    {
+      "id": "region",
+      "en": "region",
+      "zh": "地區",
+      "emoji": "📍",
+      "abstract": true
+    },
+    {
+      "id": "wide",
+      "en": "wide",
+      "zh": "廣的；範圍大的",
+      "emoji": "📏",
+      "abstract": true
+    },
+    {
+      "id": "variety",
+      "en": "variety",
+      "zh": "各式各樣；多樣",
+      "emoji": "🎨",
+      "abstract": true
+    },
+    {
+      "id": "million",
+      "en": "million",
+      "zh": "百萬",
+      "emoji": "🔢",
+      "abstract": true
+    },
+    {
+      "id": "guide",
+      "en": "guide",
+      "zh": "指南；導覽手冊",
+      "emoji": "📖",
+      "abstract": true
+    },
+    {
+      "id": "attract",
+      "en": "attract",
+      "zh": "吸引",
+      "emoji": "🧲"
+    },
+    {
+      "id": "exhibition",
+      "en": "exhibition",
+      "zh": "展覽",
+      "emoji": "🎟️",
+      "abstract": true
+    },
+    {
+      "id": "design",
+      "en": "design",
+      "zh": "設計",
+      "emoji": "📐",
+      "abstract": true
+    },
+    {
+      "id": "draw",
+      "en": "draw",
+      "zh": "畫",
+      "emoji": "🖌️",
+      "abstract": true
+    },
+    {
+      "id": "range",
+      "en": "range",
+      "zh": "（產品）系列；範圍",
+      "emoji": "🧩",
+      "abstract": true
+    },
+    {
+      "id": "release",
+      "en": "release",
+      "zh": "推出；上市",
+      "emoji": "🚀",
+      "abstract": true
+    },
+    {
+      "id": "style",
+      "en": "style",
+      "zh": "風格；樣式",
+      "emoji": "💅",
+      "abstract": true
+    },
+    {
+      "id": "pattern",
+      "en": "pattern",
+      "zh": "圖案；花樣",
+      "emoji": "🔷",
+      "abstract": true
+    },
+    {
+      "id": "shape",
+      "en": "shape",
+      "zh": "形狀",
+      "emoji": "🔺",
+      "abstract": true
+    },
+    {
+      "id": "designer",
+      "en": "designer",
+      "zh": "設計師",
+      "emoji": "🧑‍🎨",
+      "abstract": true
+    },
+    {
+      "id": "catalog",
+      "en": "catalog",
+      "zh": "產品目錄",
+      "emoji": "📔",
+      "abstract": true
+    },
+    {
+      "id": "accessory",
+      "en": "accessory",
+      "zh": "配件",
+      "emoji": "🖇️",
+      "abstract": true
+    },
+    {
+      "id": "develop",
+      "en": "develop",
+      "zh": "開發；研發",
+      "emoji": "🔬",
+      "abstract": true
+    },
+    {
+      "id": "preview",
+      "en": "preview",
+      "zh": "搶先看；預覽",
+      "emoji": "👀",
+      "abstract": true
+    },
+    {
+      "id": "video",
+      "en": "video",
+      "zh": "影片",
+      "emoji": "▶️"
+    },
+    {
+      "id": "powerful",
+      "en": "powerful",
+      "zh": "強的；很有力的",
+      "emoji": "⚡",
+      "abstract": true
+    },
+    {
+      "id": "engineer",
+      "en": "engineer",
+      "zh": "工程師",
+      "emoji": "👷",
+      "abstract": true
+    },
+    {
+      "id": "unique",
+      "en": "unique",
+      "zh": "獨一無二的；獨特的",
+      "emoji": "🦄",
+      "abstract": true
+    },
+    {
+      "id": "demonstration",
+      "en": "demonstration",
+      "zh": "示範",
+      "emoji": "🎬",
+      "abstract": true
+    },
+    {
+      "id": "digital",
+      "en": "digital",
+      "zh": "數位的",
+      "emoji": "🔟",
+      "abstract": true
+    },
+    {
+      "id": "translate",
+      "en": "translate",
+      "zh": "翻譯",
+      "emoji": "🈯",
+      "abstract": true
+    },
+    {
+      "id": "efficiently",
+      "en": "efficiently",
+      "zh": "有效率地",
+      "emoji": "♻️",
+      "abstract": true
+    },
+    {
+      "id": "photograph",
+      "en": "photograph",
+      "zh": "照片",
+      "emoji": "📸",
+      "abstract": true
+    },
+    {
+      "id": "participant",
+      "en": "participant",
+      "zh": "參加的人",
+      "emoji": "🧍",
+      "abstract": true
+    },
+    {
+      "id": "enormous",
+      "en": "enormous",
+      "zh": "非常大的；非常多的",
+      "emoji": "🐘",
+      "abstract": true
+    },
+    {
+      "id": "worldwide",
+      "en": "worldwide",
+      "zh": "在全世界",
+      "emoji": "🌏",
+      "abstract": true
+    },
+    {
+      "id": "convention",
+      "en": "convention",
+      "zh": "大型會議；會展",
+      "emoji": "🏟️",
+      "abstract": true
+    },
+    {
+      "id": "creative",
+      "en": "creative",
+      "zh": "有創意的",
+      "emoji": "🧠",
+      "abstract": true
+    },
+    {
+      "id": "impress",
+      "en": "impress",
+      "zh": "讓人印象深刻",
+      "emoji": "😮",
+      "abstract": true
+    },
+    {
+      "id": "yearly",
+      "en": "yearly",
+      "zh": "一年一次的",
+      "emoji": "📅",
+      "abstract": true
+    },
+    {
+      "id": "excitement",
+      "en": "excitement",
+      "zh": "興奮；熱鬧的氣氛",
+      "emoji": "🤩",
+      "abstract": true
+    },
+    {
+      "id": "enthusiastic",
+      "en": "enthusiastic",
+      "zh": "熱情的；很投入的",
+      "emoji": "🙌",
+      "abstract": true
+    },
+    {
+      "id": "advantage",
+      "en": "advantage",
+      "zh": "優勢；優點",
+      "emoji": "👍",
+      "abstract": true
+    },
+    {
+      "id": "target",
+      "en": "target",
+      "zh": "目標（要達到的數字）",
+      "emoji": "🎯"
+    },
+    {
+      "id": "potential",
+      "en": "potential",
+      "zh": "有潛力的；可能的",
+      "emoji": "🌱",
+      "abstract": true
+    },
+    {
+      "id": "partner",
+      "en": "partner",
+      "zh": "合作夥伴",
+      "emoji": "👥",
+      "abstract": true
+    },
+    {
+      "id": "typical",
+      "en": "typical",
+      "zh": "一般的；典型的",
+      "emoji": "📊",
+      "abstract": true
+    },
+    {
+      "id": "ideal",
+      "en": "ideal",
+      "zh": "理想的；最適合的",
+      "emoji": "👌",
+      "abstract": true
+    },
+    {
+      "id": "persuade",
+      "en": "persuade",
+      "zh": "說服",
+      "emoji": "🗣️",
+      "abstract": true
+    },
+    {
+      "id": "showroom",
+      "en": "showroom",
+      "zh": "展示間",
+      "emoji": "🏠",
+      "abstract": true
+    },
+    {
+      "id": "reliable",
+      "en": "reliable",
+      "zh": "可靠的",
+      "emoji": "✅",
+      "abstract": true
+    },
+    {
+      "id": "costly",
+      "en": "costly",
+      "zh": "花費很高的",
+      "emoji": "💸",
+      "abstract": true
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "佈置攤位",
+      "newChunkIds": ["where_put_brochures_samples", "display_look_okay_from_front"],
+      "newWordIds": [
+        "model",
+        "trade",
+        "aim",
+        "brochure",
+        "display",
+        "merchandise",
+        "logo",
+        "booth",
+        "greet"
+      ],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Okay, our first trade fair! The doors open in an hour.",
+          "zh": "好，我們第一次參加商展！再一個小時就開門了。"
+        },
+        {
+          "id": "t1_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Where should I put the brochures and samples?",
+          "zh": "簡介和樣品要放哪裡？",
+          "chunkId": "where_put_brochures_samples"
+        },
+        {
+          "id": "t1_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Brochures on the counter, right under our logo.",
+          "zh": "簡介放櫃台上，就在我們的商標下面。",
+          "stage": {
+            "act": "give",
+            "item": "brochure"
+          }
+        },
+        {
+          "id": "t1_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "And put the samples beside the new model.",
+          "zh": "樣品放在新款旁邊。"
+        },
+        {
+          "id": "t1_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Does the display look okay from the front?",
+          "zh": "從正面看，這樣擺還可以嗎？",
+          "chunkId": "display_look_okay_from_front"
+        },
+        {
+          "id": "t1_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Looks good. You can see all our merchandise from here.",
+          "zh": "很好。從這裡看得到我們所有的商品。"
+        },
+        {
+          "id": "t1_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Remember, our aim this week is to find new customers.",
+          "zh": "記得，我們這次來的目的是找到新客戶。"
+        },
+        {
+          "id": "t1_8",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "So greet everyone who stops at the booth, okay?",
+          "zh": "所以只要有人在攤位前停下來，都要打招呼，好嗎？",
+          "stage": {
+            "act": "want",
+            "item": "greet"
+          }
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "招呼第一位訪客",
+      "newChunkIds": ["looking_for_anything_in_particular", "thanks_for_stopping_by"],
+      "newWordIds": [
+        "market",
+        "represent",
+        "image",
+        "visitor",
+        "representative",
+        "shake",
+        "brand",
+        "retail",
+        "nervous",
+        "confident"
+      ],
+      "fills": [
+        {
+          "id": "shook_hands",
+          "en": "Yesterday, Dan ___ hands with every visitor at the booth.",
+          "zh": "Dan 昨天跟每位來攤位的訪客都握了手。",
+          "options": ["shook", "shakes", "shaking", "shake"],
+          "answer": 0,
+          "note": "yesterday 用過去式：shake → shook。",
+          "grammar": true
+        },
+        {
+          "id": "nervous_then_confident",
+          "en": "I was ___ before my first fair, but now I feel confident.",
+          "zh": "第一次參展前我很緊張，不過現在有信心了。",
+          "options": ["nervous", "ready", "proud", "kind"],
+          "answer": 0,
+          "note": "but 表示相反：先緊張，現在有信心。"
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Hi, are you looking for anything in particular today?",
+          "zh": "您好，今天有特別想找什麼嗎？",
+          "chunkId": "looking_for_anything_in_particular"
+        },
+        {
+          "id": "t2_2",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Not really, thanks. I'm in retail, so I'm just looking around.",
+          "zh": "沒有特別要找的，謝謝。我是做零售的，只是隨便看看。"
+        },
+        {
+          "id": "t2_3",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Harbor Trading... I'm sure I know that name.",
+          "zh": "Harbor Trading……這個名字我一定在哪裡聽過。"
+        },
+        {
+          "id": "t2_4",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Your lamps would do very well in the UK market.",
+          "zh": "你們的檯燈在英國市場應該會賣得很好。"
+        },
+        {
+          "id": "t2_5",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Anyway, I'll have a look around and come back later.",
+          "zh": "總之，我先四處逛逛，等一下再回來。"
+        },
+        {
+          "id": "t2_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thanks for stopping by, and enjoy the rest of the fair!",
+          "zh": "謝謝您來參觀，祝您逛展愉快！",
+          "chunkId": "thanks_for_stopping_by"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "見到 Mr. Hughes 本人",
+      "newChunkIds": ["nice_to_finally_meet_in_person", "main_difference_is_quality"],
+      "newWordIds": [
+        "difference",
+        "quality",
+        "feature",
+        "popular",
+        "modern",
+        "successful",
+        "competition",
+        "outdated",
+        "competitive",
+        "competitor"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Hello again! I'm James Hughes, from Hughes Home and Garden.",
+          "zh": "又見面了！我是 Hughes Home and Garden 的 James Hughes。"
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "It's so nice to finally meet you in person.",
+          "zh": "終於見到您本人了，真高興。",
+          "chunkId": "nice_to_finally_meet_in_person"
+        },
+        {
+          "id": "t3_3",
+          "role": "client",
+          "speaker": "npc",
+          "en": "You too! Your lamps are very popular in my shops.",
+          "zh": "我也是！你們的檯燈在我店裡很受歡迎。"
+        },
+        {
+          "id": "t3_4",
+          "role": "client",
+          "speaker": "npc",
+          "en": "But there's a lot of competition here. What makes yours different?",
+          "zh": "不過這裡競爭很激烈。你們的跟別家差在哪裡？",
+          "stage": {
+            "act": "ask"
+          }
+        },
+        {
+          "id": "t3_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "The main difference is the quality of the material.",
+          "zh": "主要差在用料的品質。",
+          "chunkId": "main_difference_is_quality"
+        },
+        {
+          "id": "t3_6",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Good. My competitors sell cheap lamps that look outdated in a year.",
+          "zh": "很好。我的競爭對手賣的便宜檯燈，一年就顯得過時了。"
+        },
+        {
+          "id": "t3_7",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Quality and a modern look. That's what keeps you competitive.",
+          "zh": "品質好、外型新，這樣才有競爭力。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀展覽簡介",
+      "newChunkIds": ["companies_from_all_over_world"],
+      "newWordIds": [
+        "world",
+        "industry",
+        "international",
+        "region",
+        "wide",
+        "variety",
+        "million",
+        "guide",
+        "attract",
+        "exhibition"
+      ],
+      "passages": [
+        {
+          "id": "fair_guide",
+          "kind": "notice",
+          "title": "International Home and Office Fair",
+          "lines": [
+            "Welcome to the International Home and Office Fair at the Chicago Convention Center! Every year, this exhibition attracts more than 20,000 visitors. It is one of the biggest in the industry.",
+            "This year, 320 companies from 28 countries are here with a wide variety of products for the home and the office. Sales representatives are at every booth to answer your questions.",
+            "Area A: companies from North America. Area B: companies from the Asia region. Area C: companies from Europe.",
+            "Thursday is for business visitors only (10:00 to 6:00). Friday and Saturday are open to everyone (9:00 to 5:00).",
+            "The information desk in Area A opens one hour before the fair each day. Ask there for a free guide with a map of every booth.",
+            "Every afternoon at two, companies show their newest products in Area C. Last year, visitors ordered more than twelve million dollars of products."
+          ],
+          "questions": [
+            {
+              "en": "Who can come to the fair on Thursday?",
+              "zh": "星期四誰可以進場？",
+              "options": ["Everyone", "Business visitors only", "Companies from Europe only"],
+              "answer": 1
+            },
+            {
+              "en": "Where are the companies from Asia?",
+              "zh": "亞洲的公司在哪一區？",
+              "options": ["Area A", "Area B", "Area C"],
+              "answer": 1
+            },
+            {
+              "en": "Where can you get a free guide?",
+              "zh": "哪裡可以拿到免費的導覽手冊？",
+              "options": ["At every booth", "In Area C", "At the desk in Area A"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Here, take a look at this. It's all about the fair.",
+          "zh": "來，你看一下這張，上面都是這次展覽的介紹。"
+        },
+        {
+          "id": "t4_2",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "It says this is one of the biggest exhibitions in the industry.",
+          "zh": "上面說這是業界最大的展覽之一。"
+        },
+        {
+          "id": "t4_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "There are companies here from all over the world.",
+          "zh": "這裡有來自世界各地的公司。",
+          "chunkId": "companies_from_all_over_world"
+        },
+        {
+          "id": "t4_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Right, from 28 countries. The Asia region is in Area B.",
+          "zh": "對啊，來自二十八個國家。亞洲地區的公司在 B 區。"
+        },
+        {
+          "id": "t4_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "A fair this big attracts a wide variety of visitors.",
+          "zh": "這麼大的展覽，會吸引各式各樣的訪客。"
+        },
+        {
+          "id": "t4_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Last year, visitors ordered over twelve million dollars of products!",
+          "zh": "去年訪客下的訂單超過一千兩百萬美元！"
+        },
+        {
+          "id": "t4_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Let's hope some of that comes to our booth.",
+          "zh": "希望其中有一些會落到我們攤位來。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "介紹新系列、交換名片",
+      "newChunkIds": ["wide_range_of_styles_sizes", "give_you_one_of_my_business_cards"],
+      "newWordIds": [
+        "design",
+        "draw",
+        "range",
+        "release",
+        "style",
+        "pattern",
+        "shape",
+        "designer",
+        "catalog",
+        "accessory"
+      ],
+      "talks": [
+        {
+          "id": "new_range",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "guide",
+              "en": "We released this range in May. It's designed and made in Taiwan.",
+              "zh": "這個系列五月才推出，是在台灣設計、台灣製造的。"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "client",
+              "en": "I really like the design. Who's the designer?",
+              "zh": "我真的很喜歡這個設計。設計師是誰？"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "guide",
+              "en": "A designer in Taiwan. She draws every pattern by hand.",
+              "zh": "台灣的一位設計師。每個圖案都是她親手畫的。"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "client",
+              "en": "Beautiful. And the lamps come in three shapes?",
+              "zh": "真好。所以檯燈有三種形狀？"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "guide",
+              "en": "That's right. We also have desk accessories in the same style.",
+              "zh": "對。我們還有同樣風格的桌上配件。"
+            },
+            {
+              "id": "t5_talk_6",
+              "role": "client",
+              "en": "I'll take two samples and a catalog for my colleagues in England.",
+              "zh": "我拿兩個樣品和一本目錄，帶回去給英國的同事看。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "When did the new range come out?",
+              "zh": "新系列是什麼時候推出的？",
+              "options": ["In March", "In May", "In June"],
+              "answer": 1
+            },
+            {
+              "en": "Who draws the patterns?",
+              "zh": "圖案是誰畫的？",
+              "options": ["A designer in Taiwan", "Mr. Hughes", "A designer in England"],
+              "answer": 0
+            },
+            {
+              "en": "What will Mr. Hughes take for his colleagues?",
+              "zh": "Mr. Hughes 要帶什麼回去給同事看？",
+              "options": ["A guide", "A catalog", "A logo"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "client",
+          "speaker": "npc",
+          "en": "So, tell me about these new lamps.",
+          "zh": "那，跟我介紹一下這些新檯燈吧。"
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We have a wide range of styles and sizes.",
+          "zh": "我們的款式和尺寸選擇很多。",
+          "chunkId": "wide_range_of_styles_sizes"
+        },
+        {
+          "id": "t5_3",
+          "role": "client",
+          "speaker": "npc",
+          "en": "I love the design. And the desk accessories match them well.",
+          "zh": "我很喜歡這個設計。桌上配件跟檯燈也很搭。"
+        },
+        {
+          "id": "t5_4",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Do you have a catalog I could take back with me?",
+          "zh": "有目錄可以讓我帶回去嗎？",
+          "stage": {
+            "act": "ask"
+          }
+        },
+        {
+          "id": "t5_5",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Lovely, thank you. And who should I email about an order?",
+          "zh": "太好了，謝謝。那要下單的話，我該寄信給誰？"
+        },
+        {
+          "id": "t5_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let me give you one of my business cards.",
+          "zh": "我給您一張我的名片。",
+          "chunkId": "give_you_one_of_my_business_cards"
+        },
+        {
+          "id": "t5_7",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Thank you. And here's mine. Let's keep in touch.",
+          "zh": "謝謝。這是我的。我們保持聯絡。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "約他來看示範",
+      "newChunkIds": [
+        "demonstration_every_afternoon_during_fair",
+        "come_back_anytime_over_three_days"
+      ],
+      "newWordIds": [
+        "develop",
+        "preview",
+        "video",
+        "powerful",
+        "engineer",
+        "unique",
+        "demonstration",
+        "digital",
+        "translate",
+        "efficiently"
+      ],
+      "cloze": [
+        {
+          "lineId": "t6_1",
+          "word": "screen",
+          "distractors": ["towel", "pool"]
+        },
+        {
+          "lineId": "t6_2",
+          "word": "meeting",
+          "distractors": ["logo", "gym"]
+        },
+        {
+          "lineId": "t6_7",
+          "word": "Saturday",
+          "distractors": ["Monday", "Sunday"]
+        }
+      ],
+      "textFills": [
+        {
+          "id": "demo_notice",
+          "kind": "notice",
+          "title": "Live Demonstration at Booth A14",
+          "lines": [
+            "Harbor Trading invites you to a preview of our new desk lamp.",
+            "Our engineers in Taiwan ___ it over two years.",
+            "We show how it works at 2:00 every afternoon ___ the fair.",
+            "Watch a short ___ about the lamp, and then try it yourself.",
+            "Free brochures for every visitor!"
+          ],
+          "zh": [
+            "Harbor Trading 邀請您來搶先看我們的新款檯燈。",
+            "這款是我們台灣的工程師花了兩年研發的。",
+            "展覽期間每天下午兩點，我們會示範怎麼使用。",
+            "先看一段介紹檯燈的短片，再親手試試看。",
+            "每位訪客都可以拿免費的簡介！"
+          ],
+          "blanks": [
+            {
+              "options": ["developed", "develops", "developing", "to develop"],
+              "answer": 0,
+              "note": "兩年已經做完了，用過去式 developed。"
+            },
+            {
+              "options": ["during", "while", "since", "between"],
+              "answer": 0,
+              "note": "during＋名詞（the fair）＝在展覽期間。"
+            },
+            {
+              "options": ["video", "towel", "pool", "logo"],
+              "answer": 0,
+              "note": "可以看（watch）的介紹是影片。"
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "client",
+          "speaker": "npc",
+          "en": "This one looks unique. Is that a digital screen?",
+          "zh": "這一款看起來很特別。那是數位螢幕嗎？"
+        },
+        {
+          "id": "t6_2",
+          "role": "client",
+          "speaker": "npc",
+          "en": "I'd love to see it work, but I have a meeting soon.",
+          "zh": "我很想看看它怎麼用，可是我等一下有個會。"
+        },
+        {
+          "id": "t6_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We're giving a demonstration every afternoon during the fair.",
+          "zh": "展覽期間我們每天下午都有示範。",
+          "chunkId": "demonstration_every_afternoon_during_fair"
+        },
+        {
+          "id": "t6_4",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Good. I hear the light is powerful, and it runs very efficiently.",
+          "zh": "很好。聽說它的光很強，而且很省電。"
+        },
+        {
+          "id": "t6_5",
+          "role": "client",
+          "speaker": "npc",
+          "en": "The trouble is, I'm meeting customers all day tomorrow.",
+          "zh": "麻煩的是，我明天一整天都要見客戶。"
+        },
+        {
+          "id": "t6_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Feel free to come back anytime over the next three days.",
+          "zh": "接下來這三天，歡迎隨時再過來。",
+          "chunkId": "come_back_anytime_over_three_days"
+        },
+        {
+          "id": "t6_7",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Thank you. I'll try for Saturday, then.",
+          "zh": "謝謝。那我星期六再來看看。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "展場廣播",
+      "newChunkIds": ["our_display_most_creative"],
+      "newWordIds": [
+        "photograph",
+        "participant",
+        "enormous",
+        "worldwide",
+        "convention",
+        "creative",
+        "impress",
+        "yearly",
+        "excitement",
+        "enthusiastic"
+      ],
+      "talks": [
+        {
+          "id": "closing_announcement",
+          "kind": "monologue",
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "announcer",
+              "en": "Attention, please. Thank you all for being such enthusiastic visitors today!",
+              "zh": "各位請注意。謝謝大家今天這麼熱情地來參觀！"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "announcer",
+              "en": "It was an enormous first day, and the excitement here was great.",
+              "zh": "今天第一天人非常多，現場氣氛也非常熱烈。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "announcer",
+              "en": "Many of the brands at this fair are sold worldwide.",
+              "zh": "這次展覽的很多品牌在全世界都買得到。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "announcer",
+              "en": "Forty participants are in our yearly competition for the most creative booth.",
+              "zh": "今年一年一度的「最有創意攤位」比賽，有四十家參加。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "announcer",
+              "en": "To choose the best booth, take a photograph of the one that impressed you most.",
+              "zh": "想選出最棒的攤位，請幫最讓您印象深刻的那一個拍張照片。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "announcer",
+              "en": "Then show it to the staff at the information desk.",
+              "zh": "然後拿給服務台的工作人員看。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "announcer",
+              "en": "The results will be on the big screen tomorrow at noon.",
+              "zh": "結果明天中午會出現在大螢幕上。"
+            },
+            {
+              "id": "t7_talk_8",
+              "role": "announcer",
+              "en": "The convention center closes at six today and opens at nine tomorrow.",
+              "zh": "會展中心今天六點關門，明天九點開門。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "What is the competition for?",
+              "zh": "比賽比的是什麼？",
+              "options": ["The best new lamp", "The most creative booth", "The biggest company"],
+              "answer": 1
+            },
+            {
+              "en": "How can visitors choose a booth?",
+              "zh": "訪客要怎麼選攤位？",
+              "options": [
+                "Call the information desk",
+                "Write on a card",
+                "Show a photograph at the desk"
+              ],
+              "answer": 2
+            },
+            {
+              "en": "What time does the center close today?",
+              "zh": "會展中心今天幾點關門？",
+              "options": ["At five", "At six", "At nine"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Did you hear that? A competition for the most creative booth!",
+          "zh": "你有聽到嗎？有「最有創意攤位」的比賽耶！"
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I think our display is the most creative one here.",
+          "zh": "我覺得我們的陳列是全場最有創意的。",
+          "chunkId": "our_display_most_creative"
+        },
+        {
+          "id": "t7_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "I think so too! Visitors were really impressed with our lamps today.",
+          "zh": "哈，我也這麼覺得！今天的訪客都對我們的檯燈印象很深。"
+        },
+        {
+          "id": "t7_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "But there are forty participants. That's a lot of competition.",
+          "zh": "不過有四十家參加，競爭很激烈。"
+        },
+        {
+          "id": "t7_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Tomorrow, let's ask people to take a photograph of our booth.",
+          "zh": "明天我們請大家幫我們的攤位拍張照吧。"
+        },
+        {
+          "id": "t7_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "What an enormous first day. I'm so tired.",
+          "zh": "第一天人也太多了吧，我好累。"
+        },
+        {
+          "id": "t7_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Come on, let's go get dinner. We open at nine tomorrow.",
+          "zh": "走吧，去吃晚餐。明天九點就開門了。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "接下訂單",
+      "newChunkIds": [
+        "just_to_confirm_two_hundred_new_model",
+        "email_confirmation_first_thing_monday"
+      ],
+      "newWordIds": [
+        "advantage",
+        "target",
+        "potential",
+        "partner",
+        "typical",
+        "ideal",
+        "persuade",
+        "showroom",
+        "reliable",
+        "costly"
+      ],
+      "spellWordIds": ["hotel", "bar", "pool", "gym", "bathroom"],
+      "cloze": [
+        {
+          "lineId": "t8_2",
+          "word": "showroom",
+          "distractors": ["airport", "kitchen"]
+        },
+        {
+          "lineId": "t8_4",
+          "word": "costly",
+          "distractors": ["cheap", "quiet"]
+        },
+        {
+          "lineId": "t8_7",
+          "word": "reliable",
+          "distractors": ["outdated", "nervous"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "client",
+          "speaker": "npc",
+          "en": "You've persuaded me. I'd like to place an order.",
+          "zh": "你們說服我了。我想下一張訂單。"
+        },
+        {
+          "id": "t8_2",
+          "role": "client",
+          "speaker": "npc",
+          "en": "The new model is ideal for our showroom. Two hundred, please.",
+          "zh": "新款很適合放在我們的展示間。請給我兩百個。"
+        },
+        {
+          "id": "t8_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Just to confirm, that's two hundred of the new model?",
+          "zh": "跟您確認一下，是新款兩百個嗎？",
+          "chunkId": "just_to_confirm_two_hundred_new_model"
+        },
+        {
+          "id": "t8_4",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Yes. By sea, please. Air is far too costly.",
+          "zh": "對。請走海運，空運太貴了。"
+        },
+        {
+          "id": "t8_5",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Could you put it all in an email?",
+          "zh": "可以把這些都寫成 email 寄給我嗎？"
+        },
+        {
+          "id": "t8_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll email you the confirmation first thing Monday morning.",
+          "zh": "我星期一一早就把確認信寄給您。",
+          "chunkId": "email_confirmation_first_thing_monday"
+        },
+        {
+          "id": "t8_7",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Great. You're such a reliable partner.",
+          "zh": "太好了。你們真是很可靠的合作夥伴。"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "The doors open in five minutes. Can you help me with these?",
+          "zh": "再五分鐘就開門了。可以幫我弄一下這些嗎？"
+        },
+        {
+          "id": "t9_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Where should I put the brochures and samples?",
+          "zh": "簡介和樣品要放哪裡？",
+          "chunkId": "where_put_brochures_samples"
+        },
+        {
+          "id": "t9_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "On the counter, by the lamps. I'll greet people at the front.",
+          "zh": "放在櫃台上，檯燈旁邊。我去前面招呼客人。"
+        },
+        {
+          "id": "t9_4",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Good morning. What lovely lamps!",
+          "zh": "早安。好漂亮的檯燈！"
+        },
+        {
+          "id": "t9_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Hi, are you looking for anything in particular today?",
+          "zh": "您好，今天有特別想找什麼嗎？",
+          "chunkId": "looking_for_anything_in_particular"
+        },
+        {
+          "id": "t9_6",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Actually, I'm looking for you two. I'm James Hughes.",
+          "zh": "其實我是來找你們兩位的。我是 James Hughes。"
+        },
+        {
+          "id": "t9_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "It's so nice to finally meet you in person.",
+          "zh": "終於見到您本人了，真高興。",
+          "chunkId": "nice_to_finally_meet_in_person"
+        },
+        {
+          "id": "t9_8",
+          "role": "client",
+          "speaker": "npc",
+          "en": "You too. This fair is much bigger than I expected.",
+          "zh": "我也是。這個展覽比我想的大多了。"
+        },
+        {
+          "id": "t9_9",
+          "role": "guide",
+          "speaker": "player",
+          "en": "There are companies here from all over the world.",
+          "zh": "這裡有來自世界各地的公司。",
+          "chunkId": "companies_from_all_over_world"
+        },
+        {
+          "id": "t9_10",
+          "role": "client",
+          "speaker": "npc",
+          "en": "So, what's new from Harbor Trading this year?",
+          "zh": "那 Harbor Trading 今年有什麼新東西？"
+        },
+        {
+          "id": "t9_11",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We have a wide range of styles and sizes.",
+          "zh": "我們的款式和尺寸選擇很多。",
+          "chunkId": "wide_range_of_styles_sizes"
+        },
+        {
+          "id": "t9_12",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Our engineer in Taiwan developed this one, and I translated the manual.",
+          "zh": "這款是我們台灣的工程師研發的，說明書是我翻譯的。"
+        },
+        {
+          "id": "t9_13",
+          "role": "client",
+          "speaker": "npc",
+          "en": "So what's its best feature? I'd love to see it work.",
+          "zh": "那它最棒的功能是什麼？我很想看看它怎麼用。"
+        },
+        {
+          "id": "t9_14",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We're giving a demonstration every afternoon during the fair.",
+          "zh": "展覽期間我們每天下午都有示範。",
+          "chunkId": "demonstration_every_afternoon_during_fair"
+        },
+        {
+          "id": "t9_15",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Your booth looks great, I must say.",
+          "zh": "說真的，你們的攤位佈置得真好看。"
+        },
+        {
+          "id": "t9_16",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I think our display is the most creative one here.",
+          "zh": "我覺得我們的陳列是全場最有創意的。",
+          "chunkId": "our_display_most_creative"
+        },
+        {
+          "id": "t9_17",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Perhaps! Right, I'd like two hundred of the new model.",
+          "zh": "哈，或許吧！好，新款我要兩百個。"
+        },
+        {
+          "id": "t9_18",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Just to confirm, that's two hundred of the new model?",
+          "zh": "跟您確認一下，是新款兩百個嗎？",
+          "chunkId": "just_to_confirm_two_hundred_new_model"
+        },
+        {
+          "id": "t9_19",
+          "role": "client",
+          "speaker": "npc",
+          "en": "That's right. Our target next year is a thousand.",
+          "zh": "沒錯。我們明年的目標是賣一千個。"
+        },
+        {
+          "id": "t9_20",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll email you the confirmation first thing Monday morning.",
+          "zh": "我星期一一早就把確認信寄給您。",
+          "chunkId": "email_confirmation_first_thing_monday"
+        },
+        {
+          "id": "t9_21",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Lovely. A very successful visit! See you both at dinner on Saturday.",
+          "zh": "太好了。這次來得很值得！星期六晚餐見囉。"
+        }
+      ]
+    }
+  ]
+}
