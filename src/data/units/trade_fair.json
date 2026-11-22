@@ -881,10 +881,7 @@
           "speaker": "npc",
           "en": "Brochures on the counter, right under our logo.",
           "zh": "簡介放櫃台上，就在我們的商標下面。",
-          "stage": {
-            "act": "give",
-            "item": "brochure"
-          }
+          "stage": { "act": "give", "item": "brochure" }
         },
         {
           "id": "t1_4",
@@ -921,10 +918,7 @@
           "speaker": "npc",
           "en": "So greet everyone who stops at the booth, okay?",
           "zh": "所以只要有人在攤位前停下來，都要打招呼，好嗎？",
-          "stage": {
-            "act": "want",
-            "item": "greet"
-          }
+          "stage": { "act": "want", "item": "greet" }
         }
       ]
     },
@@ -1055,9 +1049,7 @@
           "speaker": "npc",
           "en": "But there's a lot of competition here. What makes yours different?",
           "zh": "不過這裡競爭很激烈。你們的跟別家差在哪裡？",
-          "stage": {
-            "act": "ask"
-          }
+          "stage": { "act": "ask" }
         },
         {
           "id": "t3_5",
@@ -1295,9 +1287,7 @@
           "speaker": "npc",
           "en": "Do you have a catalog I could take back with me?",
           "zh": "有目錄可以讓我帶回去嗎？",
-          "stage": {
-            "act": "ask"
-          }
+          "stage": { "act": "ask" }
         },
         {
           "id": "t5_5",
