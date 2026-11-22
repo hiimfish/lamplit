@@ -470,3 +470,20 @@
 .mg-sign-value {
   flex: none;
 }
+
+/* 看圖選句: the picture on a paper mount with an ink rim, sentences one per row under it. */
+.mg-picture {
+  align-self: center;
+  width: min(100%, calc(144 * var(--px)));
+  height: auto;
+  image-rendering: pixelated;
+  box-shadow:
+    0 0 0 var(--px) var(--paper),
+    0 0 0 calc(2 * var(--px)) var(--ink);
+}
+
+.mg-sentences {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(3 * var(--px));
+}

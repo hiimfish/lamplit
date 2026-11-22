@@ -12,6 +12,7 @@ import { ChooseReply } from './ChooseReply';
 import { Cloze } from './Cloze';
 import { ListenPair } from './ListenPair';
 import { ListenPick } from './ListenPick';
+import { PictureChoose } from './PictureChoose';
 import { ReadSign } from './ReadSign';
 import { Speak } from './Speak';
 import { Spell } from './Spell';
@@ -80,6 +81,9 @@ function Body({ question, onAnswer }: QuestionViewProps) {
       break;
     case 'read-sign':
       view = <ReadSign question={question} onAnswered={onAnswered} />;
+      break;
+    case 'picture':
+      view = <PictureChoose question={question} onAnswered={onAnswered} />;
       break;
   }
 

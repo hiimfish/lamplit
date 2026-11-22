@@ -126,6 +126,22 @@ export interface SignQuestion {
   itemId: string;
 }
 
+/**
+ * 看圖選句: a picture and 2 to 4 sentences, one of which describes it (the first TOEIC
+ * listening part, read instead of heard for now).
+ */
+export interface PictureQuestion {
+  kind: 'picture';
+  /** Key of the picture in src/art/pictures. */
+  pictureId: string;
+  /** Clip of the right sentence, played after answering. */
+  audioId: string;
+  options: { id: string; en: string; zh: string }[];
+  correctId: string;
+  /** Always NO_ITEM: describing a picture is not one item to review. */
+  itemId: string;
+}
+
 export type Question =
   | ListenPickQuestion
   | ListenPairQuestion
@@ -134,7 +150,8 @@ export type Question =
   | SpeakQuestion
   | SpellQuestion
   | ClozeQuestion
-  | SignQuestion;
+  | SignQuestion
+  | PictureQuestion;
 
 export interface AnswerResult {
   itemId: string;

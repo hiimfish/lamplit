@@ -15,6 +15,7 @@ import {
 } from '../src/learning/questionGen';
 import type {
   ClozeQuestion,
+  PictureQuestion,
   Question,
   SignQuestion,
   SpellQuestion,
@@ -365,5 +366,35 @@ describe('sign questions (讀招牌／價目)', () => {
     const kinds = qs.map((q) => q.kind);
     expect(kinds.indexOf('read-sign')).toBeGreaterThan(kinds.lastIndexOf('choose-reply'));
     expect(kinds.indexOf('read-sign')).toBeLessThan(kinds.indexOf('arrange'));
+  });
+});
+
+describe('picture questions (看圖選句)', () => {
+  const t1 = unit.tasks[0]!;
+  const picture = {
+    id: 'p1',
+    pictureId: 'reading_book',
+    options: [
+      { en: 'She is drinking tea.', zh: '她在喝茶。' },
+      { en: 'She is reading a book.', zh: '她在看書。' },
+    ],
+    answer: 1,
+  };
+  const qs = buildTaskPractice(unit, { ...t1, pictures: [picture] }, makeRng(5));
+  const pictures = qs.filter((q): q is PictureQuestion => q.kind === 'picture');
+
+  it('shows the picture with its sentences and speaks the right one', () => {
+    expect(pictures).toHaveLength(1);
+    const q = pictures[0]!;
+    expect(q).toMatchObject({ pictureId: 'reading_book', audioId: 'cafe.picture.p1', itemId: '' });
+    expect(q.options.map((o) => o.en).sort()).toEqual(picture.options.map((o) => o.en).sort());
+    const right = q.options.find((o) => o.id === q.correctId);
+    expect(right).toMatchObject({ en: 'She is reading a book.', zh: '她在看書。' });
+  });
+
+  it('comes after choosing a reply and before arranging', () => {
+    const kinds = qs.map((q) => q.kind);
+    expect(kinds.indexOf('picture')).toBeGreaterThan(kinds.lastIndexOf('choose-reply'));
+    expect(kinds.indexOf('picture')).toBeLessThan(kinds.indexOf('arrange'));
   });
 });

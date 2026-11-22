@@ -96,7 +96,7 @@ const shipped = (): Unit[] =>
     .filter((u) => UNIT_ORDER.includes(u.id))
     .sort((a, b) => UNIT_ORDER.indexOf(a.id) - UNIT_ORDER.indexOf(b.id));
 
-/** Every text a task's cloze and sign questions show, as lines to profile like a story. */
+/** Every text a task's cloze, sign and picture questions show, as lines to profile like a story. */
 function questionTexts(task: Task): SceneLine[] {
   const texts = [
     ...(task.cloze ?? []).flatMap((c) => [c.word, ...c.distractors]),
@@ -106,6 +106,7 @@ function questionTexts(task: Task): SceneLine[] {
       s.question.en,
       ...s.options,
     ]),
+    ...(task.pictures ?? []).flatMap((p) => p.options.map((o) => o.en)),
   ];
   return texts
     .filter((en) => en !== '')
@@ -119,8 +120,8 @@ describe('the real units in play order', () => {
     expect(smoothnessBreaks(profileUnits(units, lists), lists)).toEqual([]);
   });
 
-  // Blanked words, wrong choices, signs and their questions: all words taught by that task.
-  it('use only taught words in cloze and sign questions', () => {
+  // Blanked words, wrong choices, signs, their questions, picture sentences: all taught by that task.
+  it('use only taught words in cloze, sign and picture questions', () => {
     const probe = shipped().map((u) => ({
       ...u,
       tasks: u.tasks.map((t) => ({ ...t, scene: questionTexts(t) })),

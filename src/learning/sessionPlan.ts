@@ -16,7 +16,7 @@ import {
 export const FAST_MS_LISTEN_CHOOSE = 4000;
 /**
  * Arranging blocks takes longer, and so does typing a word, hearing a whole line for a
- * cloze or reading a sign, so their fast threshold is higher.
+ * cloze, reading a sign or reading sentences about a picture, so their fast threshold is higher.
  */
 export const FAST_MS_ARRANGE = 12000;
 
@@ -26,7 +26,7 @@ const COINS_THREE_STAR_BONUS = 10;
 
 export type QuestionKind = Question['kind'];
 
-const SLOW_KINDS: readonly QuestionKind[] = ['arrange', 'spell', 'cloze', 'read-sign'];
+const SLOW_KINDS: readonly QuestionKind[] = ['arrange', 'spell', 'cloze', 'read-sign', 'picture'];
 
 function isFastAnswer(ms: number, kind: QuestionKind): boolean {
   return ms < (SLOW_KINDS.includes(kind) ? FAST_MS_ARRANGE : FAST_MS_LISTEN_CHOOSE);
