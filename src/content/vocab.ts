@@ -128,7 +128,7 @@ export function equivalentRank(lists: WordLists, word: string): number {
 }
 
 /** Band label used in reports and the syllabus: N123 (NGSL), T45 (TSL), S (supplementary), 外 (off-list). */
-export function bandOf(lists: WordLists, word: string): string {
+function bandOf(lists: WordLists, word: string): string {
   const r = rankOf(lists, word);
   if (!r) return '外';
   if (r.list === 'sup') return 'S';
@@ -211,9 +211,9 @@ export interface TaskProfile {
  * frequency lists underrate picturable nouns (lamp, sugar, sheep), which the picture
  * makes easy to learn.
  */
-export const PICTURED_RANK_CAP = 1000;
+const PICTURED_RANK_CAP = 1000;
 /** Tasks the word level is averaged over: one task teaches only 2-5 words, too few to rate alone. */
-export const LEVEL_WINDOW = 3;
+const LEVEL_WINDOW = 3;
 
 export interface ProfileOptions {
   /** NGSL words up to this rank count as known from the start (default 100). */
@@ -340,7 +340,7 @@ export function difficultyScore(
 }
 
 /** Smoothness rules (docs/specs/curriculum.md, 平滑規則), Act 1 values. */
-export const SMOOTHNESS = {
+const SMOOTHNESS = {
   /** Stories this many words long are judged by coverage; shorter ones by a count. */
   longText: 50,
   minCoverage: 0.98,
