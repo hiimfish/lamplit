@@ -283,6 +283,37 @@ export function rolePlayShown(scene: readonly SceneLine[], turn: number): number
   return scene.length;
 }
 
+/** One step of a role-play: a question, and how many scene lines the chat shows meanwhile. */
+export interface RolePlayStep {
+  question: ArrangeQuestion | SpeakQuestion;
+  shown: number;
+}
+
+/**
+ * The role-play in order. Each turn is an arrange question with the conversation
+ * so far in the chat. With `speak`, a 跟我說 step follows it: the built line has
+ * joined the chat and the learner says it aloud (never graded).
+ */
+export function rolePlaySteps(
+  scene: readonly SceneLine[],
+  turns: readonly ArrangeQuestion[],
+  speak: boolean,
+): RolePlayStep[] {
+  return turns.flatMap((turn, index) => {
+    const before = rolePlayShown(scene, index);
+    const arrange: RolePlayStep = { question: turn, shown: before };
+    if (!speak) return [arrange];
+    const say: SpeakQuestion = {
+      kind: 'speak',
+      audioId: turn.audioId,
+      en: turn.accepted[0] ?? '',
+      zh: turn.zh,
+      itemId: turn.itemId,
+    };
+    return [arrange, { question: say, shown: Math.min(before + 1, scene.length) }];
+  });
+}
+
 /** Mixed listen-pick / arrange questions for due review items. Unknown ids are ignored. */
 export function buildReviewQuestions(unit: Unit, itemIds: string[], rng: Rng): Question[] {
   const questions: Question[] = [];

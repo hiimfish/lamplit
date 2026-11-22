@@ -9,6 +9,7 @@ import {
   buildTaskPractice,
   makeRng,
   rolePlayShown,
+  rolePlaySteps,
 } from '../src/learning/questionGen';
 import type { Question } from '../src/learning/questions';
 
@@ -187,5 +188,27 @@ describe('role-play turns', () => {
 
   it('shows every line before each turn, then the whole scene', () => {
     expect([0, 1, 2].map((turn) => rolePlayShown(rp.scene, turn))).toEqual([1, 3, 5]);
+  });
+
+  it('is one arrange step per turn without 跟我說', () => {
+    const turns = buildRolePlayTurns(unit, rp, makeRng(1));
+    const steps = rolePlaySteps(rp.scene, turns, false);
+    expect(steps.map((s) => s.question)).toEqual(turns);
+    expect(steps.map((s) => s.shown)).toEqual([1, 3]);
+  });
+
+  it('adds a 跟我說 step after each turn, with the built line already in the chat', () => {
+    const turns = buildRolePlayTurns(unit, rp, makeRng(1));
+    const steps = rolePlaySteps(rp.scene, turns, true);
+    expect(steps.map((s) => s.question.kind)).toEqual(['arrange', 'speak', 'arrange', 'speak']);
+    expect(steps.map((s) => s.shown)).toEqual([1, 2, 3, 4]);
+    const say = steps[1]!.question;
+    expect(say).toEqual({
+      kind: 'speak',
+      audioId: 'cafe.line.rp_2',
+      en: 'Can I get a muffin, please?',
+      zh: '可以給我一個瑪芬嗎？',
+      itemId: 'chunk:can_i_get',
+    });
   });
 });
