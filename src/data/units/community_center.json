@@ -1,0 +1,798 @@
+{
+  "id": "community_center",
+  "title": "社區中心",
+  "titleEn": "Community Center",
+  "chunks": [
+    {
+      "id": "what_kind_of_classes",
+      "en": "What kind of classes do you have?",
+      "zh": "你們有開哪些課？",
+      "accept": ["What kinds of classes do you have?"],
+      "note": "想知道一個地方開哪些課時問。What kind of + 複數名詞 = 哪一類的……",
+      "distractors": [
+        { "text": "What kind classes do you have?", "error": "missing-word" },
+        { "text": "What kind of classes you have?", "error": "missing-word" },
+        { "text": "What kind of classes do you has?", "error": "other" }
+      ]
+    },
+    {
+      "id": "hoping_to_find_office_job",
+      "en": "I'm hoping to find an office job.",
+      "zh": "我希望能找到辦公室的工作。",
+      "accept": ["I hope to find an office job."],
+      "note": "說自己的目標。I'm hoping to + 動詞原形 = 我希望能……，比 I want to 委婉。",
+      "distractors": [
+        { "text": "I'm hoping find an office job.", "error": "missing-word" },
+        { "text": "I'm hoping to find a office job.", "error": "article" },
+        { "text": "I'm hope to find an office job.", "error": "other" }
+      ]
+    },
+    {
+      "id": "have_to_be_a_member",
+      "en": "Do I have to be a member?",
+      "zh": "一定要是會員嗎？",
+      "note": "問是不是一定要怎樣。have to 後面接動詞原形，be 不能省。",
+      "distractors": [
+        { "text": "Do I has to be a member?", "error": "other" },
+        { "text": "Do I have to a member?", "error": "missing-word" },
+        { "text": "Do I have to be member?", "error": "article" }
+      ]
+    },
+    {
+      "id": "just_write_my_email",
+      "en": "Can I just write my email?",
+      "zh": "只寫電子郵件可以嗎？",
+      "note": "表格不想全部填時問。just = 只要；can 後面接動詞原形。",
+      "distractors": [
+        { "text": "Can I just writing my email?", "error": "other" },
+        { "text": "Can I just to write my email?", "error": "extra-word" },
+        { "text": "Can I just write me email?", "error": "other" }
+      ]
+    },
+    {
+      "id": "going_to_start_in_september",
+      "en": "I'm going to start in September.",
+      "zh": "我打算九月開始上。",
+      "accept": ["I am going to start in September."],
+      "note": "說已經決定的計畫：be going to + 動詞原形。月份前用 in。",
+      "distractors": [
+        { "text": "I'm going to starting in September.", "error": "other" },
+        { "text": "I going to start in September.", "error": "missing-word" },
+        { "text": "I'm going to start on September.", "error": "other" }
+      ]
+    },
+    {
+      "id": "when_do_classes_begin",
+      "en": "When do classes begin?",
+      "zh": "什麼時候開課？",
+      "accept": ["When do the classes begin?", "When do classes start?"],
+      "note": "問課從什麼時候開始。begin = start；do 放在 classes 前面。",
+      "distractors": [
+        { "text": "When classes do begin?", "error": "word-order" },
+        { "text": "When do classes begins?", "error": "other" },
+        { "text": "When does classes begin?", "error": "other" }
+      ]
+    },
+    {
+      "id": "so_it_ends_in_december",
+      "en": "So it ends in December?",
+      "zh": "所以是十二月結束？",
+      "accept": ["So, it ends in December?"],
+      "note": "用 So……? 確認自己算得對不對。主詞 it 是單數，ends 要加 s。",
+      "distractors": [
+        { "text": "So it end in December?", "error": "other" },
+        { "text": "So it ends on December?", "error": "other" },
+        { "text": "So it ends in Desember?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "classes_during_the_day",
+      "en": "Are there classes during the day?",
+      "zh": "白天有課嗎？",
+      "accept": ["Are there any classes during the day?"],
+      "note": "問白天有沒有課。Are there + 複數名詞……? = 有……嗎？",
+      "distractors": [
+        { "text": "Is there classes during the day?", "error": "other" },
+        { "text": "Are there classes during day?", "error": "article" },
+        { "text": "Are there class during the day?", "error": "plural" }
+      ]
+    },
+    {
+      "id": "sorry_cant_hear_you",
+      "en": "Sorry, I can't hear you.",
+      "zh": "不好意思，我聽不到。",
+      "accept": ["Sorry, I cannot hear you."],
+      "note": "對方太小聲或旁邊太吵時說。can't = cannot，後面接動詞原形。",
+      "distractors": [
+        { "text": "Sorry, I can't hearing you.", "error": "other" },
+        { "text": "Sorry, I don't can hear you.", "error": "other" },
+        { "text": "Sorry, I can't here you.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "can_you_show_me_again",
+      "en": "Can you show me again?",
+      "zh": "可以再示範一次給我看嗎？",
+      "accept": ["Could you show me again?"],
+      "note": "沒看懂示範時，請對方再做一次。show me = 做給我看。",
+      "distractors": [
+        { "text": "Can you show again me?", "error": "word-order" },
+        { "text": "Can you show I again?", "error": "other" },
+        { "text": "Can you shows me again?", "error": "other" }
+      ]
+    },
+    {
+      "id": "how_often_do_you_practice",
+      "en": "How often do you practice?",
+      "zh": "你多久練習一次？",
+      "note": "問多常做一件事用 How often……？回答用 always、sometimes 這類字。",
+      "distractors": [
+        { "text": "How often you practice?", "error": "missing-word" },
+        { "text": "How often do you practices?", "error": "other" },
+        { "text": "How many often do you practice?", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "study_a_few_nights_a_week",
+      "en": "I usually study a few nights a week.",
+      "zh": "我通常一個禮拜有幾個晚上會唸書。",
+      "note": "usually 這類頻率副詞放在一般動詞前面。a few = 幾個。",
+      "distractors": [
+        { "text": "I study usually a few nights a week.", "error": "word-order" },
+        { "text": "I usually study a few night a week.", "error": "plural" },
+        { "text": "I usually study few nights a week.", "error": "article" }
+      ]
+    },
+    {
+      "id": "hard_but_learning_a_lot",
+      "en": "It's hard, but I'm learning a lot.",
+      "zh": "很難，但我學到很多。",
+      "note": "說一件事很難、但很有收穫。a lot = 很多，放在句尾。",
+      "distractors": [
+        { "text": "It's hard, but I'm learning a lots.", "error": "plural" },
+        { "text": "It's hard, but I learning a lot.", "error": "missing-word" },
+        { "text": "It's hard, but I'm learn a lot.", "error": "other" }
+      ]
+    },
+    {
+      "id": "maybe_practice_together",
+      "en": "Maybe we can practice together.",
+      "zh": "也許我們可以一起練習。",
+      "accept": ["Maybe we could practice together."],
+      "note": "提議一起做某件事。can 後面接動詞原形，together 放句尾。",
+      "distractors": [
+        { "text": "Maybe we can practicing together.", "error": "other" },
+        { "text": "Maybe we can to practice together.", "error": "extra-word" },
+        { "text": "Maybe can we practice together.", "error": "word-order" }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "community", "en": "community", "zh": "社區", "emoji": "🏘️", "abstract": true },
+    { "id": "course", "en": "course", "zh": "課程", "emoji": "📚", "abstract": true },
+    { "id": "learn", "en": "learn", "zh": "學習", "emoji": "🧠", "abstract": true },
+    { "id": "student", "en": "student", "zh": "學生", "emoji": "🧑‍🎓" },
+    { "id": "computer", "en": "computer", "zh": "電腦", "emoji": "💻" },
+    { "id": "member", "en": "member", "zh": "會員", "emoji": "🪪", "abstract": true },
+    { "id": "join", "en": "join", "zh": "加入", "emoji": "🤝", "abstract": true },
+    { "id": "adult", "en": "adult", "zh": "成人", "emoji": "🧑", "abstract": true },
+    { "id": "basic", "en": "basic", "zh": "基礎的", "emoji": "🔰", "abstract": true },
+    { "id": "register", "en": "register", "zh": "登記報名", "emoji": "📝", "abstract": true },
+    { "id": "plan", "en": "plan", "zh": "計畫", "emoji": "🗓️", "abstract": true },
+    { "id": "july", "en": "July", "zh": "七月", "emoji": "7️⃣", "abstract": true },
+    { "id": "august", "en": "August", "zh": "八月", "emoji": "8️⃣", "abstract": true },
+    { "id": "september", "en": "September", "zh": "九月", "emoji": "9️⃣", "abstract": true },
+    { "id": "summer", "en": "summer", "zh": "夏天", "emoji": "☀️", "abstract": true },
+    { "id": "october", "en": "October", "zh": "十月", "emoji": "🔟", "abstract": true },
+    { "id": "november", "en": "November", "zh": "十一月", "emoji": "🍂", "abstract": true },
+    { "id": "december", "en": "December", "zh": "十二月", "emoji": "🎄", "abstract": true },
+    { "id": "workshop", "en": "workshop", "zh": "工作坊", "emoji": "🛠️", "abstract": true },
+    { "id": "available", "en": "available", "zh": "有空位的", "emoji": "🪑", "abstract": true },
+    { "id": "teacher", "en": "teacher", "zh": "老師", "emoji": "👩‍🏫" },
+    { "id": "listen", "en": "listen", "zh": "聽", "emoji": "👂", "abstract": true },
+    { "id": "screen", "en": "screen", "zh": "螢幕", "emoji": "📺" },
+    { "id": "keyboard", "en": "keyboard", "zh": "鍵盤", "emoji": "⌨️" },
+    { "id": "mouse", "en": "mouse", "zh": "滑鼠", "emoji": "🖱️" },
+    { "id": "instruction", "en": "instruction", "zh": "操作說明", "emoji": "📄", "abstract": true },
+    { "id": "always", "en": "always", "zh": "總是", "emoji": "🔄", "abstract": true },
+    { "id": "sometimes", "en": "sometimes", "zh": "有時候", "emoji": "🌗", "abstract": true },
+    { "id": "never", "en": "never", "zh": "從不", "emoji": "🚫", "abstract": true },
+    { "id": "both", "en": "both", "zh": "兩個都", "emoji": "✌️", "abstract": true },
+    { "id": "interest", "en": "interest", "zh": "興趣", "emoji": "🎨", "abstract": true },
+    { "id": "classmate", "en": "classmate", "zh": "同學", "emoji": "👫" },
+    { "id": "talk", "en": "talk", "zh": "聊；說話", "emoji": "💬", "abstract": true },
+    { "id": "teach", "en": "teach", "zh": "教", "emoji": "🧑‍🏫", "abstract": true },
+    { "id": "idea", "en": "idea", "zh": "主意", "emoji": "💡", "abstract": true },
+    { "id": "homework", "en": "homework", "zh": "作業", "emoji": "📒" },
+    { "id": "exercise", "en": "exercise", "zh": "練習題", "emoji": "✏️" },
+    { "id": "test", "en": "test", "zh": "測驗", "emoji": "💯" }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "有哪些課",
+      "newChunkIds": ["what_kind_of_classes", "hoping_to_find_office_job"],
+      "newWordIds": ["community", "course", "learn", "student", "computer"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "Welcome to our community center!",
+          "zh": "歡迎來到我們的社區中心！"
+        },
+        {
+          "id": "t1_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What kind of classes do you have?",
+          "zh": "你們有開哪些課？",
+          "chunkId": "what_kind_of_classes",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t1_3",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "Cooking, dance, and a computer course.",
+          "zh": "有烹飪、跳舞，還有電腦課。",
+          "stage": { "act": "want", "item": "computer" }
+        },
+        {
+          "id": "t1_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm hoping to find an office job.",
+          "zh": "我希望能找到辦公室的工作。",
+          "chunkId": "hoping_to_find_office_job"
+        },
+        {
+          "id": "t1_5",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "Then try the computer course. Students learn fast.",
+          "zh": "那就去上電腦課吧。學生都學得很快。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "填報名表",
+      "newChunkIds": ["have_to_be_a_member", "just_write_my_email"],
+      "newWordIds": ["member", "join", "adult", "basic", "register"],
+      "fills": [
+        {
+          "id": "fill_member",
+          "en": "Do I have to ___ a member?",
+          "zh": "一定要是會員嗎？",
+          "options": ["be", "am", "being"],
+          "answer": 0,
+          "note": "have to 後面接動詞原形 be。",
+          "chunkId": "have_to_be_a_member"
+        },
+        {
+          "id": "fill_join",
+          "en": "Adults can ___ the basic class for free.",
+          "zh": "成人可以免費參加基礎班。",
+          "options": ["joins", "join", "joining"],
+          "answer": 1,
+          "note": "can 後面接動詞原形 join。"
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "Hi! Do you want to register for the basic class?",
+          "zh": "嗨！你要報名基礎班嗎？"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do I have to be a member?",
+          "zh": "一定要是會員嗎？",
+          "chunkId": "have_to_be_a_member",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t2_3",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "Yes, but it's free to join. Write your name and address here.",
+          "zh": "要，不過加入是免費的。在這裡寫你的名字和地址。"
+        },
+        {
+          "id": "t2_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I just write my email?",
+          "zh": "只寫電子郵件可以嗎？",
+          "chunkId": "just_write_my_email"
+        },
+        {
+          "id": "t2_5",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "Sure, no problem. You're a member now!",
+          "zh": "可以啊，沒問題。你現在是會員了！"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "什麼時候開課",
+      "newChunkIds": ["going_to_start_in_september", "when_do_classes_begin"],
+      "newWordIds": ["plan", "july", "august", "september", "summer"],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "We had summer classes in July and August.",
+          "zh": "我們七月和八月有暑期班。"
+        },
+        {
+          "id": "t3_2",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "They're over now. So, what's your plan?",
+          "zh": "現在都結束了。那你有什麼打算？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t3_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm going to start in September.",
+          "zh": "我打算九月開始上。",
+          "chunkId": "going_to_start_in_september"
+        },
+        {
+          "id": "t3_4",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "Great. The new course starts this month.",
+          "zh": "很好。新的課程這個月就開始。"
+        },
+        {
+          "id": "t3_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "When do classes begin?",
+          "zh": "什麼時候開課？",
+          "chunkId": "when_do_classes_begin"
+        },
+        {
+          "id": "t3_6",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "Next Monday, at seven in the evening.",
+          "zh": "下禮拜一，晚上七點。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "看課程表",
+      "newChunkIds": ["so_it_ends_in_december", "classes_during_the_day"],
+      "newWordIds": ["october", "november", "december", "workshop", "available"],
+      "passages": [
+        {
+          "id": "computer_class_flyer",
+          "kind": "flyer",
+          "title": "Basic Computer Class for Adults",
+          "lines": [
+            "Monday and Thursday evenings, 7:00 to 9:00",
+            "Classes begin in September.",
+            "No classes in July and August.",
+            "Free for members. Joining is free, too!",
+            "Register at the front desk."
+          ],
+          "questions": [
+            {
+              "en": "When do the classes begin?",
+              "zh": "課什麼時候開始？",
+              "options": ["In July", "In August", "In September"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "The course is four months. It starts in September.",
+          "zh": "這門課上四個月，九月開始。"
+        },
+        {
+          "id": "t4_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "So it ends in December?",
+          "zh": "所以是十二月結束？",
+          "chunkId": "so_it_ends_in_december"
+        },
+        {
+          "id": "t4_3",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "Yes. Classes are Monday and Thursday evenings.",
+          "zh": "對。每個禮拜一和禮拜四晚上上課。"
+        },
+        {
+          "id": "t4_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Are there classes during the day?",
+          "zh": "白天有課嗎？",
+          "chunkId": "classes_during_the_day"
+        },
+        {
+          "id": "t4_5",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "Yes, from October. Seats are available now.",
+          "zh": "有，十月開始。現在還有空位。"
+        },
+        {
+          "id": "t4_6",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "There's a free workshop in November, too.",
+          "zh": "十一月還有一個免費的工作坊。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "第一堂課",
+      "newChunkIds": ["sorry_cant_hear_you", "can_you_show_me_again"],
+      "newWordIds": ["teacher", "listen", "screen", "keyboard", "mouse", "instruction"],
+      "pictures": [
+        {
+          "id": "pic_computer",
+          "pictureId": "using_computer",
+          "options": [
+            { "en": "He is sleeping at his desk.", "zh": "他趴在桌上睡覺。" },
+            { "en": "He is using a computer.", "zh": "他在用電腦。" },
+            { "en": "He is eating at his desk.", "zh": "他在桌前吃東西。" }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "pic_teacher",
+          "pictureId": "listening_teacher",
+          "options": [
+            { "en": "They are eating lunch.", "zh": "他們在吃午餐。" },
+            { "en": "They are playing a game.", "zh": "他們在玩遊戲。" },
+            { "en": "They are listening to the teacher.", "zh": "他們在聽老師說話。" }
+          ],
+          "answer": 2
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "Okay, please listen and look at the screen.",
+          "zh": "好，請注意聽，看螢幕。",
+          "stage": { "act": "want", "item": "screen" }
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sorry, I can't hear you.",
+          "zh": "不好意思，我聽不到。",
+          "chunkId": "sorry_cant_hear_you"
+        },
+        {
+          "id": "t5_3",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "Sorry! Put your hand on the mouse, like this.",
+          "zh": "抱歉！把手放在滑鼠上，像這樣。",
+          "stage": { "act": "want", "item": "mouse" }
+        },
+        {
+          "id": "t5_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can you show me again?",
+          "zh": "可以再示範一次給我看嗎？",
+          "chunkId": "can_you_show_me_again"
+        },
+        {
+          "id": "t5_5",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "Sure. Then type your name on the keyboard.",
+          "zh": "好啊。然後用鍵盤打你的名字。",
+          "stage": { "act": "want", "item": "keyboard" }
+        },
+        {
+          "id": "t5_6",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "The instructions are on your desk, too.",
+          "zh": "操作說明也放在你的桌上。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "認識同學",
+      "newChunkIds": ["how_often_do_you_practice", "study_a_few_nights_a_week"],
+      "newWordIds": ["always", "sometimes", "never", "both", "interest", "classmate"],
+      "cloze": [
+        { "lineId": "t6_3", "word": "students", "distractors": ["doctors", "drivers"] },
+        { "lineId": "t6_2", "word": "nights", "distractors": ["dollars", "doors"] },
+        { "lineId": "t6_5", "word": "never", "distractors": ["always", "usually"] }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "Nice work! Do you practice at home?",
+          "zh": "做得不錯喔！你在家有練習嗎？"
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I usually study a few nights a week.",
+          "zh": "我通常一個禮拜有幾個晚上會唸書。",
+          "chunkId": "study_a_few_nights_a_week"
+        },
+        {
+          "id": "t6_3",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "Good for you! I'm learning Chinese, so we're both students.",
+          "zh": "很好啊！我在學中文，所以我們兩個都是學生。"
+        },
+        {
+          "id": "t6_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How often do you practice?",
+          "zh": "你多久練習一次？",
+          "chunkId": "how_often_do_you_practice"
+        },
+        {
+          "id": "t6_5",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "Well, sometimes every day, sometimes never!",
+          "zh": "嗯，有時候每天練，有時候完全沒練！"
+        },
+        {
+          "id": "t6_6",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "My classmates always practice. Not me!",
+          "zh": "我的同學都很認真練習，我就不是了！"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "在家練習",
+      "newChunkIds": ["hard_but_learning_a_lot", "maybe_practice_together"],
+      "newWordIds": ["talk", "teach", "idea", "homework", "exercise", "test"],
+      "spellWordIds": ["passport", "save", "credit", "fee", "amount"],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "So, how's the computer class going?",
+          "zh": "那電腦課上得怎麼樣？"
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "It's hard, but I'm learning a lot.",
+          "zh": "很難，但我學到很多。",
+          "chunkId": "hard_but_learning_a_lot"
+        },
+        {
+          "id": "t7_3",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "Is that your homework?",
+          "zh": "那是你的作業嗎？",
+          "stage": { "act": "want", "item": "homework" }
+        },
+        {
+          "id": "t7_4",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "Ten exercises and a test!",
+          "zh": "十題練習題，還有考試！",
+          "stage": { "act": "want", "item": "exercise" }
+        },
+        {
+          "id": "t7_5",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "I'm bad with computers. Can you teach me?",
+          "zh": "我對電腦很不在行。你可以教我嗎？"
+        },
+        {
+          "id": "t7_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Maybe we can practice together.",
+          "zh": "也許我們可以一起練習。",
+          "chunkId": "maybe_practice_together"
+        },
+        {
+          "id": "t7_7",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "Good idea! Let's talk over coffee.",
+          "zh": "好主意！我們邊喝咖啡邊聊吧。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "That's all for tonight. Any questions?",
+          "zh": "今天就上到這裡。有問題嗎？"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can you show me again?",
+          "zh": "可以再示範一次給我看嗎？",
+          "chunkId": "can_you_show_me_again"
+        },
+        {
+          "id": "t8_3",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "Sure. Open this, then type your name. See?",
+          "zh": "好啊。打開這個，然後打你的名字。懂了嗎？"
+        },
+        {
+          "id": "t8_4",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "So, how's the class going for you?",
+          "zh": "那你覺得這門課上得怎麼樣？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "It's hard, but I'm learning a lot.",
+          "zh": "很難，但我學到很多。",
+          "chunkId": "hard_but_learning_a_lot"
+        },
+        {
+          "id": "t8_6",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "You're doing great. Do you practice at home?",
+          "zh": "你表現得很好。你在家有練習嗎？"
+        },
+        {
+          "id": "t8_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I usually study a few nights a week.",
+          "zh": "我通常一個禮拜有幾個晚上會唸書。",
+          "chunkId": "study_a_few_nights_a_week"
+        },
+        {
+          "id": "t8_8",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "Good! Why are you taking this course?",
+          "zh": "很好！你為什麼來上這門課？"
+        },
+        {
+          "id": "t8_9",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm hoping to find an office job.",
+          "zh": "我希望能找到辦公室的工作。",
+          "chunkId": "hoping_to_find_office_job"
+        },
+        {
+          "id": "t8_10",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "Then try my next course. It's for office jobs.",
+          "zh": "那來上我的下一門課吧，很適合想做辦公室工作的人。"
+        },
+        {
+          "id": "t8_11",
+          "role": "guide",
+          "speaker": "player",
+          "en": "When do classes begin?",
+          "zh": "什麼時候開課？",
+          "chunkId": "when_do_classes_begin"
+        },
+        {
+          "id": "t8_12",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "In November. It's six weeks, two nights a week.",
+          "zh": "十一月。上六個禮拜，一個禮拜兩個晚上。"
+        },
+        {
+          "id": "t8_13",
+          "role": "guide",
+          "speaker": "player",
+          "en": "So it ends in December?",
+          "zh": "所以是十二月結束？",
+          "chunkId": "so_it_ends_in_december"
+        },
+        {
+          "id": "t8_14",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "Right. Write your name and phone number here.",
+          "zh": "對。在這裡寫你的名字和電話。"
+        },
+        {
+          "id": "t8_15",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I just write my email?",
+          "zh": "只寫電子郵件可以嗎？",
+          "chunkId": "just_write_my_email"
+        },
+        {
+          "id": "t8_16",
+          "role": "instructor",
+          "speaker": "npc",
+          "en": "Sure. Oh, look, Ben is here.",
+          "zh": "可以。喔，你看，Ben 來了。"
+        },
+        {
+          "id": "t8_17",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "Hi! I'm going to take that course, too.",
+          "zh": "嗨！我也要去上那門課。"
+        },
+        {
+          "id": "t8_18",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Maybe we can practice together.",
+          "zh": "也許我們可以一起練習。",
+          "chunkId": "maybe_practice_together"
+        },
+        {
+          "id": "t8_19",
+          "role": "volunteer",
+          "speaker": "npc",
+          "en": "Good idea! Let's start next week.",
+          "zh": "好主意！我們下禮拜就開始。"
+        }
+      ]
+    }
+  ]
+}
