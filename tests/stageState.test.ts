@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import type { SceneLine } from '../src/content/types';
+import { stageFor } from '../src/art/stage';
 import { getUnit } from '../src/content/units';
-import { stageAfter, stageAt } from '../src/ui/stage/stageState';
+import { rolesOnStage, stageAfter, stageAt } from '../src/ui/stage/stageState';
 
 const line = (id: string, role: SceneLine['role'], stage?: SceneLine['stage']): SceneLine => ({
   id,
@@ -113,5 +114,46 @@ describe('stageAfter', () => {
 
   it('is empty for an empty scene', () => {
     expect(stageAfter([])).toEqual({ speaker: undefined, bubble: undefined, props: [] });
+  });
+});
+
+describe('rolesOnStage', () => {
+  // A unit whose two NPCs share the right side, like moving-in day.
+  const cast: SceneLine['role'][] = ['guide', 'landlord', 'neighbor'];
+  const landlordTask = [line('a', 'landlord'), line('b', 'guide'), line('c', 'landlord')];
+  const neighborTask = [line('a', 'neighbor'), line('b', 'guide')];
+
+  it('shows the landlord, not the neighbor, in a task with only the landlord', () => {
+    expect(rolesOnStage(cast, landlordTask)).toEqual(['guide', 'landlord']);
+  });
+
+  it('shows the neighbor, not the landlord, in a task with only the neighbor', () => {
+    expect(rolesOnStage(cast, neighborTask)).toEqual(['guide', 'neighbor']);
+  });
+
+  it('always shows the player, even when the player has no line', () => {
+    expect(rolesOnStage(cast, [line('a', 'neighbor')])).toEqual(['guide', 'neighbor']);
+    expect(rolesOnStage(cast, [])).toEqual(['guide']);
+  });
+
+  it('shows every NPC who speaks, in cast order', () => {
+    const both = [line('a', 'neighbor'), line('b', 'landlord')];
+    expect(rolesOnStage(cast, both)).toEqual(['guide', 'landlord', 'neighbor']);
+  });
+
+  it('ignores speakers who are not in the cast', () => {
+    expect(rolesOnStage(['guide', 'barista'], landlordTask)).toEqual(['guide']);
+  });
+
+  it('leaves the neighbor out of the moving-in tasks with the landlord', () => {
+    const roles = Object.keys(stageFor('move_in')!.cast) as SceneLine['role'][];
+    expect(roles).toEqual(expect.arrayContaining(['guide', 'landlord', 'neighbor']));
+    const withLandlord = (getUnit('move_in')?.tasks ?? []).filter((t) =>
+      t.scene.every((l) => l.role === 'guide' || l.role === 'landlord'),
+    );
+    expect(withLandlord.length).toBeGreaterThan(0);
+    for (const task of withLandlord) {
+      expect(rolesOnStage(roles, task.scene)).toEqual(['guide', 'landlord']);
+    }
   });
 });

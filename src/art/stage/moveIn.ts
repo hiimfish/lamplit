@@ -185,3 +185,50 @@ export const LANDLORD_SPRITE: PixelSprite = {
     k: 'ink',
   },
 };
+
+// ---------------------------------------------------------------------------
+// The neighbor: 16x24, facing left. A woman of about 30 in weekend clothes:
+// auburn hair in a high ponytail, a honey-yellow hoodie (its hood at the nape),
+// jeans and white sneakers. She stands where the landlord stands.
+
+export const NEIGHBOR_SPRITE: PixelSprite = {
+  rows: [
+    '................',
+    '.....hhhhh......',
+    '....hhhhhhhh....',
+    '....hhhhhhhhh.hh',
+    '....shhhhhhhhhhh',
+    '...ssesshhhhh.hh',
+    '....sssshhhh..h.',
+    '....rsssshh.....',
+    '......sssdd.....',
+    '.....cccccdd....',
+    '....cwcccccdd...',
+    '....cwccccccd...',
+    '....ccccccacd...',
+    '....ccccccacc...',
+    '....ccccccacc...',
+    '....ddddddsdd...',
+    '.....pppppp.....',
+    '.....pppppp.....',
+    '......ppqq......',
+    '......ppqq......',
+    '......ppqq......',
+    '......ppqq......',
+    '......ppqq......',
+    '....kkkkk.......',
+  ],
+  legend: {
+    h: 'ember',
+    s: 'skin',
+    e: 'ink',
+    r: 'rosy',
+    c: 'honey',
+    w: 'paper',
+    a: 'lamp',
+    d: 'lamp',
+    p: 'denim',
+    q: 'indigo',
+    k: 'paper',
+  },
+};

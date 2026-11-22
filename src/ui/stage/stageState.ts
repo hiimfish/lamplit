@@ -62,3 +62,18 @@ export function stageAfter(lines: readonly SceneLine[]): StageView {
   const props = stageAt(lines, lines.length).props.map((p) => ({ ...p, sliding: false }));
   return { speaker: undefined, bubble: undefined, props };
 }
+
+/** The player is on every stage, whether or not they speak in the task. */
+const PLAYER: Role = 'guide';
+
+/**
+ * Which of a stage's cast stand on the stage during one task: the player
+ * always, and only the NPCs with at least one line in the task's scene. NPCs
+ * of a unit can share a spot (the landlord and the neighbor both stand on the
+ * right), so one who is not in this task must not be drawn over the one who is.
+ * Keeps the order of `cast`.
+ */
+export function rolesOnStage(cast: readonly Role[], lines: readonly SceneLine[]): Role[] {
+  const speaking = new Set(lines.map((line) => line.role));
+  return cast.filter((role) => role === PLAYER || speaking.has(role));
+}

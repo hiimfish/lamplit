@@ -3,14 +3,14 @@ import { createPortal } from 'preact/compat';
 import { useEffect } from 'preact/hooks';
 import { spriteRuns, type PixelRun } from '../../art/items';
 import { coreOrigin, stageFor, type StageConfig, type StageSide } from '../../art/stage';
-import type { Role, Unit } from '../../content/types';
+import type { Role, SceneLine, Unit } from '../../content/types';
 import { appStore } from '../../core/appState';
 import { useStore } from '../../core/store';
 import { canvasPainter } from '../../game/painter';
 import type { PixelSprite } from '../../game/sprites';
 import { ItemIcon } from '../ItemIcon';
 import { stageArea, stageCanvasSize, type StageArea } from './stageArea';
-import type { StageView } from './stageState';
+import { rolesOnStage, type StageView } from './stageState';
 import './stage.css';
 
 function hasStage(unitId: string): boolean {
@@ -25,6 +25,8 @@ export function stageFrame(unitId: string): HTMLElement | null {
 
 interface Props {
   unit: Unit;
+  /** The current task's story: only the NPCs who speak in it are drawn. */
+  scene: readonly SceneLine[];
   view: StageView;
   /** Changes with every new story line, so a new bubble pops again. */
   beat: number;
@@ -128,15 +130,26 @@ const placeAt = ({ ox, oy }: Placing, p: { x: number; y: number }) => ({
 
 const sideOf = (config: StageConfig, role: Role): StageSide => config.cast[role]?.side ?? 'right';
 
-type Actor = NonNullable<StageConfig['cast'][Role]>;
 type EmojiOf = (item: string) => string | undefined;
 
-/** The characters; the one heard right now bobs. */
-function StageCast({ place, talking }: { place: Placing; talking: Role | undefined }) {
+/** The characters in this task (the player and the NPCs who speak); the one heard right now bobs. */
+function StageCast({
+  place,
+  roles,
+  talking,
+}: {
+  place: Placing;
+  roles: readonly Role[];
+  talking: Role | undefined;
+}) {
   const { config, ox, oy } = place;
+  const actors = roles.flatMap((role) => {
+    const actor = config.cast[role];
+    return actor ? [[role, actor] as const] : [];
+  });
   return (
     <>
-      {(Object.entries(config.cast) as [Role, Actor][]).map(([role, actor]) => {
+      {actors.map(([role, actor]) => {
         const actorClass = `stage-actor${talking === role ? ' talking' : ''}`;
         if (actor.clipBottom === undefined) {
           return (
@@ -244,12 +257,13 @@ function StageBubbleView({
  * pixels and anchored at the bottom left, so every pixel lands on the device
  * grid); characters, bubbles and props are placed relative to the core.
  */
-function SceneStage({ unit, view, beat, talking, area }: Props) {
+function SceneStage({ unit, scene, view, beat, talking, area }: Props) {
   const config = stageFor(unit.id);
   if (!config) return null;
   const { w: W, h: H } = stageCanvasSize(area);
   const place: Placing = { config, ...coreOrigin(W, H) };
   const bg = backgroundUrl(unit.id, config, W, H);
+  const roles = rolesOnStage(Object.keys(config.cast) as Role[], scene);
   const emoji: EmojiOf = (item) => unit.words.find((w) => w.id === item)?.emoji;
 
   return (
@@ -265,7 +279,7 @@ function SceneStage({ unit, view, beat, talking, area }: Props) {
     >
       <div class="stage-canvas" style={{ width: u(W), height: u(H) }}>
         {bg && <img class="stage-bg" src={bg} alt="" draggable={false} />}
-        <StageCast place={place} talking={talking} />
+        <StageCast place={place} roles={roles} talking={talking} />
         <StageProps place={place} props={view.props} emoji={emoji} />
         {view.bubble && (
           // A new key on every story line, so the bubble pops again.

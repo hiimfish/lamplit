@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { coreOrigin, CORE_H, CORE_W, STAGE_UNIT_IDS, stageFor } from '../src/art/stage';
 import { BARISTA_SPRITE, CAFE_COUNTER } from '../src/art/stage/cafe';
+import { LANDLORD_SPRITE, NEIGHBOR_SPRITE } from '../src/art/stage/moveIn';
 import { getUnit } from '../src/content/units';
 import { recordingPainter, type Painter } from '../src/game/painter';
 import { isPaletteName } from '../src/game/palette';
@@ -91,6 +92,26 @@ describe('stage art', () => {
     expect(BARISTA_SPRITE.rows).toHaveLength(PERSON_H);
     expect(BARISTA_SPRITE.rows[0]).toHaveLength(PERSON_W);
     expect(Object.values(BARISTA_SPRITE.legend).every(isPaletteName)).toBe(true);
+  });
+
+  it.each([
+    ['landlord', LANDLORD_SPRITE],
+    ['neighbor', NEIGHBOR_SPRITE],
+  ] as const)('draws a valid 16x24 %s in palette colours', (_, sprite) => {
+    expect(validateSprite(sprite)).toEqual([]);
+    expect(sprite.rows).toHaveLength(PERSON_H);
+    expect(sprite.rows[0]).toHaveLength(PERSON_W);
+    expect(Object.values(sprite.legend).every(isPaletteName)).toBe(true);
+  });
+
+  it('puts the neighbor where the landlord stands on moving-in day', () => {
+    const { cast } = stageFor('move_in')!;
+    expect(cast.neighbor).toMatchObject({
+      x: cast.landlord?.x,
+      y: cast.landlord?.y,
+      side: 'right',
+    });
+    expect(cast.neighbor?.sprite).toBe(NEIGHBOR_SPRITE);
   });
 
   it.each(STAGE_UNIT_IDS)('%s places its cast, bubbles and props inside the core', (id) => {

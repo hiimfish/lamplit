@@ -174,6 +174,7 @@ export function TaskScreen() {
         <TaskStage
           frame={frame}
           unit={unit}
+          scene={task.scene}
           view={inStory ? stageAt(task.scene, beat.shown) : stageAfter(task.scene)}
           beat={beat.shown}
           talking={talking}

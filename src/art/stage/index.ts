@@ -2,7 +2,7 @@ import type { Role } from '../../content/types';
 import type { Painter } from '../../game/painter';
 import { idleKey, SPRITES, type PixelSprite } from '../../game/sprites';
 import { BARISTA_SPRITE, CAFE_COUNTER, coreOrigin, CORE_H, CORE_W, paintCafe } from './cafe';
-import { HALL_TABLE, LANDLORD_SPRITE, paintMoveIn } from './moveIn';
+import { HALL_TABLE, LANDLORD_SPRITE, NEIGHBOR_SPRITE, paintMoveIn } from './moveIn';
 
 export { coreOrigin, CORE_H, CORE_W };
 
@@ -60,6 +60,8 @@ const MOVE_IN: StageConfig = {
   cast: {
     guide: { sprite: walker, x: 20, y: 39, side: 'left' },
     landlord: { sprite: LANDLORD_SPRITE, x: 88, y: 39, side: 'right' },
+    // Same spot as the landlord: each task shows only the NPCs who speak in it.
+    neighbor: { sprite: NEIGHBOR_SPRITE, x: 88, y: 39, side: 'right' },
   },
   want: { left: { x: 30, y: 5 }, right: { x: 58, y: 8 } },
   ask: { left: { x: 25, y: 25 }, right: { x: 92, y: 25 } },
