@@ -1,0 +1,1397 @@
+{
+  "id": "purchasing",
+  "title": "採購與廠商",
+  "titleEn": "Purchasing and Suppliers",
+  "chunks": [
+    {
+      "id": "looking_for_new_supplier",
+      "en": "We're looking for a new supplier.",
+      "zh": "我們在找新的供應商。",
+      "accept": ["We are looking for a new supplier."],
+      "note": "跟廠商說明來意時用。We're looking for… 是「我們在找……」。",
+      "distractors": [
+        {
+          "text": "We're looking for new supplier.",
+          "error": "article"
+        },
+        {
+          "text": "We're looking a new supplier.",
+          "error": "missing-word"
+        },
+        {
+          "text": "We're look for a new supplier.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "send_us_a_quote",
+      "en": "Could you send us a quote for these items?",
+      "zh": "這幾個品項可以請你報價給我們嗎？",
+      "note": "請廠商報價時說。quote 是報價單，these items 指手上清單的品項。",
+      "distractors": [
+        {
+          "text": "Could you send us a quote for these item?",
+          "error": "plural"
+        },
+        {
+          "text": "Could you send us quote for these items?",
+          "error": "article"
+        },
+        {
+          "text": "Could you send to us a quote for these items?",
+          "error": "extra-word"
+        }
+      ]
+    },
+    {
+      "id": "minimum_order_for_that_price",
+      "en": "What's the minimum order for that price?",
+      "zh": "這個價格最少要訂多少？",
+      "accept": ["What is the minimum order for that price?"],
+      "note": "廠商報了單價後，問最少要訂多少才有這個價錢。",
+      "distractors": [
+        {
+          "text": "What's the minimum order for that prize?",
+          "error": "spelling"
+        },
+        {
+          "text": "What's minimum order for that price?",
+          "error": "article"
+        },
+        {
+          "text": "What the minimum order for that price?",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "discount_if_we_order_five_hundred",
+      "en": "Is there a discount if we order five hundred?",
+      "zh": "如果我們訂五百個，有折扣嗎？",
+      "accept": ["Is there a discount if we order 500?"],
+      "note": "問訂多一點能不能便宜。Is there…? 問「有沒有……」。",
+      "distractors": [
+        {
+          "text": "Is there discount if we order five hundred?",
+          "error": "article"
+        },
+        {
+          "text": "Is there a discount if we order five hundreds?",
+          "error": "plural"
+        },
+        {
+          "text": "There is a discount if we order five hundred?",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "need_them_by_mid_april",
+      "en": "We need them by the middle of April.",
+      "zh": "我們四月中以前要拿到貨。",
+      "note": "by＋時間：最晚在那個時間以前（截止日），不是「一直到」。",
+      "distractors": [
+        {
+          "text": "We need them until the middle of April.",
+          "error": "other"
+        },
+        {
+          "text": "We need them by middle of April.",
+          "error": "article"
+        },
+        {
+          "text": "We need it them by the middle of April.",
+          "error": "extra-word"
+        }
+      ]
+    },
+    {
+      "id": "get_them_within_fourteen_days",
+      "en": "Can you get them to us within fourteen days?",
+      "zh": "十四天內可以送到我們這裡嗎？",
+      "accept": ["Can you get them to us within 14 days?"],
+      "note": "within＋一段時間：在這段時間之內。問交期用。",
+      "distractors": [
+        {
+          "text": "Can you get them to us within fourteen day?",
+          "error": "plural"
+        },
+        {
+          "text": "Can you get them us within fourteen days?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Can you get them to us until fourteen days?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "price_good_until_end_of_march",
+      "en": "This price is good until the end of March.",
+      "zh": "這個價格到三月底都有效。",
+      "note": "說報價的有效期限。good 在這裡是「有效」，until 是「一直到」。",
+      "distractors": [
+        {
+          "text": "This price is good until end of March.",
+          "error": "article"
+        },
+        {
+          "text": "This price good until the end of March.",
+          "error": "missing-word"
+        },
+        {
+          "text": "This price is good within the end of March.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "do_better_on_the_price",
+      "en": "Could you do any better on the price?",
+      "zh": "價格可以再優惠一點嗎？",
+      "note": "客氣地請對方降價。do better on the price 是殺價常用說法。",
+      "distractors": [
+        {
+          "text": "Could you do any good on the price?",
+          "error": "other"
+        },
+        {
+          "text": "Could you do any better on price?",
+          "error": "article"
+        },
+        {
+          "text": "Could you any better on the price?",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "check_with_ms_carter_get_back_to_you",
+      "en": "Let me check with Ms. Carter and get back to you.",
+      "zh": "我先問一下 Ms. Carter，再回覆你。",
+      "accept": ["Let me check with Ms Carter and get back to you."],
+      "note": "自己不能決定時說。get back to you 是「之後再回覆你」。",
+      "distractors": [
+        {
+          "text": "Let me check with Ms. Carter and get back you.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Let me to check with Ms. Carter and get back to you.",
+          "error": "extra-word"
+        },
+        {
+          "text": "Let me check Ms. Carter with and get back to you.",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "go_ahead_with_the_order",
+      "en": "We'd like to go ahead with the order.",
+      "zh": "我們決定下這張訂單了。",
+      "accept": ["We would like to go ahead with the order."],
+      "note": "名詞和動詞：the 後面的 order 是名詞（訂單）；order 也能當動詞（訂購）。",
+      "distractors": [
+        {
+          "text": "We'd like go ahead with the order.",
+          "error": "missing-word"
+        },
+        {
+          "text": "We'd like to go ahead with the ordering.",
+          "error": "other"
+        },
+        {
+          "text": "We'd like to go ahead the order.",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "confirm_the_delivery_date",
+      "en": "When can you confirm the delivery date?",
+      "zh": "交貨日期什麼時候可以確認？",
+      "note": "名詞和動詞：confirm 是動詞（確認）；delivery 是名詞（交貨），動詞是 deliver。",
+      "distractors": [
+        {
+          "text": "When can you confirmation the delivery date?",
+          "error": "other"
+        },
+        {
+          "text": "When can you confirm the deliver date?",
+          "error": "other"
+        },
+        {
+          "text": "When you can confirm the delivery date?",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "only_deliver_half_on_time",
+      "en": "They can only deliver half the order on time.",
+      "zh": "他們只有一半的貨能準時交。",
+      "accept": ["They can only deliver half of the order on time."],
+      "note": "跟主管回報廠商延誤時說。on time 是「準時」。",
+      "distractors": [
+        {
+          "text": "They can only delivers half the order on time.",
+          "error": "other"
+        },
+        {
+          "text": "They can only deliver half the order in the time.",
+          "error": "other"
+        },
+        {
+          "text": "They only can deliver half the order on time.",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "mistake_on_the_invoice",
+      "en": "I think there's a mistake on the invoice.",
+      "zh": "這張發票好像有地方寫錯了。",
+      "accept": ["I think there is a mistake on the invoice."],
+      "note": "發現請款單有錯時，用 I think 開頭說得比較客氣。",
+      "distractors": [
+        {
+          "text": "I think there's mistake on the invoice.",
+          "error": "article"
+        },
+        {
+          "text": "I think there's a mistake on the invoise.",
+          "error": "spelling"
+        },
+        {
+          "text": "I think there are a mistake on the invoice.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "send_payment_by_end_of_week",
+      "en": "We'll send the payment by the end of the week.",
+      "zh": "我們這禮拜內會付款。",
+      "accept": ["We will send the payment by the end of the week."],
+      "note": "答應付款的期限。by the end of the week：最晚這週結束前。",
+      "distractors": [
+        {
+          "text": "We'll send the pay by the end of the week.",
+          "error": "other"
+        },
+        {
+          "text": "We'll send the payment by end of the week.",
+          "error": "article"
+        },
+        {
+          "text": "We'll sending the payment by the end of the week.",
+          "error": "other"
+        }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "supplier", "en": "supplier", "zh": "供應商；廠商", "emoji": "🚛", "abstract": true },
+    { "id": "visit", "en": "visit", "zh": "拜訪", "emoji": "🚶", "abstract": true },
+    { "id": "sample", "en": "sample", "zh": "樣品", "emoji": "🧪", "abstract": true },
+    { "id": "quote", "en": "quote", "zh": "報價；報價單", "emoji": "📑", "abstract": true },
+    { "id": "purchase", "en": "purchase", "zh": "採購；購買", "emoji": "🛒" },
+    { "id": "firm", "en": "firm", "zh": "公司；行號", "emoji": "🏬", "abstract": true },
+    {
+      "id": "particular",
+      "en": "particular",
+      "zh": "特別的；特定的",
+      "emoji": "🎯",
+      "abstract": true
+    },
+    { "id": "unit", "en": "unit", "zh": "（計價的）一件；單位", "emoji": "🧩", "abstract": true },
+    { "id": "per", "en": "per", "zh": "每", "emoji": "➗", "abstract": true },
+    { "id": "minimum", "en": "minimum", "zh": "最低的；最少的", "emoji": "⬇️", "abstract": true },
+    { "id": "discount", "en": "discount", "zh": "折扣", "emoji": "🈹" },
+    { "id": "average", "en": "average", "zh": "平均的", "emoji": "📊", "abstract": true },
+    { "id": "standard", "en": "standard", "zh": "標準；標準款", "emoji": "📏", "abstract": true },
+    { "id": "sixteen", "en": "sixteen", "zh": "十六", "emoji": "🔢", "abstract": true },
+    { "id": "nineteen", "en": "nineteen", "zh": "十九", "emoji": "🔢", "abstract": true },
+    { "id": "within", "en": "within", "zh": "在……之內", "emoji": "⏱️", "abstract": true },
+    { "id": "fourteen", "en": "fourteen", "zh": "十四", "emoji": "🔢", "abstract": true },
+    { "id": "eighteen", "en": "eighteen", "zh": "十八", "emoji": "🔢", "abstract": true },
+    { "id": "period", "en": "period", "zh": "期間；一段時間", "emoji": "🗓️", "abstract": true },
+    { "id": "likely", "en": "likely", "zh": "很可能的", "emoji": "🤔", "abstract": true },
+    { "id": "process", "en": "process", "zh": "流程；過程", "emoji": "🔄", "abstract": true },
+    { "id": "exact", "en": "exact", "zh": "確切的", "emoji": "📍", "abstract": true },
+    {
+      "id": "availability",
+      "en": "availability",
+      "zh": "有沒有貨（供貨狀況）",
+      "emoji": "✅",
+      "abstract": true
+    },
+    { "id": "quantity", "en": "quantity", "zh": "數量", "emoji": "#️⃣", "abstract": true },
+    { "id": "term", "en": "term", "zh": "（付款）條件；條款", "emoji": "📃", "abstract": true },
+    { "id": "condition", "en": "condition", "zh": "條件；規定", "emoji": "☑️", "abstract": true },
+    { "id": "additional", "en": "additional", "zh": "額外的", "emoji": "➕", "abstract": true },
+    { "id": "approximately", "en": "approximately", "zh": "大約", "emoji": "〰️", "abstract": true },
+    { "id": "value", "en": "value", "zh": "價值；（訂單）金額", "emoji": "💎", "abstract": true },
+    { "id": "specific", "en": "specific", "zh": "明確的；具體的", "emoji": "🔎", "abstract": true },
+    { "id": "material", "en": "material", "zh": "材質；材料", "emoji": "🧵", "abstract": true },
+    { "id": "guarantee", "en": "guarantee", "zh": "保證", "emoji": "🛡️", "abstract": true },
+    { "id": "deal", "en": "deal", "zh": "（划算的）交易；價錢", "emoji": "🤝", "abstract": true },
+    { "id": "reasonable", "en": "reasonable", "zh": "合理的", "emoji": "👌", "abstract": true },
+    { "id": "seventeen", "en": "seventeen", "zh": "十七", "emoji": "🔢", "abstract": true },
+    { "id": "cut", "en": "cut", "zh": "降（價）；削減", "emoji": "✂️", "abstract": true },
+    { "id": "rise", "en": "rise", "zh": "上漲", "emoji": "⤴️", "abstract": true },
+    { "id": "afford", "en": "afford", "zh": "負擔得起", "emoji": "👛", "abstract": true },
+    {
+      "id": "negotiate",
+      "en": "negotiate",
+      "zh": "談（價錢、條件）；協商",
+      "emoji": "🗣️",
+      "abstract": true
+    },
+    { "id": "worth", "en": "worth", "zh": "值得；值……錢", "emoji": "💰", "abstract": true },
+    { "id": "deliver", "en": "deliver", "zh": "交貨；送貨", "emoji": "🚚", "abstract": true },
+    {
+      "id": "confirmation",
+      "en": "confirmation",
+      "zh": "確認；確認書",
+      "emoji": "📩",
+      "abstract": true
+    },
+    { "id": "agreement", "en": "agreement", "zh": "協議；約定", "emoji": "🖊️", "abstract": true },
+    { "id": "reduce", "en": "reduce", "zh": "降低；減少", "emoji": "📉" },
+    { "id": "reduction", "en": "reduction", "zh": "降幅；減少", "emoji": "➖", "abstract": true },
+    { "id": "produce", "en": "produce", "zh": "生產", "emoji": "⚙️", "abstract": true },
+    { "id": "production", "en": "production", "zh": "生產；產量", "emoji": "🏗️", "abstract": true },
+    { "id": "manufacturer", "en": "manufacturer", "zh": "製造商", "emoji": "🧑‍🏭" },
+    { "id": "select", "en": "select", "zh": "挑選；選擇", "emoji": "👆", "abstract": true },
+    { "id": "delay", "en": "delay", "zh": "延誤；延後", "emoji": "⏳", "abstract": true },
+    { "id": "demand", "en": "demand", "zh": "需求", "emoji": "🙋", "abstract": true },
+    { "id": "increase", "en": "increase", "zh": "增加", "emoji": "📈" },
+    {
+      "id": "significantly",
+      "en": "significantly",
+      "zh": "大幅地；明顯地",
+      "emoji": "❗",
+      "abstract": true
+    },
+    { "id": "import", "en": "import", "zh": "進口", "emoji": "🛬", "abstract": true },
+    { "id": "export", "en": "export", "zh": "出口", "emoji": "🛫", "abstract": true },
+    {
+      "id": "alternative",
+      "en": "alternative",
+      "zh": "替代方案；另一個選擇",
+      "emoji": "🔀",
+      "abstract": true
+    },
+    { "id": "source", "en": "source", "zh": "來源；貨源", "emoji": "🌐", "abstract": true },
+    { "id": "partly", "en": "partly", "zh": "部分地；有一部分", "emoji": "🌓", "abstract": true },
+    { "id": "volume", "en": "volume", "zh": "（訂單的）量", "emoji": "📚", "abstract": true },
+    { "id": "invoice", "en": "invoice", "zh": "發票；請款單", "emoji": "🧾", "abstract": true },
+    { "id": "method", "en": "method", "zh": "方式；方法", "emoji": "🧭", "abstract": true },
+    { "id": "owe", "en": "owe", "zh": "欠（錢）", "emoji": "💸", "abstract": true },
+    { "id": "overdue", "en": "overdue", "zh": "逾期未付的", "emoji": "⌛", "abstract": true },
+    {
+      "id": "transaction",
+      "en": "transaction",
+      "zh": "（一筆）交易",
+      "emoji": "💱",
+      "abstract": true
+    },
+    { "id": "proof", "en": "proof", "zh": "證明", "emoji": "🔏", "abstract": true },
+    { "id": "calculate", "en": "calculate", "zh": "計算", "emoji": "🧮" },
+    { "id": "authorize", "en": "authorize", "zh": "核准；授權", "emoji": "🆗", "abstract": true },
+    { "id": "directly", "en": "directly", "zh": "直接地", "emoji": "➡️", "abstract": true }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "廠商來拜訪",
+      "newChunkIds": ["looking_for_new_supplier", "send_us_a_quote"],
+      "newWordIds": ["supplier", "visit", "sample", "quote", "purchase", "firm", "particular"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Hi, I'm Jack from Brightway. Nice to meet you.",
+          "zh": "嗨，我是 Brightway 的 Jack，很高興認識你。"
+        },
+        {
+          "id": "t1_2",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Thanks for having me. So, how can I help?",
+          "zh": "謝謝你們請我過來。那麼，有什麼我可以幫忙的？"
+        },
+        {
+          "id": "t1_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We're looking for a new supplier.",
+          "zh": "我們在找新的供應商。",
+          "chunkId": "looking_for_new_supplier"
+        },
+        {
+          "id": "t1_4",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Great. I visit a lot of firms around here.",
+          "zh": "太好了。這附近很多公司我都有在拜訪。"
+        },
+        {
+          "id": "t1_5",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "I brought a sample of our glass desk lamp.",
+          "zh": "我帶了我們玻璃桌燈的樣品來。"
+        },
+        {
+          "id": "t1_6",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Is there anything in particular you want to purchase?",
+          "zh": "你們有沒有特別想採購什麼？",
+          "stage": { "act": "want", "item": "purchase" }
+        },
+        {
+          "id": "t1_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could you send us a quote for these items?",
+          "zh": "這幾個品項可以請你報價給我們嗎？",
+          "chunkId": "send_us_a_quote"
+        },
+        {
+          "id": "t1_8",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Sure, no problem. I'll email it to you this week.",
+          "zh": "當然，沒問題。我這禮拜會用 email 寄給你。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "單價、最低訂購量和折扣",
+      "newChunkIds": ["minimum_order_for_that_price", "discount_if_we_order_five_hundred"],
+      "newWordIds": [
+        "unit",
+        "per",
+        "minimum",
+        "discount",
+        "average",
+        "standard",
+        "sixteen",
+        "nineteen"
+      ],
+      "fills": [
+        {
+          "id": "brought_a_sample",
+          "en": "Last week, Jack ___ us a sample.",
+          "zh": "上禮拜 Jack 拿了樣品給我們。",
+          "options": ["brings", "brought", "bringing", "will bring"],
+          "answer": 1,
+          "note": "last week 是過去，用過去式 brought。",
+          "grammar": true
+        },
+        {
+          "id": "discount_five_hundred",
+          "en": "Is there a ___ if we order five hundred?",
+          "zh": "如果我們訂五百個，有折扣嗎？",
+          "options": ["discount", "sample", "supplier", "minimum"],
+          "answer": 0,
+          "note": "訂多一點想便宜，問的是折扣。",
+          "chunkId": "discount_if_we_order_five_hundred"
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "So, this is our standard lamp. It's sixteen dollars per unit.",
+          "zh": "這是我們的標準款，一盞十六塊。"
+        },
+        {
+          "id": "t2_2",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "And the large one is nineteen.",
+          "zh": "大款的是十九塊。"
+        },
+        {
+          "id": "t2_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What's the minimum order for that price?",
+          "zh": "這個價格最少要訂多少？",
+          "chunkId": "minimum_order_for_that_price"
+        },
+        {
+          "id": "t2_4",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Two hundred units. On average, firms order about three hundred.",
+          "zh": "兩百盞。一般公司平均大概訂三百盞。"
+        },
+        {
+          "id": "t2_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is there a discount if we order five hundred?",
+          "zh": "如果我們訂五百個，有折扣嗎？",
+          "chunkId": "discount_if_we_order_five_hundred",
+          "stage": { "act": "want", "item": "discount" }
+        },
+        {
+          "id": "t2_6",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Sorry, not at five hundred. Discounts start at a thousand.",
+          "zh": "抱歉，五百個沒有。折扣要一千個才有。"
+        },
+        {
+          "id": "t2_7",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "But it's all in the quote, so have a look.",
+          "zh": "不過報價單上都有寫，你可以看一下。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "什麼時候到貨",
+      "newChunkIds": ["need_them_by_mid_april", "get_them_within_fourteen_days"],
+      "newWordIds": [
+        "within",
+        "fourteen",
+        "eighteen",
+        "period",
+        "likely",
+        "process",
+        "exact",
+        "availability"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "So, when do you need the lamps?",
+          "zh": "那你們什麼時候要拿到燈？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We need them by the middle of April.",
+          "zh": "我們四月中以前要拿到貨。",
+          "chunkId": "need_them_by_mid_april"
+        },
+        {
+          "id": "t3_3",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Okay. Let me check our availability for April.",
+          "zh": "好。我查一下我們四月的供貨狀況。"
+        },
+        {
+          "id": "t3_4",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Good news. We have enough for your order.",
+          "zh": "好消息，你們要的量我們有。"
+        },
+        {
+          "id": "t3_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can you get them to us within fourteen days?",
+          "zh": "十四天內可以送到我們這裡嗎？",
+          "chunkId": "get_them_within_fourteen_days"
+        },
+        {
+          "id": "t3_6",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Most likely, yes. Our process usually takes about fourteen days.",
+          "zh": "應該可以。我們的流程通常大概十四天。"
+        },
+        {
+          "id": "t3_7",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "In a busy period, it can take eighteen.",
+          "zh": "旺季的時候可能要十八天。"
+        },
+        {
+          "id": "t3_8",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "I'll give you the exact date when you order.",
+          "zh": "你們下單的時候，我會給你確切的日期。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀報價單",
+      "newChunkIds": ["price_good_until_end_of_march"],
+      "newWordIds": [
+        "quantity",
+        "term",
+        "condition",
+        "additional",
+        "approximately",
+        "value",
+        "specific",
+        "material",
+        "guarantee"
+      ],
+      "passages": [
+        {
+          "id": "brightway_quote",
+          "kind": "email",
+          "title": "Your quote from Brightway",
+          "lines": [
+            "Hi,",
+            "It was good to visit your office on Monday. Here is our quote.",
+            "Item: Glass desk lamp, large",
+            "Quantity: 500 units",
+            "Unit price: $19 ($16 for the standard size)",
+            "Minimum order: 200 units",
+            "Discount: 5% on orders of 1,000 units or more",
+            "Material: Glass",
+            "Delivery: Approximately 14 days. We guarantee delivery within 18 days.",
+            "There is an additional charge if you need a specific delivery date.",
+            "Payment terms: Within 30 days of delivery",
+            "Total value: $9,500",
+            "This quote is good until March 31. Our terms and conditions are attached.",
+            "Best, Jack"
+          ],
+          "questions": [
+            {
+              "en": "When does this quote end?",
+              "zh": "這份報價什麼時候到期？",
+              "options": ["March 14", "March 31", "April 18"],
+              "answer": 1
+            },
+            {
+              "en": "When is there an additional charge?",
+              "zh": "什麼情況要多付錢？",
+              "options": [
+                "For a specific delivery date",
+                "For orders under 1,000",
+                "For the standard size"
+              ],
+              "answer": 0
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I just read Jack's quote. It looks pretty good.",
+          "zh": "我剛看完 Jack 的報價，看起來滿不錯的。"
+        },
+        {
+          "id": "t4_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "The total value is $9,500 for five hundred units.",
+          "zh": "五百盞，總金額九千五百塊。"
+        },
+        {
+          "id": "t4_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Do we have to decide today?",
+          "zh": "我們今天就得決定嗎？"
+        },
+        {
+          "id": "t4_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "This price is good until the end of March.",
+          "zh": "這個價格到三月底都有效。",
+          "chunkId": "price_good_until_end_of_march"
+        },
+        {
+          "id": "t4_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Great, then we have some time. When do we need the lamps?",
+          "zh": "很好，那我們還有一點時間。燈什麼時候要到？"
+        },
+        {
+          "id": "t4_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We need them by the middle of April.",
+          "zh": "我們四月中以前要拿到貨。",
+          "chunkId": "need_them_by_mid_april"
+        },
+        {
+          "id": "t4_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Okay. They guarantee delivery within eighteen days, so that works.",
+          "zh": "好。他們保證十八天內交貨，這樣來得及。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "跟廠商談價錢",
+      "newChunkIds": ["do_better_on_the_price", "check_with_ms_carter_get_back_to_you"],
+      "newWordIds": [
+        "deal",
+        "reasonable",
+        "seventeen",
+        "cut",
+        "rise",
+        "afford",
+        "negotiate",
+        "worth"
+      ],
+      "talks": [
+        {
+          "id": "price_report",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "guide",
+              "en": "I just talked to Jack on the phone about the large lamp.",
+              "zh": "我剛跟 Jack 通電話，談大款燈的價錢。"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "manager",
+              "en": "Good. Was he willing to negotiate?",
+              "zh": "很好。他願意談嗎？"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "guide",
+              "en": "Yes. He can cut it to seventeen dollars if we order five hundred.",
+              "zh": "願意。如果我們訂五百盞，他可以降到十七塊。"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "manager",
+              "en": "Why not lower? Did he say?",
+              "zh": "為什麼不能再低？他有說嗎？"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "guide",
+              "en": "He said the cost of glass rose a lot this year.",
+              "zh": "他說今年玻璃的成本漲了很多。"
+            },
+            {
+              "id": "t5_talk_6",
+              "role": "manager",
+              "en": "Okay. Seventeen is fine. We can afford that, and the lamps are worth it.",
+              "zh": "好，十七塊可以。我們負擔得起，那些燈也值這個價。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "Why isn't the price lower?",
+              "zh": "價格為什麼不能再低？",
+              "options": [
+                "The glass costs more now",
+                "The order is too small",
+                "The lamps are very large"
+              ],
+              "answer": 0
+            },
+            {
+              "en": "What will one large lamp cost?",
+              "zh": "一盞大款的燈會是多少錢？",
+              "options": ["$16", "$17", "$19"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Hi, Jack speaking. Thanks for calling about the quote.",
+          "zh": "喂，我是 Jack。謝謝你打來談報價的事。"
+        },
+        {
+          "id": "t5_2",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "So, what did you think of it?",
+          "zh": "那你覺得怎麼樣？"
+        },
+        {
+          "id": "t5_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could you do any better on the price?",
+          "zh": "價格可以再優惠一點嗎？",
+          "chunkId": "do_better_on_the_price"
+        },
+        {
+          "id": "t5_4",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Well, the cost of glass rose a lot this year.",
+          "zh": "嗯，今年玻璃的成本漲了很多。"
+        },
+        {
+          "id": "t5_5",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Nineteen dollars is already a reasonable price for the large lamp.",
+          "zh": "大款賣十九塊已經很合理了。"
+        },
+        {
+          "id": "t5_6",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "But for five hundred, I can cut it to seventeen.",
+          "zh": "不過訂五百盞的話，我可以降到十七塊。"
+        },
+        {
+          "id": "t5_7",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "That's a really good deal for you.",
+          "zh": "這價錢真的很划算啦。"
+        },
+        {
+          "id": "t5_8",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let me check with Ms. Carter and get back to you.",
+          "zh": "我先問一下 Ms. Carter，再回覆你。",
+          "chunkId": "check_with_ms_carter_get_back_to_you"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "下訂單",
+      "newChunkIds": ["go_ahead_with_the_order", "confirm_the_delivery_date"],
+      "newWordIds": [
+        "deliver",
+        "confirmation",
+        "agreement",
+        "reduce",
+        "reduction",
+        "produce",
+        "production",
+        "manufacturer",
+        "select"
+      ],
+      "cloze": [
+        {
+          "lineId": "t6_4",
+          "word": "reduction",
+          "distractors": ["process", "period"]
+        },
+        {
+          "lineId": "t6_5",
+          "word": "manufacturer",
+          "distractors": ["sample", "quote"]
+        },
+        {
+          "lineId": "t6_8",
+          "word": "confirmation",
+          "distractors": ["supplier", "period"]
+        }
+      ],
+      "textFills": [
+        {
+          "id": "order_confirmation",
+          "kind": "email",
+          "title": "Your order from Brightway",
+          "lines": [
+            "Hi,",
+            "Thank you for selecting Brightway. This email is the ___ of your order: 500 large glass desk lamps.",
+            "As in our agreement, the price is $17 per unit, a ___ of $2.",
+            "Our manufacturer will start production next week. ___",
+            "Best, Jack"
+          ],
+          "zh": [
+            "你好：",
+            "謝謝你們選擇 Brightway。這封信是你們訂單的確認：大款玻璃桌燈 500 盞。",
+            "照我們的約定，單價是 17 美元，降了 2 美元。",
+            "我們的製造商下週開始生產，4 月 14 日前會把燈送到。",
+            "祝好，Jack"
+          ],
+          "blanks": [
+            {
+              "options": ["confirm", "confirmation", "confirmed", "confirming"],
+              "answer": 1,
+              "note": "the 後面要放名詞：confirmation。"
+            },
+            {
+              "options": ["production", "reduction", "manufacturer", "supplier"],
+              "answer": 1,
+              "note": "單價從 19 降到 17，是降幅 reduction。"
+            },
+            {
+              "options": [
+                "We will deliver the lamps by April 14.",
+                "Please select a new supplier.",
+                "The price will rise next month.",
+                "We can't produce any lamps."
+              ],
+              "answer": 0,
+              "note": "開始生產之後，接著說什麼時候交貨。"
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Hi! Thanks for calling back so fast.",
+          "zh": "嗨！謝謝你這麼快就回電。"
+        },
+        {
+          "id": "t6_2",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "So, did you talk to Ms. Carter?",
+          "zh": "那你跟 Ms. Carter 談過了嗎？"
+        },
+        {
+          "id": "t6_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We'd like to go ahead with the order.",
+          "zh": "我們決定下這張訂單了。",
+          "chunkId": "go_ahead_with_the_order"
+        },
+        {
+          "id": "t6_4",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Great! Five hundred large lamps, with the price reduction that we agreed on.",
+          "zh": "太好了！大款五百盞，照我們談好的降價。"
+        },
+        {
+          "id": "t6_5",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "I'll tell the manufacturer today, and production starts next week.",
+          "zh": "我今天就通知製造商，下禮拜開始生產。",
+          "stage": { "act": "want", "item": "manufacturer" }
+        },
+        {
+          "id": "t6_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "When can you confirm the delivery date?",
+          "zh": "交貨日期什麼時候可以確認？",
+          "chunkId": "confirm_the_delivery_date"
+        },
+        {
+          "id": "t6_7",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "By Friday, they'll tell me how fast they can produce them.",
+          "zh": "他們禮拜五前會告訴我多快能做好。"
+        },
+        {
+          "id": "t6_8",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Then I'll email you a confirmation with the exact date.",
+          "zh": "然後我會寄確認信給你，上面有確切的日期。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "交貨要延後",
+      "newChunkIds": ["only_deliver_half_on_time"],
+      "newWordIds": [
+        "delay",
+        "demand",
+        "increase",
+        "significantly",
+        "import",
+        "export",
+        "alternative",
+        "source",
+        "partly",
+        "volume"
+      ],
+      "talks": [
+        {
+          "id": "jack_voicemail",
+          "kind": "monologue",
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "supplier",
+              "en": "Hi, it's Jack from Brightway. Sorry, but I have some bad news.",
+              "zh": "嗨，我是 Brightway 的 Jack。抱歉，有個壞消息。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "supplier",
+              "en": "There's going to be a delay with your order.",
+              "zh": "你們的訂單會延誤。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "supplier",
+              "en": "Our manufacturer exports to a lot of countries now, and demand has increased significantly this month.",
+              "zh": "我們的製造商現在出口到很多國家，這個月需求大幅增加。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "supplier",
+              "en": "The volume of orders is very high.",
+              "zh": "訂單量非常大。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "supplier",
+              "en": "It's also partly because the imported glass came late. We've found an alternative source.",
+              "zh": "有一部分也是因為進口的玻璃晚到了。我們已經找到別的貨源。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "supplier",
+              "en": "We can deliver two hundred and fifty lamps by April 14, and the rest by April 19.",
+              "zh": "四月十四日前可以先交兩百五十盞，剩下的四月十九日前交。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "supplier",
+              "en": "Please call me back when you can. Thanks.",
+              "zh": "方便的時候請回電給我，謝謝。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "Why is the order late?",
+              "zh": "訂單為什麼會延誤？",
+              "options": ["Demand is very high", "The price went up", "The office was closed"],
+              "answer": 0
+            },
+            {
+              "en": "How many lamps will come by April 14?",
+              "zh": "四月十四日前會到幾盞燈？",
+              "options": ["100", "250", "500"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Any news about the Brightway order?",
+          "zh": "Brightway 那張訂單有消息嗎？"
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "They can only deliver half the order on time.",
+          "zh": "他們只有一半的貨能準時交。",
+          "chunkId": "only_deliver_half_on_time"
+        },
+        {
+          "id": "t7_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "That's not good. Remind me, when do we need them?",
+          "zh": "這不太妙。我再確認一下，我們什麼時候要拿到？"
+        },
+        {
+          "id": "t7_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We need them by the middle of April.",
+          "zh": "我們四月中以前要拿到貨。",
+          "chunkId": "need_them_by_mid_april"
+        },
+        {
+          "id": "t7_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Okay. Half on time is better than nothing.",
+          "zh": "好吧。有一半準時到，總比都沒有好。"
+        },
+        {
+          "id": "t7_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Let's not look for an alternative supplier yet.",
+          "zh": "先不要找別的供應商。"
+        },
+        {
+          "id": "t7_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Call Jack back and get the exact date for the rest.",
+          "zh": "回電給 Jack，問清楚剩下的貨確切哪天到。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "發票和付款",
+      "newChunkIds": ["mistake_on_the_invoice", "send_payment_by_end_of_week"],
+      "newWordIds": [
+        "invoice",
+        "method",
+        "owe",
+        "overdue",
+        "transaction",
+        "proof",
+        "calculate",
+        "authorize",
+        "directly"
+      ],
+      "spellWordIds": ["calendar", "projector", "slide", "item", "fact"],
+      "cloze": [
+        {
+          "lineId": "t8_4",
+          "word": "calculated",
+          "distractors": ["delivered", "produced"]
+        },
+        {
+          "lineId": "t8_5",
+          "word": "invoice",
+          "distractors": ["supplier", "period"]
+        },
+        {
+          "lineId": "t8_7",
+          "word": "proof",
+          "distractors": ["sample", "source"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Hi, Jack speaking. Thanks for calling.",
+          "zh": "喂，我是 Jack。謝謝你打來。"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I think there's a mistake on the invoice.",
+          "zh": "這張發票好像有地方寫錯了。",
+          "chunkId": "mistake_on_the_invoice"
+        },
+        {
+          "id": "t8_3",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Really? Let me check the transaction. Yes, it says $9,500.",
+          "zh": "真的嗎？我查一下這筆交易。對，上面寫九千五百塊。"
+        },
+        {
+          "id": "t8_4",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Sorry, we calculated it with the old price. You only owe $8,500.",
+          "zh": "抱歉，我們用舊的價錢算了。你們只要付八千五百塊。",
+          "stage": { "act": "want", "item": "calculate" }
+        },
+        {
+          "id": "t8_5",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "I'll send you a new invoice today. When can you pay?",
+          "zh": "我今天會寄新的發票給你。你們什麼時候可以付款？"
+        },
+        {
+          "id": "t8_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We'll send the payment by the end of the week.",
+          "zh": "我們這禮拜內會付款。",
+          "chunkId": "send_payment_by_end_of_week"
+        },
+        {
+          "id": "t8_7",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Great. Once Ms. Carter authorizes it, email the proof of payment directly to me.",
+          "zh": "好。等 Ms. Carter 核准之後，把付款證明直接寄給我。"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Hi again! So, how did the last order go?",
+          "zh": "嗨，又見面了！上一張訂單還順利嗎？"
+        },
+        {
+          "id": "t9_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I think there's a mistake on the invoice.",
+          "zh": "這張發票好像有地方寫錯了。",
+          "chunkId": "mistake_on_the_invoice"
+        },
+        {
+          "id": "t9_3",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Sorry about that. I'll send you a new one today.",
+          "zh": "真抱歉。我今天會寄一張新的給你。"
+        },
+        {
+          "id": "t9_4",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "So, Ms. Carter says you need more lamps?",
+          "zh": "對了，Ms. Carter 說你們還要再訂燈？"
+        },
+        {
+          "id": "t9_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could you send us a quote for these items?",
+          "zh": "這幾個品項可以請你報價給我們嗎？",
+          "chunkId": "send_us_a_quote"
+        },
+        {
+          "id": "t9_6",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Sure. Our standard lamps are still sixteen dollars per unit.",
+          "zh": "沒問題。我們的標準款還是一盞十六塊。"
+        },
+        {
+          "id": "t9_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is there a discount if we order five hundred?",
+          "zh": "如果我們訂五百個，有折扣嗎？",
+          "chunkId": "discount_if_we_order_five_hundred"
+        },
+        {
+          "id": "t9_8",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "For five hundred, I can do fifteen dollars.",
+          "zh": "訂五百盞的話，我可以算你十五塊。"
+        },
+        {
+          "id": "t9_9",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could you do any better on the price?",
+          "zh": "價格可以再優惠一點嗎？",
+          "chunkId": "do_better_on_the_price"
+        },
+        {
+          "id": "t9_10",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Sorry, that's my best deal. It's good until the end of March.",
+          "zh": "抱歉，這已經是最好的價錢了，到三月底都有效。"
+        },
+        {
+          "id": "t9_11",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can you get them to us within fourteen days?",
+          "zh": "十四天內可以送到我們這裡嗎？",
+          "chunkId": "get_them_within_fourteen_days"
+        },
+        {
+          "id": "t9_12",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "I can send half in fourteen days and the rest a week later.",
+          "zh": "十四天內我可以先送一半，剩下的晚一個禮拜。"
+        },
+        {
+          "id": "t9_13",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Hi, Jack. Sorry I'm late. So, how's it going?",
+          "zh": "嗨，Jack。抱歉我來晚了。談得怎麼樣？"
+        },
+        {
+          "id": "t9_14",
+          "role": "guide",
+          "speaker": "player",
+          "en": "They can only deliver half the order on time.",
+          "zh": "他們只有一半的貨能準時交。",
+          "chunkId": "only_deliver_half_on_time"
+        },
+        {
+          "id": "t9_15",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "That's okay. The rest can come later. Do we have to decide today?",
+          "zh": "沒關係，剩下的晚點到也行。我們今天就得決定嗎？"
+        },
+        {
+          "id": "t9_16",
+          "role": "guide",
+          "speaker": "player",
+          "en": "This price is good until the end of March.",
+          "zh": "這個價格到三月底都有效。",
+          "chunkId": "price_good_until_end_of_march"
+        },
+        {
+          "id": "t9_17",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Fifteen dollars is a fair price. Let's not wait.",
+          "zh": "十五塊是公道的價錢，不用等了。"
+        },
+        {
+          "id": "t9_18",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We'd like to go ahead with the order.",
+          "zh": "我們決定下這張訂單了。",
+          "chunkId": "go_ahead_with_the_order"
+        },
+        {
+          "id": "t9_19",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Great! I'll send you the confirmation today.",
+          "zh": "太好了！我今天就把確認信寄給你。"
+        }
+      ]
+    }
+  ]
+}
