@@ -272,3 +272,35 @@ describe('fillQuestions', () => {
     expect(kinds.indexOf('fill')).toBeLessThan(kinds.indexOf('arrange'));
   });
 });
+
+describe('grammar fills (文法填空)', () => {
+  const grammar = (over: Record<string, unknown> = {}) =>
+    one({ grammar: true, options: ['need', 'needs', 'needing', 'needed'], ...over });
+
+  it('accepts a grammar fill with exactly 4 forms', () => {
+    expect(grammar()).toEqual([]);
+    expect(
+      validateUnit(
+        unit([fill({ grammar: true, options: ['need', 'needs', 'needing', 'needed'] })]),
+      ),
+    ).toEqual([]);
+  });
+
+  it('needs exactly 4 options, and grammar only as true', () => {
+    expect(grammar({ options: ['need', 'needs', 'needing'] })).toEqual([
+      expect.stringContaining('needs exactly 4 options'),
+    ]);
+    expect(grammar({ grammar: false })).toEqual([expect.stringContaining('grammar must be true')]);
+    expect(grammar({ grammar: 'yes' })).toEqual([expect.stringContaining('grammar must be true')]);
+  });
+
+  it('marks the question as grammar, and only then', () => {
+    const [q] = fillQuestions(
+      task({ fills: [fill({ grammar: true, options: ['need', 'needs', 'needing', 'needed'] })] }),
+      makeRng(1),
+    );
+    expect(q?.grammar).toBe(true);
+    const [plain] = fillQuestions(task({ fills: [fill()] }), makeRng(1));
+    expect(plain).not.toHaveProperty('grammar');
+  });
+});

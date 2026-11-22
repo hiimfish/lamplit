@@ -1,5 +1,5 @@
 /**
- * 句子填空 (TOEIC Part 5): checks a task's `fills` (FillItem in types.ts).
+ * 句子填空 and 文法填空 (TOEIC Part 5): checks a task's `fills` (FillItem in types.ts).
  * (tests/smoothness.test.ts checks that the sentence with each option uses taught words.)
  *
  * The size limits below are what the question screen (src/ui/minigames/Fill.tsx) is laid
@@ -27,6 +27,8 @@ export const MAX_OPTION_WORDS = 3;
 export const MAX_OPTION_CHARS = 18;
 /** Characters in the note. */
 export const MAX_NOTE_CHARS = 30;
+/** A grammar fill (文法填空, `grammar: true`) offers exactly this many forms. */
+export const GRAMMAR_OPTIONS = 4;
 
 /** Letters, digits and apostrophes: the blank must not touch one, or it splits a word. */
 const WORD_CHAR = /[\p{L}\p{N}'’]/u;
@@ -144,6 +146,17 @@ export function checkFills(task: Record<string, unknown>, ctx: TaskCheckContext)
       en.startsWith(BLANK),
     );
     problems.push(...optProblems);
+    if (fill.grammar !== undefined && fill.grammar !== true) {
+      problems.push(`${label} grammar must be true (or left out)`);
+    } else if (
+      fill.grammar === true &&
+      Array.isArray(fill.options) &&
+      fill.options.length !== GRAMMAR_OPTIONS
+    ) {
+      problems.push(
+        `${label} is a grammar fill (文法填空) and needs exactly ${GRAMMAR_OPTIONS} options (forms of one word or one grammar choice)`,
+      );
+    }
     if (options && !isIndex(fill.answer, options.length)) {
       problems.push(`${label} answer must be the index (0 to ${options.length - 1}) of an option`);
     }

@@ -3,12 +3,13 @@ import type { Role } from '../content/types';
 import type { FillQuestion } from './gen/fills';
 import type { PassageQuestion } from './gen/passages';
 import type { TalkQuestion } from './gen/talks';
+import type { TextFillQuestion } from './gen/textFills';
 
 /**
- * The Act 2 kinds are defined next to their generators in ./gen (one folder of files
- * per question type) and re-exported here.
+ * The Act 2 and Act 3 kinds are defined next to their generators in ./gen (one folder of
+ * files per question type) and re-exported here.
  */
-export type { FillQuestion, PassageQuestion, TalkQuestion };
+export type { FillQuestion, PassageQuestion, TalkQuestion, TextFillQuestion };
 
 export interface ListenPickQuestion {
   kind: 'listen-pick';
@@ -164,7 +165,8 @@ export type Question =
   | PictureQuestion
   | FillQuestion
   | PassageQuestion
-  | TalkQuestion;
+  | TalkQuestion
+  | TextFillQuestion;
 
 export interface AnswerResult {
   itemId: string;

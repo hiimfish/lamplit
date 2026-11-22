@@ -1,0 +1,43 @@
+/*
+ * 段落填空 (TextFill.tsx), minimal version: the text in a paper box with the current
+ * blank boxed in neon, filled blanks boxed in green, then the option keys.
+ * Nothing here animates or transitions.
+ */
+.text-fill-box {
+  padding: calc(4 * var(--px)) calc(6 * var(--px));
+  background: var(--paper);
+  box-shadow: inset 0 0 0 var(--px) var(--dim);
+  color: var(--ink);
+  font-size: calc(11 * var(--px));
+  line-height: 1.8;
+  overflow-wrap: break-word;
+}
+
+.text-fill-title {
+  margin: 0 0 calc(2 * var(--px));
+  font-weight: bold;
+}
+
+.text-fill-line {
+  margin: 0 0 calc(2 * var(--px));
+}
+
+.text-fill-gap {
+  display: inline-block;
+  padding: 0 calc(2 * var(--px));
+  line-height: 1.2;
+}
+
+.text-fill-gap.now {
+  box-shadow: inset 0 0 0 var(--px) var(--dim);
+  border-bottom: var(--line) solid var(--neon);
+}
+
+.text-fill-gap.filled {
+  box-shadow: inset 0 0 0 var(--px) var(--good);
+  border-bottom: var(--line) solid var(--good);
+}
+
+.text-fill-zh {
+  margin-top: calc(4 * var(--px));
+}

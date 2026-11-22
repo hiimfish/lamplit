@@ -396,3 +396,162 @@ describe('optionForKey', () => {
     expect(optionForKey(key('1', { repeat: true }), 3)).toBeNull();
   });
 });
+
+describe('monologues (聽獨白答題)', () => {
+  /** A voicemail of `n` lines by the clerk, 6 words each. */
+  const voicemail = (n: number, over: Record<string, unknown> = {}) => ({
+    ...talk(),
+    kind: 'monologue',
+    lines: Array.from({ length: n }, (_, i) => ({
+      id: `m${i}`,
+      role: 'clerk',
+      en: 'Please call me back this afternoon.',
+      zh: '請今天下午回電給我。',
+    })),
+    ...over,
+  });
+
+  it('accepts one speaker, 3 to 10 lines, 30 to 120 words, with runs of any length', () => {
+    expect(problems([voicemail(5)])).toEqual([]);
+    expect(problems([voicemail(10)])).toEqual([]);
+    expect(validateUnit(unit([voicemail(5) as TalkItem]))).toEqual([]);
+  });
+
+  it('rejects a bad kind, two speakers, too few or many lines or words', () => {
+    expect(with_({ kind: 'speech' })[0]).toContain('bad kind "speech"');
+    const two = voicemail(5);
+    two.lines[1] = { ...two.lines[1]!, role: 'friend' };
+    expect(problems([two])).toEqual([expect.stringContaining('exactly one speaker')]);
+    expect(problems([voicemail(2)])[0]).toContain('a monologue needs 3 to 10');
+    expect(problems([voicemail(11)])[0]).toContain('a monologue needs 3 to 10');
+    expect(problems([voicemail(4)])).toEqual([expect.stringContaining('24 words')]);
+    const long = voicemail(10);
+    long.lines[0] = { ...long.lines[0]!, en: Array.from({ length: 70 }, () => 'word').join(' ') };
+    expect(problems([long])).toEqual([expect.stringContaining('124 words')]);
+  });
+
+  it('keeps tables off a monologue', () => {
+    const table = {
+      rows: [
+        ['Day', 'Time'],
+        ['Monday', '9 am'],
+      ],
+    };
+    expect(problems([voicemail(5, { table })])).toEqual([
+      expect.stringContaining('only a conversation may have a table'),
+    ]);
+  });
+
+  it('marks the questions as a monologue', () => {
+    const qs = talkQuestions(unit([]), task({ talks: [voicemail(5) as TalkItem] }), makeRng(1));
+    expect(qs.every((q) => q.monologue === true && q.speakers.length === 1)).toBe(true);
+    const plain = talkQuestions(unit([]), task({ talks: [talk()] }), makeRng(1));
+    expect(plain.every((q) => !('monologue' in q) && !('table' in q))).toBe(true);
+  });
+});
+
+describe('talks with a table (聽對話答題加圖表)', () => {
+  const table = {
+    title: 'Shipping times',
+    rows: [
+      ['Order', 'Ships'],
+      ['Lamps', 'Monday'],
+      ['Desks', 'next week'],
+    ],
+  };
+
+  it('accepts a title and 2 to 5 rows of 2 to 4 short cells, carried by every question', () => {
+    expect(with_({ table })).toEqual([]);
+    expect(
+      with_({
+        table: {
+          rows: [
+            ['a', 'b', 'c', 'd'],
+            ['1', '2', '3', '4'],
+          ],
+        },
+      }),
+    ).toEqual([]);
+    const qs = talkQuestions(unit([]), task({ talks: [talk({ table })] }), makeRng(1));
+    expect(qs.map((q) => q.table)).toEqual([table, table]);
+  });
+
+  it('rejects bad tables', () => {
+    expect(with_({ table: 'x' })[0]).toContain('must be an object');
+    expect(with_({ table: { ...table, title: '' } })[0]).toContain('empty title');
+    expect(with_({ table: { ...table, color: 'red' } })[0]).toContain('unknown field "color"');
+    expect(with_({ table: { rows: [['a', 'b']] } })[0]).toContain('2 to 5 rows');
+    const six = Array.from({ length: 6 }, () => ['a', 'b']);
+    expect(with_({ table: { rows: six } })[0]).toContain('2 to 5 rows');
+    expect(with_({ table: { rows: [['a'], ['b']] } })[0]).toContain('2 to 4 cells');
+    expect(
+      with_({
+        table: {
+          rows: [
+            ['a', 'b', 'c', 'd', 'e'],
+            ['1', '2', '3', '4', '5'],
+          ],
+        },
+      }),
+    ).not.toEqual([]);
+    expect(
+      with_({
+        table: {
+          rows: [
+            ['a', 'b'],
+            ['1', '2', '3'],
+          ],
+        },
+      })[0],
+    ).toContain('every row needs 2');
+    expect(
+      with_({
+        table: {
+          rows: [
+            ['a', ''],
+            ['1', '2'],
+          ],
+        },
+      })[0],
+    ).toContain('empty');
+    expect(
+      with_({
+        table: {
+          rows: [
+            ['a', 'one two three four'],
+            ['1', '2'],
+          ],
+        },
+      })[0],
+    ).toContain('longer than 3 words');
+  });
+});
+
+describe('talk limits from Act 3 on', () => {
+  const late = (): TaskCheckContext => ({ ...context(), act: 3 });
+  const eight = Array.from({ length: 8 }, (_, i) => line(i % 2, { id: `e${i}` }));
+  const nine = Array.from({ length: 9 }, (_, i) => line(i % 2, { id: `n${i}` }));
+
+  it('lets a conversation have up to 8 lines in Act 3, 6 before', () => {
+    expect(checkTalks({ talks: [{ ...talk(), lines: eight }] }, late())).toEqual([]);
+    expect(checkTalks({ talks: [{ ...talk(), lines: nine }] }, late())[0]).toContain('3 to 8');
+    expect(
+      checkTalks({ talks: [{ ...talk(), lines: eight }] }, { ...context(), act: 2 })[0],
+    ).toContain('3 to 6');
+    expect(with_({ lines: eight })[0]).toContain('3 to 6');
+  });
+
+  it('gets the act from the unit in validateUnit', () => {
+    const acts = [
+      { no: '一', title: 'a', places: [] },
+      { no: '二', title: 'b', places: [] },
+      { no: '三', title: 'c', places: [{ title: 'u', unitId: 'u' }] },
+    ];
+    const long = unit([talk({ lines: eight as TalkItem['lines'] })]);
+    // The unit is in Act 3 here, so it is told it needs 9 tasks, but its 8 lines are fine.
+    const act3 = validateUnit(long, acts);
+    expect(act3).toContainEqual(expect.stringContaining('has 1 tasks'));
+    expect(act3.filter((p) => p.includes('lines'))).toEqual([]);
+    expect(validateUnit(long)).toEqual([expect.stringContaining('3 to 6')]);
+  });
+});

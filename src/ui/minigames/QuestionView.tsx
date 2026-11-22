@@ -19,6 +19,7 @@ import { ReadSign } from './ReadSign';
 import { Speak } from './Speak';
 import { Spell } from './Spell';
 import { Talk } from './Talk';
+import { TextFill } from './TextFill';
 import './minigames.css';
 
 export interface QuestionViewProps {
@@ -96,6 +97,9 @@ function Body({ question, onAnswer }: QuestionViewProps) {
       break;
     case 'talk':
       view = <Talk question={question} onAnswered={onAnswered} />;
+      break;
+    case 'text-fill':
+      view = <TextFill question={question} onAnswered={onAnswered} />;
       break;
   }
 

@@ -50,27 +50,31 @@
 }
 ```
 
-| 欄位                   | 說明                                                                                                                                    |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `chunks[].accept`      | 其他可接受的寫法，用於排句子等題型                                                                                                      |
-| `chunks[].note`        | 一行中文文法小抄（選填）                                                                                                                |
-| `chunks[].distractors` | 似是而非的錯誤說法，各自標上錯誤類型，用來給具體回饋                                                                                    |
-| `words[].emoji`        | 備用圖。正式圖示是 `src/art/items/` 裡的像素圖，沒有像素圖時才顯示 emoji                                                                |
-| `words[].abstract`     | 選填。抽象或不好畫的字（welcome、okay、數字、動詞）標 `true`，不畫像素圖，一律顯示 emoji。具體名詞不要標                                |
-| `scene[].role`         | 誰的聲音：`guide`（你，以及詞塊、單字、對比詞的發音）和 NPC，第一、二幕共 24 個值，見下方「角色」                                       |
-| `scene[].speaker`      | `npc` 是角色說的，`player` 是學習者要說的                                                                                               |
-| `scene[].chunkId`      | `player` 台詞一定要有，指向它練習的詞塊                                                                                                 |
-| `scene[].stage`        | 小劇場的道具動作（選填）：`want`／`give` 加單字 id，或 `ask`；見 [scene-stage.md](scene-stage.md)                                       |
-| `pairs[]`              | 最小對比詞（選填），給聽辨挑戰用：`id`、`focus`（例如「f／v」）、`note`（一行發音提示）、`a`／`b` 兩個字（各有 `id`、`en`、`zh`）       |
-| `tasks[].kind`         | 任務種類（選填）：不寫是一般任務；`roleplay` 是角色扮演大挑戰，只複習，不教新內容                                                       |
-| `tasks[].newPairIds`   | 這個任務新教的對比詞（選填）                                                                                                            |
-| `tasks[].spellWordIds` | 這個任務要考「打字拼字」的單字 id（選填）。必須是這個任務之前教過的字，可以來自更早的單元，例如便利商店 t7 考 key、box、door、tea、cake |
-| `tasks[].cloze`        | 聽力填空的題目（選填），見下方「聽力填空、讀招牌、看圖選句」                                                                            |
-| `tasks[].signs`        | 讀招牌／價目的題目（選填），同上                                                                                                        |
-| `tasks[].pictures`     | 看圖選句的題目（選填），同上                                                                                                            |
-| `tasks[].fills`        | 句子填空的題目（選填），見下方「句子填空、讀短文、聽對話答題」；第二幕起使用                                                            |
-| `tasks[].passages`     | 讀短文的題目（選填），同上                                                                                                              |
-| `tasks[].talks`        | 聽對話答題的題目（選填），同上                                                                                                          |
+| 欄位                   | 說明                                                                                                                                                        |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `chunks[].accept`      | 其他可接受的寫法，用於排句子等題型                                                                                                                          |
+| `chunks[].note`        | 一行中文文法小抄（選填）                                                                                                                                    |
+| `chunks[].distractors` | 似是而非的錯誤說法，各自標上錯誤類型，用來給具體回饋                                                                                                        |
+| `words[].emoji`        | 備用圖。正式圖示是 `src/art/items/` 裡的像素圖，沒有像素圖時才顯示 emoji                                                                                    |
+| `words[].abstract`     | 選填。抽象或不好畫的字（welcome、okay、數字、動詞）標 `true`，不畫像素圖，一律顯示 emoji。具體名詞不要標                                                    |
+| `scene[].role`         | 誰的聲音：`guide`（你，以及詞塊、單字、對比詞的發音）和 NPC，第一、二幕共 24 個值，見下方「角色」                                                           |
+| `scene[].speaker`      | `npc` 是角色說的，`player` 是學習者要說的                                                                                                                   |
+| `scene[].chunkId`      | `player` 台詞一定要有，指向它練習的詞塊                                                                                                                     |
+| `scene[].stage`        | 小劇場的道具動作（選填）：`want`／`give` 加單字 id，或 `ask`；見 [scene-stage.md](scene-stage.md)                                                           |
+| `pairs[]`              | 最小對比詞（選填），給聽辨挑戰用：`id`、`focus`（例如「f／v」）、`note`（一行發音提示）、`a`／`b` 兩個字（各有 `id`、`en`、`zh`）                           |
+| `tasks[].kind`         | 任務種類（選填）：不寫是一般任務；`roleplay` 是角色扮演大挑戰，只複習，不教新內容                                                                           |
+| `tasks[].newPairIds`   | 這個任務新教的對比詞（選填）                                                                                                                                |
+| `tasks[].spellWordIds` | 這個任務要考「打字拼字」的單字 id（選填）。必須是這個任務之前教過的字，可以來自更早的單元，例如便利商店 t7 考 key、box、door、tea、cake                     |
+| `tasks[].cloze`        | 聽力填空的題目（選填），見下方「聽力填空、讀招牌、看圖選句」                                                                                                |
+| `tasks[].signs`        | 讀招牌／價目的題目（選填），同上                                                                                                                            |
+| `tasks[].pictures`     | 看圖選句的題目（選填），同上                                                                                                                                |
+| `tasks[].fills`        | 句子填空的題目（選填），見下方「句子填空、讀短文、聽對話答題」；第二幕起使用                                                                                |
+| `tasks[].passages`     | 讀短文的題目（選填），同上                                                                                                                                  |
+| `tasks[].talks`        | 聽對話答題的題目（選填），同上；第三幕起也可以是聽獨白（`kind: "monologue"`）或加一張表格（`table`），見下方「第三幕的新題型」                              |
+| `tasks[].textFills`    | 段落填空的題目（選填），見下方「第三幕的新題型」                                                                                                            |
+| `tasks[].backdrop`     | 這個任務的小劇場用哪張背景（選填）：小劇場 `backdrops` 裡的角色 key，或 `main`（一般的那張）；不寫就照第一個說話的 NPC，見 [scene-stage.md](scene-stage.md) |
+
+任務數：第一、二幕每個單元 8 個任務，第三幕起 9 個；最後一個（只有最後一個）是角色扮演大挑戰（`kind: "roleplay"`）。幕別照 `src/content/acts.ts` 找單元 id，任務數寫在同一個檔案的 `TASKS_PER_UNIT`；不在任何一幕裡的單元（測試用的小單元）不限任務數。
 
 對比詞的例子（`move_in.json`）：
 
@@ -248,6 +252,52 @@
 - 填空句子放進答案後最多 14 個字。空格不能貼在字上（前後要有空格或標點）；空格在句首時，所有選項都要大寫開頭（只有一個大寫會洩漏答案）。
 - 填空有 `chunkId` 時，把答案放進去的句子必須剛好等於那個詞塊的 `en` 或 `accept` 其中一個（不分大小寫，忽略句尾標點和空白），否則不合格：有 `chunkId` 的題目要算那個詞塊的複習，所以句子不能和詞塊不一樣。
 - 對話的角色不用出現在那個地點的小劇場上。
+- 第三幕起（單元在 `acts.ts` 的第三幕或之後）：短文的標題加內文最多 160 個字；兩個人的對話最多 8 句。第一、二幕不變。
+
+### 第三幕的新題型：文法填空、聽獨白、對話加圖表、段落填空
+
+狀態：部分做到（2026-11-23）。資料格式、內容檢查、出題和用字檢查都做好了；畫面是最小版本，之後再做完整。型別在 `types.ts`：`FillItem.grammar`、`TalkItem.kind`、`TalkItem.table`（`TalkTable`）、`TextFillItem`（`TextFillBlank`）。
+
+- **文法填空**（多益第 5 大題）：一般的 `fills` 題目加 `"grammar": true`，選項是同一個字或同一個文法的不同形式（eat／eats／eating／ate）。**剛好 4 個選項**；其他規則和句子填空一樣。`grammar` 只能寫 `true` 或不寫。畫面的提示是「文法填空」。
+- **聽獨白答題**（多益第 4 大題）：`talks` 的一段加 `"kind": "monologue"`。**只有一個人說話**（每句的 `role` 都一樣：語音留言、廣播、致詞），3 到 10 句，全部加起來 30 到 120 個字（用空白分開來數）；不限連說幾句，不能有 `table`。問題 1 到 3 個。音檔 id 一樣是 `<單元>.talk.<句子 id>`，用那個角色的聲線（`announcer` 有聲線，不用畫角色圖）。畫面的提示是「聽獨白」。
+- **聽對話答題加圖表**（多益第 3 大題）：兩個人的對話加 `"table": { "title": "…", "rows": [[…], …] }`。`title` 選填，有寫就不能是空的；`rows` 2 到 5 列，第一列是表頭；每列 2 到 4 格，每列格數一樣；每格不能是空的，最多 3 個字。聽的時候和答題的時候都顯示在畫面上；表格不唸出來。只有兩個人的對話可以有。
+- **段落填空**（多益第 6 大題）：新的任務欄位 `textFills`。一個任務最多 1 篇。
+
+```json
+{
+  "textFills": [
+    {
+      "id": "t6_email",
+      "kind": "email",
+      "title": "From: Dan",
+      "lines": ["Hi team,", "The meeting is ___ Monday.", "Please ___ your notes."],
+      "zh": ["大家好，", "會議在星期一。", "請帶你的筆記。"],
+      "blanks": [
+        { "options": ["on", "in", "at", "by"], "answer": 0, "note": "星期幾前面用 on。" },
+        { "options": ["bring", "brings", "brought", "bringing"], "answer": 0 }
+      ]
+    }
+  ]
+}
+```
+
+| 欄位                 | 說明                                                                                       |
+| -------------------- | ------------------------------------------------------------------------------------------ |
+| `textFills[].id`     | 題目的 id，整個單元內不重複                                                                |
+| `textFills[].kind`   | 和短文的 `kind` 一樣（通常是 `email` 或 `notice`）                                         |
+| `textFills[].title`  | 寄件人或標題（選填），有寫就不能是空的                                                     |
+| `textFills[].lines`  | 內文，一行或一段一個，每行不是空的；空格照閱讀順序寫成 `___`（剛好三個底線，不能貼在字上） |
+| `textFills[].zh`     | 每行一個，把答案放進去的中文，最後一個空格答完才顯示；數量和 `lines` 一樣，不能含 `___`    |
+| `textFills[].blanks` | 2 到 4 個空格，照 `___` 的順序，數量要和全部 `lines` 裡的 `___` 一樣多                     |
+| `blanks[].options`   | **剛好 4 個**，各不相同（不分大小寫），可以是字、短語或整句；頭尾沒有空白，沒有底線        |
+| `blanks[].answer`    | 正確答案是第幾個（從 0 算）                                                                |
+| `blanks[].note`      | 一行中文說明為什麼（選填，最多 30 字），答完顯示                                           |
+
+- 每個空格出一題，同一篇的題目照空格順序連著出；問到後面的空格時，前面的空格已經填上正確答案。沒有複習卡片（`NO_ITEM`），沒有音檔。
+- 標題加內文、每個空格放進正確答案後，最多 90 個字。
+- 用字：標題、放進答案的內文、每個空格的每個選項，都只能用那個任務之前教過的字（`questionTexts`）；對話表格的標題和每一格、聽獨白的每句也一樣。
+- 練習順序：段落填空接在句子填空後面、讀短文前面。快答門檻用比較長的那個（12 秒）。
+- 角色扮演大挑戰的任務不能有 `textFills`。
 
 ## id 規則
 
@@ -269,15 +319,18 @@
 - 對比詞：id 和兩個字的 id 符合格式、不重複；有 `focus`；兩個字都有 `en`、`zh` 而且不一樣；任務的 `newPairIds` 都存在。
 - `stage` 的 `act` 合法；`want`／`give` 的 `item` 是同單元的單字，`ask` 不帶 `item`。
 - `spellWordIds` 有寫的話，是不重複、格式正確的單字 id 清單，不能是空的。`tests/content.test.ts` 再檢查每個字都在這個任務之前教過（照遊玩順序，可以是更早的單元）。
-- `kind` 只能是 `roleplay`。角色扮演任務：`newChunkIds`、`newWordIds` 是空的，沒有 `newPairIds`，也沒有 `cloze`、`signs`、`pictures`、`fills`、`passages`、`talks`；第一句是 NPC 說的，每句 `player` 台詞前面都是 NPC 的台詞；至少 2 句 `player` 台詞；台詞用的詞塊都在同一個單元更早的任務教過。
+- 任務數（2026-11-23）：第一、二幕的單元剛好 8 個任務、第三幕起 9 個，最後一個是角色扮演，其他任務都不是；不在任何一幕的單元不檢查。`validateUnit(unit, acts)` 的第二個參數預設是 `ACTS`，測試可以傳自己的幕。
+- `backdrop` 有寫的話是合法角色或 `main`；`tests/stageArt.test.ts` 再檢查角色 key 真的在那個單元小劇場的 `backdrops` 裡。
+- `kind` 只能是 `roleplay`。角色扮演任務：`newChunkIds`、`newWordIds` 是空的，沒有 `newPairIds`，也沒有 `cloze`、`signs`、`pictures`、`fills`、`passages`、`talks`、`textFills`；第一句是 NPC 說的，每句 `player` 台詞前面都是 NPC 的台詞；至少 2 句 `player` 台詞；台詞用的詞塊都在同一個單元更早的任務教過。
 - `cloze`（2026-11-22）：不能是空清單；`lineId` 是這個任務的台詞；`word` 是一個字，而且在那句台詞裡；同一句不能挖同一個字兩次；`distractors` 是 2 或 3 個不同的字，不能和答案一樣。
 - `signs`（2026-11-22）：不能是空清單；id 符合格式，整個單元內不重複；`heading` 有寫就不能是空的；至少一行，每行有 `label`；全部加起來最多 15 個字；問題有 `en` 和 `zh`；2 到 4 個不同的答案；`answer` 指到其中一個。
 - `pictures`（2026-11-22）：不能是空清單；id 和 `pictureId` 符合格式，id 在整個單元內不重複；2 到 4 個句子，都有 `en` 和 `zh`，英文不重複；`answer` 指到其中一個。
 - `fills`、`passages`、`talks`（2026-11-22 做出，2026-11-23 第二幕用上）：檢查各在 `src/content/checks/fills.ts`、`passages.ts`、`talks.ts`，共用的小工具在 `common.ts`。三種題型的選擇題（短文和對話的問題）一律要有 `en`、`zh`、2 到 4 個各不相同的選項（不分大小寫）和指到其中一個的 `answer`。訊息都指出是哪個題目、要改什麼。
   - `fills`：不能是空清單；一個任務最多 4 題；id 符合格式、整個單元內不重複。`en` 剛好一個 `___`（三個底線，不能有別的底線），前後沒有多餘的空白、沒有連續兩個空白、標點前沒有空白，空格不能貼在字上。`zh` 一定要有，不能含空格。選項 3 或 4 個，每個最多 3 個字、18 個字元、頭尾沒有空白、沒有底線；空格在句首時每個選項都要大寫開頭（或數字開頭）。`answer` 指到其中一個。`note` 有寫就不能是空的、最多 30 字。`chunkId` 有寫的話，必須是這個單元在這個任務或更早教的詞塊。答案放進去的整句最多 14 個字。
   - `fills` 和詞塊的關係（`checkFillChunks`，在整個單元層級檢查，因為要看單元的詞塊）：有 `chunkId` 的題目，把答案放進去的句子必須等於那個詞塊的 `en` 或 `accept`（不分大小寫，忽略句尾標點和空白）。
-  - `passages`：不能是空清單；一個任務最多 2 篇；`kind` 是 `message`、`flyer`、`notice`、`ad`、`form`、`email` 其中一個；`message` 和 `email` 一定要有 `title`，其他種類有寫就不能是空的；`lines` 至少 2 行，每行都不是空的；標題加內文 15 到 80 個字；每篇 1 到 3 個問題，同一篇裡不能有兩個一樣的問題。
-  - `talks`：不能是空清單；一個任務最多 1 段；id 符合格式、整個單元內不重複，欄位只能是 `id`、`lines`、`questions`；3 到 6 句，每句只有 `id`、`role`、`en`、`zh`，句子 id 符合格式、整個單元內不重複，`role` 是有聲線的合法角色，`en` 和 `zh` 都要有；剛好兩位說話者，他們的中文名稱不能一樣（例如兩個都顯示「店員」不行）；同一個人最多連說 2 句；1 到 3 個問題，同一段裡不能有兩個一樣的問題。
+  - `passages`：不能是空清單；一個任務最多 2 篇；`kind` 是 `message`、`flyer`、`notice`、`ad`、`form`、`email` 其中一個；`message` 和 `email` 一定要有 `title`，其他種類有寫就不能是空的；`lines` 至少 2 行，每行都不是空的；標題加內文 15 到 80 個字（第三幕起 160 個字）；每篇 1 到 3 個問題，同一篇裡不能有兩個一樣的問題。
+  - `talks`：不能是空清單；一個任務最多 1 段；id 符合格式、整個單元內不重複，欄位只能是 `id`、`kind`、`lines`、`questions`、`table`；3 到 6 句（第三幕起 8 句；聽獨白的規則見上方「第三幕的新題型」），每句只有 `id`、`role`、`en`、`zh`，句子 id 符合格式、整個單元內不重複，`role` 是有聲線的合法角色，`en` 和 `zh` 都要有；剛好兩位說話者，他們的中文名稱不能一樣（例如兩個都顯示「店員」不行）；同一個人最多連說 2 句；1 到 3 個問題，同一段裡不能有兩個一樣的問題。`table` 和 `kind` 的檢查見上方「第三幕的新題型」。
+  - 文法填空（`grammar`）也在 `fills.ts` 檢查；`textFills`（2026-11-23）在 `src/content/checks/textFills.ts`。限制依幕別的地方用 `TaskCheckContext.act`（`isLateAct`）。
 
 不合格的單元不會被載入，開發模式下會在 console 顯示警告。`tests/content.test.ts` 會檢查 `src/data/units/` 裡的每個單元。
 
@@ -290,7 +343,11 @@
 - `tests/stageArt.test.ts`：每個單元裡有台詞的角色，都在那個單元的小劇場設定裡。
 - `tests/stageState.test.ts`：兩個 NPC 不會站在同一點；站在 `beside` 位置說的台詞沒有 `want`、`ask`。
 - `tests/audioItems.test.ts`：看圖選句只有正確的那一句會變成音檔項目，用「你」的聲線；聽對話答題每句一個音檔項目，用那句的角色聲線（用小的測試單元檢查）。
-- `tests/fills.test.ts`、`tests/passages.test.ts`、`tests/talks.test.ts`：三種新題型的內容檢查和出題（用小的測試資料）。
+- `tests/fills.test.ts`、`tests/passages.test.ts`、`tests/talks.test.ts`：三種新題型的內容檢查和出題（用小的測試資料）；也測文法填空、聽獨白、對話加圖表和第三幕的長度。
+- `tests/textFills.test.ts`：段落填空的檢查、出題、練習順序和快答門檻。
+- `tests/content.test.ts` 的「tasks per act」：8／9 個任務的規則，和一個 9 個任務的測試單元（每個任務都能出題，9 個都做完才算完成）。
+- `tests/stageArt.test.ts`：每個有 `backdrop` 的任務（`main` 除外），寫的 key 都在那個單元小劇場的 `backdrops` 裡。
+- `tests/audioItems.test.ts`：`announcer` 說的聽獨白，每句一個音檔項目、id 合法、每個聲線家族都有 `announcer`。
 
 ## 現有單元
 

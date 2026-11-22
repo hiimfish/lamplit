@@ -76,7 +76,9 @@ export function Fill({ question, onAnswered }: MinigameProps<FillQuestion>) {
 
   return (
     <div class="mg fill">
-      <p class="mg-prompt">選出最適合放進空格的字</p>
+      <p class="mg-prompt">
+        {question.grammar ? '文法填空：選出正確的形式' : '選出最適合放進空格的字'}
+      </p>
       <div class="mg-say">
         <p class="fill-sentence" data-testid="fill-sentence" lang="en">
           {question.before}

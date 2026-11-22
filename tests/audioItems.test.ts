@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import cafe from '../src/data/units/cafe.json';
 import type { Unit } from '../src/content/types';
 import { unitToAudioItems } from '../src/content/audioItems';
-import { isValidAudioId } from '../src/audio/voices';
+import { VOICE_NAMES, isValidAudioId } from '../src/audio/voices';
 
 const unit = cafe as unknown as Unit;
 
@@ -99,6 +99,52 @@ describe('unitToAudioItems', () => {
       { id: 'bank.talk.k1_3', text: 'Sit down, please.', role: 'clerk' },
     ]);
     expect(result.every((item) => isValidAudioId(item.id))).toBe(true);
+  });
+
+  it('speaks a monologue by the announcer like any talk, with valid ids and a voice', () => {
+    const withMonologue: Unit = {
+      id: 'airport',
+      title: 't',
+      titleEn: 't',
+      chunks: [],
+      words: [],
+      tasks: [
+        {
+          id: 't7',
+          title: 't',
+          newChunkIds: [],
+          newWordIds: [],
+          scene: [],
+          talks: [
+            {
+              id: 't7_talk',
+              kind: 'monologue',
+              lines: [
+                { id: 't7_m1', role: 'announcer', en: 'Good evening.', zh: '晚安。' },
+                { id: 't7_m2', role: 'announcer', en: 'Flight 20 is late.', zh: '20 號班機延誤。' },
+                { id: 't7_m3', role: 'announcer', en: 'Thank you.', zh: '謝謝。' },
+              ],
+              questions: [
+                {
+                  en: 'What is late?',
+                  zh: '什麼延誤？',
+                  options: ['A flight', 'A bus'],
+                  answer: 0,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    };
+    const result = unitToAudioItems(withMonologue);
+    expect(result.map((item) => item.id)).toEqual([
+      'airport.talk.t7_m1',
+      'airport.talk.t7_m2',
+      'airport.talk.t7_m3',
+    ]);
+    expect(result.every((item) => item.role === 'announcer' && isValidAudioId(item.id))).toBe(true);
+    for (const family of Object.values(VOICE_NAMES)) expect(family.announcer).toBeTruthy();
   });
 
   it('keeps one item when ids collide and skips accept variants', () => {

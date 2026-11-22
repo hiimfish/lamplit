@@ -447,11 +447,30 @@ export function smoothnessBreaks(
 }
 
 /**
+ * A text fill's lines with every "___" replaced by its blank's answer, in reading order.
+ * (The same as fillLines in checks/textFills.ts; kept here so scripts/vocab-report.mjs,
+ * which runs this file in plain Node, needs no import with a run-time value.)
+ */
+function withAnswers(
+  lines: readonly string[],
+  blanks: readonly { options: string[]; answer: number }[],
+): string[] {
+  let i = 0;
+  return lines.map((line) =>
+    line.split('___').reduce((out, part) => {
+      const blank = blanks[i++];
+      return `${out}${blank?.options[blank.answer] ?? ''}${part}`;
+    }),
+  );
+}
+
+/**
  * Every English text a task's questions show besides the story, as lines to profile like a
  * story (tests/smoothness.test.ts checks they use only taught words): cloze words and their
  * wrong choices; signs with their question and options; picture sentences; each fill
- * sentence with each option in the blank; passages (title, lines, questions, options); and
- * talks (lines, questions, options).
+ * sentence with each option in the blank; passages (title, lines, questions, options);
+ * talks and monologues (lines, table title and cells, questions, options); and text fills
+ * (title, the lines with each blank's answer in, every option of every blank).
  */
 export function questionTexts(task: Task): SceneLine[] {
   const choices = (questions: readonly { en: string; options: string[] }[]) =>
@@ -467,7 +486,17 @@ export function questionTexts(task: Task): SceneLine[] {
     ...(task.pictures ?? []).flatMap((p) => p.options.map((o) => o.en)),
     ...(task.fills ?? []).flatMap((f) => f.options.map((o) => f.en.replace('___', o))),
     ...(task.passages ?? []).flatMap((p) => [p.title ?? '', ...p.lines, ...choices(p.questions)]),
-    ...(task.talks ?? []).flatMap((t) => [...t.lines.map((l) => l.en), ...choices(t.questions)]),
+    ...(task.talks ?? []).flatMap((t) => [
+      ...t.lines.map((l) => l.en),
+      t.table?.title ?? '',
+      ...(t.table?.rows.flat() ?? []),
+      ...choices(t.questions),
+    ]),
+    ...(task.textFills ?? []).flatMap((t) => [
+      t.title ?? '',
+      ...withAnswers(t.lines, t.blanks),
+      ...t.blanks.flatMap((b) => b.options),
+    ]),
   ];
   return texts
     .filter((en) => en !== '')

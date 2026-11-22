@@ -133,6 +133,14 @@ describe('checkPassages (讀短文)', () => {
     expect(said(passage({ title: undefined, lines: [words(7), words(7)] }))).toMatch(/14 words/);
   });
 
+  it('allows up to 160 words from Act 3 on', () => {
+    const inAct = (act: number, p: PassageItem) =>
+      checkPassages({ passages: [p] }, { ...context(), act }).join('\n');
+    expect(inAct(3, passage({ lines: [words(78), words(80)] }))).toBe('');
+    expect(inAct(3, passage({ lines: [words(78), words(81)] }))).toMatch(/161 words .*max 160/);
+    expect(inAct(2, passage({ lines: [words(38), words(41)] }))).toMatch(/max 80/);
+  });
+
   it('needs 1 to 3 good, different questions', () => {
     const q = passage().questions[0]!;
     const other = passage().questions[1]!;

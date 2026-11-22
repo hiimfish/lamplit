@@ -17,6 +17,17 @@ export interface Act {
   places: readonly ActPlace[];
 }
 
+/** The number of the act (1 to 4) a unit is in, or 0 when no act lists it (a test unit). */
+export function actOf(unitId: string, acts: readonly Act[]): number {
+  return acts.findIndex((act) => act.places.some((place) => place.unitId === unitId)) + 1;
+}
+
+/**
+ * How many tasks a unit of each act has, the last one the role-play: 8 in Acts 1 and 2,
+ * 9 from Act 3 on (index 0 is Act 1). A unit in no act may have any number.
+ */
+export const TASKS_PER_UNIT: readonly number[] = [8, 8, 9, 9];
+
 const soon = (...titles: string[]): ActPlace[] => titles.map((title) => ({ title }));
 
 export const ACTS: readonly Act[] = [

@@ -10,7 +10,7 @@ import { canvasPainter } from '../../game/painter';
 import type { PixelSprite } from '../../game/sprites';
 import { ItemIcon } from '../ItemIcon';
 import { stageArea, stageCanvasSize, type StageArea } from './stageArea';
-import { paintFor, rolesOnStage, sceneNpc, type StageView } from './stageState';
+import { backdropKey, paintFor, rolesOnStage, type StageView } from './stageState';
 import './stage.css';
 
 function hasStage(unitId: string): boolean {
@@ -27,6 +27,8 @@ interface Props {
   unit: Unit;
   /** The current task's story: only the NPCs who speak in it are drawn. */
   scene: readonly SceneLine[];
+  /** The task's `backdrop` (which background to paint, whoever speaks), if it sets one. */
+  backdrop?: Role | 'main';
   view: StageView;
   /**
    * How many scene lines are on screen (all of them once the story is over). An
@@ -66,12 +68,12 @@ function backgroundUrl(
   unitId: string,
   config: StageConfig,
   scene: readonly SceneLine[],
+  taskBackdrop: Role | 'main' | undefined,
   w: number,
   h: number,
 ): string | undefined {
   // The backdrop in use is part of the key: a location with two backgrounds keeps both.
-  const npc = sceneNpc(scene);
-  const backdrop = npc && config.backdrops?.[npc] ? npc : '';
+  const backdrop = backdropKey(config, scene, taskBackdrop) ?? '';
   const key = `${unitId}:${backdrop}:${w}x${h}`;
   const cached = backgrounds.get(key);
   if (cached) return cached;
@@ -81,7 +83,7 @@ function backgroundUrl(
   canvas.height = h;
   const ctx = canvas.getContext('2d');
   if (!ctx) return undefined;
-  paintFor(config, scene)(canvasPainter(ctx), w, h);
+  paintFor(config, scene, taskBackdrop)(canvasPainter(ctx), w, h);
   const url = canvas.toDataURL('image/png');
   if (backgrounds.size >= 16) backgrounds.clear(); // only a few screen sizes are ever live
   backgrounds.set(key, url);
@@ -277,12 +279,12 @@ function StageBubbleView({
  * pixels and anchored at the bottom left, so every pixel lands on the device
  * grid); characters, bubbles and props are placed relative to the core.
  */
-export function SceneStage({ unit, scene, view, beat, talking, area }: Props) {
+export function SceneStage({ unit, scene, backdrop, view, beat, talking, area }: Props) {
   const config = stageFor(unit.id);
   if (!config) return null;
   const { w: W, h: H } = stageCanvasSize(area);
   const place: Placing = { config, ...coreOrigin(W, H) };
-  const bg = backgroundUrl(unit.id, config, scene, W, H);
+  const bg = backgroundUrl(unit.id, config, scene, backdrop, W, H);
   const roles = rolesOnStage(Object.keys(config.cast) as Role[], scene, beat);
   const emoji: EmojiOf = (item) => unit.words.find((w) => w.id === item)?.emoji;
 

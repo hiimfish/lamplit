@@ -2,9 +2,14 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import cafe from '../src/data/units/cafe.json';
+import { ACTS, TASKS_PER_UNIT, actOf, type Act } from '../src/content/acts';
+import type { Task, Unit } from '../src/content/types';
 import { UNITS, getItem, getUnit, speakerOf, taskItemIds } from '../src/content/units';
 import { validateUnit } from '../src/content/validate';
-import { buildRolePlayTurns, makeRng } from '../src/learning/questionGen';
+import { createEmptySave } from '../src/core/save';
+import { buildRolePlayTurns, buildTaskPractice, makeRng } from '../src/learning/questionGen';
+import { finishTask, isTaskUnlocked, taskKey } from '../src/learning/sessionPlan';
+import { firstNewTask, nextStop, progressOf } from '../src/learning/townPlan';
 
 const UNIT_DIR = join(__dirname, '..', 'src', 'data', 'units');
 const unitFiles = readdirSync(UNIT_DIR).filter((f) => f.endsWith('.json'));
@@ -359,12 +364,13 @@ describe('role-play tasks', () => {
       },
     ],
   });
-  /** The café unit with a role-play task added last (or first) after `edit`. */
+  /** The café unit with its role-play replaced by this one after `edit` (put last, or first). */
   const problems = (edit: (task: RolePlayTask) => void = () => {}, first = false) => {
     const unit = copy();
     const task = rolePlay();
     edit(task);
     const tasks = unit.tasks as unknown[];
+    tasks.pop();
     if (first) tasks.unshift(task);
     else tasks.push(task);
     return validateUnit(unit);
@@ -394,7 +400,7 @@ describe('role-play tasks', () => {
   });
 
   it('rejects chunks not taught before it', () => {
-    expect(problems(() => {}, true)).not.toEqual([]);
+    expect(problems(() => {}, true)).toContainEqual(expect.stringContaining('not taught before'));
   });
 
   it.each(UNITS.map((u) => u.id))('%s ends with a role-play, one turn per player line', (id) => {
@@ -404,5 +410,138 @@ describe('role-play tasks', () => {
     expect(unit.tasks.filter((t) => t.kind === 'roleplay')).toHaveLength(1);
     const players = last.scene.filter((l) => l.speaker === 'player');
     expect(buildRolePlayTurns(unit, last, makeRng(1))).toHaveLength(players.length);
+  });
+});
+
+describe('tasks per act', () => {
+  /** Acts like ACTS but small: Act 1 holds "first", Act 3 holds "third" (Act 2 is empty). */
+  const acts: Act[] = [
+    { no: '一', title: 'a', places: [{ title: 'first', unitId: 'first' }] },
+    { no: '二', title: 'b', places: [] },
+    { no: '三', title: 'c', places: [{ title: 'third', unitId: 'third' }] },
+  ];
+
+  /** A unit with `count` tasks: t1..t(count-1) teach one chunk each, the last is the role-play. */
+  const unitOf = (id: string, count: number): Unit => {
+    const chunks = Array.from({ length: count - 1 }, (_, i) => ({
+      id: `${id}_c${i + 1}`,
+      en: `I can help you ${i + 1}.`,
+      zh: '我可以幫你。',
+    }));
+    const tasks: Task[] = chunks.map((chunk, i) => ({
+      id: `t${i + 1}`,
+      title: `任務 ${i + 1}`,
+      newChunkIds: [chunk.id],
+      newWordIds: [],
+      scene: [
+        {
+          id: `t${i + 1}_1`,
+          role: 'manager',
+          speaker: 'npc',
+          en: 'Can you help?',
+          zh: '可以幫忙嗎？',
+        },
+        {
+          id: `t${i + 1}_2`,
+          role: 'guide',
+          speaker: 'player',
+          en: chunk.en,
+          zh: chunk.zh,
+          chunkId: chunk.id,
+        },
+      ],
+    }));
+    tasks.push({
+      id: `t${count}`,
+      title: '角色扮演大挑戰',
+      kind: 'roleplay',
+      newChunkIds: [],
+      newWordIds: [],
+      scene: [chunks[0]!, chunks[1]!].flatMap((chunk, i) => [
+        {
+          id: `rp_${i}_1`,
+          role: 'manager' as const,
+          speaker: 'npc' as const,
+          en: 'Hi!',
+          zh: '嗨！',
+        },
+        {
+          id: `rp_${i}_2`,
+          role: 'guide' as const,
+          speaker: 'player' as const,
+          en: chunk.en,
+          zh: chunk.zh,
+          chunkId: chunk.id,
+        },
+      ]),
+    });
+    return { id, title: id, titleEn: id, chunks, words: [], tasks };
+  };
+
+  it('keeps 8 tasks in Acts 1 and 2, 9 in Act 3, the last one the role-play', () => {
+    expect(TASKS_PER_UNIT.slice(0, 3)).toEqual([8, 8, 9]);
+    expect(actOf('first', acts)).toBe(1);
+    expect(actOf('third', acts)).toBe(3);
+    expect(actOf('nowhere', acts)).toBe(0);
+    expect(validateUnit(unitOf('first', 8), acts)).toEqual([]);
+    expect(validateUnit(unitOf('third', 9), acts)).toEqual([]);
+    expect(validateUnit(unitOf('first', 9), acts)).toEqual([
+      expect.stringContaining('has 9 tasks; a unit of Act 1 has 8'),
+    ]);
+    expect(validateUnit(unitOf('third', 8), acts)).toEqual([
+      expect.stringContaining('has 8 tasks; a unit of Act 3 has 9'),
+    ]);
+    // A unit in no act (a test unit) may have any number of tasks.
+    expect(validateUnit(unitOf('nowhere', 5), acts)).toEqual([]);
+  });
+
+  it('needs the role-play last and only last', () => {
+    const swapped = unitOf('third', 9);
+    swapped.tasks.reverse();
+    expect(validateUnit(swapped, acts)).toEqual(
+      expect.arrayContaining([
+        expect.stringContaining('last task "t1" must be the role-play'),
+        expect.stringContaining('task "t9" is a role-play; only the last'),
+      ]),
+    );
+  });
+
+  it('uses the real acts by default', () => {
+    expect(actOf('airport', ACTS)).toBe(3);
+    expect(actOf('cafe', ACTS)).toBe(1);
+    expect(validateUnit(unitOf('airport', 9))).toEqual([]);
+    expect(validateUnit(unitOf('airport', 8))).not.toEqual([]);
+  });
+
+  it('plays a 9-task unit: practice for every task, and finished when all 9 are done', () => {
+    const unit = unitOf('third', 9);
+    expect(unit.tasks).toHaveLength(9);
+    for (const task of unit.tasks.slice(0, 8)) {
+      expect(buildTaskPractice(unit, task, makeRng(1)).length, task.id).toBeGreaterThan(0);
+    }
+    expect(buildRolePlayTurns(unit, unit.tasks[8]!, makeRng(1))).toHaveLength(2);
+
+    const now = new Date('2026-11-23T10:00:00');
+    let save = createEmptySave(now);
+    unit.tasks.forEach((task, i) => {
+      expect(isTaskUnlocked(save, unit, i), task.id).toBe(true);
+      expect(firstNewTask(save, unit)).toBe(i);
+      save = finishTask(save, taskKey(unit.id, task.id), [], now).save;
+    });
+    expect(firstNewTask(save, unit)).toBe(-1);
+    expect(nextStop(save, [unit])).toBeUndefined();
+    expect(progressOf(save, [unit])).toMatchObject({ done: 9, total: 9, maxStars: 27 });
+  });
+
+  it('accepts a task backdrop that is a role or "main", nothing else', () => {
+    const withBackdrop = (backdrop: unknown) => {
+      const unit = unitOf('third', 9) as unknown as { tasks: Record<string, unknown>[] };
+      unit.tasks[0]!.backdrop = backdrop;
+      return validateUnit(unit, acts);
+    };
+    expect(withBackdrop('coworker')).toEqual([]);
+    expect(withBackdrop('main')).toEqual([]);
+    expect(withBackdrop('gate')).toEqual([expect.stringContaining('bad backdrop "gate"')]);
+    expect(withBackdrop(3)).not.toEqual([]);
   });
 });

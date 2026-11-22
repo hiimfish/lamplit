@@ -7,12 +7,12 @@ import { CLERK_SPRITE, STORE_COUNTER } from '../src/art/stage/store';
 import { VOICE_NAMES } from '../src/audio/voices';
 import { ROLE_LABEL } from '../src/content/roles';
 import type { Role, SceneLine } from '../src/content/types';
-import { getUnit } from '../src/content/units';
+import { UNITS, getUnit } from '../src/content/units';
 import { recordingPainter, type Painter } from '../src/game/painter';
 import { isPaletteName } from '../src/game/palette';
 import { PERSON_H, PERSON_W, validateSprite } from '../src/game/sprites';
 import { computeLayout } from '../src/layout';
-import { paintFor } from '../src/ui/stage/stageState';
+import { backdropKey, paintFor } from '../src/ui/stage/stageState';
 import {
   CORE_VIEW_W,
   CORE_VIEW_X,
@@ -119,6 +119,36 @@ describe('stage art', () => {
     expect(paintFor(config, [line('guide')])).toBe(paint);
     expect(paintFor(config, [])).toBe(paint);
     expect(paintFor({ paint } as unknown as StageConfig, [line('landlord')])).toBe(paint);
+  });
+
+  it('lets a task choose its backdrop, whoever speaks, or force the main picture', () => {
+    const paint = () => {};
+    const gate = () => {};
+    const config = { paint, backdrops: { coworker: gate } } as unknown as StageConfig;
+    const line = (role: Role) => ({ id: role, role, text: '' }) as unknown as SceneLine;
+    // The airline agent speaks at the gate, which is stored under the coworker.
+    expect(paintFor(config, [line('airline_agent')], 'coworker')).toBe(gate);
+    expect(backdropKey(config, [line('airline_agent')], 'coworker')).toBe('coworker');
+    // Dan speaks first at check-in, but the task wants the main picture.
+    expect(paintFor(config, [line('coworker')], 'main')).toBe(paint);
+    expect(backdropKey(config, [line('coworker')], 'main')).toBeUndefined();
+    // Left out: the first NPC decides, as before.
+    expect(paintFor(config, [line('coworker')])).toBe(gate);
+    expect(paintFor(config, [line('airline_agent')])).toBe(paint);
+    // A backdrop the stage does not have falls back to the main picture.
+    expect(paintFor(config, [line('coworker')], 'manager')).toBe(paint);
+  });
+
+  // A task's `backdrop` must name a background its stage has ("main" is always there).
+  it('names only backdrops the unit stage has', () => {
+    const bad = UNITS.flatMap((unit) =>
+      unit.tasks.flatMap((task) => {
+        if (task.backdrop === undefined || task.backdrop === 'main') return [];
+        const backdrops = stageFor(unit.id)?.backdrops ?? {};
+        return task.backdrop in backdrops ? [] : [`${unit.id}/${task.id}: ${task.backdrop}`];
+      }),
+    );
+    expect(bad).toEqual([]);
   });
 
   it('centres the core across and puts a little floor under it', () => {

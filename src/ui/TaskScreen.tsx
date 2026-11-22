@@ -190,6 +190,7 @@ export function TaskScreen() {
           frame={frame}
           unit={unit}
           scene={task.scene}
+          backdrop={task.backdrop}
           view={view}
           beat={shown}
           talking={talking}

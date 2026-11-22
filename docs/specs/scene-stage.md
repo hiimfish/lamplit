@@ -390,7 +390,7 @@
 - 核心以外：大廳往上是天花板、吊著的分區字母（A 到 D）和一排高窗，左邊是入口和自助報到機，右邊是更多櫃台；登機門的玻璃往上變高，兩邊是更多座椅和飛機。
 - 地勤人員（`airline_agent`）：站在櫃台後面 (96, 28)，y 48 以下被遮住（`clipBottom` 48）。同事 Dan（`coworker`）：站在小桌尾端旁邊的地板上 (82, 39)；和地勤同台時也站這裡（他的 `beside` 是同一個位置），這時是在櫃台前面、她的左邊。
 - 想法泡泡：右邊 (62, 4)。疑問泡泡：右邊 (88, 18)。道具放在檯面上：你這邊 (42, 28)、對方那邊 (56, 28)。
-- 一個角色只有一個地方：背景看的是任務裡第一個說話的 NPC（見下方「舞台設定」）。照分配表，地勤在 t2（報到櫃台）和 t5（登機門的櫃台）出場，這兩個任務都會顯示報到大廳；Dan 先說話的任務都顯示登機門，不管劇情是在哪裡。
+- 一個角色只有一個地方：背景看的是任務裡第一個說話的 NPC（見下方「舞台設定」）。照分配表，地勤在 t2（報到櫃台）和 t5（登機門的櫃台）出場，這兩個任務都會顯示報到大廳；Dan 先說話的任務都顯示登機門，不管劇情是在哪裡。這要用任務的 `backdrop` 修正（2026-11-23 起可以用）：t5 寫 `"backdrop": "coworker"` 顯示登機門，Dan 先說話但在報到大廳的任務寫 `"backdrop": "main"`。
 
 ### 飯店（`src/art/stage/hotel.ts`）
 
@@ -426,9 +426,10 @@ Harbor Trading 二十週年派對當晚的宴會廳（程式裡叫 Lakeside Hall
 
 - `src/art/stage/config.ts`（2026-11-22 新增）放共用的型別和「你」：
   - `StageConfig`：一個場景的整份設定：`paint`（背景繪製函式，任意大小）、選填 `backdrops`（見下）、`cast`（每個 `role` 的角色圖、位置、站哪一邊，選填 `clipBottom` 和 `beside`）、`want`／`ask`（左右兩邊泡泡的位置）、`rest`（左右兩邊道具放的位置）。
-  - `backdrops?: Partial<Record<Role, (p: Painter, w: number, h: number) => void>>`：同一個地點的任務發生在兩個地方時（修車與維修：房東在你家廚房、師傅在修車廠；上班前一天：主管在電話裡、鄰居在你家客廳），讓某個 NPC 的場景改用另一張背景。規則：看這個任務場景裡第一句不是你說的台詞，由誰說（`sceneNpc`）；`backdrops` 有那個角色就用它畫背景，沒有就用 `paint`；場景裡沒有 NPC 台詞也用 `paint`。沒設 `backdrops` 的場景完全照舊。每個 `backdrops` 的函式和 `paint` 一樣：任意大小、只用調色盤顏色、整數座標、不超出舞台、同樣輸入畫出同樣畫面，測試對每一張都檢查。背景圖快取的鍵含用的是哪一張（`單元:角色:寬x高`），所以兩張背景不會互相蓋掉。選擇的程式是 `stageState.ts` 的 `paintFor(config, scene)`；任務畫面和小鎮畫面都用它（小鎮畫面顯示的是一個真的任務的場景，所以跟著那個任務選背景）。
+  - `backdrops?: Partial<Record<Role, (p: Painter, w: number, h: number) => void>>`：同一個地點的任務發生在兩個地方時（修車與維修：房東在你家廚房、師傅在修車廠；上班前一天：主管在電話裡、鄰居在你家客廳），讓某個 NPC 的場景改用另一張背景。規則：看這個任務場景裡第一句不是你說的台詞，由誰說（`sceneNpc`）；`backdrops` 有那個角色就用它畫背景，沒有就用 `paint`；場景裡沒有 NPC 台詞也用 `paint`。沒設 `backdrops` 的場景完全照舊。每個 `backdrops` 的函式和 `paint` 一樣：任意大小、只用調色盤顏色、整數座標、不超出舞台、同樣輸入畫出同樣畫面，測試對每一張都檢查。背景圖快取的鍵含用的是哪一張（`單元:角色:寬x高`），所以兩張背景不會互相蓋掉。選擇的程式是 `stageState.ts` 的 `paintFor(config, scene, backdrop)`（第三個參數是任務的 `backdrop`，見下）；任務畫面和小鎮畫面都用它（小鎮畫面顯示的是一個真的任務的場景，所以跟著那個任務選背景）。
     範例：`backdrops: { landlord: paintKitchen }`，`paint`（`paintShop`）畫修車廠。第二幕只有修車與維修和上班前一天用 `backdrops`。第三幕有四個場景用：電話與留言（`client`：客戶在電話畫框裡）、客戶服務（`customer`：顧客在電話畫框裡）、機場（`coworker`：登機門）、飯店（`manager`：房間裡的語音留言）。30 個場景合計 36 張背景。
-    限制：一個任務只用一張背景，而且只看第一個說話的 NPC 是誰，所以同一個角色在同一個地點不能有兩個地方。第三幕會碰到的：採購與廠商的 Jack 有幾個任務是在電話裡，畫面上還是會客桌；機場的地勤在登機門櫃台的那個任務，顯示的還是報到大廳；報到與人事只有人資辦公室一張背景。目前沒有讓任務自己指定背景的欄位。
+    限制：一個任務只用一張背景，而且只看第一個說話的 NPC 是誰，所以同一個角色在同一個地點不能有兩個地方。第三幕會碰到的：採購與廠商的 Jack 有幾個任務是在電話裡，畫面上還是會客桌；機場的地勤在登機門櫃台的那個任務，顯示的還是報到大廳；報到與人事只有人資辦公室一張背景。
+    任務指定背景（`tasks[].backdrop`，2026-11-23）：任務可以自己決定用哪一張，不管誰先說話。寫 `backdrops` 裡的一個角色 key（例如機場 t5 地勤在登機門說話，寫 `"backdrop": "coworker"` 用登機門那張；飯店的語音留言房間寫 `"backdrop": "manager"`），或寫 `"main"` 強制用一般的 `paint`（例如機場 Dan 先說話、但人在報到大廳的任務）。不寫就照上面的規則看第一個說話的 NPC。寫的 key 那個場景沒有時，也用 `paint`。程式是 `stageState.ts` 的 `backdropKey(config, scene, backdrop)` 和 `paintFor(config, scene, backdrop)`；`SceneStage` 多一個 `backdrop` 屬性，任務畫面和小鎮畫面都傳 `task.backdrop`，背景快取的鍵也照它算。`validateUnit` 檢查值是合法角色或 `main`，`tests/stageArt.test.ts` 再檢查每個有寫的任務（`main` 除外），key 都在那個單元小劇場的 `backdrops` 裡。這只換背景，角色還是照原本的規則出現（有台詞的 NPC 才畫）。
   - `StageSide`：`left` 或 `right`。
   - `GUIDE_ACTOR`：你。每個場景都是主角 `walker` 的站姿，在 (20, 39)、左邊。
 - 新的 7 個場景各自在自己的檔案組好設定並匯出：`STREET_STAGE`、`MARKET_STAGE`、`CLOTHES_STAGE`、`CLINIC_STAGE`、`RESTAURANT_STAGE`、`POST_OFFICE_STAGE`、`PARK_STAGE`；第二幕的 8 個場景也一樣：`BANK_STAGE`、`COMMUNITY_CENTER_STAGE`、`LIBRARY_STAGE`、`REPAIR_STAGE`、`JOB_CENTER_STAGE`、`RESUME_STAGE`、`INTERVIEW_STAGE`、`DAY_BEFORE_STAGE`；第三幕的 12 個場景也一樣：`ONBOARDING_STAGE`、`OFFICE_STAGE`、`PHONE_STAGE`、`EMAIL_STAGE`、`MEETING_STAGE`、`PURCHASING_STAGE`、`WAREHOUSE_STAGE`、`CUSTOMER_SERVICE_STAGE`、`AIRPORT_STAGE`、`HOTEL_STAGE`、`TRADE_FAIR_STAGE`、`COMPANY_EVENT_STAGE`，在對照表裡的單元 id 是 `onboarding`、`office`、`phone`、`email`、`meeting`、`purchasing`、`warehouse`、`customer_service`、`airport`、`hotel`、`trade_fair`、`company_event`。`src/art/stage/index.ts` 只把它們依單元 id 列進對照表。

@@ -50,7 +50,15 @@ export interface TaskCheckContext {
   taughtChunks: ReadonlySet<string>;
   /** True for a role name the game knows (see ROLES in validate.ts). */
   isRole: (value: unknown) => boolean;
+  /**
+   * The act of the unit (1 to 4; actOf in src/content/acts.ts), for limits that grow from
+   * Act 3 on. Absent or 0 for a unit in no act: it gets the Act 1 limits.
+   */
+  act?: number;
 }
+
+/** True when a check should use the limits of Act 3 and later. */
+export const isLateAct = (ctx: Pick<TaskCheckContext, 'act'>) => (ctx.act ?? 0) >= 3;
 
 /**
  * Checks an id: pattern, then unique among `seen` (added when it is new). Returns a

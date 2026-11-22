@@ -15,9 +15,11 @@ import {
   wordCount,
   type TaskCheckContext,
 } from './checks/common';
+import { ACTS, TASKS_PER_UNIT, actOf, type Act } from './acts';
 import { checkFillChunks, checkFills } from './checks/fills';
 import { checkPassages } from './checks/passages';
 import { checkTalks } from './checks/talks';
+import { checkTextFills } from './checks/textFills';
 
 const ROLES = [
   'barista',
@@ -57,13 +59,19 @@ const ROLES = [
 ];
 const SPEAKERS = ['npc', 'player'];
 
-export function validateUnit(unit: unknown): string[] {
+/**
+ * Some limits depend on the act the unit is in (looked up by id in `acts`, by default
+ * ACTS from src/content/acts.ts): the number of tasks, and longer passages and
+ * conversations from Act 3 on. A unit in no act gets the Act 1 limits and any number of tasks.
+ */
+export function validateUnit(unit: unknown, acts: readonly Act[] = ACTS): string[] {
   const problems: string[] = [];
   if (!isObject(unit)) return ['unit is not an object'];
   const unitId = typeof unit.id === 'string' ? unit.id : '';
   const where = (path: string) => `${unitId || '?'}: ${path}`;
   if (!ID_PATTERN.test(unitId)) problems.push(where(`bad unit id "${String(unit.id)}"`));
   if (!isText(unit.title)) problems.push(where('missing title'));
+  const act = actOf(unitId, acts);
 
   /** Checks ids in one list: pattern and uniqueness. Returns the valid ids. */
   const ids = (items: Record<string, unknown>[], label: string, seen = new Set<string>()) => {
@@ -92,6 +100,7 @@ export function validateUnit(unit: unknown): string[] {
   const chunkIds = ids(chunks ?? [], 'chunk');
   const wordIds = ids(words ?? [], 'word');
   ids(tasks ?? [], 'task');
+  if (tasks) checkTaskCount(tasks, act, (p) => problems.push(where(p)));
   const pairIds = checkPairs(unit.pairs, problems, where);
 
   // Line audio ids are `${unitId}.line.${id}`, so line ids are unique across the unit.
@@ -113,6 +122,11 @@ export function validateUnit(unit: unknown): string[] {
     const taskId = String(task.id);
     if (task.kind !== undefined && task.kind !== 'roleplay') {
       problems.push(where(`task "${taskId}" has bad kind "${String(task.kind)}"`));
+    }
+    if (task.backdrop !== undefined && task.backdrop !== 'main' && !isRole(task.backdrop)) {
+      problems.push(
+        where(`task "${taskId}" has bad backdrop "${String(task.backdrop)}" (a role, or "main")`),
+      );
     }
     const refs = (
       key: 'newChunkIds' | 'newWordIds' | 'newPairIds',
@@ -185,8 +199,11 @@ export function validateUnit(unit: unknown): string[] {
       seen,
       taughtChunks: new Set([...taughtChunks, ...newChunks]),
       isRole,
+      act,
     };
-    for (const check of [checkFills, checkPassages, checkTalks]) check(task, ctx).forEach(report);
+    for (const check of [checkFills, checkPassages, checkTalks, checkTextFills]) {
+      check(task, ctx).forEach(report);
+    }
     if (task.kind === 'roleplay') checkRolePlay(task, scene, taughtChunks, report);
     if (Array.isArray(task.newChunkIds)) {
       for (const id of task.newChunkIds) if (typeof id === 'string') taughtChunks.add(id);
@@ -195,6 +212,31 @@ export function validateUnit(unit: unknown): string[] {
   // A fill that names a chunk must be that chunk; this needs the whole unit, and a unit in shape.
   if (problems.length === 0) problems.push(...checkFillChunks(unit));
   return problems;
+}
+
+/**
+ * A unit of an act has that act's number of tasks (TASKS_PER_UNIT: 8 in Acts 1 and 2, 9
+ * from Act 3 on), and the last one, only the last, is the role-play. A unit in no act
+ * (`act` 0) may have any tasks.
+ */
+function checkTaskCount(
+  tasks: Record<string, unknown>[],
+  act: number,
+  report: (problem: string) => void,
+): void {
+  const expected = TASKS_PER_UNIT[act - 1];
+  if (expected === undefined) return;
+  if (tasks.length !== expected) {
+    report(`has ${tasks.length} tasks; a unit of Act ${act} has ${expected}, the last a role-play`);
+  }
+  tasks.forEach((task, i) => {
+    const last = i === tasks.length - 1;
+    if (last && task.kind !== 'roleplay') {
+      report(`last task "${String(task.id)}" must be the role-play (kind "roleplay")`);
+    } else if (!last && task.kind === 'roleplay') {
+      report(`task "${String(task.id)}" is a role-play; only the last task may be one`);
+    }
+  });
 }
 
 /**
@@ -213,7 +255,7 @@ function checkRolePlay(
     report('is a role-play and must not teach new items');
   }
   // A role-play has no practice round, so these questions would never be asked.
-  for (const key of ['cloze', 'signs', 'pictures', 'fills', 'passages', 'talks']) {
+  for (const key of ['cloze', 'signs', 'pictures', 'fills', 'passages', 'talks', 'textFills']) {
     if (task[key] !== undefined) report(`is a role-play and must not have ${key}`);
   }
   if (scene[0]?.speaker !== 'npc') report('role-play must start with an NPC line');

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { nowPlaying, playAudio, preloadAudio, stopAudio } from '../../audio/pronounce';
 import { ROLE_LABEL } from '../../content/roles';
+import type { TalkTable } from '../../content/types';
 import { settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
 import type { TalkQuestion } from '../../learning/questions';
@@ -141,7 +142,40 @@ export function optionForKey(e: KeyboardEvent, count: number): number | null {
 }
 
 /**
- * 聽對話答題 (TOEIC Part 3): the conversation plays line by line with no text, only the two
+ * The table of a talk with a graphic (minimal version: plain text, the first row the
+ * header), shown while listening and while answering.
+ */
+function TalkTableView({ table }: { table: TalkTable }) {
+  const [header, ...rows] = table.rows;
+  return (
+    <table class="talk-table" data-testid="talk-table" lang="en">
+      {table.title && <caption>{table.title}</caption>}
+      {header && (
+        <thead>
+          <tr>
+            {header.map((cell, i) => (
+              <th key={i} scope="col">
+                {cell}
+              </th>
+            ))}
+          </tr>
+        </thead>
+      )}
+      <tbody>
+        {rows.map((row, r) => (
+          <tr key={r}>
+            {row.map((cell, i) => (
+              <td key={i}>{cell}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
+/**
+ * 聽對話答題 (TOEIC Part 3) and 聽獨白答題 (Part 4, `monologue`): the conversation plays line by line with no text, only the two
  * speaker tags (the one talking marked) and a line count; then the question and its answers
  * show. The first question on a talk plays it; later questions on the same talk start at
  * the question. 再聽一次 plays the whole conversation again and counts as help. After
@@ -235,9 +269,10 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
   return (
     <div class="mg talk">
       <p class="mg-prompt">
-        聽對話，回答問題
+        {question.monologue ? '聽獨白，回答問題' : '聽對話，回答問題'}
         {question.total > 1 && `（${question.index + 1}／${question.total}）`}
       </p>
+      {question.table && <TalkTableView table={question.table} />}
       <div class="mg-row">
         <button
           type="button"

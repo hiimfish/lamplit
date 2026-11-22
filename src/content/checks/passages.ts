@@ -8,6 +8,7 @@
 import {
   checkChoiceQuestion,
   checkId,
+  isLateAct,
   isText,
   list,
   sameText,
@@ -20,9 +21,10 @@ export const PASSAGE_KINDS = ['message', 'flyer', 'notice', 'ad', 'form', 'email
 /** Kinds whose `title` is part of the text (the sender of a message, an email's subject). */
 export const PASSAGE_KINDS_WITH_TITLE = ['message', 'email'];
 
-/** Shortest and longest passage, title and lines together. */
+/** Shortest and longest passage, title and lines together (longer from Act 3 on). */
 export const PASSAGE_MIN_WORDS = 15;
 export const PASSAGE_MAX_WORDS = 80;
+export const PASSAGE_MAX_WORDS_LATE = 160;
 
 /** At least this many lines: a one-line text is a sign, not a passage. */
 export const PASSAGE_MIN_LINES = 2;
@@ -80,10 +82,9 @@ export function checkPassages(task: Record<string, unknown>, ctx: TaskCheckConte
     } else {
       const title = isRealText(passage.title) ? passage.title : '';
       const words = wordCount([title, ...lines].join(' '));
-      if (words > PASSAGE_MAX_WORDS) {
-        problems.push(
-          `${label} has ${words} words with the title (max ${PASSAGE_MAX_WORDS}): shorten it`,
-        );
+      const max = isLateAct(ctx) ? PASSAGE_MAX_WORDS_LATE : PASSAGE_MAX_WORDS;
+      if (words > max) {
+        problems.push(`${label} has ${words} words with the title (max ${max}): shorten it`);
       } else if (words < PASSAGE_MIN_WORDS) {
         problems.push(
           `${label} has ${words} words with the title (min ${PASSAGE_MIN_WORDS}): a shorter text is a sign`,

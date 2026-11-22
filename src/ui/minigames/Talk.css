@@ -124,3 +124,27 @@
   gap: calc(3 * var(--px));
   padding: calc(4 * var(--px)) calc(6 * var(--px));
 }
+
+/* A talk's table (Part 3 with a graphic), minimal version: plain text on paper, ruled cells. */
+.talk-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: calc(11 * var(--px));
+  line-height: 1.4;
+}
+
+.talk-table caption {
+  padding-bottom: calc(2 * var(--px));
+  color: var(--paper);
+  font-weight: bold;
+  text-align: left;
+}
+
+.talk-table th,
+.talk-table td {
+  padding: calc(1 * var(--px)) calc(3 * var(--px));
+  border: var(--px) solid var(--dim);
+  text-align: left;
+}

@@ -1,5 +1,5 @@
 /**
- * 句子填空 (TOEIC Part 5): one question per FillItem of a task. No audio.
+ * 句子填空 and 文法填空 (TOEIC Part 5): one question per FillItem of a task. No audio.
  * Deterministic for a given rng; the rendering is src/ui/minigames/Fill.tsx.
  */
 import type { Task } from '../../content/types';
@@ -22,6 +22,8 @@ export interface FillQuestion {
   correctId: string;
   /** The sentence's `chunk:<id>` when it has one, else NO_ITEM. */
   itemId: string;
+  /** 文法填空: the options are forms of one word (the screen says so). */
+  grammar?: true;
 }
 
 const BLANK = '___';
@@ -43,6 +45,7 @@ export function fillQuestions(task: Task, rng: Rng): FillQuestion[] {
       itemId: fill.chunkId ? chunkItemId(fill.chunkId) : NO_ITEM,
     };
     if (fill.note) question.note = fill.note;
+    if (fill.grammar) question.grammar = true;
     return [question];
   });
 }

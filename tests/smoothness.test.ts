@@ -143,6 +143,18 @@ describe('smoothness limits per act', () => {
     expect(run({ newItems: 6 })).toHaveLength(1);
   });
 
+  it('gives the real Act 3 units the Act 2 values, item growth +1 included', () => {
+    expect(smoothnessFor('airport', ACTS)).toEqual(smoothnessFor('bank', ACTS));
+    expect(smoothnessFor('onboarding', ACTS).maxItemGrowth).toBe(1);
+    const act3 = (over: Partial<TaskProfile> = {}) => task({ unitId: 'airport', ...over });
+    expect(smoothnessBreaks([act3({ newItems: 10 }), act3({ newItems: 11 })], lists, ACTS)).toEqual(
+      [],
+    );
+    expect(
+      smoothnessBreaks([act3({ newItems: 10 }), act3({ newItems: 12 })], lists, ACTS),
+    ).toHaveLength(1);
+  });
+
   it('gives Acts 3 and 4 the Act 2 values for now', () => {
     const acts: Act[] = ['a', 'b', 'c', 'd'].map((id) => ({
       no: id,
@@ -213,6 +225,116 @@ describe('questionTexts', () => {
       'A clerk',
       'A doctor',
     ]);
+  });
+
+  it('takes the lines and the table of a talk, and the lines of a monologue', () => {
+    const lines = [
+      { id: 'k1_1', role: 'clerk' as const, en: 'It ships on Monday.', zh: '星期一出貨。' },
+      { id: 'k1_2', role: 'friend' as const, en: 'Good.', zh: '好。' },
+    ];
+    const questions = [{ en: 'When?', zh: '何時？', options: ['Monday', 'Friday'], answer: 0 }];
+    const table = {
+      title: 'Shipping',
+      rows: [
+        ['Order', 'Day'],
+        ['Lamps', 'Monday'],
+      ],
+    };
+    expect(texts({ talks: [{ id: 'k1', lines, questions, table }] })).toEqual([
+      'It ships on Monday.',
+      'Good.',
+      'Shipping',
+      'Order',
+      'Day',
+      'Lamps',
+      'Monday',
+      'When?',
+      'Monday',
+      'Friday',
+    ]);
+    const monologue = { id: 'k2', kind: 'monologue' as const, lines, questions };
+    expect(texts({ talks: [monologue] })).toEqual([
+      'It ships on Monday.',
+      'Good.',
+      'When?',
+      'Monday',
+      'Friday',
+    ]);
+  });
+
+  it('takes the title, the lines with the answers in, and every option of a text fill', () => {
+    const textFills = [
+      {
+        id: 'e1',
+        kind: 'email' as const,
+        title: 'From: Dan',
+        lines: ['The meeting is ___ Monday.', 'Please ___ notes.'],
+        zh: ['會議在星期一。', '請帶筆記。'],
+        blanks: [
+          { options: ['in', 'on', 'at', 'by'], answer: 1 },
+          { options: ['bring', 'brings', 'brought', 'bringing'], answer: 0 },
+        ],
+      },
+    ];
+    expect(texts({ textFills })).toEqual([
+      'From: Dan',
+      'The meeting is on Monday.',
+      'Please bring notes.',
+      'in',
+      'on',
+      'at',
+      'by',
+      'bring',
+      'brings',
+      'brought',
+      'bringing',
+    ]);
+  });
+
+  it('flags an untaught word in a text fill option or a table cell', () => {
+    const unit: Unit = {
+      id: 'u',
+      title: 'u',
+      titleEn: 'u',
+      chunks: [],
+      words: [],
+      tasks: [
+        {
+          ...base,
+          textFills: [
+            {
+              id: 'e1',
+              kind: 'email',
+              lines: ['I see the ___.', 'See you ___.'],
+              zh: ['我看到門。', '再見。'],
+              blanks: [
+                { options: ['door', 'zebra', 'car', 'desk'], answer: 0 },
+                { options: ['now', 'then', 'soon', 'here'], answer: 0 },
+              ],
+            },
+          ],
+          talks: [
+            {
+              id: 'k1',
+              lines: [
+                { id: 'k1_1', role: 'clerk', en: 'Look.', zh: '看。' },
+                { id: 'k1_2', role: 'friend', en: 'Okay.', zh: '好。' },
+              ],
+              questions: [{ en: 'What?', zh: '什麼？', options: ['A', 'B'], answer: 0 }],
+              table: {
+                rows: [
+                  ['Day', 'Item'],
+                  ['Today', 'giraffe'],
+                ],
+              },
+            },
+          ],
+        },
+      ],
+    };
+    const probe = { ...unit, tasks: unit.tasks.map((t) => ({ ...t, scene: questionTexts(t) })) };
+    const [profile] = profileUnits([probe], lists, { starterRank: 2809 });
+    expect(profile?.unplanned).toEqual(['giraffe', 'zebra']);
   });
 
   it('flags an untaught word in a fill option, but not a name in mid-sentence', () => {

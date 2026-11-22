@@ -24,6 +24,7 @@ import { chunkItemId, pairItemId, shuffle, wordItemId, type Rng } from './gen/co
 import { fillQuestions } from './gen/fills';
 import { passageQuestions } from './gen/passages';
 import { talkQuestions } from './gen/talks';
+import { textFillQuestions } from './gen/textFills';
 
 export { makeRng, type Rng } from './gen/common';
 
@@ -335,8 +336,9 @@ export function spellMarks(typed: string, answer: string): ('right' | 'wrong')[]
 /**
  * Ordered practice for one task, easy to hard. Listening cloze comes after the
  * listen-and-pick questions, signs to read and pictures after choosing replies, then
- * sentence fills, passages to read and conversations to hear (one sentence, then a short
- * text, then a conversation heard only once), all before arranging; typing questions
+ * sentence fills, text fills (one blank at a time), passages to read and conversations or
+ * monologues to hear (one sentence, then a short text, then a conversation heard only
+ * once), all before arranging; typing questions
  * (`spellWordIds`) after arranging and before speaking. Typed and blanked words are looked
  * up in `units` (pass every unit, since they may come from an earlier one).
  */
@@ -365,6 +367,7 @@ export function buildTaskPractice(
     ...signQuestions(task, rng),
     ...pictureQuestions(unit, task, rng),
     ...fillQuestions(task, rng),
+    ...textFillQuestions(task, rng),
     ...passageQuestions(task, rng),
     ...talkQuestions(unit, task, rng),
     ...compact(chunks.map((c) => arrangeChunk(unit, c, rng))),

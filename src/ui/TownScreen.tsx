@@ -314,6 +314,7 @@ export function TownScreen() {
           <SceneStage
             unit={sceneUnit}
             scene={sceneTask.scene}
+            backdrop={sceneTask.backdrop}
             view={STILL}
             beat={sceneTask.scene.length}
             talking={undefined}

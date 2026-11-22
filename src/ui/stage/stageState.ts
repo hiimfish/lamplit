@@ -72,10 +72,32 @@ export function sceneNpc(lines: readonly SceneLine[]): Role | undefined {
   return lines.find((line) => line.role !== PLAYER)?.role;
 }
 
-/** The stage's own backdrop for this scene's NPC, or its `paint` when it has none. */
-export function paintFor(config: StageConfig, lines: readonly SceneLine[]): StageConfig['paint'] {
-  const npc = sceneNpc(lines);
-  return (npc && config.backdrops?.[npc]) || config.paint;
+/**
+ * Which of the stage's backdrops a task shows: its `backdrop` when set (`main` is the
+ * stage's normal picture), else the one stored under the scene's NPC. Undefined means the
+ * normal picture (`paint`), also when the named backdrop does not exist.
+ */
+export function backdropKey(
+  config: StageConfig,
+  lines: readonly SceneLine[],
+  backdrop?: Role | 'main',
+): Role | undefined {
+  if (backdrop === 'main') return undefined;
+  const key = backdrop ?? sceneNpc(lines);
+  return key && config.backdrops?.[key] ? key : undefined;
+}
+
+/**
+ * The picture a task's stage paints: the task's `backdrop` when set, else the stage's
+ * own backdrop for this scene's NPC, else its `paint`.
+ */
+export function paintFor(
+  config: StageConfig,
+  lines: readonly SceneLine[],
+  backdrop?: Role | 'main',
+): StageConfig['paint'] {
+  const key = backdropKey(config, lines, backdrop);
+  return (key && config.backdrops?.[key]) || config.paint;
 }
 
 /**

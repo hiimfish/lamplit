@@ -118,8 +118,16 @@ export interface Task {
   fills?: FillItem[];
   /** Short texts to read (讀短文), 1 to 3 questions each. */
   passages?: PassageItem[];
-  /** Short conversations to hear (聽對話答題), 1 to 3 questions each. */
+  /** Short conversations or monologues to hear (聽對話答題／聽獨白), 1 to 3 questions each. */
   talks?: TalkItem[];
+  /** Short texts with 2 to 4 blanks to fill (段落填空), one question per blank. */
+  textFills?: TextFillItem[];
+  /**
+   * Which stage background this task shows, whoever speaks: a key of the stage's
+   * `backdrops`, or `main` for its normal picture. Leave out to pick it by the first NPC
+   * who speaks in the scene (see paintFor in src/ui/stage/stageState.ts).
+   */
+  backdrop?: Role | 'main';
   /** The short story played first, in order. */
   scene: SceneLine[];
 }
@@ -185,11 +193,19 @@ export interface FillItem {
   note?: string;
   /** If the sentence is a chunk of this unit taught by now: the answer counts for its review card. */
   chunkId?: string;
+  /**
+   * 文法填空 (TOEIC Part 5, grammar): the options are forms of one word or one grammar
+   * choice (eat / eats / eating / ate). Exactly 4 options. The screen says 文法填空.
+   */
+  grammar?: true;
 }
 
 export type PassageKind = 'message' | 'flyer' | 'notice' | 'ad' | 'form' | 'email';
 
-/** 讀短文 (TOEIC Part 7): a message, flyer, notice, ad, form or email of up to 80 words, 1-3 questions. */
+/**
+ * 讀短文 (TOEIC Part 7): a message, flyer, notice, ad, form or email of up to 80 words
+ * (160 from Act 3 on), 1-3 questions.
+ */
 export interface PassageItem {
   /** Unique in the unit. */
   id: string;
@@ -210,15 +226,63 @@ export interface TalkLine {
 }
 
 /**
+ * A small table shown with a conversation (TOEIC Part 3 with a graphic), while listening
+ * and while answering. Not spoken.
+ */
+export interface TalkTable {
+  title?: string;
+  /** 2 to 5 rows, the first one the header; 2 to 4 cells in every row, each at most 3 words. */
+  rows: string[][];
+}
+
+/**
  * 聽對話答題 (TOEIC Part 3): hear a short conversation, then answer 1-3 questions about it.
- * Its speakers need not be on the location's stage.
+ * With `kind: 'monologue'`, 聽獨白答題 (TOEIC Part 4): one speaker (a voicemail, an
+ * announcement, a speech). Its speakers need not be on the location's stage.
  */
 export interface TalkItem {
   /** Unique in the unit. */
   id: string;
-  /** 3 to 6 lines by two speakers. */
+  /** Leave out for a conversation by two speakers. */
+  kind?: 'monologue';
+  /**
+   * A conversation: 3 to 6 lines by two speakers (3 to 8 from Act 3 on). A monologue:
+   * 3 to 10 lines all by one speaker, 30 to 120 words in all.
+   */
   lines: TalkLine[];
   questions: ChoiceQuestion[];
+  /** A table to look at while listening (conversations only). */
+  table?: TalkTable;
+}
+
+/** One blank of a text fill. */
+export interface TextFillBlank {
+  /** 4 options (words, phrases or whole sentences), each different. */
+  options: string[];
+  /** Index of the right option. */
+  answer: number;
+  /** One line of Chinese on why, shown after answering. */
+  note?: string;
+}
+
+/**
+ * 段落填空 (TOEIC Part 6): a short email or notice with 2 to 4 blanks, at most 90 words
+ * (title included) with each blank filled by its answer. One question per blank, in order;
+ * earlier blanks show their right answer while the next one is asked. No audio.
+ */
+export interface TextFillItem {
+  /** Unique in the unit. */
+  id: string;
+  /** Usually `email` or `notice`. */
+  kind: PassageKind;
+  /** Sender or heading. */
+  title?: string;
+  /** The text, one entry per line or paragraph; blanks are written "___" in reading order. */
+  lines: string[];
+  /** Chinese of the whole text with the answers filled in, one entry per line, shown after the last blank. */
+  zh: string[];
+  /** One per "___" in lines, in the same order. 2 to 4 blanks. */
+  blanks: TextFillBlank[];
 }
 
 /** One word of a minimal pair. Audio id is `${unitId}.pair.${id}`; ids are unique across the unit's pairs. */
