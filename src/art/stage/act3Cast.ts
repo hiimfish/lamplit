@@ -9,7 +9,7 @@ import type { PixelSprite } from '../../game/sprites';
  * learner can tell who is speaking at a glance.
  */
 
-/** Ms. Reed, the HR officer: a light brown bob, a teal cardigan, a yellow lanyard with a badge. */
+/** Ms. Reed, the HR officer: a dark plum bob, a teal cardigan, a yellow lanyard with a badge. */
 export const HR_SPRITE: PixelSprite = {
   rows: [
     '................',
