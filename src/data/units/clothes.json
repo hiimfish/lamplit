@@ -1,0 +1,721 @@
+{
+  "id": "clothes",
+  "title": "服飾店",
+  "titleEn": "Clothes Shop",
+  "chunks": [
+    {
+      "id": "just_looking",
+      "en": "I'm just looking, thanks.",
+      "zh": "我只是看看，謝謝。",
+      "accept": ["I'm just looking, thank you.", "I'm just looking."],
+      "note": "店員問 Can I help you? 時，想自己慢慢逛就這樣說，很客氣。",
+      "distractors": [
+        { "text": "I just looking, thanks.", "error": "missing-word" },
+        { "text": "I'm just look, thanks.", "error": "other" },
+        { "text": "I'm looking just, thanks.", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "where_jackets",
+      "en": "Where are the jackets?",
+      "zh": "外套在哪裡？",
+      "accept": ["Excuse me, where are the jackets?"],
+      "note": "jackets 是複數，所以用 are；只問一件才說 Where is the jacket?",
+      "distractors": [
+        { "text": "Where is the jackets?", "error": "plural" },
+        { "text": "Where the jackets are?", "error": "word-order" },
+        { "text": "Where are the jakets?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "in_black",
+      "en": "Do you have this in black?",
+      "zh": "這件有黑色的嗎？",
+      "accept": ["Do you have this one in black?"],
+      "note": "in + 顏色 = 那個顏色的款式（in black、in blue）；this 指手上這一件。",
+      "distractors": [
+        { "text": "Do you have this black?", "error": "missing-word" },
+        { "text": "Do you have in black this?", "error": "word-order" },
+        { "text": "Does you have this in black?", "error": "other" }
+      ]
+    },
+    {
+      "id": "what_size",
+      "en": "What size is this?",
+      "zh": "這是什麼尺寸？",
+      "accept": ["What size is this one?", "What size is it?"],
+      "note": "What size…? 用來問尺寸；回答會是 small、medium、large。",
+      "distractors": [
+        { "text": "What size this is?", "error": "word-order" },
+        { "text": "What size are this?", "error": "other" },
+        { "text": "What a size is this?", "error": "article" }
+      ]
+    },
+    {
+      "id": "looking_for_coat",
+      "en": "I'm looking for a warm coat.",
+      "zh": "我在找一件保暖的外套。",
+      "accept": ["I am looking for a warm coat."],
+      "note": "現在進行式：am／is／are + 動詞-ing，表示現在正在做。I'm looking for… = 我在找…",
+      "distractors": [
+        { "text": "I looking for a warm coat.", "error": "missing-word" },
+        { "text": "I'm look for a warm coat.", "error": "other" },
+        { "text": "I'm looking for warm coat.", "error": "article" }
+      ]
+    },
+    {
+      "id": "someone_helping",
+      "en": "Yes, someone is helping me.",
+      "zh": "有，已經有人在幫我了。",
+      "accept": ["Yes, someone's helping me.", "Someone is helping me."],
+      "note": "現在進行式：someone 是單數，所以用 is + helping。店員問 Is someone helping you? 時這樣回答。",
+      "distractors": [
+        { "text": "Yes, someone helping me.", "error": "missing-word" },
+        { "text": "Yes, someone is help me.", "error": "other" },
+        { "text": "Yes, someone is me helping.", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "try_it_on",
+      "en": "Can I try it on?",
+      "zh": "我可以試穿嗎？",
+      "accept": ["Can I try this on?", "Could I try it on?"],
+      "note": "try it on = 試穿。it 放在 try 和 on 中間，不說 try on it。",
+      "distractors": [
+        { "text": "Can I try on it?", "error": "word-order" },
+        { "text": "Can I trying it on?", "error": "other" },
+        { "text": "Can I to try it on?", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "fitting_room",
+      "en": "Where's the fitting room?",
+      "zh": "試衣間在哪裡？",
+      "accept": ["Where is the fitting room?", "Excuse me, where's the fitting room?"],
+      "note": "fitting room = 試衣間。Where's = Where is，問一個地方在哪裡。",
+      "distractors": [
+        { "text": "Where's fitting room?", "error": "article" },
+        { "text": "Where's the room fitting?", "error": "word-order" },
+        { "text": "Where's the fiting room?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "fits_well",
+      "en": "This one fits well.",
+      "zh": "這件很合身。",
+      "accept": ["This one fits well!", "This fits well."],
+      "note": "this one 是單數，動詞要加 s：fits。well 放在動詞後面，表示「很合」。",
+      "distractors": [
+        { "text": "This one fit well.", "error": "other" },
+        { "text": "This one well fits.", "error": "word-order" },
+        { "text": "This one is fits well.", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "little_big",
+      "en": "It's a little big.",
+      "zh": "有點大。",
+      "accept": ["It is a little big."],
+      "note": "a little + 形容詞 = 有點…（a little big、a little long）。",
+      "distractors": [
+        { "text": "It's little big.", "error": "article" },
+        { "text": "It's a big little.", "error": "word-order" },
+        { "text": "It a little big.", "error": "missing-word" }
+      ]
+    },
+    {
+      "id": "on_sale",
+      "en": "Is this on sale?",
+      "zh": "這件有打折嗎？",
+      "accept": ["Is this one on sale?", "Is it on sale?"],
+      "note": "on sale = 特價中、有打折。固定用 on，不用 in 或 at。",
+      "distractors": [
+        { "text": "Is this in sale?", "error": "other" },
+        { "text": "Is this on a sale?", "error": "article" },
+        { "text": "Is on sale this?", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "take_it",
+      "en": "I'll take it.",
+      "zh": "我買這件。",
+      "accept": ["I will take it."],
+      "note": "決定要買的時候說。I'll = I will，後面接原形動詞 take。",
+      "distractors": [
+        { "text": "I'll taking it.", "error": "other" },
+        { "text": "I'll take.", "error": "missing-word" },
+        { "text": "I'll it take.", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "return_this",
+      "en": "Can I return this?",
+      "zh": "我可以退這個嗎？",
+      "accept": ["Can I return this, please?", "Could I return this?"],
+      "note": "return = 退貨。Can I 後面接原形動詞，return 後面直接接東西。",
+      "distractors": [
+        { "text": "Can I this return?", "error": "word-order" },
+        { "text": "Can I returning this?", "error": "other" },
+        { "text": "Can I retern this?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "my_receipt",
+      "en": "Here's my receipt.",
+      "zh": "這是我的收據。",
+      "accept": ["Here is my receipt.", "Here's the receipt."],
+      "note": "Here's… = 這是…，把東西遞給對方時說。receipt 的 p 不發音。",
+      "distractors": [
+        { "text": "Here my receipt.", "error": "missing-word" },
+        { "text": "Here's my reciept.", "error": "spelling" },
+        { "text": "Here's me receipt.", "error": "other" }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "clothes", "en": "clothes", "zh": "衣服", "emoji": "👚" },
+    { "id": "shirt", "en": "shirt", "zh": "襯衫", "emoji": "👔" },
+    { "id": "dress", "en": "dress", "zh": "洋裝", "emoji": "👗" },
+    { "id": "jacket", "en": "jacket", "zh": "夾克；外套", "emoji": "🧥" },
+    { "id": "color", "en": "color", "zh": "顏色", "emoji": "🎨", "abstract": true },
+    { "id": "black", "en": "black", "zh": "黑色", "emoji": "⚫", "abstract": true },
+    { "id": "white", "en": "white", "zh": "白色", "emoji": "⚪", "abstract": true },
+    { "id": "red", "en": "red", "zh": "紅色", "emoji": "🔴", "abstract": true },
+    { "id": "blue", "en": "blue", "zh": "藍色", "emoji": "🔵", "abstract": true },
+    { "id": "wear", "en": "wear", "zh": "穿；戴", "emoji": "👕", "abstract": true },
+    { "id": "warm", "en": "warm", "zh": "溫暖的", "emoji": "☀️", "abstract": true },
+    { "id": "coat", "en": "coat", "zh": "大衣", "emoji": "🧥" },
+    { "id": "hat", "en": "hat", "zh": "帽子", "emoji": "🎩" },
+    { "id": "shoe", "en": "shoe", "zh": "鞋子", "emoji": "👟" },
+    { "id": "size", "en": "size", "zh": "尺寸", "emoji": "📏", "abstract": true },
+    { "id": "green", "en": "green", "zh": "綠色", "emoji": "🟢", "abstract": true },
+    { "id": "mirror", "en": "mirror", "zh": "鏡子", "emoji": "🪞" },
+    { "id": "skirt", "en": "skirt", "zh": "裙子", "emoji": "👗" },
+    { "id": "pants", "en": "pants", "zh": "褲子", "emoji": "👖" },
+    { "id": "long", "en": "long", "zh": "長的", "emoji": "📏", "abstract": true },
+    { "id": "short", "en": "short", "zh": "短的", "emoji": "🤏", "abstract": true },
+    { "id": "fit", "en": "fit", "zh": "合身", "emoji": "👌", "abstract": true },
+    { "id": "tight", "en": "tight", "zh": "緊的", "emoji": "🗜️", "abstract": true },
+    { "id": "loose", "en": "loose", "zh": "鬆的", "emoji": "🫧", "abstract": true },
+    { "id": "new", "en": "new", "zh": "新的", "emoji": "🆕", "abstract": true },
+    { "id": "old", "en": "old", "zh": "舊的", "emoji": "🕰️", "abstract": true },
+    { "id": "sale", "en": "sale", "zh": "特價", "emoji": "🏷️", "abstract": true },
+    { "id": "percent", "en": "percent", "zh": "百分比", "emoji": "🧮", "abstract": true },
+    { "id": "pair", "en": "pair", "zh": "一雙；一對", "emoji": "✌️", "abstract": true },
+    { "id": "return", "en": "return", "zh": "退回", "emoji": "↩️", "abstract": true },
+    { "id": "wrong", "en": "wrong", "zh": "錯的", "emoji": "❌", "abstract": true },
+    { "id": "exchange", "en": "exchange", "zh": "換貨", "emoji": "🔄", "abstract": true },
+    { "id": "gift", "en": "gift", "zh": "禮物", "emoji": "🎁" },
+    { "id": "scarf", "en": "scarf", "zh": "圍巾", "emoji": "🧣" }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "隨便看看",
+      "newChunkIds": ["just_looking", "where_jackets"],
+      "newWordIds": ["clothes", "shirt", "dress", "jacket"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "Hi, welcome! Can I help you?",
+          "zh": "嗨，歡迎光臨！需要幫忙嗎？"
+        },
+        {
+          "id": "t1_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm just looking, thanks.",
+          "zh": "我只是看看，謝謝。",
+          "chunkId": "just_looking"
+        },
+        {
+          "id": "t1_3",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "Sure. Take your time.",
+          "zh": "好的，慢慢看。"
+        },
+        {
+          "id": "t1_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Where are the jackets?",
+          "zh": "外套在哪裡？",
+          "chunkId": "where_jackets",
+          "stage": { "act": "want", "item": "jacket" }
+        },
+        {
+          "id": "t1_5",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "They're right here, by the shirts and dresses.",
+          "zh": "就在這邊，襯衫和洋裝旁邊。",
+          "stage": { "act": "want", "item": "dress" }
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "有黑色的嗎",
+      "newChunkIds": ["in_black", "what_size"],
+      "newWordIds": ["color", "black", "white", "red", "blue"],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "That's a nice color!",
+          "zh": "這個顏色很好看！"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you have this in black?",
+          "zh": "這件有黑色的嗎？",
+          "chunkId": "in_black",
+          "stage": { "act": "want", "item": "black" }
+        },
+        {
+          "id": "t2_3",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "Sorry, just blue, red, and white.",
+          "zh": "不好意思，只有藍色、紅色和白色。"
+        },
+        {
+          "id": "t2_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What size is this?",
+          "zh": "這是什麼尺寸？",
+          "chunkId": "what_size",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t2_5",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "It's a medium.",
+          "zh": "這件是 M 號。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "在找一件外套",
+      "newChunkIds": ["looking_for_coat", "someone_helping"],
+      "newWordIds": ["wear", "warm", "coat", "hat", "shoe"],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "Hi! Is someone helping you?",
+          "zh": "嗨！有人在幫你服務了嗎？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Yes, someone is helping me.",
+          "zh": "有，已經有人在幫我了。",
+          "chunkId": "someone_helping"
+        },
+        {
+          "id": "t3_3",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "You mean Sam? He's at lunch. I can help.",
+          "zh": "你是說 Sam 嗎？他去吃午餐了，我來幫你。"
+        },
+        {
+          "id": "t3_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm looking for a warm coat.",
+          "zh": "我在找一件保暖的外套。",
+          "chunkId": "looking_for_coat",
+          "stage": { "act": "want", "item": "coat" }
+        },
+        {
+          "id": "t3_5",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "Sure. Coats are by the hats and shoes.",
+          "zh": "好的。外套在帽子和鞋子那邊。",
+          "stage": { "act": "want", "item": "hat" }
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "試穿",
+      "newChunkIds": ["try_it_on", "fitting_room"],
+      "newWordIds": ["size", "green", "mirror", "skirt", "pants"],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "Here's a green one in your size.",
+          "zh": "這件綠色的是你的尺寸。",
+          "stage": { "act": "give", "item": "coat" }
+        },
+        {
+          "id": "t4_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I try it on?",
+          "zh": "我可以試穿嗎？",
+          "chunkId": "try_it_on"
+        },
+        {
+          "id": "t4_3",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "Sure, go ahead.",
+          "zh": "當然，請便。"
+        },
+        {
+          "id": "t4_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Where's the fitting room?",
+          "zh": "試衣間在哪裡？",
+          "chunkId": "fitting_room",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t4_5",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "By the skirts and pants. There's a mirror inside.",
+          "zh": "在裙子和褲子旁邊，裡面有鏡子。",
+          "stage": { "act": "want", "item": "mirror" }
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "合不合身",
+      "newChunkIds": ["fits_well", "little_big"],
+      "newWordIds": ["long", "short", "fit", "tight", "loose"],
+      "signs": [
+        {
+          "id": "price_list",
+          "heading": "Today's Prices",
+          "rows": [
+            { "label": "Shirts", "value": "$15" },
+            { "label": "Pants", "value": "$30" },
+            { "label": "Coats", "value": "$50" }
+          ],
+          "question": { "en": "How much is a coat?", "zh": "一件大衣多少錢？" },
+          "options": ["$15", "$30", "$50"],
+          "answer": 2
+        },
+        {
+          "id": "shop_guide",
+          "rows": [
+            { "label": "Shirts and Pants", "value": "Left" },
+            { "label": "Hats and Shoes", "value": "Right" },
+            { "label": "Fitting Room", "value": "By the mirror" }
+          ],
+          "question": { "en": "Where are the shoes?", "zh": "鞋子在哪裡？" },
+          "options": ["On the left", "On the right", "By the mirror"],
+          "answer": 1
+        },
+        {
+          "id": "shirt_deal",
+          "heading": "Shirts",
+          "rows": [{ "label": "Buy two, get one free" }],
+          "question": {
+            "en": "You buy two shirts. How many do you get?",
+            "zh": "你買兩件襯衫，總共可以拿到幾件？"
+          },
+          "options": ["Two", "Three", "Four"],
+          "answer": 1
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "How does it fit? Too tight?",
+          "zh": "穿起來怎麼樣？會太緊嗎？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "It's a little big.",
+          "zh": "有點大。",
+          "chunkId": "little_big"
+        },
+        {
+          "id": "t5_3",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "Yes, it's loose and too long. Try this one.",
+          "zh": "對，太鬆了，也太長。試試這件。",
+          "stage": { "act": "give", "item": "coat" }
+        },
+        {
+          "id": "t5_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "This one fits well.",
+          "zh": "這件很合身。",
+          "chunkId": "fits_well"
+        },
+        {
+          "id": "t5_5",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "Not too long, not too short. It looks great!",
+          "zh": "不會太長，也不會太短，很好看！"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "有打折嗎",
+      "newChunkIds": ["on_sale", "take_it"],
+      "newWordIds": ["new", "old", "sale", "percent", "pair"],
+      "cloze": [
+        { "lineId": "t6_2", "word": "percent", "distractors": ["minute", "piece"] },
+        { "lineId": "t6_3", "word": "old", "distractors": ["long", "tight"] },
+        { "lineId": "t6_5", "word": "pair", "distractors": ["pound", "bag"] }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is this on sale?",
+          "zh": "這件有打折嗎？",
+          "chunkId": "on_sale",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t6_2",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "Yes! It's twenty percent off today.",
+          "zh": "有！今天打八折。"
+        },
+        {
+          "id": "t6_3",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "See? Old price, fifty. New price, forty.",
+          "zh": "你看，原價五十，現在只要四十。"
+        },
+        {
+          "id": "t6_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll take it.",
+          "zh": "我買這件。",
+          "chunkId": "take_it"
+        },
+        {
+          "id": "t6_5",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "Great! Shoes are ten dollars a pair today.",
+          "zh": "太好了！今天鞋子一雙十元。",
+          "stage": { "act": "want", "item": "shoe" }
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "退換貨",
+      "newChunkIds": ["return_this", "my_receipt"],
+      "newWordIds": ["return", "wrong", "exchange", "gift", "scarf"],
+      "spellWordIds": ["apple", "fish", "rice", "salt", "meat"],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "Hi again! Is the scarf the wrong color?",
+          "zh": "嗨，又見面了！圍巾的顏色不對嗎？",
+          "stage": { "act": "want", "item": "scarf" }
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I return this?",
+          "zh": "我可以退這個嗎？",
+          "chunkId": "return_this",
+          "stage": { "act": "give", "item": "scarf" }
+        },
+        {
+          "id": "t7_3",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "Sure. Do you have the receipt?",
+          "zh": "可以。你有帶收據嗎？"
+        },
+        {
+          "id": "t7_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Here's my receipt.",
+          "zh": "這是我的收據。",
+          "chunkId": "my_receipt"
+        },
+        {
+          "id": "t7_5",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "Thanks. You can return it or exchange it.",
+          "zh": "謝謝。你可以退貨，也可以換貨。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "Hi again! Can I help you?",
+          "zh": "嗨，又見面了！需要幫忙嗎？"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I return this?",
+          "zh": "我可以退這個嗎？",
+          "chunkId": "return_this",
+          "stage": { "act": "give", "item": "scarf" }
+        },
+        {
+          "id": "t8_3",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "The scarf? Sure. Anything else today?",
+          "zh": "這條圍巾嗎？沒問題。今天還需要別的嗎？"
+        },
+        {
+          "id": "t8_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Where are the jackets?",
+          "zh": "外套在哪裡？",
+          "chunkId": "where_jackets",
+          "stage": { "act": "want", "item": "jacket" }
+        },
+        {
+          "id": "t8_5",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "Right here. What are you looking for?",
+          "zh": "就在這邊。你想找什麼樣的？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm looking for a warm coat.",
+          "zh": "我在找一件保暖的外套。",
+          "chunkId": "looking_for_coat",
+          "stage": { "act": "want", "item": "coat" }
+        },
+        {
+          "id": "t8_7",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "Try this one. It's very warm.",
+          "zh": "試試這件，非常保暖。"
+        },
+        {
+          "id": "t8_8",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you have this in black?",
+          "zh": "這件有黑色的嗎？",
+          "chunkId": "in_black"
+        },
+        {
+          "id": "t8_9",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "Yes. Here's a black one in medium.",
+          "zh": "有。這件黑色的是 M 號。",
+          "stage": { "act": "give", "item": "coat" }
+        },
+        {
+          "id": "t8_10",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I try it on?",
+          "zh": "我可以試穿嗎？",
+          "chunkId": "try_it_on"
+        },
+        {
+          "id": "t8_11",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "Sure. There's a mirror right here.",
+          "zh": "當然，這邊有鏡子。",
+          "stage": { "act": "want", "item": "mirror" }
+        },
+        {
+          "id": "t8_12",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "How does it fit?",
+          "zh": "穿起來怎麼樣？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_13",
+          "role": "guide",
+          "speaker": "player",
+          "en": "This one fits well.",
+          "zh": "這件很合身。",
+          "chunkId": "fits_well"
+        },
+        {
+          "id": "t8_14",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "It looks great! And it's on sale today.",
+          "zh": "很好看！而且今天有特價。"
+        },
+        {
+          "id": "t8_15",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll take it.",
+          "zh": "我買這件。",
+          "chunkId": "take_it"
+        },
+        {
+          "id": "t8_16",
+          "role": "assistant",
+          "speaker": "npc",
+          "en": "Great! You can wear it home.",
+          "zh": "太好了！你可以直接穿回家。"
+        }
+      ]
+    }
+  ]
+}
