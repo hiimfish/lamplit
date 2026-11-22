@@ -113,6 +113,128 @@ function SpriteSvg({
 
 const other = (side: StageSide): StageSide => (side === 'left' ? 'right' : 'left');
 
+/** Where everything is placed: the unit's stage and the core's top left on the canvas. */
+interface Placing {
+  config: StageConfig;
+  ox: number;
+  oy: number;
+}
+
+/** CSS position of a point given in core pixels. */
+const placeAt = ({ ox, oy }: Placing, p: { x: number; y: number }) => ({
+  left: u(ox + p.x),
+  top: u(oy + p.y),
+});
+
+const sideOf = (config: StageConfig, role: Role): StageSide => config.cast[role]?.side ?? 'right';
+
+type Actor = NonNullable<StageConfig['cast'][Role]>;
+type EmojiOf = (item: string) => string | undefined;
+
+/** The characters; the one heard right now bobs. */
+function StageCast({ place, talking }: { place: Placing; talking: Role | undefined }) {
+  const { config, ox, oy } = place;
+  return (
+    <>
+      {(Object.entries(config.cast) as [Role, Actor][]).map(([role, actor]) => {
+        const actorClass = `stage-actor${talking === role ? ' talking' : ''}`;
+        if (actor.clipBottom === undefined) {
+          return (
+            <SpriteSvg
+              key={role}
+              sprite={actor.sprite}
+              class={actorClass}
+              style={placeAt(place, actor)}
+            />
+          );
+        }
+        // Standing behind a counter: everything below clipBottom is hidden.
+        return (
+          <div
+            key={role}
+            class="stage-clip"
+            data-role={role}
+            style={{
+              left: u(ox + actor.x),
+              top: 0,
+              width: u(16),
+              height: u(oy + actor.clipBottom),
+            }}
+          >
+            <SpriteSvg
+              sprite={actor.sprite}
+              class={actorClass}
+              style={{ left: 0, top: u(oy + actor.y) }}
+            />
+          </div>
+        );
+      })}
+    </>
+  );
+}
+
+/** Things handed over: each rests on the receiver's side, sliding there when just given. */
+function StageProps({
+  place,
+  props,
+  emoji,
+}: {
+  place: Placing;
+  props: StageView['props'];
+  emoji: EmojiOf;
+}) {
+  const { config } = place;
+  return (
+    <>
+      {props.map((prop) => {
+        const from = sideOf(config, prop.giver);
+        const end = config.rest[other(from)];
+        const dx = config.rest[from].x - end.x;
+        return (
+          <div
+            key={prop.lineId}
+            class={`stage-prop${prop.sliding ? ' sliding' : ''}`}
+            data-item={prop.item}
+            style={{
+              ...placeAt(place, end),
+              '--dx': String(dx),
+              ...(prop.sliding ? { animationTimingFunction: `steps(${Math.abs(dx) || 1})` } : {}),
+            }}
+          >
+            <ItemIcon id={prop.item} fallback={emoji(prop.item)} />
+          </div>
+        );
+      })}
+    </>
+  );
+}
+
+/** A thought bubble (want: the item's picture) or a question bubble (ask: "?") over the speaker. */
+function StageBubbleView({
+  place,
+  bubble,
+  emoji,
+}: {
+  place: Placing;
+  bubble: NonNullable<StageView['bubble']>;
+  emoji: EmojiOf;
+}) {
+  const side = sideOf(place.config, bubble.role);
+  return (
+    <div
+      class={`stage-bubble ${bubble.act} ${side}`}
+      data-act={bubble.act}
+      style={placeAt(place, place.config[bubble.act][side])}
+    >
+      {bubble.act === 'want' && bubble.item ? (
+        <ItemIcon id={bubble.item} fallback={emoji(bubble.item)} />
+      ) : (
+        '?'
+      )}
+    </div>
+  );
+}
+
 /**
  * The picture above the story: who is talking to whom, and the props of the
  * scene. Purely decorative (aria-hidden, nothing to press); every piece of
@@ -126,11 +248,9 @@ function SceneStage({ unit, view, beat, talking, area }: Props) {
   const config = stageFor(unit.id);
   if (!config) return null;
   const { w: W, h: H } = stageCanvasSize(area);
-  const { ox, oy } = coreOrigin(W, H);
+  const place: Placing = { config, ...coreOrigin(W, H) };
   const bg = backgroundUrl(unit.id, config, W, H);
-  const sideOf = (role: Role): StageSide => config.cast[role]?.side ?? 'right';
-  const emoji = (item: string) => unit.words.find((w) => w.id === item)?.emoji;
-  const at = (p: { x: number; y: number }) => ({ left: u(ox + p.x), top: u(oy + p.y) });
+  const emoji: EmojiOf = (item) => unit.words.find((w) => w.id === item)?.emoji;
 
   return (
     <div
@@ -145,78 +265,17 @@ function SceneStage({ unit, view, beat, talking, area }: Props) {
     >
       <div class="stage-canvas" style={{ width: u(W), height: u(H) }}>
         {bg && <img class="stage-bg" src={bg} alt="" draggable={false} />}
-        {(Object.entries(config.cast) as [Role, NonNullable<StageConfig['cast'][Role]>][]).map(
-          ([role, actor]) => {
-            const bob = talking === role ? ' talking' : '';
-            if (actor.clipBottom !== undefined) {
-              return (
-                <div
-                  key={role}
-                  class="stage-clip"
-                  data-role={role}
-                  style={{
-                    left: u(ox + actor.x),
-                    top: 0,
-                    width: u(16),
-                    height: u(oy + actor.clipBottom),
-                  }}
-                >
-                  <SpriteSvg
-                    sprite={actor.sprite}
-                    class={`stage-actor${bob}`}
-                    style={{ left: 0, top: u(oy + actor.y) }}
-                  />
-                </div>
-              );
-            }
-            return (
-              <SpriteSvg
-                key={role}
-                sprite={actor.sprite}
-                class={`stage-actor${bob}`}
-                style={at(actor)}
-              />
-            );
-          },
+        <StageCast place={place} talking={talking} />
+        <StageProps place={place} props={view.props} emoji={emoji} />
+        {view.bubble && (
+          // A new key on every story line, so the bubble pops again.
+          <StageBubbleView
+            key={`${beat}-${view.bubble.act}`}
+            place={place}
+            bubble={view.bubble}
+            emoji={emoji}
+          />
         )}
-        {view.props.map((prop) => {
-          const from = sideOf(prop.giver);
-          const end = config.rest[other(from)];
-          const dx = config.rest[from].x - end.x;
-          return (
-            <div
-              key={prop.lineId}
-              class={`stage-prop${prop.sliding ? ' sliding' : ''}`}
-              data-item={prop.item}
-              style={{
-                ...at(end),
-                '--dx': String(dx),
-                ...(prop.sliding ? { animationTimingFunction: `steps(${Math.abs(dx) || 1})` } : {}),
-              }}
-            >
-              <ItemIcon id={prop.item} fallback={emoji(prop.item)} />
-            </div>
-          );
-        })}
-        {view.bubble &&
-          (() => {
-            const { bubble } = view;
-            const side = sideOf(bubble.role);
-            return (
-              <div
-                key={`${beat}-${bubble.act}`}
-                class={`stage-bubble ${bubble.act} ${side}`}
-                data-act={bubble.act}
-                style={at(config[bubble.act][side])}
-              >
-                {bubble.act === 'want' && bubble.item ? (
-                  <ItemIcon id={bubble.item} fallback={emoji(bubble.item)} />
-                ) : (
-                  '?'
-                )}
-              </div>
-            );
-          })()}
       </div>
     </div>
   );
