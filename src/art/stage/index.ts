@@ -14,7 +14,7 @@ interface Point {
 }
 
 /** One character on a stage, placed in logical pixels from the top left of the 128x64 core. */
-export interface StageActor {
+interface StageActor {
   sprite: PixelSprite;
   x: number;
   y: number;

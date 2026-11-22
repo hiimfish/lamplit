@@ -13,7 +13,7 @@ import { stageArea, stageCanvasSize, type StageArea } from './stageArea';
 import type { StageView } from './stageState';
 import './stage.css';
 
-export function hasStage(unitId: string): boolean {
+function hasStage(unitId: string): boolean {
   return stageFor(unitId) !== undefined;
 }
 
@@ -122,7 +122,7 @@ const other = (side: StageSide): StageSide => (side === 'left' ? 'right' : 'left
  * pixels and anchored at the bottom left, so every pixel lands on the device
  * grid); characters, bubbles and props are placed relative to the core.
  */
-export function SceneStage({ unit, view, beat, talking, area }: Props) {
+function SceneStage({ unit, view, beat, talking, area }: Props) {
   const config = stageFor(unit.id);
   if (!config) return null;
   const { w: W, h: H } = stageCanvasSize(area);

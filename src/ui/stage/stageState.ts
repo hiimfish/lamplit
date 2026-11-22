@@ -1,7 +1,7 @@
 import type { Role, SceneLine } from '../../content/types';
 
 /** A thought or question bubble over the speaker of the newest line. */
-export interface StageBubble {
+interface StageBubble {
   role: Role;
   act: 'want' | 'ask';
   /** Word id shown in a `want` bubble. */
@@ -9,7 +9,7 @@ export interface StageBubble {
 }
 
 /** Something handed across the counter; it stays there until the scene ends. */
-export interface StageProp {
+interface StageProp {
   /** The line that gave it (a stable key: the same word may be given twice). */
   lineId: string;
   item: string;
