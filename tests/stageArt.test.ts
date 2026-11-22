@@ -315,7 +315,7 @@ describe('Act 2 placeholder stages', () => {
   );
 });
 
-describe('Act 3 placeholder stages', () => {
+describe('Act 3 stages', () => {
   const ACT3_CAST: Record<string, Role[]> = {
     onboarding: ['hr', 'manager'],
     office: ['coworker'],
@@ -330,7 +330,11 @@ describe('Act 3 placeholder stages', () => {
     trade_fair: ['coworker', 'client'],
     company_event: ['manager', 'coworker', 'director'],
   };
-  /** Voices heard in a location without standing on its stage (a speaker, a voicemail). */
+  /**
+   * Voices only heard in a location (a speaker, a voicemail). The announcer is on no stage.
+   * The hotel's manager is in the hotel cast all the same: her voicemail plays in your room,
+   * and she is shown in the call panel of that backdrop.
+   */
   const ACT3_ONLY_HEARD: Record<string, Role[]> = {
     phone: ['announcer'],
     warehouse: ['announcer'],
