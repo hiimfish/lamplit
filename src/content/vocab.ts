@@ -178,8 +178,17 @@ export interface TaskProfile {
   newLemmas: { lemma: string; band: string }[];
   /** Bands of the words and minimal-pair words this task teaches (for reading). */
   wordBands: string[];
-  /** The same words on the NGSL rank scale (see equivalentRank); rates word frequency. */
+  /** The same words on the NGSL rank scale (see equivalentRank). */
   wordRanks: number[];
+  /**
+   * The words this task teaches (not the minimal pairs, whose difficulty is the sound
+   * contrast) on the NGSL rank scale, with pictured words capped at PICTURED_RANK_CAP.
+   */
+  levelRanks: number[];
+  /** Mean of levelRanks over this task and the LEVEL_WINDOW - 1 tasks before it. */
+  freqLevel: number;
+  /** Mean words per new chunk: what the learner has to arrange and say. */
+  chunkWords: number;
   lines: number;
   /** Mean words per story line (names left out). */
   avgLineWords: number;
@@ -191,6 +200,15 @@ export interface TaskProfile {
   unplanned: string[];
   score: number;
 }
+
+/**
+ * A concrete word with a pixel icon (not marked abstract) counts as at most this rank:
+ * frequency lists underrate picturable nouns (lamp, sugar, sheep), which the picture
+ * makes easy to learn.
+ */
+export const PICTURED_RANK_CAP = 1000;
+/** Tasks the word level is averaged over: one task teaches only 2-5 words, too few to rate alone. */
+export const LEVEL_WINDOW = 3;
 
 export interface ProfileOptions {
   /** NGSL words up to this rank count as known from the start (default 100). */
@@ -209,6 +227,8 @@ export function profileUnits(
   const known = new Set<string>();
   for (const [lemma, rank] of lists.ngslRank) if (rank <= starterRank) known.add(lemma);
   const profiles: TaskProfile[] = [];
+  const mean = (xs: readonly number[]) =>
+    xs.length ? xs.reduce((sum, x) => sum + x, 0) / xs.length : 0;
 
   for (const unit of units) {
     for (const task of unit.tasks) {
@@ -216,14 +236,16 @@ export function profileUnits(
         const pair = unit.pairs?.find((p) => p.id === id);
         return pair ? [pair.a.en, pair.b.en] : [];
       });
-      const words = [
-        ...task.newWordIds.flatMap((id) => unit.words.find((w) => w.id === id)?.en ?? []),
-        ...pairs,
-      ];
-      const itemTexts = [
-        ...task.newChunkIds.flatMap((id) => unit.chunks.find((c) => c.id === id)?.en ?? []),
-        ...words,
-      ];
+      const taught = task.newWordIds.flatMap((id) => unit.words.find((w) => w.id === id) ?? []);
+      const words = [...taught.map((w) => w.en), ...pairs];
+      const levelRanks = taught.map((w) => {
+        const rank = equivalentRank(lists, rarest(lists, w.en));
+        return w.abstract ? rank : Math.min(rank, PICTURED_RANK_CAP);
+      });
+      const chunkTexts = task.newChunkIds.flatMap(
+        (id) => unit.chunks.find((c) => c.id === id)?.en ?? [],
+      );
+      const itemTexts = [...chunkTexts, ...words];
       const target = new Set(
         itemTexts.flatMap((t) => tokenize(t).map((tok) => lemmaOf(lists, tok.word))),
       );
@@ -255,6 +277,12 @@ export function profileUnits(
         // A multi-word item ("trash can") is rated by its rarest word.
         wordBands: words.map((w) => bandOf(lists, rarest(lists, w))),
         wordRanks: words.map((w) => equivalentRank(lists, rarest(lists, w))),
+        levelRanks,
+        freqLevel: mean([
+          ...profiles.slice(-(LEVEL_WINDOW - 1)).flatMap((p) => p.levelRanks),
+          ...levelRanks,
+        ]),
+        chunkWords: mean(chunkTexts.map((text) => tokenize(text).length)),
         lines: task.scene.length,
         avgLineWords: task.scene.length ? tokens / task.scene.length : 0,
         tokens,
@@ -282,21 +310,77 @@ function rarest(lists: WordLists, text: string): string {
 }
 
 /**
- * Difficulty 1–100 (version 0, to be calibrated with play data). Each knob is
- * scaled to 0–1 against the end of Act 4, then weighted:
- * new items 25%, word frequency 25%, line length 20%, story length 15%, unplanned words 15%.
+ * Difficulty 1–100 (version 1, to be calibrated with play data). Each knob is
+ * scaled to 0–1 against the end of Act 4, then weighted: new items 25%, word level 20%,
+ * chunk length 20%, line length 20%, story length 15%.
+ *
+ * Untaught story words are not a knob: the story rule caps them (curriculum.md, rule 3),
+ * and scoring them would reward adding more.
  */
 export function difficultyScore(
-  p: Pick<TaskProfile, 'newItems' | 'wordRanks' | 'avgLineWords' | 'lines' | 'coverage'>,
+  p: Pick<TaskProfile, 'newItems' | 'freqLevel' | 'chunkWords' | 'avgLineWords' | 'lines'>,
 ): number {
   const items = clamp01(p.newItems / 14);
   // 0 at the most frequent words, 1 at the end of the NGSL (TSL words sit inside it by SFI).
-  const freq = p.wordRanks.length
-    ? clamp01(p.wordRanks.reduce((sum, r) => sum + r, 0) / p.wordRanks.length / 2809)
-    : 0;
+  const level = clamp01(p.freqLevel / 2809);
+  const chunk = clamp01((p.chunkWords - 2) / 10);
   const length = clamp01((p.avgLineWords - 3) / 17);
   const story = clamp01((p.lines - 3) / 9);
-  const noise = clamp01((1 - p.coverage) / 0.1);
-  const raw = 0.25 * items + 0.25 * freq + 0.2 * length + 0.15 * story + 0.15 * noise;
+  const raw = 0.25 * items + 0.2 * level + 0.2 * chunk + 0.2 * length + 0.15 * story;
   return Math.min(100, Math.max(1, Math.round(1 + 99 * raw)));
+}
+
+/** Smoothness rules (docs/specs/curriculum.md, 平滑規則), Act 1 values. */
+export const SMOOTHNESS = {
+  /** Stories this many words long are judged by coverage; shorter ones by a count. */
+  longText: 50,
+  minCoverage: 0.98,
+  /** Untaught words allowed in a short story... */
+  maxUnplanned: 1,
+  /** ...each at least this frequent (NGSL rank scale). */
+  maxUnplannedRank: 1000,
+  /** The score may rise at most this much from one task to the next... */
+  maxRise: 3,
+  /** ...and drop at most this much (an easier task is a breather; a new place may start lower). */
+  maxDrop: 5,
+  maxItemGrowth: 1,
+} as const;
+
+/** Every break of the smoothness rules, in play order, as one Chinese line each. */
+export function smoothnessBreaks(profiles: readonly TaskProfile[], lists: WordLists): string[] {
+  const S = SMOOTHNESS;
+  const pct = (n: number) => `${(n * 100).toFixed(0)}%`;
+  const breaks: string[] = [];
+  profiles.forEach((p, i) => {
+    const prev = profiles[i - 1];
+    const where = `${p.unitId}/${p.taskId}`;
+    if (p.tokens >= S.longText) {
+      if (p.coverage < S.minCoverage) {
+        breaks.push(`${where}：學過的字 ${pct(p.coverage)}，低於 ${pct(S.minCoverage)}`);
+      }
+    } else {
+      if (p.unplanned.length > S.maxUnplanned) {
+        breaks.push(
+          `${where}：劇情有 ${p.unplanned.length} 個沒教過的字，最多 ${S.maxUnplanned} 個（${p.unplanned.join('、')}）`,
+        );
+      }
+      const rare = p.unplanned.filter((w) => equivalentRank(lists, w) > S.maxUnplannedRank);
+      if (rare.length) {
+        breaks.push(
+          `${where}：沒教過的字不在 NGSL 前 ${S.maxUnplannedRank} 名：${rare.join('、')}`,
+        );
+      }
+    }
+    if (!prev) return;
+    const delta = p.score - prev.score;
+    if (delta > S.maxRise || delta < -S.maxDrop) {
+      breaks.push(`${where}：分數變化 ${delta}，可以 -${S.maxDrop} 到 +${S.maxRise}`);
+    }
+    if (p.newItems - prev.newItems > S.maxItemGrowth) {
+      breaks.push(
+        `${where}：新項目從 ${prev.newItems} 增加到 ${p.newItems}，一次最多多 ${S.maxItemGrowth} 個`,
+      );
+    }
+  });
+  return breaks;
 }

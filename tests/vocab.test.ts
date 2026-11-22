@@ -183,12 +183,80 @@ describe('profileUnits', () => {
     expect(p.tokens).toBe(5); // i, see, you, on, monday
   });
 
+  it('measures the new chunks by their words', () => {
+    expect(t1.chunkWords).toBe(6); // Can I get a latte, please?
+    expect(t2.chunkWords).toBe(4); // How much is it?
+  });
+
   it('scores harder tasks higher', () => {
     expect(t1.score).toBeGreaterThanOrEqual(1);
     expect(t1.score).toBeLessThanOrEqual(100);
     const heavier = { ...t1, newItems: t1.newItems + 6 };
     expect(difficultyScore(heavier)).toBeGreaterThan(t1.score);
-    const noisier = { ...t1, coverage: 0.9 };
-    expect(difficultyScore(noisier)).toBeGreaterThan(t1.score);
+    const longerChunks = { ...t1, chunkWords: t1.chunkWords + 4 };
+    expect(difficultyScore(longerChunks)).toBeGreaterThan(t1.score);
+    const rarerWords = { ...t1, freqLevel: t1.freqLevel + 1000 };
+    expect(difficultyScore(rarerWords)).toBeGreaterThan(t1.score);
+  });
+
+  it('does not reward untaught words (the story rule limits them instead)', () => {
+    const noisier = { ...t1, coverage: 0.5 };
+    expect(difficultyScore(noisier)).toBe(t1.score);
+  });
+});
+
+describe('word level', () => {
+  /** Words with known ranks; lamp is a concrete TSL word, spell an abstract NGSL one. */
+  const word = (id: string, abstract?: boolean) => ({ id, en: id, zh: '', emoji: '', abstract });
+  const task = (id: string, newWordIds: string[], newPairIds?: string[]) => ({
+    id,
+    title: '',
+    newChunkIds: [],
+    newWordIds,
+    newPairIds,
+    scene: [{ id: `${id}_1`, role: 'landlord', speaker: 'npc', en: 'Hi.', zh: '' }],
+  });
+  const levels = {
+    id: 'levels',
+    title: '',
+    titleEn: '',
+    chunks: [],
+    words: [
+      word('lamp'),
+      word('spell', true),
+      word('home'),
+      word('car'),
+      word('room'),
+      word('door'),
+    ],
+    pairs: [
+      {
+        id: 'ship_sheep',
+        focus: '',
+        note: '',
+        a: { id: 'ship', en: 'ship', zh: '' },
+        b: { id: 'sheep', en: 'sheep', zh: '' },
+      },
+    ],
+    tasks: [
+      task('t1', ['lamp', 'spell'], ['ship_sheep']),
+      task('t2', ['home']),
+      task('t3', ['car']),
+      task('t4', ['room', 'door']),
+    ],
+  } as unknown as Unit;
+  const [l1, l2, l3, l4] = profileUnits([levels], lists) as TaskProfile[];
+
+  it('rates only the words taught, with pictured (concrete) words capped at rank 1000', () => {
+    expect(equivalentRank(lists, 'lamp')).toBeGreaterThan(1000);
+    expect(l1!.levelRanks).toEqual([1000, 1972]); // lamp capped, spell as is; no ship/sheep
+    expect(l2!.levelRanks).toEqual([161]);
+  });
+
+  it('averages the word level over this task and the two before it', () => {
+    expect(l1!.freqLevel).toBeCloseTo((1000 + 1972) / 2);
+    expect(l2!.freqLevel).toBeCloseTo((1000 + 1972 + 161) / 3);
+    expect(l3!.freqLevel).toBeCloseTo((1000 + 1972 + 161 + 260) / 4);
+    expect(l4!.freqLevel).toBeCloseTo((161 + 260 + 254 + 490) / 4);
   });
 });

@@ -1,0 +1,87 @@
+import { readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { describe, expect, it } from 'vitest';
+import type { Unit } from '../src/content/types';
+import { UNIT_ORDER } from '../src/content/unitOrder';
+import {
+  parseWordLists,
+  profileUnits,
+  smoothnessBreaks,
+  type TaskProfile,
+} from '../src/content/vocab';
+
+const LISTS = join(__dirname, '..', 'src', 'data', 'wordlists');
+const UNITS = join(__dirname, '..', 'src', 'data', 'units');
+const utf8 = (f: string) => readFileSync(join(LISTS, f), 'utf8');
+const latin1 = (f: string) => readFileSync(join(LISTS, f), 'latin1');
+
+const lists = parseWordLists({
+  ngslStats: utf8('NGSL_12_stats.csv'),
+  ngslForms: utf8('NGSL_12_lemmatized_for_research.csv'),
+  supForms: utf8('SUP_lemmatized.csv'),
+  tslStats: latin1('TSL_12_stats.csv'),
+  tslForms: latin1('TSL_12_lemmatized_for_research.csv'),
+});
+
+/** A short, clean task profile to vary one field at a time. */
+const task = (over: Partial<TaskProfile> = {}): TaskProfile => ({
+  unitId: 'u',
+  taskId: 't',
+  newItems: 4,
+  newLemmas: [],
+  wordBands: [],
+  wordRanks: [],
+  levelRanks: [],
+  freqLevel: 500,
+  chunkWords: 4,
+  lines: 4,
+  avgLineWords: 4,
+  tokens: 16,
+  coverage: 1,
+  unplanned: [],
+  score: 20,
+  ...over,
+});
+
+describe('smoothness rules', () => {
+  it('passes a smooth run', () => {
+    expect(smoothnessBreaks([task(), task({ score: 23, newItems: 5 })], lists)).toEqual([]);
+  });
+
+  it('limits short stories to one frequent untaught word', () => {
+    expect(smoothnessBreaks([task({ unplanned: ['open', 'bus'] })], lists)).toHaveLength(1);
+    expect(smoothnessBreaks([task({ unplanned: ['sheep'] })], lists)).toHaveLength(1); // N2710
+    expect(smoothnessBreaks([task({ unplanned: ['open'] })], lists)).toEqual([]);
+  });
+
+  it('judges long texts by coverage instead', () => {
+    const long = { tokens: 60, unplanned: ['open', 'bus'] };
+    expect(smoothnessBreaks([task({ ...long, coverage: 0.97 })], lists)).toHaveLength(1);
+    expect(smoothnessBreaks([task({ ...long, coverage: 0.98 })], lists)).toEqual([]);
+  });
+
+  it('lets the score rise by 3 and drop by 5 at most', () => {
+    const run = (next: number) => smoothnessBreaks([task(), task({ score: next })], lists);
+    expect(run(23)).toEqual([]);
+    expect(run(24)).toHaveLength(1);
+    expect(run(15)).toEqual([]);
+    expect(run(14)).toHaveLength(1);
+  });
+
+  it('adds at most one new item per task', () => {
+    expect(smoothnessBreaks([task(), task({ newItems: 6 })], lists)).toHaveLength(1);
+    expect(smoothnessBreaks([task({ newItems: 6 }), task({ newItems: 2 })], lists)).toEqual([]);
+  });
+});
+
+describe('the real units in play order', () => {
+  it('break no smoothness rule', () => {
+    const units = readdirSync(UNITS)
+      .filter((f) => f.endsWith('.json'))
+      .map((f) => JSON.parse(readFileSync(join(UNITS, f), 'utf8')) as Unit)
+      .filter((u) => UNIT_ORDER.includes(u.id))
+      .sort((a, b) => UNIT_ORDER.indexOf(a.id) - UNIT_ORDER.indexOf(b.id));
+    expect(units.map((u) => u.id)).toEqual([...UNIT_ORDER]);
+    expect(smoothnessBreaks(profileUnits(units, lists), lists)).toEqual([]);
+  });
+});
