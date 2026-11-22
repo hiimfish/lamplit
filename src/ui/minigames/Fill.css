@@ -1,27 +1,60 @@
-/* 句子填空 (Fill.tsx): one sentence with a blank, like the cloze line. */
+/*
+ * 句子填空 (Fill.tsx): one sentence with a boxed gap, then the option keys.
+ * Upright phones have room, so the sentence is in the large size (22); landscape
+ * screens are short, so it drops to the body size (11) with airy lines.
+ * Nothing here animates or transitions.
+ */
 .fill-sentence {
   margin: 0;
-  font-size: calc(11 * var(--px));
-  line-height: 1.8;
+  font-size: calc(22 * var(--px));
+  line-height: 1.5;
   color: var(--ink);
+  overflow-wrap: break-word;
 }
 
-.fill-blank {
-  display: inline-block;
-  min-width: calc(34 * var(--px));
-  margin: 0 calc(2 * var(--px));
+:root[data-orientation='landscape'] .fill-sentence {
+  font-size: calc(11 * var(--px));
+  line-height: 2;
+}
+
+/* All options share one cell, so the gap is as wide as the longest one. */
+.fill-gap {
+  display: inline-grid;
+  min-width: calc(24 * var(--px));
+  max-width: 100%;
   padding: 0 calc(3 * var(--px));
+  line-height: 1.2;
   text-align: center;
+  vertical-align: baseline;
   background: var(--paper);
   box-shadow: inset 0 0 0 var(--px) var(--dim);
   border-bottom: var(--line) solid var(--neon);
 }
 
-.fill-blank:empty::before {
-  content: '\00a0';
+.fill-word {
+  grid-area: 1 / 1;
+  visibility: hidden;
+  white-space: nowrap;
 }
 
-.fill-blank.filled {
+.fill-word.shown {
+  visibility: visible;
+}
+
+/* The right answer in the gap: green rim and underline, ink text. */
+.fill-gap.right {
   box-shadow: inset 0 0 0 var(--px) var(--good);
   border-bottom-color: var(--good);
+}
+
+/* A wrong pick stays in the sentence, struck through on a red rim (never colour alone). */
+.fill-wrong {
+  display: inline-block;
+  padding: 0 calc(3 * var(--px));
+  line-height: 1.2;
+  color: var(--ink);
+  text-decoration: line-through;
+  text-decoration-thickness: var(--px);
+  box-shadow: inset 0 0 0 var(--px) var(--bad);
+  border-bottom: var(--line) solid var(--bad);
 }

@@ -1,6 +1,6 @@
 /**
  * 句子填空 (TOEIC Part 5): one question per FillItem of a task. No audio.
- * Minimal version; the rendering is src/ui/minigames/Fill.tsx.
+ * Deterministic for a given rng; the rendering is src/ui/minigames/Fill.tsx.
  */
 import type { Task } from '../../content/types';
 import { NO_ITEM } from '../questions';
