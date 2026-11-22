@@ -1,0 +1,757 @@
+{
+  "id": "clinic",
+  "title": "診所與藥局",
+  "titleEn": "Clinic & Pharmacy",
+  "chunks": [
+    {
+      "id": "need_appointment",
+      "en": "Do I need an appointment?",
+      "zh": "需要預約嗎？",
+      "accept": ["Do I need to make an appointment?"],
+      "note": "沒預約就到診所時，在櫃台這樣問。appointment 開頭是母音的音，所以用 an。",
+      "distractors": [
+        { "text": "Do I need a appointment?", "error": "article" },
+        { "text": "Do I need appointment?", "error": "article" },
+        { "text": "Do I need an apointment?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "insurance_card",
+      "en": "Here's my insurance card.",
+      "zh": "這是我的保險卡。",
+      "accept": ["Here is my insurance card."],
+      "note": "Here's my… = 把東西遞給對方時說，和 Here's my receipt. 一樣。",
+      "distractors": [
+        { "text": "Here my insurance card.", "error": "missing-word" },
+        { "text": "Here's my card insurance.", "error": "word-order" },
+        { "text": "Here's my insurence card.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "dont_feel_well",
+      "en": "I don't feel well.",
+      "zh": "我不太舒服。",
+      "accept": ["I do not feel well.", "I'm not feeling well."],
+      "note": "身體不舒服時最常用的說法。feel well = 身體舒服；don't = do not。",
+      "distractors": [
+        { "text": "I not feel well.", "error": "missing-word" },
+        { "text": "I don't feeling well.", "error": "other" },
+        { "text": "I don't well feel.", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "head_hurts",
+      "en": "My head hurts.",
+      "zh": "我頭痛。",
+      "note": "身體部位 + hurts = 那裡痛。head 是一個，所以 hurt 要加 s。",
+      "distractors": [
+        { "text": "My head hurting.", "error": "other" },
+        { "text": "My hurts head.", "error": "word-order" },
+        { "text": "My hed hurts.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "flu_shot",
+      "en": "I want to get a flu shot.",
+      "zh": "我想打流感疫苗。",
+      "accept": ["I'd like to get a flu shot.", "I want to get the flu shot."],
+      "note": "want to + 動詞原形 = 想要做某件事。to 後面的動詞不變化：want to get，不說 want get。",
+      "distractors": [
+        { "text": "I want get a flu shot.", "error": "missing-word" },
+        { "text": "I want to getting a flu shot.", "error": "other" },
+        { "text": "I want to get flu shot.", "error": "article" }
+      ]
+    },
+    {
+      "id": "does_it_hurt",
+      "en": "Does it hurt?",
+      "zh": "會痛嗎？",
+      "accept": ["Will it hurt?"],
+      "note": "用 Does 開頭的問句，後面的動詞用原形 hurt，不加 s。",
+      "distractors": [
+        { "text": "Does it hurts?", "error": "other" },
+        { "text": "Do it hurt?", "error": "other" },
+        { "text": "Does hurt it?", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "fever_and_cough",
+      "en": "I have a fever and a cough.",
+      "zh": "我發燒又咳嗽。",
+      "accept": ["I have a cough and a fever.", "I've got a fever and a cough."],
+      "note": "說症狀用 I have a + 症狀：a fever、a cough、a cold，每個前面都要有 a。",
+      "distractors": [
+        { "text": "I have fever and cough.", "error": "article" },
+        { "text": "I am a fever and a cough.", "error": "other" },
+        { "text": "I have a fever and a couph.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "is_it_serious",
+      "en": "Is it serious?",
+      "zh": "嚴重嗎？",
+      "accept": ["Is this serious?"],
+      "note": "聽完醫生的說明後這樣問。問句把 Is 放到最前面：It is… → Is it…?",
+      "distractors": [
+        { "text": "Does it serious?", "error": "other" },
+        { "text": "Is it a serious?", "error": "article" },
+        { "text": "Is it serius?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "how_many_pills",
+      "en": "How many pills do I take?",
+      "zh": "我要吃幾顆藥？",
+      "accept": ["How many pills should I take?", "How many do I take?"],
+      "note": "How many + 複數名詞，所以 pills 要加 s。吃藥的動詞用 take。",
+      "distractors": [
+        { "text": "How many pill do I take?", "error": "plural" },
+        { "text": "How much pills do I take?", "error": "other" },
+        { "text": "How many pills I take?", "error": "missing-word" }
+      ]
+    },
+    {
+      "id": "go_to_work",
+      "en": "Can I go to work tomorrow?",
+      "zh": "我明天可以去上班嗎？",
+      "accept": ["Can I work tomorrow?"],
+      "note": "go to work = 去上班，work 前面不加 the。tomorrow 放在句子最後面。",
+      "distractors": [
+        { "text": "Can I go to the work tomorrow?", "error": "article" },
+        { "text": "Can I going to work tomorrow?", "error": "other" },
+        { "text": "Can I go to work at tomorrow?", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "something_for_cough",
+      "en": "Do you have something for a cough?",
+      "zh": "有治咳嗽的藥嗎？",
+      "accept": ["Do you have anything for a cough?", "Do you have something for my cough?"],
+      "note": "something for + 症狀 = 治那個症狀的藥。在藥局不知道藥名時就這樣問。",
+      "distractors": [
+        { "text": "Do you have something a cough?", "error": "missing-word" },
+        { "text": "Do you have something for cough?", "error": "article" },
+        { "text": "Does you have something for a cough?", "error": "other" }
+      ]
+    },
+    {
+      "id": "make_sleepy",
+      "en": "Does it make you sleepy?",
+      "zh": "吃了會想睡嗎？",
+      "accept": ["Does it make me sleepy?", "Will it make me sleepy?"],
+      "note": "make you sleepy = 讓人想睡，整句當固定說法記。這裡的 you 是指「吃的人」，也包括自己。",
+      "distractors": [
+        { "text": "Does it makes you sleepy?", "error": "other" },
+        { "text": "Does it make sleepy you?", "error": "word-order" },
+        { "text": "Does it make you sleppy?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "with_food",
+      "en": "Do I take it with food?",
+      "zh": "要跟食物一起吃嗎？",
+      "accept": ["Should I take it with food?", "Do I take this with food?"],
+      "note": "take it = 吃這個藥；with food = 配著東西一起吃，food 前面不加 a。",
+      "distractors": [
+        { "text": "Do I take it with a food?", "error": "article" },
+        { "text": "Do I take with food?", "error": "missing-word" },
+        { "text": "Do I take it food with?", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "thanks_for_help",
+      "en": "Thanks for your help.",
+      "zh": "謝謝你的幫忙。",
+      "accept": ["Thank you for your help.", "Thanks for the help."],
+      "note": "Thanks for + 名詞 = 謝謝你的…。離開前向幫過你的人說。",
+      "distractors": [
+        { "text": "Thanks your help.", "error": "missing-word" },
+        { "text": "Thanks for you help.", "error": "other" },
+        { "text": "Thanks for your helps.", "error": "plural" }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "form", "en": "form", "zh": "表格", "emoji": "📝" },
+    { "id": "doctor", "en": "doctor", "zh": "醫生", "emoji": "🧑‍⚕️", "abstract": true },
+    { "id": "nurse", "en": "nurse", "zh": "護理師", "emoji": "👩‍⚕️", "abstract": true },
+    { "id": "insurance", "en": "insurance", "zh": "保險", "emoji": "🛡️", "abstract": true },
+    { "id": "back", "en": "back", "zh": "背", "emoji": "🔙", "abstract": true },
+    { "id": "head", "en": "head", "zh": "頭", "emoji": "🙂" },
+    { "id": "eye", "en": "eye", "zh": "眼睛", "emoji": "👁️" },
+    { "id": "hurt", "en": "hurt", "zh": "痛", "emoji": "🤕", "abstract": true },
+    { "id": "ear", "en": "ear", "zh": "耳朵", "emoji": "👂" },
+    { "id": "hand", "en": "hand", "zh": "手", "emoji": "✋" },
+    { "id": "arm", "en": "arm", "zh": "手臂", "emoji": "💪" },
+    { "id": "leg", "en": "leg", "zh": "腿", "emoji": "🦵" },
+    { "id": "shot", "en": "shot", "zh": "打針", "emoji": "💉" },
+    { "id": "flu", "en": "flu", "zh": "流感", "emoji": "🤧", "abstract": true },
+    { "id": "cold", "en": "cold", "zh": "感冒；冷的", "emoji": "🥶", "abstract": true },
+    { "id": "throat", "en": "throat", "zh": "喉嚨", "emoji": "🗣️", "abstract": true },
+    { "id": "nose", "en": "nose", "zh": "鼻子", "emoji": "👃" },
+    { "id": "cough", "en": "cough", "zh": "咳嗽", "emoji": "😷", "abstract": true },
+    { "id": "fever", "en": "fever", "zh": "發燒", "emoji": "🤒", "abstract": true },
+    { "id": "sleep", "en": "sleep", "zh": "睡覺", "emoji": "😴", "abstract": true },
+    { "id": "rest", "en": "rest", "zh": "休息", "emoji": "🛋️", "abstract": true },
+    { "id": "body", "en": "body", "zh": "身體", "emoji": "🧍", "abstract": true },
+    { "id": "medicine", "en": "medicine", "zh": "藥", "emoji": "💊" },
+    { "id": "pill", "en": "pill", "zh": "藥丸", "emoji": "💊" },
+    { "id": "sick", "en": "sick", "zh": "生病的", "emoji": "🤢", "abstract": true },
+    { "id": "tissue", "en": "tissue", "zh": "面紙", "emoji": "🧻" },
+    { "id": "cream", "en": "cream", "zh": "藥膏；乳霜", "emoji": "🧴" },
+    { "id": "pharmacy", "en": "pharmacy", "zh": "藥局", "emoji": "🏪" },
+    { "id": "mask", "en": "mask", "zh": "口罩", "emoji": "😷" },
+    { "id": "food", "en": "food", "zh": "食物", "emoji": "🍲" },
+    { "id": "glass", "en": "glass", "zh": "玻璃杯", "emoji": "🥛" },
+    { "id": "meal", "en": "meal", "zh": "一餐", "emoji": "🍽️", "abstract": true },
+    { "id": "dinner", "en": "dinner", "zh": "晚餐", "emoji": "🍝" },
+    { "id": "breakfast", "en": "breakfast", "zh": "早餐", "emoji": "🍳" }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "掛號",
+      "newChunkIds": ["need_appointment", "insurance_card"],
+      "newWordIds": ["form", "doctor", "nurse", "insurance"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "receptionist",
+          "speaker": "npc",
+          "en": "Hi. Are you here to see the doctor?",
+          "zh": "嗨，你是來看醫生的嗎？"
+        },
+        {
+          "id": "t1_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do I need an appointment?",
+          "zh": "需要預約嗎？",
+          "chunkId": "need_appointment",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t1_3",
+          "role": "receptionist",
+          "speaker": "npc",
+          "en": "Not today. Do you have insurance?",
+          "zh": "今天不用。你有保險嗎？"
+        },
+        {
+          "id": "t1_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Here's my insurance card.",
+          "zh": "這是我的保險卡。",
+          "chunkId": "insurance_card"
+        },
+        {
+          "id": "t1_5",
+          "role": "receptionist",
+          "speaker": "npc",
+          "en": "Thanks. Give this form to the nurse.",
+          "zh": "謝謝。這張表格請交給護理師。",
+          "stage": { "act": "give", "item": "form" }
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "哪裡不舒服",
+      "newChunkIds": ["dont_feel_well", "head_hurts"],
+      "newWordIds": ["back", "head", "eye", "hurt", "ear"],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "doctor",
+          "speaker": "npc",
+          "en": "Hi, I'm Dr. Lee. How are you today?",
+          "zh": "嗨，我是李醫師。今天還好嗎？"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I don't feel well.",
+          "zh": "我不太舒服。",
+          "chunkId": "dont_feel_well"
+        },
+        {
+          "id": "t2_3",
+          "role": "doctor",
+          "speaker": "npc",
+          "en": "I see. Where does it hurt?",
+          "zh": "這樣啊。哪裡痛？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t2_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "My head hurts.",
+          "zh": "我頭痛。",
+          "chunkId": "head_hurts",
+          "stage": { "act": "want", "item": "head" }
+        },
+        {
+          "id": "t2_5",
+          "role": "doctor",
+          "speaker": "npc",
+          "en": "How about your eyes, ears, or back?",
+          "zh": "那眼睛、耳朵或背呢？",
+          "stage": { "act": "want", "item": "ear" }
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "打流感疫苗",
+      "newChunkIds": ["flu_shot", "does_it_hurt"],
+      "newWordIds": ["hand", "arm", "leg", "shot", "flu"],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I want to get a flu shot.",
+          "zh": "我想打流感疫苗。",
+          "chunkId": "flu_shot",
+          "stage": { "act": "want", "item": "shot" }
+        },
+        {
+          "id": "t3_2",
+          "role": "doctor",
+          "speaker": "npc",
+          "en": "Sure. It goes in your left arm.",
+          "zh": "好啊。打在左手臂。",
+          "stage": { "act": "want", "item": "arm" }
+        },
+        {
+          "id": "t3_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Does it hurt?",
+          "zh": "會痛嗎？",
+          "chunkId": "does_it_hurt",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t3_4",
+          "role": "doctor",
+          "speaker": "npc",
+          "en": "A little. Put your hand on your leg.",
+          "zh": "有一點。把手放在腿上。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "看醫生",
+      "newChunkIds": ["fever_and_cough", "is_it_serious"],
+      "newWordIds": ["cold", "throat", "nose", "cough", "fever"],
+      "signs": [
+        {
+          "id": "t4_hours",
+          "heading": "Dr. Lee",
+          "rows": [
+            { "label": "Monday to Thursday", "value": "9 to 5" },
+            { "label": "Friday", "value": "9 to 12" }
+          ],
+          "question": {
+            "en": "It's Friday. When can you see Dr. Lee?",
+            "zh": "今天是星期五。什麼時候可以看李醫師？"
+          },
+          "options": ["9 to 5", "9 to 12", "Not today"],
+          "answer": 1
+        },
+        {
+          "id": "t4_flu_shots",
+          "heading": "Flu Shots Today",
+          "rows": [
+            { "label": "With insurance", "value": "Free" },
+            { "label": "No insurance", "value": "$30" }
+          ],
+          "question": {
+            "en": "You have insurance. How much is a flu shot?",
+            "zh": "你有保險。打流感疫苗要多少錢？"
+          },
+          "options": ["$30", "It's free.", "$13"],
+          "answer": 1
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "doctor",
+          "speaker": "npc",
+          "en": "Hi. What's the problem today?",
+          "zh": "嗨，今天哪裡不舒服？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t4_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I have a fever and a cough.",
+          "zh": "我發燒又咳嗽。",
+          "chunkId": "fever_and_cough"
+        },
+        {
+          "id": "t4_3",
+          "role": "doctor",
+          "speaker": "npc",
+          "en": "Let me see. Your nose and throat are red.",
+          "zh": "我看看。你的鼻子和喉嚨都紅紅的。",
+          "stage": { "act": "want", "item": "nose" }
+        },
+        {
+          "id": "t4_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is it serious?",
+          "zh": "嚴重嗎？",
+          "chunkId": "is_it_serious",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t4_5",
+          "role": "doctor",
+          "speaker": "npc",
+          "en": "No. It's just a cold.",
+          "zh": "不嚴重，只是感冒。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "醫生的交代",
+      "newChunkIds": ["how_many_pills", "go_to_work"],
+      "newWordIds": ["sleep", "rest", "body", "medicine", "pill"],
+      "pictures": [
+        {
+          "id": "pic1",
+          "pictureId": "reading_book",
+          "options": [
+            { "en": "She is eating a sandwich.", "zh": "她正在吃三明治。" },
+            { "en": "She is reading a book.", "zh": "她正在看書。" }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "pic2",
+          "pictureId": "drinking_coffee",
+          "options": [
+            { "en": "He is drinking coffee.", "zh": "他正在喝咖啡。" },
+            { "en": "He is reading a newspaper.", "zh": "他正在看報紙。" }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "pic3",
+          "pictureId": "waiting_bus",
+          "options": [
+            { "en": "She is waiting for the bus.", "zh": "她正在等公車。" },
+            { "en": "She is sitting on the bus.", "zh": "她正坐在公車上。" }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "pic4",
+          "pictureId": "wearing_hat",
+          "options": [
+            { "en": "He is eating an apple.", "zh": "他正在吃蘋果。" },
+            { "en": "He is wearing a hat.", "zh": "他戴著帽子。" }
+          ],
+          "answer": 1
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "doctor",
+          "speaker": "npc",
+          "en": "Here's your medicine.",
+          "zh": "這是你的藥。",
+          "stage": { "act": "give", "item": "medicine" }
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How many pills do I take?",
+          "zh": "我要吃幾顆藥？",
+          "chunkId": "how_many_pills",
+          "stage": { "act": "want", "item": "pill" }
+        },
+        {
+          "id": "t5_3",
+          "role": "doctor",
+          "speaker": "npc",
+          "en": "Two a day, morning and night.",
+          "zh": "一天兩顆，早晚各一顆。"
+        },
+        {
+          "id": "t5_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I go to work tomorrow?",
+          "zh": "我明天可以去上班嗎？",
+          "chunkId": "go_to_work",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t5_5",
+          "role": "doctor",
+          "speaker": "npc",
+          "en": "No. Your body needs rest and sleep.",
+          "zh": "不行。你的身體需要休息和睡眠。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "到藥局",
+      "newChunkIds": ["something_for_cough", "make_sleepy"],
+      "newWordIds": ["sick", "tissue", "cream", "pharmacy", "mask"],
+      "cloze": [
+        { "lineId": "t6_1", "word": "tissues", "distractors": ["taxis", "tables"] },
+        { "lineId": "t6_3", "word": "sick", "distractors": ["sink", "seat"] },
+        { "lineId": "t6_5", "word": "night", "distractors": ["light", "right"] }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "pharmacist",
+          "speaker": "npc",
+          "en": "Hi! Just the tissues and the cream?",
+          "zh": "嗨！就面紙和藥膏嗎？",
+          "stage": { "act": "want", "item": "tissue" }
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you have something for a cough?",
+          "zh": "有治咳嗽的藥嗎？",
+          "chunkId": "something_for_cough",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t6_3",
+          "role": "pharmacist",
+          "speaker": "npc",
+          "en": "Are you sick? Try this.",
+          "zh": "你生病了嗎？試試這個。",
+          "stage": { "act": "give", "item": "medicine" }
+        },
+        {
+          "id": "t6_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Does it make you sleepy?",
+          "zh": "吃了會想睡嗎？",
+          "chunkId": "make_sleepy"
+        },
+        {
+          "id": "t6_5",
+          "role": "pharmacist",
+          "speaker": "npc",
+          "en": "A little. Take it at night.",
+          "zh": "會有一點，晚上再吃吧。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "藥怎麼吃",
+      "newChunkIds": ["with_food", "thanks_for_help"],
+      "newWordIds": ["food", "glass", "meal", "dinner", "breakfast"],
+      "spellWordIds": ["shirt", "dress", "coat", "hat", "shoe"],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "pharmacist",
+          "speaker": "npc",
+          "en": "Take two pills a day.",
+          "zh": "一天吃兩顆。",
+          "stage": { "act": "give", "item": "pill" }
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do I take it with food?",
+          "zh": "要跟食物一起吃嗎？",
+          "chunkId": "with_food"
+        },
+        {
+          "id": "t7_3",
+          "role": "pharmacist",
+          "speaker": "npc",
+          "en": "Yes, after a meal. Breakfast and dinner.",
+          "zh": "要，飯後吃。早餐和晚餐後。",
+          "stage": { "act": "want", "item": "breakfast" }
+        },
+        {
+          "id": "t7_4",
+          "role": "pharmacist",
+          "speaker": "npc",
+          "en": "With a glass of water.",
+          "zh": "配一杯水。",
+          "stage": { "act": "want", "item": "glass" }
+        },
+        {
+          "id": "t7_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thanks for your help.",
+          "zh": "謝謝你的幫忙。",
+          "chunkId": "thanks_for_help"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "doctor",
+          "speaker": "npc",
+          "en": "Good morning. How can I help you?",
+          "zh": "早安。有什麼需要幫忙的嗎？"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I don't feel well.",
+          "zh": "我不太舒服。",
+          "chunkId": "dont_feel_well"
+        },
+        {
+          "id": "t8_3",
+          "role": "doctor",
+          "speaker": "npc",
+          "en": "I see. Do you have a fever?",
+          "zh": "這樣啊。有發燒嗎？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I have a fever and a cough.",
+          "zh": "我發燒又咳嗽。",
+          "chunkId": "fever_and_cough"
+        },
+        {
+          "id": "t8_5",
+          "role": "doctor",
+          "speaker": "npc",
+          "en": "It's a cold. The pharmacy has cough medicine.",
+          "zh": "是感冒。藥局有咳嗽藥。",
+          "stage": { "act": "want", "item": "pharmacy" }
+        },
+        {
+          "id": "t8_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I go to work tomorrow?",
+          "zh": "我明天可以去上班嗎？",
+          "chunkId": "go_to_work",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_7",
+          "role": "doctor",
+          "speaker": "npc",
+          "en": "No. Rest at home. Anything else?",
+          "zh": "不行，在家休息。還有別的事嗎？"
+        },
+        {
+          "id": "t8_8",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I want to get a flu shot.",
+          "zh": "我想打流感疫苗。",
+          "chunkId": "flu_shot",
+          "stage": { "act": "want", "item": "shot" }
+        },
+        {
+          "id": "t8_9",
+          "role": "doctor",
+          "speaker": "npc",
+          "en": "Not with a fever. Come back on Friday.",
+          "zh": "發燒不能打。星期五再來。"
+        },
+        {
+          "id": "t8_10",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do I need an appointment?",
+          "zh": "需要預約嗎？",
+          "chunkId": "need_appointment",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_11",
+          "role": "doctor",
+          "speaker": "npc",
+          "en": "No, you don't. See you on Friday!",
+          "zh": "不用。星期五見！"
+        },
+        {
+          "id": "t8_12",
+          "role": "pharmacist",
+          "speaker": "npc",
+          "en": "Hi. You look sick. Here's a mask.",
+          "zh": "嗨。你好像生病了，口罩給你。",
+          "stage": { "act": "give", "item": "mask" }
+        },
+        {
+          "id": "t8_13",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you have something for a cough?",
+          "zh": "有治咳嗽的藥嗎？",
+          "chunkId": "something_for_cough"
+        },
+        {
+          "id": "t8_14",
+          "role": "pharmacist",
+          "speaker": "npc",
+          "en": "Sure. This one is really good.",
+          "zh": "有。這個很有效。",
+          "stage": { "act": "give", "item": "medicine" }
+        },
+        {
+          "id": "t8_15",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do I take it with food?",
+          "zh": "要跟食物一起吃嗎？",
+          "chunkId": "with_food"
+        },
+        {
+          "id": "t8_16",
+          "role": "pharmacist",
+          "speaker": "npc",
+          "en": "Yes, after dinner, with a glass of water.",
+          "zh": "要，晚餐後配一杯水吃。"
+        },
+        {
+          "id": "t8_17",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thanks for your help.",
+          "zh": "謝謝你的幫忙。",
+          "chunkId": "thanks_for_help"
+        }
+      ]
+    }
+  ]
+}
