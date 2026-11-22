@@ -1,0 +1,739 @@
+{
+  "id": "bank",
+  "title": "銀行",
+  "titleEn": "Bank",
+  "chunks": [
+    {
+      "id": "need_to_open_a_bank_account",
+      "en": "I need to open a bank account.",
+      "zh": "我想開個戶。",
+      "accept": ["I need to open an account.", "I'd like to open a bank account."],
+      "note": "說明來銀行要辦什麼事。need to + 動詞原形 = 需要做某事。",
+      "distractors": [
+        { "text": "I need open a bank account.", "error": "missing-word" },
+        { "text": "I need to open bank account.", "error": "article" },
+        { "text": "I need to open a bank acount.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "where_do_i_wait",
+      "en": "Where do I wait?",
+      "zh": "我要在哪裡等？",
+      "accept": ["Where can I wait?"],
+      "note": "不知道要在哪裡等的時候問。Where 後面接 do I + 動詞原形。",
+      "distractors": [
+        { "text": "Where I do wait?", "error": "word-order" },
+        { "text": "Where does I wait?", "error": "other" },
+        { "text": "Where do I waiting?", "error": "other" }
+      ]
+    },
+    {
+      "id": "is_my_passport_okay",
+      "en": "Is my passport okay?",
+      "zh": "用護照可以嗎？",
+      "accept": ["Is my passport OK?"],
+      "note": "拿出證件時問對方能不能用。okay 也可以寫成 OK。",
+      "distractors": [
+        { "text": "Is okay my passport?", "error": "word-order" },
+        { "text": "Are my passport okay?", "error": "other" },
+        { "text": "Is my pasport okay?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "this_bill_has_my_new_address",
+      "en": "This bill has my new address.",
+      "zh": "這張帳單上有我的新地址。",
+      "note": "拿帳單證明住址時說。主詞 this bill 是一張，動詞用 has。",
+      "distractors": [
+        { "text": "This bill have my new address.", "error": "other" },
+        { "text": "This bill has my address new.", "error": "word-order" },
+        { "text": "This bill has my new adress.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "could_you_check_my_form",
+      "en": "Could you check my form?",
+      "zh": "可以幫我看一下表格嗎？",
+      "accept": ["Could you check my form, please?", "Could you please check my form?"],
+      "note": "Could you + 動詞原形…? 是客氣的請求，比 Can you 更有禮貌。",
+      "distractors": [
+        { "text": "Could you checking my form?", "error": "other" },
+        { "text": "Could you to check my form?", "error": "extra-word" },
+        { "text": "Could check you my form?", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "sorry_i_dont_understand",
+      "en": "Sorry, I don't understand.",
+      "zh": "不好意思，我看不太懂。",
+      "accept": ["Sorry, I do not understand.", "I'm sorry, I don't understand."],
+      "note": "聽不懂或看不懂時說，請對方再解釋。don't = do not，後面接動詞原形。",
+      "distractors": [
+        { "text": "Sorry, I not understand.", "error": "missing-word" },
+        { "text": "Sorry, I doesn't understand.", "error": "other" },
+        { "text": "Sorry, I don't understant.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "how_does_the_atm_work",
+      "en": "How does the ATM work?",
+      "zh": "提款機怎麼用？",
+      "note": "問機器怎麼用。the ATM 是一台，所以用 does，work 不加 s。",
+      "distractors": [
+        { "text": "How does the ATM works?", "error": "other" },
+        { "text": "How the ATM does work?", "error": "word-order" },
+        { "text": "How does ATM work?", "error": "article" }
+      ]
+    },
+    {
+      "id": "take_out_sixty_dollars",
+      "en": "Can I take out sixty dollars?",
+      "zh": "我可以領六十塊嗎？",
+      "accept": ["Can I take sixty dollars out?", "Can I take out $60?"],
+      "note": "take out = 把錢領出來，口語都這樣說。sixty 以上的 dollars 要加 s。",
+      "distractors": [
+        { "text": "Can I take out sixty dollar?", "error": "plural" },
+        { "text": "Can I taking out sixty dollars?", "error": "other" },
+        { "text": "Can I take out sixty dolars?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "deposit_some_cash",
+      "en": "I'd like to deposit some cash.",
+      "zh": "我想存一些現金。",
+      "accept": ["I would like to deposit some cash."],
+      "note": "要存錢時說。I'd like to = I would like to，比 I want to 客氣。",
+      "distractors": [
+        { "text": "I'd like deposit some cash.", "error": "missing-word" },
+        { "text": "I'd like to deposit some cashes.", "error": "plural" },
+        { "text": "I'd like to depositing some cash.", "error": "other" }
+      ]
+    },
+    {
+      "id": "when_can_i_use_the_money",
+      "en": "When can I use the money?",
+      "zh": "這筆錢什麼時候可以用？",
+      "note": "存錢後問什麼時候能用。When 開頭的問句，can 要放在 I 前面。",
+      "distractors": [
+        { "text": "When I can use the money?", "error": "word-order" },
+        { "text": "When can I use the moneys?", "error": "plural" },
+        { "text": "When can I using the money?", "error": "other" }
+      ]
+    },
+    {
+      "id": "do_i_have_to_pay_a_fee",
+      "en": "Do I have to pay a fee?",
+      "zh": "我要付手續費嗎？",
+      "accept": ["Do I need to pay a fee?"],
+      "note": "have to = 必須；問句用 Do I have to + 動詞原形？must 也是必須，語氣更強。",
+      "distractors": [
+        { "text": "Do I have pay a fee?", "error": "missing-word" },
+        { "text": "Do I has to pay a fee?", "error": "other" },
+        { "text": "Do I have to paying a fee?", "error": "other" }
+      ]
+    },
+    {
+      "id": "is_that_every_month",
+      "en": "Is that every month?",
+      "zh": "是每個月都要付嗎？",
+      "note": "問費用是不是每個月都收。every 後面接單數：every month，前面不加 in。",
+      "distractors": [
+        { "text": "Is that every months?", "error": "plural" },
+        { "text": "Is that in every month?", "error": "extra-word" },
+        { "text": "Is that evry month?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "pay_my_rent_online",
+      "en": "Can I pay my rent online?",
+      "zh": "房租可以在網路上付嗎？",
+      "accept": ["Can I pay the rent online?"],
+      "note": "問能不能在網路上付錢。online = 在網路上，放在句尾。",
+      "distractors": [
+        { "text": "Can I online pay my rent?", "error": "word-order" },
+        { "text": "Can I paying my rent online?", "error": "other" },
+        { "text": "Can I pay my rent on line?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "how_do_i_send_money_home",
+      "en": "How do I send money home?",
+      "zh": "我要怎麼匯錢回家？",
+      "note": "問怎麼匯錢回家。home 前面不加 to；money 不加 s。",
+      "distractors": [
+        { "text": "How do I send money to home?", "error": "extra-word" },
+        { "text": "How I do send money home?", "error": "word-order" },
+        { "text": "How do I send moneys home?", "error": "plural" }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "before", "en": "before", "zh": "以前；在……之前", "emoji": "⏮️", "abstract": true },
+    { "id": "ask", "en": "ask", "zh": "問", "emoji": "🙋", "abstract": true },
+    { "id": "another", "en": "another", "zh": "另一個", "emoji": "➕", "abstract": true },
+    { "id": "question", "en": "question", "zh": "問題", "emoji": "❓", "abstract": true },
+    { "id": "tell", "en": "tell", "zh": "告訴", "emoji": "🗣️", "abstract": true },
+    { "id": "same", "en": "same", "zh": "一樣的", "emoji": "🟰", "abstract": true },
+    { "id": "different", "en": "different", "zh": "不一樣的", "emoji": "🔀", "abstract": true },
+    { "id": "information", "en": "information", "zh": "資料", "emoji": "ℹ️", "abstract": true },
+    { "id": "passport", "en": "passport", "zh": "護照", "emoji": "🛂" },
+    { "id": "why", "en": "why", "zh": "為什麼", "emoji": "🤔", "abstract": true },
+    { "id": "important", "en": "important", "zh": "重要的", "emoji": "❗", "abstract": true },
+    { "id": "answer", "en": "answer", "zh": "答案；回答", "emoji": "✅", "abstract": true },
+    { "id": "easy", "en": "easy", "zh": "簡單的", "emoji": "👌", "abstract": true },
+    { "id": "income", "en": "income", "zh": "收入", "emoji": "💼", "abstract": true },
+    { "id": "put", "en": "put", "zh": "放進；插入", "emoji": "📥", "abstract": true },
+    { "id": "without", "en": "without", "zh": "沒有（……就不行）", "emoji": "🚫", "abstract": true },
+    { "id": "eighty", "en": "eighty", "zh": "八十", "emoji": "8️⃣", "abstract": true },
+    { "id": "thousand", "en": "thousand", "zh": "一千", "emoji": "🔢", "abstract": true },
+    { "id": "atm", "en": "ATM", "zh": "提款機", "emoji": "🏧" },
+    { "id": "seventy", "en": "seventy", "zh": "七十", "emoji": "7️⃣", "abstract": true },
+    { "id": "ninety", "en": "ninety", "zh": "九十", "emoji": "9️⃣", "abstract": true },
+    { "id": "amount", "en": "amount", "zh": "金額", "emoji": "🧮", "abstract": true },
+    { "id": "save", "en": "save", "zh": "存（錢）", "emoji": "🐷" },
+    { "id": "cent", "en": "cent", "zh": "分（一美元的百分之一）", "emoji": "🪙", "abstract": true },
+    { "id": "must", "en": "must", "zh": "必須", "emoji": "⚠️", "abstract": true },
+    { "id": "charge", "en": "charge", "zh": "收（費用）", "emoji": "💲", "abstract": true },
+    { "id": "statement", "en": "statement", "zh": "對帳單", "emoji": "📄", "abstract": true },
+    { "id": "balance", "en": "balance", "zh": "餘額", "emoji": "⚖️", "abstract": true },
+    { "id": "fee", "en": "fee", "zh": "手續費", "emoji": "💸", "abstract": true },
+    { "id": "spend", "en": "spend", "zh": "花（錢）", "emoji": "🛍️", "abstract": true },
+    { "id": "rate", "en": "rate", "zh": "匯率", "emoji": "💱", "abstract": true },
+    { "id": "credit", "en": "credit", "zh": "信用（credit card 信用卡）", "emoji": "💳" },
+    { "id": "transfer", "en": "transfer", "zh": "轉帳", "emoji": "🔁", "abstract": true },
+    { "id": "payment", "en": "payment", "zh": "付款", "emoji": "💰", "abstract": true }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "走進銀行",
+      "newChunkIds": ["need_to_open_a_bank_account", "where_do_i_wait"],
+      "newWordIds": ["before", "ask", "another", "question"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Good morning! What can I do for you?",
+          "zh": "早安！有什麼需要幫忙的嗎？"
+        },
+        {
+          "id": "t1_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I need to open a bank account.",
+          "zh": "我想開個戶。",
+          "chunkId": "need_to_open_a_bank_account"
+        },
+        {
+          "id": "t1_3",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Sure! There's just one person before you.",
+          "zh": "好的！你前面只有一位。"
+        },
+        {
+          "id": "t1_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Where do I wait?",
+          "zh": "我要在哪裡等？",
+          "chunkId": "where_do_i_wait",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t1_5",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Over there. Then I'll ask you some questions.",
+          "zh": "在那邊。等一下我會問你幾個問題。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "證件和地址",
+      "newChunkIds": ["is_my_passport_okay", "this_bill_has_my_new_address"],
+      "newWordIds": ["tell", "same", "different", "information", "passport"],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Thanks for waiting. First, I need some information.",
+          "zh": "久等了。首先，我需要一些資料。"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is my passport okay?",
+          "zh": "用護照可以嗎？",
+          "chunkId": "is_my_passport_okay",
+          "stage": { "act": "give", "item": "passport" }
+        },
+        {
+          "id": "t2_3",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Sure. Now, can you tell me your address?",
+          "zh": "可以。那可以告訴我你的地址嗎？"
+        },
+        {
+          "id": "t2_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "This bill has my new address.",
+          "zh": "這張帳單上有我的新地址。",
+          "chunkId": "this_bill_has_my_new_address"
+        },
+        {
+          "id": "t2_5",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Great. And the name is the same, too.",
+          "zh": "很好。上面的名字也一樣。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "填開戶申請表",
+      "newChunkIds": ["could_you_check_my_form", "sorry_i_dont_understand"],
+      "newWordIds": ["why", "important", "answer", "easy", "income"],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Here's the form. The questions are easy.",
+          "zh": "表格在這裡。上面的問題都很簡單。"
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could you check my form?",
+          "zh": "可以幫我看一下表格嗎？",
+          "chunkId": "could_you_check_my_form"
+        },
+        {
+          "id": "t3_3",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Sure. You need an answer here. What's your income?",
+          "zh": "好啊。這裡要填。你的收入是多少？"
+        },
+        {
+          "id": "t3_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sorry, I don't understand.",
+          "zh": "不好意思，我看不太懂。",
+          "chunkId": "sorry_i_dont_understand"
+        },
+        {
+          "id": "t3_5",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Your income is the money you make.",
+          "zh": "收入就是你賺的錢。"
+        },
+        {
+          "id": "t3_6",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "It's important. That's why we ask.",
+          "zh": "這很重要，所以我們才會問。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "提款卡和提款機",
+      "newChunkIds": ["how_does_the_atm_work", "take_out_sixty_dollars"],
+      "newWordIds": ["put", "without", "eighty", "thousand", "atm"],
+      "signs": [
+        {
+          "id": "bank_hours",
+          "heading": "Bank Hours",
+          "rows": [
+            { "label": "Monday to Friday", "value": "9:00-4:00" },
+            { "label": "Saturday", "value": "9:00-12:00" },
+            { "label": "ATM", "value": "Open 24 hours" }
+          ],
+          "question": {
+            "en": "When does the bank close on Saturday?",
+            "zh": "銀行星期六幾點關門？"
+          },
+          "options": ["At 12:00", "At 4:00", "At 9:00"],
+          "answer": 0
+        },
+        {
+          "id": "atm_screen",
+          "heading": "Put in your card.",
+          "rows": [
+            { "label": "Take out", "value": "$20 $40 $60 $80" },
+            { "label": "Up to $1,000 a day" }
+          ],
+          "question": {
+            "en": "How much can you take out in a day?",
+            "zh": "一天最多可以領多少錢？"
+          },
+          "options": ["$80", "$100", "$1,000"],
+          "answer": 2
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Here's your card. You can't use the ATM without it.",
+          "zh": "這是你的卡。沒有它就不能用提款機。",
+          "stage": { "act": "want", "item": "atm" }
+        },
+        {
+          "id": "t4_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How does the ATM work?",
+          "zh": "提款機怎麼用？",
+          "chunkId": "how_does_the_atm_work",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t4_3",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "It's easy. Put your card in right here.",
+          "zh": "很簡單。把卡插進這裡就好。"
+        },
+        {
+          "id": "t4_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I take out sixty dollars?",
+          "zh": "我可以領六十塊嗎？",
+          "chunkId": "take_out_sixty_dollars"
+        },
+        {
+          "id": "t4_5",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Sure. You can take out a thousand a day.",
+          "zh": "可以。一天最多可以領一千塊。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "第一次存錢",
+      "newChunkIds": ["deposit_some_cash", "when_can_i_use_the_money"],
+      "newWordIds": ["seventy", "ninety", "amount", "save", "cent"],
+      "fills": [
+        {
+          "id": "bank_f1",
+          "en": "There ___ a bank near my home.",
+          "zh": "我家附近有一家銀行。",
+          "options": ["is", "are", "am"],
+          "answer": 0,
+          "note": "a bank 是一個，用 There is。"
+        },
+        {
+          "id": "bank_f2",
+          "en": "I want ___ buy some stamps.",
+          "zh": "我想買一些郵票。",
+          "options": ["to", "for", "at"],
+          "answer": 0,
+          "note": "want to 後面接動詞原形。"
+        },
+        {
+          "id": "bank_f3",
+          "en": "How much ___ these apples?",
+          "zh": "這些蘋果多少錢？",
+          "options": ["is", "are", "do"],
+          "answer": 1,
+          "note": "apples 是複數，用 are。"
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Hi again! What can I do for you today?",
+          "zh": "又見面了！今天要辦什麼？"
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'd like to deposit some cash.",
+          "zh": "我想存一些現金。",
+          "chunkId": "deposit_some_cash",
+          "stage": { "act": "want", "item": "save" }
+        },
+        {
+          "id": "t5_3",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Sure. The amount is ninety dollars and seventy cents.",
+          "zh": "好的。金額是九十塊七毛。"
+        },
+        {
+          "id": "t5_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "When can I use the money?",
+          "zh": "這筆錢什麼時候可以用？",
+          "chunkId": "when_can_i_use_the_money"
+        },
+        {
+          "id": "t5_5",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Right now. It's a great way to start saving.",
+          "zh": "現在就可以用。這是開始存錢的好方法。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "問手續費",
+      "newChunkIds": ["do_i_have_to_pay_a_fee", "is_that_every_month"],
+      "newWordIds": ["must", "charge", "statement", "balance", "fee"],
+      "cloze": [
+        { "lineId": "t6_1", "word": "statement", "distractors": ["station", "stamp"] },
+        { "lineId": "t6_3", "word": "five", "distractors": ["nine", "two"] },
+        { "lineId": "t6_5", "word": "free", "distractors": ["three", "tree"] }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Here's your first statement. It shows your balance.",
+          "zh": "這是你的第一張對帳單，上面有你的餘額。"
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do I have to pay a fee?",
+          "zh": "我要付手續費嗎？",
+          "chunkId": "do_i_have_to_pay_a_fee",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t6_3",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Yes, we charge five dollars.",
+          "zh": "要，我們收五塊錢。"
+        },
+        {
+          "id": "t6_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is that every month?",
+          "zh": "是每個月都要付嗎？",
+          "chunkId": "is_that_every_month"
+        },
+        {
+          "id": "t6_5",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Yes. But with a balance over five hundred, it's free.",
+          "zh": "對。不過餘額超過五百塊就免費。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "網路銀行和付房租",
+      "newChunkIds": ["pay_my_rent_online", "how_do_i_send_money_home"],
+      "newWordIds": ["spend", "rate", "credit", "transfer", "payment"],
+      "spellWordIds": ["tree", "dog", "flower", "ball", "camera"],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Here's your credit card. Don't spend all your money!",
+          "zh": "這是你的信用卡。別把錢都花光喔！",
+          "stage": { "act": "give", "item": "credit" }
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I pay my rent online?",
+          "zh": "房租可以在網路上付嗎？",
+          "chunkId": "pay_my_rent_online"
+        },
+        {
+          "id": "t7_3",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Sure. You can make a payment on your phone.",
+          "zh": "可以。你可以用手機付款。"
+        },
+        {
+          "id": "t7_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How do I send money home?",
+          "zh": "我要怎麼匯錢回家？",
+          "chunkId": "how_do_i_send_money_home",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t7_5",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Do a transfer. The rate is different every day.",
+          "zh": "用轉帳。不過匯率每天都不一樣喔。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Good morning! How can I help you?",
+          "zh": "早安！需要什麼幫忙嗎？"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I need to open a bank account.",
+          "zh": "我想開個戶。",
+          "chunkId": "need_to_open_a_bank_account"
+        },
+        {
+          "id": "t8_3",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Sure. First, I need some information.",
+          "zh": "好的。首先，我需要一些資料。"
+        },
+        {
+          "id": "t8_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is my passport okay?",
+          "zh": "用護照可以嗎？",
+          "chunkId": "is_my_passport_okay",
+          "stage": { "act": "give", "item": "passport" }
+        },
+        {
+          "id": "t8_5",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Yes, that's okay. Please answer the questions on this form.",
+          "zh": "可以。請回答這張表格上的問題。"
+        },
+        {
+          "id": "t8_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could you check my form?",
+          "zh": "可以幫我看一下表格嗎？",
+          "chunkId": "could_you_check_my_form"
+        },
+        {
+          "id": "t8_7",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Sure. It all looks good. Here's your new card.",
+          "zh": "好啊。都沒問題。這是你的新卡。"
+        },
+        {
+          "id": "t8_8",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How does the ATM work?",
+          "zh": "提款機怎麼用？",
+          "chunkId": "how_does_the_atm_work",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t8_9",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "It's easy. Just put your card in. Anything else?",
+          "zh": "很簡單，把卡插進去就好。還有別的事嗎？"
+        },
+        {
+          "id": "t8_10",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'd like to deposit some cash.",
+          "zh": "我想存一些現金。",
+          "chunkId": "deposit_some_cash"
+        },
+        {
+          "id": "t8_11",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Sure. Eighty dollars. It's in your account now.",
+          "zh": "好的，八十塊。已經存進你的帳戶了。"
+        },
+        {
+          "id": "t8_12",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do I have to pay a fee?",
+          "zh": "我要付手續費嗎？",
+          "chunkId": "do_i_have_to_pay_a_fee"
+        },
+        {
+          "id": "t8_13",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Yes, five dollars. You can see it on your statement.",
+          "zh": "要，五塊錢。對帳單上看得到。"
+        },
+        {
+          "id": "t8_14",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is that every month?",
+          "zh": "是每個月都要付嗎？",
+          "chunkId": "is_that_every_month"
+        },
+        {
+          "id": "t8_15",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Yes, but not if your balance is over five hundred.",
+          "zh": "對，不過餘額超過五百塊就不用。"
+        },
+        {
+          "id": "t8_16",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I pay my rent online?",
+          "zh": "房租可以在網路上付嗎？",
+          "chunkId": "pay_my_rent_online"
+        },
+        {
+          "id": "t8_17",
+          "role": "teller",
+          "speaker": "npc",
+          "en": "Sure. You can also transfer money to another bank.",
+          "zh": "可以。你也可以轉帳到別家銀行。"
+        }
+      ]
+    }
+  ]
+}
