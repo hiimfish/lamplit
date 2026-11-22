@@ -1,0 +1,1548 @@
+{
+  "id": "office",
+  "title": "辦公室日常",
+  "titleEn": "Office Life",
+  "chunks": [
+    {
+      "id": "still_setting_up_my_desk",
+      "en": "I'm still setting up my desk.",
+      "zh": "我還在整理座位。",
+      "accept": ["I am still setting up my desk."],
+      "note": "說事情還沒做完。set up 是「擺好、布置好」，still 放在 be 動詞後面。",
+      "distractors": [
+        {
+          "text": "I still setting up my desk.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I'm still set up my desk.",
+          "error": "other"
+        },
+        {
+          "text": "I'm still seting up my desk.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "where_do_you_keep_the_pens",
+      "en": "Where do you keep the pens and folders?",
+      "zh": "筆和資料夾都放在哪裡？",
+      "note": "問東西平常收在哪裡。keep 在這裡是「存放、收著」。",
+      "distractors": [
+        {
+          "text": "Where you keep the pens and folders?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Where do you keeps the pens and folders?",
+          "error": "other"
+        },
+        {
+          "text": "Where do you keep the pens and foldres?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "first_time_using_this_machine",
+      "en": "It's my first time using this machine.",
+      "zh": "我第一次用這台機器。",
+      "accept": ["It is my first time using this machine."],
+      "note": "第一次做某件事：It's my first time＋V-ing。",
+      "distractors": [
+        {
+          "text": "It's my first time to using this machine.",
+          "error": "extra-word"
+        },
+        {
+          "text": "It's my first time use this machine.",
+          "error": "other"
+        },
+        {
+          "text": "It's my first time using this machin.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "can_i_watch_you_do_it_once",
+      "en": "Can I watch you do it once?",
+      "zh": "我可以先看你做一次嗎？",
+      "note": "請對方先示範一次。watch＋人＋動詞原形 = 看某人做。",
+      "distractors": [
+        {
+          "text": "Can I watch you to do it once?",
+          "error": "extra-word"
+        },
+        {
+          "text": "Can I watching you do it once?",
+          "error": "other"
+        },
+        {
+          "text": "Can I watch you do once?",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "someone_who_can_fix_my_monitor",
+      "en": "Is there someone who can fix my monitor?",
+      "zh": "有沒有人可以幫我修螢幕？",
+      "note": "關係子句：someone who can… = 可以……的人，who 接著說這個人會做什麼。",
+      "distractors": [
+        {
+          "text": "Is there someone can fix my monitor?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Is there someone which can fix my monitor?",
+          "error": "other"
+        },
+        {
+          "text": "Is there someone who can fixes my monitor?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "woman_who_works_at_the_front_desk",
+      "en": "Is she the woman who works at the front desk?",
+      "zh": "她是櫃台的那位小姐嗎？",
+      "note": "the woman who works… 用 who 說明是哪一位；她一個人，動詞加 s。",
+      "distractors": [
+        {
+          "text": "Is she the woman who work at the front desk?",
+          "error": "other"
+        },
+        {
+          "text": "Is she the woman works at the front desk?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Is she woman who works at the front desk?",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "which_bin_do_paper_cups_go_in",
+      "en": "Which bin do paper cups go in?",
+      "zh": "紙杯要丟哪一個桶子？",
+      "accept": ["What bin do paper cups go in?"],
+      "note": "問東西要丟哪裡。go in 的 in 留在句尾。",
+      "distractors": [
+        {
+          "text": "Which bin paper cups go in?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Which bin does paper cups go in?",
+          "error": "other"
+        },
+        {
+          "text": "Which bin do paper cup go in?",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "so_how_was_your_weekend",
+      "en": "So, how was your weekend?",
+      "zh": "對了，你週末過得怎麼樣？",
+      "note": "星期一跟同事閒聊的開場。So 用來換話題，週末過去了所以用 was。",
+      "distractors": [
+        {
+          "text": "So, how were your weekend?",
+          "error": "other"
+        },
+        {
+          "text": "So, how was your weekends?",
+          "error": "plural"
+        },
+        {
+          "text": "So, how your weekend was?",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "do_you_guys_eat_in_the_cafeteria",
+      "en": "Do you guys usually eat in the cafeteria?",
+      "zh": "你們平常都在員工餐廳吃嗎？",
+      "note": "you guys 是口語的「你們」；平常的習慣用現在式，usually 放在動詞前。",
+      "distractors": [
+        {
+          "text": "Do you guys eat usually in the cafeteria?",
+          "error": "word-order"
+        },
+        {
+          "text": "Does you guys usually eat in the cafeteria?",
+          "error": "other"
+        },
+        {
+          "text": "Do you guys usually eat in cafeteria?",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "want_me_to_sort_these_by_date",
+      "en": "Do you want me to sort these by date?",
+      "zh": "要我把這些照日期排好嗎？",
+      "note": "want＋人＋to＋動詞：Do you want me to…? = 要我幫你……嗎？",
+      "distractors": [
+        {
+          "text": "Do you want me sort these by date?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Do you want I to sort these by date?",
+          "error": "other"
+        },
+        {
+          "text": "Do you want me to sorting these by date?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "asked_me_to_scan_all_of_these",
+      "en": "Ms. Carter asked me to scan all of these.",
+      "zh": "Ms. Carter 要我把這些全部掃描。",
+      "note": "ask＋人＋to＋動詞：asked me to… = 叫我去做……，asked 是過去式。",
+      "distractors": [
+        {
+          "text": "Ms. Carter asked me scan all of these.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Ms. Carter asked me to scanned all of these.",
+          "error": "other"
+        },
+        {
+          "text": "Ms. Carter asked to me scan all of these.",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "followed_the_steps_nothing_happened",
+      "en": "I followed the steps, but nothing happened.",
+      "zh": "我照著步驟做了，可是沒反應。",
+      "note": "說你照做了卻沒用。but 連接兩件事，兩邊都是過去式。",
+      "distractors": [
+        {
+          "text": "I followed the steps, but nothing happen.",
+          "error": "other"
+        },
+        {
+          "text": "I followed the steps, but nothing was happened.",
+          "error": "extra-word"
+        },
+        {
+          "text": "I followed the steps, but nothing happend.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "happy_to_help_with_that",
+      "en": "Sure, I'd be happy to help with that.",
+      "zh": "好啊，我很樂意幫忙。",
+      "accept": ["Sure, I would be happy to help with that."],
+      "note": "答應幫忙的客氣說法。I'd = I would，be happy to＋動詞原形。",
+      "distractors": [
+        {
+          "text": "Sure, I'd be happy to helping with that.",
+          "error": "other"
+        },
+        {
+          "text": "Sure, I'd happy to help with that.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Sure, I'd be hapy to help with that.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "not_sure_but_ill_find_out",
+      "en": "I'm not sure, but I'll find out.",
+      "zh": "我不確定，我去問清楚。",
+      "accept": ["I am not sure, but I will find out."],
+      "note": "不知道答案時先說實話，再說會去查。find out = 查清楚。",
+      "distractors": [
+        {
+          "text": "I not sure, but I'll find out.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I'm not sure, but I'll finding out.",
+          "error": "other"
+        },
+        {
+          "text": "I'm not shure, but I'll find out.",
+          "error": "spelling"
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "id": "set",
+      "en": "set",
+      "zh": "擺好；設定（set up）",
+      "emoji": "🛠️",
+      "abstract": true
+    },
+    {
+      "id": "top",
+      "en": "top",
+      "zh": "最上面的",
+      "emoji": "🔝",
+      "abstract": true
+    },
+    {
+      "id": "space",
+      "en": "space",
+      "zh": "空間；位子",
+      "emoji": "⬜",
+      "abstract": true
+    },
+    {
+      "id": "folder",
+      "en": "folder",
+      "zh": "資料夾",
+      "emoji": "📂",
+      "abstract": true
+    },
+    {
+      "id": "drawer",
+      "en": "drawer",
+      "zh": "抽屜",
+      "emoji": "🗃️"
+    },
+    {
+      "id": "pen",
+      "en": "pen",
+      "zh": "筆",
+      "emoji": "🖊️"
+    },
+    {
+      "id": "power",
+      "en": "power",
+      "zh": "電源",
+      "emoji": "⚡"
+    },
+    {
+      "id": "fax",
+      "en": "fax",
+      "zh": "傳真",
+      "emoji": "📠",
+      "abstract": true
+    },
+    {
+      "id": "function",
+      "en": "function",
+      "zh": "功能",
+      "emoji": "🔘",
+      "abstract": true
+    },
+    {
+      "id": "machine",
+      "en": "machine",
+      "zh": "機器",
+      "emoji": "🤖",
+      "abstract": true
+    },
+    {
+      "id": "manual",
+      "en": "manual",
+      "zh": "使用手冊",
+      "emoji": "📖",
+      "abstract": true
+    },
+    {
+      "id": "copier",
+      "en": "copier",
+      "zh": "影印機",
+      "emoji": "📑"
+    },
+    {
+      "id": "sheet",
+      "en": "sheet",
+      "zh": "（一）張（紙）",
+      "emoji": "📃",
+      "abstract": true
+    },
+    {
+      "id": "manage",
+      "en": "manage",
+      "zh": "管理；負責",
+      "emoji": "👩‍💼",
+      "abstract": true
+    },
+    {
+      "id": "guy",
+      "en": "guy",
+      "zh": "（口語）男生；人",
+      "emoji": "👨",
+      "abstract": true
+    },
+    {
+      "id": "technician",
+      "en": "technician",
+      "zh": "技術人員",
+      "emoji": "👨‍🔧",
+      "abstract": true
+    },
+    {
+      "id": "coworker",
+      "en": "coworker",
+      "zh": "同事",
+      "emoji": "🧑‍🤝‍🧑",
+      "abstract": true
+    },
+    {
+      "id": "monitor",
+      "en": "monitor",
+      "zh": "螢幕（顯示器）",
+      "emoji": "🖥️",
+      "abstract": true
+    },
+    {
+      "id": "cable",
+      "en": "cable",
+      "zh": "線；連接線",
+      "emoji": "〰️"
+    },
+    {
+      "id": "printer",
+      "en": "printer",
+      "zh": "印表機",
+      "emoji": "🖨️",
+      "abstract": true
+    },
+    {
+      "id": "memo",
+      "en": "memo",
+      "zh": "內部公告；備忘錄",
+      "emoji": "📝",
+      "abstract": true
+    },
+    {
+      "id": "general",
+      "en": "general",
+      "zh": "一般的；整體的",
+      "emoji": "🌍",
+      "abstract": true
+    },
+    {
+      "id": "perhaps",
+      "en": "perhaps",
+      "zh": "也許；或許",
+      "emoji": "🤔",
+      "abstract": true
+    },
+    {
+      "id": "throw",
+      "en": "throw",
+      "zh": "丟",
+      "emoji": "🤾",
+      "abstract": true
+    },
+    {
+      "id": "appliance",
+      "en": "appliance",
+      "zh": "電器",
+      "emoji": "🎛️",
+      "abstract": true
+    },
+    {
+      "id": "recycle",
+      "en": "recycle",
+      "zh": "回收",
+      "emoji": "♻️"
+    },
+    {
+      "id": "refrigerator",
+      "en": "refrigerator",
+      "zh": "冰箱",
+      "emoji": "❄️"
+    },
+    {
+      "id": "bin",
+      "en": "bin",
+      "zh": "（回收）桶",
+      "emoji": "🪣"
+    },
+    {
+      "id": "cafeteria",
+      "en": "cafeteria",
+      "zh": "（園區的）員工餐廳",
+      "emoji": "🍛",
+      "abstract": true
+    },
+    {
+      "id": "mine",
+      "en": "mine",
+      "zh": "我的（東西）",
+      "emoji": "🙋",
+      "abstract": true
+    },
+    {
+      "id": "nobody",
+      "en": "nobody",
+      "zh": "沒有人",
+      "emoji": "🚫",
+      "abstract": true
+    },
+    {
+      "id": "somewhere",
+      "en": "somewhere",
+      "zh": "某個地方",
+      "emoji": "📍",
+      "abstract": true
+    },
+    {
+      "id": "plate",
+      "en": "plate",
+      "zh": "盤子",
+      "emoji": "⚪"
+    },
+    {
+      "id": "pot",
+      "en": "pot",
+      "zh": "壺（咖啡壺）",
+      "emoji": "🫖"
+    },
+    {
+      "id": "microwave",
+      "en": "microwave",
+      "zh": "微波爐",
+      "emoji": "♨️"
+    },
+    {
+      "id": "sort",
+      "en": "sort",
+      "zh": "分類；整理",
+      "emoji": "🔢",
+      "abstract": true
+    },
+    {
+      "id": "record",
+      "en": "record",
+      "zh": "紀錄",
+      "emoji": "📓",
+      "abstract": true
+    },
+    {
+      "id": "project",
+      "en": "project",
+      "zh": "專案",
+      "emoji": "🏗️",
+      "abstract": true
+    },
+    {
+      "id": "section",
+      "en": "section",
+      "zh": "區；部分",
+      "emoji": "🧩",
+      "abstract": true
+    },
+    {
+      "id": "remind",
+      "en": "remind",
+      "zh": "提醒",
+      "emoji": "🔔",
+      "abstract": true
+    },
+    {
+      "id": "pile",
+      "en": "pile",
+      "zh": "一疊；一堆",
+      "emoji": "📚",
+      "abstract": true
+    },
+    {
+      "id": "scan",
+      "en": "scan",
+      "zh": "掃描",
+      "emoji": "🔍",
+      "abstract": true
+    },
+    {
+      "id": "clip",
+      "en": "clip",
+      "zh": "夾子；迴紋針",
+      "emoji": "📎"
+    },
+    {
+      "id": "system",
+      "en": "system",
+      "zh": "系統",
+      "emoji": "🕸️",
+      "abstract": true
+    },
+    {
+      "id": "individual",
+      "en": "individual",
+      "zh": "個人的；各自的",
+      "emoji": "🧍",
+      "abstract": true
+    },
+    {
+      "id": "technology",
+      "en": "technology",
+      "zh": "科技",
+      "emoji": "📡",
+      "abstract": true
+    },
+    {
+      "id": "enter",
+      "en": "enter",
+      "zh": "輸入",
+      "emoji": "↩️",
+      "abstract": true
+    },
+    {
+      "id": "software",
+      "en": "software",
+      "zh": "軟體",
+      "emoji": "💿",
+      "abstract": true
+    },
+    {
+      "id": "user",
+      "en": "user",
+      "zh": "使用者",
+      "emoji": "👤",
+      "abstract": true
+    },
+    {
+      "id": "outlet",
+      "en": "outlet",
+      "zh": "插座",
+      "emoji": "🔌"
+    },
+    {
+      "id": "login",
+      "en": "login",
+      "zh": "登入帳號",
+      "emoji": "🔐",
+      "abstract": true
+    },
+    {
+      "id": "internet",
+      "en": "internet",
+      "zh": "網際網路（上網）",
+      "emoji": "🌐"
+    },
+    {
+      "id": "supply",
+      "en": "supply",
+      "zh": "用品（office supplies 辦公用品）",
+      "emoji": "🧰",
+      "abstract": true
+    },
+    {
+      "id": "pressure",
+      "en": "pressure",
+      "zh": "壓力",
+      "emoji": "😓",
+      "abstract": true
+    },
+    {
+      "id": "advice",
+      "en": "advice",
+      "zh": "建議",
+      "emoji": "🗣️",
+      "abstract": true
+    },
+    {
+      "id": "waste",
+      "en": "waste",
+      "zh": "浪費",
+      "emoji": "🚮",
+      "abstract": true
+    },
+    {
+      "id": "essential",
+      "en": "essential",
+      "zh": "必要的；不可少的",
+      "emoji": "❗",
+      "abstract": true
+    },
+    {
+      "id": "normally",
+      "en": "normally",
+      "zh": "通常；平常",
+      "emoji": "📆",
+      "abstract": true
+    },
+    {
+      "id": "cartridge",
+      "en": "cartridge",
+      "zh": "墨水匣",
+      "emoji": "🔳",
+      "abstract": true
+    },
+    {
+      "id": "ink",
+      "en": "ink",
+      "zh": "墨水",
+      "emoji": "🫙"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "整理新座位",
+      "newChunkIds": ["still_setting_up_my_desk", "where_do_you_keep_the_pens"],
+      "newWordIds": ["set", "top", "space", "folder", "drawer", "pen"],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Morning! So, how do you like your new desk?",
+          "zh": "早安！你覺得新座位怎麼樣？"
+        },
+        {
+          "id": "t1_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm still setting up my desk.",
+          "zh": "我還在整理座位。",
+          "chunkId": "still_setting_up_my_desk"
+        },
+        {
+          "id": "t1_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Take your time. At least you have more space than me.",
+          "zh": "慢慢來。至少你的位子比我的大。"
+        },
+        {
+          "id": "t1_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Need anything? Just ask.",
+          "zh": "需要什麼嗎？儘管說。"
+        },
+        {
+          "id": "t1_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Where do you keep the pens and folders?",
+          "zh": "筆和資料夾都放在哪裡？",
+          "chunkId": "where_do_you_keep_the_pens"
+        },
+        {
+          "id": "t1_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Here, take a pen. There are more in my top drawer.",
+          "zh": "來，先拿一支筆。我最上面的抽屜裡還有很多。",
+          "stage": { "act": "give", "item": "pen" }
+        },
+        {
+          "id": "t1_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "The folders are in the cabinet by the window.",
+          "zh": "資料夾在窗戶旁邊的櫃子裡。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "第一次用影印機",
+      "newChunkIds": ["first_time_using_this_machine", "can_i_watch_you_do_it_once"],
+      "newWordIds": ["power", "fax", "function", "machine", "manual", "copier", "sheet"],
+      "fills": [
+        {
+          "id": "manual_top_drawer",
+          "en": "The ___ for the copier is in the top drawer.",
+          "zh": "影印機的使用手冊在最上面的抽屜裡。",
+          "options": ["manual", "power", "space", "fax"],
+          "answer": 0,
+          "note": "放在抽屜裡、教你怎麼用的是 manual（使用手冊）。"
+        },
+        {
+          "id": "fifty_sheets",
+          "en": "The copier has no paper. Please bring me fifty ___.",
+          "zh": "影印機沒紙了。請拿五十張紙給我。",
+          "options": ["machines", "drawers", "sheets", "functions"],
+          "answer": 2,
+          "note": "影印機缺的是紙，fifty sheets = 五十張紙。"
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Do you need help with the copier?",
+          "zh": "影印機要幫忙嗎？"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "It's my first time using this machine.",
+          "zh": "我第一次用這台機器。",
+          "chunkId": "first_time_using_this_machine"
+        },
+        {
+          "id": "t2_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "No problem. First, turn on the power, right here.",
+          "zh": "沒問題。先打開電源，在這裡。"
+        },
+        {
+          "id": "t2_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "It has a fax function too, but we never use it.",
+          "zh": "它也有傳真功能，不過我們從來不用。"
+        },
+        {
+          "id": "t2_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I watch you do it once?",
+          "zh": "我可以先看你做一次嗎？",
+          "chunkId": "can_i_watch_you_do_it_once"
+        },
+        {
+          "id": "t2_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Sure. Put your sheets in here and push the green button.",
+          "zh": "好啊。把紙放進這裡，再按綠色的按鈕。"
+        },
+        {
+          "id": "t2_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "There's a manual in the top drawer, too.",
+          "zh": "最上面的抽屜裡也有使用手冊。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "這件事要找誰",
+      "newChunkIds": ["someone_who_can_fix_my_monitor", "woman_who_works_at_the_front_desk"],
+      "newWordIds": ["manage", "guy", "technician", "coworker", "monitor", "cable", "printer"],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "What's wrong? Is your screen black again?",
+          "zh": "怎麼了？你的螢幕又黑掉了嗎？"
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is there someone who can fix my monitor?",
+          "zh": "有沒有人可以幫我修螢幕？",
+          "chunkId": "someone_who_can_fix_my_monitor"
+        },
+        {
+          "id": "t3_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Sure, a technician comes in every Thursday. Nice guy.",
+          "zh": "有啊，每個星期四會有技術人員來。人很好。"
+        },
+        {
+          "id": "t3_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "But check the cable in the back first.",
+          "zh": "不過先看看後面的線。",
+          "stage": { "act": "want", "item": "cable" }
+        },
+        {
+          "id": "t3_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "You can ask Kate for a new one. She manages the printer paper, too.",
+          "zh": "你可以跟 Kate 要一條新的。印表機的紙也是她在管。"
+        },
+        {
+          "id": "t3_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is she the woman who works at the front desk?",
+          "zh": "她是櫃台的那位小姐嗎？",
+          "chunkId": "woman_who_works_at_the_front_desk"
+        },
+        {
+          "id": "t3_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "That's her. My favorite coworker, but don't tell anyone.",
+          "zh": "就是她。我最喜歡的同事，不過別跟別人說喔。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀茶水間公告",
+      "newChunkIds": ["which_bin_do_paper_cups_go_in"],
+      "newWordIds": [
+        "memo",
+        "general",
+        "perhaps",
+        "throw",
+        "appliance",
+        "recycle",
+        "refrigerator",
+        "bin"
+      ],
+      "passages": [
+        {
+          "id": "kitchen_memo",
+          "kind": "notice",
+          "title": "MEMO",
+          "lines": [
+            "To: All staff",
+            "From: Ms. Reed",
+            "General rules for the kitchen",
+            "The kitchen is a shared space. Please follow these rules:",
+            "1. The refrigerator is small. Put your name on your food. Perhaps you forgot something in there? We throw away old food every Friday afternoon.",
+            "2. Clean your cups and forks right away.",
+            "3. Turn off all appliances at the end of the day.",
+            "4. Please recycle. Bottles go in the blue bin. Paper goes in the green bin.",
+            "Thank you!"
+          ],
+          "questions": [
+            {
+              "en": "When is old food thrown away?",
+              "zh": "舊的食物什麼時候會被丟掉？",
+              "options": ["Every Monday morning", "Every Friday afternoon", "Every day at noon"],
+              "answer": 1
+            },
+            {
+              "en": "What should people do at the end of the day?",
+              "zh": "下班的時候大家要做什麼？",
+              "options": [
+                "Clean the refrigerator",
+                "Take out the bottles",
+                "Turn off the appliances"
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "So, did you see Ms. Reed's memo on the refrigerator?",
+          "zh": "欸，你有看到 Ms. Reed 貼在冰箱上的公告嗎？"
+        },
+        {
+          "id": "t4_2",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "She's serious. Old food goes in the trash every Friday.",
+          "zh": "她是認真的。每個星期五舊的食物都會被丟掉。"
+        },
+        {
+          "id": "t4_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Which bin do paper cups go in?",
+          "zh": "紙杯要丟哪一個桶子？",
+          "chunkId": "which_bin_do_paper_cups_go_in"
+        },
+        {
+          "id": "t4_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Good question. The memo doesn't say.",
+          "zh": "問得好。公告上沒寫。"
+        },
+        {
+          "id": "t4_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Most people put them in the green bin, but that's wrong.",
+          "zh": "大部分的人都丟綠色的桶子，可是那樣不對。",
+          "stage": { "act": "want", "item": "bin" }
+        },
+        {
+          "id": "t4_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "There's plastic inside, so we can't recycle them.",
+          "zh": "紙杯裡面有一層塑膠，所以不能回收。"
+        },
+        {
+          "id": "t4_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Just throw them in the trash can under the sink.",
+          "zh": "丟到水槽下面的垃圾桶就好。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "午餐時間",
+      "newChunkIds": ["so_how_was_your_weekend", "do_you_guys_eat_in_the_cafeteria"],
+      "newWordIds": ["cafeteria", "mine", "nobody", "somewhere", "plate", "pot", "microwave"],
+      "fills": [
+        {
+          "id": "dan_usually_eats",
+          "en": "Dan usually ___ lunch at noon.",
+          "zh": "Dan 通常中午吃午餐。",
+          "options": ["eat", "eats", "eating", "ate"],
+          "answer": 1,
+          "note": "每天的習慣用現在式，Dan 一個人，動詞加 s。",
+          "grammar": true
+        },
+        {
+          "id": "brought_sandwich_yesterday",
+          "en": "I ___ a sandwich from home yesterday.",
+          "zh": "我昨天從家裡帶了一個三明治。",
+          "options": ["bring", "brings", "brought", "bringing"],
+          "answer": 2,
+          "note": "yesterday 是過去的事，用過去式 brought。",
+          "grammar": true
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Lunch time! Is anyone using the microwave right now?",
+          "zh": "午餐時間到了！現在有人在用微波爐嗎？"
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "So, how was your weekend?",
+          "zh": "對了，你週末過得怎麼樣？",
+          "chunkId": "so_how_was_your_weekend"
+        },
+        {
+          "id": "t5_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Pretty good. My family and I tried somewhere new for dinner.",
+          "zh": "還不錯。我跟家人去了一家新的店吃晚餐。"
+        },
+        {
+          "id": "t5_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "What about you? What are you doing for lunch today?",
+          "zh": "那你呢？你今天午餐要怎麼解決？"
+        },
+        {
+          "id": "t5_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you guys usually eat in the cafeteria?",
+          "zh": "你們平常都在員工餐廳吃嗎？",
+          "chunkId": "do_you_guys_eat_in_the_cafeteria"
+        },
+        {
+          "id": "t5_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Sometimes. It's not ours. Every company in the park uses it.",
+          "zh": "有時候。那不是我們公司的，園區裡每家公司都可以用。"
+        },
+        {
+          "id": "t5_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "But today I brought mine from home.",
+          "zh": "不過我今天是自己從家裡帶。"
+        },
+        {
+          "id": "t5_8",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Want some? There are paper plates in the top drawer.",
+          "zh": "要不要吃一點？最上面的抽屜裡有紙盤。",
+          "stage": { "act": "give", "item": "plate" }
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "幫忙歸檔",
+      "newChunkIds": ["want_me_to_sort_these_by_date", "asked_me_to_scan_all_of_these"],
+      "newWordIds": ["sort", "record", "project", "section", "remind", "pile", "scan", "clip"],
+      "cloze": [
+        {
+          "lineId": "t6_1",
+          "word": "records",
+          "distractors": ["plates", "microwaves"]
+        },
+        {
+          "lineId": "t6_3",
+          "word": "clip",
+          "distractors": ["plate", "pot"]
+        },
+        {
+          "lineId": "t6_4",
+          "word": "section",
+          "distractors": ["plate", "pen"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Look at this pile of old project records.",
+          "zh": "你看這一大疊舊的專案紀錄。"
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you want me to sort these by date?",
+          "zh": "要我把這些照日期排好嗎？",
+          "chunkId": "want_me_to_sort_these_by_date"
+        },
+        {
+          "id": "t6_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Yes, please. One clip for each month.",
+          "zh": "好，麻煩你了。每個月用一個夾子。",
+          "stage": { "act": "give", "item": "clip" }
+        },
+        {
+          "id": "t6_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "They go in the third section of that cabinet.",
+          "zh": "它們放在那個櫃子的第三格。"
+        },
+        {
+          "id": "t6_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Wait, what's all that on your desk?",
+          "zh": "等等，你桌上那些是什麼？"
+        },
+        {
+          "id": "t6_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Ms. Carter asked me to scan all of these.",
+          "zh": "Ms. Carter 要我把這些全部掃描。",
+          "chunkId": "asked_me_to_scan_all_of_these"
+        },
+        {
+          "id": "t6_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "All of them? Remind me to buy you coffee.",
+          "zh": "全部？提醒我要請你喝咖啡。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "系統登不進去",
+      "newChunkIds": ["followed_the_steps_nothing_happened"],
+      "newWordIds": [
+        "system",
+        "individual",
+        "technology",
+        "enter",
+        "software",
+        "user",
+        "outlet",
+        "login",
+        "internet"
+      ],
+      "talks": [
+        {
+          "id": "new_software",
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "guide",
+              "en": "So the problem is the system, not my computer?",
+              "zh": "所以問題出在系統，不是我的電腦？"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "coworker",
+              "en": "Right. Oh, wait. The technician put in new software yesterday.",
+              "zh": "對。喔，等等。技術人員昨天裝了新的軟體。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "guide",
+              "en": "New software? Do we need new passwords?",
+              "zh": "新的軟體？我們要換新密碼嗎？"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "coworker",
+              "en": "Yes. Our old logins don't work now. Every user needs a new one.",
+              "zh": "對。我們舊的帳號現在都不能用了，每個使用者都要一個新的。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "guide",
+              "en": "Can you do that for me?",
+              "zh": "你可以幫我弄嗎？"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "coworker",
+              "en": "No, only he can. I'll call him and ask him to come at two.",
+              "zh": "不行，只有他可以。我打給他，請他兩點過來。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "What is the problem?",
+              "zh": "問題出在哪裡？",
+              "options": [
+                "The internet is down.",
+                "There is new software.",
+                "The cable is broken."
+              ],
+              "answer": 1
+            },
+            {
+              "en": "What will Dan do next?",
+              "zh": "Dan 接下來要做什麼？",
+              "options": ["Call the technician", "Talk to Ms. Carter", "Buy a new computer"],
+              "answer": 0
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "So, are you in the order system yet?",
+          "zh": "欸，你登進訂單系統了嗎？"
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I followed the steps, but nothing happened.",
+          "zh": "我照著步驟做了，可是沒反應。",
+          "chunkId": "followed_the_steps_nothing_happened"
+        },
+        {
+          "id": "t7_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Let's check the easy stuff first. Is the power cable in the outlet?",
+          "zh": "先從簡單的看起。電源線有插在插座上嗎？",
+          "stage": { "act": "want", "item": "outlet" }
+        },
+        {
+          "id": "t7_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Yes, it is. And the internet is working, too.",
+          "zh": "有，插著。網路也是通的。"
+        },
+        {
+          "id": "t7_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Okay, so it's not your computer.",
+          "zh": "好，所以不是你電腦的問題。"
+        },
+        {
+          "id": "t7_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Every user has an individual login. Let me try mine.",
+          "zh": "每個使用者都有自己的帳號。我用我的試試看。"
+        },
+        {
+          "id": "t7_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Mine doesn't work. I'm not good with technology either.",
+          "zh": "我的也不行。我對科技也不太在行。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "接手訂辦公用品",
+      "newChunkIds": ["happy_to_help_with_that", "not_sure_but_ill_find_out"],
+      "newWordIds": [
+        "supply",
+        "pressure",
+        "advice",
+        "waste",
+        "essential",
+        "normally",
+        "cartridge",
+        "ink"
+      ],
+      "spellWordIds": ["badge", "receptionist", "daughter", "vacation", "health"],
+      "cloze": [
+        {
+          "lineId": "t8_1",
+          "word": "supplies",
+          "distractors": ["records", "coworkers"]
+        },
+        {
+          "lineId": "t8_6",
+          "word": "cartridges",
+          "distractors": ["monitors", "refrigerators"]
+        },
+        {
+          "lineId": "t8_7",
+          "word": "advice",
+          "distractors": ["pressure", "waste"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "I order our office supplies every month. Can you take it over?",
+          "zh": "辦公用品一直是我每個月在訂。你可以接手嗎？"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sure, I'd be happy to help with that.",
+          "zh": "好啊，我很樂意幫忙。",
+          "chunkId": "happy_to_help_with_that"
+        },
+        {
+          "id": "t8_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Thanks! Only order what's essential. Don't waste money.",
+          "zh": "謝啦！只訂必要的東西就好，別浪費錢。"
+        },
+        {
+          "id": "t8_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "First question: do we have enough ink?",
+          "zh": "第一個問題：墨水還夠嗎？",
+          "stage": { "act": "want", "item": "ink" }
+        },
+        {
+          "id": "t8_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm not sure, but I'll find out.",
+          "zh": "我不確定，我去問清楚。",
+          "chunkId": "not_sure_but_ill_find_out"
+        },
+        {
+          "id": "t8_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Great. We normally order two ink cartridges a month.",
+          "zh": "好。我們通常一個月訂兩個墨水匣。"
+        },
+        {
+          "id": "t8_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "And no pressure. Ask Kate for advice.",
+          "zh": "還有，別有壓力。可以問 Kate 的建議。"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Morning! Your desk looks really different.",
+          "zh": "早安！你的座位看起來差好多。"
+        },
+        {
+          "id": "t9_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm still setting up my desk.",
+          "zh": "我還在整理座位。",
+          "chunkId": "still_setting_up_my_desk"
+        },
+        {
+          "id": "t9_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Looks good. Did you get into the new system?",
+          "zh": "看起來不錯。你登進新系統了嗎？"
+        },
+        {
+          "id": "t9_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I followed the steps, but nothing happened.",
+          "zh": "我照著步驟做了，可是沒反應。",
+          "chunkId": "followed_the_steps_nothing_happened"
+        },
+        {
+          "id": "t9_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "The technician gave everyone a new login. Here's yours.",
+          "zh": "技術人員給每個人一個新帳號。這是你的。"
+        },
+        {
+          "id": "t9_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Is your computer okay now?",
+          "zh": "你的電腦現在沒問題了嗎？"
+        },
+        {
+          "id": "t9_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is there someone who can fix my monitor?",
+          "zh": "有沒有人可以幫我修螢幕？",
+          "chunkId": "someone_who_can_fix_my_monitor"
+        },
+        {
+          "id": "t9_8",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Sure. He comes in every Thursday.",
+          "zh": "有啊。他每個星期四都會來。"
+        },
+        {
+          "id": "t9_9",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Can you send a fax for me? The copier does it.",
+          "zh": "你可以幫我傳真嗎？影印機就可以傳。"
+        },
+        {
+          "id": "t9_10",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can I watch you do it once?",
+          "zh": "我可以先看你做一次嗎？",
+          "chunkId": "can_i_watch_you_do_it_once"
+        },
+        {
+          "id": "t9_11",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Of course. Watch. Put the sheet here, and... done!",
+          "zh": "當然。你看，把紙放這裡，然後……好了！"
+        },
+        {
+          "id": "t9_12",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Finished your coffee? Don't leave the cup on your desk.",
+          "zh": "咖啡喝完了嗎？杯子別留在桌上喔。"
+        },
+        {
+          "id": "t9_13",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Which bin do paper cups go in?",
+          "zh": "紙杯要丟哪一個桶子？",
+          "chunkId": "which_bin_do_paper_cups_go_in"
+        },
+        {
+          "id": "t9_14",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "The trash can. We can't recycle those.",
+          "zh": "丟垃圾桶。那種不能回收。"
+        },
+        {
+          "id": "t9_15",
+          "role": "guide",
+          "speaker": "player",
+          "en": "So, how was your weekend?",
+          "zh": "對了，你週末過得怎麼樣？",
+          "chunkId": "so_how_was_your_weekend"
+        },
+        {
+          "id": "t9_16",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Great! We went somewhere new for dinner.",
+          "zh": "很棒！我們去了一家新的店吃晚餐。"
+        },
+        {
+          "id": "t9_17",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "One more thing. Do we have enough ink?",
+          "zh": "還有一件事。墨水還夠嗎？"
+        },
+        {
+          "id": "t9_18",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm not sure, but I'll find out.",
+          "zh": "我不確定，我去問清楚。",
+          "chunkId": "not_sure_but_ill_find_out"
+        },
+        {
+          "id": "t9_19",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Thanks. And what's that big pile on your desk?",
+          "zh": "謝啦。對了，你桌上那一大疊是什麼？"
+        },
+        {
+          "id": "t9_20",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Ms. Carter asked me to scan all of these.",
+          "zh": "Ms. Carter 要我把這些全部掃描。",
+          "chunkId": "asked_me_to_scan_all_of_these"
+        },
+        {
+          "id": "t9_21",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "All of them? I'll make a fresh pot of coffee, then.",
+          "zh": "全部？那我去煮一壺新的咖啡。",
+          "stage": { "act": "want", "item": "pot" }
+        }
+      ]
+    }
+  ]
+}
