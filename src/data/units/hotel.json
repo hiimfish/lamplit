@@ -1,0 +1,1842 @@
+{
+  "id": "hotel",
+  "title": "飯店",
+  "titleEn": "Hotel",
+  "chunks": [
+    {
+      "id": "reservation_under_harbor_trading",
+      "en": "Hi, I have a reservation under Harbor Trading.",
+      "zh": "你好，我有訂房，是用 Harbor Trading 的名字訂的。",
+      "note": "到櫃台辦入住時說。under 後面接訂房用的名字。",
+      "distractors": [
+        {
+          "text": "Hi, I have reservation under Harbor Trading.",
+          "error": "article"
+        },
+        {
+          "text": "Hi, I have a reservation in Harbor Trading.",
+          "error": "other"
+        },
+        {
+          "text": "Hi, I have a reservasion under Harbor Trading.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "booked_two_single_rooms",
+      "en": "We booked two single rooms for three nights.",
+      "zh": "我們訂了兩間單人房，住三個晚上。",
+      "note": "說明訂了幾間什麼房、住幾晚。for 後面接一段時間。",
+      "distractors": [
+        {
+          "text": "We booked two single room for three nights.",
+          "error": "plural"
+        },
+        {
+          "text": "We booked two rooms single for three nights.",
+          "error": "word-order"
+        },
+        {
+          "text": "We booked two single rooms three nights.",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "breakfast_included_in_rate",
+      "en": "Is breakfast included in the room rate?",
+      "zh": "房價有含早餐嗎？",
+      "note": "問房價含不含早餐。included 是「被包含」，前面用 is。",
+      "distractors": [
+        {
+          "text": "Is breakfast include in the room rate?",
+          "error": "other"
+        },
+        {
+          "text": "Is breakfast included in room rate?",
+          "error": "article"
+        },
+        {
+          "text": "Breakfast is included in the room rate?",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "how_late_is_the_pool_open",
+      "en": "How late is the pool open?",
+      "zh": "游泳池開到幾點？",
+      "note": "問設施開到幾點。How late 是「到多晚」。",
+      "distractors": [
+        {
+          "text": "How late the pool is open?",
+          "error": "word-order"
+        },
+        {
+          "text": "How late is pool open?",
+          "error": "article"
+        },
+        {
+          "text": "How late is the pool opens?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "not_the_room_i_booked",
+      "en": "Sorry, but this isn't the room I booked.",
+      "zh": "不好意思，這跟我訂的房間不一樣。",
+      "accept": [
+        "Sorry, but this is not the room I booked.",
+        "Sorry, but this isn't the room that I booked."
+      ],
+      "note": "the room (that) I booked：名詞後面直接接「我訂的」，that 可以省略。",
+      "distractors": [
+        {
+          "text": "Sorry, but this isn't the room I booked it.",
+          "error": "extra-word"
+        },
+        {
+          "text": "Sorry, but this isn't room I booked.",
+          "error": "article"
+        },
+        {
+          "text": "Sorry, but this isn't the room I book.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "key_card_you_gave_me",
+      "en": "The key card you gave me doesn't work.",
+      "zh": "你給我的房卡刷不開。",
+      "accept": [
+        "The key card you gave me does not work.",
+        "The key card that you gave me doesn't work."
+      ],
+      "note": "the key card (that) you gave me：「你給我的房卡」，動詞跟著 card 用 doesn't。",
+      "distractors": [
+        {
+          "text": "The key card you gave me it doesn't work.",
+          "error": "extra-word"
+        },
+        {
+          "text": "The key card you gave me don't work.",
+          "error": "other"
+        },
+        {
+          "text": "Key card you gave me doesn't work.",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "breakfast_is_downstairs",
+      "en": "Breakfast is downstairs from six thirty to ten.",
+      "zh": "早餐在樓下，六點半到十點。",
+      "accept": [
+        "Breakfast is downstairs from 6:30 to 10.",
+        "Breakfast is downstairs from 6:30 to 10:00."
+      ],
+      "note": "告訴別人早餐在哪裡、幾點。from…to… 說時間的範圍。",
+      "distractors": [
+        {
+          "text": "Breakfast is downstair from six thirty to ten.",
+          "error": "spelling"
+        },
+        {
+          "text": "Breakfast is downstairs from six thirty ten.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Breakfast is downstairs at six thirty to ten.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "internet_connection_really_slow",
+      "en": "The internet connection in my room is really slow.",
+      "zh": "我房間的網路超慢。",
+      "note": "抱怨網路很慢。主詞是 connection（一個），所以用 is。",
+      "distractors": [
+        {
+          "text": "The internet connection in my room are really slow.",
+          "error": "other"
+        },
+        {
+          "text": "The internet connection in my room is really slowly.",
+          "error": "other"
+        },
+        {
+          "text": "The internet conection in my room is really slow.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "get_a_bite_to_eat",
+      "en": "Do you want to get a bite to eat?",
+      "zh": "要不要去吃點東西？",
+      "note": "約人去簡單吃點東西。get a bite to eat 是很常用的口語。",
+      "distractors": [
+        {
+          "text": "Do you want get a bite to eat?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Do you want to get bite to eat?",
+          "error": "article"
+        },
+        {
+          "text": "Do you want to get a bite to eating?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "iron_stopped_working_while",
+      "en": "The iron stopped working while I was using it.",
+      "zh": "熨斗用到一半就壞了。",
+      "note": "while＋過去進行式（was using）：正在做一件事的時候，另一件事發生了。",
+      "distractors": [
+        {
+          "text": "The iron stopped working while I using it.",
+          "error": "missing-word"
+        },
+        {
+          "text": "The iron stopped working while I was use it.",
+          "error": "other"
+        },
+        {
+          "text": "The iron stop working while I was using it.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "get_this_shirt_back_by",
+      "en": "Could I get this shirt back by tomorrow morning?",
+      "zh": "這件襯衫明天早上以前可以拿回來嗎？",
+      "note": "送洗衣服時問什麼時候拿得回來。by 是「在……以前」。",
+      "distractors": [
+        {
+          "text": "Could I get this shirts back by tomorrow morning?",
+          "error": "plural"
+        },
+        {
+          "text": "Could I get this shirt back by the tomorrow morning?",
+          "error": "extra-word"
+        },
+        {
+          "text": "Could I get this shirt back until tomorrow morning?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "extend_our_stay_one_night",
+      "en": "Could we extend our stay by one more night?",
+      "zh": "我們可以多住一晚嗎？",
+      "note": "想多住幾天時問櫃台。extend…by 後面接延長多久。",
+      "distractors": [
+        {
+          "text": "Could we extend our stay by one more nights?",
+          "error": "plural"
+        },
+        {
+          "text": "Could we extand our stay by one more night?",
+          "error": "spelling"
+        },
+        {
+          "text": "Could we extend our stay by more one night?",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "receipt_for_expense_report",
+      "en": "I need a receipt for my expense report.",
+      "zh": "我需要收據報帳。",
+      "note": "退房時跟櫃台要收據，回公司報帳用。",
+      "distractors": [
+        {
+          "text": "I need receipt for my expense report.",
+          "error": "article"
+        },
+        {
+          "text": "I need a reciept for my expense report.",
+          "error": "spelling"
+        },
+        {
+          "text": "I need a receipt my expense report.",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "leave_our_bags_here",
+      "en": "Can we leave our bags here for a few hours?",
+      "zh": "我們的行李可以先寄放幾個小時嗎？",
+      "note": "退房後想先寄放行李時說。a few 後面接複數 hours。",
+      "distractors": [
+        {
+          "text": "Can we leave our bags here for a few hour?",
+          "error": "plural"
+        },
+        {
+          "text": "Can we leaving our bags here for a few hours?",
+          "error": "other"
+        },
+        {
+          "text": "Can we leave our bags here for few a hours?",
+          "error": "word-order"
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "id": "reservation",
+      "en": "reservation",
+      "zh": "訂房；預約",
+      "emoji": "📅",
+      "abstract": true
+    },
+    {
+      "id": "single",
+      "en": "single",
+      "zh": "單人的",
+      "emoji": "☝️",
+      "abstract": true
+    },
+    {
+      "id": "hotel",
+      "en": "hotel",
+      "zh": "飯店",
+      "emoji": "🏨"
+    },
+    {
+      "id": "advance",
+      "en": "advance",
+      "zh": "事先（in advance）",
+      "emoji": "⏩",
+      "abstract": true
+    },
+    {
+      "id": "reception",
+      "en": "reception",
+      "zh": "櫃台；接待處",
+      "emoji": "💁",
+      "abstract": true
+    },
+    {
+      "id": "agency",
+      "en": "agency",
+      "zh": "代理機構（travel agency 旅行社）",
+      "emoji": "🧭",
+      "abstract": true
+    },
+    {
+      "id": "double",
+      "en": "double",
+      "zh": "雙人的",
+      "emoji": "✌️",
+      "abstract": true
+    },
+    {
+      "id": "reserve",
+      "en": "reserve",
+      "zh": "預訂；保留",
+      "emoji": "📲",
+      "abstract": true
+    },
+    {
+      "id": "private",
+      "en": "private",
+      "zh": "私人的；專用的",
+      "emoji": "🤫",
+      "abstract": true
+    },
+    {
+      "id": "television",
+      "en": "television",
+      "zh": "電視",
+      "emoji": "📺",
+      "abstract": true
+    },
+    {
+      "id": "bar",
+      "en": "bar",
+      "zh": "酒吧",
+      "emoji": "🍸"
+    },
+    {
+      "id": "central",
+      "en": "central",
+      "zh": "市中心的；中央的",
+      "emoji": "🎯",
+      "abstract": true
+    },
+    {
+      "id": "daily",
+      "en": "daily",
+      "zh": "每天的",
+      "emoji": "📆",
+      "abstract": true
+    },
+    {
+      "id": "convenient",
+      "en": "convenient",
+      "zh": "方便的",
+      "emoji": "👍",
+      "abstract": true
+    },
+    {
+      "id": "pool",
+      "en": "pool",
+      "zh": "游泳池",
+      "emoji": "🏊"
+    },
+    {
+      "id": "gym",
+      "en": "gym",
+      "zh": "健身房",
+      "emoji": "🏋️"
+    },
+    {
+      "id": "bathroom",
+      "en": "bathroom",
+      "zh": "浴室；廁所",
+      "emoji": "🛁"
+    },
+    {
+      "id": "extra",
+      "en": "extra",
+      "zh": "多的；額外的",
+      "emoji": "➕",
+      "abstract": true
+    },
+    {
+      "id": "upgrade",
+      "en": "upgrade",
+      "zh": "升等",
+      "emoji": "⬆️",
+      "abstract": true
+    },
+    {
+      "id": "lock",
+      "en": "lock",
+      "zh": "鎖",
+      "emoji": "🔒"
+    },
+    {
+      "id": "suite",
+      "en": "suite",
+      "zh": "套房",
+      "emoji": "👑",
+      "abstract": true
+    },
+    {
+      "id": "dirty",
+      "en": "dirty",
+      "zh": "髒的",
+      "emoji": "🦠",
+      "abstract": true
+    },
+    {
+      "id": "shower",
+      "en": "shower",
+      "zh": "淋浴；蓮蓬頭",
+      "emoji": "🚿"
+    },
+    {
+      "id": "air_conditioner",
+      "en": "air conditioner",
+      "zh": "冷氣機",
+      "emoji": "🌬️"
+    },
+    {
+      "id": "spacious",
+      "en": "spacious",
+      "zh": "寬敞的",
+      "emoji": "↔️",
+      "abstract": true
+    },
+    {
+      "id": "towel",
+      "en": "towel",
+      "zh": "毛巾",
+      "emoji": "🧖"
+    },
+    {
+      "id": "network",
+      "en": "network",
+      "zh": "網路",
+      "emoji": "📶",
+      "abstract": true
+    },
+    {
+      "id": "dine",
+      "en": "dine",
+      "zh": "用餐",
+      "emoji": "🥂",
+      "abstract": true
+    },
+    {
+      "id": "closet",
+      "en": "closet",
+      "zh": "衣櫃",
+      "emoji": "🪝",
+      "abstract": true
+    },
+    {
+      "id": "complimentary",
+      "en": "complimentary",
+      "zh": "免費附贈的",
+      "emoji": "🆓",
+      "abstract": true
+    },
+    {
+      "id": "midnight",
+      "en": "midnight",
+      "zh": "半夜十二點",
+      "emoji": "🕛",
+      "abstract": true
+    },
+    {
+      "id": "wireless",
+      "en": "wireless",
+      "zh": "無線的",
+      "emoji": "📡"
+    },
+    {
+      "id": "laundry",
+      "en": "laundry",
+      "zh": "送洗的衣物；洗衣",
+      "emoji": "🫧"
+    },
+    {
+      "id": "unlimited",
+      "en": "unlimited",
+      "zh": "不限量的",
+      "emoji": "♾️",
+      "abstract": true
+    },
+    {
+      "id": "downstairs",
+      "en": "downstairs",
+      "zh": "在樓下",
+      "emoji": "⬇️",
+      "abstract": true
+    },
+    {
+      "id": "upstairs",
+      "en": "upstairs",
+      "zh": "在樓上",
+      "emoji": "⤴️",
+      "abstract": true
+    },
+    {
+      "id": "ride",
+      "en": "ride",
+      "zh": "搭車；便車",
+      "emoji": "🚙",
+      "abstract": true
+    },
+    {
+      "id": "comfortable",
+      "en": "comfortable",
+      "zh": "舒服的",
+      "emoji": "😌",
+      "abstract": true
+    },
+    {
+      "id": "relax",
+      "en": "relax",
+      "zh": "放鬆",
+      "emoji": "🧘",
+      "abstract": true
+    },
+    {
+      "id": "wake",
+      "en": "wake",
+      "zh": "醒來",
+      "emoji": "🌅",
+      "abstract": true
+    },
+    {
+      "id": "hungry",
+      "en": "hungry",
+      "zh": "餓的",
+      "emoji": "🤤",
+      "abstract": true
+    },
+    {
+      "id": "nearby",
+      "en": "nearby",
+      "zh": "附近的",
+      "emoji": "📍",
+      "abstract": true
+    },
+    {
+      "id": "mess",
+      "en": "mess",
+      "zh": "一團亂",
+      "emoji": "🌪️",
+      "abstract": true
+    },
+    {
+      "id": "hopefully",
+      "en": "hopefully",
+      "zh": "希望；但願",
+      "emoji": "🤞",
+      "abstract": true
+    },
+    {
+      "id": "bite",
+      "en": "bite",
+      "zh": "一口；簡單吃點東西",
+      "emoji": "😋",
+      "abstract": true
+    },
+    {
+      "id": "dry",
+      "en": "dry",
+      "zh": "乾的；弄乾",
+      "emoji": "🏜️",
+      "abstract": true
+    },
+    {
+      "id": "wash",
+      "en": "wash",
+      "zh": "洗",
+      "emoji": "🧼",
+      "abstract": true
+    },
+    {
+      "id": "knock",
+      "en": "knock",
+      "zh": "敲（門）",
+      "emoji": "✊",
+      "abstract": true
+    },
+    {
+      "id": "spare",
+      "en": "spare",
+      "zh": "備用的",
+      "emoji": "🧩",
+      "abstract": true
+    },
+    {
+      "id": "iron",
+      "en": "iron",
+      "zh": "熨斗",
+      "emoji": "👕"
+    },
+    {
+      "id": "button",
+      "en": "button",
+      "zh": "按鈕（the power button 電源鍵）",
+      "emoji": "🔘",
+      "abstract": true
+    },
+    {
+      "id": "housekeeper",
+      "en": "housekeeper",
+      "zh": "房務人員",
+      "emoji": "🧹",
+      "abstract": true
+    },
+    {
+      "id": "electric",
+      "en": "electric",
+      "zh": "用電的；電的",
+      "emoji": "⚡",
+      "abstract": true
+    },
+    {
+      "id": "automatically",
+      "en": "automatically",
+      "zh": "自動地",
+      "emoji": "🤖",
+      "abstract": true
+    },
+    {
+      "id": "basket",
+      "en": "basket",
+      "zh": "籃子",
+      "emoji": "🧺",
+      "abstract": true
+    },
+    {
+      "id": "extend",
+      "en": "extend",
+      "zh": "延長",
+      "emoji": "📏",
+      "abstract": true
+    },
+    {
+      "id": "fully",
+      "en": "fully",
+      "zh": "完全地（fully booked 客滿）",
+      "emoji": "🈵",
+      "abstract": true
+    },
+    {
+      "id": "expense",
+      "en": "expense",
+      "zh": "費用；開銷",
+      "emoji": "💸",
+      "abstract": true
+    },
+    {
+      "id": "accommodation",
+      "en": "accommodation",
+      "zh": "住宿；住的地方",
+      "emoji": "🛌",
+      "abstract": true
+    },
+    {
+      "id": "approval",
+      "en": "approval",
+      "zh": "批准；同意",
+      "emoji": "✅",
+      "abstract": true
+    },
+    {
+      "id": "roughly",
+      "en": "roughly",
+      "zh": "大約",
+      "emoji": "〰️",
+      "abstract": true
+    },
+    {
+      "id": "reimburse",
+      "en": "reimburse",
+      "zh": "（公司）歸還代墊的錢；核銷",
+      "emoji": "💰",
+      "abstract": true
+    },
+    {
+      "id": "cancellation",
+      "en": "cancellation",
+      "zh": "取消（的訂房）",
+      "emoji": "🚫",
+      "abstract": true
+    },
+    {
+      "id": "exceed",
+      "en": "exceed",
+      "zh": "超過",
+      "emoji": "📈",
+      "abstract": true
+    },
+    {
+      "id": "inexpensive",
+      "en": "inexpensive",
+      "zh": "不貴的",
+      "emoji": "💲",
+      "abstract": true
+    },
+    {
+      "id": "overnight",
+      "en": "overnight",
+      "zh": "過夜的；住一晚的",
+      "emoji": "🌙",
+      "abstract": true
+    },
+    {
+      "id": "accommodate",
+      "en": "accommodate",
+      "zh": "配合（需求）；容納",
+      "emoji": "🤝",
+      "abstract": true
+    },
+    {
+      "id": "beside",
+      "en": "beside",
+      "zh": "在……旁邊",
+      "emoji": "↪️",
+      "abstract": true
+    },
+    {
+      "id": "voucher",
+      "en": "voucher",
+      "zh": "兌換券；優惠券",
+      "emoji": "🎟️",
+      "abstract": true
+    },
+    {
+      "id": "summary",
+      "en": "summary",
+      "zh": "明細；摘要",
+      "emoji": "📑",
+      "abstract": true
+    },
+    {
+      "id": "vacancy",
+      "en": "vacancy",
+      "zh": "空房",
+      "emoji": "🈳",
+      "abstract": true
+    },
+    {
+      "id": "preference",
+      "en": "preference",
+      "zh": "偏好；喜好",
+      "emoji": "❤️",
+      "abstract": true
+    },
+    {
+      "id": "hourly",
+      "en": "hourly",
+      "zh": "每小時一次的",
+      "emoji": "⏱️",
+      "abstract": true
+    },
+    {
+      "id": "bell",
+      "en": "bell",
+      "zh": "鈴",
+      "emoji": "🔔"
+    },
+    {
+      "id": "checkout",
+      "en": "checkout",
+      "zh": "退房（時間）",
+      "emoji": "👋",
+      "abstract": true
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "辦理入住",
+      "newChunkIds": ["reservation_under_harbor_trading", "booked_two_single_rooms"],
+      "newWordIds": [
+        "reservation",
+        "single",
+        "hotel",
+        "advance",
+        "reception",
+        "agency",
+        "double",
+        "reserve"
+      ],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Good afternoon, and welcome to the hotel. Checking in?",
+          "zh": "午安，歡迎光臨。要辦入住嗎？"
+        },
+        {
+          "id": "t1_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Hi, I have a reservation under Harbor Trading.",
+          "zh": "你好，我有訂房，是用 Harbor Trading 的名字訂的。",
+          "chunkId": "reservation_under_harbor_trading"
+        },
+        {
+          "id": "t1_3",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Let me look. It was booked through a travel agency, right?",
+          "zh": "我看一下。這是透過旅行社訂的，對吧？"
+        },
+        {
+          "id": "t1_4",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Hmm, I only see one double room here.",
+          "zh": "嗯，我這邊只看到一間雙人房。",
+          "stage": {
+            "act": "ask"
+          }
+        },
+        {
+          "id": "t1_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We booked two single rooms for three nights.",
+          "zh": "我們訂了兩間單人房，住三個晚上。",
+          "chunkId": "booked_two_single_rooms"
+        },
+        {
+          "id": "t1_6",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Oh, you're right. We reserved two singles, Wednesday to Saturday.",
+          "zh": "喔，您說得對。我們幫您保留了兩間單人房，星期三到星期六。"
+        },
+        {
+          "id": "t1_7",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "They were paid in advance, so you're all set.",
+          "zh": "房費已經事先付好了，這樣就完成了。"
+        },
+        {
+          "id": "t1_8",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Here are your key cards. You're both on the fifth floor.",
+          "zh": "這是你們的房卡。兩位都在五樓。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "早餐和設施",
+      "newChunkIds": ["breakfast_included_in_rate", "how_late_is_the_pool_open"],
+      "newWordIds": [
+        "private",
+        "television",
+        "bar",
+        "central",
+        "daily",
+        "convenient",
+        "pool",
+        "gym",
+        "bathroom"
+      ],
+      "fills": [
+        {
+          "id": "breakfast_included",
+          "en": "Is breakfast ___ in the room rate?",
+          "zh": "房價有含早餐嗎？",
+          "options": ["include", "includes", "included", "including"],
+          "answer": 2,
+          "note": "早餐是「被包含」在房價裡：is＋included。",
+          "chunkId": "breakfast_included_in_rate",
+          "grammar": true
+        },
+        {
+          "id": "central_location",
+          "en": "Our hotel is very ___, so everything is close.",
+          "zh": "我們飯店就在市中心，到哪裡都很近。",
+          "options": ["central", "private", "daily", "single"],
+          "answer": 0,
+          "note": "離哪裡都近，表示在市中心：central。"
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Each room has a private bathroom and a big television.",
+          "zh": "每間房都有自己的浴室，還有一台大電視。"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is breakfast included in the room rate?",
+          "zh": "房價有含早餐嗎？",
+          "chunkId": "breakfast_included_in_rate"
+        },
+        {
+          "id": "t2_3",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Yes, it is. We have it daily in the restaurant.",
+          "zh": "有喔。每天都在餐廳供應。"
+        },
+        {
+          "id": "t2_4",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "We also have a gym and a pool on the eighth floor.",
+          "zh": "我們八樓還有健身房和游泳池。"
+        },
+        {
+          "id": "t2_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How late is the pool open?",
+          "zh": "游泳池開到幾點？",
+          "chunkId": "how_late_is_the_pool_open"
+        },
+        {
+          "id": "t2_6",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Until ten every night. The bar is open later.",
+          "zh": "每天開到晚上十點。酒吧開得比較晚。"
+        },
+        {
+          "id": "t2_7",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "And the hotel is very central, so it's really convenient.",
+          "zh": "而且飯店就在市中心，真的很方便。"
+        },
+        {
+          "id": "t2_8",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "The train station is just across the street, too.",
+          "zh": "電車站也就在對面。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "房間有問題",
+      "newChunkIds": ["not_the_room_i_booked", "key_card_you_gave_me"],
+      "newWordIds": [
+        "extra",
+        "upgrade",
+        "lock",
+        "suite",
+        "dirty",
+        "shower",
+        "air_conditioner",
+        "spacious",
+        "towel"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "The key card you gave me doesn't work.",
+          "zh": "你給我的房卡刷不開。",
+          "chunkId": "key_card_you_gave_me"
+        },
+        {
+          "id": "t3_2",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Sorry about that! The lock can be slow. Try this one.",
+          "zh": "不好意思！那個鎖有時候比較慢。試試這張。",
+          "stage": {
+            "act": "want",
+            "item": "lock"
+          }
+        },
+        {
+          "id": "t3_3",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Welcome back. So, did the new card work?",
+          "zh": "您回來了。新的卡可以用嗎？",
+          "stage": {
+            "act": "ask"
+          }
+        },
+        {
+          "id": "t3_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Sorry, but this isn't the room I booked.",
+          "zh": "不好意思，這跟我訂的房間不一樣。",
+          "chunkId": "not_the_room_i_booked"
+        },
+        {
+          "id": "t3_5",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Oh no, you're right. That's a double, and it's still dirty.",
+          "zh": "糟糕，您說得對。那是雙人房，而且還沒整理。"
+        },
+        {
+          "id": "t3_6",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "And the air conditioner in that room is broken, too.",
+          "zh": "而且那間的冷氣也壞了。"
+        },
+        {
+          "id": "t3_7",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "I'm so sorry. Let me upgrade you to a suite.",
+          "zh": "真的很抱歉。我幫您升等到套房。"
+        },
+        {
+          "id": "t3_8",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "It's much more spacious, and there's no extra charge.",
+          "zh": "套房寬敞很多，而且不用另外加錢。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀住房須知",
+      "backdrop": "manager",
+      "newChunkIds": ["breakfast_is_downstairs"],
+      "newWordIds": [
+        "network",
+        "dine",
+        "closet",
+        "complimentary",
+        "midnight",
+        "wireless",
+        "laundry",
+        "unlimited",
+        "downstairs",
+        "upstairs"
+      ],
+      "passages": [
+        {
+          "id": "guest_card",
+          "kind": "notice",
+          "title": "Welcome to Our Hotel",
+          "lines": [
+            "Here is some information for your stay.",
+            "Internet: Complimentary and unlimited. Choose the wireless network \"Guest\". The password is your room number and your last name.",
+            "Breakfast: Complimentary, daily from 6:30 to 10:00 in the restaurant downstairs. You can also dine there in the evening until 9:30. The bar is open until midnight.",
+            "Laundry: Put your clothes in the laundry bag in the closet. Bring it to Reception before 9:00 a.m., and we will return it the same evening.",
+            "Pool and gym: Upstairs on the eighth floor, open daily from 6:00 a.m. to 10:00 p.m. Extra towels for the shower are in the closet."
+          ],
+          "questions": [
+            {
+              "en": "What is the password for the wireless network?",
+              "zh": "無線網路的密碼是什麼？",
+              "options": ["Guest", "Room number and last name", "Your phone number"],
+              "answer": 1
+            },
+            {
+              "en": "By what time should you bring your laundry to Reception?",
+              "zh": "送洗的衣服最晚幾點要拿到櫃台？",
+              "options": ["6:30 a.m.", "9:00 a.m.", "9:30 p.m."],
+              "answer": 1
+            },
+            {
+              "en": "Which place is open the latest?",
+              "zh": "哪一個地方開到最晚？",
+              "options": ["The restaurant", "The bar", "The pool"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Hey, it's Dan. Did you read the card on the desk?",
+          "zh": "嘿，我是 Dan。你看了桌上那張卡嗎？"
+        },
+        {
+          "id": "t4_2",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "I can't find the part about breakfast.",
+          "zh": "我找不到講早餐的那一段。"
+        },
+        {
+          "id": "t4_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Breakfast is downstairs from six thirty to ten.",
+          "zh": "早餐在樓下，六點半到十點。",
+          "chunkId": "breakfast_is_downstairs"
+        },
+        {
+          "id": "t4_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Great, thanks. And the wireless network is free and unlimited.",
+          "zh": "太好了，謝啦。而且無線網路免費，還不限量。",
+          "stage": {
+            "act": "want",
+            "item": "wireless"
+          }
+        },
+        {
+          "id": "t4_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Oh, and I want to swim before dinner.",
+          "zh": "對了，我想在晚餐前去游個泳。"
+        },
+        {
+          "id": "t4_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How late is the pool open?",
+          "zh": "游泳池開到幾點？",
+          "chunkId": "how_late_is_the_pool_open"
+        },
+        {
+          "id": "t4_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Until ten, I think. It's upstairs, next to the gym.",
+          "zh": "我記得是到十點。在樓上，健身房旁邊。"
+        },
+        {
+          "id": "t4_8",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Okay, see you in the lobby at six, then.",
+          "zh": "好，那六點大廳見。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "和 Dan 碰面",
+      "newChunkIds": ["internet_connection_really_slow", "get_a_bite_to_eat"],
+      "newWordIds": [
+        "ride",
+        "comfortable",
+        "relax",
+        "wake",
+        "hungry",
+        "nearby",
+        "mess",
+        "hopefully",
+        "bite"
+      ],
+      "talks": [
+        {
+          "id": "dinner_plan",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "coworker",
+              "en": "My room is comfortable, but it's already a mess.",
+              "zh": "我房間很舒服，可是已經亂成一團了。"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "guide",
+              "en": "Mine too. Are you hungry? We could try the hotel bar.",
+              "zh": "我的也是。你餓了嗎？我們可以去飯店的酒吧試試。"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "coworker",
+              "en": "Let's find a small place nearby instead. Just a quick bite, then back here to relax.",
+              "zh": "我們去附近找間小店吧。簡單吃一點，然後回來放鬆。"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "guide",
+              "en": "Sounds good. What time should we wake up tomorrow?",
+              "zh": "好啊。明天我們要幾點起床？"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "coworker",
+              "en": "Around seven. Let's meet here in the lobby at 8:45.",
+              "zh": "七點左右。八點四十五分在大廳這裡集合吧。"
+            },
+            {
+              "id": "t5_talk_6",
+              "role": "coworker",
+              "en": "The hotel shuttle can give us a ride. It starts at ten.",
+              "zh": "飯店的接駁車可以載我們過去。十點開始。"
+            },
+            {
+              "id": "t5_talk_7",
+              "role": "guide",
+              "en": "Okay. I'll see you here at 8:45.",
+              "zh": "好。那八點四十五分這裡見。"
+            },
+            {
+              "id": "t5_talk_8",
+              "role": "coworker",
+              "en": "Great. Hopefully the traffic is okay in the morning.",
+              "zh": "好。希望早上不要塞車。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "Where will they eat?",
+              "zh": "他們要去哪裡吃？",
+              "options": ["At the hotel bar", "At a small place nearby", "In Dan's room"],
+              "answer": 1
+            },
+            {
+              "en": "What time will they meet tomorrow?",
+              "zh": "他們明天幾點集合？",
+              "options": ["7:00", "8:45", "10:00"],
+              "answer": 1
+            },
+            {
+              "en": "How will they get there tomorrow?",
+              "zh": "他們明天要怎麼過去？",
+              "options": ["By taxi", "By train", "By hotel shuttle"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Hey! How's the new room? Is it comfortable?",
+          "zh": "嘿！新房間怎麼樣？舒服嗎？"
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "The internet connection in my room is really slow.",
+          "zh": "我房間的網路超慢。",
+          "chunkId": "internet_connection_really_slow"
+        },
+        {
+          "id": "t5_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Mine too. I couldn't even send one email.",
+          "zh": "我的也是。我連一封信都寄不出去。"
+        },
+        {
+          "id": "t5_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Anyway, I'm really hungry. I didn't eat on the plane.",
+          "zh": "先不管了，我好餓。我在飛機上都沒吃東西。"
+        },
+        {
+          "id": "t5_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you want to get a bite to eat?",
+          "zh": "要不要去吃點東西？",
+          "chunkId": "get_a_bite_to_eat"
+        },
+        {
+          "id": "t5_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Sure! There's a little place nearby. Let's walk.",
+          "zh": "好啊！附近有一間小店。我們走過去吧。"
+        },
+        {
+          "id": "t5_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Then we can come back early and relax.",
+          "zh": "吃完可以早點回來放鬆一下。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "熨斗壞了、送洗襯衫",
+      "newChunkIds": ["iron_stopped_working_while", "get_this_shirt_back_by"],
+      "newWordIds": [
+        "dry",
+        "wash",
+        "knock",
+        "spare",
+        "iron",
+        "button",
+        "housekeeper",
+        "electric",
+        "automatically",
+        "basket"
+      ],
+      "cloze": [
+        {
+          "lineId": "t6_1",
+          "word": "iron",
+          "distractors": ["bed", "towel"]
+        },
+        {
+          "lineId": "t6_3",
+          "word": "wash",
+          "distractors": ["eat", "sell"]
+        },
+        {
+          "lineId": "t6_5",
+          "word": "knock",
+          "distractors": ["swim", "cook"]
+        }
+      ],
+      "textFills": [
+        {
+          "id": "laundry_notice",
+          "kind": "notice",
+          "title": "Laundry Service",
+          "lines": [
+            "Need clean clothes? Our laundry service is open daily.",
+            "Put your clothes in the basket in your closet and call the front desk. A housekeeper will ___ them up.",
+            "We will wash, dry and ___ your shirts, and bring them back the same evening.",
+            "___ Ask at the front desk for the price list."
+          ],
+          "zh": [
+            "需要乾淨的衣服嗎？我們的洗衣服務每天都有。",
+            "把衣服放進衣櫃裡的籃子，再打電話給櫃台。房務人員會來收。",
+            "我們會幫您把襯衫洗好、弄乾、燙好，當天晚上送回。",
+            "這項服務不是免費的。價目表請向櫃台索取。"
+          ],
+          "blanks": [
+            {
+              "options": ["pick", "picks", "picking", "picked"],
+              "answer": 0,
+              "note": "will 後面接原形動詞：will pick up。"
+            },
+            {
+              "options": ["iron", "lock", "dine", "reserve"],
+              "answer": 0,
+              "note": "洗好、弄乾以後，襯衫要燙：iron。"
+            },
+            {
+              "options": [
+                "This service is not complimentary.",
+                "Breakfast is downstairs.",
+                "The pool is closed today.",
+                "Each room has a television."
+              ],
+              "answer": 0,
+              "note": "下一句說要看價目表，所以這項服務要收費。"
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "The iron stopped working while I was using it.",
+          "zh": "熨斗用到一半就壞了。",
+          "chunkId": "iron_stopped_working_while"
+        },
+        {
+          "id": "t6_2",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Sorry! It turns off automatically. Try the power button again.",
+          "zh": "不好意思！它會自動關掉。再按一次電源鍵試試。"
+        },
+        {
+          "id": "t6_3",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "If it still doesn't work, we can wash your shirt for you.",
+          "zh": "如果還是不行，我們可以幫您洗襯衫。"
+        },
+        {
+          "id": "t6_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could I get this shirt back by tomorrow morning?",
+          "zh": "這件襯衫明天早上以前可以拿回來嗎？",
+          "chunkId": "get_this_shirt_back_by"
+        },
+        {
+          "id": "t6_5",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Sure. A housekeeper will knock and pick it up soon.",
+          "zh": "沒問題。房務人員等一下會去敲門收衣服。"
+        },
+        {
+          "id": "t6_6",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Oh, and someone called while you were out.",
+          "zh": "對了，您出去的時候有人打電話來。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "主管的留言",
+      "newChunkIds": ["extend_our_stay_one_night"],
+      "newWordIds": [
+        "extend",
+        "fully",
+        "expense",
+        "accommodation",
+        "approval",
+        "roughly",
+        "reimburse",
+        "cancellation",
+        "exceed",
+        "inexpensive"
+      ],
+      "talks": [
+        {
+          "id": "carter_voicemail",
+          "kind": "monologue",
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "manager",
+              "en": "Hi, it's Ms. Carter. I hope your flight was okay.",
+              "zh": "嗨，我是 Carter。希望你們這趟飛行還順利。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "manager",
+              "en": "Mr. Hughes is flying in to see the fair.",
+              "zh": "Hughes 先生會飛過去看商展。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "manager",
+              "en": "He'd like to take you both to dinner on Saturday, after it closes.",
+              "zh": "他想在星期六商展結束後，請你們兩個吃晚餐。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "manager",
+              "en": "So please extend your stay by one night and fly home on Sunday.",
+              "zh": "所以請你們多住一晚，星期日再飛回來。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "manager",
+              "en": "Don't worry about the extra expense. You have my approval.",
+              "zh": "多出來的費用不用擔心，我已經批准了。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "manager",
+              "en": "I checked, and the hotel is fully booked on Saturday, so ask the front desk about a cancellation.",
+              "zh": "我查過了，飯店星期六客滿，所以請到櫃台問問有沒有人取消。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "manager",
+              "en": "If they don't have a room, find inexpensive accommodation nearby.",
+              "zh": "如果他們沒有房間，就在附近找個不貴的地方住。"
+            },
+            {
+              "id": "t7_talk_8",
+              "role": "manager",
+              "en": "Keep all your receipts. Ms. Reed will reimburse you when you're back.",
+              "zh": "收據都要留著。你們回來以後，Reed 會把錢還給你們。"
+            },
+            {
+              "id": "t7_talk_9",
+              "role": "manager",
+              "en": "And for meals, please don't exceed roughly sixty dollars a day. Thanks!",
+              "zh": "還有餐費，一天大約不要超過六十塊。謝謝！"
+            }
+          ],
+          "questions": [
+            {
+              "en": "Why should they stay one more night?",
+              "zh": "他們為什麼要多住一晚？",
+              "options": [
+                "To have dinner with Mr. Hughes",
+                "Their flight is canceled",
+                "The fair is one day longer"
+              ],
+              "answer": 0
+            },
+            {
+              "en": "What should they do if the hotel has no room?",
+              "zh": "飯店沒有房間的話，他們要怎麼做？",
+              "options": ["Call Ms. Carter", "Find a cheap place nearby", "Fly home on Saturday"],
+              "answer": 1
+            },
+            {
+              "en": "About how much can they spend on meals each day?",
+              "zh": "餐費一天大約可以花多少？",
+              "options": ["$16", "$60", "$600"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Hi again. Did you listen to your voicemail?",
+          "zh": "又見面了。您聽過語音留言了嗎？"
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could we extend our stay by one more night?",
+          "zh": "我們可以多住一晚嗎？",
+          "chunkId": "extend_our_stay_one_night"
+        },
+        {
+          "id": "t7_3",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Let me check. Saturday was fully booked this morning.",
+          "zh": "我查一下。今天早上星期六還是客滿的。"
+        },
+        {
+          "id": "t7_4",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Good news! We just had a cancellation.",
+          "zh": "好消息！剛好有人取消了。"
+        },
+        {
+          "id": "t7_5",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "So I can extend both rooms to Sunday morning.",
+          "zh": "所以兩間房我都可以幫您延到星期日早上。"
+        },
+        {
+          "id": "t7_6",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "And it's the same rate as the other nights.",
+          "zh": "而且價錢跟其他晚一樣。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "退房和收據",
+      "newChunkIds": ["receipt_for_expense_report", "leave_our_bags_here"],
+      "newWordIds": [
+        "overnight",
+        "accommodate",
+        "beside",
+        "voucher",
+        "summary",
+        "vacancy",
+        "preference",
+        "hourly",
+        "bell",
+        "checkout"
+      ],
+      "spellWordIds": ["train", "suitcase", "wallet", "belt", "storm"],
+      "cloze": [
+        {
+          "lineId": "t8_1",
+          "word": "bell",
+          "distractors": ["towel", "pool"]
+        },
+        {
+          "lineId": "t8_4",
+          "word": "stay",
+          "distractors": ["towel", "shower"]
+        },
+        {
+          "lineId": "t8_6",
+          "word": "desk",
+          "distractors": ["pool", "shower"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Good morning! Sorry, I didn't hear the bell.",
+          "zh": "早安！不好意思，我沒聽到鈴聲。"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I need a receipt for my expense report.",
+          "zh": "我需要收據報帳。",
+          "chunkId": "receipt_for_expense_report"
+        },
+        {
+          "id": "t8_3",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Sure. Any preference, paper or email?",
+          "zh": "好的。您想要紙本還是 email？"
+        },
+        {
+          "id": "t8_4",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Here's a voucher for a free overnight stay, too.",
+          "zh": "另外，這是一張免費住一晚的兌換券。"
+        },
+        {
+          "id": "t8_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can we leave our bags here for a few hours?",
+          "zh": "我們的行李可以先寄放幾個小時嗎？",
+          "chunkId": "leave_our_bags_here"
+        },
+        {
+          "id": "t8_6",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Sure, we can accommodate that. Put them beside the desk.",
+          "zh": "好，沒問題。放在櫃台旁邊就好。"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Hi again. How can I help you two?",
+          "zh": "又見面了。兩位需要什麼嗎？"
+        },
+        {
+          "id": "t9_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "The key card you gave me doesn't work.",
+          "zh": "你給我的房卡刷不開。",
+          "chunkId": "key_card_you_gave_me"
+        },
+        {
+          "id": "t9_3",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Sorry about that. Here's a new one. Anything else?",
+          "zh": "不好意思。這是新的一張。還有別的事嗎？"
+        },
+        {
+          "id": "t9_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "The iron stopped working while I was using it.",
+          "zh": "熨斗用到一半就壞了。",
+          "chunkId": "iron_stopped_working_while"
+        },
+        {
+          "id": "t9_5",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Oh dear. I'll send a housekeeper up with a spare.",
+          "zh": "哎呀。我請房務人員拿一台備用的上去。"
+        },
+        {
+          "id": "t9_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Thanks. Oh, and ask her about Saturday night.",
+          "zh": "謝謝。對了，問她星期六晚上的事。"
+        },
+        {
+          "id": "t9_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could we extend our stay by one more night?",
+          "zh": "我們可以多住一晚嗎？",
+          "chunkId": "extend_our_stay_one_night"
+        },
+        {
+          "id": "t9_8",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Let me check. Good, we have a vacancy. How many rooms do you have now?",
+          "zh": "我查一下。很好，還有空房。你們現在訂了幾間？",
+          "stage": {
+            "act": "ask"
+          }
+        },
+        {
+          "id": "t9_9",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We booked two single rooms for three nights.",
+          "zh": "我們訂了兩間單人房，住三個晚上。",
+          "chunkId": "booked_two_single_rooms"
+        },
+        {
+          "id": "t9_10",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Okay. I can give you both rooms until Sunday.",
+          "zh": "好的。兩間房我都可以幫您延到星期日。"
+        },
+        {
+          "id": "t9_11",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I need a receipt for my expense report.",
+          "zh": "我需要收據報帳。",
+          "chunkId": "receipt_for_expense_report"
+        },
+        {
+          "id": "t9_12",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Sure. You'll get one with a summary at checkout.",
+          "zh": "沒問題。退房的時候會連同明細一起給您。"
+        },
+        {
+          "id": "t9_13",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Good. Is breakfast free here, by the way?",
+          "zh": "很好。對了，這裡的早餐是免費的嗎？"
+        },
+        {
+          "id": "t9_14",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is breakfast included in the room rate?",
+          "zh": "房價有含早餐嗎？",
+          "chunkId": "breakfast_included_in_rate"
+        },
+        {
+          "id": "t9_15",
+          "role": "hotel_clerk",
+          "speaker": "npc",
+          "en": "Yes, it is. Every morning in our restaurant.",
+          "zh": "有含喔。每天早上在我們的餐廳。"
+        },
+        {
+          "id": "t9_16",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Great. What time does it start?",
+          "zh": "太好了。幾點開始？"
+        },
+        {
+          "id": "t9_17",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Breakfast is downstairs from six thirty to ten.",
+          "zh": "早餐在樓下，六點半到十點。",
+          "chunkId": "breakfast_is_downstairs"
+        },
+        {
+          "id": "t9_18",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Nice. Now I'm hungry, actually.",
+          "zh": "不錯。說到這個，我現在餓了。"
+        },
+        {
+          "id": "t9_19",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you want to get a bite to eat?",
+          "zh": "要不要去吃點東西？",
+          "chunkId": "get_a_bite_to_eat"
+        },
+        {
+          "id": "t9_20",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Sure. Let's find a place nearby.",
+          "zh": "好啊。我們去附近找個地方吧。"
+        }
+      ]
+    }
+  ]
+}
