@@ -328,17 +328,17 @@
 }
 
 /*
- * Landscape with a stage (stage/stage.css): the stage is a full-height column
- * on the left, --stage-w wide (set on #frame while the story is open). The
- * story card fills everything to its right, edge to edge like the portrait
- * panel, so no street shows around it.
+ * Landscape task with a stage (stage/stage.css): the stage is a full-height
+ * column on the left, --stage-w wide (set on #frame while the task is open).
+ * The task card (story, intro cards, practice) fills everything to its right,
+ * edge to edge like the portrait panel, so no street shows around it.
  */
-:root[data-orientation='landscape'] .flow:has(.story.has-stage) {
+:root[data-orientation='landscape'] .flow.has-stage {
   align-items: stretch;
   padding: 0 0 0 var(--stage-w, 0px);
 }
 
-:root[data-orientation='landscape'] .flow:has(.story.has-stage) .flow-card {
+:root[data-orientation='landscape'] .flow.has-stage .flow-card {
   width: 100%;
   max-width: none;
   max-height: none;
@@ -348,7 +348,7 @@
 }
 
 /* Without the card's outer margins the chat can use a little more of the height. */
-:root[data-orientation='landscape'] .story.has-stage .chat {
+:root[data-orientation='landscape'] .flow.has-stage .story .chat {
   max-height: calc(var(--scene-h) - 80 * var(--px));
 }
 

@@ -1,26 +1,53 @@
 import type { CSSProperties } from 'preact';
+import { createPortal } from 'preact/compat';
+import { useEffect } from 'preact/hooks';
 import { spriteRuns, type PixelRun } from '../../art/items';
 import { coreOrigin, stageFor, type StageConfig, type StageSide } from '../../art/stage';
-import type { Role, SceneLine, Unit } from '../../content/types';
+import type { Role, Unit } from '../../content/types';
+import { appStore } from '../../core/appState';
+import { useStore } from '../../core/store';
 import { canvasPainter } from '../../game/painter';
 import type { PixelSprite } from '../../game/sprites';
 import { ItemIcon } from '../ItemIcon';
-import { stageCanvasSize, type StageArea } from './stageArea';
-import { stageAt } from './stageState';
+import { stageArea, stageCanvasSize, type StageArea } from './stageArea';
+import type { StageView } from './stageState';
 import './stage.css';
 
 export function hasStage(unitId: string): boolean {
   return stageFor(unitId) !== undefined;
 }
 
+/** The element the stage is drawn into (the scene, #frame), or null when this unit has no stage. */
+export function stageFrame(unitId: string): HTMLElement | null {
+  if (!hasStage(unitId) || typeof document === 'undefined') return null;
+  return document.getElementById('frame');
+}
+
 interface Props {
   unit: Unit;
-  lines: readonly SceneLine[];
-  /** How many lines of the story are on screen. */
-  shown: number;
+  view: StageView;
+  /** Changes with every new story line, so a new bubble pops again. */
+  beat: number;
   /** The role whose line is being heard right now (bobs while it plays). */
   talking: Role | undefined;
   area: StageArea;
+}
+
+/**
+ * The stage for a whole task (story, intro cards and practice), drawn over the
+ * top of the scene, edge to edge. In landscape the task card sits to its right;
+ * --stage-w on #frame tells the card how much room the stage takes.
+ */
+export function TaskStage({ frame, ...props }: Omit<Props, 'area'> & { frame: HTMLElement }) {
+  const { layout } = useStore(appStore);
+  const area = stageArea(layout);
+  const columnW = layout.orientation === 'landscape' ? area.w : 0;
+  useEffect(() => {
+    if (columnW === 0) return;
+    frame.style.setProperty('--stage-w', `calc(${columnW} * var(--px))`);
+    return () => frame.style.removeProperty('--stage-w');
+  }, [frame, columnW]);
+  return createPortal(<SceneStage {...props} area={area} />, frame);
 }
 
 /** Stage pixels to CSS: --sp is one stage pixel on screen. */
@@ -95,12 +122,11 @@ const other = (side: StageSide): StageSide => (side === 'left' ? 'right' : 'left
  * pixels and anchored at the bottom left, so every pixel lands on the device
  * grid); characters, bubbles and props are placed relative to the core.
  */
-export function SceneStage({ unit, lines, shown, talking, area }: Props) {
+export function SceneStage({ unit, view, beat, talking, area }: Props) {
   const config = stageFor(unit.id);
   if (!config) return null;
   const { w: W, h: H } = stageCanvasSize(area);
   const { ox, oy } = coreOrigin(W, H);
-  const view = stageAt(lines, shown);
   const bg = backgroundUrl(unit.id, config, W, H);
   const sideOf = (role: Role): StageSide => config.cast[role]?.side ?? 'right';
   const emoji = (item: string) => unit.words.find((w) => w.id === item)?.emoji;
@@ -178,7 +204,7 @@ export function SceneStage({ unit, lines, shown, talking, area }: Props) {
             const side = sideOf(bubble.role);
             return (
               <div
-                key={`${shown}-${bubble.act}`}
+                key={`${beat}-${bubble.act}`}
                 class={`stage-bubble ${bubble.act} ${side}`}
                 data-act={bubble.act}
                 style={at(config[bubble.act][side])}

@@ -1,33 +1,31 @@
-import { createPortal } from 'preact/compat';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { playAudio, stopAudio } from '../audio/pronounce';
 import { ROLE_LABEL } from '../content/roles';
 import type { Role, Task, Unit } from '../content/types';
 import { lineAudioId } from '../content/units';
 import { settingsStore } from '../core/settings';
-import { appStore } from '../core/appState';
 import { useStore } from '../core/store';
-import { hasStage, SceneStage } from './stage/SceneStage';
-import { stageArea } from './stage/stageArea';
 import './flow.css';
 
 interface Props {
   unit: Unit;
   task: Task;
   onDone: () => void;
+  /** Told how many lines are on screen and who is heard right now (for the stage). */
+  onBeat?: (shown: number, talking: Role | undefined) => void;
 }
 
 /** The short story that opens a task: lines appear one by one like a chat. */
-export function SceneStory({ unit, task, onDone }: Props) {
+export function SceneStory({ unit, task, onDone, onBeat }: Props) {
   const { showZh } = useStore(settingsStore);
-  const { layout } = useStore(appStore);
   const [shown, setShown] = useState(1);
   const [talking, setTalking] = useState<Role | undefined>(undefined);
   const listRef = useRef<HTMLDivElement>(null);
   /** Bumped on every play so an older clip ending does not stop a newer one's bobbing. */
   const playToken = useRef(0);
   const lines = task.scene;
-  const withStage = hasStage(unit.id);
+
+  useEffect(() => onBeat?.(shown, talking), [shown, talking]);
 
   const play = (index: number, slow: boolean) => {
     const line = lines[index];
@@ -56,27 +54,9 @@ export function SceneStory({ unit, task, onDone }: Props) {
     [],
   );
 
-  // The stage is drawn over the top of the scene (#frame), edge to edge. In
-  // landscape the story card sits to its right; --stage-w tells the card how much
-  // room the stage takes.
-  const area = stageArea(layout);
-  const frame =
-    withStage && typeof document !== 'undefined' ? document.getElementById('frame') : null;
-  const columnW = frame && layout.orientation === 'landscape' ? area.w : 0;
-  useEffect(() => {
-    if (!frame || columnW === 0) return;
-    frame.style.setProperty('--stage-w', `calc(${columnW} * var(--px))`);
-    return () => frame.style.removeProperty('--stage-w');
-  }, [frame, columnW]);
-
   const last = shown >= lines.length;
   return (
-    <div class={`story${last ? '' : ' more'}${frame ? ' has-stage' : ''}`} data-testid="story">
-      {frame &&
-        createPortal(
-          <SceneStage unit={unit} lines={lines} shown={shown} talking={talking} area={area} />,
-          frame,
-        )}
+    <div class={`story${last ? '' : ' more'}`} data-testid="story">
       <p class="flow-heading">先看看發生什麼事</p>
       <div class="chat" ref={listRef}>
         {lines.slice(0, shown).map((line, index) => (

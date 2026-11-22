@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { playMusic } from '../audio/music';
 import { playSfx } from '../audio/sfx';
+import type { Role } from '../content/types';
 import { getUnit, taskItemIds } from '../content/units';
 import { appStore, commitSave, currentNow } from '../core/appState';
 import { makeRng, buildTaskPractice } from '../learning/questionGen';
@@ -16,6 +17,8 @@ import './flow.css';
 import { IntroCards } from './IntroCards';
 import { QuestionView } from './minigames/QuestionView';
 import { SceneStory } from './SceneStory';
+import { stageFrame, TaskStage } from './stage/SceneStage';
+import { stageAfter, stageAt } from './stage/stageState';
 
 const MAX_HEARTS = 3;
 const hearts = (n: number) => '●'.repeat(n) + '○'.repeat(MAX_HEARTS - n);
@@ -111,6 +114,10 @@ export function TaskScreen() {
   const task = unit?.tasks.find((t) => t.id === active?.taskId);
 
   const [phase, setPhase] = useState<Phase>('story');
+  const [beat, setBeat] = useState<{ shown: number; talking: Role | undefined }>({
+    shown: 1,
+    talking: undefined,
+  });
   useEffect(() => playMusic('cafe'), []);
 
   // Items with no card yet are "new" in the result screen.
@@ -152,12 +159,30 @@ export function TaskScreen() {
     });
   };
 
+  // Units with a stage show it for the whole task: the story plays on it, then
+  // it rests at the story's end during the intro cards and practice.
+  const frame = stageFrame(unit.id);
+  const inStory = phase === 'story';
   return (
-    <div class="flow" data-testid="task">
+    <div class={`flow${frame ? ' has-stage' : ''}`} data-testid="task">
+      {frame && (
+        <TaskStage
+          frame={frame}
+          unit={unit}
+          view={inStory ? stageAt(task.scene, beat.shown) : stageAfter(task.scene)}
+          beat={beat.shown}
+          talking={inStory ? beat.talking : undefined}
+        />
+      )}
       <div class="flow-card">
         <div class="flow-title">{task.title}</div>
-        {phase === 'story' && (
-          <SceneStory unit={unit} task={task} onDone={() => setPhase('intro')} />
+        {inStory && (
+          <SceneStory
+            unit={unit}
+            task={task}
+            onDone={() => setPhase('intro')}
+            onBeat={(shown, talking) => setBeat({ shown, talking })}
+          />
         )}
         {phase === 'intro' && <IntroCards task={task} onDone={() => setPhase('practice')} />}
         {phase === 'practice' && (

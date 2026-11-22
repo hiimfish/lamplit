@@ -52,3 +52,13 @@ export function stageAt(lines: readonly SceneLine[], shown: number): StageView {
   });
   return { speaker: newest?.role, bubble, props };
 }
+
+/**
+ * The stage once the story is over (during the intro cards and practice): the
+ * cast standing still, everything handed over resting on the counter, no
+ * bubble. It never hints at an answer.
+ */
+export function stageAfter(lines: readonly SceneLine[]): StageView {
+  const props = stageAt(lines, lines.length).props.map((p) => ({ ...p, sliding: false }));
+  return { speaker: undefined, bubble: undefined, props };
+}

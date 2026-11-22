@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { SceneLine } from '../src/content/types';
 import { getUnit } from '../src/content/units';
-import { stageAt } from '../src/ui/stage/stageState';
+import { stageAfter, stageAt } from '../src/ui/stage/stageState';
 
 const line = (id: string, role: SceneLine['role'], stage?: SceneLine['stage']): SceneLine => ({
   id,
@@ -91,5 +91,27 @@ describe('stageAt', () => {
     });
     expect(stageAt(t3!.scene, 2).bubble).toEqual({ role: 'guide', act: 'ask' });
     expect(stageAt(t3!.scene, 1).props).toEqual([]);
+  });
+});
+
+describe('stageAfter', () => {
+  it('keeps every given prop at rest, with no bubble and no speaker', () => {
+    const ending = [...scene, line('f', 'guide', { act: 'want', item: 'latte' })];
+    expect(stageAfter(ending)).toEqual({
+      speaker: undefined,
+      bubble: undefined,
+      props: [{ lineId: 'c', item: 'latte', giver: 'barista', sliding: false }],
+    });
+  });
+
+  it('does not slide a prop given on the last line', () => {
+    const lastGive = scene.slice(0, 3);
+    expect(stageAfter(lastGive).props).toEqual([
+      { lineId: 'c', item: 'latte', giver: 'barista', sliding: false },
+    ]);
+  });
+
+  it('is empty for an empty scene', () => {
+    expect(stageAfter([])).toEqual({ speaker: undefined, bubble: undefined, props: [] });
   });
 });
