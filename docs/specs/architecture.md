@@ -28,7 +28,7 @@ src/
   ui/               Preact 畫面：App、TownScreen、TaskScreen、SceneStory、ChatLines（對話紀錄）、RolePlay（角色扮演大挑戰）、IntroCards、
                     ResultScreen、ReviewScreen、SettingsPanel、ItemIcon、焦點與對話框工具
   ui/stage/         劇情小劇場：SceneStage（畫面；TaskStage 讓整個任務都顯示）、stageState（每一句和劇情結束後的舞台狀態）；
-                    劇情之後由 audio/pronounce 的 nowPlaying 和 content/units 的 speakerOf 決定誰在跳動
+                    整個任務都由 audio/pronounce 的 nowPlaying 和 content/units 的 speakerOf 決定誰在跳動
   ui/minigames/     題型元件：ListenPick、ListenPair（聽辨挑戰）、ChooseReply、Arrange、
                     Speak、QuestionView，以及錄音和辨識的 hook
   learning/         出題、批改、錯誤提示、FSRS 排程、練習與複習的規則

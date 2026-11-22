@@ -2,7 +2,6 @@ import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { playMusic } from '../audio/music';
 import { nowPlaying } from '../audio/pronounce';
 import { playSfx } from '../audio/sfx';
-import type { Role } from '../content/types';
 import { getUnit, speakerOf, taskItemIds } from '../content/units';
 import { appStore, commitSave, currentNow } from '../core/appState';
 import { useStore } from '../core/store';
@@ -125,10 +124,8 @@ export function TaskScreen() {
   const task = unit?.tasks.find((t) => t.id === active?.taskId);
 
   const [phase, setPhase] = useState<Phase>('story');
-  const [beat, setBeat] = useState<{ shown: number; talking: Role | undefined }>({
-    shown: 1,
-    talking: undefined,
-  });
+  /** Story: how many scene lines are on screen. */
+  const [storyShown, setStoryShown] = useState(1);
   /** Role-play: how many scene lines are on screen. */
   const [rolePlayShown, setRolePlayShown] = useState(0);
   const { audioId: heard } = useStore(nowPlaying);
@@ -176,19 +173,16 @@ export function TaskScreen() {
     });
   };
 
-  // Units with a stage show it for the whole task: the story plays on it, then
-  // it rests at the story's end during the intro cards and practice, where
-  // whoever is heard in a clip bobs. A role-play builds its scene on the stage
-  // line by line, and whoever is heard bobs.
+  // Units with a stage show it for the whole task: the story (or a role-play)
+  // builds its scene on the stage line by line, then it rests at the story's end
+  // during the intro cards and practice. In every phase whoever is heard in the
+  // clip playing right now bobs.
   const frame = stageFrame(unit.id);
   const rolePlay = task.kind === 'roleplay';
   const inStory = !rolePlay && phase === 'story';
-  const talking = inStory ? beat.talking : heard ? speakerOf(heard) : undefined;
-  const view = rolePlay
-    ? stageAt(task.scene, rolePlayShown)
-    : inStory
-      ? stageAt(task.scene, beat.shown)
-      : stageAfter(task.scene);
+  const talking = heard ? speakerOf(heard) : undefined;
+  const shown = rolePlay ? rolePlayShown : storyShown;
+  const view = rolePlay || inStory ? stageAt(task.scene, shown) : stageAfter(task.scene);
   return (
     <div class={`flow${frame ? ' has-stage' : ''}`} data-testid="task">
       {frame && (
@@ -197,7 +191,7 @@ export function TaskScreen() {
           unit={unit}
           scene={task.scene}
           view={view}
-          beat={rolePlay ? rolePlayShown : beat.shown}
+          beat={shown}
           talking={talking}
         />
       )}
@@ -211,7 +205,7 @@ export function TaskScreen() {
             unit={unit}
             task={task}
             onDone={() => setPhase('intro')}
-            onBeat={(shown, talking) => setBeat({ shown, talking })}
+            onShown={setStoryShown}
           />
         )}
         {!rolePlay && phase === 'intro' && (

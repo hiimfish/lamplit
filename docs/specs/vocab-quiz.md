@@ -97,7 +97,7 @@
 - **「播放我的錄音」不受發音音量控制**（`src/ui/minigames/useRecorder.ts`）：用的是獨立的 `Audio` 元素，沒有接到發音音量。
 - **辨識被拒絕權限時只顯示通用訊息**（`src/audio/recognize.ts`）。
 - **選回應題的回覆音檔 id 是用字串取代組出來的**（`src/ui/minigames/ChooseReply.tsx`）：id 格式改變就會播錯句子。改法：出題時直接帶上回覆的 `audioId`。
-- **ARIA 細節**：設定的單選群組沒有方向鍵操作；「顯示中文」開關的名稱重複了狀態；愛心和星星的 `aria-label` 掛在一般 `span` 上，應加 `role="img"`；自動捲動沒有尊重「減少動態」設定。
+- **ARIA 細節**：設定的單選群組沒有方向鍵操作；「顯示中文」開關的名稱重複了狀態；愛心和星星的 `aria-label` 掛在一般 `span` 上，應加 `role="img"`。（「自動捲動沒有尊重減少動態」已確認沒有這個問題：對話紀錄是瞬間捲動，`focusAndReveal` 在減少動態時不用平滑捲動。）
 - **`index.html` 的 `theme-color` 和背景色不一致**：`#2b2540` 對上 `--screen-bg` 的 `#1d1a2b`。
 
 ### 音訊
