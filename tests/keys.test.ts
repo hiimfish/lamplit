@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { digitIndex, keyName, letterIndex } from '../src/ui/keys';
+import { actionsFor, digitIndex, keyName, letterIndex } from '../src/ui/keys';
+import { keyCapLabel } from '../src/ui/KeyCap';
 
-const press = (key: string, shiftKey = false) => keyName({ key, shiftKey });
+const press = (key: string, shiftKey = false, code?: string) => keyName({ key, shiftKey, code });
 
 describe('keyName', () => {
   it('names the keys of the scheme', () => {
@@ -14,10 +15,53 @@ describe('keyName', () => {
     expect(press("'")).toBe("'");
   });
 
+  it('names the left-hand keys: the one under Esc, and Esc with Shift', () => {
+    expect(press('`')).toBe('Backquote');
+    expect(press('~', true)).toBe('Shift+Backquote');
+    // Another layout may give another character; the key's position still counts.
+    expect(press('ˋ', false, 'Backquote')).toBe('Backquote');
+    expect(press('Escape')).toBe('Escape');
+    expect(press('Escape', true)).toBe('Shift+Escape');
+  });
+
   it('ignores keys the game never uses', () => {
     expect(press('Tab')).toBeNull();
     expect(press('F5')).toBeNull();
     expect(press('!')).toBeNull();
+  });
+});
+
+describe('left-hand actions', () => {
+  it('Space is the next step and the key under Esc replays', () => {
+    expect(actionsFor('Space')).toEqual(['Enter']);
+    expect(actionsFor('Backquote')).toEqual(['Space']);
+    expect(actionsFor('Shift+Backquote')).toEqual(['Shift+Space']);
+  });
+
+  it('Esc takes back first, then cancels; Shift+Esc is 重排', () => {
+    expect(actionsFor('Escape')).toEqual(['Backspace', 'Escape']);
+    expect(actionsFor('Shift+Escape')).toEqual(['Escape']);
+  });
+
+  it('T types or places a block first, then shows 中文', () => {
+    expect(actionsFor('t')).toEqual(['t', '0']);
+  });
+
+  it('the old keys still stand for themselves', () => {
+    expect(actionsFor('Enter')).toEqual(['Enter']);
+    expect(actionsFor('Backspace')).toEqual(['Backspace']);
+    expect(actionsFor('0')).toEqual(['0']);
+    expect(actionsFor('q')).toEqual(['q']);
+  });
+
+  it('caps show the left-hand key of each action', () => {
+    expect(keyCapLabel('Enter')).toBe('空白');
+    expect(keyCapLabel('Space')).toBe('`');
+    expect(keyCapLabel('Shift+Space')).toBe('Shift `');
+    expect(keyCapLabel('Backspace')).toBe('Esc');
+    expect(keyCapLabel('Shift+Escape')).toBe('Shift Esc');
+    expect(keyCapLabel('0')).toBe('T');
+    expect(keyCapLabel('q')).toBe('Q');
   });
 });
 

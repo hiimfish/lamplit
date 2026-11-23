@@ -159,7 +159,7 @@ function CheckRow({
         onClick={onReset}
       >
         重排
-        <KeyCap k="Escape" />
+        <KeyCap k="Shift+Escape" />
       </button>
     </div>
   );
@@ -199,7 +199,9 @@ function useArrange(
 
 /**
  * Keys while building: each block's own key (BLOCK_KEYS) places it, Backspace takes back
- * the last block, Escape is 重排, Enter is 檢查 and 0 is 看中文. All off once checked.
+ * the last block, Escape is 重排, Enter is 檢查 and 0 is 看中文. These are action names
+ * (keys.ts): on the keyboard take back is Esc, 重排 Shift+Esc, 檢查 Space and 看中文 T.
+ * All off once checked.
  */
 function useArrangeKeys(
   question: ArrangeQuestion,
