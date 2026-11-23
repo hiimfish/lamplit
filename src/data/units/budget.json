@@ -860,7 +860,7 @@
           "role": "manager",
           "speaker": "npc",
           "en": "Good morning! This is Ms. Patel, our new accountant.",
-          "zh": "早安！這位是我們新來的會計 Ms. Patel。"
+          "zh": "早安！這位是我們新來的會計 Patel 小姐。"
         },
         {
           "id": "t1_2",
@@ -1170,7 +1170,7 @@
             },
             {
               "en": "Why did Ms. Carter write the email?",
-              "zh": "Ms. Carter 為什麼寫這封信？",
+              "zh": "Carter 小姐為什麼寫這封信？",
               "options": [
                 "A cost was entered twice",
                 "A rebate is missing",
@@ -1245,7 +1245,7 @@
           "role": "manager",
           "speaker": "npc",
           "en": "Can you and Ms. Patel fix it this week?",
-          "zh": "你和 Ms. Patel 這個禮拜可以把它改好嗎？"
+          "zh": "你和 Patel 小姐這個禮拜可以把它改好嗎？"
         },
         {
           "id": "t4_8",
@@ -1346,7 +1346,7 @@
             },
             {
               "en": "How much growth does Ms. Patel expect?",
-              "zh": "Ms. Patel 預估成長多少？",
+              "zh": "Patel 小姐預估成長多少？",
               "options": ["About 2 percent", "About 10 percent", "About 6 percent"],
               "answer": 2
             },
@@ -1464,7 +1464,7 @@
             "材料成本漲了將近一成，所以我們的總數超出預算一萬八千美元。",
             "為了補上這個缺口，我們會少撥一點錢給商展，樣品也會少做一些。",
             "高級款會等到明年再做。",
-            "Ms. Carter 說新的總數可以接受。",
+            "Carter 小姐說新的總數可以接受。",
             "Ms. Patel"
           ],
           "blanks": [
@@ -1525,15 +1525,15 @@
           "id": "t6_5",
           "role": "accountant",
           "speaker": "npc",
-          "en": "And shipping costs vary a lot, too.",
-          "zh": "而且運費每個月都差很多。"
+          "en": "And shipping prices vary a lot between companies.",
+          "zh": "而且每家貨運公司的運費差很多。"
         },
         {
           "id": "t6_6",
           "role": "manager",
           "speaker": "npc",
-          "en": "We can't eliminate the trade show. We need it.",
-          "zh": "商展不能砍掉，我們需要它。"
+          "en": "We can't withdraw from the trade show. What else can we eliminate?",
+          "zh": "商展不能退出。還有什麼可以砍掉的？"
         },
         {
           "id": "t6_7",
@@ -1803,15 +1803,15 @@
           "id": "t8_6",
           "role": "director",
           "speaker": "npc",
-          "en": "I see. You kept the forecast low and minimized the costs.",
-          "zh": "我懂了。你把預估做得保守，成本也壓到最低。"
+          "en": "I like that. You kept the forecast low and minimized the costs.",
+          "zh": "這樣很好。你把預估做得保守，成本也壓到最低。"
         },
         {
           "id": "t8_7",
           "role": "director",
           "speaker": "npc",
-          "en": "And we have the capital, so no loan and no debt.",
-          "zh": "而且我們有資金，所以不用貸款，也不會有負債。"
+          "en": "We have the capital, too. No loan, no new debt.",
+          "zh": "而且我們有資金，不用貸款，也不會多出負債。"
         },
         {
           "id": "t8_8",
@@ -1956,8 +1956,8 @@
           "id": "t9_17",
           "role": "accountant",
           "speaker": "npc",
-          "en": "It already is. I set that up last week.",
-          "zh": "已經是了，我上週就設定好了。"
+          "en": "It already is, remember? I set that up last week.",
+          "zh": "已經是了，記得嗎？我上週就設定好了。"
         },
         {
           "id": "t9_18",
@@ -1978,8 +1978,8 @@
           "id": "t9_20",
           "role": "manager",
           "speaker": "npc",
-          "en": "Perfect. And if Lantern does well, there's a bonus. Good incentive, right?",
-          "zh": "很好。而且如果 Lantern 賣得好，還有獎金喔。很有動力吧？"
+          "en": "Perfect. And if Lantern does well, there'll be a team bonus. Good incentive, right?",
+          "zh": "很好。而且如果 Lantern 賣得好，團隊會有獎金喔。很有動力吧？"
         }
       ]
     }

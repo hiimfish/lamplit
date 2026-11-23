@@ -526,14 +526,14 @@
           "role": "new_hire",
           "speaker": "npc",
           "en": "Thanks, Ms. Carter. I'm excited, and a little nervous.",
-          "zh": "謝謝您，Ms. Carter。我很興奮，也有點緊張。"
+          "zh": "謝謝您，Carter 小姐。我很興奮，也有點緊張。"
         },
         {
           "id": "t1_3",
           "role": "manager",
           "speaker": "npc",
-          "en": "This is your desk, and this is the person you'll work with.",
-          "zh": "這是你的位子，這位是之後跟你一起工作的人。"
+          "en": "This is your desk. And you already know our Lantern coordinator.",
+          "zh": "這是你的位子。我們的 Lantern 協調人你已經見過了。"
         },
         {
           "id": "t1_4",
@@ -547,8 +547,8 @@
           "id": "t1_5",
           "role": "new_hire",
           "speaker": "npc",
-          "en": "Great. So I come to you with questions, not the boss?",
-          "zh": "太好了。所以我有問題是來問你，不是問老闆？"
+          "en": "Great. So if I have questions, I come to you first?",
+          "zh": "太好了。所以我有問題就先來問你？"
         },
         {
           "id": "t1_6",
@@ -660,8 +660,8 @@
           "id": "t2_6",
           "role": "new_hire",
           "speaker": "npc",
-          "en": "Got it. Editing is fine, but deleting is your call.",
-          "zh": "了解。修改沒問題，但要不要刪由你決定。"
+          "en": "Got it. Editing is okay, but I'll always ask before deleting.",
+          "zh": "了解。修改可以，但要刪之前我一定會先問你。"
         },
         {
           "id": "t2_7",
@@ -1255,8 +1255,8 @@
             {
               "id": "t7_talk_4",
               "role": "announcer",
-              "en": "In the afternoon, people will practice their interaction with customers.",
-              "zh": "下午學員會練習和客人的應對。"
+              "en": "In the afternoon, you'll practice your interaction with customers in small groups.",
+              "zh": "下午會分成小組，練習怎麼和客人應對。"
             },
             {
               "id": "t7_talk_5",
@@ -1332,22 +1332,22 @@
           "id": "t7_4",
           "role": "new_hire",
           "speaker": "npc",
-          "en": "At the store I knew the lamps, but phone calls with stores are new to me.",
-          "zh": "在店裡我很懂燈，但跟店家講電話對我來說很陌生。"
+          "en": "I know lamps, but talking to store buyers on the phone is new to me.",
+          "zh": "燈我很懂，可是打電話跟店家的採購談，對我來說很新。"
         },
         {
           "id": "t7_5",
           "role": "new_hire",
           "speaker": "npc",
-          "en": "So the instructor gives a lecture first, and then we practice with customers?",
-          "zh": "所以是講師先上課，然後我們跟客人練習？"
+          "en": "So the instructor gives a lecture, and then we practice with each other?",
+          "zh": "所以是講師先上課，然後我們互相練習？"
         },
         {
           "id": "t7_6",
           "role": "new_hire",
           "speaker": "npc",
           "en": "Sounds great. I'll ask Ms. Carter if I can go.",
-          "zh": "聽起來很棒。我去問 Ms. Carter 我可不可以去。"
+          "zh": "聽起來很棒。我去問 Carter 小姐我可不可以去。"
         },
         {
           "id": "t7_7",
@@ -1406,7 +1406,7 @@
           "role": "new_hire",
           "speaker": "npc",
           "en": "Sure, Ms. Carter. I'll be right back.",
-          "zh": "好的，Ms. Carter，我馬上回來。"
+          "zh": "好的，Carter 小姐，我馬上回來。"
         },
         {
           "id": "t8_3",
@@ -1465,8 +1465,8 @@
           "id": "t9_1",
           "role": "manager",
           "speaker": "npc",
-          "en": "Leo, this is your desk. And here's the person who'll train you.",
-          "zh": "Leo，這是你的位子。這位就是要帶你的人。"
+          "en": "Leo, this is your desk. And you already know who'll train you.",
+          "zh": "Leo，這是你的位子。要帶你的人你已經認識了。"
         },
         {
           "id": "t9_2",
@@ -1480,8 +1480,8 @@
           "id": "t9_3",
           "role": "new_hire",
           "speaker": "npc",
-          "en": "Nice to meet you. I'm excited, and a little nervous.",
-          "zh": "很高興認識你。我很期待，也有點緊張。"
+          "en": "Good to see you again. I'm excited, and a little nervous.",
+          "zh": "很高興又見到你。我很期待，也有點緊張。"
         },
         {
           "id": "t9_4",
@@ -1525,7 +1525,7 @@
           "role": "new_hire",
           "speaker": "npc",
           "en": "Great. And Ms. Carter gave me this booklet.",
-          "zh": "太好了。還有，Ms. Carter 給了我這本手冊。"
+          "zh": "太好了。還有，Carter 小姐給了我這本手冊。"
         },
         {
           "id": "t9_10",
@@ -1613,8 +1613,8 @@
           "id": "t9_21",
           "role": "manager",
           "speaker": "npc",
-          "en": "Great to hear. You can tell he's motivated. Welcome to the team, Leo!",
-          "zh": "太好了，看得出來他很有幹勁。Leo，歡迎加入我們！"
+          "en": "Great to hear. Leo, I can tell you're really motivated. Welcome to the team!",
+          "zh": "太好了。Leo，看得出來你很有幹勁。歡迎加入我們！"
         }
       ]
     }

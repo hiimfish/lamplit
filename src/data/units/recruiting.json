@@ -93,7 +93,7 @@
     {
       "id": "start_by_telling_about_yourself",
       "en": "Why don't you start by telling us about yourself?",
-      "zh": "要不要先跟我們介紹一下您自己？",
+      "zh": "要不要先跟我們介紹一下你自己？",
       "note": "面試開場，請應徵者先自我介紹。Why don't you…? 是客氣的提議，不是問原因。",
       "distractors": [
         { "text": "Why you don't start by telling us about yourself?", "error": "word-order" },
@@ -104,7 +104,7 @@
     {
       "id": "tell_us_why_interested",
       "en": "Could you tell us why you're interested in this job?",
-      "zh": "可以跟我們說說您為什麼對這份工作有興趣嗎？",
+      "zh": "可以跟我們說說你為什麼對這份工作有興趣嗎？",
       "accept": ["Could you tell us why you are interested in this job?"],
       "note": "面試時問動機。Could you tell us 後面接 why you're interested，順序和直述句一樣。",
       "distractors": [
@@ -152,7 +152,7 @@
     {
       "id": "offer_you_assistant_position",
       "en": "We'd like to offer you the assistant position.",
-      "zh": "我們想錄取您擔任助理這個職位。",
+      "zh": "我們想錄取你擔任助理這個職位。",
       "accept": ["We would like to offer you the assistant position."],
       "note": "打電話錄取人時的說法。We'd like to 比 We want to 客氣。",
       "distractors": [
@@ -164,7 +164,7 @@
     {
       "id": "april_first_work_for_you",
       "en": "Does April first work for you as a start date?",
-      "zh": "四月一號開始上班，您方便嗎？",
+      "zh": "四月一號開始上班，你方便嗎？",
       "accept": ["Does April 1 work for you as a start date?"],
       "note": "和對方確認日期方不方便。…work for you? 是「你方便嗎？」",
       "distractors": [
@@ -444,7 +444,7 @@
           "role": "manager",
           "speaker": "npc",
           "en": "I know. That's why I asked Ms. Reed to help us recruit someone.",
-          "zh": "我知道。所以我才請 Ms. Reed 幫我們找人。"
+          "zh": "我知道。所以我才請 Reed 小姐幫我們找人。"
         },
         {
           "id": "t1_4",
@@ -479,8 +479,8 @@
           "id": "t1_8",
           "role": "hr",
           "speaker": "npc",
-          "en": "Got it. The business college has lots of young talent.",
-          "zh": "了解。商學院有很多年輕的人才。"
+          "en": "Got it. The local college has lots of young talent.",
+          "zh": "了解。附近的大學有很多年輕人才。"
         }
       ]
     },
@@ -524,8 +524,8 @@
           "id": "t2_1",
           "role": "hr",
           "speaker": "npc",
-          "en": "Here's my draft. It starts, 'Harbor Trading is seeking an assistant.'",
-          "zh": "這是我的草稿。開頭是「Harbor Trading 徵求助理一名」。"
+          "en": "Here's my draft. It says we're seeking a new assistant.",
+          "zh": "這是我的草稿。上面寫我們在徵一位新助理。"
         },
         {
           "id": "t2_2",
@@ -769,7 +769,7 @@
           "role": "hr",
           "speaker": "npc",
           "en": "I'll ask Ms. Carter about an interview this week.",
-          "zh": "我來問 Ms. Carter 這週能不能面試他。"
+          "zh": "我來問 Carter 小姐這週能不能面試他。"
         }
       ]
     },
@@ -908,7 +908,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "Why don't you start by telling us about yourself?",
-          "zh": "要不要先跟我們介紹一下您自己？",
+          "zh": "要不要先跟我們介紹一下你自己？",
           "chunkId": "start_by_telling_about_yourself"
         },
         {
@@ -930,7 +930,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "Could you tell us why you're interested in this job?",
-          "zh": "可以跟我們說說您為什麼對這份工作有興趣嗎？",
+          "zh": "可以跟我們說說你為什麼對這份工作有興趣嗎？",
           "chunkId": "tell_us_why_interested"
         },
         {
@@ -977,7 +977,7 @@
             "See you at the meeting."
           ],
           "zh": [
-            "Ms. Reed 您好：",
+            "Reed 小姐你好：",
             "我今天打給 Leo 之前的主管了。她跟我說她會很想他。",
             "客人都叫他「檯燈行家」，因為店裡每一盞燈他都很熟。",
             "她說他一直都很願意學新東西。",
@@ -1136,7 +1136,7 @@
               "id": "t7_talk_1",
               "role": "hr",
               "en": "Hi, it's Ms. Reed. I've put the panel's notes together.",
-              "zh": "嗨，我是 Ms. Reed。面試小組的筆記我整理好了。"
+              "zh": "嗨，我是人資的 Reed。面試小組的筆記我整理好了。"
             },
             {
               "id": "t7_talk_2",
@@ -1206,7 +1206,7 @@
             },
             {
               "en": "What does Ms. Reed ask you to do?",
-              "zh": "Ms. Reed 請你做什麼？",
+              "zh": "Reed 小姐請你做什麼？",
               "options": [
                 "Call Leo tomorrow",
                 "Send the personnel forms",
@@ -1316,7 +1316,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "We'd like to offer you the assistant position.",
-          "zh": "我們想錄取您擔任助理這個職位。",
+          "zh": "我們想錄取你擔任助理這個職位。",
           "chunkId": "offer_you_assistant_position"
         },
         {
@@ -1338,7 +1338,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "Does April first work for you as a start date?",
-          "zh": "四月一號開始上班，您方便嗎？",
+          "zh": "四月一號開始上班，你方便嗎？",
           "chunkId": "april_first_work_for_you"
         },
         {
@@ -1367,7 +1367,7 @@
           "role": "hr",
           "speaker": "npc",
           "en": "It does. I'll expedite the paperwork so you can formally accept.",
-          "zh": "有喔。我會加快處理文件，讓你可以正式接受。"
+          "zh": "有喔。我會加快處理文件，讓你可以正式簽約接受。"
         }
       ]
     },
@@ -1398,8 +1398,8 @@
           "id": "t9_3",
           "role": "manager",
           "speaker": "npc",
-          "en": "Almost forty. But I like Leo's file the best.",
-          "zh": "快四十個了。不過我最喜歡 Leo 的資料。"
+          "en": "Almost forty now. But I like Leo's file the best.",
+          "zh": "現在快四十個了。不過我最喜歡 Leo 的資料。"
         },
         {
           "id": "t9_4",
@@ -1443,7 +1443,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "Why don't you start by telling us about yourself?",
-          "zh": "要不要先跟我們介紹一下您自己？",
+          "zh": "要不要先跟我們介紹一下你自己？",
           "chunkId": "start_by_telling_about_yourself"
         },
         {
@@ -1524,7 +1524,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "We'd like to offer you the assistant position.",
-          "zh": "我們想錄取您擔任助理這個職位。",
+          "zh": "我們想錄取你擔任助理這個職位。",
           "chunkId": "offer_you_assistant_position"
         },
         {

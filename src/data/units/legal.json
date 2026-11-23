@@ -510,8 +510,8 @@
           "id": "t1_5",
           "role": "client",
           "speaker": "npc",
-          "en": "Yes, specifically in all twelve, starting July first.",
-          "zh": "對，具體來說是十二家全部，七月一日開始。"
+          "en": "Yes. Specifically, all twelve stores, starting July first.",
+          "zh": "對。具體來說是十二家全部，七月一日開始。"
         },
         {
           "id": "t1_6",
@@ -637,8 +637,8 @@
           "id": "t2_8",
           "role": "manager",
           "speaker": "npc",
-          "en": "The price stays the same for the first year, but excludes shipping.",
-          "zh": "第一年價格不變，但不含運費。"
+          "en": "The price stays the same for year one. It excludes shipping.",
+          "zh": "第一年價格不變，不含運費。"
         },
         {
           "id": "t2_9",
@@ -651,8 +651,8 @@
           "id": "t2_10",
           "role": "manager",
           "speaker": "npc",
-          "en": "Mr. Shaw can specify the details. Let's not impose too many rules.",
-          "zh": "細節讓 Shaw 先生寫清楚。我們不要加太多規定。"
+          "en": "Mr. Shaw can specify the details. We don't want to impose too much.",
+          "zh": "細節讓 Shaw 先生寫清楚。我們不想加太多限制。"
         }
       ]
     },
@@ -715,8 +715,8 @@
           "id": "t3_6",
           "role": "lawyer",
           "speaker": "npc",
-          "en": "Under their safety act, testing is mandatory.",
-          "zh": "照他們的安全法，測試是強制的。"
+          "en": "Under their Product Safety Act, testing is mandatory.",
+          "zh": "依照他們的產品安全法，測試是強制的。"
         },
         {
           "id": "t3_7",
@@ -1051,8 +1051,8 @@
           "id": "t5_7",
           "role": "lawyer",
           "speaker": "npc",
-          "en": "But then we'd argue about which ones. That's how disputes arise.",
-          "zh": "可是那樣大家會為了哪些算數吵起來，爭議就是這樣來的。"
+          "en": "But we'd have to agree on which ones count, or disputes will arise.",
+          "zh": "可是我們得先講好哪些算，不然就會起爭議。"
         },
         {
           "id": "t5_8",
@@ -1266,8 +1266,8 @@
           "id": "t6_5",
           "role": "manager",
           "speaker": "npc",
-          "en": "Five percent lower, if you commit to three thousand a year.",
-          "zh": "降百分之五，條件是您保證每年訂三千盞。"
+          "en": "Five percent lower, if you commit to three thousand a year for three years.",
+          "zh": "降百分之五，條件是您保證三年內每年訂三千盞。"
         },
         {
           "id": "t6_6",
@@ -1317,7 +1317,7 @@
             {
               "id": "t7_talk_1",
               "role": "lawyer",
-              "en": "Hi, it's Shaw, calling about the Hughes contract.",
+              "en": "Hello, this is Mr. Shaw, calling about the Hughes contract.",
               "zh": "你好，我是 Shaw，打來談 Hughes 的合約。"
             },
             {
@@ -1497,8 +1497,8 @@
           "id": "t8_1",
           "role": "client",
           "speaker": "npc",
-          "en": "So these are your premises! I like it.",
-          "zh": "原來這就是你們公司！我喜歡。"
+          "en": "So these are your premises. Very nice!",
+          "zh": "原來這就是你們公司。真不錯！"
         },
         {
           "id": "t8_2",
@@ -1526,8 +1526,8 @@
           "id": "t8_5",
           "role": "client",
           "speaker": "npc",
-          "en": "Now we can proceed with the first order.",
-          "zh": "好了。現在可以開始處理第一筆訂單了。"
+          "en": "Then we can proceed with the first order.",
+          "zh": "簽完就可以開始處理第一筆訂單了。"
         },
         {
           "id": "t8_6",

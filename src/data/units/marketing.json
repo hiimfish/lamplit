@@ -462,8 +462,8 @@
           "id": "t1_4",
           "role": "agency",
           "speaker": "npc",
-          "en": "That's really innovative. I can already hear a good pitch.",
-          "zh": "真的很有創意。我已經想得到一個好的推銷說法了。"
+          "en": "That's really innovative. I can already see a great pitch in it.",
+          "zh": "真的很有創意。我已經想得到很棒的推銷說法了。"
         },
         {
           "id": "t1_5",
@@ -574,8 +574,8 @@
           "id": "t2_6",
           "role": "agency",
           "speaker": "npc",
-          "en": "Agreed. It's compact, so it fits in any household.",
-          "zh": "同意。它很小巧，什麼樣的家都放得下。"
+          "en": "Agreed. It's compact, so it fits on any desk.",
+          "zh": "同意。它很小巧，什麼桌子都放得下。"
         },
         {
           "id": "t2_7",
@@ -659,8 +659,8 @@
           "id": "t3_7",
           "role": "agency",
           "speaker": "npc",
-          "en": "I know. You can learn a lot from a real reaction.",
-          "zh": "我懂。從一個人當下的反應可以看出很多事。"
+          "en": "I know. You learn a lot from seeing someone's reaction.",
+          "zh": "我懂。看到一個人當下的反應，可以學到很多。"
         },
         {
           "id": "t3_8",
@@ -908,8 +908,8 @@
           "id": "t5_3",
           "role": "manager",
           "speaker": "npc",
-          "en": "There, a lantern is a symbol of family coming together.",
-          "zh": "在那裡，燈籠象徵一家人團圓。"
+          "en": "At the festival, a lantern is a symbol of family.",
+          "zh": "在燈會上，燈籠象徵家人團圓。"
         },
         {
           "id": "t5_4",
@@ -1265,8 +1265,8 @@
           "id": "t7_1",
           "role": "agency",
           "speaker": "npc",
-          "en": "Thanks for calling back. Did you get my message?",
-          "zh": "謝謝你回電。你有聽到我的留言嗎？"
+          "en": "Thanks for coming over. So you got my message?",
+          "zh": "謝謝你跑一趟。你有聽到我的留言吧？"
         },
         {
           "id": "t7_2",
@@ -1391,8 +1391,8 @@
           "id": "t8_8",
           "role": "agency",
           "speaker": "npc",
-          "en": "We don't need one. Real home workers are better.",
-          "zh": "不需要。找真的在家工作的人反而更好。"
+          "en": "We don't need one. Real customers are better.",
+          "zh": "不需要。找真正的顧客來拍更好。"
         },
         {
           "id": "t8_9",
@@ -1510,8 +1510,8 @@
           "id": "t9_14",
           "role": "agency",
           "speaker": "npc",
-          "en": "Fair enough. How about \"Lantern. A warm light for every home.\"",
-          "zh": "也對。那「Lantern，給每個家一盞溫暖的燈」怎麼樣？"
+          "en": "Fair enough. How about \"A warm light for every home\"?",
+          "zh": "也對。那「給每個家一盞溫暖的燈」怎麼樣？"
         },
         {
           "id": "t9_15",
