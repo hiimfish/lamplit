@@ -1,0 +1,44 @@
+/*
+ * 排句子 typing (keyboard): the letters typed so far in a small boxed line under the answer,
+ * and the pool keys that still match them lamp-tinted. Nothing animates; a letter no block
+ * starts with only shows a quiet note.
+ */
+.mg-typed {
+  align-self: flex-start;
+  display: flex;
+  align-items: baseline;
+  gap: calc(4 * var(--px));
+  margin: 0;
+  padding: var(--px) calc(4 * var(--px));
+  font-size: calc(11 * var(--px));
+  background: var(--paper);
+  border: var(--px) solid var(--ink);
+}
+
+.mg-typed-text {
+  min-width: calc(6 * var(--px));
+  border-bottom: var(--px) solid var(--ink);
+}
+
+.mg-typed.miss {
+  border-style: dashed;
+}
+
+.mg-typed-note {
+  color: var(--bad);
+}
+
+.pixel-button.mg-block.typed {
+  background: var(--lamp-tint);
+}
+
+/* "也可以直接打字" only where there is likely a keyboard. */
+.mg-type-tip {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .mg-type-tip {
+    display: inline;
+  }
+}

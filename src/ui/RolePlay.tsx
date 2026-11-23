@@ -7,6 +7,7 @@ import { buildRolePlayTurns, makeRng, rolePlaySteps } from '../learning/question
 import type { AnswerResult } from '../learning/questions';
 import { ChatLines, ZhToggle } from './ChatLines';
 import './flow.css';
+import { useKeys } from './keys';
 import { QuestionRunner } from './TaskScreen';
 
 interface Props {
@@ -78,6 +79,17 @@ export function RolePlay({ unit, task, onShown, onFinish }: Props) {
       stopAudio();
     },
     [],
+  );
+
+  // Enter is 開始 on the brief and 看結果 at the end; during the turns the questions own the keys.
+  useKeys(
+    {
+      Enter: () => {
+        if (step === 'brief') setStep('turns');
+        else if (step === 'end') onFinish(results);
+      },
+    },
+    step !== 'turns',
   );
 
   if (step === 'brief') {

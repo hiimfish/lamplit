@@ -1,6 +1,9 @@
-import { useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
+import { stopAudio } from '../../audio/pronounce';
 import { settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
+import { useKeys } from '../keys';
+import { takeJustChecked } from './Arrange';
 import { isRecognitionSupported, RECOGNITION_NOTE } from '../../audio/recognize';
 import type { SpokenComparison } from '../../audio/recognize';
 import type { SpeakQuestion } from '../../learning/questions';
@@ -29,6 +32,35 @@ export function Speak({ question, onAnswered }: MinigameProps<SpeakQuestion>) {
     if (!skipped) play(question.audioId, question.en);
   };
 
+  const listening = recog.status === 'listening';
+  const replay = () => play(question.audioId, question.en);
+  const slow = () => {
+    clock.markHelp();
+    play(question.audioId, question.en, true);
+  };
+
+  // The model plays once as the sentence appears (normal speed, not help), unless the
+  // learner has just heard this very line on an arrange check (角色扮演's 跟我說 step).
+  useEffect(() => {
+    if (!takeJustChecked(question.audioId)) replay();
+  }, []);
+
+  // Space 播放示範, Shift+Space 慢速 (help), Enter 我說完了. The mic keys stay tap or Tab.
+  useKeys(
+    {
+      Space: () => {
+        if (!listening) replay();
+      },
+      'Shift+Space': () => {
+        if (!listening) slow();
+      },
+      Enter: () => {
+        if (!finished && !micBusy) finish(false);
+      },
+    },
+    !finished,
+  );
+
   return (
     <div class="mg">
       <p class="mg-prompt">大聲說說看</p>
@@ -39,11 +71,7 @@ export function Speak({ question, onAnswered }: MinigameProps<SpeakQuestion>) {
           </p>
           {showZh && <p class="mg-zh">{question.zh}</p>}
         </div>
-        <SpeakReplay
-          question={question}
-          onHelp={clock.markHelp}
-          disabled={recog.status === 'listening'}
-        />
+        <SpeakReplay onReplay={replay} onSlow={slow} disabled={listening} />
       </div>
       {!finished && (
         <>
@@ -85,6 +113,8 @@ function MicControls({
   const recordBlocked = rec.phase === 'starting' || recog.status !== 'idle';
   const record = () => {
     recog.clear();
+    // The model (autoplayed or replayed) must not end up in the recording.
+    stopAudio();
     rec.start();
   };
   const recognize = () => {
@@ -147,25 +177,12 @@ function Btn({ id, label, primary = false, disabled = false, onClick }: BtnProps
 }
 
 /** Same buttons as ReplayBar, but they can be disabled while the recognizer is listening. */
-function SpeakReplay(props: { question: SpeakQuestion; onHelp: () => void; disabled: boolean }) {
-  const { question, onHelp, disabled } = props;
+function SpeakReplay(props: { onReplay: () => void; onSlow: () => void; disabled: boolean }) {
+  const { onReplay, onSlow, disabled } = props;
   return (
     <div class="mg-row">
-      <Btn
-        id="replay"
-        label="♪ 播放示範"
-        disabled={disabled}
-        onClick={() => play(question.audioId, question.en)}
-      />
-      <Btn
-        id="slow"
-        label="慢速"
-        disabled={disabled}
-        onClick={() => {
-          onHelp();
-          play(question.audioId, question.en, true);
-        }}
-      />
+      <Btn id="replay" label="♪ 播放示範" disabled={disabled} onClick={onReplay} />
+      <Btn id="slow" label="慢速" disabled={disabled} onClick={onSlow} />
     </div>
   );
 }

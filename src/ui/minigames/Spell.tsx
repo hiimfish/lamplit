@@ -1,24 +1,19 @@
-import { useEffect, useState } from 'preact/hooks';
+import { useState } from 'preact/hooks';
 import { gradeAnswer, type GradeResult } from '../../learning/grading';
 import { spellMarks } from '../../learning/questionGen';
 import type { SpellQuestion } from '../../learning/questions';
 import { ItemIcon } from '../ItemIcon';
+import { useKeys } from '../keys';
+import type { KeyMap } from '../keys';
 import { Feedback, FeedbackSlot, ReplayBar, hintFor, play, useAnswerClock } from './shared';
 import type { MinigameProps } from './shared';
 
 /** On-screen letter keys: no system keyboard, so no autocorrect and no page resize. */
 const KEY_ROWS = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm'];
+const LETTERS = [...KEY_ROWS.join('')];
 
-/** A key press from a physical keyboard, or null when the game should ignore it. */
-function keyAction(e: KeyboardEvent): 'back' | 'check' | string | null {
-  if (e.ctrlKey || e.metaKey || e.altKey) return null;
-  // Typing in the settings dialog (or any field) is not an answer.
-  const target = e.target instanceof Element ? e.target : null;
-  if (target?.closest('[role="dialog"], input, textarea, select')) return null;
-  if (e.key === 'Backspace') return 'back';
-  if (e.key === 'Enter') return 'check';
-  return /^[a-z]$/i.test(e.key) ? e.key.toLowerCase() : null;
-}
+/** A mouse click leaves focus where it was, so a later Enter checks instead of re-pressing a letter. */
+const keepFocus = (e: MouseEvent) => e.preventDefault();
 
 /** One box per letter of the answer; after checking, each typed letter shows right or wrong. */
 function LetterSlots({
@@ -66,6 +61,7 @@ function LetterKeys({ full, empty, onLetter, onBack, onCheck }: KeyboardProps) {
               class="pixel-button mg-key"
               data-testid={`key-${letter}`}
               disabled={full}
+              onMouseDown={keepFocus}
               onClick={() => onLetter(letter)}
             >
               {letter}
@@ -78,6 +74,7 @@ function LetterKeys({ full, empty, onLetter, onBack, onCheck }: KeyboardProps) {
               data-testid="key-back"
               aria-label="刪掉一個字母"
               disabled={empty}
+              onMouseDown={keepFocus}
               onClick={onBack}
             >
               ⌫
@@ -129,21 +126,11 @@ function useSpell(question: SpellQuestion, onAnswered: MinigameProps<SpellQuesti
 export function Spell({ question, onAnswered }: MinigameProps<SpellQuestion>) {
   const { clock, typed, grade, locked, max, letter, back, check } = useSpell(question, onAnswered);
 
-  // A physical keyboard types too. Once answered, Enter is left to the focused 繼續.
-  useEffect(() => {
-    if (locked) return undefined;
-    const onKey = (e: KeyboardEvent) => {
-      const action = keyAction(e);
-      if (action === null) return;
-      // Enter on a focused letter key would also click it.
-      e.preventDefault();
-      if (action === 'back') back();
-      else if (action === 'check') check();
-      else letter(action);
-    };
-    document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
-  }, [locked, typed]);
+  // A physical keyboard types too: letters, Backspace and Enter (檢查). Space and Shift+Space
+  // are left to the ReplayBar. Once answered the keys are off and Enter goes to 繼續.
+  const keys: KeyMap = { Backspace: back, Enter: check };
+  for (const l of LETTERS) keys[l] = () => letter(l);
+  useKeys(keys, !locked);
 
   return (
     <div class="mg">
