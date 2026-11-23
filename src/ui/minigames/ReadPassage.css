@@ -343,17 +343,12 @@
 }
 
 /*
- * Landscape on a phone leaves the set's columns narrow: each tab reads "1 表格" on one
- * line (the word 文件 is dropped), and the answer keys go one per row so a phrase wraps
- * at its spaces instead of breaking at a comma.
+ * Landscape on a phone leaves the set's columns narrow: each tab reads "1 表格" (the word
+ * 文件 is dropped; the number may sit over the kind), and the answer keys go one per row
+ * so a phrase wraps at its spaces instead of breaking at a comma.
  */
 :root[data-orientation='landscape'] .rp-tab-word {
   display: none;
-}
-
-:root[data-orientation='landscape'] .rp-tabs > .pixel-button.rp-tab {
-  flex-wrap: nowrap;
-  white-space: nowrap;
 }
 
 :root[data-orientation='landscape'] .rp-ask .mg-options {
@@ -364,10 +359,14 @@
   overflow-wrap: break-word;
 }
 
+/* Cubic 11 stays at 11 so it is sharp; the number and the kind wrap as wholes, never mid-word. */
 :root[data-orientation='landscape'] .rp-tabs > .pixel-button.rp-tab {
-  font-size: calc(9 * var(--px));
   column-gap: calc(2 * var(--px));
-  padding: var(--px) calc(3 * var(--px));
+  padding: var(--px) calc(2 * var(--px));
+}
+
+:root[data-orientation='landscape'] .rp-tabs > .pixel-button.rp-tab > span {
+  white-space: nowrap;
 }
 
 /* Landscape: the text column is too narrow for two form columns; the label sits over its value. */
