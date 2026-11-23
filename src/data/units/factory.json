@@ -1,0 +1,1510 @@
+{
+  "id": "factory",
+  "title": "工廠參觀",
+  "titleEn": "Factory Visit",
+  "chunks": [
+    {
+      "id": "jacks_told_me_about_factory",
+      "en": "Ms. Varga, Jack's told me so much about this factory.",
+      "zh": "Varga 廠長，Jack 跟我說了好多這間工廠的事。",
+      "accept": ["Ms. Varga, Jack has told me so much about this factory."],
+      "note": "初次見面的客套話。Jack's told 是 Jack has told 的縮寫。",
+      "distractors": [
+        { "text": "Ms. Varga, Jack's told me so many about this factory.", "error": "other" },
+        { "text": "Ms. Varga, Jack's tell me so much about this factory.", "error": "other" },
+        { "text": "Ms. Varga, Jack's told me so much about this factroy.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "thanks_for_showing_us_around",
+      "en": "Thanks for taking the time to show us around today.",
+      "zh": "謝謝您今天特地撥空帶我們參觀。",
+      "accept": ["Thank you for taking the time to show us around today."],
+      "note": "謝謝對方帶你參觀。show someone around 是帶人到處看看。",
+      "distractors": [
+        { "text": "Thanks for take the time to show us around today.", "error": "other" },
+        { "text": "Thanks for taking a time to show us around today.", "error": "article" },
+        { "text": "Thanks for taking the time to show around us today.", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "keep_hard_hat_on",
+      "en": "Do I need to keep my hard hat on the whole time?",
+      "zh": "安全帽需要一直戴著嗎？",
+      "note": "問安全規定。keep ... on 是一直戴著、不拿下來。",
+      "distractors": [
+        { "text": "Do I need to keep my hard hat on whole time?", "error": "article" },
+        { "text": "Do I need keep my hard hat on the whole time?", "error": "missing-word" },
+        { "text": "Do I need to keep my hard hat on the hole time?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "anything_i_shouldnt_touch",
+      "en": "Is there anything I shouldn't touch on the factory floor?",
+      "zh": "廠房裡有什麼東西是我不該碰的嗎？",
+      "note": "進廠房前先問哪些東西不能碰。shouldn't 後面接原形動詞。",
+      "distractors": [
+        {
+          "text": "Is there anything I shouldn't to touch on the factory floor?",
+          "error": "extra-word"
+        },
+        {
+          "text": "Is there anything I shouldn't touching on the factory floor?",
+          "error": "other"
+        },
+        { "text": "Is there anything I shouldn't touch on the factory flour?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "lamps_being_assembled_today",
+      "en": "How many lamps are being assembled on this line today?",
+      "zh": "這條線今天在組裝的燈有幾盞？",
+      "note": "被動進行式：are being + 過去分詞，表示「正在被……」。",
+      "distractors": [
+        { "text": "How many lamps are being assemble on this line today?", "error": "other" },
+        { "text": "How many lamps being assembled on this line today?", "error": "missing-word" },
+        { "text": "How much lamps are being assembled on this line today?", "error": "other" }
+      ]
+    },
+    {
+      "id": "components_tested_for_safety",
+      "en": "Have all these components already been tested for safety?",
+      "zh": "這些零件都已經做過安全測試了嗎？",
+      "note": "被動完成式：have been + 過去分詞，表示「已經被……過」。",
+      "distractors": [
+        { "text": "Have all these component already been tested for safety?", "error": "plural" },
+        { "text": "Have all these components already been test for safety?", "error": "other" },
+        { "text": "Have all these components already being tested for safety?", "error": "other" }
+      ]
+    },
+    {
+      "id": "didnt_realize_testing_lab",
+      "en": "I didn't realize you had your own testing lab here.",
+      "zh": "我都不知道你們這裡有自己的測試實驗室。",
+      "note": "發現意料之外的事時說。didn't 後面用原形 realize。",
+      "distractors": [
+        { "text": "I didn't realized you had your own testing lab here.", "error": "other" },
+        { "text": "I didn't realize you had own testing lab here.", "error": "missing-word" },
+        { "text": "I didn't realize you had your own testing lab hear.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "what_happens_if_lamp_fails",
+      "en": "What happens to a lamp if it fails the test?",
+      "zh": "如果一盞燈沒通過測試，會怎麼處理？",
+      "note": "問不合格的產品怎麼處理。if 後面用現在式 fails。",
+      "distractors": [
+        { "text": "What happens to a lamp if it fail the test?", "error": "other" },
+        { "text": "What happens to lamp if it fails the test?", "error": "article" },
+        { "text": "What happen to a lamp if it fails the test?", "error": "other" }
+      ]
+    },
+    {
+      "id": "how_often_pull_samples",
+      "en": "How often do you pull samples from the line for testing?",
+      "zh": "你們多久從產線抽一次樣品來測試？",
+      "note": "問抽樣的頻率。How often 問多久一次。",
+      "distractors": [
+        { "text": "How often do you pull sample from the line for testing?", "error": "plural" },
+        {
+          "text": "How often you pull samples from the line for testing?",
+          "error": "missing-word"
+        },
+        { "text": "How ofen do you pull samples from the line for testing?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "show_me_how_inspectors_found",
+      "en": "Can you show me how your inspectors found the problem?",
+      "zh": "可以讓我看看你們的檢驗員是怎麼發現問題的嗎？",
+      "note": "名詞子句：how 後面接「主詞＋動詞」，不用問句的順序。",
+      "distractors": [
+        {
+          "text": "Can you show me how did your inspectors find the problem?",
+          "error": "word-order"
+        },
+        { "text": "Can you show me how your inspectors founded the problem?", "error": "other" },
+        { "text": "Can you show me how your inspectors found problem?", "error": "article" }
+      ]
+    },
+    {
+      "id": "what_matters_most_none_reach",
+      "en": "What matters most is that none of these reach our customers.",
+      "zh": "最重要的是，這些一個都不能送到我們客戶手上。",
+      "note": "名詞子句：What matters most（最重要的事）整個當主詞。",
+      "distractors": [
+        { "text": "What matter most is that none of these reach our customers.", "error": "other" },
+        {
+          "text": "What matters most is that none of these reach to our customers.",
+          "error": "extra-word"
+        },
+        {
+          "text": "What matters most is that none of these reach our costumers.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "natural_wood_base_notice_first",
+      "en": "The natural wood base is what customers will notice first.",
+      "zh": "天然木頭燈座會是客人第一眼注意到的地方。",
+      "note": "說產品的賣點。what customers will notice 是「客人會注意到的東西」。",
+      "distractors": [
+        {
+          "text": "The natural wood base is what customers will notice it first.",
+          "error": "extra-word"
+        },
+        {
+          "text": "The natural wood base is what will customers notice first.",
+          "error": "word-order"
+        },
+        { "text": "Natural wood base is what customers will notice first.", "error": "article" }
+      ]
+    },
+    {
+      "id": "daily_output_fully_running",
+      "en": "What's your daily output once the line is fully running?",
+      "zh": "產線全面開工之後，你們每天的產量是多少？",
+      "note": "問工廠產能。once 是「一旦……之後」。",
+      "distractors": [
+        { "text": "What's your daily output once the line is fully run?", "error": "other" },
+        { "text": "What's your daily output once line is fully running?", "error": "article" },
+        { "text": "What's your dayly output once the line is fully running?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "depends_how_soon_hughes_needs",
+      "en": "It depends on how soon Mr. Hughes needs them in his stores.",
+      "zh": "要看 Hughes 先生多快需要把燈放進他的店裡。",
+      "note": "回答「要看情況」。It depends on 後面可以接 how soon 子句。",
+      "distractors": [
+        { "text": "It depends of how soon Mr. Hughes needs them in his stores.", "error": "other" },
+        {
+          "text": "It depends on how soon does Mr. Hughes need them in his stores.",
+          "error": "word-order"
+        },
+        { "text": "It depends on how soon Mr. Hughes need them in his stores.", "error": "other" }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "id": "manufacture",
+      "en": "manufacture",
+      "zh": "製造；生產",
+      "emoji": "🏭",
+      "abstract": true
+    },
+    { "id": "industrial", "en": "industrial", "zh": "工業的", "emoji": "🏗️", "abstract": true },
+    { "id": "device", "en": "device", "zh": "裝置；設備", "emoji": "📟", "abstract": true },
+    { "id": "electronic", "en": "electronic", "zh": "電子的", "emoji": "🔌", "abstract": true },
+    {
+      "id": "installation",
+      "en": "installation",
+      "zh": "安裝；裝設",
+      "emoji": "🔧",
+      "abstract": true
+    },
+    {
+      "id": "extensive",
+      "en": "extensive",
+      "zh": "豐富的；廣泛的",
+      "emoji": "📚",
+      "abstract": true
+    },
+    {
+      "id": "conventional",
+      "en": "conventional",
+      "zh": "傳統的；一般的",
+      "emoji": "📼",
+      "abstract": true
+    },
+    {
+      "id": "capability",
+      "en": "capability",
+      "zh": "（生產）能力",
+      "emoji": "💪",
+      "abstract": true
+    },
+    { "id": "maker", "en": "maker", "zh": "製造商；廠商", "emoji": "🧑‍🏭", "abstract": true },
+    { "id": "foreman", "en": "foreman", "zh": "領班", "emoji": "🧑‍💼", "abstract": true },
+    { "id": "remove", "en": "remove", "zh": "拿下；取下", "emoji": "➖", "abstract": true },
+    { "id": "danger", "en": "danger", "zh": "危險", "emoji": "⚠️", "abstract": true },
+    { "id": "narrow", "en": "narrow", "zh": "窄的", "emoji": "↔️", "abstract": true },
+    { "id": "sharp", "en": "sharp", "zh": "尖的；鋒利的", "emoji": "🔪", "abstract": true },
+    { "id": "uniform", "en": "uniform", "zh": "制服", "emoji": "🦺" },
+    { "id": "protective", "en": "protective", "zh": "防護的", "emoji": "🛡️", "abstract": true },
+    { "id": "gear", "en": "gear", "zh": "裝備；用具", "emoji": "🧰", "abstract": true },
+    { "id": "equip", "en": "equip", "zh": "配備；裝設", "emoji": "🧰", "abstract": true },
+    { "id": "extinguisher", "en": "extinguisher", "zh": "滅火器", "emoji": "🧯" },
+    { "id": "footwear", "en": "footwear", "zh": "鞋子；鞋類", "emoji": "🥾" },
+    { "id": "hard_hat", "en": "hard hat", "zh": "（工地、工廠的）安全帽", "emoji": "👷" },
+    { "id": "flow", "en": "flow", "zh": "流動；流程", "emoji": "🌊", "abstract": true },
+    { "id": "roll", "en": "roll", "zh": "滾動；（從產線）出來", "emoji": "🛞", "abstract": true },
+    { "id": "cycle", "en": "cycle", "zh": "（一輪）週期", "emoji": "🔄", "abstract": true },
+    { "id": "component", "en": "component", "zh": "零件；組件", "emoji": "🧩", "abstract": true },
+    { "id": "wire", "en": "wire", "zh": "電線", "emoji": "〰️", "abstract": true },
+    {
+      "id": "continuous",
+      "en": "continuous",
+      "zh": "不間斷的；連續的",
+      "emoji": "♾️",
+      "abstract": true
+    },
+    { "id": "assemble", "en": "assemble", "zh": "組裝", "emoji": "🔧", "abstract": true },
+    { "id": "shade", "en": "shade", "zh": "燈罩", "emoji": "💡", "abstract": true },
+    { "id": "assembly", "en": "assembly", "zh": "組裝", "emoji": "🔧", "abstract": true },
+    { "id": "plug", "en": "plug", "zh": "插頭", "emoji": "🔌", "abstract": true },
+    { "id": "circuit", "en": "circuit", "zh": "電路", "emoji": "🔲", "abstract": true },
+    { "id": "environment", "en": "environment", "zh": "環境", "emoji": "🌳", "abstract": true },
+    {
+      "id": "consistent",
+      "en": "consistent",
+      "zh": "一致的；穩定的",
+      "emoji": "📏",
+      "abstract": true
+    },
+    { "id": "lab", "en": "lab", "zh": "實驗室", "emoji": "🧪" },
+    { "id": "inspector", "en": "inspector", "zh": "檢驗員", "emoji": "🕵️", "abstract": true },
+    { "id": "disposal", "en": "disposal", "zh": "處理；丟棄", "emoji": "🗑️", "abstract": true },
+    { "id": "specification", "en": "specification", "zh": "規格", "emoji": "📋", "abstract": true },
+    {
+      "id": "measurement",
+      "en": "measurement",
+      "zh": "測量；尺寸",
+      "emoji": "📏",
+      "abstract": true
+    },
+    { "id": "maintenance", "en": "maintenance", "zh": "維修保養", "emoji": "🛠️", "abstract": true },
+    { "id": "strict", "en": "strict", "zh": "嚴格的", "emoji": "☝️", "abstract": true },
+    { "id": "precise", "en": "precise", "zh": "精確的", "emoji": "🎯", "abstract": true },
+    { "id": "gram", "en": "gram", "zh": "公克", "emoji": "⚖️", "abstract": true },
+    { "id": "examine", "en": "examine", "zh": "仔細檢查", "emoji": "🔍", "abstract": true },
+    { "id": "surface", "en": "surface", "zh": "表面", "emoji": "⬜", "abstract": true },
+    { "id": "failure", "en": "failure", "zh": "故障；不合格", "emoji": "❌", "abstract": true },
+    { "id": "constant", "en": "constant", "zh": "固定的；不變的", "emoji": "➡️", "abstract": true },
+    { "id": "thin", "en": "thin", "zh": "薄的", "emoji": "📄", "abstract": true },
+    { "id": "extreme", "en": "extreme", "zh": "極端的", "emoji": "🌡️", "abstract": true },
+    { "id": "mechanism", "en": "mechanism", "zh": "機構；裝置", "emoji": "⚙️", "abstract": true },
+    { "id": "unusual", "en": "unusual", "zh": "不尋常的", "emoji": "❓", "abstract": true },
+    { "id": "detect", "en": "detect", "zh": "偵測；發現", "emoji": "📡", "abstract": true },
+    { "id": "durable", "en": "durable", "zh": "耐用的", "emoji": "💪", "abstract": true },
+    { "id": "heater", "en": "heater", "zh": "加熱器；暖氣機", "emoji": "♨️", "abstract": true },
+    { "id": "mix", "en": "mix", "zh": "混；混雜", "emoji": "🔀", "abstract": true },
+    { "id": "recall", "en": "recall", "zh": "召回（產品）", "emoji": "↩️", "abstract": true },
+    { "id": "crack", "en": "crack", "zh": "裂痕", "emoji": "💔", "abstract": true },
+    { "id": "restore", "en": "restore", "zh": "恢復", "emoji": "🔁", "abstract": true },
+    { "id": "defect", "en": "defect", "zh": "瑕疵；缺陷", "emoji": "❗", "abstract": true },
+    {
+      "id": "potentially",
+      "en": "potentially",
+      "zh": "可能；有可能",
+      "emoji": "🤔",
+      "abstract": true
+    },
+    { "id": "substitute", "en": "substitute", "zh": "替代品", "emoji": "🔄", "abstract": true },
+    { "id": "suspend", "en": "suspend", "zh": "暫停", "emoji": "⏸️", "abstract": true },
+    { "id": "disruption", "en": "disruption", "zh": "中斷；打亂", "emoji": "🚧", "abstract": true },
+    {
+      "id": "irregular",
+      "en": "irregular",
+      "zh": "不平整的；不規則的",
+      "emoji": "〽️",
+      "abstract": true
+    },
+    { "id": "batch", "en": "batch", "zh": "（一）批", "emoji": "🗂️", "abstract": true },
+    { "id": "cloth", "en": "cloth", "zh": "布", "emoji": "🧵" },
+    { "id": "natural", "en": "natural", "zh": "天然的", "emoji": "🌿", "abstract": true },
+    { "id": "energy", "en": "energy", "zh": "能源", "emoji": "⚡", "abstract": true },
+    { "id": "wood", "en": "wood", "zh": "木頭", "emoji": "🪵" },
+    { "id": "metal", "en": "metal", "zh": "金屬", "emoji": "🔩" },
+    {
+      "id": "efficient",
+      "en": "efficient",
+      "zh": "有效率的；節能的",
+      "emoji": "📈",
+      "abstract": true
+    },
+    { "id": "origin", "en": "origin", "zh": "產地；來源", "emoji": "🌏", "abstract": true },
+    { "id": "electricity", "en": "electricity", "zh": "電；電力", "emoji": "⚡", "abstract": true },
+    { "id": "steel", "en": "steel", "zh": "鋼", "emoji": "🔩", "abstract": true },
+    { "id": "consume", "en": "consume", "zh": "消耗；用掉", "emoji": "🔋", "abstract": true },
+    { "id": "raw", "en": "raw", "zh": "未加工的；原料的", "emoji": "🪨", "abstract": true },
+    { "id": "storeroom", "en": "storeroom", "zh": "倉庫；儲藏室", "emoji": "🚪", "abstract": true },
+    { "id": "fuel", "en": "fuel", "zh": "燃料；油料", "emoji": "⛽", "abstract": true },
+    { "id": "yield", "en": "yield", "zh": "良率", "emoji": "💯", "abstract": true },
+    { "id": "output", "en": "output", "zh": "產量", "emoji": "📦", "abstract": true },
+    { "id": "productivity", "en": "productivity", "zh": "生產力", "emoji": "📈", "abstract": true },
+    { "id": "container", "en": "container", "zh": "貨櫃", "emoji": "📦", "abstract": true },
+    { "id": "completion", "en": "completion", "zh": "完成", "emoji": "✅", "abstract": true },
+    { "id": "efficiency", "en": "efficiency", "zh": "效率", "emoji": "⏱️", "abstract": true },
+    { "id": "excess", "en": "excess", "zh": "多出來的量；過剩", "emoji": "➕", "abstract": true },
+    { "id": "cargo", "en": "cargo", "zh": "貨物（船運）", "emoji": "🚢" },
+    { "id": "automate", "en": "automate", "zh": "自動化", "emoji": "🤖", "abstract": true },
+    { "id": "bulk", "en": "bulk", "zh": "大量", "emoji": "📦", "abstract": true }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "抵達工廠，認識廠長",
+      "newChunkIds": ["jacks_told_me_about_factory", "thanks_for_showing_us_around"],
+      "newWordIds": [
+        "manufacture",
+        "industrial",
+        "device",
+        "electronic",
+        "installation",
+        "extensive",
+        "conventional",
+        "capability",
+        "maker",
+        "foreman"
+      ],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Ms. Varga, meet my friend from Harbor Trading. We flew in yesterday.",
+          "zh": "Varga 廠長，來認識一下 Harbor Trading 的朋友。我們昨天飛過來的。"
+        },
+        {
+          "id": "t1_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Ms. Varga, Jack's told me so much about this factory.",
+          "zh": "Varga 廠長，Jack 跟我說了好多這間工廠的事。",
+          "chunkId": "jacks_told_me_about_factory"
+        },
+        {
+          "id": "t1_3",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "Only good things, I hope! Welcome to Brightway.",
+          "zh": "希望都是好話！歡迎來到 Brightway。"
+        },
+        {
+          "id": "t1_4",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "We started as a maker of electronic devices for industrial customers.",
+          "zh": "我們一開始是幫工業客戶做電子裝置的廠商。"
+        },
+        {
+          "id": "t1_5",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Now we manufacture all our lamps here, Lantern included.",
+          "zh": "現在我們所有的燈都在這裡製造，Lantern 也是。"
+        },
+        {
+          "id": "t1_6",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "And since the installation of three new lines, our capability has doubled.",
+          "zh": "而且自從裝了三條新產線，我們的產能翻了一倍。"
+        },
+        {
+          "id": "t1_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thanks for taking the time to show us around today.",
+          "zh": "謝謝您今天特地撥空帶我們參觀。",
+          "chunkId": "thanks_for_showing_us_around"
+        },
+        {
+          "id": "t1_8",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "My pleasure. Our foreman has extensive experience. He'll meet us inside.",
+          "zh": "不客氣。我們的領班經驗很豐富，他會在裡面跟我們會合。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "穿上安全裝備",
+      "newChunkIds": ["keep_hard_hat_on", "anything_i_shouldnt_touch"],
+      "newWordIds": [
+        "remove",
+        "danger",
+        "narrow",
+        "sharp",
+        "uniform",
+        "protective",
+        "gear",
+        "equip",
+        "extinguisher",
+        "footwear",
+        "hard_hat"
+      ],
+      "fills": [
+        {
+          "id": "extinguisher_fill",
+          "en": "There's a fire ___ next to every door.",
+          "zh": "每扇門旁邊都有一支滅火器。",
+          "options": ["extinguisher", "footwear", "uniform", "gear"],
+          "answer": 0,
+          "note": "失火時用的是滅火器：extinguisher。"
+        },
+        {
+          "id": "hard_hat_worn_fill",
+          "en": "Hard hats must ___ on the factory floor.",
+          "zh": "在廠房裡一定要戴安全帽。",
+          "options": ["be worn", "wear", "wearing", "been worn"],
+          "answer": 0,
+          "note": "帽子是「被戴」：must 後面接 be + 過去分詞。",
+          "grammar": true
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Before we go in, we all need protective gear.",
+          "zh": "進去之前，我們都要穿戴防護裝備。"
+        },
+        {
+          "id": "t2_2",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Here's your hard hat. And this uniform goes over your shirt.",
+          "zh": "這是你的安全帽。這件制服套在襯衫外面。",
+          "stage": { "act": "give", "item": "hard_hat" }
+        },
+        {
+          "id": "t2_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do I need to keep my hard hat on the whole time?",
+          "zh": "安全帽需要一直戴著嗎？",
+          "chunkId": "keep_hard_hat_on"
+        },
+        {
+          "id": "t2_4",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Yes. Never remove it on the floor.",
+          "zh": "對。在廠房裡絕對不要拿下來。"
+        },
+        {
+          "id": "t2_5",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "They'll check your footwear, too. Yours is fine.",
+          "zh": "他們也會檢查鞋子。你的鞋可以。",
+          "stage": { "act": "want", "item": "footwear" }
+        },
+        {
+          "id": "t2_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is there anything I shouldn't touch on the factory floor?",
+          "zh": "廠房裡有什麼東西是我不該碰的嗎？",
+          "chunkId": "anything_i_shouldnt_touch"
+        },
+        {
+          "id": "t2_7",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Stay away from the machines. Some parts are sharp.",
+          "zh": "離機器遠一點。有些零件很鋒利。"
+        },
+        {
+          "id": "t2_8",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "And some areas are narrow, so watch your step.",
+          "zh": "還有些地方很窄，走路要小心。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "組裝線",
+      "backdrop": "main",
+      "newChunkIds": ["lamps_being_assembled_today", "components_tested_for_safety"],
+      "newWordIds": [
+        "flow",
+        "roll",
+        "cycle",
+        "component",
+        "wire",
+        "continuous",
+        "assemble",
+        "shade",
+        "assembly",
+        "plug",
+        "circuit"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "Here's the Lantern assembly line. The work flows from left to right.",
+          "zh": "這是 Lantern 的組裝線。工作從左邊往右邊走。"
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How many lamps are being assembled on this line today?",
+          "zh": "這條線今天在組裝的燈有幾盞？",
+          "chunkId": "lamps_being_assembled_today"
+        },
+        {
+          "id": "t3_3",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "About six hundred. A new lamp rolls off the line every minute.",
+          "zh": "大約六百盞。每分鐘就有一盞新燈從線上出來。"
+        },
+        {
+          "id": "t3_4",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "They assemble the base and the arm first. Then the shade goes on.",
+          "zh": "他們先組裝燈座和燈臂，最後再裝燈罩。"
+        },
+        {
+          "id": "t3_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Have all these components already been tested for safety?",
+          "zh": "這些零件都已經做過安全測試了嗎？",
+          "chunkId": "components_tested_for_safety"
+        },
+        {
+          "id": "t3_6",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "Yes, every wire and plug has been checked. The circuits are being tested now.",
+          "zh": "有，每條電線和插頭都檢查過了。電路現在正在測試。"
+        },
+        {
+          "id": "t3_7",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Each test cycle takes about ten minutes.",
+          "zh": "每一輪測試大約十分鐘。"
+        },
+        {
+          "id": "t3_8",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "And every component is checked again before it's packed.",
+          "zh": "而且每個零件在包裝前都會再檢查一次。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀工廠參觀手冊",
+      "newChunkIds": ["didnt_realize_testing_lab"],
+      "newWordIds": [
+        "environment",
+        "consistent",
+        "lab",
+        "inspector",
+        "disposal",
+        "specification",
+        "measurement",
+        "maintenance",
+        "strict",
+        "precise",
+        "gram"
+      ],
+      "passages": [
+        {
+          "id": "visitor_guide",
+          "kind": "flyer",
+          "title": "Visitor Guide: Brightway Taoyuan Plant",
+          "lines": [
+            "Welcome to our plant! Please read this guide before your visit.",
+            "About the plant",
+            "The Brightway plant in Taoyuan opened in 2009. We started as a maker of electronic devices, and today we manufacture desk lamps for clients around the world. The installation of three new assembly lines last year doubled our capability. Today, about 300 people work here.",
+            "Quality",
+            "Every lamp is made to the client's specification. Our inspectors take samples from each line every two hours and test them in our own lab. Each measurement must be precise, and each lamp's weight must be right to within 5 grams. These strict tests keep our quality consistent.",
+            "Safety rules for visitors",
+            "Wear the protective gear and hard hat you are given. Stay inside the yellow lines, and do not touch any machine. Some machine parts are sharp, and some areas are narrow, so walk slowly. Stay away from areas with a danger sign or areas closed for maintenance. Every area is equipped with a fire extinguisher.",
+            "Our environment",
+            "We recycle over 90% of our waste. The rest goes to a licensed company for disposal.",
+            "If you have any questions, ask the foreman or your guide. Thank you for visiting, and enjoy your tour!"
+          ],
+          "questions": [
+            {
+              "en": "What did the plant add last year?",
+              "zh": "工廠去年多了什麼？",
+              "options": ["Three new assembly lines", "A new testing lab", "A second building"],
+              "answer": 0
+            },
+            {
+              "en": "How often do inspectors take samples?",
+              "zh": "檢驗員多久抽一次樣品？",
+              "options": ["Every hour", "Every two hours", "Once a day"],
+              "answer": 1
+            },
+            {
+              "en": "What are visitors asked not to do?",
+              "zh": "參觀者被要求不能做什麼？",
+              "options": [
+                "Wear protective gear",
+                "Go into areas being repaired",
+                "Stay inside the yellow lines"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Did you get a chance to read the visitor guide I gave you?",
+          "zh": "我給你的參觀手冊，你有空看了嗎？"
+        },
+        {
+          "id": "t4_2",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Check out the quality part. Our inspectors are really strict.",
+          "zh": "看一下品質那一段。我們的檢驗員真的很嚴格。"
+        },
+        {
+          "id": "t4_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I didn't realize you had your own testing lab here.",
+          "zh": "我都不知道你們這裡有自己的測試實驗室。",
+          "chunkId": "didnt_realize_testing_lab"
+        },
+        {
+          "id": "t4_4",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Sure, right behind that glass. They measure everything, down to the gram.",
+          "zh": "對啊，就在那片玻璃後面。他們什麼都量，精確到一公克。"
+        },
+        {
+          "id": "t4_5",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Every lamp has to match the client's specifications exactly.",
+          "zh": "每盞燈都必須完全符合客戶的規格。"
+        },
+        {
+          "id": "t4_6",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "That keeps the quality consistent.",
+          "zh": "這樣品質才會一直很穩定。"
+        },
+        {
+          "id": "t4_7",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Ms. Varga will take us there after lunch.",
+          "zh": "午餐後 Varga 廠長會帶我們過去。"
+        },
+        {
+          "id": "t4_8",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "And that area is closed for maintenance, so don't go in.",
+          "zh": "還有那一區在維修保養，不要進去。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "品管實驗室",
+      "backdrop": "main",
+      "newChunkIds": ["what_happens_if_lamp_fails", "how_often_pull_samples"],
+      "newWordIds": [
+        "examine",
+        "surface",
+        "failure",
+        "constant",
+        "thin",
+        "extreme",
+        "mechanism",
+        "unusual",
+        "detect",
+        "durable",
+        "heater"
+      ],
+      "talks": [
+        {
+          "id": "lab_test_talk",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "plant_manager",
+              "en": "First, we test the arm. The mechanism has to open and close twenty thousand times.",
+              "zh": "我們先測燈臂。這個機構要開關兩萬次。"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "guide",
+              "en": "Twenty thousand? That must take a while.",
+              "zh": "兩萬次？那一定要花不少時間。"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "plant_manager",
+              "en": "About two days. Over here, the lamps sit next to a heater for 48 continuous hours.",
+              "zh": "大約兩天。這邊的燈要放在加熱器旁邊四十八小時。"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "supplier",
+              "en": "At a constant forty degrees, right?",
+              "zh": "一直維持在四十度，對吧？"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "plant_manager",
+              "en": "That's right. We want to see if anything fails in extreme heat.",
+              "zh": "沒錯。我們要看看在極端的高溫下會不會有東西故障。"
+            },
+            {
+              "id": "t5_talk_6",
+              "role": "guide",
+              "en": "And what about the shade? It looks very thin.",
+              "zh": "那燈罩呢？看起來很薄。"
+            },
+            {
+              "id": "t5_talk_7",
+              "role": "plant_manager",
+              "en": "It is, so a worker examines every shade by hand.",
+              "zh": "是很薄，所以每個燈罩都由工人親手仔細檢查。"
+            },
+            {
+              "id": "t5_talk_8",
+              "role": "plant_manager",
+              "en": "A machine also detects small marks on the surface.",
+              "zh": "另外還有機器會偵測表面上的小刮痕。"
+            },
+            {
+              "id": "t5_talk_9",
+              "role": "supplier",
+              "en": "Honestly, these lamps are durable. My old glass lamp at home is ten years old!",
+              "zh": "說真的，這些燈很耐用。我家那盞舊的玻璃檯燈已經用十年了！"
+            },
+            {
+              "id": "t5_talk_10",
+              "role": "guide",
+              "en": "Good to hear. So no problems so far?",
+              "zh": "那就好。所以到目前為止都沒問題？"
+            },
+            {
+              "id": "t5_talk_11",
+              "role": "plant_manager",
+              "en": "None. We haven't seen anything unusual today.",
+              "zh": "沒有。今天沒看到什麼不尋常的地方。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "How many times is the arm tested?",
+              "zh": "燈臂要測試幾次？",
+              "options": ["2,000 times", "20,000 times", "40,000 times"],
+              "answer": 1
+            },
+            {
+              "en": "How long does the heat test run?",
+              "zh": "高溫測試要跑多久？",
+              "options": ["2 hours", "40 hours", "48 hours"],
+              "answer": 2
+            },
+            {
+              "en": "What does Jack say about his lamp at home?",
+              "zh": "Jack 說他家裡的燈怎麼樣？",
+              "options": ["It's ten years old.", "It broke last year.", "It needs a new shade."],
+              "answer": 0
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "This is our test lab. Every sample ends up here.",
+          "zh": "這就是我們的測試實驗室。產線上抽出來的樣品最後都會送到這裡。"
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How often do you pull samples from the line for testing?",
+          "zh": "你們多久從產線抽一次樣品來測試？",
+          "chunkId": "how_often_pull_samples"
+        },
+        {
+          "id": "t5_3",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "Every two hours. Then we examine each one.",
+          "zh": "每兩個小時一次。然後我們會仔細檢查每一個。"
+        },
+        {
+          "id": "t5_4",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "This machine can detect even a small mark on the surface.",
+          "zh": "這台機器連表面上一個小刮痕都偵測得到。"
+        },
+        {
+          "id": "t5_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What happens to a lamp if it fails the test?",
+          "zh": "如果一盞燈沒通過測試，會怎麼處理？",
+          "chunkId": "what_happens_if_lamp_fails"
+        },
+        {
+          "id": "t5_6",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "We study the failure, and that lamp never leaves the plant.",
+          "zh": "我們會研究故障的原因，而那盞燈絕對不會出廠。"
+        },
+        {
+          "id": "t5_7",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Don't worry. These lamps are really durable.",
+          "zh": "別擔心，這些燈真的很耐用。"
+        },
+        {
+          "id": "t5_8",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "So far, we haven't found anything unusual.",
+          "zh": "到目前為止，我們還沒發現什麼不尋常的地方。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "發現瑕疵品",
+      "backdrop": "main",
+      "newChunkIds": ["show_me_how_inspectors_found", "what_matters_most_none_reach"],
+      "newWordIds": [
+        "mix",
+        "recall",
+        "crack",
+        "restore",
+        "defect",
+        "potentially",
+        "substitute",
+        "suspend",
+        "disruption",
+        "irregular",
+        "batch"
+      ],
+      "cloze": [
+        { "lineId": "t6_3", "word": "irregular", "distractors": ["precise", "durable"] },
+        { "lineId": "t6_4", "word": "mixed", "distractors": ["examined", "detected"] },
+        { "lineId": "t6_6", "word": "suspending", "distractors": ["assembling", "detecting"] }
+      ],
+      "textFills": [
+        {
+          "id": "cracked_bases_email",
+          "kind": "email",
+          "title": "Lantern bases: an update",
+          "lines": [
+            "Hi everyone,",
+            "Our inspectors found a defect in one batch of lamp bases. This is ___ they found it: a machine detected small cracks on the surface.",
+            "We have suspended that part of the line. To avoid any more ___, we will use our old supplier's material as a substitute.",
+            "Normal work should be restored by next week. ___ This could potentially delay the first UK order by a week.",
+            "Ms. Varga"
+          ],
+          "zh": [
+            "大家好：",
+            "我們的檢驗員在一批燈座裡發現瑕疵。他們是這樣發現的：機器偵測到表面上有細小的裂痕。",
+            "我們已經暫停那一段產線。為了避免再被打亂，我們會改用原本供應商的材料來替代。",
+            "下週應該就能恢復正常。這些燈一盞都沒有出廠，所以不需要召回。這可能會讓第一批英國訂單晚一週。",
+            "Varga"
+          ],
+          "blanks": [
+            {
+              "options": ["how", "what", "who", "which"],
+              "answer": 0,
+              "note": "說明「發現的方法」用 how。"
+            },
+            {
+              "options": ["disruption", "capability", "installation", "specification"],
+              "answer": 0,
+              "note": "避免工作再被打亂：disruption。"
+            },
+            {
+              "options": [
+                "None of these lamps left the plant, so there is no recall.",
+                "All of these lamps were sent to stores last week.",
+                "Please keep your hard hat on in the office.",
+                "The new material is better than the old one."
+              ],
+              "answer": 0,
+              "note": "前後都在說影響多大，答案說不用召回。"
+            }
+          ]
+        }
+      ],
+      "responds": [
+        {
+          "id": "t6_r1",
+          "prompt": {
+            "role": "plant_manager",
+            "en": "Which boxes came from the new supplier?",
+            "zh": "哪幾箱是新供應商送來的？"
+          },
+          "responses": [
+            {
+              "en": "Let me check with the foreman.",
+              "zh": "我去跟領班確認一下。"
+            },
+            {
+              "en": "Yes, the boxes are new.",
+              "zh": "對，箱子是新的。"
+            },
+            {
+              "en": "They came in last Monday.",
+              "zh": "上星期一送來的。"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "t6_r2",
+          "prompt": {
+            "role": "plant_manager",
+            "en": "When will this part of the line be running again?",
+            "zh": "這段產線什麼時候會再開工？"
+          },
+          "responses": [
+            {
+              "en": "At the end of the line.",
+              "zh": "在產線的最後面。"
+            },
+            {
+              "en": "It ran very well.",
+              "zh": "它跑得很順。"
+            },
+            {
+              "en": "Probably by next week.",
+              "zh": "大概下週吧。"
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "id": "t6_r3",
+          "prompt": {
+            "role": "supplier",
+            "en": "Should we tell Mr. Hughes about the delay today?",
+            "zh": "我們今天要跟 Hughes 先生說延誤的事嗎？"
+          },
+          "responses": [
+            {
+              "en": "It was a long delay.",
+              "zh": "那次延誤很久。"
+            },
+            {
+              "en": "Yes, I'll call him tonight.",
+              "zh": "要，我今晚打給他。"
+            },
+            {
+              "en": "He told me yesterday.",
+              "zh": "他昨天跟我說了。"
+            }
+          ],
+          "answer": 1
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "We have a problem. Our inspectors found cracks in some bases.",
+          "zh": "我們有個問題。檢驗員在一些燈座上發現了裂痕。"
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can you show me how your inspectors found the problem?",
+          "zh": "可以讓我看看你們的檢驗員是怎麼發現問題的嗎？",
+          "chunkId": "show_me_how_inspectors_found"
+        },
+        {
+          "id": "t6_3",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "See this? The surface is irregular, and there's a crack.",
+          "zh": "看到了嗎？表面不平整，而且有一條裂痕。"
+        },
+        {
+          "id": "t6_4",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "Material from a new supplier got mixed into this batch.",
+          "zh": "一家新供應商的材料混進了這一批。"
+        },
+        {
+          "id": "t6_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What matters most is that none of these reach our customers.",
+          "zh": "最重要的是，這些一個都不能送到我們客戶手上。",
+          "chunkId": "what_matters_most_none_reach"
+        },
+        {
+          "id": "t6_6",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "Agreed. I'm suspending this part of the line until next week.",
+          "zh": "同意。我會把這段產線暫停到下週。"
+        },
+        {
+          "id": "t6_7",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "Nothing has left the plant, so there's no need for a recall.",
+          "zh": "還沒有東西出廠，所以不需要召回。"
+        },
+        {
+          "id": "t6_8",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "But your first UK order will ship about a week late.",
+          "zh": "不過你們第一批英國訂單會晚大約一週出貨。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "原料倉庫導覽",
+      "newChunkIds": ["natural_wood_base_notice_first"],
+      "newWordIds": [
+        "cloth",
+        "natural",
+        "energy",
+        "wood",
+        "metal",
+        "efficient",
+        "origin",
+        "electricity",
+        "steel",
+        "consume",
+        "raw",
+        "storeroom"
+      ],
+      "talks": [
+        {
+          "id": "storeroom_tour",
+          "kind": "monologue",
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "plant_manager",
+              "en": "These are the raw materials for the Lantern series.",
+              "zh": "這些是 Lantern 系列的原料。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "plant_manager",
+              "en": "The bases are natural wood from Taiwan, the arms are steel, and the shades are cloth.",
+              "zh": "燈座是台灣的天然木頭，燈臂是鋼，燈罩是布。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "plant_manager",
+              "en": "Every box shows its country of origin, so we always know where our materials come from.",
+              "zh": "每個箱子上都標了產地，所以我們一直都知道材料是從哪裡來的。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "plant_manager",
+              "en": "The wood is checked here before it goes to the line.",
+              "zh": "木頭在送上產線之前，會先在這裡檢查。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "plant_manager",
+              "en": "Now, a plant like ours uses a lot of energy.",
+              "zh": "像我們這樣的工廠會用掉很多能源。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "plant_manager",
+              "en": "So on top of the building, we make some of our own electricity from the sun.",
+              "zh": "所以我們在大樓頂上用太陽能自己發一些電。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "plant_manager",
+              "en": "That gives us about a third of all the electricity we consume.",
+              "zh": "大約是我們用電量的三分之一。"
+            },
+            {
+              "id": "t7_talk_8",
+              "role": "plant_manager",
+              "en": "Our new machines are also more efficient. They use much less energy than conventional machines.",
+              "zh": "我們的新機器也比較節能，用的能源比一般機器少很多。"
+            },
+            {
+              "id": "t7_talk_9",
+              "role": "plant_manager",
+              "en": "That's good for the environment, and it saves us money, too.",
+              "zh": "這對環境好，也幫我們省錢。"
+            },
+            {
+              "id": "t7_talk_10",
+              "role": "plant_manager",
+              "en": "And metal parts that are left over are sent back to be used again.",
+              "zh": "剩下來的金屬零件會送回去重新利用。"
+            },
+            {
+              "id": "t7_talk_11",
+              "role": "plant_manager",
+              "en": "Okay, any questions before we go to my office?",
+              "zh": "好，去我辦公室之前，有什麼問題嗎？"
+            }
+          ],
+          "questions": [
+            {
+              "en": "What are the bases made of?",
+              "zh": "燈座是用什麼做的？",
+              "options": ["Steel", "Cloth", "Wood"],
+              "answer": 2
+            },
+            {
+              "en": "What is shown on every box?",
+              "zh": "每個箱子上標了什麼？",
+              "options": ["Its country of origin", "Its price", "The client's name"],
+              "answer": 0
+            },
+            {
+              "en": "How much of its electricity does the plant make?",
+              "zh": "工廠的電大約有多少是自己發的？",
+              "options": ["About half", "About a third", "All of it"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "And this is our storeroom, where we keep the raw materials.",
+          "zh": "這裡是我們的倉庫，原料都放在這裡。"
+        },
+        {
+          "id": "t7_2",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "These are the bases for your Lantern lamps. Go ahead, feel one.",
+          "zh": "這些是你們 Lantern 檯燈的燈座。來，摸摸看。",
+          "stage": { "act": "want", "item": "wood" }
+        },
+        {
+          "id": "t7_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "The natural wood base is what customers will notice first.",
+          "zh": "天然木頭燈座會是客人第一眼注意到的地方。",
+          "chunkId": "natural_wood_base_notice_first"
+        },
+        {
+          "id": "t7_4",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "I think so, too. The arms are steel, and the shades are cloth.",
+          "zh": "我也這麼覺得。燈臂是鋼做的，燈罩是布。",
+          "stage": { "act": "give", "item": "cloth" }
+        },
+        {
+          "id": "t7_5",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "Every box shows its country of origin.",
+          "zh": "每個箱子上都標了產地。"
+        },
+        {
+          "id": "t7_6",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "We also make about a third of our own electricity.",
+          "zh": "我們也自己發了大約三分之一的電。"
+        },
+        {
+          "id": "t7_7",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "Our new machines are efficient, so they consume much less energy.",
+          "zh": "我們的新機器很節能，所以耗掉的能源少很多。"
+        },
+        {
+          "id": "t7_8",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "Now, let's go to my office and talk about numbers.",
+          "zh": "好，我們去我辦公室談談數字吧。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "產量與出貨",
+      "newChunkIds": ["daily_output_fully_running", "depends_how_soon_hughes_needs"],
+      "newWordIds": [
+        "fuel",
+        "yield",
+        "output",
+        "productivity",
+        "container",
+        "completion",
+        "efficiency",
+        "excess",
+        "cargo",
+        "automate",
+        "bulk"
+      ],
+      "spellWordIds": ["contract", "trademark", "judge", "penalty", "copyright"],
+      "cloze": [
+        { "lineId": "t8_2", "word": "yield", "distractors": ["surface", "origin"] },
+        { "lineId": "t8_3", "word": "automated", "distractors": ["recalled", "suspended"] },
+        { "lineId": "t8_4", "word": "bulk", "distractors": ["cloth", "steel"] }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What's your daily output once the line is fully running?",
+          "zh": "產線全面開工之後，你們每天的產量是多少？",
+          "chunkId": "daily_output_fully_running"
+        },
+        {
+          "id": "t8_2",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "About twelve hundred. The yield is 98 percent.",
+          "zh": "大約一千兩百盞，良率是百分之九十八。"
+        },
+        {
+          "id": "t8_3",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "We automated packing, so productivity is up, too.",
+          "zh": "我們把包裝自動化了，所以生產力也提高了。"
+        },
+        {
+          "id": "t8_4",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Fuel costs more now, so it's cheaper to ship in bulk.",
+          "zh": "現在油料比較貴，所以大量出貨比較划算。"
+        },
+        {
+          "id": "t8_5",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "The excess won't fit in one container. Should we send it by air?",
+          "zh": "多出來的放不進一個貨櫃。要不要空運過去？"
+        },
+        {
+          "id": "t8_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "It depends on how soon Mr. Hughes needs them in his stores.",
+          "zh": "要看 Hughes 先生多快需要把燈放進他的店裡。",
+          "chunkId": "depends_how_soon_hughes_needs"
+        },
+        {
+          "id": "t8_7",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "I'll ask him. The rest can go on the cargo ship.",
+          "zh": "我來問他。其他的可以上貨船。"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Ms. Varga, meet the Lantern coordinator from Harbor Trading.",
+          "zh": "Varga 廠長，這位是 Harbor Trading 的 Lantern 產品協調人。"
+        },
+        {
+          "id": "t9_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Ms. Varga, Jack's told me so much about this factory.",
+          "zh": "Varga 廠長，Jack 跟我說了好多這間工廠的事。",
+          "chunkId": "jacks_told_me_about_factory"
+        },
+        {
+          "id": "t9_3",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "Welcome! Before we start, please put on this hard hat.",
+          "zh": "歡迎！開始之前，請先戴上這頂安全帽。",
+          "stage": { "act": "give", "item": "hard_hat" }
+        },
+        {
+          "id": "t9_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do I need to keep my hard hat on the whole time?",
+          "zh": "安全帽需要一直戴著嗎？",
+          "chunkId": "keep_hard_hat_on"
+        },
+        {
+          "id": "t9_5",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "Yes, the whole time. Safety comes first here.",
+          "zh": "對，全程都要戴。在這裡安全第一。"
+        },
+        {
+          "id": "t9_6",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Let's start with the assembly line. It's busy today.",
+          "zh": "我們從組裝線開始吧。今天很忙。"
+        },
+        {
+          "id": "t9_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How many lamps are being assembled on this line today?",
+          "zh": "這條線今天在組裝的燈有幾盞？",
+          "chunkId": "lamps_being_assembled_today"
+        },
+        {
+          "id": "t9_8",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "About six hundred. One rolls off the line every minute.",
+          "zh": "大約六百盞。每分鐘出來一盞。"
+        },
+        {
+          "id": "t9_9",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Have all these components already been tested for safety?",
+          "zh": "這些零件都已經做過安全測試了嗎？",
+          "chunkId": "components_tested_for_safety"
+        },
+        {
+          "id": "t9_10",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "Every one of them. Come, our test lab is over here.",
+          "zh": "每一個都測過了。來，我們的測試實驗室在這邊。"
+        },
+        {
+          "id": "t9_11",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I didn't realize you had your own testing lab here.",
+          "zh": "我都不知道你們這裡有自己的測試實驗室。",
+          "chunkId": "didnt_realize_testing_lab"
+        },
+        {
+          "id": "t9_12",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "Our inspectors work there day and night.",
+          "zh": "我們的檢驗員日夜都在裡面工作。"
+        },
+        {
+          "id": "t9_13",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How often do you pull samples from the line for testing?",
+          "zh": "你們多久從產線抽一次樣品來測試？",
+          "chunkId": "how_often_pull_samples"
+        },
+        {
+          "id": "t9_14",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "Every two hours. Look, they've found a crack in this base.",
+          "zh": "每兩個小時一次。你看，他們在這個燈座上發現一條裂痕。"
+        },
+        {
+          "id": "t9_15",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What matters most is that none of these reach our customers.",
+          "zh": "最重要的是，這些一個都不能送到我們客戶手上。",
+          "chunkId": "what_matters_most_none_reach"
+        },
+        {
+          "id": "t9_16",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "Don't worry. This whole batch will stay here.",
+          "zh": "別擔心，這整批都會留在這裡。"
+        },
+        {
+          "id": "t9_17",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "The good ones look great. Feel this wood.",
+          "zh": "好的那些看起來很棒。摸摸這塊木頭。"
+        },
+        {
+          "id": "t9_18",
+          "role": "guide",
+          "speaker": "player",
+          "en": "The natural wood base is what customers will notice first.",
+          "zh": "天然木頭燈座會是客人第一眼注意到的地方。",
+          "chunkId": "natural_wood_base_notice_first"
+        },
+        {
+          "id": "t9_19",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "The UK order is close to completion. Any other questions?",
+          "zh": "英國的訂單快完成了。還有其他問題嗎？"
+        },
+        {
+          "id": "t9_20",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What's your daily output once the line is fully running?",
+          "zh": "產線全面開工之後，你們每天的產量是多少？",
+          "chunkId": "daily_output_fully_running"
+        },
+        {
+          "id": "t9_21",
+          "role": "plant_manager",
+          "speaker": "npc",
+          "en": "About twelve hundred. The new machines really improved our efficiency.",
+          "zh": "大約一千兩百盞。新機器真的讓我們的效率提高很多。"
+        }
+      ]
+    }
+  ]
+}
