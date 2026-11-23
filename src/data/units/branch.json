@@ -1,0 +1,1566 @@
+{
+  "id": "branch",
+  "title": "海外分公司",
+  "titleEn": "The London Branch",
+  "chunks": [
+    {
+      "id": "what_to_know_before_london_branch",
+      "en": "What should I know before I start at the London branch?",
+      "zh": "去倫敦分公司報到之前，我有什麼要先知道的嗎？",
+      "note": "出發前向對方請教要注意什麼。before 後面用現在式 start 講未來。",
+      "distractors": [
+        {
+          "text": "What should I know before I will start at the London branch?",
+          "error": "extra-word"
+        },
+        {
+          "text": "What I should know before I start at the London branch?",
+          "error": "word-order"
+        },
+        { "text": "What should I know before I start at London branch?", "error": "article" }
+      ]
+    },
+    {
+      "id": "hotel_near_office_you_recommend",
+      "en": "Is there a hotel near the office you'd recommend?",
+      "zh": "辦公室附近有沒有您推薦的飯店？",
+      "accept": ["Is there a hotel near the office you would recommend?"],
+      "note": "請當地的人推薦住的地方。you'd recommend 直接接在 hotel 後面，說是哪一間。",
+      "distractors": [
+        { "text": "Is there hotel near the office you'd recommend?", "error": "article" },
+        { "text": "Are there a hotel near the office you'd recommend?", "error": "other" },
+        { "text": "Is there a hotel near the office you'd recomend?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "here_on_business_for_two_weeks",
+      "en": "I'm here on business for two weeks, visiting our London office.",
+      "zh": "我是來出差的，待兩個星期，去我們倫敦的辦公室。",
+      "accept": ["I am here on business for two weeks, visiting our London office."],
+      "note": "入境時說明來做什麼、待多久。on business＝出差；短期出差別說 to work。",
+      "distractors": [
+        {
+          "text": "I'm here in business for two weeks, visiting our London office.",
+          "error": "other"
+        },
+        {
+          "text": "I'm here on business for two week, visiting our London office.",
+          "error": "plural"
+        },
+        {
+          "text": "I'm here on a business for two weeks, visiting our London office.",
+          "error": "extra-word"
+        }
+      ]
+    },
+    {
+      "id": "where_baggage_claim_is",
+      "en": "Could you tell me where baggage claim is?",
+      "zh": "可以告訴我行李提領處在哪裡嗎？",
+      "note": "客氣地問路。Could you tell me 後面的問句用直述句的順序：where ... is。",
+      "distractors": [
+        { "text": "Could you tell me where is baggage claim?", "error": "word-order" },
+        { "text": "Could you tell me where baggage claim are?", "error": "other" },
+        { "text": "Could you tell me where bagage claim is?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "hotel_asked_whether_taxi_walked",
+      "en": "The hotel asked whether I needed a taxi, but I walked.",
+      "zh": "飯店問我要不要叫計程車，不過我走路來的。",
+      "note": "轉述別人問的「是不是」問句：asked whether（或 if）＋直述句，動詞往過去推一格（need → needed）。",
+      "distractors": [
+        {
+          "text": "The hotel asked whether did I need a taxi, but I walked.",
+          "error": "word-order"
+        },
+        { "text": "The hotel asked whether I needed taxi, but I walked.", "error": "article" },
+        { "text": "The hotel asked weather I needed a taxi, but I walked.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "immigration_asked_how_long_staying",
+      "en": "At immigration, they asked how long I was staying.",
+      "zh": "入境的時候，他們問我要待多久。",
+      "note": "轉述 how long、where 這類問句：疑問詞後面用直述句的順序（I was staying），不說 was I staying。",
+      "distractors": [
+        { "text": "At immigration, they asked how long was I staying.", "error": "word-order" },
+        { "text": "At immigration, they asked how long I staying.", "error": "missing-word" },
+        { "text": "At imigration, they asked how long I was staying.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "thanks_for_making_the_arrangements",
+      "en": "Thanks for making all the arrangements for my visit.",
+      "zh": "謝謝您幫我把這趟的事情都安排好。",
+      "note": "謝謝別人幫你把行程打點好。Thanks for＋V-ing。",
+      "distractors": [
+        { "text": "Thanks for make all the arrangements for my visit.", "error": "other" },
+        { "text": "Thanks for making all the arrangement for my visit.", "error": "plural" },
+        { "text": "Thanks for making all the arrangments for my visit.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "move_desks_closer_to_window",
+      "en": "Let's move the desks closer to the window to get more light.",
+      "zh": "我們把桌子往窗邊移一點，光線會比較好。",
+      "accept": ["Let us move the desks closer to the window to get more light."],
+      "note": "提議東西怎麼擺。closer to＝離……近一點；to get 說目的。",
+      "distractors": [
+        {
+          "text": "Let's move the desks more close to the window to get more light.",
+          "error": "other"
+        },
+        {
+          "text": "Let's move the desks closer the window to get more light.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Let's moving the desks closer to the window to get more light.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "when_internet_will_be_set_up",
+      "en": "Do you know when the internet will be set up?",
+      "zh": "您知道網路什麼時候會裝好嗎？",
+      "note": "客氣地問進度。Do you know 後面用直述句的順序：when the internet will be set up。",
+      "distractors": [
+        { "text": "Do you know when will the internet be set up?", "error": "word-order" },
+        { "text": "Do you know when the internet will set up?", "error": "missing-word" },
+        { "text": "Do you know when the internet will be setted up?", "error": "other" }
+      ]
+    },
+    {
+      "id": "what_would_you_do_in_my_shoes",
+      "en": "What would you do if you were in my shoes?",
+      "zh": "如果您是我，您會怎麼做？",
+      "note": "第二條件句：假設和現在不一樣的事，if＋過去式（were），另一半用 would。in my shoes＝站在我的立場。",
+      "distractors": [
+        { "text": "What will you do if you were in my shoes?", "error": "other" },
+        { "text": "What would you do if you are in my shoes?", "error": "other" },
+        { "text": "What would you do if you were in my shoe?", "error": "plural" }
+      ]
+    },
+    {
+      "id": "wish_i_had_more_time_city",
+      "en": "I wish I had more time to see the city.",
+      "zh": "真希望我有多一點時間逛逛這個城市。",
+      "note": "I wish＋過去式：希望現在的情況不一樣（其實時間不夠）。",
+      "distractors": [
+        { "text": "I wish I have more time to see the city.", "error": "other" },
+        { "text": "I wish I had more time see the city.", "error": "missing-word" },
+        { "text": "I wish I had more times to see the city.", "error": "plural" }
+      ]
+    },
+    {
+      "id": "keep_you_posted_on_second_shipment",
+      "en": "I'll keep you posted on how the second shipment is going.",
+      "zh": "第二批貨的進度，我會隨時跟大家報告。",
+      "accept": ["I will keep you posted on how the second shipment is going."],
+      "note": "答應隨時回報進度。keep you posted on＝有消息就告訴你。",
+      "distractors": [
+        { "text": "I'll keep you post on how the second shipment is going.", "error": "other" },
+        {
+          "text": "I'll keep you posted on how is the second shipment going.",
+          "error": "word-order"
+        },
+        {
+          "text": "I'll keep you posted on how the second shipment going.",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "great_to_see_lantern_in_your_stores",
+      "en": "It's great to finally see the Lantern lamps in your stores.",
+      "zh": "終於在您的店裡看到 Lantern 檯燈，真開心。",
+      "accept": ["It is great to finally see the Lantern lamps in your stores."],
+      "note": "到客戶店裡時表達開心。finally＝等了很久，終於。",
+      "distractors": [
+        {
+          "text": "It's great to finally seeing the Lantern lamps in your stores.",
+          "error": "other"
+        },
+        { "text": "It's great to final see the Lantern lamps in your stores.", "error": "other" },
+        { "text": "It's great to finally see the Lantern lamps on your stores.", "error": "other" }
+      ]
+    },
+    {
+      "id": "how_are_customers_responding",
+      "en": "How are customers responding to the new lamps so far?",
+      "zh": "到目前為止，客人對新檯燈的反應怎麼樣？",
+      "note": "問客人的反應。respond to＝對……有反應；so far＝到目前為止。",
+      "distractors": [
+        { "text": "How are customers responding the new lamps so far?", "error": "missing-word" },
+        { "text": "How is customers responding to the new lamps so far?", "error": "other" },
+        { "text": "How are customers respond to the new lamps so far?", "error": "other" }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "global", "en": "global", "zh": "全球的", "emoji": "🌍", "abstract": true },
+    { "id": "expand", "en": "expand", "zh": "擴展；擴大", "emoji": "📈", "abstract": true },
+    { "id": "establish", "en": "establish", "zh": "建立；設立", "emoji": "🏁", "abstract": true },
+    { "id": "relation", "en": "relation", "zh": "（往來）關係", "emoji": "🤝", "abstract": true },
+    { "id": "overseas", "en": "overseas", "zh": "在海外；到國外", "emoji": "🌏", "abstract": true },
+    {
+      "id": "headquarters",
+      "en": "headquarters",
+      "zh": "總公司；總部",
+      "emoji": "🏛️",
+      "abstract": true
+    },
+    { "id": "regional", "en": "regional", "zh": "區域的；地區的", "emoji": "🗾", "abstract": true },
+    { "id": "airfare", "en": "airfare", "zh": "機票錢", "emoji": "💸", "abstract": true },
+    { "id": "visa", "en": "visa", "zh": "簽證", "emoji": "📄", "abstract": true },
+    { "id": "briefcase", "en": "briefcase", "zh": "公事包", "emoji": "💼" },
+    { "id": "traveler", "en": "traveler", "zh": "旅客", "emoji": "🚶", "abstract": true },
+    { "id": "journey", "en": "journey", "zh": "旅程；路途", "emoji": "🛤️", "abstract": true },
+    { "id": "aboard", "en": "aboard", "zh": "在（飛機、船）上", "emoji": "🛬", "abstract": true },
+    { "id": "via", "en": "via", "zh": "經由；途經", "emoji": "↪️", "abstract": true },
+    { "id": "transit", "en": "transit", "zh": "轉機；過境", "emoji": "🔁", "abstract": true },
+    { "id": "blanket", "en": "blanket", "zh": "毯子", "emoji": "🧶", "abstract": true },
+    { "id": "headphone", "en": "headphone", "zh": "耳機", "emoji": "🎶", "abstract": true },
+    { "id": "restroom", "en": "restroom", "zh": "洗手間", "emoji": "🚻" },
+    { "id": "adapter", "en": "adapter", "zh": "轉接頭", "emoji": "🔋", "abstract": true },
+    {
+      "id": "jet_lag",
+      "en": "jet lag",
+      "zh": "時差（造成的疲倦）",
+      "emoji": "😴",
+      "abstract": true
+    },
+    { "id": "immigration", "en": "immigration", "zh": "入境審查", "emoji": "🛃", "abstract": true },
+    { "id": "whether", "en": "whether", "zh": "是否", "emoji": "❓", "abstract": true },
+    { "id": "pleasant", "en": "pleasant", "zh": "舒服的；宜人的", "emoji": "😊", "abstract": true },
+    { "id": "district", "en": "district", "zh": "區；地區", "emoji": "🏙️", "abstract": true },
+    {
+      "id": "transportation",
+      "en": "transportation",
+      "zh": "交通（工具）",
+      "emoji": "🚌",
+      "abstract": true
+    },
+    { "id": "subway", "en": "subway", "zh": "地鐵", "emoji": "🚇" },
+    { "id": "timetable", "en": "timetable", "zh": "時刻表", "emoji": "📅", "abstract": true },
+    { "id": "accessible", "en": "accessible", "zh": "方便到達的", "emoji": "♿", "abstract": true },
+    { "id": "conveniently", "en": "conveniently", "zh": "方便地", "emoji": "👍", "abstract": true },
+    { "id": "kilometer", "en": "kilometer", "zh": "公里", "emoji": "📏", "abstract": true },
+    { "id": "jam", "en": "jam", "zh": "（交通）堵塞", "emoji": "🚦", "abstract": true },
+    {
+      "id": "concierge",
+      "en": "concierge",
+      "zh": "（飯店）禮賓人員",
+      "emoji": "🛎️",
+      "abstract": true
+    },
+    { "id": "construction", "en": "construction", "zh": "施工；建造", "emoji": "🏗️" },
+    { "id": "registration", "en": "registration", "zh": "登記", "emoji": "📝", "abstract": true },
+    { "id": "excursion", "en": "excursion", "zh": "短程出遊", "emoji": "🎒", "abstract": true },
+    { "id": "landlord", "en": "landlord", "zh": "房東；業主", "emoji": "🔑", "abstract": true },
+    { "id": "tenant", "en": "tenant", "zh": "房客；承租戶", "emoji": "🏠", "abstract": true },
+    { "id": "renovation", "en": "renovation", "zh": "整修", "emoji": "🔨", "abstract": true },
+    { "id": "hallway", "en": "hallway", "zh": "走廊", "emoji": "🚪", "abstract": true },
+    { "id": "basement", "en": "basement", "zh": "地下室", "emoji": "⬇️", "abstract": true },
+    { "id": "courier", "en": "courier", "zh": "快遞（員）", "emoji": "🛵" },
+    {
+      "id": "unavailable",
+      "en": "unavailable",
+      "zh": "不能使用的",
+      "emoji": "⛔",
+      "abstract": true
+    },
+    { "id": "reopen", "en": "reopen", "zh": "重新開放", "emoji": "🔓", "abstract": true },
+    {
+      "id": "estate",
+      "en": "estate",
+      "zh": "不動產（estate agent 房屋仲介）",
+      "emoji": "🏘️",
+      "abstract": true
+    },
+    { "id": "furniture", "en": "furniture", "zh": "家具", "emoji": "🛏️", "abstract": true },
+    { "id": "interior", "en": "interior", "zh": "室內的", "emoji": "🏡", "abstract": true },
+    {
+      "id": "wherever",
+      "en": "wherever",
+      "zh": "不管哪裡；隨便哪裡",
+      "emoji": "📍",
+      "abstract": true
+    },
+    { "id": "furnish", "en": "furnish", "zh": "配置家具", "emoji": "🪞", "abstract": true },
+    { "id": "rearrange", "en": "rearrange", "zh": "重新擺放", "emoji": "🔀", "abstract": true },
+    { "id": "smoothly", "en": "smoothly", "zh": "順利地", "emoji": "🆗", "abstract": true },
+    { "id": "ample", "en": "ample", "zh": "充足的；寬敞的", "emoji": "↔️", "abstract": true },
+    {
+      "id": "amenity",
+      "en": "amenity",
+      "zh": "（大樓的）便利設施",
+      "emoji": "🚲",
+      "abstract": true
+    },
+    { "id": "redecorate", "en": "redecorate", "zh": "重新裝潢", "emoji": "🎨", "abstract": true },
+    { "id": "modem", "en": "modem", "zh": "數據機", "emoji": "📠", "abstract": true },
+    {
+      "id": "manner",
+      "en": "manner",
+      "zh": "禮貌；規矩（manners）",
+      "emoji": "🙇",
+      "abstract": true
+    },
+    { "id": "cultural", "en": "cultural", "zh": "文化的", "emoji": "🎭", "abstract": true },
+    { "id": "native", "en": "native", "zh": "本地的；母語的", "emoji": "🗣️", "abstract": true },
+    { "id": "interpret", "en": "interpret", "zh": "理解；解讀", "emoji": "🤔", "abstract": true },
+    { "id": "custom", "en": "custom", "zh": "習俗；習慣", "emoji": "🫖", "abstract": true },
+    { "id": "adapt", "en": "adapt", "zh": "適應", "emoji": "🦎", "abstract": true },
+    { "id": "attraction", "en": "attraction", "zh": "景點", "emoji": "🎡", "abstract": true },
+    { "id": "unfamiliar", "en": "unfamiliar", "zh": "不熟悉的", "emoji": "❔", "abstract": true },
+    { "id": "accent", "en": "accent", "zh": "口音", "emoji": "💬", "abstract": true },
+    { "id": "courtesy", "en": "courtesy", "zh": "禮貌；客氣", "emoji": "🙏", "abstract": true },
+    {
+      "id": "traditionally",
+      "en": "traditionally",
+      "zh": "傳統上",
+      "emoji": "📜",
+      "abstract": true
+    },
+    { "id": "transition", "en": "transition", "zh": "過渡；交接", "emoji": "⏭️", "abstract": true },
+    { "id": "remote", "en": "remote", "zh": "遠端的；遠距的", "emoji": "🛰️", "abstract": true },
+    { "id": "external", "en": "external", "zh": "外部的", "emoji": "📤", "abstract": true },
+    { "id": "zone", "en": "zone", "zh": "（時）區", "emoji": "🕓", "abstract": true },
+    {
+      "id": "correspond",
+      "en": "correspond",
+      "zh": "（書信）聯絡",
+      "emoji": "✉️",
+      "abstract": true
+    },
+    { "id": "barrier", "en": "barrier", "zh": "障礙", "emoji": "🧱", "abstract": true },
+    { "id": "mutual", "en": "mutual", "zh": "雙方的；互相的", "emoji": "🔄", "abstract": true },
+    { "id": "cooperate", "en": "cooperate", "zh": "合作", "emoji": "👥", "abstract": true },
+    { "id": "freight", "en": "freight", "zh": "貨運", "emoji": "🚢", "abstract": true },
+    {
+      "id": "internationally",
+      "en": "internationally",
+      "zh": "在國際上",
+      "emoji": "🗺",
+      "abstract": true
+    },
+    { "id": "relocate", "en": "relocate", "zh": "調派；搬遷", "emoji": "🚛", "abstract": true },
+    { "id": "videoconference", "en": "videoconference", "zh": "視訊會議", "emoji": "📹" },
+    { "id": "atmosphere", "en": "atmosphere", "zh": "氣氛；氛圍", "emoji": "🌅", "abstract": true },
+    { "id": "accompany", "en": "accompany", "zh": "陪同", "emoji": "🧑‍🤝‍🧑", "abstract": true },
+    { "id": "resident", "en": "resident", "zh": "居民", "emoji": "🏘", "abstract": true },
+    { "id": "rural", "en": "rural", "zh": "鄉下的；鄉村的", "emoji": "🌾", "abstract": true },
+    { "id": "territory", "en": "territory", "zh": "（業務）區域", "emoji": "🧭", "abstract": true },
+    { "id": "friendship", "en": "friendship", "zh": "友誼", "emoji": "💛", "abstract": true },
+    { "id": "tourism", "en": "tourism", "zh": "觀光業", "emoji": "📸", "abstract": true },
+    { "id": "locally", "en": "locally", "zh": "在當地", "emoji": "📌", "abstract": true },
+    { "id": "elegant", "en": "elegant", "zh": "雅緻的；有質感的", "emoji": "✨", "abstract": true },
+    {
+      "id": "familiarize",
+      "en": "familiarize",
+      "zh": "熟悉（familiarize oneself with）",
+      "emoji": "👀",
+      "abstract": true
+    },
+    { "id": "deluxe", "en": "deluxe", "zh": "豪華的；高級的", "emoji": "💎", "abstract": true }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "和倫敦視訊",
+      "newChunkIds": ["what_to_know_before_london_branch", "hotel_near_office_you_recommend"],
+      "newWordIds": [
+        "global",
+        "expand",
+        "establish",
+        "relation",
+        "overseas",
+        "headquarters",
+        "regional",
+        "airfare",
+        "visa",
+        "briefcase"
+      ],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "Hi! Can you hear me? This is our new London office.",
+          "zh": "嗨！聽得到嗎？這裡就是我們倫敦的新辦公室。"
+        },
+        {
+          "id": "t1_2",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "We're going global. We're here to establish a base in Europe.",
+          "zh": "我們要走向全球了。我們在這裡，是要在歐洲建立據點。"
+        },
+        {
+          "id": "t1_3",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "We're a small regional office now, but we plan to expand.",
+          "zh": "我們現在只是個小小的區域辦公室，不過之後打算擴大。"
+        },
+        {
+          "id": "t1_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What should I know before I start at the London branch?",
+          "zh": "去倫敦分公司報到之前，我有什麼要先知道的嗎？",
+          "chunkId": "what_to_know_before_london_branch"
+        },
+        {
+          "id": "t1_5",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "Well, you won't need a visa for a short business trip.",
+          "zh": "嗯，短期出差的話，你不需要簽證。"
+        },
+        {
+          "id": "t1_6",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "And headquarters is paying your airfare.",
+          "zh": "機票錢由總公司出。"
+        },
+        {
+          "id": "t1_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is there a hotel near the office you'd recommend?",
+          "zh": "辦公室附近有沒有您推薦的飯店？",
+          "chunkId": "hotel_near_office_you_recommend"
+        },
+        {
+          "id": "t1_8",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "Yes, there's a nice one ten minutes away.",
+          "zh": "有，走路十分鐘有一間不錯的。"
+        },
+        {
+          "id": "t1_9",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "And bring your briefcase. Mr. Hughes wants to meet you.",
+          "zh": "還有，公事包記得帶著。Hughes 先生想跟你見個面。",
+          "stage": { "act": "want", "item": "briefcase" }
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "夜班飛機與入境",
+      "newChunkIds": ["here_on_business_for_two_weeks", "where_baggage_claim_is"],
+      "newWordIds": [
+        "traveler",
+        "journey",
+        "aboard",
+        "via",
+        "transit",
+        "blanket",
+        "headphone",
+        "restroom",
+        "adapter",
+        "jet_lag",
+        "immigration"
+      ],
+      "fills": [
+        {
+          "id": "aboard_fill",
+          "en": "Welcome ___! Blankets and headphones are on your seat.",
+          "zh": "歡迎登機！毯子和耳機都放在您的座位上。",
+          "options": ["aboard", "overseas", "via", "regional"],
+          "answer": 0,
+          "note": "在飛機上歡迎乘客說 welcome aboard。"
+        },
+        {
+          "id": "restroom_where_fill",
+          "en": "Excuse me, could you tell me where ___?",
+          "zh": "不好意思，可以告訴我洗手間在哪裡嗎？",
+          "options": [
+            "the restroom is",
+            "is the restroom",
+            "does the restroom",
+            "the restroom does"
+          ],
+          "answer": 0,
+          "note": "間接問句用直述句順序：主詞＋is。",
+          "grammar": true
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "officer",
+          "speaker": "npc",
+          "en": "Good morning. Passport, please. What's the reason for your visit?",
+          "zh": "早安。請給我護照。您這次來的目的是什麼？"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm here on business for two weeks, visiting our London office.",
+          "zh": "我是來出差的，待兩個星期，去我們倫敦的辦公室。",
+          "chunkId": "here_on_business_for_two_weeks"
+        },
+        {
+          "id": "t2_3",
+          "role": "officer",
+          "speaker": "npc",
+          "en": "I see you flew in overnight via New York.",
+          "zh": "我看到您是搭夜班飛機、經紐約過來的。"
+        },
+        {
+          "id": "t2_4",
+          "role": "officer",
+          "speaker": "npc",
+          "en": "Two hours in transit, too. That's a long journey.",
+          "zh": "還在那邊轉機兩個小時，這趟路可真長。"
+        },
+        {
+          "id": "t2_5",
+          "role": "officer",
+          "speaker": "npc",
+          "en": "Try not to sleep before tonight. That's the best way to beat jet lag.",
+          "zh": "晚上之前盡量別睡，這是對付時差最好的方法。"
+        },
+        {
+          "id": "t2_6",
+          "role": "officer",
+          "speaker": "npc",
+          "en": "All right, you're all set. Welcome to London.",
+          "zh": "好了，都辦好了。歡迎來到倫敦。"
+        },
+        {
+          "id": "t2_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could you tell me where baggage claim is?",
+          "zh": "可以告訴我行李提領處在哪裡嗎？",
+          "chunkId": "where_baggage_claim_is"
+        },
+        {
+          "id": "t2_8",
+          "role": "officer",
+          "speaker": "npc",
+          "en": "Go straight ahead. It's just past the restrooms, on your left.",
+          "zh": "一直往前走，過了洗手間就到了，在您左手邊。",
+          "stage": { "act": "want", "item": "restroom" }
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "抵達倫敦分公司",
+      "newChunkIds": ["hotel_asked_whether_taxi_walked", "immigration_asked_how_long_staying"],
+      "newWordIds": [
+        "whether",
+        "pleasant",
+        "district",
+        "transportation",
+        "subway",
+        "timetable",
+        "accessible",
+        "conveniently",
+        "kilometer",
+        "jam",
+        "concierge"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "Good morning, and welcome! Did you find us all right?",
+          "zh": "早安，歡迎！路上還好找嗎？"
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "The hotel asked whether I needed a taxi, but I walked.",
+          "zh": "飯店問我要不要叫計程車，不過我走路來的。",
+          "chunkId": "hotel_asked_whether_taxi_walked"
+        },
+        {
+          "id": "t3_3",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "Good for you. It's only a kilometer, and a pleasant walk.",
+          "zh": "很好啊。才一公里，走起來很舒服。"
+        },
+        {
+          "id": "t3_4",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "And how was the airport? No trouble, I hope.",
+          "zh": "那機場呢？希望沒遇到什麼麻煩。"
+        },
+        {
+          "id": "t3_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "At immigration, they asked how long I was staying.",
+          "zh": "入境的時候，他們問我要待多久。",
+          "chunkId": "immigration_asked_how_long_staying"
+        },
+        {
+          "id": "t3_6",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "That's normal. They ask everyone that.",
+          "zh": "那很正常，他們每個人都會問。"
+        },
+        {
+          "id": "t3_7",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "This district is very accessible. The subway is right around the corner.",
+          "zh": "這一區交通很方便，地鐵站就在轉角。",
+          "stage": { "act": "want", "item": "subway" }
+        },
+        {
+          "id": "t3_8",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "Take the Tube to work. The traffic jams here are terrible.",
+          "zh": "上班就搭地鐵吧。這裡塞車很可怕。"
+        },
+        {
+          "id": "t3_9",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "And the hotel concierge can help with any other transportation.",
+          "zh": "其他交通的事，飯店的禮賓人員都可以幫忙。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀行程、email 和公告",
+      "newChunkIds": ["thanks_for_making_the_arrangements"],
+      "newWordIds": [
+        "construction",
+        "registration",
+        "excursion",
+        "landlord",
+        "tenant",
+        "renovation",
+        "hallway",
+        "basement",
+        "courier",
+        "unavailable",
+        "reopen"
+      ],
+      "passages": [
+        {
+          "id": "london_trip_set",
+          "texts": [
+            {
+              "kind": "form",
+              "title": "Your Trip to London",
+              "lines": [
+                "August 2, 6:30 p.m.: Overnight flight to London Heathrow via New York (2 hours in transit)",
+                "August 3, 7:00 a.m.: Arrive in London. Take the subway or a taxi to your hotel in the city.",
+                "August 9: Free day. If you like, join an excursion to Oxford by train. Check the timetable at the station.",
+                "August 17, 10:00 a.m.: Flight home",
+                "Travel tips: Blankets and headphones are given to every traveler aboard. UK outlets are different, so bring an adapter."
+              ]
+            },
+            {
+              "kind": "email",
+              "title": "Welcome to London!",
+              "lines": [
+                "Hello from London!",
+                "Your hotel is conveniently close to the office, about ten minutes away.",
+                "Our landlord is doing renovation work in the building, so the front door is closed. For now, we use the door at the side of the building.",
+                "Courier packages for tenants now go to the basement, so the box of Lantern samples you sent will be there.",
+                "All visitors need registration at the front desk on their first day.",
+                "Let's start at 9:30 on Monday, August 4.",
+                "Ms. Wright"
+              ]
+            },
+            {
+              "kind": "notice",
+              "title": "Renovation Notice",
+              "lines": [
+                "To all tenants:",
+                "There will be construction in the hallway on the second floor from August 4 to August 15.",
+                "During this time, the front door on Hill Street is unavailable. Please use the side door on King Street.",
+                "The hallway will reopen on August 18. Thank you for your patience."
+              ]
+            }
+          ],
+          "questions": [
+            {
+              "en": "Where is the traveler in transit, and for how long?",
+              "zh": "這位旅客在哪裡轉機？轉機多久？",
+              "options": [
+                "In New York, for 2 hours",
+                "In London, for 2 hours",
+                "In New York, for 7 hours"
+              ],
+              "answer": 0,
+              "needs": [0]
+            },
+            {
+              "en": "Where will the Lantern samples be?",
+              "zh": "Lantern 的樣品會放在哪裡？",
+              "options": ["At the hotel", "In the basement", "At the front desk"],
+              "answer": 1,
+              "needs": [1]
+            },
+            {
+              "en": "Which door should the visitor use on August 4?",
+              "zh": "訪客八月四日要走哪一個門？",
+              "options": [
+                "The front door on Hill Street",
+                "A door in the basement",
+                "The side door on King Street"
+              ],
+              "answer": 2,
+              "needs": [1, 2]
+            },
+            {
+              "en": "Will the traveler still be in London when the hallway reopens?",
+              "zh": "走廊重新開放時，這位旅客還在倫敦嗎？",
+              "options": [
+                "No, the flight home is the day before",
+                "Yes, for two more days",
+                "Yes, the flight home is that evening"
+              ],
+              "answer": 0,
+              "needs": [0, 2]
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "Sorry about the noise. The landlord is doing some renovation work this month.",
+          "zh": "不好意思，有點吵。房東這個月在做一些整修。"
+        },
+        {
+          "id": "t4_2",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "That's why we're using the side door for now.",
+          "zh": "所以我們現在都走側門。"
+        },
+        {
+          "id": "t4_3",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "The construction in the hallway should be finished by the fifteenth.",
+          "zh": "走廊的施工應該十五號就會做完。"
+        },
+        {
+          "id": "t4_4",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "And the courier brought your box of samples. It's down in the basement.",
+          "zh": "還有，快遞把你的樣品箱送來了，放在地下室。",
+          "stage": { "act": "want", "item": "courier" }
+        },
+        {
+          "id": "t4_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thanks for making all the arrangements for my visit.",
+          "zh": "謝謝您幫我把這趟的事情都安排好。",
+          "chunkId": "thanks_for_making_the_arrangements"
+        },
+        {
+          "id": "t4_6",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "Not at all. Just don't forget your registration at the front desk.",
+          "zh": "別客氣。只是別忘了去櫃台登記。"
+        },
+        {
+          "id": "t4_7",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "And if you're free on Saturday, you should really go on the Oxford excursion.",
+          "zh": "還有，星期六有空的話，真的該去 Oxford 走走。"
+        },
+        {
+          "id": "t4_8",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "It's only an hour by train, and the old town is beautiful.",
+          "zh": "搭火車只要一個小時，老城區很漂亮。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "佈置新辦公室",
+      "newChunkIds": ["move_desks_closer_to_window", "when_internet_will_be_set_up"],
+      "newWordIds": [
+        "estate",
+        "furniture",
+        "interior",
+        "wherever",
+        "furnish",
+        "rearrange",
+        "smoothly",
+        "ample",
+        "amenity",
+        "redecorate",
+        "modem"
+      ],
+      "talks": [
+        {
+          "id": "office_setup_talk",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "branch_manager",
+              "en": "The estate agent found this office for us. It was already furnished.",
+              "zh": "這間辦公室是房屋仲介幫我們找的，本來就附了家具。"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "guide",
+              "en": "And the rest of the furniture came yesterday, right?",
+              "zh": "其他的家具昨天也到了，對吧？"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "branch_manager",
+              "en": "Yes. But the modem isn't set up yet. The internet company comes at two.",
+              "zh": "對。不過數據機還沒裝，網路公司兩點才會來。"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "guide",
+              "en": "Two o'clock today? Good. I need to send some emails.",
+              "zh": "今天兩點？太好了，我有幾封 email 要寄。"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "branch_manager",
+              "en": "I'd like the meeting table by the window. There's ample room there.",
+              "zh": "我想把會議桌放在窗邊，那邊空間很夠。"
+            },
+            {
+              "id": "t5_talk_6",
+              "role": "guide",
+              "en": "Good idea. And where should the shelves go?",
+              "zh": "好主意。那架子要放哪裡？"
+            },
+            {
+              "id": "t5_talk_7",
+              "role": "branch_manager",
+              "en": "Wherever you like. It's your office too.",
+              "zh": "你想放哪裡都可以，這也是你的辦公室。"
+            },
+            {
+              "id": "t5_talk_8",
+              "role": "guide",
+              "en": "Thanks! Does the building have a kitchen?",
+              "zh": "謝謝！這棟大樓有廚房嗎？"
+            },
+            {
+              "id": "t5_talk_9",
+              "role": "branch_manager",
+              "en": "Yes, and a small gym, too. The amenities here are great.",
+              "zh": "有，還有一間小健身房。這裡的設施很不錯。"
+            },
+            {
+              "id": "t5_talk_10",
+              "role": "branch_manager",
+              "en": "Next month, an interior designer is coming to redecorate the meeting room.",
+              "zh": "下個月會有室內設計師來重新裝潢會議室。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "When will the internet company come?",
+              "zh": "網路公司什麼時候會來？",
+              "options": ["At two o'clock today", "Tomorrow morning", "Next month"],
+              "answer": 0
+            },
+            {
+              "en": "Where will the meeting table go?",
+              "zh": "會議桌要放在哪裡？",
+              "options": ["In the kitchen", "By the window", "Next to the door"],
+              "answer": 1
+            },
+            {
+              "en": "What will they do next month?",
+              "zh": "他們下個月要做什麼？",
+              "options": [
+                "Buy a new modem",
+                "Move to a bigger office",
+                "Redecorate the meeting room"
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "Right, the rest of the furniture came yesterday. Where should we start?",
+          "zh": "好，其他的家具昨天到了。我們從哪裡開始？"
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let's move the desks closer to the window to get more light.",
+          "zh": "我們把桌子往窗邊移一點，光線會比較好。",
+          "chunkId": "move_desks_closer_to_window"
+        },
+        {
+          "id": "t5_3",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "Good idea. There's ample room over there.",
+          "zh": "好主意，那邊空間很夠。"
+        },
+        {
+          "id": "t5_4",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "Then we can rearrange the chairs around them.",
+          "zh": "然後再把椅子圍著桌子重新擺一擺。"
+        },
+        {
+          "id": "t5_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you know when the internet will be set up?",
+          "zh": "您知道網路什麼時候會裝好嗎？",
+          "chunkId": "when_internet_will_be_set_up"
+        },
+        {
+          "id": "t5_6",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "The modem's here, but they won't come until two.",
+          "zh": "數據機到了，不過他們兩點才會來。"
+        },
+        {
+          "id": "t5_7",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "So far, everything's going smoothly.",
+          "zh": "到目前為止，一切都很順利。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "當地的習慣",
+      "newChunkIds": ["what_would_you_do_in_my_shoes", "wish_i_had_more_time_city"],
+      "newWordIds": [
+        "manner",
+        "cultural",
+        "native",
+        "interpret",
+        "custom",
+        "adapt",
+        "attraction",
+        "unfamiliar",
+        "accent",
+        "courtesy",
+        "traditionally"
+      ],
+      "cloze": [
+        {
+          "lineId": "t6_2",
+          "word": "courtesy",
+          "distractors": ["timetable", "modem"]
+        },
+        {
+          "lineId": "t6_4",
+          "word": "flowers",
+          "distractors": ["modems", "briefcases"]
+        },
+        {
+          "lineId": "t6_6",
+          "word": "attractions",
+          "distractors": ["tenants", "basements"]
+        }
+      ],
+      "textFills": [
+        {
+          "id": "london_tips_email",
+          "kind": "email",
+          "title": "A few tips for London",
+          "lines": [
+            "Cultural differences can feel unfamiliar at first, but most visitors adapt quickly.",
+            "Native speakers here have many different ___, so don't worry if you miss a word.",
+            "If I ___ you, I'd just ask them to say it again.",
+            "___",
+            "Say please and thank you, and always wait your turn in line.",
+            "Ms. Wright"
+          ],
+          "zh": [
+            "文化上的差異一開始可能會讓人覺得陌生，不過大部分的訪客很快就適應了。",
+            "就連本地人的口音也有很多種，所以漏聽一個字也別擔心。",
+            "如果我是你，我就直接請對方再說一次。",
+            "在這裡，禮貌也很重要。",
+            "要說「請」和「謝謝」，排隊也一定要照順序。",
+            "Ms. Wright"
+          ],
+          "blanks": [
+            {
+              "options": ["accents", "modems", "timetables", "tenants"],
+              "answer": 0,
+              "note": "說話的方式不同，是口音 accents。"
+            },
+            {
+              "options": ["were", "am", "will be", "being"],
+              "answer": 0,
+              "note": "If I were you 是固定的假設說法。"
+            },
+            {
+              "options": [
+                "Good manners are also important here.",
+                "The subway closes at noon.",
+                "Your flight home leaves on Sunday.",
+                "The modem is in the basement."
+              ],
+              "answer": 0,
+              "note": "下一句講說請、謝謝和排隊，是禮貌。"
+            }
+          ]
+        }
+      ],
+      "responds": [
+        {
+          "id": "t6_r1",
+          "prompt": {
+            "role": "branch_manager",
+            "en": "How are you adapting to life in London?",
+            "zh": "你在倫敦的生活適應得怎麼樣？"
+          },
+          "responses": [
+            {
+              "en": "Pretty well. People here are really friendly.",
+              "zh": "還不錯，這裡的人都很友善。"
+            },
+            { "en": "Since last Sunday.", "zh": "從上星期天開始。" },
+            { "en": "I'll adapt the plan.", "zh": "我會調整計畫。" }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "t6_r2",
+          "prompt": {
+            "role": "branch_manager",
+            "en": "When does your flight home leave?",
+            "zh": "你回去的班機什麼時候起飛？"
+          },
+          "responses": [
+            { "en": "From Heathrow, I think.", "zh": "應該是從希斯洛機場。" },
+            { "en": "It left an hour late.", "zh": "它晚了一個小時起飛。" },
+            { "en": "On the seventeenth, in the morning.", "zh": "十七號早上。" }
+          ],
+          "answer": 2
+        },
+        {
+          "id": "t6_r3",
+          "prompt": {
+            "role": "branch_manager",
+            "en": "How did you interpret his email?",
+            "zh": "你怎麼理解他那封 email？"
+          },
+          "responses": [
+            { "en": "His email address is on the card.", "zh": "他的 email 地址在名片上。" },
+            { "en": "I think he wants to meet next week.", "zh": "我想他是希望下週見面。" },
+            { "en": "I sent it this morning.", "zh": "我今天早上寄出去了。" }
+          ],
+          "answer": 1
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "I hear Mr. Hughes invited you to dinner at his home on Sunday.",
+          "zh": "聽說 Hughes 先生邀你星期天去他家吃晚餐。"
+        },
+        {
+          "id": "t6_2",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "That's quite a courtesy. He doesn't do that for everyone.",
+          "zh": "這可是很給面子，他不是每個人都請的。"
+        },
+        {
+          "id": "t6_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What would you do if you were in my shoes?",
+          "zh": "如果您是我，您會怎麼做？",
+          "chunkId": "what_would_you_do_in_my_shoes"
+        },
+        {
+          "id": "t6_4",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "If I were you, I'd bring flowers or a box of chocolates.",
+          "zh": "如果我是你，我會帶束花或一盒巧克力。"
+        },
+        {
+          "id": "t6_5",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "Traditionally, that's the custom here. And don't arrive early.",
+          "zh": "這裡傳統上就是這樣的習慣。還有，別提早到。"
+        },
+        {
+          "id": "t6_6",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "So, have you seen any of the big attractions yet?",
+          "zh": "對了，你去過哪些有名的景點了嗎？"
+        },
+        {
+          "id": "t6_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I wish I had more time to see the city.",
+          "zh": "真希望我有多一點時間逛逛這個城市。",
+          "chunkId": "wish_i_had_more_time_city"
+        },
+        {
+          "id": "t6_8",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "Then use your free day on Saturday. Most museums here are free!",
+          "zh": "那就好好利用星期六的空檔。這裡大部分的博物館都免費！"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "從倫敦參加週會",
+      "newChunkIds": ["keep_you_posted_on_second_shipment"],
+      "newWordIds": [
+        "transition",
+        "remote",
+        "external",
+        "zone",
+        "correspond",
+        "barrier",
+        "mutual",
+        "cooperate",
+        "freight",
+        "internationally",
+        "relocate",
+        "videoconference"
+      ],
+      "talks": [
+        {
+          "id": "carter_weekly_meeting",
+          "kind": "monologue",
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "manager",
+              "en": "Good morning, everyone, and good afternoon to our team in London.",
+              "zh": "大家早安，也跟倫敦的同事說聲午安。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "manager",
+              "en": "Since we're in different time zones, let's keep this videoconference to thirty minutes.",
+              "zh": "因為我們在不同的時區，這場視訊會議就控制在三十分鐘內。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "manager",
+              "en": "Our first Lantern shipment reached the UK at the end of July, and it's already selling in Mr. Hughes's stores.",
+              "zh": "第一批 Lantern 七月底就到了英國，已經在 Hughes 先生的店裡賣了。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "manager",
+              "en": "The second shipment left Taiwan by sea freight last week. It should arrive at the end of August.",
+              "zh": "第二批貨上週從台灣走海運出發，應該八月底會到。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "manager",
+              "en": "When our two companies cooperate like this, the benefit is mutual.",
+              "zh": "兩家公司像這樣合作，對雙方都有好處。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "manager",
+              "en": "During this transition, please correspond by email as much as you can.",
+              "zh": "在這段過渡期，請大家盡量用 email 聯絡。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "manager",
+              "en": "In remote meetings, the time difference is the biggest barrier, so please write important things down.",
+              "zh": "遠端開會時，時差是最大的障礙，所以重要的事請寫下來。"
+            },
+            {
+              "id": "t7_talk_8",
+              "role": "manager",
+              "en": "Next year, we may relocate someone to London, and we'll look for an external shipping company.",
+              "zh": "明年我們可能會調一個人到倫敦，也會找一家外部的貨運公司。"
+            },
+            {
+              "id": "t7_talk_9",
+              "role": "manager",
+              "en": "Harbor Trading is finally selling its own products internationally. Thank you all for your hard work.",
+              "zh": "Harbor Trading 終於在國際上賣自己的產品了。謝謝大家的努力。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "Why will the meeting be short?",
+              "zh": "為什麼會議會開得很短？",
+              "options": [
+                "They are in different time zones",
+                "Ms. Carter has to leave early",
+                "There is not much news"
+              ],
+              "answer": 0
+            },
+            {
+              "en": "When will the second shipment reach the UK?",
+              "zh": "第二批貨什麼時候會到英國？",
+              "options": ["At the end of July", "At the end of August", "Next week"],
+              "answer": 1
+            },
+            {
+              "en": "What may the company do next year?",
+              "zh": "公司明年可能會做什麼？",
+              "options": [
+                "Close the London office",
+                "Open a factory in Taiwan",
+                "Send someone to work in London"
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Hi! Can you hear me? The video's slow today.",
+          "zh": "嗨！聽得到嗎？今天視訊有點慢。",
+          "stage": { "act": "want", "item": "videoconference" }
+        },
+        {
+          "id": "t7_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "It's two in the afternoon there, right? How's London?",
+          "zh": "你那邊是下午兩點吧？倫敦怎麼樣？"
+        },
+        {
+          "id": "t7_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I wish I had more time to see the city.",
+          "zh": "真希望我有多一點時間逛逛這個城市。",
+          "chunkId": "wish_i_had_more_time_city"
+        },
+        {
+          "id": "t7_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Next time, then. So, any news on the second shipment?",
+          "zh": "那就下次吧。對了，第二批貨有什麼消息嗎？"
+        },
+        {
+          "id": "t7_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll keep you posted on how the second shipment is going.",
+          "zh": "第二批貨的進度，我會隨時跟大家報告。",
+          "chunkId": "keep_you_posted_on_second_shipment"
+        },
+        {
+          "id": "t7_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Thanks. Remote work isn't easy, but you're doing great.",
+          "zh": "謝謝。遠距工作不容易，不過你做得很好。"
+        },
+        {
+          "id": "t7_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Say hi to Ms. Wright for me.",
+          "zh": "幫我跟 Wright 小姐問聲好。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "拜訪 Hughes 的門市",
+      "backdrop": "client",
+      "newChunkIds": ["great_to_see_lantern_in_your_stores", "how_are_customers_responding"],
+      "newWordIds": [
+        "atmosphere",
+        "accompany",
+        "resident",
+        "rural",
+        "territory",
+        "friendship",
+        "tourism",
+        "locally",
+        "elegant",
+        "familiarize",
+        "deluxe"
+      ],
+      "spellWordIds": ["uniform", "extinguisher", "footwear", "lab", "cloth"],
+      "cloze": [
+        {
+          "lineId": "t8_4",
+          "word": "atmosphere",
+          "distractors": ["freight", "visa"]
+        },
+        {
+          "lineId": "t8_5",
+          "word": "elegant",
+          "distractors": ["remote", "external"]
+        },
+        {
+          "lineId": "t8_7",
+          "word": "gifts",
+          "distractors": ["visas", "modems"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "Thank you for having us, Mr. Hughes.",
+          "zh": "Hughes 先生，謝謝您招待我們。"
+        },
+        {
+          "id": "t8_2",
+          "role": "client",
+          "speaker": "npc",
+          "en": "My pleasure. Come in and have a look around.",
+          "zh": "不客氣。請進，隨便看看。"
+        },
+        {
+          "id": "t8_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "It's great to finally see the Lantern lamps in your stores.",
+          "zh": "終於在您的店裡看到 Lantern 檯燈，真開心。",
+          "chunkId": "great_to_see_lantern_in_your_stores"
+        },
+        {
+          "id": "t8_4",
+          "role": "client",
+          "speaker": "npc",
+          "en": "That warm light gives the whole room a nice atmosphere.",
+          "zh": "那種暖暖的光，讓整個空間的氣氛都很好。"
+        },
+        {
+          "id": "t8_5",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "And the deluxe model looks so elegant on that table by the window.",
+          "zh": "而且高級款擺在窗邊那張桌子上，看起來好有質感。"
+        },
+        {
+          "id": "t8_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How are customers responding to the new lamps so far?",
+          "zh": "到目前為止，客人對新檯燈的反應怎麼樣？",
+          "chunkId": "how_are_customers_responding"
+        },
+        {
+          "id": "t8_7",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Very well. Residents love them, and tourists buy them as gifts.",
+          "zh": "很好。當地居民很喜歡，觀光客也會買來送人。"
+        },
+        {
+          "id": "t8_8",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Our rural stores have sold out of the deluxe model.",
+          "zh": "我們鄉下的幾家店，高級款都賣光了。"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "Good morning! Come in. Sorry about all the boxes.",
+          "zh": "早安！請進。不好意思，到處都是箱子。"
+        },
+        {
+          "id": "t9_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thanks for making all the arrangements for my visit.",
+          "zh": "謝謝您幫我把這趟的事情都安排好。",
+          "chunkId": "thanks_for_making_the_arrangements"
+        },
+        {
+          "id": "t9_3",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "Not at all. Did you get here all right from the hotel?",
+          "zh": "別客氣。從飯店過來還順利嗎？"
+        },
+        {
+          "id": "t9_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "The hotel asked whether I needed a taxi, but I walked.",
+          "zh": "飯店問我要不要叫計程車，不過我走路來的。",
+          "chunkId": "hotel_asked_whether_taxi_walked"
+        },
+        {
+          "id": "t9_5",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "Good for you. It's a pleasant walk in the morning.",
+          "zh": "很好啊。早上走過來很舒服。"
+        },
+        {
+          "id": "t9_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What should I know before I start at the London branch?",
+          "zh": "去倫敦分公司報到之前，我有什麼要先知道的嗎？",
+          "chunkId": "what_to_know_before_london_branch"
+        },
+        {
+          "id": "t9_7",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "Not much. We're small and friendly. The only problem is the internet.",
+          "zh": "沒什麼。我們人不多，大家都很好相處。唯一的問題是網路。"
+        },
+        {
+          "id": "t9_8",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you know when the internet will be set up?",
+          "zh": "您知道網路什麼時候會裝好嗎？",
+          "chunkId": "when_internet_will_be_set_up"
+        },
+        {
+          "id": "t9_9",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "This afternoon, I hope. And look who's here. Mr. Hughes!",
+          "zh": "希望是今天下午。你看誰來了，Hughes 先生！"
+        },
+        {
+          "id": "t9_10",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Hello! So you're the one from Harbor Trading. How long are you with us?",
+          "zh": "你好！你就是 Harbor Trading 派來的吧。會在這裡待多久？"
+        },
+        {
+          "id": "t9_11",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm here on business for two weeks, visiting our London office.",
+          "zh": "我是來出差的，待兩個星期，去我們倫敦的辦公室。",
+          "chunkId": "here_on_business_for_two_weeks"
+        },
+        {
+          "id": "t9_12",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Good. Then Ms. Wright should accompany you to one of my stores.",
+          "zh": "很好。那 Wright 小姐該帶你去我的店看看。"
+        },
+        {
+          "id": "t9_13",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How are customers responding to the new lamps so far?",
+          "zh": "到目前為止，客人對新檯燈的反應怎麼樣？",
+          "chunkId": "how_are_customers_responding"
+        },
+        {
+          "id": "t9_14",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Very well. Tourism is strong this summer, so we'll need more lamps soon.",
+          "zh": "很好。今年夏天觀光客很多，我們很快就需要更多貨了。"
+        },
+        {
+          "id": "t9_15",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll keep you posted on how the second shipment is going.",
+          "zh": "第二批貨的進度，我會隨時跟大家報告。",
+          "chunkId": "keep_you_posted_on_second_shipment"
+        },
+        {
+          "id": "t9_16",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Thank you. Good relations matter in this business.",
+          "zh": "謝謝。做這行，關係好很重要。"
+        },
+        {
+          "id": "t9_17",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "And make sure you see a bit of London while you're here.",
+          "zh": "還有，你在這裡的時候，一定要去倫敦逛逛。"
+        },
+        {
+          "id": "t9_18",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I wish I had more time to see the city.",
+          "zh": "真希望我有多一點時間逛逛這個城市。",
+          "chunkId": "wish_i_had_more_time_city"
+        },
+        {
+          "id": "t9_19",
+          "role": "branch_manager",
+          "speaker": "npc",
+          "en": "Then take Saturday off. That's an order!",
+          "zh": "那星期六就休息吧。這是命令！"
+        }
+      ]
+    }
+  ]
+}
