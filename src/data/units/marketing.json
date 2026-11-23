@@ -1,0 +1,1571 @@
+{
+  "id": "marketing",
+  "title": "行銷",
+  "titleEn": "Marketing",
+  "chunks": [
+    {
+      "id": "lantern_series_intro",
+      "en": "Let me tell you a little about the Lantern series.",
+      "zh": "我先簡單介紹一下 Lantern 系列。",
+      "note": "開會時先介紹產品。Let me + 原形動詞 = 讓我來……。",
+      "distractors": [
+        { "text": "Let me tell you a little about Lantern series.", "error": "article" },
+        { "text": "Let me to tell you a little about the Lantern series.", "error": "extra-word" },
+        { "text": "Let me tell you a little about the Lantern serie.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "campaigns_worked_on",
+      "en": "What kind of campaigns have you worked on before?",
+      "zh": "你之前做過哪些類型的行銷活動？",
+      "note": "問對方以前的經驗。have + 過去分詞 = 到現在為止做過。",
+      "distractors": [
+        { "text": "What kind of campaigns did you worked on before?", "error": "other" },
+        { "text": "What kind of campaigns you have worked on before?", "error": "word-order" },
+        { "text": "What kind of campaigns have you worked before?", "error": "missing-word" }
+      ]
+    },
+    {
+      "id": "mainly_thinking_of_home_workers",
+      "en": "We're mainly thinking of people who work from home.",
+      "zh": "我們主要鎖定在家工作的人。",
+      "accept": ["We are mainly thinking of people who work from home."],
+      "note": "說明主要的客群。people who … = 做某件事的人。",
+      "distractors": [
+        { "text": "We mainly are thinking of people who work from home.", "error": "word-order" },
+        { "text": "We're mainly thinking people who work from home.", "error": "missing-word" },
+        { "text": "We're mainly thinking of people which work from home.", "error": "other" }
+      ]
+    },
+    {
+      "id": "office_workers_relate",
+      "en": "I think office workers will really relate to this design.",
+      "zh": "我覺得上班族看到這個設計會很有感。",
+      "note": "說誰會喜歡這個設計。relate to = 對……有共鳴。",
+      "distractors": [
+        {
+          "text": "I think office workers will really relate this design.",
+          "error": "missing-word"
+        },
+        { "text": "I think office worker will really relate to this design.", "error": "plural" },
+        { "text": "I think office workers will really relates to this design.", "error": "other" }
+      ]
+    },
+    {
+      "id": "keep_questionnaire_short",
+      "en": "Let's keep the questionnaire short so people actually finish it.",
+      "zh": "問卷不要太長，大家才會真的填完。",
+      "note": "設計問卷時提醒長度。keep + 東西 + 形容詞 = 讓它保持……。",
+      "distractors": [
+        {
+          "text": "Let's keep short the questionnaire so people actually finish it.",
+          "error": "word-order"
+        },
+        {
+          "text": "Let's keep the questionnaire short so people actually finish.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Let's keep the questionaire short so people actually finish it.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "if_more_time_interview",
+      "en": "If we had more time, we'd interview people in person.",
+      "zh": "如果時間再多一點，我們就可以當面訪問大家了。",
+      "accept": ["If we had more time, we would interview people in person."],
+      "note": "第二條件句：If + 過去式，would + 原形，說現在不是真的情況。",
+      "distractors": [
+        { "text": "If we have more time, we'd interview people in person.", "error": "other" },
+        { "text": "If we had more time, we'd interviewed people in person.", "error": "other" },
+        {
+          "text": "If we had more time, we'd interview people in the person.",
+          "error": "extra-word"
+        }
+      ]
+    },
+    {
+      "id": "results_show_price",
+      "en": "The results show that price matters more than we thought.",
+      "zh": "結果顯示，價格比我們原本想的還重要。",
+      "accept": ["The results show price matters more than we thought."],
+      "note": "報告調查結果。The results show that … = 結果顯示……。",
+      "distractors": [
+        { "text": "The result show that price matters more than we thought.", "error": "plural" },
+        { "text": "The results show that price matter more than we thought.", "error": "other" },
+        { "text": "The results show that price matters more then we thought.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "slogan_short_easy",
+      "en": "The slogan should be short and easy to remember.",
+      "zh": "標語要短，而且好記。",
+      "note": "討論標語。easy to + 原形動詞 = 很容易……。",
+      "distractors": [
+        { "text": "Slogan should be short and easy to remember.", "error": "article" },
+        { "text": "The slogan should is short and easy to remember.", "error": "other" },
+        { "text": "The slogen should be short and easy to remember.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "version_sounds_warmer",
+      "en": "Can we try a version that sounds a little warmer?",
+      "zh": "可以換一個聽起來溫暖一點的版本試試看嗎？",
+      "note": "想換一種說法時客氣地提。a little + 比較級 = 再……一點。",
+      "distractors": [
+        { "text": "Can we try version that sounds a little warmer?", "error": "article" },
+        { "text": "Can we try a version that sound a little warmer?", "error": "other" },
+        { "text": "Can we try a version that sounds a little more warmer?", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "although_magazine_ads",
+      "en": "Although magazine ads look nice, they're hard to measure.",
+      "zh": "雖然雜誌廣告看起來很漂亮，但效果很難評估。",
+      "accept": [
+        "Even though magazine ads look nice, they're hard to measure.",
+        "Although magazine ads look nice, they are hard to measure."
+      ],
+      "note": "although（雖然）帶出一面，後半句說另一面，不再加 but。",
+      "distractors": [
+        {
+          "text": "Although magazine ads look nice, but they're hard to measure.",
+          "error": "extra-word"
+        },
+        { "text": "Although magazine ads looks nice, they're hard to measure.", "error": "other" },
+        {
+          "text": "Although magazine ads look nice, they're hard measure.",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "on_the_other_hand_videos",
+      "en": "On the other hand, short videos are cheap and easy to share.",
+      "zh": "另一方面，短影片便宜，又很容易分享出去。",
+      "note": "On the other hand 放句首，說和前一句相反的另一面。",
+      "distractors": [
+        { "text": "On other hand, short videos are cheap and easy to share.", "error": "article" },
+        {
+          "text": "On the other hand, short video are cheap and easy to share.",
+          "error": "plural"
+        },
+        { "text": "In the other hand, short videos are cheap and easy to share.", "error": "other" }
+      ]
+    },
+    {
+      "id": "compete_on_design",
+      "en": "We can't beat them on price, so let's compete on design.",
+      "zh": "價格我們拚不過他們，那就用設計來競爭吧。",
+      "note": "價格比不過，就換個地方比。beat … on … = 在……方面贏過。",
+      "distractors": [
+        { "text": "We can't beat they on price, so let's compete on design.", "error": "other" },
+        {
+          "text": "We can't beat them on price, so let compete on design.",
+          "error": "missing-word"
+        },
+        { "text": "We can't beat them on price, so let's compate on design.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "launch_early_may",
+      "en": "How about launching the series in early May?",
+      "zh": "Lantern 系列五月初上市，您覺得怎麼樣？",
+      "note": "提議日期。How about + V-ing = ……怎麼樣？",
+      "distractors": [
+        { "text": "How about launch the series in early May?", "error": "other" },
+        { "text": "How about launching series in early May?", "error": "article" },
+        { "text": "How about launching the series in early the May?", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "flyers_before_trade_show",
+      "en": "Could we have the flyers ready before the trade show?",
+      "zh": "商展之前可以先把傳單準備好嗎？",
+      "note": "請人把東西先準備好。have + 東西 + ready = 把……準備好。",
+      "distractors": [
+        { "text": "Could we have the flyers ready before trade show?", "error": "article" },
+        { "text": "Could we have the flyer ready before the trade show?", "error": "plural" },
+        { "text": "Could we have ready the flyers before the trade show?", "error": "word-order" }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "id": "campaign",
+      "en": "campaign",
+      "zh": "宣傳活動；行銷活動",
+      "emoji": "📣",
+      "abstract": true
+    },
+    {
+      "id": "various",
+      "en": "various",
+      "zh": "各種的；各式各樣的",
+      "emoji": "🔀",
+      "abstract": true
+    },
+    { "id": "primary", "en": "primary", "zh": "主要的；首要的", "emoji": "1️⃣", "abstract": true },
+    { "id": "concept", "en": "concept", "zh": "概念；構想", "emoji": "💭", "abstract": true },
+    {
+      "id": "explore",
+      "en": "explore",
+      "zh": "探討；研究（可能性）",
+      "emoji": "🧭",
+      "abstract": true
+    },
+    { "id": "innovative", "en": "innovative", "zh": "創新的", "emoji": "✨", "abstract": true },
+    { "id": "pitch", "en": "pitch", "zh": "提案；推銷的說法", "emoji": "🗣️", "abstract": true },
+    { "id": "consultant", "en": "consultant", "zh": "顧問", "emoji": "🕴️" },
+    {
+      "id": "brainstorm",
+      "en": "brainstorm",
+      "zh": "腦力激盪；集思廣益",
+      "emoji": "🧠",
+      "abstract": true
+    },
+    {
+      "id": "relate",
+      "en": "relate",
+      "zh": "有共鳴；有同感（relate to）",
+      "emoji": "🤗",
+      "abstract": true
+    },
+    {
+      "id": "population",
+      "en": "population",
+      "zh": "人口；（某一）族群",
+      "emoji": "👥",
+      "abstract": true
+    },
+    {
+      "id": "tend",
+      "en": "tend",
+      "zh": "往往會；傾向於（tend to）",
+      "emoji": "↗️",
+      "abstract": true
+    },
+    { "id": "generation", "en": "generation", "zh": "世代", "emoji": "👨‍👩‍👧", "abstract": true },
+    { "id": "consumer", "en": "consumer", "zh": "消費者", "emoji": "🧍", "abstract": true },
+    {
+      "id": "compact",
+      "en": "compact",
+      "zh": "小巧的；不佔空間的",
+      "emoji": "🤏",
+      "abstract": true
+    },
+    { "id": "mainly", "en": "mainly", "zh": "主要是", "emoji": "🥇", "abstract": true },
+    {
+      "id": "convenience",
+      "en": "convenience",
+      "zh": "方便；便利",
+      "emoji": "👌",
+      "abstract": true
+    },
+    { "id": "household", "en": "household", "zh": "家庭；住戶", "emoji": "🏘", "abstract": true },
+    { "id": "everyday", "en": "everyday", "zh": "日常的", "emoji": "📆", "abstract": true },
+    { "id": "research", "en": "research", "zh": "調查；研究", "emoji": "🔎", "abstract": true },
+    { "id": "influence", "en": "influence", "zh": "影響", "emoji": "🎛️", "abstract": true },
+    { "id": "survey", "en": "survey", "zh": "問卷調查", "emoji": "🗳️", "abstract": true },
+    {
+      "id": "appeal",
+      "en": "appeal",
+      "zh": "吸引；對…有吸引力（appeal to）",
+      "emoji": "😍",
+      "abstract": true
+    },
+    { "id": "reaction", "en": "reaction", "zh": "反應", "emoji": "😮", "abstract": true },
+    {
+      "id": "respondent",
+      "en": "respondent",
+      "zh": "（問卷）填答者；受訪者",
+      "emoji": "🙋",
+      "abstract": true
+    },
+    { "id": "questionnaire", "en": "questionnaire", "zh": "問卷", "emoji": "☑️" },
+    { "id": "subscriber", "en": "subscriber", "zh": "訂閱者", "emoji": "🔔", "abstract": true },
+    { "id": "website", "en": "website", "zh": "網站", "emoji": "🌍", "abstract": true },
+    { "id": "browse", "en": "browse", "zh": "瀏覽", "emoji": "👀", "abstract": true },
+    {
+      "id": "movement",
+      "en": "movement",
+      "zh": "（燈臂的）活動；移動",
+      "emoji": "↔️",
+      "abstract": true
+    },
+    { "id": "emerge", "en": "emerge", "zh": "浮現；出現", "emoji": "🌅", "abstract": true },
+    { "id": "trend", "en": "trend", "zh": "趨勢", "emoji": "📉", "abstract": true },
+    { "id": "frame", "en": "frame", "zh": "（燈的）骨架；框架", "emoji": "🦴", "abstract": true },
+    {
+      "id": "characteristic",
+      "en": "characteristic",
+      "zh": "特點；特色",
+      "emoji": "🧬",
+      "abstract": true
+    },
+    { "id": "soft", "en": "soft", "zh": "柔和的", "emoji": "🪶", "abstract": true },
+    {
+      "id": "attractive",
+      "en": "attractive",
+      "zh": "好看的；吸引人的",
+      "emoji": "💖",
+      "abstract": true
+    },
+    { "id": "widely", "en": "widely", "zh": "廣泛地；普遍地", "emoji": "🌎", "abstract": true },
+    {
+      "id": "affordable",
+      "en": "affordable",
+      "zh": "價格實惠的；買得起的",
+      "emoji": "💲",
+      "abstract": true
+    },
+    { "id": "perception", "en": "perception", "zh": "看法；印象", "emoji": "🤔", "abstract": true },
+    { "id": "gender", "en": "gender", "zh": "性別", "emoji": "⚧️", "abstract": true },
+    { "id": "famous", "en": "famous", "zh": "有名的", "emoji": "🌟", "abstract": true },
+    {
+      "id": "combination",
+      "en": "combination",
+      "zh": "結合；組合",
+      "emoji": "➕",
+      "abstract": true
+    },
+    { "id": "appearance", "en": "appearance", "zh": "外觀", "emoji": "🪞", "abstract": true },
+    {
+      "id": "capture",
+      "en": "capture",
+      "zh": "抓住；捕捉（特色）",
+      "emoji": "🫴",
+      "abstract": true
+    },
+    { "id": "enhance", "en": "enhance", "zh": "提升；增添", "emoji": "⬆️", "abstract": true },
+    {
+      "id": "distinguish",
+      "en": "distinguish",
+      "zh": "區分；讓…與眾不同（distinguish from）",
+      "emoji": "🆚",
+      "abstract": true
+    },
+    { "id": "originally", "en": "originally", "zh": "原本；最初", "emoji": "⏮️", "abstract": true },
+    { "id": "symbol", "en": "symbol", "zh": "象徵", "emoji": "🔣", "abstract": true },
+    { "id": "festival", "en": "festival", "zh": "節慶；（元宵）燈會", "emoji": "🏮" },
+    { "id": "slogan", "en": "slogan", "zh": "標語；口號", "emoji": "💬", "abstract": true },
+    { "id": "although", "en": "although", "zh": "雖然", "emoji": "↩️", "abstract": true },
+    { "id": "advertise", "en": "advertise", "zh": "打廣告；宣傳", "emoji": "📢", "abstract": true },
+    {
+      "id": "engage",
+      "en": "engage",
+      "zh": "吸引（人參與）；互動",
+      "emoji": "🙌",
+      "abstract": true
+    },
+    { "id": "mall", "en": "mall", "zh": "購物中心", "emoji": "🛍️", "abstract": true },
+    {
+      "id": "channel",
+      "en": "channel",
+      "zh": "管道；（影音）頻道",
+      "emoji": "📺",
+      "abstract": true
+    },
+    { "id": "everywhere", "en": "everywhere", "zh": "到處", "emoji": "🌐", "abstract": true },
+    { "id": "platform", "en": "platform", "zh": "平台", "emoji": "🧱", "abstract": true },
+    { "id": "nowadays", "en": "nowadays", "zh": "現在；如今", "emoji": "⏳", "abstract": true },
+    { "id": "sponsor", "en": "sponsor", "zh": "贊助", "emoji": "💰", "abstract": true },
+    { "id": "blog", "en": "blog", "zh": "部落格", "emoji": "✍️", "abstract": true },
+    { "id": "player", "en": "player", "zh": "（市場上的）業者", "emoji": "♟️", "abstract": true },
+    { "id": "beat", "en": "beat", "zh": "打敗；勝過", "emoji": "🥊", "abstract": true },
+    {
+      "id": "collection",
+      "en": "collection",
+      "zh": "（商品）系列；一批款式",
+      "emoji": "🗃️",
+      "abstract": true
+    },
+    { "id": "supermarket", "en": "supermarket", "zh": "超市", "emoji": "🥫" },
+    { "id": "chain", "en": "chain", "zh": "連鎖（店）", "emoji": "⛓️", "abstract": true },
+    { "id": "compete", "en": "compete", "zh": "競爭", "emoji": "🏁", "abstract": true },
+    { "id": "shopper", "en": "shopper", "zh": "購物者；逛街的人", "emoji": "🛒", "abstract": true },
+    { "id": "newly", "en": "newly", "zh": "剛；新近", "emoji": "🆕", "abstract": true },
+    { "id": "retailer", "en": "retailer", "zh": "零售商", "emoji": "🏪", "abstract": true },
+    {
+      "id": "discontinue",
+      "en": "discontinue",
+      "zh": "停產；停售",
+      "emoji": "⛔",
+      "abstract": true
+    },
+    { "id": "bulb", "en": "bulb", "zh": "燈泡", "emoji": "🔆" },
+    { "id": "spread", "en": "spread", "zh": "（消息）傳開", "emoji": "📡", "abstract": true },
+    { "id": "combine", "en": "combine", "zh": "結合；一起進行", "emoji": "🔗", "abstract": true },
+    {
+      "id": "commercial",
+      "en": "commercial",
+      "zh": "（電視或網路的）廣告片",
+      "emoji": "🎬",
+      "abstract": true
+    },
+    { "id": "distribute", "en": "distribute", "zh": "發放；分送", "emoji": "🤲", "abstract": true },
+    { "id": "exhibit", "en": "exhibit", "zh": "展覽；展示", "emoji": "🖼️", "abstract": true },
+    { "id": "buyer", "en": "buyer", "zh": "（店家的）採購", "emoji": "🧑‍💼", "abstract": true },
+    {
+      "id": "promotional",
+      "en": "promotional",
+      "zh": "促銷的；宣傳用的",
+      "emoji": "🏷️",
+      "abstract": true
+    },
+    { "id": "flyer", "en": "flyer", "zh": "傳單", "emoji": "📄", "abstract": true },
+    { "id": "subscribe", "en": "subscribe", "zh": "訂閱", "emoji": "🔕", "abstract": true },
+    { "id": "celebrity", "en": "celebrity", "zh": "名人；明星", "emoji": "🧑‍🎤" }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "和行銷顧問第一次開會",
+      "newChunkIds": ["lantern_series_intro", "campaigns_worked_on"],
+      "newWordIds": [
+        "campaign",
+        "various",
+        "primary",
+        "concept",
+        "explore",
+        "innovative",
+        "pitch",
+        "consultant",
+        "brainstorm"
+      ],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "This is Nina Ortiz, the marketing consultant I told you about.",
+          "zh": "這位是 Nina Ortiz，就是我跟你提過的行銷顧問。"
+        },
+        {
+          "id": "t1_2",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Nice to meet you! I'd love to hear the concept behind Lantern.",
+          "zh": "很高興認識你！我很想聽聽 Lantern 背後的構想。"
+        },
+        {
+          "id": "t1_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let me tell you a little about the Lantern series.",
+          "zh": "我先簡單介紹一下 Lantern 系列。",
+          "chunkId": "lantern_series_intro"
+        },
+        {
+          "id": "t1_4",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "That's really innovative. I can already hear a good pitch.",
+          "zh": "真的很有創意。我已經想得到一個好的推銷說法了。"
+        },
+        {
+          "id": "t1_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What kind of campaigns have you worked on before?",
+          "zh": "你之前做過哪些類型的行銷活動？",
+          "chunkId": "campaigns_worked_on"
+        },
+        {
+          "id": "t1_6",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Various kinds, mostly for small home and office brands.",
+          "zh": "各種都有，大多是做居家和辦公用品的小品牌。"
+        },
+        {
+          "id": "t1_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Our primary goal is simple: more stores selling Lantern.",
+          "zh": "我們的首要目標很簡單：讓更多店家賣 Lantern。"
+        },
+        {
+          "id": "t1_8",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Then let's explore a few ideas. Can we brainstorm next week?",
+          "zh": "那我們來研究幾個方向吧。下週可以一起腦力激盪嗎？"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "誰會買 Lantern",
+      "newChunkIds": ["mainly_thinking_of_home_workers", "office_workers_relate"],
+      "newWordIds": [
+        "relate",
+        "population",
+        "tend",
+        "generation",
+        "consumer",
+        "compact",
+        "mainly",
+        "convenience",
+        "household",
+        "everyday"
+      ],
+      "fills": [
+        {
+          "id": "mainly_fill",
+          "en": "We're ___ thinking of people who work from home.",
+          "zh": "我們主要鎖定在家工作的人。",
+          "options": ["mainly", "compact", "everyday", "various"],
+          "answer": 0,
+          "note": "「主要是」鎖定某些人：mainly。",
+          "chunkId": "mainly_thinking_of_home_workers"
+        },
+        {
+          "id": "design_ing_fill",
+          "en": "Most consumers find the compact design ___.",
+          "zh": "大部分的消費者覺得這個小巧的設計很有意思。",
+          "options": ["interesting", "interested", "interest", "interests"],
+          "answer": 0,
+          "note": "東西讓人覺得有趣，用 -ing：interesting。",
+          "grammar": true
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "So, who do you see buying these lamps in the end?",
+          "zh": "所以，你覺得最後買這些燈的會是誰？"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We're mainly thinking of people who work from home.",
+          "zh": "我們主要鎖定在家工作的人。",
+          "chunkId": "mainly_thinking_of_home_workers"
+        },
+        {
+          "id": "t2_3",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Makes sense. That population gets bigger every year.",
+          "zh": "有道理。這個族群每年都在變大。"
+        },
+        {
+          "id": "t2_4",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "And a lot of them tend to live in small apartments.",
+          "zh": "而且他們很多人往往住在小公寓裡。"
+        },
+        {
+          "id": "t2_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I think office workers will really relate to this design.",
+          "zh": "我覺得上班族看到這個設計會很有感。",
+          "chunkId": "office_workers_relate"
+        },
+        {
+          "id": "t2_6",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Agreed. It's compact, so it fits in any household.",
+          "zh": "同意。它很小巧，什麼樣的家都放得下。"
+        },
+        {
+          "id": "t2_7",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Convenience matters a lot to this generation of consumers.",
+          "zh": "對這個世代的消費者來說，方便很重要。"
+        },
+        {
+          "id": "t2_8",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Let's build our message around everyday life at home.",
+          "zh": "我們就把訊息圍繞在居家的日常生活上吧。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "設計問卷",
+      "newChunkIds": ["keep_questionnaire_short", "if_more_time_interview"],
+      "newWordIds": [
+        "research",
+        "influence",
+        "survey",
+        "appeal",
+        "reaction",
+        "respondent",
+        "questionnaire",
+        "subscriber",
+        "website",
+        "browse"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Before we write any message, we need to do some research.",
+          "zh": "在寫任何訊息之前，我們得先做點調查。"
+        },
+        {
+          "id": "t3_2",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Let's email a survey to your website's subscribers.",
+          "zh": "我們寄一份問卷給你們網站的訂閱者吧。",
+          "stage": { "act": "want", "item": "questionnaire" }
+        },
+        {
+          "id": "t3_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let's keep the questionnaire short so people actually finish it.",
+          "zh": "問卷不要太長，大家才會真的填完。",
+          "chunkId": "keep_questionnaire_short"
+        },
+        {
+          "id": "t3_4",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Good point. Ten questions, five minutes at most.",
+          "zh": "說得對。十題，最多五分鐘。"
+        },
+        {
+          "id": "t3_5",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "We'll ask what influences them most when they buy a lamp.",
+          "zh": "我們會問他們買燈的時候，最受什麼影響。"
+        },
+        {
+          "id": "t3_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "If we had more time, we'd interview people in person.",
+          "zh": "如果時間再多一點，我們就可以當面訪問大家了。",
+          "chunkId": "if_more_time_interview"
+        },
+        {
+          "id": "t3_7",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "I know. You can learn a lot from a real reaction.",
+          "zh": "我懂。從一個人當下的反應可以看出很多事。"
+        },
+        {
+          "id": "t3_8",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "But online, each respondent can answer whenever they like.",
+          "zh": "不過在線上，每個填答者想什麼時候填都可以。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀問卷結果",
+      "newChunkIds": ["results_show_price"],
+      "newWordIds": [
+        "movement",
+        "emerge",
+        "trend",
+        "frame",
+        "characteristic",
+        "soft",
+        "attractive",
+        "widely",
+        "affordable",
+        "perception",
+        "gender"
+      ],
+      "passages": [
+        {
+          "id": "survey_summary",
+          "kind": "email",
+          "title": "Lantern Survey: Summary of Results",
+          "lines": [
+            "Hi,",
+            "Here is a short summary of our survey.",
+            "We sent the questionnaire to 2,400 subscribers of the Harbor Trading website, and 612 people answered. Most of them browse the website at least once a month. Many of them work from home two or three days a week. Answers were similar across age and gender.",
+            "Three clear trends emerged.",
+            "First, price: 58 percent of respondents would pay $45 or less for a desk lamp, so the series has to be affordable.",
+            "Second, design: most respondents said their current lamp looks outdated. They want something compact and attractive for a small home office. They liked the soft light and the smooth movement of the arm, and the light frame was the most popular characteristic.",
+            "Third, \"Made in Taiwan\" is widely seen as a sign of good quality, so this perception can help us.",
+            "I think these results are good news for Lantern. Next step: we will use them to write the brand message.",
+            "Thanks, Nina"
+          ],
+          "questions": [
+            {
+              "en": "How much would most respondents pay for a desk lamp?",
+              "zh": "大部分填答者願意花多少錢買一盞檯燈？",
+              "options": ["$45 or less", "About $60", "Over $100"],
+              "answer": 0
+            },
+            {
+              "en": "Which characteristic was the most popular?",
+              "zh": "最受歡迎的特點是哪一個？",
+              "options": ["The dark color", "The light frame", "The large size"],
+              "answer": 1
+            },
+            {
+              "en": "How do people see \"Made in Taiwan\"?",
+              "zh": "大家怎麼看「台灣製造」？",
+              "options": ["As too expensive", "As outdated", "As a sign of good quality"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "The survey results are in. Here's my summary.",
+          "zh": "問卷結果出來了。這是我寫的摘要。"
+        },
+        {
+          "id": "t4_2",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Three clear trends emerged, and the first one surprised me.",
+          "zh": "有三個很明顯的趨勢，第一個讓我很意外。"
+        },
+        {
+          "id": "t4_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "The results show that price matters more than we thought.",
+          "zh": "結果顯示，價格比我們原本想的還重要。",
+          "chunkId": "results_show_price"
+        },
+        {
+          "id": "t4_4",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Right. The series has to be affordable, about $45 or less.",
+          "zh": "對。這個系列一定要價格實惠，大約 45 美元以下。"
+        },
+        {
+          "id": "t4_5",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "People also love the soft light and the light frame.",
+          "zh": "大家也很喜歡柔和的燈光和輕巧的燈架。"
+        },
+        {
+          "id": "t4_6",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "And \"Made in Taiwan\" is widely seen as good quality.",
+          "zh": "而且大家普遍覺得「台灣製造」代表品質好。"
+        },
+        {
+          "id": "t4_7",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "That perception can really help us.",
+          "zh": "這個印象對我們會很有幫助。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "品牌訊息和標語",
+      "newChunkIds": ["slogan_short_easy", "version_sounds_warmer"],
+      "newWordIds": [
+        "famous",
+        "combination",
+        "appearance",
+        "capture",
+        "enhance",
+        "distinguish",
+        "originally",
+        "symbol",
+        "festival",
+        "slogan"
+      ],
+      "responds": [
+        {
+          "id": "t5_r1",
+          "prompt": {
+            "role": "manager",
+            "en": "Have you seen Nina's new ideas yet?",
+            "zh": "你看過 Nina 的新點子了嗎？"
+          },
+          "responses": [
+            {
+              "en": "Yes, she sent them this morning.",
+              "zh": "看過了，她今天早上寄來的。"
+            },
+            {
+              "en": "I'll see you tomorrow.",
+              "zh": "明天見。"
+            },
+            {
+              "en": "She's new at the company.",
+              "zh": "她是公司的新人。"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "t5_r2",
+          "prompt": {
+            "role": "agency",
+            "en": "Should the logo be blue or orange?",
+            "zh": "標誌要用藍色還是橘色？"
+          },
+          "responses": [
+            {
+              "en": "Yes, it should.",
+              "zh": "對，應該要。"
+            },
+            {
+              "en": "Orange feels warmer.",
+              "zh": "橘色感覺比較溫暖。"
+            },
+            {
+              "en": "I'll send it by email.",
+              "zh": "我會用 email 寄過去。"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "t5_r3",
+          "prompt": {
+            "role": "manager",
+            "en": "When is our next meeting with the agency?",
+            "zh": "我們下次跟行銷公司開會是什麼時候？"
+          },
+          "responses": [
+            {
+              "en": "In the meeting room.",
+              "zh": "在會議室。"
+            },
+            {
+              "en": "We met last week.",
+              "zh": "我們上週見過了。"
+            },
+            {
+              "en": "On Thursday at ten.",
+              "zh": "星期四十點。"
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "id": "t5_r4",
+          "prompt": {
+            "role": "agency",
+            "en": "This message sounds a bit cold, doesn't it?",
+            "zh": "這段訊息聽起來有點冷冰冰的，對吧？"
+          },
+          "responses": [
+            {
+              "en": "I'll send you a message.",
+              "zh": "我會傳訊息給你。"
+            },
+            {
+              "en": "You're right. Let's change it.",
+              "zh": "你說得對，我們改一下吧。"
+            },
+            {
+              "en": "No, I don't have a cold.",
+              "zh": "沒有，我沒感冒。"
+            }
+          ],
+          "answer": 1
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Let's start with the name. Where did Lantern come from?",
+          "zh": "我們先從名字開始。Lantern 這個名字是怎麼來的？"
+        },
+        {
+          "id": "t5_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Originally, from Taiwan's famous Lantern Festival.",
+          "zh": "最早是來自台灣有名的元宵燈會。"
+        },
+        {
+          "id": "t5_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "There, a lantern is a symbol of family coming together.",
+          "zh": "在那裡，燈籠象徵一家人團圓。"
+        },
+        {
+          "id": "t5_4",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "I love that. And the appearance is a combination of old and new.",
+          "zh": "我很喜歡。而且它的外觀結合了傳統和現代。"
+        },
+        {
+          "id": "t5_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "The slogan should be short and easy to remember.",
+          "zh": "標語要短，而且好記。",
+          "chunkId": "slogan_short_easy"
+        },
+        {
+          "id": "t5_6",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "How about this one? \"Good light can enhance any room.\"",
+          "zh": "這句怎麼樣？「好的光能讓每個房間更好看。」"
+        },
+        {
+          "id": "t5_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can we try a version that sounds a little warmer?",
+          "zh": "可以換一個聽起來溫暖一點的版本試試看嗎？",
+          "chunkId": "version_sounds_warmer"
+        },
+        {
+          "id": "t5_8",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Sure. We need to capture that festival feeling.",
+          "zh": "好啊。我們要抓住那種燈會的感覺。"
+        },
+        {
+          "id": "t5_9",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Yes. Something that distinguishes us from other lamps.",
+          "zh": "對，要能讓我們和別的燈不一樣。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "廣告要放哪裡",
+      "newChunkIds": ["although_magazine_ads", "on_the_other_hand_videos"],
+      "newWordIds": [
+        "although",
+        "advertise",
+        "engage",
+        "mall",
+        "channel",
+        "everywhere",
+        "platform",
+        "nowadays",
+        "sponsor",
+        "blog"
+      ],
+      "cloze": [
+        { "lineId": "t6_1", "word": "advertise", "distractors": ["borrow", "repair"] },
+        { "lineId": "t6_7", "word": "channel", "distractors": ["kitchen", "receipt"] },
+        { "lineId": "t6_8", "word": "blog", "distractors": ["bridge", "bottle"] }
+      ],
+      "textFills": [
+        {
+          "id": "ad_plan_email",
+          "kind": "email",
+          "title": "Where to advertise",
+          "lines": [
+            "Hi,",
+            "Here are my thoughts on our ads. ___ magazine ads look nice, they're hard to measure.",
+            "Short videos, on the other hand, are cheap and easy to share. ___",
+            "We could also ___ a popular blog about working from home.",
+            "Thanks, Nina"
+          ],
+          "zh": [
+            "嗨：",
+            "這是我對廣告的想法。雖然雜誌廣告看起來很漂亮，但效果很難評估。",
+            "另一方面，短影片便宜，又很容易分享。現在大家到處都用手機看影片。",
+            "我們也可以贊助一個寫居家辦公、很受歡迎的部落格。",
+            "謝謝，Nina"
+          ],
+          "blanks": [
+            {
+              "options": ["Although", "Because", "So", "But"],
+              "answer": 0,
+              "note": "前後意思相反，後半句沒有 but，用 although。"
+            },
+            {
+              "options": [
+                "Nowadays, people watch them everywhere on their phones.",
+                "The magazine comes out every month.",
+                "Our office closes at six.",
+                "I bought a new desk last week."
+              ],
+              "answer": 0,
+              "note": "接著說短影片的好處：大家到處都在看。"
+            },
+            {
+              "options": ["sponsor", "borrow", "repair", "deliver"],
+              "answer": 0,
+              "note": "花錢支持一個部落格：sponsor（贊助）。"
+            }
+          ]
+        }
+      ],
+      "responds": [
+        {
+          "id": "t6_r1",
+          "prompt": {
+            "role": "agency",
+            "en": "Should we try a blog too?",
+            "zh": "我們也要試試部落格嗎？"
+          },
+          "responses": [
+            {
+              "en": "Sure, if it doesn't cost too much.",
+              "zh": "好啊，如果不會太貴的話。"
+            },
+            {
+              "en": "I wrote it last week.",
+              "zh": "我上週寫的。"
+            },
+            {
+              "en": "It's on the second floor.",
+              "zh": "在二樓。"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "t6_r2",
+          "prompt": {
+            "role": "agency",
+            "en": "Where do most people watch videos nowadays?",
+            "zh": "現在大部分的人都在哪裡看影片？"
+          },
+          "responses": [
+            {
+              "en": "Since last year.",
+              "zh": "從去年開始。"
+            },
+            {
+              "en": "Mostly on their phones.",
+              "zh": "大多是在手機上。"
+            },
+            {
+              "en": "Yes, they watched it.",
+              "zh": "對，他們看過了。"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "t6_r3",
+          "prompt": {
+            "role": "agency",
+            "en": "How much does a magazine ad cost?",
+            "zh": "一則雜誌廣告要多少錢？"
+          },
+          "responses": [
+            {
+              "en": "It looks very nice.",
+              "zh": "看起來很漂亮。"
+            },
+            {
+              "en": "Every month, I think.",
+              "zh": "我想是每個月。"
+            },
+            {
+              "en": "About four thousand dollars.",
+              "zh": "大約四千美元。"
+            }
+          ],
+          "answer": 2
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Now, where should we advertise? The budget isn't big.",
+          "zh": "接下來，廣告要放哪裡？預算不算多。"
+        },
+        {
+          "id": "t6_2",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "A full page in a home magazine costs about $4,000.",
+          "zh": "居家雜誌的一整頁大約要 4,000 美元。"
+        },
+        {
+          "id": "t6_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Although magazine ads look nice, they're hard to measure.",
+          "zh": "雖然雜誌廣告看起來很漂亮，但效果很難評估。",
+          "chunkId": "although_magazine_ads"
+        },
+        {
+          "id": "t6_4",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "True. We can't tell how many people really read it.",
+          "zh": "沒錯。我們沒辦法知道到底有多少人真的看了。"
+        },
+        {
+          "id": "t6_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "On the other hand, short videos are cheap and easy to share.",
+          "zh": "另一方面，短影片便宜，又很容易分享出去。",
+          "chunkId": "on_the_other_hand_videos"
+        },
+        {
+          "id": "t6_6",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Exactly. Nowadays, people watch videos everywhere, even at the mall.",
+          "zh": "就是說啊。現在大家到處都在看影片，連在購物中心也是。"
+        },
+        {
+          "id": "t6_7",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "We could start a channel on a big video platform.",
+          "zh": "我們可以在大的影音平台上開一個頻道。"
+        },
+        {
+          "id": "t6_8",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Or sponsor a blog about working from home. The people who read it are very engaged.",
+          "zh": "或是贊助一個寫居家辦公的部落格。看那種部落格的人都很投入。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "競爭對手出招",
+      "newChunkIds": ["compete_on_design"],
+      "newWordIds": [
+        "player",
+        "beat",
+        "collection",
+        "supermarket",
+        "chain",
+        "compete",
+        "shopper",
+        "newly",
+        "retailer",
+        "discontinue",
+        "bulb"
+      ],
+      "talks": [
+        {
+          "id": "nina_voicemail",
+          "kind": "monologue",
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "agency",
+              "en": "Hi, it's Nina. I just saw some news you need to hear.",
+              "zh": "嗨，我是 Nina。我剛看到一則消息，你一定要知道。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "agency",
+              "en": "One of the biggest supermarket chains in the country has newly started selling its own collection of desk lamps.",
+              "zh": "全國最大的連鎖超市之一，剛開始賣自己的一系列檯燈。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "agency",
+              "en": "They all cost under $20, and they're already in stores.",
+              "zh": "每一款都不到 20 美元，而且已經在店裡上架了。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "agency",
+              "en": "They're a big player, so we'll compete for the same shoppers.",
+              "zh": "他們是大業者，所以我們會搶同一群顧客。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "agency",
+              "en": "The good news is that their lamps still use old bulbs and look a bit outdated.",
+              "zh": "好消息是，他們的燈還在用舊式燈泡，看起來也有點過時。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "agency",
+              "en": "And they've discontinued their only modern model.",
+              "zh": "而且他們唯一一款現代風的燈已經停產了。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "agency",
+              "en": "Several retailers told me they want something better for their shelves.",
+              "zh": "好幾家零售商跟我說，他們的貨架上想放更好的東西。"
+            },
+            {
+              "id": "t7_talk_8",
+              "role": "agency",
+              "en": "I have a few ideas for our brand message, but I'd like to hear yours first.",
+              "zh": "品牌訊息我有一些想法，不過想先聽聽你的。"
+            },
+            {
+              "id": "t7_talk_9",
+              "role": "agency",
+              "en": "Call me back before Thursday, and let's talk it over.",
+              "zh": "星期四之前回電給我，我們好好討論一下。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "Why did Nina call?",
+              "zh": "Nina 為什麼打電話來？",
+              "options": [
+                "A big chain is selling cheap desk lamps.",
+                "The survey results are late.",
+                "She can't come to the meeting."
+              ],
+              "answer": 0
+            },
+            {
+              "en": "What is wrong with the chain's lamps?",
+              "zh": "那家連鎖店的燈有什麼弱點？",
+              "options": ["They are too expensive.", "They look outdated.", "They are too big."],
+              "answer": 1
+            },
+            {
+              "en": "What does Nina ask the listener to do?",
+              "zh": "Nina 請聽留言的人做什麼？",
+              "options": [
+                "Visit the supermarket",
+                "Send her the slogan",
+                "Call her back before Thursday"
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Thanks for calling back. Did you get my message?",
+          "zh": "謝謝你回電。你有聽到我的留言嗎？"
+        },
+        {
+          "id": "t7_2",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "That supermarket chain is a big player. Their lamps are under $20!",
+          "zh": "那家連鎖超市是大業者。他們的燈不到 20 美元！"
+        },
+        {
+          "id": "t7_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We can't beat them on price, so let's compete on design.",
+          "zh": "價格我們拚不過他們，那就用設計來競爭吧。",
+          "chunkId": "compete_on_design"
+        },
+        {
+          "id": "t7_4",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "That's what I was thinking. Their lamps still use old bulbs.",
+          "zh": "我也是這麼想。他們的燈還在用舊式燈泡。"
+        },
+        {
+          "id": "t7_5",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "And the retailers I talked to want something better.",
+          "zh": "而且我聊過的零售商都想要更好的東西。"
+        },
+        {
+          "id": "t7_6",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Let's show them how good Lantern looks up close.",
+          "zh": "我們就讓他們近距離看看 Lantern 有多好看。"
+        },
+        {
+          "id": "t7_7",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Let's talk more on Thursday. I'll bring some ideas.",
+          "zh": "我們星期四再多聊聊。我會帶一些想法過去。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "決定上市日期",
+      "newChunkIds": ["launch_early_may", "flyers_before_trade_show"],
+      "newWordIds": [
+        "spread",
+        "combine",
+        "commercial",
+        "distribute",
+        "exhibit",
+        "buyer",
+        "promotional",
+        "flyer",
+        "subscribe",
+        "celebrity"
+      ],
+      "spellWordIds": ["accountant", "spreadsheet", "calculator", "currency", "utility"],
+      "cloze": [
+        { "lineId": "t8_3", "word": "exhibit", "distractors": ["borrow", "repair"] },
+        { "lineId": "t8_7", "word": "celebrity", "distractors": ["ladder", "receipt"] },
+        { "lineId": "t8_9", "word": "spreads", "distractors": ["sleeps", "cooks"] }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "The first lamps from Brightway arrive in late April.",
+          "zh": "Brightway 的第一批燈四月底會到。"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How about launching the series in early May?",
+          "zh": "Lantern 系列五月初上市，您覺得怎麼樣？",
+          "chunkId": "launch_early_may"
+        },
+        {
+          "id": "t8_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. We'll exhibit at the trade show the week before.",
+          "zh": "好。我們前一週會在商展上展出。"
+        },
+        {
+          "id": "t8_4",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Then let's combine the show and the launch into one campaign.",
+          "zh": "那我們就把商展和上市結合成一整個宣傳活動。"
+        },
+        {
+          "id": "t8_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could we have the flyers ready before the trade show?",
+          "zh": "商展之前可以先把傳單準備好嗎？",
+          "chunkId": "flyers_before_trade_show"
+        },
+        {
+          "id": "t8_6",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Sure. I'll make promotional flyers to distribute to store buyers.",
+          "zh": "沒問題。我會做宣傳傳單，發給店家的採購。"
+        },
+        {
+          "id": "t8_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And the commercial? We can't afford a celebrity, you know.",
+          "zh": "那廣告片呢？你也知道，我們請不起名人。"
+        },
+        {
+          "id": "t8_8",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "We don't need one. Real home workers are better.",
+          "zh": "不需要。找真的在家工作的人反而更好。"
+        },
+        {
+          "id": "t8_9",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "And we'll email everyone who subscribes. Word spreads fast.",
+          "zh": "我們也會寄信給所有訂閱的人。消息傳得很快的。"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Mr. Ellis wants to hear our whole plan on Friday.",
+          "zh": "Ellis 先生星期五要聽我們整個計畫。"
+        },
+        {
+          "id": "t9_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Let's practice. Talk to me like I'm Mr. Ellis.",
+          "zh": "我們來練習一下。就把我當成 Ellis 先生。"
+        },
+        {
+          "id": "t9_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let me tell you a little about the Lantern series.",
+          "zh": "我先簡單介紹一下 Lantern 系列。",
+          "chunkId": "lantern_series_intro"
+        },
+        {
+          "id": "t9_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good start. So who are we really selling to?",
+          "zh": "開頭不錯。那我們真正要賣給誰？"
+        },
+        {
+          "id": "t9_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We're mainly thinking of people who work from home.",
+          "zh": "我們主要鎖定在家工作的人。",
+          "chunkId": "mainly_thinking_of_home_workers"
+        },
+        {
+          "id": "t9_6",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "And small households. The compact size really appeals to them.",
+          "zh": "還有小家庭。小巧的尺寸對他們特別有吸引力。"
+        },
+        {
+          "id": "t9_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Did you talk to any of them face to face?",
+          "zh": "你們有當面跟這些人談過嗎？"
+        },
+        {
+          "id": "t9_8",
+          "role": "guide",
+          "speaker": "player",
+          "en": "If we had more time, we'd interview people in person.",
+          "zh": "如果時間再多一點，我們就可以當面訪問大家了。",
+          "chunkId": "if_more_time_interview"
+        },
+        {
+          "id": "t9_9",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "But 612 people answered our survey online.",
+          "zh": "不過有 612 個人在線上填了我們的問卷。"
+        },
+        {
+          "id": "t9_10",
+          "role": "guide",
+          "speaker": "player",
+          "en": "The results show that price matters more than we thought.",
+          "zh": "結果顯示，價格比我們原本想的還重要。",
+          "chunkId": "results_show_price"
+        },
+        {
+          "id": "t9_11",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "That's useful. And what about the slogan?",
+          "zh": "這很有用。那標語呢？"
+        },
+        {
+          "id": "t9_12",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Here's my latest: \"Lantern. Light for the way you work.\"",
+          "zh": "這是我最新的版本：「Lantern，為你的工作方式而亮。」"
+        },
+        {
+          "id": "t9_13",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can we try a version that sounds a little warmer?",
+          "zh": "可以換一個聽起來溫暖一點的版本試試看嗎？",
+          "chunkId": "version_sounds_warmer"
+        },
+        {
+          "id": "t9_14",
+          "role": "agency",
+          "speaker": "npc",
+          "en": "Fair enough. How about \"Lantern. A warm light for every home.\"",
+          "zh": "也對。那「Lantern，給每個家一盞溫暖的燈」怎麼樣？"
+        },
+        {
+          "id": "t9_15",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Much better. Now, Mr. Ellis loves magazine ads.",
+          "zh": "好多了。對了，Ellis 先生很喜歡雜誌廣告。"
+        },
+        {
+          "id": "t9_16",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Although magazine ads look nice, they're hard to measure.",
+          "zh": "雖然雜誌廣告看起來很漂亮，但效果很難評估。",
+          "chunkId": "although_magazine_ads"
+        },
+        {
+          "id": "t9_17",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Fine. And that supermarket chain with the $20 lamps?",
+          "zh": "好吧。那家賣 20 美元檯燈的連鎖超市呢？"
+        },
+        {
+          "id": "t9_18",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We can't beat them on price, so let's compete on design.",
+          "zh": "價格我們拚不過他們，那就用設計來競爭吧。",
+          "chunkId": "compete_on_design"
+        },
+        {
+          "id": "t9_19",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Agreed. Last question: when do we launch?",
+          "zh": "同意。最後一個問題：什麼時候上市？"
+        },
+        {
+          "id": "t9_20",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How about launching the series in early May?",
+          "zh": "Lantern 系列五月初上市，您覺得怎麼樣？",
+          "chunkId": "launch_early_may"
+        },
+        {
+          "id": "t9_21",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Right after the trade show. Perfect. He'll like this plan.",
+          "zh": "就在商展之後，很好。他會喜歡這個計畫的。"
+        }
+      ]
+    }
+  ]
+}
