@@ -1,26 +1,98 @@
-/* 看圖選句聲音選項 (ListenPicture.tsx), minimal: one row per letter, a ♪ key and a pick key. */
-.lp-options {
+/*
+ * 看圖聽句 (ListenPicture.tsx): the picture, a status line, then four letter keys two by two,
+ * each with its own small ♪ key on its right. After answering the keys stack one per row
+ * with the sentence, its Chinese and the ○ / × mark, ♪ and 慢速 side by side on its right.
+ */
+.lp-status {
+  margin: 0;
+  min-height: 1.3em;
+  text-align: center;
+  color: var(--ink);
+}
+
+.lp-keys {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(3 * var(--px)) calc(4 * var(--px));
+}
+
+.listen-picture.answered .lp-keys {
+  grid-template-columns: 1fr;
+}
+
+.lp-cell {
+  display: flex;
+  align-items: stretch;
+  gap: calc(2 * var(--px));
+  min-width: 0;
+}
+
+.pixel-button.lp-pick {
+  flex: 1;
+  min-width: 0;
+  justify-content: center;
+  padding-left: calc(10 * var(--px));
+  padding-right: calc(10 * var(--px));
+}
+
+/* Room for ▶ at the left edge, so the letter does not move when its key lights. */
+.lp-mark {
+  position: absolute;
+  left: calc(4 * var(--px));
+}
+
+/* Lit while its sentence plays: ink with paper text, like the speaking tab of a talk. */
+.listen-picture .pixel-button.lp-pick.on,
+.listen-picture
+  .pixel-button.lp-pick.on:hover:not(:disabled):not(.primary):not([aria-checked='true']),
+.listen-picture
+  .pixel-button.lp-pick.on:focus-visible:not(:disabled):not(.primary):not([aria-checked='true']) {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.lp-plays {
   display: flex;
   flex-direction: column;
-  gap: calc(3 * var(--px));
-  width: 100%;
+  flex: none;
+  gap: calc(2 * var(--px));
 }
 
-.lp-row {
-  display: flex;
-  gap: calc(3 * var(--px));
-  align-items: stretch;
+.pixel-button.lp-play {
+  flex: 1;
+  min-width: var(--tap);
+  min-height: var(--tap);
 }
 
-.lp-play {
+/* Answered: the letter, then the sentence and its Chinese, left aligned. */
+.listen-picture.answered .pixel-button.lp-pick {
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: calc(5 * var(--px));
+  padding-left: calc(5 * var(--px));
+  padding-right: calc(4 * var(--px));
+}
+
+.listen-picture.answered .lp-letter {
   flex: none;
 }
 
-.lp-play.on {
-  outline: var(--px) solid var(--ink);
+.listen-picture.answered .mg-say {
+  flex: 1;
+  min-width: 0;
 }
 
-.lp-pick {
-  flex: 1;
-  text-align: left;
+/* Every sentence stays readable once answered, not only the marked ones. */
+.listen-picture .pixel-button.lp-pick:disabled {
+  color: var(--ink);
+}
+
+.listen-picture.answered .pixel-button.lp-play {
+  flex: none;
+}
+
+/* ♪ and 慢速 side by side: stacked they would make every answered row two keys tall. */
+.listen-picture.answered .lp-plays {
+  flex-direction: row;
+  align-items: flex-start;
 }
