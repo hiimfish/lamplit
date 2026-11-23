@@ -103,7 +103,10 @@
   text-shadow: none;
 }
 
-/* 今日複習 and 繼續 side by side (or 回第一幕 alone): big keys for the thumb. */
+/*
+ * 今日複習 and 繼續 side by side (or 回第一幕 alone): big keys for the thumb.
+ * They sit in the card on both layouts (the right column in landscape).
+ */
 .town-actions {
   flex: none;
   display: grid;
@@ -119,19 +122,9 @@
   padding-left: calc(4 * var(--px));
 }
 
-/* Landscape: the keys sit under the name plate, on paper. */
-.town-top .town-actions {
-  flex: 1;
-  min-height: 0;
-  align-items: center;
-  padding: calc(2 * var(--px)) calc(2 * var(--px)) 0 calc(4 * var(--px));
-  background: var(--paper);
-}
-
 :root[data-orientation='landscape'] .town-top {
   border-right: var(--px) solid var(--ink);
 }
-
 /* 回第一幕: a left-pointing ink triangle drawn in CSS (the font has no arrow key glyphs). */
 .back-key::before {
   content: '';

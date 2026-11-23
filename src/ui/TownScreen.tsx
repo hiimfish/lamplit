@@ -9,7 +9,6 @@ import { appStore, currentNow } from '../core/appState';
 import { currentStreak, type SaveData } from '../core/save';
 import { devUnlockAll, settingsStore } from '../core/settings';
 import { useStore } from '../core/store';
-import type { Layout } from '../layout';
 import { buildDailyReview, isTaskUnlocked, taskKey } from '../learning/sessionPlan';
 import {
   actUnits,
@@ -33,16 +32,8 @@ const TOWN: TownAct<Unit>[] = buildTown(ACTS, UNITS);
 
 /** Height of the name plate under the scene, in logical pixels (two lines of text). */
 const PLATE_H = 32;
-/** Around the keys under the plate in landscape: the row's padding and the keys' shadow. */
-const ACTION_ROW_PAD = 6;
 /** The scene shows who is there, with nothing handed over yet. */
 const STILL: StageView = { speaker: undefined, bubble: undefined, props: [] };
-
-/** Landscape keeps a row of keys under the name plate; this is its height in logical pixels. */
-function actionRowH(layout: Layout): number {
-  if (layout.orientation !== 'landscape') return 0;
-  return Math.max(22, Math.ceil(44 / layout.px)) + ACTION_ROW_PAD;
-}
 
 const lp = (n: number): string => `calc(${n} * var(--px))`;
 
@@ -235,7 +226,7 @@ export function TownScreen() {
 
   // The scene column in landscape: the panel starts where it ends (see .flow.has-stage).
   const landscape = layout.orientation === 'landscape';
-  const area = stageArea(layout, PLATE_H + actionRowH(layout));
+  const area = stageArea(layout, PLATE_H);
   const frame = typeof document === 'undefined' ? null : document.getElementById('frame');
   useEffect(() => {
     if (!frame || !landscape) return;
@@ -334,7 +325,6 @@ export function TownScreen() {
         </div>
       </div>
       <NamePlate act={act} place={place} next={next} save={save} />
-      {landscape && actions}
     </div>
   );
 
@@ -347,7 +337,7 @@ export function TownScreen() {
         </h1>
         {place ? (
           <>
-            {!landscape && actions}
+            {actions}
             <TaskList unit={place} save={save} openAll={openAll} onStart={startTask} />
           </>
         ) : (
@@ -368,7 +358,7 @@ export function TownScreen() {
                 </button>
               ))}
             </div>
-            {!landscape && actions}
+            {actions}
             {openAll && (
               <p class="flow-note" data-testid="dev-note">
                 開發模式：所有關卡都開放（在設定裡關掉）。
