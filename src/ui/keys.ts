@@ -22,7 +22,15 @@ export type KeyHandler = (e: KeyboardEvent) => void;
 /** Key names as keyName() gives them: '1', 'a', 'Enter', 'Space', 'Shift+Space', 'Backspace', ... */
 export type KeyMap = Partial<Record<string, KeyHandler>>;
 
-const NAMED = new Set(['Enter', 'Backspace', 'Escape', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown']);
+const NAMED = new Set([
+  'Enter',
+  'Backspace',
+  'Escape',
+  'ArrowLeft',
+  'ArrowRight',
+  'ArrowUp',
+  'ArrowDown',
+]);
 
 /** The scheme's name for a key press, or null for a key the game never uses. */
 export function keyName(e: Pick<KeyboardEvent, 'key' | 'shiftKey'>): string | null {
@@ -41,12 +49,16 @@ function targetOf(e: Event): Element | null {
 /** True when the game should leave this key alone: a held modifier, a field, a dialog or an IME. */
 export function ignoreKey(e: KeyboardEvent): boolean {
   if (e.ctrlKey || e.metaKey || e.altKey || e.isComposing) return true;
-  return !!targetOf(e)?.closest('[role="dialog"], input, textarea, select, [contenteditable="true"]');
+  return !!targetOf(e)?.closest(
+    '[role="dialog"], input, textarea, select, [contenteditable="true"]',
+  );
 }
 
 /** True when Enter or Space should reach the focused control instead of the screen. */
 function controlHasFocus(e: KeyboardEvent): boolean {
-  return !!targetOf(e)?.closest('button, a[href], [role="button"], [role="tab"], [role="radio"], summary');
+  return !!targetOf(e)?.closest(
+    'button, a[href], [role="button"], [role="tab"], [role="radio"], summary',
+  );
 }
 
 /** The number key's answer index (1 = the first key shown), or null. */
@@ -75,7 +87,8 @@ export function handleKey(e: KeyboardEvent): void {
   if (e.defaultPrevented || ignoreKey(e)) return;
   const name = keyName(e);
   if (!name) return;
-  if ((name === 'Enter' || name === 'Space' || name === 'Shift+Space') && controlHasFocus(e)) return;
+  if ((name === 'Enter' || name === 'Space' || name === 'Shift+Space') && controlHasFocus(e))
+    return;
   for (let i = layers.length - 1; i >= 0; i--) {
     const handler = layers[i]!.map()[name];
     if (!handler) continue;
