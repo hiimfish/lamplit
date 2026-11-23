@@ -1,0 +1,1722 @@
+{
+  "id": "legal",
+  "title": "合約與法務",
+  "titleEn": "Contracts and Legal",
+  "chunks": [
+    {
+      "id": "sell_lantern_in_your_stores",
+      "en": "So you'd like to sell the Lantern series in your stores?",
+      "zh": "所以您是想在您的門市賣 Lantern 系列？",
+      "note": "把對方的提議用自己的話再說一次，確認聽懂了。So 開頭表示「所以說……」。",
+      "distractors": [
+        { "text": "So you'd like to sell the Lantern series in your store?", "error": "plural" },
+        {
+          "text": "So you'd like sell the Lantern series in your stores?",
+          "error": "missing-word"
+        },
+        { "text": "So you'd like to sell the Lantern serie in your stores?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "proceed_on_that_basis",
+      "en": "We'd be happy to move forward on that basis.",
+      "zh": "照這個條件，我們很樂意往下談。",
+      "accept": ["We would be happy to move forward on that basis."],
+      "note": "答應照對方說的條件往下談。on that basis 是「照這個條件」。",
+      "distractors": [
+        { "text": "We'd be happy to move forward in that basis.", "error": "other" },
+        { "text": "We'd be happy move forward on that basis.", "error": "missing-word" },
+        { "text": "We'd be happy to move forward on that basic.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "contract_run_two_years",
+      "en": "I think the first contract should run for two years.",
+      "zh": "我覺得第一份合約先簽兩年就好。",
+      "note": "說合約的期限。合約「跑」多久用 run for + 時間。",
+      "distractors": [
+        { "text": "I think the first contract should run for two year.", "error": "plural" },
+        { "text": "I think the first contract should runs for two years.", "error": "other" },
+        { "text": "I think first contract should run for two years.", "error": "article" }
+      ]
+    },
+    {
+      "id": "exclusive_right_in_uk",
+      "en": "Mr. Hughes would get the exclusive right to sell in the UK.",
+      "zh": "Hughes 先生會拿到英國的獨家銷售權。",
+      "note": "說明對方拿到什麼權利。exclusive right 是只有他能做的「獨家權利」。",
+      "distractors": [
+        { "text": "Mr. Hughes would get the exclusive right to sell on the UK.", "error": "other" },
+        { "text": "Mr. Hughes would get the exclusive right to sell in UK.", "error": "article" },
+        { "text": "Mr. Hughes would gets the exclusive right to sell in the UK.", "error": "other" }
+      ]
+    },
+    {
+      "id": "clause_approved_by_ellis",
+      "en": "Does this clause have to be approved by Mr. Ellis?",
+      "zh": "這一條需要 Ellis 先生核准嗎？",
+      "note": "義務的被動：have to be + 過去分詞，表示「一定要被……」。",
+      "distractors": [
+        { "text": "Does this clause have to approved by Mr. Ellis?", "error": "missing-word" },
+        { "text": "Does this clause has to be approved by Mr. Ellis?", "error": "other" },
+        { "text": "Does this clause have to be approve by Mr. Ellis?", "error": "other" }
+      ]
+    },
+    {
+      "id": "make_sure_i_understand_tested",
+      "en": "Just to make sure I understand, every lamp must be tested first?",
+      "zh": "我確認一下我有沒有聽懂：每一盞燈都一定要先經過測試？",
+      "note": "義務的被動：must be + 過去分詞，表示「一定要被……」。",
+      "distractors": [
+        {
+          "text": "Just to make sure I understand, every lamps must be tested first?",
+          "error": "plural"
+        },
+        {
+          "text": "Just to make sure I understand, every lamp must tested first?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Just to make sure I understand, every lamp must be test first?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "read_through_draft_tonight",
+      "en": "I'll read through the draft tonight and send you my notes.",
+      "zh": "我今晚會把草案從頭看一遍，再把我的意見寄給您。",
+      "note": "答應仔細看文件、再回覆意見。read through 是「從頭到尾看一遍」。",
+      "distractors": [
+        { "text": "I'll read through the draft tonight and send you my note.", "error": "plural" },
+        {
+          "text": "I'll read though the draft tonight and send you my notes.",
+          "error": "spelling"
+        },
+        { "text": "I'll read through draft tonight and send you my notes.", "error": "article" }
+      ]
+    },
+    {
+      "id": "afraid_five_years_too_long",
+      "en": "I'm afraid five years is too long for us.",
+      "zh": "不好意思，五年對我們來說太長了。",
+      "note": "客氣地拒絕對方的條件。I'm afraid 讓壞消息聽起來比較軟。",
+      "distractors": [
+        { "text": "I'm afraid five years are too long for us.", "error": "other" },
+        { "text": "I'm afraid five year is too long for us.", "error": "plural" },
+        { "text": "I'm afraid five years is too long to us.", "error": "other" }
+      ]
+    },
+    {
+      "id": "short_break_come_back",
+      "en": "Could we take a short break and come back to this?",
+      "zh": "我們可以先休息一下，等一下再回來談這個嗎？",
+      "note": "談不下去時，先提議休息一下。come back to this 是「等一下再回來談」。",
+      "distractors": [
+        { "text": "Could we take short break and come back to this?", "error": "article" },
+        { "text": "Could we take a short break and come back this?", "error": "missing-word" },
+        { "text": "Could we take a short brake and come back to this?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "despite_differences_compromise",
+      "en": "Despite our differences, I'm sure we can find a compromise.",
+      "zh": "雖然我們想法不太一樣，我相信一定找得到雙方都能接受的做法。",
+      "note": "despite 後面接名詞，不接句子：despite our differences。",
+      "distractors": [
+        {
+          "text": "Despite of our differences, I'm sure we can find a compromise.",
+          "error": "extra-word"
+        },
+        { "text": "Despite our difference, I'm sure we can find a compromise.", "error": "plural" },
+        { "text": "Despite our differences, I'm sure we can find compromise.", "error": "article" }
+      ]
+    },
+    {
+      "id": "lower_price_bigger_order",
+      "en": "What if we lowered the price in exchange for a bigger order?",
+      "zh": "如果我們價格降一點，換您多訂一些，您覺得怎麼樣？",
+      "note": "談判時提出交換條件。What if 後面用過去式，語氣比較委婉。",
+      "distractors": [
+        { "text": "What if we lowered the price in exchange of a bigger order?", "error": "other" },
+        { "text": "What if we lowered price in exchange for a bigger order?", "error": "article" },
+        {
+          "text": "What if we lowered the price in exchange for a bigger orders?",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "look_at_changes_call_back",
+      "en": "I'll look at the changes and call him back.",
+      "zh": "我先看一下改了哪些地方，再回他電話。",
+      "note": "聽完留言後說接下來要做的事。call him back 是「回他電話」。",
+      "distractors": [
+        { "text": "I'll look the changes and call him back.", "error": "missing-word" },
+        { "text": "I'll look at the change and call him back.", "error": "plural" },
+        { "text": "I'll look at the changes and call back him.", "error": "word-order" }
+      ]
+    },
+    {
+      "id": "sign_every_page",
+      "en": "Should I sign every page or just the last one?",
+      "zh": "我是每一頁都要簽，還是只簽最後一頁？",
+      "note": "簽文件前問清楚要簽哪裡。every 後面接單數名詞 page。",
+      "distractors": [
+        { "text": "Should I sign every pages or just the last one?", "error": "plural" },
+        { "text": "Should I sign every page or just last one?", "error": "article" },
+        { "text": "Should I to sign every page or just the last one?", "error": "extra-word" }
+      ]
+    },
+    {
+      "id": "glad_we_made_this_work",
+      "en": "I'm so glad we were able to make this work.",
+      "zh": "真的很高興我們最後談成了。",
+      "note": "事情談成時說的話。were able to 是「最後做到了」。",
+      "distractors": [
+        { "text": "I'm so glad we were able to make this works.", "error": "other" },
+        { "text": "I'm so glad we were able make this work.", "error": "missing-word" },
+        { "text": "I'm so glad we was able to make this work.", "error": "other" }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "propose", "en": "propose", "zh": "提議", "emoji": "💬", "abstract": true },
+    { "id": "owner", "en": "owner", "zh": "老闆；擁有者", "emoji": "👤", "abstract": true },
+    {
+      "id": "specifically",
+      "en": "specifically",
+      "zh": "具體來說；特別是",
+      "emoji": "🎯",
+      "abstract": true
+    },
+    {
+      "id": "basis",
+      "en": "basis",
+      "zh": "基礎；根據（on that basis 照這個條件）",
+      "emoji": "🧱",
+      "abstract": true
+    },
+    { "id": "contract", "en": "contract", "zh": "合約", "emoji": "🖋️" },
+    { "id": "legal", "en": "legal", "zh": "法律上的；合法的", "emoji": "📘", "abstract": true },
+    { "id": "law", "en": "law", "zh": "法律", "emoji": "📕", "abstract": true },
+    { "id": "intention", "en": "intention", "zh": "打算；意圖", "emoji": "💭", "abstract": true },
+    { "id": "lawyer", "en": "lawyer", "zh": "律師", "emoji": "💼", "abstract": true },
+    {
+      "id": "distribution",
+      "en": "distribution",
+      "zh": "經銷；配銷（distribution agreement 經銷合約）",
+      "emoji": "📦",
+      "abstract": true
+    },
+    {
+      "id": "length",
+      "en": "length",
+      "zh": "（時間的）長度；期限",
+      "emoji": "📏",
+      "abstract": true
+    },
+    { "id": "renewal", "en": "renewal", "zh": "續約；更新", "emoji": "🔁", "abstract": true },
+    {
+      "id": "principle",
+      "en": "principle",
+      "zh": "原則（in principle 原則上）",
+      "emoji": "🧭",
+      "abstract": true
+    },
+    { "id": "exclude", "en": "exclude", "zh": "不包括；排除", "emoji": "➖", "abstract": true },
+    { "id": "framework", "en": "framework", "zh": "架構；大方向", "emoji": "🧩", "abstract": true },
+    { "id": "impose", "en": "impose", "zh": "加上（限制、規定）", "emoji": "⬇️", "abstract": true },
+    { "id": "entirely", "en": "entirely", "zh": "完全地", "emoji": "💯", "abstract": true },
+    {
+      "id": "specify",
+      "en": "specify",
+      "zh": "明確寫出；具體說明",
+      "emoji": "📌",
+      "abstract": true
+    },
+    {
+      "id": "exclusive",
+      "en": "exclusive",
+      "zh": "獨家的；專屬的",
+      "emoji": "🥇",
+      "abstract": true
+    },
+    {
+      "id": "license",
+      "en": "license",
+      "zh": "授權；許可（使用商標的授權）",
+      "emoji": "🪧",
+      "abstract": true
+    },
+    { "id": "clause", "en": "clause", "zh": "（合約的）條款", "emoji": "📃", "abstract": true },
+    { "id": "obligation", "en": "obligation", "zh": "義務；責任", "emoji": "☑️", "abstract": true },
+    { "id": "comply", "en": "comply", "zh": "遵守；符合（規定）", "emoji": "👌", "abstract": true },
+    { "id": "regulation", "en": "regulation", "zh": "法規；規定", "emoji": "📚", "abstract": true },
+    { "id": "act", "en": "act", "zh": "法案；法令", "emoji": "🏛️", "abstract": true },
+    { "id": "consult", "en": "consult", "zh": "諮詢；請教", "emoji": "🗣️", "abstract": true },
+    { "id": "permit", "en": "permit", "zh": "允許；准許", "emoji": "🟢", "abstract": true },
+    {
+      "id": "mandatory",
+      "en": "mandatory",
+      "zh": "強制的；規定必須的",
+      "emoji": "❗",
+      "abstract": true
+    },
+    { "id": "applicable", "en": "applicable", "zh": "適用的", "emoji": "✔️", "abstract": true },
+    {
+      "id": "liability",
+      "en": "liability",
+      "zh": "（法律）責任；賠償責任",
+      "emoji": "⚠️",
+      "abstract": true
+    },
+    { "id": "shall", "en": "shall", "zh": "應；須（合約用語）", "emoji": "🔜", "abstract": true },
+    { "id": "upon", "en": "upon", "zh": "於……時；一……就", "emoji": "⤴️", "abstract": true },
+    { "id": "nor", "en": "nor", "zh": "也不", "emoji": "🚷", "abstract": true },
+    {
+      "id": "provision",
+      "en": "provision",
+      "zh": "（合約的）規定；條文",
+      "emoji": "📎",
+      "abstract": true
+    },
+    { "id": "consent", "en": "consent", "zh": "同意；許可", "emoji": "🙆", "abstract": true },
+    { "id": "expiration", "en": "expiration", "zh": "到期；期滿", "emoji": "⌛", "abstract": true },
+    { "id": "trademark", "en": "trademark", "zh": "商標", "emoji": "™️" },
+    { "id": "property", "en": "property", "zh": "財產；所有物", "emoji": "🏢", "abstract": true },
+    {
+      "id": "unauthorized",
+      "en": "unauthorized",
+      "zh": "未經授權的",
+      "emoji": "⛔",
+      "abstract": true
+    },
+    { "id": "violation", "en": "violation", "zh": "違反；違約", "emoji": "❌", "abstract": true },
+    { "id": "terminate", "en": "terminate", "zh": "終止（合約）", "emoji": "✂️", "abstract": true },
+    { "id": "argue", "en": "argue", "zh": "主張；爭論", "emoji": "😤", "abstract": true },
+    { "id": "dispute", "en": "dispute", "zh": "爭議；糾紛", "emoji": "⚡", "abstract": true },
+    {
+      "id": "favor",
+      "en": "favor",
+      "zh": "對……有利（in our favor）",
+      "emoji": "🙏",
+      "abstract": true
+    },
+    { "id": "court", "en": "court", "zh": "法院", "emoji": "⚖️", "abstract": true },
+    { "id": "judge", "en": "judge", "zh": "法官", "emoji": "👨‍⚖️" },
+    { "id": "exception", "en": "exception", "zh": "例外", "emoji": "✳️", "abstract": true },
+    {
+      "id": "circumstance",
+      "en": "circumstance",
+      "zh": "情況；狀況",
+      "emoji": "🌦️",
+      "abstract": true
+    },
+    { "id": "penalty", "en": "penalty", "zh": "罰則；罰款", "emoji": "🟥" },
+    { "id": "arise", "en": "arise", "zh": "（問題）發生；出現", "emoji": "🌅", "abstract": true },
+    {
+      "id": "trial",
+      "en": "trial",
+      "zh": "試行；試用（trial period 試用期）",
+      "emoji": "🧪",
+      "abstract": true
+    },
+    { "id": "despite", "en": "despite", "zh": "儘管；雖然", "emoji": "🔀", "abstract": true },
+    {
+      "id": "compromise",
+      "en": "compromise",
+      "zh": "折衷；各退一步",
+      "emoji": "🤲",
+      "abstract": true
+    },
+    {
+      "id": "negotiation",
+      "en": "negotiation",
+      "zh": "談判；協商",
+      "emoji": "🗨️",
+      "abstract": true
+    },
+    {
+      "id": "commit",
+      "en": "commit",
+      "zh": "承諾；保證（commit to）",
+      "emoji": "✊",
+      "abstract": true
+    },
+    {
+      "id": "waive",
+      "en": "waive",
+      "zh": "免除；放棄（權利、費用）",
+      "emoji": "🫳",
+      "abstract": true
+    },
+    { "id": "alter", "en": "alter", "zh": "修改；改變", "emoji": "🔧", "abstract": true },
+    { "id": "sensitive", "en": "sensitive", "zh": "敏感的", "emoji": "🌡️", "abstract": true },
+    {
+      "id": "bargain",
+      "en": "bargain",
+      "zh": "交易（drive a hard bargain 很會殺價）",
+      "emoji": "🪙",
+      "abstract": true
+    },
+    {
+      "id": "entitle",
+      "en": "entitle",
+      "zh": "使有權利（be entitled to）",
+      "emoji": "🎟️",
+      "abstract": true
+    },
+    { "id": "consequence", "en": "consequence", "zh": "後果", "emoji": "🎲", "abstract": true },
+    { "id": "restriction", "en": "restriction", "zh": "限制", "emoji": "🚧", "abstract": true },
+    {
+      "id": "amendment",
+      "en": "amendment",
+      "zh": "（合約的）修訂；修正條文",
+      "emoji": "✏️",
+      "abstract": true
+    },
+    {
+      "id": "incorporate",
+      "en": "incorporate",
+      "zh": "納入；加進去",
+      "emoji": "📥",
+      "abstract": true
+    },
+    { "id": "precisely", "en": "precisely", "zh": "正好；精確地", "emoji": "🔍", "abstract": true },
+    {
+      "id": "documentation",
+      "en": "documentation",
+      "zh": "證明文件；資料",
+      "emoji": "🗄️",
+      "abstract": true
+    },
+    { "id": "obtain", "en": "obtain", "zh": "取得", "emoji": "🫴", "abstract": true },
+    { "id": "patent", "en": "patent", "zh": "專利", "emoji": "📐", "abstract": true },
+    {
+      "id": "authority",
+      "en": "authority",
+      "zh": "主管機關（authorities）",
+      "emoji": "🔰",
+      "abstract": true
+    },
+    {
+      "id": "correspondence",
+      "en": "correspondence",
+      "zh": "往來信件",
+      "emoji": "📨",
+      "abstract": true
+    },
+    {
+      "id": "consideration",
+      "en": "consideration",
+      "zh": "考慮（for your consideration 請您參考）",
+      "emoji": "🤔",
+      "abstract": true
+    },
+    { "id": "copyright", "en": "copyright", "zh": "著作權；版權", "emoji": "©️" },
+    {
+      "id": "compliance",
+      "en": "compliance",
+      "zh": "符合規定；合規",
+      "emoji": "✅",
+      "abstract": true
+    },
+    { "id": "witness", "en": "witness", "zh": "見證人；見證", "emoji": "👀", "abstract": true },
+    { "id": "secure", "en": "secure", "zh": "安全的；妥善保管的", "emoji": "🛡️", "abstract": true },
+    { "id": "secret", "en": "secret", "zh": "秘密的；保密的", "emoji": "🤫" },
+    {
+      "id": "partnership",
+      "en": "partnership",
+      "zh": "合作關係；夥伴關係",
+      "emoji": "🤝",
+      "abstract": true
+    },
+    {
+      "id": "acknowledge",
+      "en": "acknowledge",
+      "zh": "肯定；感謝（某人的付出）",
+      "emoji": "🙇",
+      "abstract": true
+    },
+    { "id": "settle", "en": "settle", "zh": "談定；解決", "emoji": "🧷", "abstract": true },
+    { "id": "proceed", "en": "proceed", "zh": "進行；繼續下去", "emoji": "➡️", "abstract": true },
+    {
+      "id": "premise",
+      "en": "premise",
+      "zh": "（premises）公司的建築和場地",
+      "emoji": "🏬",
+      "abstract": true
+    },
+    { "id": "impossible", "en": "impossible", "zh": "不可能的", "emoji": "🙅", "abstract": true },
+    { "id": "lease", "en": "lease", "zh": "租用（辦公室、場地）", "emoji": "🏘️", "abstract": true },
+    {
+      "id": "conflict",
+      "en": "conflict",
+      "zh": "（時間上的）衝突（scheduling conflict）",
+      "emoji": "📅",
+      "abstract": true
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "Hughes 先生的提議",
+      "backdrop": "client",
+      "newChunkIds": ["sell_lantern_in_your_stores", "proceed_on_that_basis"],
+      "newWordIds": [
+        "propose",
+        "owner",
+        "specifically",
+        "basis",
+        "contract",
+        "legal",
+        "law",
+        "intention",
+        "lawyer",
+        "distribution"
+      ],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good morning, Mr. Hughes. I hear you have something to propose.",
+          "zh": "Hughes 先生早安。聽說您有事想提議？"
+        },
+        {
+          "id": "t1_2",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Good afternoon! Yes, my customers keep asking about Lantern.",
+          "zh": "午安！是的，我的客人一直在問 Lantern。"
+        },
+        {
+          "id": "t1_3",
+          "role": "client",
+          "speaker": "npc",
+          "en": "My intention is to bring it to the UK this summer.",
+          "zh": "我打算今年夏天把它引進英國。"
+        },
+        {
+          "id": "t1_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "So you'd like to sell the Lantern series in your stores?",
+          "zh": "所以您是想在您的門市賣 Lantern 系列？",
+          "chunkId": "sell_lantern_in_your_stores"
+        },
+        {
+          "id": "t1_5",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Yes, specifically in all twelve, starting July first.",
+          "zh": "對，具體來說是十二家全部，七月一日開始。"
+        },
+        {
+          "id": "t1_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We'd be happy to move forward on that basis.",
+          "zh": "照這個條件，我們很樂意往下談。",
+          "chunkId": "proceed_on_that_basis"
+        },
+        {
+          "id": "t1_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Then we'll need a distribution contract. I'll call our lawyer.",
+          "zh": "那我們需要一份經銷合約。我來打給我們的律師。",
+          "stage": { "act": "want", "item": "contract" }
+        },
+        {
+          "id": "t1_8",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Good. UK law is a bit different, so the legal side matters.",
+          "zh": "好。英國的法律有點不一樣，所以法律這塊很重要。"
+        },
+        {
+          "id": "t1_9",
+          "role": "client",
+          "speaker": "npc",
+          "en": "My father was the owner before me. He read every contract twice!",
+          "zh": "我父親是上一任老闆，每份合約他都看兩遍！"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "草擬合約條件",
+      "newChunkIds": ["contract_run_two_years", "exclusive_right_in_uk"],
+      "newWordIds": [
+        "length",
+        "renewal",
+        "principle",
+        "exclude",
+        "framework",
+        "impose",
+        "entirely",
+        "specify",
+        "exclusive",
+        "license"
+      ],
+      "fills": [
+        {
+          "id": "exclusive_fill",
+          "en": "Mr. Hughes would get the ___ right to sell in the UK.",
+          "zh": "Hughes 先生會拿到英國的獨家銷售權。",
+          "options": ["exclusive", "hungry", "nervous", "polite"],
+          "answer": 0,
+          "note": "只有他能賣，所以是 exclusive（獨家的）。",
+          "chunkId": "exclusive_right_in_uk"
+        },
+        {
+          "id": "have_shaw_fill",
+          "en": "I'll have Mr. Shaw ___ the contract this week.",
+          "zh": "我會請 Shaw 先生這週把合約寫好。",
+          "options": ["write", "writes", "wrote", "writing"],
+          "answer": 0,
+          "note": "have + 人 + 原形動詞：請某人做某事。",
+          "grammar": true
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Before Mr. Shaw writes anything, let's agree on a framework.",
+          "zh": "在 Shaw 先生動筆之前，我們先把大方向定下來。"
+        },
+        {
+          "id": "t2_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "First, the length. How long should it run?",
+          "zh": "首先是期限。合約要簽多久？"
+        },
+        {
+          "id": "t2_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I think the first contract should run for two years.",
+          "zh": "我覺得第一份合約先簽兩年就好。",
+          "chunkId": "contract_run_two_years"
+        },
+        {
+          "id": "t2_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Agreed. A renewal after that is entirely up to both sides.",
+          "zh": "同意。之後要不要續約，完全看雙方的意思。"
+        },
+        {
+          "id": "t2_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And in principle, what does he get from us?",
+          "zh": "那原則上，他從我們這裡拿到什麼？"
+        },
+        {
+          "id": "t2_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Mr. Hughes would get the exclusive right to sell in the UK.",
+          "zh": "Hughes 先生會拿到英國的獨家銷售權。",
+          "chunkId": "exclusive_right_in_uk"
+        },
+        {
+          "id": "t2_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. In return, he orders at least two thousand lamps a year.",
+          "zh": "很好。相對的，他每年至少要訂兩千盞。"
+        },
+        {
+          "id": "t2_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "The price stays the same for the first year, but excludes shipping.",
+          "zh": "第一年價格不變，但不含運費。"
+        },
+        {
+          "id": "t2_9",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And he'll need a license to use the Lantern name.",
+          "zh": "還有，他要拿到授權才能用 Lantern 這個名字。"
+        },
+        {
+          "id": "t2_10",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Mr. Shaw can specify the details. Let's not impose too many rules.",
+          "zh": "細節讓 Shaw 先生寫清楚。我們不要加太多規定。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "律師看條款",
+      "backdrop": "lawyer",
+      "newChunkIds": ["clause_approved_by_ellis", "make_sure_i_understand_tested"],
+      "newWordIds": [
+        "clause",
+        "obligation",
+        "comply",
+        "regulation",
+        "act",
+        "consult",
+        "permit",
+        "mandatory",
+        "applicable",
+        "liability"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "lawyer",
+          "speaker": "npc",
+          "en": "Come in. I've marked a few clauses in the draft.",
+          "zh": "請進。草案裡有幾條我做了記號。",
+          "stage": { "act": "want", "item": "contract" }
+        },
+        {
+          "id": "t3_2",
+          "role": "lawyer",
+          "speaker": "npc",
+          "en": "This one is about liability, if a lamp ever hurts someone.",
+          "zh": "這條是關於賠償責任，萬一有燈傷到人的話。"
+        },
+        {
+          "id": "t3_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Does this clause have to be approved by Mr. Ellis?",
+          "zh": "這一條需要 Ellis 先生核准嗎？",
+          "chunkId": "clause_approved_by_ellis"
+        },
+        {
+          "id": "t3_4",
+          "role": "lawyer",
+          "speaker": "npc",
+          "en": "Yes. Any change to liability must be approved by him.",
+          "zh": "要。賠償責任的任何修改都一定要經過他核准。"
+        },
+        {
+          "id": "t3_5",
+          "role": "lawyer",
+          "speaker": "npc",
+          "en": "Then there's your obligation to comply with UK safety regulations.",
+          "zh": "再來是你們有義務遵守英國的安全法規。"
+        },
+        {
+          "id": "t3_6",
+          "role": "lawyer",
+          "speaker": "npc",
+          "en": "Under their safety act, testing is mandatory.",
+          "zh": "照他們的安全法，測試是強制的。"
+        },
+        {
+          "id": "t3_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Just to make sure I understand, every lamp must be tested first?",
+          "zh": "我確認一下我有沒有聽懂：每一盞燈都一定要先經過測試？",
+          "chunkId": "make_sure_i_understand_tested"
+        },
+        {
+          "id": "t3_8",
+          "role": "lawyer",
+          "speaker": "npc",
+          "en": "Right. No lamp is permitted in their stores without it.",
+          "zh": "對。沒測過的燈不准進他們的店。"
+        },
+        {
+          "id": "t3_9",
+          "role": "lawyer",
+          "speaker": "npc",
+          "en": "I'll consult a friend in London about which rules are applicable.",
+          "zh": "我會請教倫敦的一位朋友，看哪些規定適用。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀合約草案和律師的意見",
+      "backdrop": "lawyer",
+      "newChunkIds": ["read_through_draft_tonight"],
+      "newWordIds": [
+        "shall",
+        "upon",
+        "nor",
+        "provision",
+        "consent",
+        "expiration",
+        "trademark",
+        "property",
+        "unauthorized",
+        "violation",
+        "terminate"
+      ],
+      "passages": [
+        {
+          "id": "draft_and_notes",
+          "texts": [
+            {
+              "kind": "notice",
+              "title": "Distribution Agreement (Draft): Marked Sections",
+              "lines": [
+                "2. Term: This agreement shall begin on July 1 and shall continue for two years. Upon expiration, it may be renewed for one more year if both sides agree in writing.",
+                "3. Area: Hughes Home and Garden shall have the exclusive right to sell Lantern products in the UK. Harbor Trading shall not sell Lantern products to other stores in the UK, nor shall Hughes Home and Garden sell them outside the UK.",
+                "5. Trademarks: The Lantern name and trademark are the property of Harbor Trading. Hughes Home and Garden receives a license to use them in its twelve stores, but not on other products without written consent.",
+                "7. Ending the agreement: Either side may terminate this agreement upon 90 days' written notice, or at once after a serious violation, such as unauthorized use of the trademark."
+              ]
+            },
+            {
+              "kind": "email",
+              "title": "My notes on the draft",
+              "lines": [
+                "Hi,",
+                "Most of the provisions look fine, but I have two notes.",
+                "Section 3 doesn't say anything about online sales. Harbor Trading should keep the right to sell online.",
+                "In Section 7, 90 days is too short for a client who will place large orders, so I'd suggest 180 days.",
+                "I also expect Mr. Hughes to ask for a longer contract.",
+                "Best,",
+                "Mr. Shaw"
+              ]
+            }
+          ],
+          "questions": [
+            {
+              "en": "How long is the first term of the agreement?",
+              "zh": "合約第一期是多久？",
+              "options": ["One year", "Two years", "Three years"],
+              "answer": 1,
+              "needs": [0]
+            },
+            {
+              "en": "What can't Hughes Home and Garden do?",
+              "zh": "Hughes Home and Garden 不能做什麼？",
+              "options": [
+                "Sell Lantern outside the UK",
+                "Use the Lantern name in its stores",
+                "Sell Lantern in all twelve stores"
+              ],
+              "answer": 0,
+              "needs": [0]
+            },
+            {
+              "en": "What does Mr. Shaw say is missing from Section 3?",
+              "zh": "Shaw 先生說第 3 段少了什麼？",
+              "options": ["The price", "Online sales", "The trademark"],
+              "answer": 1,
+              "needs": [1]
+            },
+            {
+              "en": "What does Mr. Shaw want to change to 180 days?",
+              "zh": "Shaw 先生想把什麼改成 180 天？",
+              "options": [
+                "The notice to end the agreement",
+                "The time to pay for an order",
+                "The first term of the agreement"
+              ],
+              "answer": 0,
+              "needs": [0, 1]
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "lawyer",
+          "speaker": "npc",
+          "en": "Here's the full draft. It's long, but the ideas are simple.",
+          "zh": "這是完整的草案。很長，不過內容其實很簡單。"
+        },
+        {
+          "id": "t4_2",
+          "role": "lawyer",
+          "speaker": "npc",
+          "en": "Section five says the Lantern trademark is your property.",
+          "zh": "第五段寫明 Lantern 的商標是你們的財產。"
+        },
+        {
+          "id": "t4_3",
+          "role": "lawyer",
+          "speaker": "npc",
+          "en": "He can't put it on other products without your consent.",
+          "zh": "沒有你們同意，他不能把它用在別的產品上。"
+        },
+        {
+          "id": "t4_4",
+          "role": "lawyer",
+          "speaker": "npc",
+          "en": "And section seven explains how either side can terminate it.",
+          "zh": "第七段說明雙方要怎麼終止合約。"
+        },
+        {
+          "id": "t4_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Does this clause have to be approved by Mr. Ellis?",
+          "zh": "這一條需要 Ellis 先生核准嗎？",
+          "chunkId": "clause_approved_by_ellis"
+        },
+        {
+          "id": "t4_6",
+          "role": "lawyer",
+          "speaker": "npc",
+          "en": "Yes, he'll want to see that one. I've emailed you my notes, too.",
+          "zh": "要，那條他一定會想看。我也把我的意見寄給你了。"
+        },
+        {
+          "id": "t4_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll read through the draft tonight and send you my notes.",
+          "zh": "我今晚會把草案從頭看一遍，再把我的意見寄給您。",
+          "chunkId": "read_through_draft_tonight"
+        },
+        {
+          "id": "t4_8",
+          "role": "lawyer",
+          "speaker": "npc",
+          "en": "Great. Then we can send it to Mr. Hughes by Friday.",
+          "zh": "很好。這樣星期五前就能寄給 Hughes 先生了。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "意見不合",
+      "backdrop": "client",
+      "newChunkIds": ["afraid_five_years_too_long", "short_break_come_back"],
+      "newWordIds": [
+        "argue",
+        "dispute",
+        "favor",
+        "court",
+        "judge",
+        "exception",
+        "circumstance",
+        "penalty",
+        "arise",
+        "trial"
+      ],
+      "talks": [
+        {
+          "id": "five_years_talk",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "client",
+              "en": "Two years isn't in our favor. We'll spend a lot on displays and ads in twelve stores.",
+              "zh": "兩年對我們不划算。我們要在十二家門市花很多錢做展示架和廣告。"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "client",
+              "en": "That's why I'm asking for five years.",
+              "zh": "所以我才要五年。"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "guide",
+              "en": "I'm afraid five years is too long for us.",
+              "zh": "不好意思，五年對我們來說太長了。"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "client",
+              "en": "Then I'd also like the penalty taken out. Some circumstances are out of my control.",
+              "zh": "那我也希望把罰則拿掉。有些情況不是我能控制的。"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "lawyer",
+              "en": "A penalty is normal in a contract like this. But we could write in an exception.",
+              "zh": "這種合約有罰則很正常，不過我們可以寫進例外情況。"
+            },
+            {
+              "id": "t5_talk_6",
+              "role": "client",
+              "en": "That would help. And what if a dispute arises?",
+              "zh": "那會有幫助。還有，萬一發生爭議怎麼辦？"
+            },
+            {
+              "id": "t5_talk_7",
+              "role": "lawyer",
+              "en": "We should say which court, and which judge, would deal with it.",
+              "zh": "我們應該寫清楚由哪個法院、哪位法官處理。"
+            },
+            {
+              "id": "t5_talk_8",
+              "role": "client",
+              "en": "A court in the UK, I'd hope. I won't fly over for that.",
+              "zh": "我希望是英國的法院。我可不想為這種事飛過去。"
+            },
+            {
+              "id": "t5_talk_9",
+              "role": "guide",
+              "en": "What about a trial for one year first? If it goes well, we can talk again.",
+              "zh": "先試行一年怎麼樣？如果順利，我們再來談。"
+            },
+            {
+              "id": "t5_talk_10",
+              "role": "client",
+              "en": "Well, I'd have to think about that.",
+              "zh": "嗯，這我得想一想。"
+            },
+            {
+              "id": "t5_talk_11",
+              "role": "guide",
+              "en": "Could we take a short break and come back to this?",
+              "zh": "我們可以先休息一下，等一下再回來談這個嗎？"
+            }
+          ],
+          "questions": [
+            {
+              "en": "Why does Mr. Hughes want five years?",
+              "zh": "Hughes 先生為什麼想要五年？",
+              "options": [
+                "He'll spend a lot on displays and ads.",
+                "His lawyer told him to ask for it.",
+                "He's opening twelve new stores."
+              ],
+              "answer": 0
+            },
+            {
+              "en": "What part of the contract does Mr. Hughes want taken out?",
+              "zh": "Hughes 先生想拿掉合約的哪個部分？",
+              "options": ["The trademark", "The penalty", "The trial"],
+              "answer": 1
+            },
+            {
+              "en": "What is suggested as a first step?",
+              "zh": "有人提議先怎麼做？",
+              "options": ["A trip to the UK", "A lower price", "A trial for one year"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "client",
+          "speaker": "npc",
+          "en": "I've read your draft. Two years just isn't in our favor.",
+          "zh": "你們的草案我看過了。兩年對我們實在不划算。"
+        },
+        {
+          "id": "t5_2",
+          "role": "client",
+          "speaker": "npc",
+          "en": "I'll need five years to pay for new displays in my stores.",
+          "zh": "我要五年，才能把門市新展示架的錢賺回來。"
+        },
+        {
+          "id": "t5_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm afraid five years is too long for us.",
+          "zh": "不好意思，五年對我們來說太長了。",
+          "chunkId": "afraid_five_years_too_long"
+        },
+        {
+          "id": "t5_4",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Then at least drop the penalty for small orders.",
+          "zh": "那至少把訂量不足的罰則拿掉。"
+        },
+        {
+          "id": "t5_5",
+          "role": "lawyer",
+          "speaker": "npc",
+          "en": "We can't drop it, but we could make an exception.",
+          "zh": "罰則不能拿掉，不過我們可以寫進例外。"
+        },
+        {
+          "id": "t5_6",
+          "role": "client",
+          "speaker": "npc",
+          "en": "For circumstances I can't control, I hope.",
+          "zh": "希望是針對我控制不了的情況。"
+        },
+        {
+          "id": "t5_7",
+          "role": "lawyer",
+          "speaker": "npc",
+          "en": "But then we'd argue about which ones. That's how disputes arise.",
+          "zh": "可是那樣大家會為了哪些算數吵起來，爭議就是這樣來的。"
+        },
+        {
+          "id": "t5_8",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Then a UK court can decide. I'm not flying over to see a judge!",
+          "zh": "那就交給英國的法院決定。我可不會飛過去見法官！"
+        },
+        {
+          "id": "t5_9",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could we take a short break and come back to this?",
+          "zh": "我們可以先休息一下，等一下再回來談這個嗎？",
+          "chunkId": "short_break_come_back"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "談判",
+      "backdrop": "client",
+      "newChunkIds": ["despite_differences_compromise", "lower_price_bigger_order"],
+      "newWordIds": [
+        "despite",
+        "compromise",
+        "negotiation",
+        "commit",
+        "waive",
+        "alter",
+        "sensitive",
+        "bargain",
+        "entitle",
+        "consequence",
+        "restriction"
+      ],
+      "cloze": [
+        { "lineId": "t6_3", "word": "sensitive", "distractors": ["mandatory", "unauthorized"] },
+        { "lineId": "t6_6", "word": "waive", "distractors": ["consult", "comply"] },
+        { "lineId": "t6_8", "word": "bargain", "distractors": ["trademark", "clause"] }
+      ],
+      "textFills": [
+        {
+          "id": "deal_email",
+          "kind": "email",
+          "title": "Today's call with Mr. Hughes",
+          "lines": [
+            "Hi Mr. Shaw,",
+            "___ a long negotiation, we reached a deal with Mr. Hughes today.",
+            "The contract runs for three years, and he commits to 3,000 lamps a year. We'll ___ the penalty in the first year.",
+            "___ He'd like to sign it here in person.",
+            "Ms. Carter"
+          ],
+          "zh": [
+            "Shaw 先生您好：",
+            "雖然談了很久，我們今天和 Hughes 先生談成了。",
+            "合約為期三年，他保證每年訂 3,000 盞。第一年的罰則我們會免除。",
+            "可以請您在星期五前把草案改好嗎？他想親自來這裡簽約。",
+            "Ms. Carter"
+          ],
+          "blanks": [
+            {
+              "options": ["Despite", "Although", "However", "Because"],
+              "answer": 0,
+              "note": "後面接名詞片語，所以用 Despite。"
+            },
+            {
+              "options": ["waive", "argue", "consult", "comply"],
+              "answer": 0,
+              "note": "免除罰則是 waive the penalty。"
+            },
+            {
+              "options": [
+                "Could you alter the draft by Friday?",
+                "The trial went very well last year.",
+                "He drove to our office this morning.",
+                "We lost the dispute in court."
+              ],
+              "answer": 0,
+              "note": "要簽約前，得先請律師把草案改好。"
+            }
+          ]
+        }
+      ],
+      "responds": [
+        {
+          "id": "t6_r1",
+          "prompt": {
+            "role": "client",
+            "en": "When would the new contract start?",
+            "zh": "新合約什麼時候開始？"
+          },
+          "responses": [
+            {
+              "en": "On July first.",
+              "zh": "七月一日。"
+            },
+            {
+              "en": "In all twelve stores.",
+              "zh": "在十二家門市。"
+            },
+            {
+              "en": "It started last year.",
+              "zh": "去年就開始了。"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "t6_r2",
+          "prompt": {
+            "role": "manager",
+            "en": "Who's going to alter the draft?",
+            "zh": "誰要來改草案？"
+          },
+          "responses": [
+            {
+              "en": "By Friday at the latest.",
+              "zh": "最晚星期五。"
+            },
+            {
+              "en": "Mr. Shaw will do it tomorrow.",
+              "zh": "Shaw 先生明天會改。"
+            },
+            {
+              "en": "I altered my plans.",
+              "zh": "我改了我的計畫。"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "t6_r3",
+          "prompt": {
+            "role": "client",
+            "en": "Am I entitled to sell online, too?",
+            "zh": "我也有權在網路上賣嗎？"
+          },
+          "responses": [
+            {
+              "en": "Yes, I sold it yesterday.",
+              "zh": "對，我昨天賣掉了。"
+            },
+            {
+              "en": "It's a big online store.",
+              "zh": "那是一家很大的網路商店。"
+            },
+            {
+              "en": "No, online sales stay with us.",
+              "zh": "不行，網路銷售留在我們這邊。"
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "id": "t6_r4",
+          "prompt": {
+            "role": "manager",
+            "en": "What are the consequences if he orders less?",
+            "zh": "如果他訂得比較少，會怎麼樣？"
+          },
+          "responses": [
+            {
+              "en": "He pays a penalty after the first year.",
+              "zh": "第一年之後他要付罰款。"
+            },
+            {
+              "en": "He ordered three thousand.",
+              "zh": "他訂了三千盞。"
+            },
+            {
+              "en": "At the end of the month.",
+              "zh": "月底的時候。"
+            }
+          ],
+          "answer": 0
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Welcome back, Mr. Hughes. Shall we try again?",
+          "zh": "Hughes 先生，歡迎回來。我們再來談談吧？"
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Despite our differences, I'm sure we can find a compromise.",
+          "zh": "雖然我們想法不太一樣，我相信一定找得到雙方都能接受的做法。",
+          "chunkId": "despite_differences_compromise"
+        },
+        {
+          "id": "t6_3",
+          "role": "client",
+          "speaker": "npc",
+          "en": "I hope so. Price is still a sensitive point.",
+          "zh": "希望如此。價格還是個敏感的問題。"
+        },
+        {
+          "id": "t6_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What if we lowered the price in exchange for a bigger order?",
+          "zh": "如果我們價格降一點，換您多訂一些，您覺得怎麼樣？",
+          "chunkId": "lower_price_bigger_order"
+        },
+        {
+          "id": "t6_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Five percent lower, if you commit to three thousand a year.",
+          "zh": "降百分之五，條件是您保證每年訂三千盞。"
+        },
+        {
+          "id": "t6_6",
+          "role": "client",
+          "speaker": "npc",
+          "en": "And you'd waive the penalty for the first year?",
+          "zh": "那第一年的罰則你們會免除嗎？"
+        },
+        {
+          "id": "t6_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Yes. But there's one restriction: you sell only in the UK.",
+          "zh": "可以。不過有一個限制：您只能在英國賣。"
+        },
+        {
+          "id": "t6_8",
+          "role": "client",
+          "speaker": "npc",
+          "en": "You drive a hard bargain. All right, three years it is.",
+          "zh": "您真會殺價。好吧，就簽三年。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "律師的語音留言",
+      "newChunkIds": ["look_at_changes_call_back"],
+      "newWordIds": [
+        "amendment",
+        "incorporate",
+        "precisely",
+        "documentation",
+        "obtain",
+        "patent",
+        "authority",
+        "correspondence",
+        "consideration",
+        "copyright",
+        "compliance"
+      ],
+      "talks": [
+        {
+          "id": "shaw_voicemail",
+          "kind": "monologue",
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "lawyer",
+              "en": "Hi, it's Shaw, calling about the Hughes contract.",
+              "zh": "你好，我是 Shaw，打來談 Hughes 的合約。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "lawyer",
+              "en": "I've incorporated the amendments from yesterday's negotiation.",
+              "zh": "昨天談判的修改，我都已經加進去了。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "lawyer",
+              "en": "That's precisely three years, three thousand lamps a year, and no penalty in the first year.",
+              "zh": "也就是：剛好三年、每年三千盞，第一年沒有罰則。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "lawyer",
+              "en": "The new version is attached to my email, with a short note on each change, for your consideration.",
+              "zh": "新版本附在我的 email 裡，每一處修改都附了簡短說明，請你參考。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "lawyer",
+              "en": "Before we sign, we must obtain documentation that shows the lamps are in compliance with UK safety rules.",
+              "zh": "簽約之前，我們一定要取得文件，證明這些燈符合英國的安全規定。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "lawyer",
+              "en": "The authorities there may ask to see it.",
+              "zh": "那邊的主管機關可能會要求看。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "lawyer",
+              "en": "Two more things. I'd suggest applying for a patent on the Lantern design.",
+              "zh": "還有兩件事。我建議為 Lantern 的設計申請專利。"
+            },
+            {
+              "id": "t7_talk_8",
+              "role": "lawyer",
+              "en": "And let's make sure the copyright in the product photos stays with Harbor Trading.",
+              "zh": "也要確定產品照片的著作權留在 Harbor Trading。"
+            },
+            {
+              "id": "t7_talk_9",
+              "role": "lawyer",
+              "en": "Please keep all your correspondence with Mr. Hughes, too.",
+              "zh": "也請把你和 Hughes 先生的往來信件都留著。"
+            },
+            {
+              "id": "t7_talk_10",
+              "role": "lawyer",
+              "en": "Could you call me back before Thursday? Thanks.",
+              "zh": "可以在星期四之前回我電話嗎？謝謝。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "What has Mr. Shaw already done?",
+              "zh": "Shaw 先生已經做了什麼？",
+              "options": [
+                "He added the changes to the contract.",
+                "He signed the contract.",
+                "He called Mr. Hughes."
+              ],
+              "answer": 0
+            },
+            {
+              "en": "What must the company get before signing?",
+              "zh": "簽約前公司一定要取得什麼？",
+              "options": ["A new trademark", "Papers about UK safety rules", "A lower price"],
+              "answer": 1
+            },
+            {
+              "en": "What does Mr. Shaw ask the listener to do?",
+              "zh": "Shaw 先生請聽留言的人做什麼？",
+              "options": ["Fly to the UK", "Write to Mr. Hughes", "Call him back before Thursday"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Did you get Mr. Shaw's message? He called me, too.",
+          "zh": "你有收到 Shaw 先生的留言嗎？他也打給我了。"
+        },
+        {
+          "id": "t7_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "He says the amendments are already in the new draft.",
+          "zh": "他說修改的地方已經放進新的草案了。"
+        },
+        {
+          "id": "t7_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Three years, three thousand lamps, and no penalty the first year.",
+          "zh": "三年、三千盞，第一年沒有罰則。"
+        },
+        {
+          "id": "t7_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "He also needs documentation that our lamps meet UK safety rules.",
+          "zh": "他還需要文件，證明我們的燈符合英國的安全規定。"
+        },
+        {
+          "id": "t7_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll look at the changes and call him back.",
+          "zh": "我先看一下改了哪些地方，再回他電話。",
+          "chunkId": "look_at_changes_call_back"
+        },
+        {
+          "id": "t7_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Thanks. Ask him about the patent, too. It's a good idea.",
+          "zh": "謝謝。順便問他專利的事，那是個好主意。"
+        },
+        {
+          "id": "t7_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Nobody should copy the Lantern design in the UK.",
+          "zh": "不能讓人在英國抄 Lantern 的設計。"
+        },
+        {
+          "id": "t7_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And keep every email from Mr. Hughes. Mr. Shaw was clear about that.",
+          "zh": "還有，Hughes 先生寄來的每封 email 都要留著。Shaw 先生特別交代過。"
+        },
+        {
+          "id": "t7_9",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "If all goes well, Mr. Hughes will fly in to sign next week.",
+          "zh": "如果一切順利，Hughes 先生下週會飛過來簽約。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "簽約",
+      "backdrop": "main",
+      "newChunkIds": ["sign_every_page", "glad_we_made_this_work"],
+      "newWordIds": [
+        "witness",
+        "secure",
+        "secret",
+        "partnership",
+        "acknowledge",
+        "settle",
+        "proceed",
+        "premise",
+        "impossible",
+        "lease",
+        "conflict"
+      ],
+      "spellWordIds": ["stationery", "server", "toner", "stapler", "instructor"],
+      "cloze": [
+        { "lineId": "t8_2", "word": "settled", "distractors": ["terminated", "argued"] },
+        { "lineId": "t8_4", "word": "witness", "distractors": ["judge", "owner"] },
+        { "lineId": "t8_8", "word": "partnership", "distractors": ["penalty", "dispute"] }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "client",
+          "speaker": "npc",
+          "en": "So these are your premises! I like it.",
+          "zh": "原來這就是你們公司！我喜歡。"
+        },
+        {
+          "id": "t8_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Welcome. Now that everything's settled, shall we sign?",
+          "zh": "歡迎。既然一切都談定了，我們來簽約吧？"
+        },
+        {
+          "id": "t8_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Should I sign every page or just the last one?",
+          "zh": "我是每一頁都要簽，還是只簽最後一頁？",
+          "chunkId": "sign_every_page"
+        },
+        {
+          "id": "t8_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Every page. Mr. Shaw will sign as our witness.",
+          "zh": "每一頁都要。Shaw 先生會簽名當見證人。"
+        },
+        {
+          "id": "t8_5",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Now we can proceed with the first order.",
+          "zh": "好了。現在可以開始處理第一筆訂單了。"
+        },
+        {
+          "id": "t8_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I'd like to acknowledge Mr. Shaw. Without him, this would have been impossible.",
+          "zh": "我要特別感謝 Shaw 先生。沒有他，這件事不可能辦成。"
+        },
+        {
+          "id": "t8_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm so glad we were able to make this work.",
+          "zh": "真的很高興我們最後談成了。",
+          "chunkId": "glad_we_made_this_work"
+        },
+        {
+          "id": "t8_8",
+          "role": "client",
+          "speaker": "npc",
+          "en": "So am I. Here's to a long partnership!",
+          "zh": "我也是。祝我們長長久久地合作下去！"
+        },
+        {
+          "id": "t8_9",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Next, we hope to lease an office in London.",
+          "zh": "接下來，我們希望在倫敦租一間辦公室。"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "backdrop": "client",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Hello, both of you! Sorry I'm late. I had a scheduling conflict.",
+          "zh": "兩位好！抱歉我遲到了，剛剛時間撞到了。"
+        },
+        {
+          "id": "t9_2",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Now, my customers love your new lamps. I want them in the UK.",
+          "zh": "是這樣的，我的客人很喜歡你們的新燈，我想把它們引進英國。"
+        },
+        {
+          "id": "t9_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "So you'd like to sell the Lantern series in your stores?",
+          "zh": "所以您是想在您的門市賣 Lantern 系列？",
+          "chunkId": "sell_lantern_in_your_stores"
+        },
+        {
+          "id": "t9_4",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Exactly. And I'd want to be the only one selling them there.",
+          "zh": "沒錯。而且我希望在那邊只有我能賣。"
+        },
+        {
+          "id": "t9_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Mr. Hughes would get the exclusive right to sell in the UK.",
+          "zh": "Hughes 先生會拿到英國的獨家銷售權。",
+          "chunkId": "exclusive_right_in_uk"
+        },
+        {
+          "id": "t9_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "That's fine, but the lamps have to meet UK safety rules.",
+          "zh": "這沒問題，不過燈必須符合英國的安全規定。"
+        },
+        {
+          "id": "t9_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Just to make sure I understand, every lamp must be tested first?",
+          "zh": "我確認一下我有沒有聽懂：每一盞燈都一定要先經過測試？",
+          "chunkId": "make_sure_i_understand_tested"
+        },
+        {
+          "id": "t9_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Every model, yes. Mr. Shaw will put that in the contract.",
+          "zh": "對，每一款都要。Shaw 先生會把這條寫進合約。"
+        },
+        {
+          "id": "t9_9",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Good. Now, I'd like a contract for five years.",
+          "zh": "好。那我想簽五年的合約。"
+        },
+        {
+          "id": "t9_10",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm afraid five years is too long for us.",
+          "zh": "不好意思，五年對我們來說太長了。",
+          "chunkId": "afraid_five_years_too_long"
+        },
+        {
+          "id": "t9_11",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Then the price has to come down. It's too high for me.",
+          "zh": "那價格就得降一點，對我來說太高了。"
+        },
+        {
+          "id": "t9_12",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What if we lowered the price in exchange for a bigger order?",
+          "zh": "如果我們價格降一點，換您多訂一些，您覺得怎麼樣？",
+          "chunkId": "lower_price_bigger_order"
+        },
+        {
+          "id": "t9_13",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Three thousand a year, over three years? I can do that.",
+          "zh": "每年三千盞，簽三年？這我可以。"
+        },
+        {
+          "id": "t9_14",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm so glad we were able to make this work.",
+          "zh": "真的很高興我們最後談成了。",
+          "chunkId": "glad_we_made_this_work"
+        },
+        {
+          "id": "t9_15",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Me too. I'll tell my lawyer. Talk soon!",
+          "zh": "我也是。我會跟我的律師說。再聊！"
+        },
+        {
+          "id": "t9_16",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Well done. By the way, Mr. Shaw has made changes to our draft.",
+          "zh": "做得好。對了，Shaw 先生已經改了我們的草案。"
+        },
+        {
+          "id": "t9_17",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll look at the changes and call him back.",
+          "zh": "我先看一下改了哪些地方，再回他電話。",
+          "chunkId": "look_at_changes_call_back"
+        },
+        {
+          "id": "t9_18",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. He'll send the new draft this afternoon.",
+          "zh": "好。他今天下午會把新的草案寄來。"
+        },
+        {
+          "id": "t9_19",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll read through the draft tonight and send you my notes.",
+          "zh": "我今晚會把草案從頭看一遍，再把我的意見寄給您。",
+          "chunkId": "read_through_draft_tonight"
+        },
+        {
+          "id": "t9_20",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Perfect. Keep it somewhere secure. The prices in it are secret.",
+          "zh": "太好了。草案要放在安全的地方，裡面的價格是要保密的。"
+        }
+      ]
+    }
+  ]
+}
