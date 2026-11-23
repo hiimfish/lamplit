@@ -160,6 +160,11 @@ describe('sprintCandidates and sprintPlan', () => {
     expect(sprintCandidates(town, saveWith([], ['word:a1a', 'word:b2b']))).toHaveLength(6);
   });
 
+  it('says the goal is met before asking for reviews', () => {
+    const done = finishSprint(createEmptySave(now), 10, now);
+    expect(sprintPlan(town, done, now, 3).status).toBe('goal-met');
+  });
+
   it('asks for reviews first', () => {
     expect(sprintPlan(town, createEmptySave(now), now, 3)).toMatchObject({
       status: 'review-first',

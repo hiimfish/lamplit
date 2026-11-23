@@ -65,8 +65,8 @@ function GoalRow({
           </span>
         )}
       </span>
-      {children}
       {note && <p class="flow-note goal-note">{note}</p>}
+      {children}
     </div>
   );
 }
@@ -181,7 +181,7 @@ export function GoalScreen() {
               onClick={() => go('sprint')}
               data-testid="start-sprint"
             >
-              開始（{plan.words.length} 字）
+              {plan.words.length > 0 ? `開始（${plan.words.length} 字）` : '開始'}
             </button>
           </GoalRow>
           <GoalRow

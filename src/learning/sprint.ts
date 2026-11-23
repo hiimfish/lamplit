@@ -125,9 +125,9 @@ export function sprintPlan<U extends WordUnit>(
   const today = dailyFor(save, now).sprintNew;
   const goal = dailyNewWordGoal(save.route, now);
   const base = { today, goal, words: [] };
-  if (dueCount > 0) return { ...base, status: 'review-first' };
   const left = goal - today;
   if (left <= 0) return { ...base, status: 'goal-met' };
+  if (dueCount > 0) return { ...base, status: 'review-first' };
   const candidates = sprintCandidates(town, save);
   if (candidates.length === 0) return { ...base, status: 'caught-up' };
   return { ...base, status: 'ready', words: candidates.slice(0, Math.min(SPRINT_SIZE, left)) };
