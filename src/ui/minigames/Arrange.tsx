@@ -9,7 +9,15 @@ import { useKeys } from '../keys';
 import { KeyCap } from '../KeyCap';
 import type { KeyMap } from '../keys';
 import './Arrange.css';
-import { Feedback, FeedbackSlot, ReplayBar, hintFor, play, useAnswerClock } from './shared';
+import {
+  Feedback,
+  FeedbackSlot,
+  KeyBadge,
+  ReplayBar,
+  hintFor,
+  play,
+  useAnswerClock,
+} from './shared';
 import type { MinigameProps } from './shared';
 
 /** Case and curly apostrophes folded, so typed "im" style keys compare with a block. */
@@ -30,6 +38,13 @@ export interface TypedMatch {
  * case). When they all say the same word, the first of them is placed at once; when they
  * differ ("i" for I and in), the learner types on or presses Space for an exact match.
  */
+/** The blocks not yet placed, in pool order: number key n places the n-th of these. */
+export function remainingBlocks(blockCount: number, placed: readonly number[]): number[] {
+  const out: number[] = [];
+  for (let index = 0; index < blockCount; index++) if (!placed.includes(index)) out.push(index);
+  return out;
+}
+
 export function matchTyped(
   blocks: readonly string[],
   placed: readonly number[],
@@ -123,15 +138,18 @@ function AnswerLine({ blocks, placed, grade, onRemove }: LineProps) {
 }
 
 /** The letters typed so far, and a quiet note when no block starts with the last try. */
-function TypedLine({ typed, miss }: { typed: string; miss: boolean }) {
-  if (!typed && !miss) return null;
+function TypedLine({ typed, miss, locked }: { typed: string; miss: boolean; locked: boolean }) {
+  if (locked) return null;
+  // Empty, it is a how-to line that only shows once the keyboard is in use (Arrange.css).
+  const idle = !typed && !miss;
   return (
-    <p class={`mg-typed${miss ? ' miss' : ''}`} data-testid="typed">
+    <p class={`mg-typed${miss ? ' miss' : ''}${idle ? ' idle' : ''}`} data-testid="typed">
       打字：
       <span class="mg-typed-text" lang="en">
         {typed}
       </span>
       {miss && <span class="mg-typed-note">沒有這樣開頭的字</span>}
+      {idle && <span class="mg-typed-help">打字母或按數字</span>}
     </p>
   );
 }
@@ -147,6 +165,7 @@ interface PoolProps {
 /** The words still to place; a used word leaves a ghost of the same size. */
 function WordPool({ blocks, placed, locked, typed, onAdd }: PoolProps) {
   const prefix = fold(typed);
+  const remaining = remainingBlocks(blocks.length, placed);
   return (
     <div class="mg-pool">
       {blocks.map((block, index) =>
@@ -164,6 +183,9 @@ function WordPool({ blocks, placed, locked, typed, onAdd }: PoolProps) {
             disabled={locked}
             onClick={() => onAdd(index)}
           >
+            {!locked && remaining.indexOf(index) < 9 && (
+              <KeyBadge label={String(remaining.indexOf(index) + 1)} />
+            )}
             {block}
           </button>
         ),
@@ -240,9 +262,9 @@ function useArrange(
 }
 
 /**
- * Keys while building: letters (and ' -) type a word and place it, Space places an exact
- * match, Backspace takes back a letter or the last block, Escape is 重排, Enter is 檢查 and
- * 0 is 看中文. All off once checked.
+ * Keys while building: 1-9 place the n-th block left in the pool; letters (and ' -) type a
+ * word and place it, Space places an exact match, Backspace takes back a letter or the last
+ * block, Escape is 重排, Enter is 檢查 and 0 is 看中文. All off once checked.
  */
 function useArrangeKeys(
   question: ArrangeQuestion,
@@ -284,6 +306,16 @@ function useArrangeKeys(
     '-': () => type('-'),
   };
   for (const letter of 'abcdefghijklmnopqrstuvwxyz') keys[letter] = () => type(letter);
+  // 1-9 place the n-th block still in the pool (the number on its cap).
+  for (let n = 1; n <= 9; n++) {
+    keys[String(n)] = () => {
+      const index = remainingBlocks(question.blocks.length, placed)[n - 1];
+      if (index === undefined) return;
+      add(index);
+      setTyped('');
+      setMiss(false);
+    };
+  }
   if (revealZh) keys['0'] = revealZh;
   // Space only means something while a word is half typed; otherwise it is left to others.
   if (typed) {
@@ -326,7 +358,7 @@ export function Arrange({ question, onAnswered }: MinigameProps<ArrangeQuestion>
         <ZhHint zh={question.zh} visible={zhVisible} onReveal={revealZh} />
       )}
       <AnswerLine blocks={question.blocks} placed={placed} grade={grade} onRemove={remove} />
-      <TypedLine typed={typed} miss={miss} />
+      <TypedLine typed={typed} miss={miss} locked={locked} />
       <WordPool
         blocks={question.blocks}
         placed={placed}

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { exactBlock, matchTyped, takeJustChecked } from '../src/ui/minigames/Arrange';
+import { exactBlock, matchTyped, remainingBlocks, takeJustChecked } from '../src/ui/minigames/Arrange';
 
 describe('matchTyped (排句子 typing)', () => {
   const blocks = ['our', 'you', 'see', 'are', 'customers', 'As', 'can', 'stores'];
@@ -49,5 +49,17 @@ describe('matchTyped (排句子 typing)', () => {
 describe('takeJustChecked', () => {
   it('is false when no arrange check played the line', () => {
     expect(takeJustChecked('cafe.line.l1')).toBe(false);
+  });
+});
+
+describe('remainingBlocks (number keys)', () => {
+  it('numbers the blocks still in the pool, in pool order', () => {
+    expect(remainingBlocks(5, [])).toEqual([0, 1, 2, 3, 4]);
+    expect(remainingBlocks(5, [1, 3])).toEqual([0, 2, 4]);
+  });
+
+  it('gives the 10th and later blocks a number once earlier ones are placed', () => {
+    const left = remainingBlocks(12, [0, 1, 2]);
+    expect(left.slice(0, 9)).toContain(11);
   });
 });

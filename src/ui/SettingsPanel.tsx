@@ -146,13 +146,13 @@ function ZhSwitch({ showZh }: { showZh: boolean }) {
 
 /** The keyboard scheme (src/ui/keys.ts), shown only on computers with a mouse. */
 export const KEY_LIST: [keys: string, what: string][] = [
-  ['1～9', '選答案（A～D 的題目也可以按字母）'],
+  ['1～9', '選答案（A～D 的題目也可以按字母）；排句子：放上字塊上的數字'],
   ['Enter', '下一句、下一張、檢查、繼續、下一關'],
   ['空白鍵', '再聽一次'],
   ['Shift＋空白鍵', '慢速（算用了幫助）'],
   ['0', '看中文／中文開關'],
   ['← →', '上一張／下一張'],
-  ['打字', '排句子、拼字：打出單字'],
+  ['打字', '排句子：打單字的開頭；拼字：打出單字'],
   ['Backspace', '排句子：拿掉最後一個字'],
   ['Esc', '排句子：重排；關閉設定'],
 ];
