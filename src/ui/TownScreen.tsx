@@ -15,6 +15,7 @@ import {
   buildTown,
   defaultAct,
   firstNewTask,
+  isActUnlocked,
   nextStop,
   progressOf,
   type Progress,
@@ -68,11 +69,14 @@ function NamePlate({
   act,
   place,
   next,
+  locked,
   save,
 }: {
   act: TownAct<Unit>;
   place: Unit | undefined;
   next: { unit: Unit; task: Task } | undefined;
+  /** The act before this one, while this one is locked. */
+  locked: TownAct<Unit> | undefined;
   save: SaveData;
 }) {
   if (place) {
@@ -109,20 +113,26 @@ function NamePlate({
         <span>
           {units.length === 0
             ? '即將開幕'
-            : next
-              ? `下一關：${next.unit.title}・${next.task.title}`
-              : '這一幕全部完成了！'}
+            : locked
+              ? `玩完第${locked.no}幕就會打開`
+              : next
+                ? `下一關：${next.unit.title}・${next.task.title}`
+                : '這一幕全部完成了！'}
         </span>
       </div>
     </div>
   );
 }
 
-/** One location of the act: a key that opens its tasks, or a locked note when not built yet. */
+/**
+ * One location of the act: a key that opens its tasks, or a locked note when it is not
+ * built yet or its act is still locked.
+ */
 function PlaceTile({
   no,
   title,
   unit,
+  locked,
   isNext,
   save,
   onOpen,
@@ -130,13 +140,17 @@ function PlaceTile({
   no: number;
   title: string;
   unit: Unit | undefined;
+  locked: boolean;
   isNext: boolean;
   save: SaveData;
   onOpen: (unitId: string) => void;
 }) {
-  if (!unit) {
+  if (!unit || locked) {
     return (
-      <div class="place-tile soon">
+      <div
+        class={`place-tile soon${unit ? ' locked' : ''}`}
+        data-testid={unit ? `place-${unit.id}` : undefined}
+      >
         <LockMark />
         {title}
       </div>
@@ -217,8 +231,9 @@ export function TownScreen() {
   useEffect(() => playMusic('town'), []);
 
   const lastUnitId = activeTask?.unitId;
-  const actIndex = town && TOWN[town.act] ? town.act : defaultAct(TOWN, save, lastUnitId);
+  const actIndex = town && TOWN[town.act] ? town.act : defaultAct(TOWN, save, lastUnitId, openAll);
   const act = TOWN[actIndex];
+  const actOpen = isActUnlocked(TOWN, save, actIndex, openAll);
   const units = act ? actUnits(act) : [];
   /** The location whose tasks are listed; undefined while the act's locations are shown. */
   const place = units.find((unit) => unit.id === town?.unitId);
@@ -251,13 +266,18 @@ export function TownScreen() {
   const dueCount = buildDailyReview(save, now).length;
   const streak = currentStreak(save, now);
 
-  // What 下一關 opens: the next new task of this act (the name plate names it).
-  const stop = nextStop(save, units, lastUnitId);
+  // What 下一關 opens: the next new task of this act (the name plate names it); none while
+  // the act is locked.
+  const stop = actOpen ? nextStop(save, units, lastUnitId) : undefined;
+  // How far the act before a locked one is, for the note above the tiles.
+  const before = actOpen ? undefined : TOWN[actIndex - 1];
+  const beforeProgress = before && progressOf(save, actUnits(before));
   const stopTask = stop?.unit.tasks[stop.index];
   const next = stop && stopTask ? { unit: stop.unit, task: stopTask } : undefined;
 
-  // The scene: the open location, else the one 下一關 leads to, else the act's last one.
-  const sceneUnit = place ?? next?.unit ?? units.at(-1);
+  // The scene: the open location, else the one 下一關 leads to, else the act's last one (its
+  // first one while the act is locked).
+  const sceneUnit = place ?? next?.unit ?? (actOpen ? units.at(-1) : units[0]);
   const sceneTask =
     sceneUnit &&
     (sceneUnit === next?.unit && !place
@@ -351,7 +371,7 @@ export function TownScreen() {
           </button>
         </div>
       </div>
-      <NamePlate act={act} place={place} next={next} save={save} />
+      <NamePlate act={act} place={place} next={next} locked={before} save={save} />
     </div>
   );
 
@@ -377,7 +397,7 @@ export function TownScreen() {
                   role="radio"
                   aria-checked={index === actIndex}
                   tabIndex={index === actIndex ? 0 : -1}
-                  aria-label={`第${item.no}幕 ${item.title}`}
+                  aria-label={`第${item.no}幕 ${item.title}${isActUnlocked(TOWN, save, index, openAll) ? '' : '（未解鎖）'}`}
                   class={`pixel-button act-tab${actUnits(item).length > 0 ? '' : ' soon'}`}
                   onClick={() => show(index)}
                   data-testid={`act-${index + 1}`}
@@ -395,6 +415,12 @@ export function TownScreen() {
             {units.length === 0 && (
               <p class="flow-note">這一幕還在準備中，下面是之後會開的地點。</p>
             )}
+            {units.length > 0 && before && beforeProgress && (
+              <p class="flow-note" data-testid="act-locked">
+                <LockMark />
+                先玩完第{before.no}幕（{beforeProgress.done}／{beforeProgress.total}）才能進這一幕。
+              </p>
+            )}
             <div class="place-grid">
               {act.places.map((item, index) => (
                 <PlaceTile
@@ -402,6 +428,7 @@ export function TownScreen() {
                   no={index + 1}
                   title={item.title}
                   unit={item.unit}
+                  locked={!actOpen}
                   isNext={item.unit !== undefined && item.unit === next?.unit}
                   save={save}
                   onOpen={(unitId) => show(actIndex, unitId)}

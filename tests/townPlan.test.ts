@@ -9,7 +9,9 @@ import {
   buildTown,
   defaultAct,
   firstNewTask,
+  isActUnlocked,
   nextStop,
+  openUnits,
   progressOf,
 } from '../src/learning/townPlan';
 
@@ -145,12 +147,56 @@ describe('defaultAct', () => {
   it('opens the act with the task to continue', () => {
     expect(defaultAct(town, createEmptySave(now))).toBe(0);
     expect(defaultAct(town, played({ 'a/t1': 1, 'b/t1': 1 }))).toBe(1);
-    expect(defaultAct(town, createEmptySave(now), 'c')).toBe(1);
+  });
+
+  it('never opens on a locked act, unless everything is open', () => {
+    expect(defaultAct(town, createEmptySave(now), 'c')).toBe(0);
+    expect(defaultAct(town, createEmptySave(now), 'c', true)).toBe(1);
+    expect(defaultAct(town, played({ 'a/t1': 1 }))).toBe(0);
   });
 
   it('opens the last playable act when everything was played', () => {
     const all = played({ 'a/t1': 1, 'b/t1': 1, 'c/t1': 1 });
     expect(defaultAct(town, all)).toBe(1);
     expect(defaultAct(buildTown(acts, [unit('a', 1)]), played({ 'a/t1': 1 }))).toBe(0);
+  });
+});
+
+describe('isActUnlocked', () => {
+  const town = buildTown(acts, [unit('a', 2), unit('b', 1), unit('c', 1)]);
+
+  it('always opens the first act', () => {
+    expect(isActUnlocked(town, createEmptySave(now), 0)).toBe(true);
+  });
+
+  it('keeps the next act locked until every task of the act before was played', () => {
+    expect(isActUnlocked(town, createEmptySave(now), 1)).toBe(false);
+    expect(isActUnlocked(town, played({ 'a/t1': 3, 'a/t2': 3 }), 1)).toBe(false);
+    expect(isActUnlocked(town, played({ 'a/t1': 1, 'a/t2': 1, 'b/t1': 1 }), 1)).toBe(true);
+  });
+
+  it('keeps an act open where the save already has a record', () => {
+    expect(isActUnlocked(town, played({ 'c/t1': 2 }), 1)).toBe(true);
+  });
+
+  it('opens everything with the dev switch', () => {
+    expect(isActUnlocked(town, createEmptySave(now), 1, true)).toBe(true);
+  });
+
+  it('is false for an act that does not exist', () => {
+    expect(isActUnlocked(town, createEmptySave(now), 5)).toBe(false);
+  });
+
+  it('lists only the units of open acts', () => {
+    expect(openUnits(town, createEmptySave(now)).map((u) => u.id)).toEqual(['a', 'b']);
+    expect(openUnits(town, createEmptySave(now), true).map((u) => u.id)).toEqual(['a', 'b', 'c']);
+  });
+
+  it('locks every later act of the real town on a new save', () => {
+    const real = buildTown(ACTS, [unit('cafe', 1)]);
+    expect(real.map((_, i) => isActUnlocked(real, createEmptySave(now), i))).toEqual([
+      true,
+      ...real.slice(1).map(() => false),
+    ]);
   });
 });

@@ -116,13 +116,52 @@ export function nextStop<U extends UnitLike>(
   return undefined;
 }
 
-/** The act shown when the town opens: the one with the task to continue, else the last playable one. */
+/**
+ * Whether an act's locations can be played: the first act always; a later one once
+ * every task of the act before it was played at least once (any score). An act the
+ * player already has a task record in stays open, so an older save is never locked
+ * out of where it was. `openAll` (the dev switch) opens everything.
+ */
+export function isActUnlocked<U extends UnitLike>(
+  town: readonly TownAct<U>[],
+  save: SaveData,
+  index: number,
+  openAll = false,
+): boolean {
+  if (openAll || index <= 0) return true;
+  const act = town[index];
+  const before = town[index - 1];
+  if (!act || !before) return false;
+  if (progressOf(save, actUnits(act)).done > 0) return true;
+  const prev = progressOf(save, actUnits(before));
+  return prev.total > 0 && prev.done === prev.total;
+}
+
+/** The playable units of every act that is open, in play order. */
+export function openUnits<U extends UnitLike>(
+  town: readonly TownAct<U>[],
+  save: SaveData,
+  openAll = false,
+): U[] {
+  return town.flatMap((act, index) =>
+    isActUnlocked(town, save, index, openAll) ? actUnits(act) : [],
+  );
+}
+
+/**
+ * The act shown when the town opens: the open act with the task to continue, else
+ * the last open act that has a playable location.
+ */
 export function defaultAct<U extends UnitLike>(
   town: readonly TownAct<U>[],
   save: SaveData,
   lastUnitId?: string,
+  openAll = false,
 ): number {
-  const next = nextStop(save, town.flatMap(actUnits), lastUnitId);
+  const next = nextStop(save, openUnits(town, save, openAll), lastUnitId);
   if (next) return town.findIndex((act) => actUnits(act).includes(next.unit));
-  return lastPlayableAct(town);
+  for (let i = lastPlayableAct(town); i > 0; i--) {
+    if (isActUnlocked(town, save, i, openAll)) return i;
+  }
+  return 0;
 }
