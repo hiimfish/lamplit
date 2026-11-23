@@ -1,0 +1,1622 @@
+{
+  "id": "training",
+  "title": "教育訓練",
+  "titleEn": "Training",
+  "chunks": [
+    {
+      "id": "ill_be_your_mentor",
+      "en": "I'll be your mentor for the next few weeks.",
+      "zh": "接下來這幾個禮拜由我來帶你。",
+      "note": "第一次見新人時說，表明由你來帶他。for the next few weeks 是「接下來這幾週」。",
+      "distractors": [
+        {
+          "text": "I'll be your mentor for next few weeks.",
+          "error": "article"
+        },
+        {
+          "text": "I'll be your mentor for the next few week.",
+          "error": "plural"
+        },
+        {
+          "text": "I'll be you mentor for the next few weeks.",
+          "error": "other"
+        }
+      ],
+      "accept": ["I will be your mentor for the next few weeks."]
+    },
+    {
+      "id": "dont_worry_if_you_cant_remember",
+      "en": "Don't worry if you can't remember everything today.",
+      "zh": "今天記不住全部也沒關係，別擔心。",
+      "note": "安慰第一天上班、怕記不住的新人。Don't worry if… 是「如果……也別擔心」。",
+      "distractors": [
+        {
+          "text": "Don't worry if you can't remember every things today.",
+          "error": "plural"
+        },
+        {
+          "text": "Don't worry if you can't remembers everything today.",
+          "error": "other"
+        },
+        {
+          "text": "Don't worry if you can't remember everything to day.",
+          "error": "spelling"
+        }
+      ],
+      "accept": ["Don't worry if you cannot remember everything today."]
+    },
+    {
+      "id": "just_click_here_to_see",
+      "en": "Just click here to see today's orders.",
+      "zh": "點這裡就可以看到今天的訂單。",
+      "note": "教人用電腦系統時，指著畫面說。Just + 動詞，表示「只要這樣做就好」。",
+      "distractors": [
+        {
+          "text": "Just click here for see today's orders.",
+          "error": "other"
+        },
+        {
+          "text": "Just click here to see todays orders.",
+          "error": "spelling"
+        },
+        {
+          "text": "Just click here to seeing today's orders.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "whatever_you_do_dont_delete",
+      "en": "Whatever you do, don't delete an order without asking me.",
+      "zh": "不管怎樣，沒先問過我千萬不要刪訂單。",
+      "note": "提醒新人絕對不能做的事。Whatever you do 放句首，語氣是「不管怎樣都千萬別」。",
+      "distractors": [
+        {
+          "text": "Whatever you do, don't delete order without asking me.",
+          "error": "article"
+        },
+        {
+          "text": "Whatever you do, don't delete an order without ask me.",
+          "error": "other"
+        },
+        {
+          "text": "Whatever do you do, don't delete an order without asking me.",
+          "error": "word-order"
+        }
+      ],
+      "accept": ["Whatever you do, do not delete an order without asking me."]
+    },
+    {
+      "id": "ill_have_luis_show_you",
+      "en": "I'll have Luis show you how we pack orders.",
+      "zh": "我會請 Luis 帶你看我們怎麼包貨。",
+      "note": "使役動詞 have：have + 人 + 原形動詞，是「請某人去做某事」。",
+      "distractors": [
+        {
+          "text": "I'll have Luis to show you how we pack orders.",
+          "error": "extra-word"
+        },
+        {
+          "text": "I'll have Luis shows you how we pack orders.",
+          "error": "other"
+        },
+        {
+          "text": "I'll have Luis show you how do we pack orders.",
+          "error": "extra-word"
+        }
+      ],
+      "accept": ["I will have Luis show you how we pack orders."]
+    },
+    {
+      "id": "lets_get_the_copier_fixed",
+      "en": "Let's get the copier fixed before Monday's team meeting.",
+      "zh": "星期一開週會前先找人把影印機修好吧。",
+      "note": "使役動詞 get：get + 東西 + 過去分詞，是「找人把東西弄好」。",
+      "distractors": [
+        {
+          "text": "Let's get the copier fix before Monday's team meeting.",
+          "error": "other"
+        },
+        {
+          "text": "Let's get the copier fixed before Mondays team meeting.",
+          "error": "spelling"
+        },
+        {
+          "text": "Let's get copier fixed before Monday's team meeting.",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "take_your_time_with_these_guidelines",
+      "en": "Take your time with these guidelines and write down any questions.",
+      "zh": "這份守則慢慢看沒關係，有問題就先記下來。",
+      "note": "把資料交給新人時說，叫他不用急。take your time 是「慢慢來」。",
+      "distractors": [
+        {
+          "text": "Take your time with these guideline and write down any questions.",
+          "error": "plural"
+        },
+        {
+          "text": "Take you time with these guidelines and write down any questions.",
+          "error": "other"
+        },
+        {
+          "text": "Take your time with this guidelines and write down any questions.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "let_me_show_you_step_by_step",
+      "en": "Let me show you how to place an order, step by step.",
+      "zh": "我一步一步示範給你看怎麼下訂單。",
+      "note": "要示範怎麼操作時說。step by step 是「一步一步地」。",
+      "distractors": [
+        {
+          "text": "Let me show you how to place a order, step by step.",
+          "error": "article"
+        },
+        {
+          "text": "Let me show you how place an order, step by step.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Let me to show you how to place an order, step by step.",
+          "error": "extra-word"
+        }
+      ]
+    },
+    {
+      "id": "watch_me_do_one_first",
+      "en": "Watch me do one first, and then you can try.",
+      "zh": "你先看我做一筆，然後換你試試看。",
+      "note": "先自己做一次給對方看，再讓他做。watch + 人 + 原形動詞 是「看某人做」。",
+      "distractors": [
+        {
+          "text": "Watch me to do one first, and then you can try.",
+          "error": "extra-word"
+        },
+        {
+          "text": "Watch me do one first, and than you can try.",
+          "error": "spelling"
+        },
+        {
+          "text": "Watch me do one first, and then you can tries.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "its_okay_well_figure_out",
+      "en": "It's okay, we'll figure out what went wrong together.",
+      "zh": "沒關係，我們一起找出哪裡出錯。",
+      "note": "片語動詞 figure out 是「找出、弄清楚」，後面接很長的受詞時放在 out 後面。",
+      "distractors": [
+        {
+          "text": "It's okay, we'll figure what went wrong out together.",
+          "error": "word-order"
+        },
+        {
+          "text": "It's okay, we'll figure out what went wrong togeter.",
+          "error": "spelling"
+        },
+        {
+          "text": "It's okay, we'll figure out what did went wrong together.",
+          "error": "extra-word"
+        }
+      ],
+      "accept": ["It's okay. We'll figure out what went wrong together."]
+    },
+    {
+      "id": "lets_go_over_the_order",
+      "en": "Let's go over the order once more before you send it.",
+      "zh": "送出前我們再把這筆訂單看過一次吧。",
+      "note": "片語動詞 go over 是「從頭到尾看一遍」，不能拆開：go over the order。",
+      "distractors": [
+        {
+          "text": "Let's go the order over once more before you send it.",
+          "error": "word-order"
+        },
+        {
+          "text": "Let's go over the order once more before you sends it.",
+          "error": "other"
+        },
+        {
+          "text": "Let's go over the order one more before you send it.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "this_seminar_would_be_useful",
+      "en": "I think this seminar would be really useful for you.",
+      "zh": "我覺得這個研討會對你會很有幫助。",
+      "note": "推薦別人去上課或參加活動時說。would be useful 是「會很有幫助」。",
+      "distractors": [
+        {
+          "text": "I think this seminar would been really useful for you.",
+          "error": "other"
+        },
+        {
+          "text": "I think this seminar would be really usefull for you.",
+          "error": "spelling"
+        },
+        {
+          "text": "I think this seminar would be really useful you.",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "picking_things_up_faster",
+      "en": "He's picking things up faster than I expected.",
+      "zh": "他學得比我想的還快。",
+      "note": "向主管報告新人學得很快。pick things up 是「學會東西」。",
+      "distractors": [
+        {
+          "text": "He's picking things up faster then I expected.",
+          "error": "spelling"
+        },
+        {
+          "text": "He's picking things up more faster than I expected.",
+          "error": "extra-word"
+        },
+        {
+          "text": "He picking things up faster than I expected.",
+          "error": "missing-word"
+        }
+      ],
+      "accept": ["He is picking things up faster than I expected."]
+    },
+    {
+      "id": "ready_to_handle_clients_on_his_own",
+      "en": "I think he's ready to handle a few clients on his own.",
+      "zh": "我覺得他可以自己負責幾個客戶了。",
+      "note": "建議讓新人開始獨立做事。on his own 是「他自己一個人」。",
+      "distractors": [
+        {
+          "text": "I think he's ready to handle a few client on his own.",
+          "error": "plural"
+        },
+        {
+          "text": "I think he's ready to handle a few clients on him own.",
+          "error": "other"
+        },
+        {
+          "text": "I think he's ready handle a few clients on his own.",
+          "error": "missing-word"
+        }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "boss", "en": "boss", "zh": "老闆；上司", "emoji": "👔", "abstract": true },
+    { "id": "usual", "en": "usual", "zh": "平常的；通常的", "emoji": "🔁", "abstract": true },
+    {
+      "id": "session",
+      "en": "session",
+      "zh": "（一堂）課；一段時間",
+      "emoji": "🗓️",
+      "abstract": true
+    },
+    {
+      "id": "belong",
+      "en": "belong",
+      "zh": "屬於；放在（該放的地方）",
+      "emoji": "📌",
+      "abstract": true
+    },
+    {
+      "id": "initial",
+      "en": "initial",
+      "zh": "最初的；第一階段的",
+      "emoji": "1️⃣",
+      "abstract": true
+    },
+    { "id": "lesson", "en": "lesson", "zh": "一堂課；教訓", "emoji": "📖", "abstract": true },
+    { "id": "observe", "en": "observe", "zh": "觀察；在旁邊看", "emoji": "👀", "abstract": true },
+    { "id": "trainee", "en": "trainee", "zh": "受訓者；新人", "emoji": "🔰", "abstract": true },
+    { "id": "stationery", "en": "stationery", "zh": "文具", "emoji": "📏" },
+    { "id": "booklet", "en": "booklet", "zh": "小冊子；手冊", "emoji": "📔", "abstract": true },
+    {
+      "id": "basically",
+      "en": "basically",
+      "zh": "基本上；簡單來說",
+      "emoji": "💡",
+      "abstract": true
+    },
+    { "id": "code", "en": "code", "zh": "代碼；編號", "emoji": "🔢", "abstract": true },
+    { "id": "complex", "en": "complex", "zh": "複雜的", "emoji": "🧩", "abstract": true },
+    {
+      "id": "technical",
+      "en": "technical",
+      "zh": "技術的；技術上的",
+      "emoji": "⚙️",
+      "abstract": true
+    },
+    { "id": "database", "en": "database", "zh": "資料庫", "emoji": "🗃️", "abstract": true },
+    { "id": "edit", "en": "edit", "zh": "編輯；修改", "emoji": "✏️", "abstract": true },
+    { "id": "click", "en": "click", "zh": "點（滑鼠）", "emoji": "🖱️", "abstract": true },
+    {
+      "id": "desktop",
+      "en": "desktop",
+      "zh": "桌上型電腦；電腦桌面",
+      "emoji": "🖥️",
+      "abstract": true
+    },
+    { "id": "server", "en": "server", "zh": "伺服器", "emoji": "💽" },
+    {
+      "id": "disconnect",
+      "en": "disconnect",
+      "zh": "斷線；中斷連線",
+      "emoji": "📴",
+      "abstract": true
+    },
+    { "id": "rely", "en": "rely", "zh": "依靠；仰賴", "emoji": "🤝", "abstract": true },
+    { "id": "frequently", "en": "frequently", "zh": "經常", "emoji": "🔄", "abstract": true },
+    { "id": "assistance", "en": "assistance", "zh": "協助；幫忙", "emoji": "🙋", "abstract": true },
+    { "id": "assign", "en": "assign", "zh": "分派（工作）", "emoji": "📋", "abstract": true },
+    { "id": "proper", "en": "proper", "zh": "正確的；該有的", "emoji": "✔️", "abstract": true },
+    { "id": "master", "en": "master", "zh": "學會；精通", "emoji": "🏅", "abstract": true },
+    { "id": "supervise", "en": "supervise", "zh": "管理；監督", "emoji": "🧐", "abstract": true },
+    { "id": "coordinate", "en": "coordinate", "zh": "協調；安排", "emoji": "🔗", "abstract": true },
+    { "id": "toner", "en": "toner", "zh": "碳粉", "emoji": "🖲️" },
+    { "id": "stapler", "en": "stapler", "zh": "釘書機", "emoji": "🗜️" },
+    { "id": "behavior", "en": "behavior", "zh": "行為；舉止", "emoji": "🙇", "abstract": true },
+    { "id": "define", "en": "define", "zh": "說明；定義", "emoji": "📘", "abstract": true },
+    {
+      "id": "appropriate",
+      "en": "appropriate",
+      "zh": "適當的；合適的",
+      "emoji": "👌",
+      "abstract": true
+    },
+    { "id": "enable", "en": "enable", "zh": "讓…能夠", "emoji": "🔓", "abstract": true },
+    { "id": "regularly", "en": "regularly", "zh": "定期地", "emoji": "📆", "abstract": true },
+    { "id": "prompt", "en": "prompt", "zh": "即時的；迅速的", "emoji": "📨", "abstract": true },
+    { "id": "guideline", "en": "guideline", "zh": "守則；指引", "emoji": "📑", "abstract": true },
+    {
+      "id": "incomplete",
+      "en": "incomplete",
+      "zh": "不完整的；沒填完的",
+      "emoji": "◻️",
+      "abstract": true
+    },
+    {
+      "id": "thoroughly",
+      "en": "thoroughly",
+      "zh": "徹底地；仔細地",
+      "emoji": "🔍",
+      "abstract": true
+    },
+    { "id": "reminder", "en": "reminder", "zh": "提醒", "emoji": "🔔", "abstract": true },
+    { "id": "archive", "en": "archive", "zh": "歸檔；檔案庫", "emoji": "🗂️", "abstract": true },
+    { "id": "technique", "en": "technique", "zh": "技巧；方法", "emoji": "🛠️", "abstract": true },
+    {
+      "id": "demonstrate",
+      "en": "demonstrate",
+      "zh": "示範；展示",
+      "emoji": "👉",
+      "abstract": true
+    },
+    {
+      "id": "practical",
+      "en": "practical",
+      "zh": "實用的；實際的",
+      "emoji": "🔧",
+      "abstract": true
+    },
+    { "id": "effectively", "en": "effectively", "zh": "有效地", "emoji": "🎯", "abstract": true },
+    { "id": "confuse", "en": "confuse", "zh": "搞混；讓人困惑", "emoji": "😕", "abstract": true },
+    { "id": "input", "en": "input", "zh": "輸入（的資料）", "emoji": "⌨️", "abstract": true },
+    {
+      "id": "gradually",
+      "en": "gradually",
+      "zh": "漸漸地；慢慢地",
+      "emoji": "📈",
+      "abstract": true
+    },
+    { "id": "adjust", "en": "adjust", "zh": "調整", "emoji": "🎚️", "abstract": true },
+    { "id": "occasionally", "en": "occasionally", "zh": "偶爾", "emoji": "🌦️", "abstract": true },
+    { "id": "distract", "en": "distract", "zh": "讓人分心", "emoji": "📱", "abstract": true },
+    { "id": "himself", "en": "himself", "zh": "他自己", "emoji": "🧍", "abstract": true },
+    { "id": "suppose", "en": "suppose", "zh": "猜想；認為", "emoji": "🤔", "abstract": true },
+    { "id": "solve", "en": "solve", "zh": "解決", "emoji": "✅", "abstract": true },
+    { "id": "root", "en": "root", "zh": "根源；根本原因", "emoji": "🌱", "abstract": true },
+    { "id": "till", "en": "till", "zh": "直到", "emoji": "⏳", "abstract": true },
+    {
+      "id": "somehow",
+      "en": "somehow",
+      "zh": "不知怎麼地；總會想辦法",
+      "emoji": "🤷",
+      "abstract": true
+    },
+    { "id": "criticism", "en": "criticism", "zh": "批評", "emoji": "👎", "abstract": true },
+    {
+      "id": "immediate",
+      "en": "immediate",
+      "zh": "立即的；馬上的",
+      "emoji": "⚡",
+      "abstract": true
+    },
+    { "id": "log", "en": "log", "zh": "紀錄；日誌", "emoji": "🧾", "abstract": true },
+    { "id": "random", "en": "random", "zh": "隨機的；隨便的", "emoji": "🎲", "abstract": true },
+    { "id": "initially", "en": "initially", "zh": "一開始；起初", "emoji": "🏁", "abstract": true },
+    { "id": "themselves", "en": "themselves", "zh": "他們自己", "emoji": "👥", "abstract": true },
+    {
+      "id": "interaction",
+      "en": "interaction",
+      "zh": "互動；應對",
+      "emoji": "💬",
+      "abstract": true
+    },
+    {
+      "id": "fundamental",
+      "en": "fundamental",
+      "zh": "基本的；基礎的",
+      "emoji": "🧱",
+      "abstract": true
+    },
+    {
+      "id": "educational",
+      "en": "educational",
+      "zh": "教育的；有教育意義的",
+      "emoji": "🎓",
+      "abstract": true
+    },
+    { "id": "lecture", "en": "lecture", "zh": "講課；演講", "emoji": "🗣️", "abstract": true },
+    { "id": "seminar", "en": "seminar", "zh": "研討會；講習", "emoji": "🏫", "abstract": true },
+    { "id": "instructor", "en": "instructor", "zh": "講師", "emoji": "🧑‍🏫" },
+    { "id": "reinforce", "en": "reinforce", "zh": "加強；鞏固", "emoji": "🔩", "abstract": true },
+    { "id": "activate", "en": "activate", "zh": "啟用；開通", "emoji": "🟢", "abstract": true },
+    { "id": "enrollment", "en": "enrollment", "zh": "報名；註冊", "emoji": "📝", "abstract": true },
+    { "id": "workbook", "en": "workbook", "zh": "練習本；講義", "emoji": "📓" },
+    { "id": "closely", "en": "closely", "zh": "密切地；仔細地", "emoji": "🔎", "abstract": true },
+    { "id": "implement", "en": "implement", "zh": "實施；開始用", "emoji": "🚀", "abstract": true },
+    {
+      "id": "observation",
+      "en": "observation",
+      "zh": "觀察（心得）",
+      "emoji": "🗒️",
+      "abstract": true
+    },
+    { "id": "integrate", "en": "integrate", "zh": "融入；整合", "emoji": "🧷", "abstract": true },
+    { "id": "smart", "en": "smart", "zh": "聰明的；機靈的", "emoji": "🧠", "abstract": true },
+    { "id": "ease", "en": "ease", "zh": "輕鬆；從容", "emoji": "😌", "abstract": true },
+    { "id": "pace", "en": "pace", "zh": "速度；步調", "emoji": "🏃", "abstract": true },
+    {
+      "id": "motivate",
+      "en": "motivate",
+      "zh": "激勵；讓人有動力",
+      "emoji": "💪",
+      "abstract": true
+    },
+    { "id": "evaluation", "en": "evaluation", "zh": "評估；考核", "emoji": "📊", "abstract": true },
+    { "id": "guidance", "en": "guidance", "zh": "指導；輔導", "emoji": "🧭", "abstract": true },
+    { "id": "evaluate", "en": "evaluate", "zh": "評估；考核", "emoji": "📐", "abstract": true }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "Leo 的第一天",
+      "newChunkIds": ["ill_be_your_mentor", "dont_worry_if_you_cant_remember"],
+      "newWordIds": [
+        "boss",
+        "usual",
+        "session",
+        "belong",
+        "initial",
+        "lesson",
+        "observe",
+        "trainee",
+        "stationery",
+        "booklet"
+      ],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good morning, Leo. Welcome to Harbor Trading!",
+          "zh": "早安，Leo。歡迎來到 Harbor Trading！"
+        },
+        {
+          "id": "t1_2",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Thanks, Ms. Carter. I'm excited, and a little nervous.",
+          "zh": "謝謝您，Ms. Carter。我很興奮，也有點緊張。"
+        },
+        {
+          "id": "t1_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "This is your desk, and this is the person you'll work with.",
+          "zh": "這是你的位子，這位是之後跟你一起工作的人。"
+        },
+        {
+          "id": "t1_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll be your mentor for the next few weeks.",
+          "zh": "接下來這幾個禮拜由我來帶你。",
+          "chunkId": "ill_be_your_mentor"
+        },
+        {
+          "id": "t1_5",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Great. So I come to you with questions, not the boss?",
+          "zh": "太好了。所以我有問題是來問你，不是問老闆？"
+        },
+        {
+          "id": "t1_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "That's right. Your stationery and trainee booklet are in the drawer.",
+          "zh": "沒錯。你的文具和新人手冊都在抽屜裡。",
+          "stage": { "act": "give", "item": "stationery" }
+        },
+        {
+          "id": "t1_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Your first session is at two. Today, just observe.",
+          "zh": "你的第一堂課在兩點。今天就先在旁邊看。"
+        },
+        {
+          "id": "t1_8",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "There's so much to learn. I hope I can keep up.",
+          "zh": "這裡要學的東西好多，希望我跟得上。"
+        },
+        {
+          "id": "t1_9",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Don't worry if you can't remember everything today.",
+          "zh": "今天記不住全部也沒關係，別擔心。",
+          "chunkId": "dont_worry_if_you_cant_remember"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "訂購系統",
+      "newChunkIds": ["just_click_here_to_see", "whatever_you_do_dont_delete"],
+      "newWordIds": [
+        "basically",
+        "code",
+        "complex",
+        "technical",
+        "database",
+        "edit",
+        "click",
+        "desktop",
+        "server",
+        "disconnect"
+      ],
+      "fills": [
+        {
+          "id": "click_fill",
+          "en": "Just ___ here to see today's orders.",
+          "zh": "點這裡就可以看到今天的訂單。",
+          "options": ["click", "belong", "observe", "disconnect"],
+          "answer": 0,
+          "note": "要看到訂單，是用滑鼠「點」：click。",
+          "chunkId": "just_click_here_to_see"
+        },
+        {
+          "id": "server_where_fill",
+          "en": "Could you tell me where ___?",
+          "zh": "可以告訴我伺服器在哪裡嗎？",
+          "options": ["the server is", "is the server", "the server are", "does the server"],
+          "answer": 0,
+          "note": "問句放在句子裡面時，用直述句的語序。",
+          "grammar": true
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Okay, the desktop is on. Where can I find the orders?",
+          "zh": "好，電腦開了。訂單要去哪裡找？"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Just click here to see today's orders.",
+          "zh": "點這裡就可以看到今天的訂單。",
+          "chunkId": "just_click_here_to_see"
+        },
+        {
+          "id": "t2_3",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "I see. Every client has its own code in the database.",
+          "zh": "我懂了。每個客戶在資料庫裡都有自己的代碼。"
+        },
+        {
+          "id": "t2_4",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "It's less complex than I thought. Can I edit orders here too?",
+          "zh": "比我想的簡單。我也可以在這裡改訂單嗎？"
+        },
+        {
+          "id": "t2_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Whatever you do, don't delete an order without asking me.",
+          "zh": "不管怎樣，沒先問過我千萬不要刪訂單。",
+          "chunkId": "whatever_you_do_dont_delete"
+        },
+        {
+          "id": "t2_6",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Got it. Editing is fine, but deleting is your call.",
+          "zh": "了解。修改沒問題，但要不要刪由你決定。"
+        },
+        {
+          "id": "t2_7",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "I heard the server disconnects sometimes, so I'll save my work often.",
+          "zh": "聽說伺服器有時候會斷線，所以我會常常存檔。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "請人幫忙",
+      "newChunkIds": ["ill_have_luis_show_you", "lets_get_the_copier_fixed"],
+      "newWordIds": [
+        "rely",
+        "frequently",
+        "assistance",
+        "assign",
+        "proper",
+        "master",
+        "supervise",
+        "coordinate",
+        "toner",
+        "stapler"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Bad news, guys. The copier stopped working again, and it's not the toner.",
+          "zh": "壞消息。影印機又不動了，而且不是碳粉的問題。"
+        },
+        {
+          "id": "t3_2",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Not again! I need copies of the order forms for the warehouse.",
+          "zh": "又來了！我要把訂單表影印給倉庫。"
+        },
+        {
+          "id": "t3_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let's get the copier fixed before Monday's team meeting.",
+          "zh": "星期一開週會前先找人把影印機修好吧。",
+          "chunkId": "lets_get_the_copier_fixed"
+        },
+        {
+          "id": "t3_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "I'll call the repair company. I coordinate that kind of thing anyway.",
+          "zh": "我來打給維修公司，這種事本來就是我在安排。"
+        },
+        {
+          "id": "t3_5",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Thanks, Dan. I'd also like to learn the proper way to pack lamps.",
+          "zh": "謝謝你，Dan。我也想學怎麼正確地包燈。"
+        },
+        {
+          "id": "t3_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll have Luis show you how we pack orders.",
+          "zh": "我會請 Luis 帶你看我們怎麼包貨。",
+          "chunkId": "ill_have_luis_show_you"
+        },
+        {
+          "id": "t3_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Good idea. Luis supervises the warehouse, and you can rely on him.",
+          "zh": "好主意。Luis 管倉庫，你可以放心找他。"
+        },
+        {
+          "id": "t3_8",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Great. I'll take the stapler, too. The one on my desk is broken.",
+          "zh": "太好了。釘書機我也拿一個，我桌上那個壞了。",
+          "stage": { "act": "want", "item": "stapler" }
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀訂購守則",
+      "newChunkIds": ["take_your_time_with_these_guidelines"],
+      "newWordIds": [
+        "behavior",
+        "define",
+        "appropriate",
+        "enable",
+        "regularly",
+        "prompt",
+        "guideline",
+        "incomplete",
+        "thoroughly",
+        "reminder",
+        "archive"
+      ],
+      "passages": [
+        {
+          "id": "ordering_guidelines",
+          "kind": "notice",
+          "title": "Ordering Guidelines for New Staff",
+          "lines": [
+            "This booklet is for your initial training. It defines the basic steps for placing an order and enables new staff to work on their own.",
+            "1. Finding the client: Find the client's code in the database before you start, and fill in every line of the form. Incomplete orders are not sent. They stay in the system.",
+            "2. Large orders: Show any order of ten boxes or more to Ms. Carter first.",
+            "3. Email: Clients expect a prompt reply. Answer every email within one working day.",
+            "4. Phone: Appropriate behavior on the phone is important. Say the company name first, and then your own name. If you don't know the answer, say that you will call back.",
+            "5. Every Friday: Archive all finished orders, and check regularly for old orders that were never sent.",
+            "A reminder: Never delete an order. If you are not sure, ask your mentor.",
+            "Please read this booklet thoroughly before your first week ends."
+          ],
+          "questions": [
+            {
+              "en": "What happens to an incomplete order?",
+              "zh": "沒填完的訂單會怎樣？",
+              "options": [
+                "It stays in the system.",
+                "It goes to Ms. Carter.",
+                "It is sent on Friday."
+              ],
+              "answer": 0
+            },
+            {
+              "en": "How soon should staff answer a client's email?",
+              "zh": "客戶的 email 最晚要多久回？",
+              "options": ["Within one hour", "Within one working day", "By Friday"],
+              "answer": 1
+            },
+            {
+              "en": "What should new staff do if they are not sure about deleting an order?",
+              "zh": "不確定能不能刪訂單時，新人該怎麼做？",
+              "options": ["Call the client", "Archive it", "Ask their mentor"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "You said there's something I should read today?",
+          "zh": "你說今天有東西要我讀？"
+        },
+        {
+          "id": "t4_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Take your time with these guidelines and write down any questions.",
+          "zh": "這份守則慢慢看沒關係，有問題就先記下來。",
+          "chunkId": "take_your_time_with_these_guidelines"
+        },
+        {
+          "id": "t4_3",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "There's a lot here. Phone behavior, emails, the archive...",
+          "zh": "內容好多。電話禮儀、email、歸檔……"
+        },
+        {
+          "id": "t4_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Don't worry if you can't remember everything today.",
+          "zh": "今天記不住全部也沒關係，別擔心。",
+          "chunkId": "dont_worry_if_you_cant_remember"
+        },
+        {
+          "id": "t4_5",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Okay. I'll read it thoroughly before the end of the week.",
+          "zh": "好。我這個禮拜結束前會仔細讀完。"
+        },
+        {
+          "id": "t4_6",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "And I'll bring my questions to our next session.",
+          "zh": "有問題我會帶到下一堂課來問。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "示範下訂單",
+      "newChunkIds": ["let_me_show_you_step_by_step", "watch_me_do_one_first"],
+      "newWordIds": [
+        "technique",
+        "demonstrate",
+        "practical",
+        "effectively",
+        "confuse",
+        "input",
+        "gradually",
+        "adjust",
+        "occasionally",
+        "distract"
+      ],
+      "talks": [
+        {
+          "id": "order_demo",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "guide",
+              "en": "First, input the client's code here at the top.",
+              "zh": "首先，在最上面這裡輸入客戶代碼。"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "new_hire",
+              "en": "Okay. And then the product and the number?",
+              "zh": "好。然後是產品和數量？"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "guide",
+              "en": "Right. The quantity is the part that confuses people.",
+              "zh": "對。數量這部分最容易讓人搞混。"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "guide",
+              "en": "Is it boxes or lamps? One box holds twelve lamps.",
+              "zh": "是箱數還是盞數？一箱裝十二盞。"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "coworker",
+              "en": "Here's a practical tip, Leo. Make the text bigger before you check.",
+              "zh": "Leo，給你一個實用的小技巧：檢查前先把字放大。"
+            },
+            {
+              "id": "t5_talk_6",
+              "role": "new_hire",
+              "en": "Good idea. Big numbers are harder to get wrong.",
+              "zh": "好主意。數字大一點就比較不會看錯。"
+            },
+            {
+              "id": "t5_talk_7",
+              "role": "new_hire",
+              "en": "But these messages keep coming in. They really distract me.",
+              "zh": "可是這些訊息一直進來，真的害我分心。"
+            },
+            {
+              "id": "t5_talk_8",
+              "role": "guide",
+              "en": "Just check your email occasionally, maybe once an hour.",
+              "zh": "偶爾看一下信就好，大概一小時一次。"
+            },
+            {
+              "id": "t5_talk_9",
+              "role": "coworker",
+              "en": "You'll get faster gradually, and you'll work more effectively.",
+              "zh": "你會慢慢變快，做事也會更有效率。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "Which part of the order confuses people?",
+              "zh": "訂單的哪一欄最容易讓人搞混？",
+              "options": ["The client code", "The quantity", "The date"],
+              "answer": 1
+            },
+            {
+              "en": "What does Dan suggest?",
+              "zh": "Dan 建議什麼？",
+              "options": ["Making the text bigger", "Calling the client", "Working more slowly"],
+              "answer": 0
+            },
+            {
+              "en": "Why is Leo distracted?",
+              "zh": "Leo 為什麼會分心？",
+              "options": [
+                "The office is too loud.",
+                "His phone keeps ringing.",
+                "Messages keep coming in."
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "I'm ready. Can you demonstrate a real order for me?",
+          "zh": "我準備好了。你可以示範一筆真的訂單給我看嗎？"
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let me show you how to place an order, step by step.",
+          "zh": "我一步一步示範給你看怎麼下訂單。",
+          "chunkId": "let_me_show_you_step_by_step"
+        },
+        {
+          "id": "t5_3",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Great. Should I try it with you, or just watch?",
+          "zh": "太好了。我要跟著你一起做，還是先看就好？"
+        },
+        {
+          "id": "t5_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Watch me do one first, and then you can try.",
+          "zh": "你先看我做一筆，然後換你試試看。",
+          "chunkId": "watch_me_do_one_first"
+        },
+        {
+          "id": "t5_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Sorry to interrupt. Leo, I have a good technique for orders.",
+          "zh": "抱歉打擾一下。Leo，我有個下訂單的好方法。"
+        },
+        {
+          "id": "t5_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "It's nothing technical. Just read the numbers out loud before you send.",
+          "zh": "沒什麼技術性的東西，送出前把數字唸出來就好。"
+        },
+        {
+          "id": "t5_7",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Thanks, Dan. I'll try that and adjust as I go.",
+          "zh": "謝謝你，Dan。我會試試看，邊做邊調整。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "第一次出錯",
+      "newChunkIds": ["its_okay_well_figure_out", "lets_go_over_the_order"],
+      "newWordIds": [
+        "himself",
+        "suppose",
+        "solve",
+        "root",
+        "till",
+        "somehow",
+        "criticism",
+        "immediate",
+        "log",
+        "random",
+        "initially"
+      ],
+      "cloze": [
+        {
+          "lineId": "t6_3",
+          "word": "fifty",
+          "distractors": ["twelve", "eighty"]
+        },
+        {
+          "lineId": "t6_4",
+          "word": "account",
+          "distractors": ["booklet", "stapler"]
+        },
+        {
+          "lineId": "t6_7",
+          "word": "immediately",
+          "distractors": ["gradually", "initially"]
+        }
+      ],
+      "textFills": [
+        {
+          "id": "new_account_email",
+          "kind": "email",
+          "title": "Your own account",
+          "lines": [
+            "Hi Leo,",
+            "Your own account is ready. Please ___ in with your name, not Dan's.",
+            "If an order looks wrong, tell your mentor right away. Don't worry about ___. Everyone makes mistakes in the first week.",
+            "Your desk phone isn't set up yet. ___",
+            "Ms. Carter"
+          ],
+          "zh": [
+            "Leo 你好：",
+            "你自己的帳號好了，請用你的名字登入，不要用 Dan 的。",
+            "如果訂單看起來不對，馬上告訴你的導師。不用擔心被批評，每個人第一週都會出錯。",
+            "你桌上的電話還沒裝好。在那之前，請用 Dan 的。",
+            "Ms. Carter"
+          ],
+          "blanks": [
+            {
+              "options": ["log", "set", "go", "figure"],
+              "answer": 0,
+              "note": "登入是 log in。"
+            },
+            {
+              "options": ["criticism", "toner", "stationery", "servers"],
+              "answer": 0,
+              "note": "出錯了怕的是被批評：criticism。"
+            },
+            {
+              "options": [
+                "Till then, please use Dan's.",
+                "It was ready last week.",
+                "Please delete it today.",
+                "The copier is fixed now."
+              ],
+              "answer": 0,
+              "note": "電話還沒好，所以先用 Dan 的。"
+            }
+          ]
+        }
+      ],
+      "responds": [
+        {
+          "id": "t6_r1",
+          "prompt": {
+            "role": "new_hire",
+            "en": "Should I send this order now?",
+            "zh": "這筆訂單我現在送出嗎？"
+          },
+          "responses": [
+            {
+              "en": "Let's check it once more first.",
+              "zh": "我們先再檢查一次。"
+            },
+            {
+              "en": "I ordered it last week.",
+              "zh": "我上週訂的。"
+            },
+            {
+              "en": "It's on my desk.",
+              "zh": "在我桌上。"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "t6_r2",
+          "prompt": {
+            "role": "new_hire",
+            "en": "When did you set up my account?",
+            "zh": "你什麼時候幫我設定帳號的？"
+          },
+          "responses": [
+            {
+              "en": "At my desk, I think.",
+              "zh": "我想是在我的位子上。"
+            },
+            {
+              "en": "Yesterday afternoon.",
+              "zh": "昨天下午。"
+            },
+            {
+              "en": "I'll set it up.",
+              "zh": "我會設定。"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "t6_r3",
+          "prompt": {
+            "role": "manager",
+            "en": "Who logged in with Dan's account?",
+            "zh": "是誰用 Dan 的帳號登入的？"
+          },
+          "responses": [
+            {
+              "en": "Yes, he logged in.",
+              "zh": "對，他登入了。"
+            },
+            {
+              "en": "At nine this morning.",
+              "zh": "今天早上九點。"
+            },
+            {
+              "en": "Leo did, by mistake.",
+              "zh": "是 Leo，他不小心的。"
+            }
+          ],
+          "answer": 2
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Wait. I think I made a big mistake on this order.",
+          "zh": "等等。我這筆訂單好像出了大錯。"
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "It's okay, we'll figure out what went wrong together.",
+          "zh": "沒關係，我們一起找出哪裡出錯。",
+          "chunkId": "its_okay_well_figure_out"
+        },
+        {
+          "id": "t6_3",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Initially, I typed fifty boxes instead of the usual five. I didn't notice till now.",
+          "zh": "一開始我把平常的五箱打成五十箱，到現在才發現。"
+        },
+        {
+          "id": "t6_4",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "And somehow I logged in with Dan's account, not mine.",
+          "zh": "而且不知道為什麼，我是用 Dan 的帳號登入，不是我自己的。"
+        },
+        {
+          "id": "t6_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let's go over the order once more before you send it.",
+          "zh": "送出前我們再把這筆訂單看過一次吧。",
+          "chunkId": "lets_go_over_the_order"
+        },
+        {
+          "id": "t6_6",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Okay. Five boxes, not fifty. I suppose that was the root of the problem.",
+          "zh": "好。五箱，不是五十箱。我想問題就出在這裡。"
+        },
+        {
+          "id": "t6_7",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Lesson learned. Next time something looks wrong, I'll tell you immediately.",
+          "zh": "學到教訓了。下次看起來不對，我會馬上跟你說。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "研討會的語音留言",
+      "newChunkIds": ["this_seminar_would_be_useful"],
+      "newWordIds": [
+        "themselves",
+        "interaction",
+        "fundamental",
+        "educational",
+        "lecture",
+        "seminar",
+        "instructor",
+        "reinforce",
+        "activate",
+        "enrollment",
+        "workbook"
+      ],
+      "talks": [
+        {
+          "id": "seminar_voicemail",
+          "kind": "monologue",
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "announcer",
+              "en": "Hello, this is a message for Harbor Trading from Bright Path Training.",
+              "zh": "您好，這是 Bright Path Training 給 Harbor Trading 的留言。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "announcer",
+              "en": "We're calling to confirm your enrollment in our customer service seminar next Thursday.",
+              "zh": "我們打來確認貴公司報名了下週四的客服研討會。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "announcer",
+              "en": "In the morning, our instructor will give a lecture on the fundamental skills of customer service.",
+              "zh": "上午由講師講授客服的基本技巧。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "announcer",
+              "en": "In the afternoon, people will practice their interaction with customers.",
+              "zh": "下午學員會練習和客人的應對。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "announcer",
+              "en": "They'll handle complaints themselves, which will reinforce what they learned in the morning.",
+              "zh": "他們要自己處理客訴，加強上午學到的東西。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "announcer",
+              "en": "Everyone will get a workbook on the day.",
+              "zh": "講義當天發給每個人。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "announcer",
+              "en": "Before Monday, please activate your online account with the link in our email.",
+              "zh": "請在星期一前，用我們 email 裡的連結啟用線上帳號。"
+            },
+            {
+              "id": "t7_talk_8",
+              "role": "announcer",
+              "en": "It's a very educational day. Thank you, and see you on Thursday!",
+              "zh": "這會是很有收穫的一天。謝謝，星期四見！"
+            }
+          ],
+          "questions": [
+            {
+              "en": "When is the seminar?",
+              "zh": "研討會是什麼時候？",
+              "options": ["This Monday", "Next Thursday", "Next Friday"],
+              "answer": 1
+            },
+            {
+              "en": "What will people do in the afternoon?",
+              "zh": "下午學員要做什麼？",
+              "options": ["Practice with customers", "Listen to a lecture", "Write a report"],
+              "answer": 0
+            },
+            {
+              "en": "What should they do before Monday?",
+              "zh": "星期一以前要做什麼？",
+              "options": ["Pay for the seminar", "Call back", "Activate an online account"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Was that message about the customer service seminar?",
+          "zh": "剛才那通留言是在講客服研討會嗎？"
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I think this seminar would be really useful for you.",
+          "zh": "我覺得這個研討會對你會很有幫助。",
+          "chunkId": "this_seminar_would_be_useful"
+        },
+        {
+          "id": "t7_3",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Really? I've never been to a seminar before.",
+          "zh": "真的嗎？我從來沒參加過研討會。"
+        },
+        {
+          "id": "t7_4",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "At the store I knew the lamps, but phone calls with stores are new to me.",
+          "zh": "在店裡我很懂燈，但跟店家講電話對我來說很陌生。"
+        },
+        {
+          "id": "t7_5",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "So the instructor gives a lecture first, and then we practice with customers?",
+          "zh": "所以是講師先上課，然後我們跟客人練習？"
+        },
+        {
+          "id": "t7_6",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Sounds great. I'll ask Ms. Carter if I can go.",
+          "zh": "聽起來很棒。我去問 Ms. Carter 我可不可以去。"
+        },
+        {
+          "id": "t7_7",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "If she says yes, I'll activate my account tonight.",
+          "zh": "如果她說好，我今晚就去啟用帳號。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "看看 Leo 的進度",
+      "newChunkIds": ["picking_things_up_faster", "ready_to_handle_clients_on_his_own"],
+      "newWordIds": [
+        "closely",
+        "implement",
+        "observation",
+        "integrate",
+        "smart",
+        "ease",
+        "pace",
+        "motivate",
+        "evaluation",
+        "guidance",
+        "evaluate"
+      ],
+      "spellWordIds": ["submission", "applicant", "scholarship", "panel", "punctual"],
+      "cloze": [
+        {
+          "lineId": "t8_5",
+          "word": "pace",
+          "distractors": ["code", "toner"]
+        },
+        {
+          "lineId": "t8_6",
+          "word": "evaluation",
+          "distractors": ["stationery", "database"]
+        },
+        {
+          "lineId": "t8_8",
+          "word": "closely",
+          "distractors": ["basically", "initially"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Leo, could you take these forms down to Luis, please?",
+          "zh": "Leo，可以麻煩你把這些表格拿下去給 Luis 嗎？"
+        },
+        {
+          "id": "t8_2",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Sure, Ms. Carter. I'll be right back.",
+          "zh": "好的，Ms. Carter，我馬上回來。"
+        },
+        {
+          "id": "t8_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "It's been two weeks. Let's evaluate how Leo is doing.",
+          "zh": "已經兩個禮拜了，我們來評估一下 Leo 的表現。"
+        },
+        {
+          "id": "t8_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "He's picking things up faster than I expected.",
+          "zh": "他學得比我想的還快。",
+          "chunkId": "picking_things_up_faster"
+        },
+        {
+          "id": "t8_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I've noticed that too. He's smart, and he works at a good pace.",
+          "zh": "我也注意到了。他很聰明，做事的速度也很好。"
+        },
+        {
+          "id": "t8_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Any other observations for his evaluation form?",
+          "zh": "他的考核表上還有其他觀察要寫的嗎？"
+        },
+        {
+          "id": "t8_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I think he's ready to handle a few clients on his own.",
+          "zh": "我覺得他可以自己負責幾個客戶了。",
+          "chunkId": "ready_to_handle_clients_on_his_own"
+        },
+        {
+          "id": "t8_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. Keep giving him guidance, and watch his orders closely.",
+          "zh": "很好。繼續指導他，他的訂單也要盯緊一點。"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Leo, this is your desk. And here's the person who'll train you.",
+          "zh": "Leo，這是你的位子。這位就是要帶你的人。"
+        },
+        {
+          "id": "t9_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll be your mentor for the next few weeks.",
+          "zh": "接下來這幾個禮拜由我來帶你。",
+          "chunkId": "ill_be_your_mentor"
+        },
+        {
+          "id": "t9_3",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Nice to meet you. I'm excited, and a little nervous.",
+          "zh": "很高興認識你。我很期待，也有點緊張。"
+        },
+        {
+          "id": "t9_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Don't be. You'll feel at ease here in no time.",
+          "zh": "別緊張，你很快就會習慣這裡的。"
+        },
+        {
+          "id": "t9_5",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "So where do I start? Is everything on this desktop?",
+          "zh": "那我從哪裡開始？東西都在這台電腦裡嗎？"
+        },
+        {
+          "id": "t9_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Just click here to see today's orders.",
+          "zh": "點這裡就可以看到今天的訂單。",
+          "chunkId": "just_click_here_to_see"
+        },
+        {
+          "id": "t9_7",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "That's a lot of orders. Who packs all of them?",
+          "zh": "訂單好多。這些都是誰在包貨？"
+        },
+        {
+          "id": "t9_8",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll have Luis show you how we pack orders.",
+          "zh": "我會請 Luis 帶你看我們怎麼包貨。",
+          "chunkId": "ill_have_luis_show_you"
+        },
+        {
+          "id": "t9_9",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Great. And Ms. Carter gave me this booklet.",
+          "zh": "太好了。還有，Ms. Carter 給了我這本手冊。"
+        },
+        {
+          "id": "t9_10",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Take your time with these guidelines and write down any questions.",
+          "zh": "這份守則慢慢看沒關係，有問題就先記下來。",
+          "chunkId": "take_your_time_with_these_guidelines"
+        },
+        {
+          "id": "t9_11",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "I will. Can I try an order myself now?",
+          "zh": "好。我現在可以自己試一筆訂單嗎？"
+        },
+        {
+          "id": "t9_12",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Watch me do one first, and then you can try.",
+          "zh": "你先看我做一筆，然後換你試試看。",
+          "chunkId": "watch_me_do_one_first"
+        },
+        {
+          "id": "t9_13",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Okay, I did one myself. Should I send it now?",
+          "zh": "好，我自己做了一筆。現在送出嗎？"
+        },
+        {
+          "id": "t9_14",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let's go over the order once more before you send it.",
+          "zh": "送出前我們再把這筆訂單看過一次吧。",
+          "chunkId": "lets_go_over_the_order"
+        },
+        {
+          "id": "t9_15",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Good thing we checked. I typed the wrong code!",
+          "zh": "還好有檢查，我打錯代碼了！"
+        },
+        {
+          "id": "t9_16",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "How's it going? And this came for you, Leo. It's about a seminar.",
+          "zh": "進行得怎樣？喔，Leo，這是給你的，是一場研討會的資料。"
+        },
+        {
+          "id": "t9_17",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I think this seminar would be really useful for you.",
+          "zh": "我覺得這個研討會對你會很有幫助。",
+          "chunkId": "this_seminar_would_be_useful"
+        },
+        {
+          "id": "t9_18",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Thanks! I'd love to go.",
+          "zh": "謝謝！我很想去。"
+        },
+        {
+          "id": "t9_19",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "So, how did he do on his first day?",
+          "zh": "那他第一天表現得怎麼樣？"
+        },
+        {
+          "id": "t9_20",
+          "role": "guide",
+          "speaker": "player",
+          "en": "He's picking things up faster than I expected.",
+          "zh": "他學得比我想的還快。",
+          "chunkId": "picking_things_up_faster"
+        },
+        {
+          "id": "t9_21",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Great to hear. You can tell he's motivated. Welcome to the team, Leo!",
+          "zh": "太好了，看得出來他很有幹勁。Leo，歡迎加入我們！"
+        }
+      ]
+    }
+  ]
+}
