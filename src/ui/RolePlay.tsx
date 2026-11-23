@@ -3,6 +3,7 @@ import { playAudio, stopAudio } from '../audio/pronounce';
 import type { Task, Unit } from '../content/types';
 import { lineAudioId } from '../content/units';
 import { currentNow } from '../core/appState';
+import { settingsStore } from '../core/settings';
 import { buildRolePlayTurns, makeRng, rolePlaySteps } from '../learning/questionGen';
 import type { AnswerResult } from '../learning/questions';
 import { ChatLines, ZhToggle } from './ChatLines';
@@ -81,12 +82,16 @@ export function RolePlay({ unit, task, onShown, onFinish }: Props) {
     [],
   );
 
-  // Enter is 開始 on the brief and 看結果 at the end; during the turns the questions own the keys.
+  // Enter is 開始 on the brief and 看結果 at the end, where 0 is 中文 on/off; during the turns
+  // the questions own the keys.
   useKeys(
     {
       Enter: () => {
         if (step === 'brief') setStep('turns');
         else if (step === 'end') onFinish(results);
+      },
+      '0': () => {
+        if (step === 'end') settingsStore.set({ showZh: !settingsStore.get().showZh });
       },
     },
     step !== 'turns',

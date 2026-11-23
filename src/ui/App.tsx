@@ -3,6 +3,7 @@ import { playChime, unlockAudio } from '../audio/audioContext';
 import { appStore } from '../core/appState';
 import { useStore } from '../core/store';
 import { focusStatic } from './focus';
+import { useKeys } from './keys';
 import { ResultScreen } from './ResultScreen';
 import { ReviewScreen } from './ReviewScreen';
 import { TaskScreen } from './TaskScreen';
@@ -17,6 +18,8 @@ function TitleScreen() {
     playChime();
     appStore.set({ screen: 'town' });
   };
+  // A key press is a user gesture too, so Enter or Space can unlock sound and start.
+  useKeys({ Enter: start, Space: start });
   return (
     <div class="screen title-screen">
       <div class="title-block">
