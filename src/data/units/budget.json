@@ -1,0 +1,1987 @@
+{
+  "id": "budget",
+  "title": "預算與報表",
+  "titleEn": "Budget and Reports",
+  "chunks": [
+    {
+      "id": "put_the_budget_together",
+      "en": "Thanks for helping me put the budget together.",
+      "zh": "謝謝妳幫我一起把預算做出來。",
+      "note": "謝謝別人和你一起做事。helping me + 動詞原形；put ... together＝把東西做出來、湊齊。",
+      "distractors": [
+        {
+          "text": "Thanks for help me put the budget together.",
+          "error": "other"
+        },
+        {
+          "text": "Thanks for helping me put budget together.",
+          "error": "article"
+        },
+        {
+          "text": "Thanks for helping me put the budget togeter.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "how_much_can_we_spend",
+      "en": "How much can we spend on the Lantern series this year?",
+      "zh": "Lantern 系列今年可以花多少錢？",
+      "note": "問預算有多少。錢用 how much；spend + 錢 + on + 東西＝把錢花在……上。",
+      "distractors": [
+        {
+          "text": "How many can we spend on the Lantern series this year?",
+          "error": "other"
+        },
+        {
+          "text": "How much we can spend on the Lantern series this year?",
+          "error": "word-order"
+        },
+        {
+          "text": "How much can we spend in the Lantern series this year?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "start_with_last_years_numbers",
+      "en": "Let's start by looking at last year's numbers.",
+      "zh": "我們先從去年的數字看起吧。",
+      "accept": ["Let us start by looking at last year's numbers."],
+      "note": "提議從哪裡開始。start by + V-ing＝先從……做起。",
+      "distractors": [
+        {
+          "text": "Let's start by look at last year's numbers.",
+          "error": "other"
+        },
+        {
+          "text": "Let's start by looking last year's numbers.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Let's start by looking at last year's number.",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "profit_margin_was_pretty_low",
+      "en": "Our profit margin on the glass lamp was pretty low.",
+      "zh": "我們那款玻璃檯燈的利潤率滿低的。",
+      "note": "說某個產品賺得不多。profit margin＝利潤率；pretty 在這裡是「滿、相當」。",
+      "distractors": [
+        {
+          "text": "Our profit margin on the glass lamp were pretty low.",
+          "error": "other"
+        },
+        {
+          "text": "Our profit margin on glass lamp was pretty low.",
+          "error": "article"
+        },
+        {
+          "text": "Our profit margine on the glass lamp was pretty low.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "should_delivery_costs_be_included",
+      "en": "Should delivery costs be included in the spreadsheet too?",
+      "zh": "運費也要算進這個試算表裡嗎？",
+      "note": "助動詞加被動：should + be + 過去分詞。東西「被」算進去，用 be included。",
+      "distractors": [
+        {
+          "text": "Should delivery costs be include in the spreadsheet too?",
+          "error": "other"
+        },
+        {
+          "text": "Should delivery costs included in the spreadsheet too?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Should delivery costs be included in the spreadshet too?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "can_the_total_be_updated",
+      "en": "Can the total be updated automatically when prices change?",
+      "zh": "價格變動的時候，總數可以自動更新嗎？",
+      "note": "助動詞加被動：can + be + 過去分詞，問東西能不能「被」自動更新。",
+      "distractors": [
+        {
+          "text": "Can the total be update automatically when prices change?",
+          "error": "other"
+        },
+        {
+          "text": "Can the total updated automatically when prices change?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Can the total be updated automatically when prices changes?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "costs_were_counted_twice",
+      "en": "It looks like the travel costs were counted twice.",
+      "zh": "看起來差旅費好像被算了兩次。",
+      "note": "客氣地指出數字有錯。It looks like + 句子＝看起來好像；were counted 是過去的被動。",
+      "distractors": [
+        {
+          "text": "It looks like the travel costs was counted twice.",
+          "error": "other"
+        },
+        {
+          "text": "It looks like the travel costs were count twice.",
+          "error": "other"
+        },
+        {
+          "text": "It look like the travel costs were counted twice.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "what_factors_in_the_forecast",
+      "en": "What factors did you include in the sales forecast?",
+      "zh": "妳在銷售預估裡考慮了哪些因素？",
+      "note": "問對方的預估是怎麼算出來的。factor＝因素；include＝算進去。",
+      "distractors": [
+        {
+          "text": "What factors did you included in the sales forecast?",
+          "error": "other"
+        },
+        {
+          "text": "What factors you did include in the sales forecast?",
+          "error": "word-order"
+        },
+        {
+          "text": "What factors did you include in the sales forcast?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "keep_the_forecast_low",
+      "en": "I'd rather keep the forecast low and do better than expected.",
+      "zh": "我寧可預估保守一點，最後做得比預期好。",
+      "accept": ["I would rather keep the forecast low and do better than expected."],
+      "note": "表示寧可保守一點。I'd rather + 動詞原形＝我寧可……。",
+      "distractors": [
+        {
+          "text": "I'd rather to keep the forecast low and do better than expected.",
+          "error": "extra-word"
+        },
+        {
+          "text": "I'd rather keeping the forecast low and do better than expected.",
+          "error": "other"
+        },
+        {
+          "text": "I'd rather keep the forecast low and do better than expect.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "material_costs_have_gone_up",
+      "en": "Material costs have gone up nearly ten percent.",
+      "zh": "材料成本漲了將近一成。",
+      "accept": ["Material costs have gone up nearly 10 percent."],
+      "note": "片語動詞講數字變化：go up＝上漲，go down＝下降；have gone up＝已經漲了。",
+      "distractors": [
+        {
+          "text": "Material costs have went up nearly ten percent.",
+          "error": "other"
+        },
+        {
+          "text": "Material costs has gone up nearly ten percent.",
+          "error": "other"
+        },
+        {
+          "text": "Material costs have gone on nearly ten percent.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "what_id_suggest_is_cutting_back",
+      "en": "What I'd suggest is cutting back on samples for the trade show.",
+      "zh": "我的建議是，商展要用的樣品少做一點。",
+      "accept": ["What I would suggest is cutting back on samples for the trade show."],
+      "note": "片語動詞 cut back on＝少用、少花一點。What I'd suggest is + V-ing＝我的建議是……。",
+      "distractors": [
+        {
+          "text": "What I'd suggest is cutting back samples for the trade show.",
+          "error": "missing-word"
+        },
+        {
+          "text": "What I'd suggest is cut back on samples for the trade show.",
+          "error": "other"
+        },
+        {
+          "text": "What I'd suggest is cutting back on sample for the trade show.",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "slower_economy_fewer_orders",
+      "en": "A slower economy could mean fewer orders this year.",
+      "zh": "經濟放緩的話，今年的訂單可能會變少。",
+      "note": "說可能的影響。could mean＝可能代表；可以數的 orders 用 fewer。",
+      "distractors": [
+        {
+          "text": "A slower economy could means fewer orders this year.",
+          "error": "other"
+        },
+        {
+          "text": "Slower economy could mean fewer orders this year.",
+          "error": "article"
+        },
+        {
+          "text": "A slower economy could mean fewer order this year.",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "where_every_dollar_is_going",
+      "en": "Let me show you where every dollar is going.",
+      "zh": "我跟您說明一下每一塊錢會花在哪裡。",
+      "note": "向主管說明錢怎麼用。show you + where 子句，where 後面用一般句子的順序。",
+      "distractors": [
+        {
+          "text": "Let me show you where is every dollar going.",
+          "error": "word-order"
+        },
+        {
+          "text": "Let me show you where every dollars is going.",
+          "error": "plural"
+        },
+        {
+          "text": "Let me showing you where every dollar is going.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "the_risk_is_worth_it",
+      "en": "I think the risk is worth it, and here's why.",
+      "zh": "我認為這個風險值得冒，原因是這樣的。",
+      "accept": ["I think the risk is worth it, and here is why."],
+      "note": "說服別人時先表態再講理由。worth it＝值得；here's why＝原因是這樣的。",
+      "distractors": [
+        {
+          "text": "I think the risk is worth, and here's why.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I think the risk are worth it, and here's why.",
+          "error": "other"
+        },
+        {
+          "text": "I think the risk is worth it, and here's because.",
+          "error": "other"
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "id": "accountant",
+      "en": "accountant",
+      "zh": "會計師",
+      "emoji": "👩‍💼"
+    },
+    {
+      "id": "budget",
+      "en": "budget",
+      "zh": "預算",
+      "emoji": "💰"
+    },
+    {
+      "id": "fund",
+      "en": "fund",
+      "zh": "資金；經費",
+      "emoji": "💲",
+      "abstract": true
+    },
+    {
+      "id": "financial",
+      "en": "financial",
+      "zh": "財務的",
+      "emoji": "📊",
+      "abstract": true
+    },
+    {
+      "id": "fiscal",
+      "en": "fiscal",
+      "zh": "會計年度的；財政的",
+      "emoji": "📆",
+      "abstract": true
+    },
+    {
+      "id": "quarter",
+      "en": "quarter",
+      "zh": "季（三個月）",
+      "emoji": "🗓️",
+      "abstract": true
+    },
+    {
+      "id": "nearly",
+      "en": "nearly",
+      "zh": "將近；幾乎",
+      "emoji": "≈",
+      "abstract": true
+    },
+    {
+      "id": "finance",
+      "en": "finance",
+      "zh": "財務（工作）；財務部門",
+      "emoji": "🏦",
+      "abstract": true
+    },
+    {
+      "id": "annually",
+      "en": "annually",
+      "zh": "每年；一年一次",
+      "emoji": "🔁",
+      "abstract": true
+    },
+    {
+      "id": "analysis",
+      "en": "analysis",
+      "zh": "分析",
+      "emoji": "🔬",
+      "abstract": true
+    },
+    {
+      "id": "profit",
+      "en": "profit",
+      "zh": "利潤；獲利",
+      "emoji": "💹",
+      "abstract": true
+    },
+    {
+      "id": "percentage",
+      "en": "percentage",
+      "zh": "百分比",
+      "emoji": "💯",
+      "abstract": true
+    },
+    {
+      "id": "net",
+      "en": "net",
+      "zh": "淨的（扣掉成本後）",
+      "emoji": "🟰",
+      "abstract": true
+    },
+    {
+      "id": "revenue",
+      "en": "revenue",
+      "zh": "營收",
+      "emoji": "💵",
+      "abstract": true
+    },
+    {
+      "id": "generate",
+      "en": "generate",
+      "zh": "帶來（收入）；產生",
+      "emoji": "⚙️",
+      "abstract": true
+    },
+    {
+      "id": "margin",
+      "en": "margin",
+      "zh": "利潤率",
+      "emoji": "📏",
+      "abstract": true
+    },
+    {
+      "id": "assess",
+      "en": "assess",
+      "zh": "評估",
+      "emoji": "🧐",
+      "abstract": true
+    },
+    {
+      "id": "sum",
+      "en": "sum",
+      "zh": "金額；總和",
+      "emoji": "➕",
+      "abstract": true
+    },
+    {
+      "id": "decline",
+      "en": "decline",
+      "zh": "下滑；減少",
+      "emoji": "↘️",
+      "abstract": true
+    },
+    {
+      "id": "spreadsheet",
+      "en": "spreadsheet",
+      "zh": "試算表",
+      "emoji": "🟩"
+    },
+    {
+      "id": "entry",
+      "en": "entry",
+      "zh": "（一筆）記錄；項目",
+      "emoji": "✏️",
+      "abstract": true
+    },
+    {
+      "id": "plus",
+      "en": "plus",
+      "zh": "加上",
+      "emoji": "➕",
+      "abstract": true
+    },
+    {
+      "id": "divide",
+      "en": "divide",
+      "zh": "除以；分成",
+      "emoji": "➗",
+      "abstract": true
+    },
+    {
+      "id": "calculator",
+      "en": "calculator",
+      "zh": "計算機",
+      "emoji": "🔢"
+    },
+    {
+      "id": "utility",
+      "en": "utility",
+      "zh": "水電瓦斯費（常用複數 utilities）",
+      "emoji": "🚰"
+    },
+    {
+      "id": "deduct",
+      "en": "deduct",
+      "zh": "扣除",
+      "emoji": "➖",
+      "abstract": true
+    },
+    {
+      "id": "convert",
+      "en": "convert",
+      "zh": "換算；轉換",
+      "emoji": "🔄",
+      "abstract": true
+    },
+    {
+      "id": "fluctuate",
+      "en": "fluctuate",
+      "zh": "波動；忽高忽低",
+      "emoji": "〰️",
+      "abstract": true
+    },
+    {
+      "id": "equivalent",
+      "en": "equivalent",
+      "zh": "等值的；相當於",
+      "emoji": "🟰",
+      "abstract": true
+    },
+    {
+      "id": "quarterly",
+      "en": "quarterly",
+      "zh": "每季的",
+      "emoji": "📆",
+      "abstract": true
+    },
+    {
+      "id": "expenditure",
+      "en": "expenditure",
+      "zh": "支出；開銷",
+      "emoji": "💸",
+      "abstract": true
+    },
+    {
+      "id": "substantial",
+      "en": "substantial",
+      "zh": "大幅的；不小的",
+      "emoji": "⬆️",
+      "abstract": true
+    },
+    {
+      "id": "slight",
+      "en": "slight",
+      "zh": "些微的",
+      "emoji": "🤏",
+      "abstract": true
+    },
+    {
+      "id": "discrepancy",
+      "en": "discrepancy",
+      "zh": "（數字）對不起來；出入",
+      "emoji": "❓",
+      "abstract": true
+    },
+    {
+      "id": "reimbursement",
+      "en": "reimbursement",
+      "zh": "（費用）報銷",
+      "emoji": "🧾",
+      "abstract": true
+    },
+    {
+      "id": "audit",
+      "en": "audit",
+      "zh": "查帳；稽核",
+      "emoji": "🔎",
+      "abstract": true
+    },
+    {
+      "id": "rebate",
+      "en": "rebate",
+      "zh": "（廠商的）退款；折讓",
+      "emoji": "↩️",
+      "abstract": true
+    },
+    {
+      "id": "commission",
+      "en": "commission",
+      "zh": "佣金",
+      "emoji": "🤝",
+      "abstract": true
+    },
+    {
+      "id": "payable",
+      "en": "payable",
+      "zh": "應付的（款項）",
+      "emoji": "📤",
+      "abstract": true
+    },
+    {
+      "id": "affect",
+      "en": "affect",
+      "zh": "影響",
+      "emoji": "🎯",
+      "abstract": true
+    },
+    {
+      "id": "factor",
+      "en": "factor",
+      "zh": "因素",
+      "emoji": "🧩",
+      "abstract": true
+    },
+    {
+      "id": "determine",
+      "en": "determine",
+      "zh": "決定；左右（結果）",
+      "emoji": "⚖️",
+      "abstract": true
+    },
+    {
+      "id": "predict",
+      "en": "predict",
+      "zh": "預測",
+      "emoji": "🔮",
+      "abstract": true
+    },
+    {
+      "id": "forecast",
+      "en": "forecast",
+      "zh": "預估（的數字）",
+      "emoji": "📈",
+      "abstract": true
+    },
+    {
+      "id": "assumption",
+      "en": "assumption",
+      "zh": "假設；前提",
+      "emoji": "💭",
+      "abstract": true
+    },
+    {
+      "id": "peak",
+      "en": "peak",
+      "zh": "高峰；旺季",
+      "emoji": "⛰️",
+      "abstract": true
+    },
+    {
+      "id": "growth",
+      "en": "growth",
+      "zh": "成長",
+      "emoji": "🌱",
+      "abstract": true
+    },
+    {
+      "id": "sudden",
+      "en": "sudden",
+      "zh": "突然的",
+      "emoji": "⚡",
+      "abstract": true
+    },
+    {
+      "id": "steady",
+      "en": "steady",
+      "zh": "穩定的",
+      "emoji": "➡️",
+      "abstract": true
+    },
+    {
+      "id": "gap",
+      "en": "gap",
+      "zh": "差距；缺口",
+      "emoji": "↔️",
+      "abstract": true
+    },
+    {
+      "id": "eliminate",
+      "en": "eliminate",
+      "zh": "刪掉；去除",
+      "emoji": "❌",
+      "abstract": true
+    },
+    {
+      "id": "freeze",
+      "en": "freeze",
+      "zh": "凍結；暫停",
+      "emoji": "🥶",
+      "abstract": true
+    },
+    {
+      "id": "premium",
+      "en": "premium",
+      "zh": "高級的（款式）；溢價",
+      "emoji": "💎",
+      "abstract": true
+    },
+    {
+      "id": "acceptable",
+      "en": "acceptable",
+      "zh": "可以接受的",
+      "emoji": "👌",
+      "abstract": true
+    },
+    {
+      "id": "allocate",
+      "en": "allocate",
+      "zh": "撥（預算）給",
+      "emoji": "📥",
+      "abstract": true
+    },
+    {
+      "id": "withdraw",
+      "en": "withdraw",
+      "zh": "退出",
+      "emoji": "🚪",
+      "abstract": true
+    },
+    {
+      "id": "vary",
+      "en": "vary",
+      "zh": "（因廠商、情況而）不同",
+      "emoji": "🔀",
+      "abstract": true
+    },
+    {
+      "id": "sufficient",
+      "en": "sufficient",
+      "zh": "足夠的",
+      "emoji": "✔️",
+      "abstract": true
+    },
+    {
+      "id": "decrease",
+      "en": "decrease",
+      "zh": "減少；降低",
+      "emoji": "🔻",
+      "abstract": true
+    },
+    {
+      "id": "economy",
+      "en": "economy",
+      "zh": "經濟",
+      "emoji": "🌏",
+      "abstract": true
+    },
+    {
+      "id": "economic",
+      "en": "economic",
+      "zh": "經濟的",
+      "emoji": "🌐",
+      "abstract": true
+    },
+    {
+      "id": "inflation",
+      "en": "inflation",
+      "zh": "通貨膨脹",
+      "emoji": "🎈",
+      "abstract": true
+    },
+    {
+      "id": "recession",
+      "en": "recession",
+      "zh": "經濟衰退",
+      "emoji": "📉",
+      "abstract": true
+    },
+    {
+      "id": "billion",
+      "en": "billion",
+      "zh": "十億",
+      "emoji": "🔟",
+      "abstract": true
+    },
+    {
+      "id": "analyst",
+      "en": "analyst",
+      "zh": "分析師",
+      "emoji": "🧑‍🔬",
+      "abstract": true
+    },
+    {
+      "id": "recovery",
+      "en": "recovery",
+      "zh": "復甦",
+      "emoji": "🩹",
+      "abstract": true
+    },
+    {
+      "id": "asset",
+      "en": "asset",
+      "zh": "資產",
+      "emoji": "🏆",
+      "abstract": true
+    },
+    {
+      "id": "anticipate",
+      "en": "anticipate",
+      "zh": "預期",
+      "emoji": "👀",
+      "abstract": true
+    },
+    {
+      "id": "currency",
+      "en": "currency",
+      "zh": "貨幣",
+      "emoji": "💱"
+    },
+    {
+      "id": "risk",
+      "en": "risk",
+      "zh": "風險",
+      "emoji": "⚠️",
+      "abstract": true
+    },
+    {
+      "id": "investment",
+      "en": "investment",
+      "zh": "投資",
+      "emoji": "🌳",
+      "abstract": true
+    },
+    {
+      "id": "justify",
+      "en": "justify",
+      "zh": "說明（支出）的理由；證明合理",
+      "emoji": "🗣️",
+      "abstract": true
+    },
+    {
+      "id": "capital",
+      "en": "capital",
+      "zh": "資本；資金",
+      "emoji": "🏛️",
+      "abstract": true
+    },
+    {
+      "id": "authorization",
+      "en": "authorization",
+      "zh": "授權；核准",
+      "emoji": "🖊️",
+      "abstract": true
+    },
+    {
+      "id": "bonus",
+      "en": "bonus",
+      "zh": "獎金",
+      "emoji": "🎉",
+      "abstract": true
+    },
+    {
+      "id": "incentive",
+      "en": "incentive",
+      "zh": "激勵；誘因",
+      "emoji": "🥕",
+      "abstract": true
+    },
+    {
+      "id": "loan",
+      "en": "loan",
+      "zh": "貸款",
+      "emoji": "🤲",
+      "abstract": true
+    },
+    {
+      "id": "debt",
+      "en": "debt",
+      "zh": "負債",
+      "emoji": "⛓️",
+      "abstract": true
+    },
+    {
+      "id": "minimize",
+      "en": "minimize",
+      "zh": "把…降到最低",
+      "emoji": "🔽",
+      "abstract": true
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "新來的會計",
+      "newChunkIds": ["put_the_budget_together", "how_much_can_we_spend"],
+      "newWordIds": [
+        "accountant",
+        "budget",
+        "fund",
+        "financial",
+        "fiscal",
+        "quarter",
+        "nearly",
+        "finance",
+        "annually"
+      ],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good morning! This is Ms. Patel, our new accountant.",
+          "zh": "早安！這位是我們新來的會計 Ms. Patel。"
+        },
+        {
+          "id": "t1_2",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "Hi! I'm here two days a week, Tuesdays and Thursdays.",
+          "zh": "嗨！我一週來兩天，星期二和星期四。"
+        },
+        {
+          "id": "t1_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "It's a new fiscal year, so you two will do the Lantern budget.",
+          "zh": "新的會計年度開始了，所以 Lantern 的預算就交給你們兩個。"
+        },
+        {
+          "id": "t1_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thanks for helping me put the budget together.",
+          "zh": "謝謝妳幫我一起把預算做出來。",
+          "chunkId": "put_the_budget_together"
+        },
+        {
+          "id": "t1_5",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "Happy to help. I've worked in finance for nearly ten years.",
+          "zh": "很樂意。我做財務工作快十年了。"
+        },
+        {
+          "id": "t1_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How much can we spend on the Lantern series this year?",
+          "zh": "Lantern 系列今年可以花多少錢？",
+          "chunkId": "how_much_can_we_spend"
+        },
+        {
+          "id": "t1_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "There's $250,000 in the fund for new products this year.",
+          "zh": "今年新產品的經費有二十五萬美元。"
+        },
+        {
+          "id": "t1_8",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "Okay. I'll check our numbers every quarter, not just annually.",
+          "zh": "好。我每一季都會看一下數字，不會只有年底才看。",
+          "stage": {
+            "act": "want",
+            "item": "budget"
+          }
+        },
+        {
+          "id": "t1_9",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. Mr. Ellis wants the financial plan by January 31.",
+          "zh": "很好。Ellis 先生要我們一月三十一號前交出財務計畫。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "去年的數字",
+      "newChunkIds": ["start_with_last_years_numbers", "profit_margin_was_pretty_low"],
+      "newWordIds": [
+        "analysis",
+        "profit",
+        "percentage",
+        "net",
+        "revenue",
+        "generate",
+        "margin",
+        "assess",
+        "sum",
+        "decline"
+      ],
+      "fills": [
+        {
+          "id": "generated_fill",
+          "en": "Desk lamps ___ $410,000 in revenue last year.",
+          "zh": "檯燈去年帶來了四十一萬美元的營收。",
+          "options": ["generated", "assessed", "declined", "rehearsed"],
+          "answer": 0,
+          "note": "帶來營收用 generate。"
+        },
+        {
+          "id": "surprised_fill",
+          "en": "Everyone was ___ by the low profit margin.",
+          "zh": "大家都對這麼低的利潤率感到意外。",
+          "options": ["surprised", "surprising", "surprise", "surprises"],
+          "answer": 0,
+          "note": "人「感到」意外用 -ed：surprised。",
+          "grammar": true
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "So, where do you want to begin?",
+          "zh": "那，你想從哪裡開始？",
+          "stage": {
+            "act": "ask"
+          }
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let's start by looking at last year's numbers.",
+          "zh": "我們先從去年的數字看起吧。",
+          "chunkId": "start_with_last_years_numbers"
+        },
+        {
+          "id": "t2_3",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "Good idea. Our desk lamps generated $410,000 in revenue.",
+          "zh": "好主意。我們的檯燈去年帶來了四十一萬美元的營收。"
+        },
+        {
+          "id": "t2_4",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "But sales declined a little in the fall.",
+          "zh": "不過秋天的時候銷售下滑了一點。"
+        },
+        {
+          "id": "t2_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Our profit margin on the glass lamp was pretty low.",
+          "zh": "我們那款玻璃檯燈的利潤率滿低的。",
+          "chunkId": "profit_margin_was_pretty_low"
+        },
+        {
+          "id": "t2_6",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "Right. After all the costs, our net profit on it was just eight percent.",
+          "zh": "對。扣掉所有成本，它的淨利只有百分之八。"
+        },
+        {
+          "id": "t2_7",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "I'll do a full analysis, so we can assess each lamp.",
+          "zh": "我會做一份完整的分析，這樣我們就能評估每一款燈。"
+        },
+        {
+          "id": "t2_8",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "Then you'll see what percentage of our profit each lamp brings in.",
+          "zh": "這樣你就會看到每一款燈占我們利潤的百分比。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "試算表",
+      "newChunkIds": ["should_delivery_costs_be_included", "can_the_total_be_updated"],
+      "newWordIds": [
+        "spreadsheet",
+        "entry",
+        "plus",
+        "divide",
+        "calculator",
+        "utility",
+        "deduct",
+        "convert",
+        "fluctuate",
+        "equivalent"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "Here's the spreadsheet. Every cost is a separate entry.",
+          "zh": "這是試算表。每一筆成本都是單獨一列。",
+          "stage": {
+            "act": "give",
+            "item": "spreadsheet"
+          }
+        },
+        {
+          "id": "t3_2",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "Materials, packaging, utilities, plus the two trade shows.",
+          "zh": "材料、包裝、水電，再加上兩場商展。"
+        },
+        {
+          "id": "t3_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Should delivery costs be included in the spreadsheet too?",
+          "zh": "運費也要算進這個試算表裡嗎？",
+          "chunkId": "should_delivery_costs_be_included"
+        },
+        {
+          "id": "t3_4",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "Yes. And Brightway's prices are in Taiwan dollars, so I convert them.",
+          "zh": "要。還有，Brightway 的報價是新台幣，所以我會換算。"
+        },
+        {
+          "id": "t3_5",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "The rate fluctuates, but one US dollar is equivalent to about 32 Taiwan dollars.",
+          "zh": "匯率會波動，不過一美元大約等於三十二元新台幣。"
+        },
+        {
+          "id": "t3_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can the total be updated automatically when prices change?",
+          "zh": "價格變動的時候，總數可以自動更新嗎？",
+          "chunkId": "can_the_total_be_updated"
+        },
+        {
+          "id": "t3_7",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "It can. You don't even need a calculator.",
+          "zh": "可以。你連計算機都不用。",
+          "stage": {
+            "act": "want",
+            "item": "calculator"
+          }
+        },
+        {
+          "id": "t3_8",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "It also divides the total by twelve to show each month.",
+          "zh": "它還會把總數除以十二，算出每個月的金額。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀成本報告和 email",
+      "newChunkIds": ["costs_were_counted_twice"],
+      "newWordIds": [
+        "quarterly",
+        "expenditure",
+        "substantial",
+        "slight",
+        "discrepancy",
+        "reimbursement",
+        "audit",
+        "rebate",
+        "commission",
+        "payable"
+      ],
+      "passages": [
+        {
+          "id": "cost_report_set",
+          "texts": [
+            {
+              "kind": "form",
+              "title": "Quarterly Cost Report: October to December",
+              "lines": [
+                "Prepared by Ms. Patel for Harbor Trading",
+                "Report date: January 8",
+                "Materials: $42,000 (up a little from July to September)",
+                "Packaging: $8,500",
+                "Travel: $9,600 (two trade shows and one sales trip)",
+                "Office and utilities: $6,000",
+                "Total: $66,100",
+                "As always, materials were our biggest cost this quarter. Packaging and office costs did not change much.",
+                "Travel was higher because of the two trade shows. All travel reimbursements are included.",
+                "Next quarter, travel will cost more because of the Lantern launch. Please tell me if any number looks wrong."
+              ]
+            },
+            {
+              "kind": "email",
+              "title": "Travel costs in the quarterly report",
+              "lines": [
+                "Hi,",
+                "Thanks for the quarterly report. I read it this morning, and I found a discrepancy.",
+                "The reimbursement for Dan's December sales trip ($1,800) was entered twice, so the travel number is too high. Please deduct it from the travel total. I already told Dan about it. Everything else looks right to me, and the report is very clear.",
+                "Could you and Ms. Patel fix this before the audit on February 10? Please send me the new total when it's ready.",
+                "I copied Ms. Patel on this email so she can see it too.",
+                "Thanks,",
+                "Ms. Carter"
+              ]
+            }
+          ],
+          "questions": [
+            {
+              "en": "What months does the report cover?",
+              "zh": "這份報告涵蓋哪幾個月？",
+              "options": ["October to December", "July to September", "January to March"],
+              "answer": 0,
+              "needs": [0]
+            },
+            {
+              "en": "Why did Ms. Carter write the email?",
+              "zh": "Ms. Carter 為什麼寫這封信？",
+              "options": [
+                "A cost was entered twice",
+                "A rebate is missing",
+                "A commission is payable"
+              ],
+              "answer": 0,
+              "needs": [1]
+            },
+            {
+              "en": "When is the audit?",
+              "zh": "查帳是哪一天？",
+              "options": ["December 31", "February 10", "January 15"],
+              "answer": 1,
+              "needs": [1]
+            },
+            {
+              "en": "What is the correct travel cost?",
+              "zh": "正確的差旅費是多少？",
+              "options": ["$9,600", "$11,400", "$7,800"],
+              "answer": 2,
+              "needs": [0, 1]
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Did you get my email about the quarterly report?",
+          "zh": "你有收到我寄的那封季報 email 嗎？"
+        },
+        {
+          "id": "t4_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Our travel expenditure looks way too high.",
+          "zh": "我們的差旅支出看起來高太多了。"
+        },
+        {
+          "id": "t4_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "It looks like the travel costs were counted twice.",
+          "zh": "看起來差旅費好像被算了兩次。",
+          "chunkId": "costs_were_counted_twice"
+        },
+        {
+          "id": "t4_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "That's what I thought. The reimbursement for Dan's trip went in twice.",
+          "zh": "我也是這麼想。Dan 出差的報銷被輸入了兩次。"
+        },
+        {
+          "id": "t4_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "It's not a substantial sum, but the audit is on February 10.",
+          "zh": "金額不算大，不過二月十號就要查帳了。"
+        },
+        {
+          "id": "t4_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Even a slight mistake looks bad in an audit.",
+          "zh": "就算是小錯，查帳時也很難看。"
+        },
+        {
+          "id": "t4_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Can you and Ms. Patel fix it this week?",
+          "zh": "你和 Ms. Patel 這個禮拜可以把它改好嗎？"
+        },
+        {
+          "id": "t4_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And check Brightway's rebate while you're at it.",
+          "zh": "順便也查一下 Brightway 的退款。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "做銷售預估",
+      "newChunkIds": ["what_factors_in_the_forecast", "keep_the_forecast_low"],
+      "newWordIds": [
+        "affect",
+        "factor",
+        "determine",
+        "predict",
+        "forecast",
+        "assumption",
+        "peak",
+        "growth",
+        "sudden",
+        "steady"
+      ],
+      "talks": [
+        {
+          "id": "forecast_talk",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "accountant",
+              "en": "Desk lamp sales have two peaks every year.",
+              "zh": "檯燈的銷售每年有兩個高峰。"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "guide",
+              "en": "Really? When are they?",
+              "zh": "真的嗎？是什麼時候？"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "accountant",
+              "en": "August, before school starts, and November, before Christmas.",
+              "zh": "八月開學前，還有十一月聖誕節前。"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "guide",
+              "en": "And what's your assumption for this year?",
+              "zh": "那妳對今年的假設是什麼？"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "accountant",
+              "en": "Steady growth of about six percent, plus Lantern after May.",
+              "zh": "大約百分之六的穩定成長，五月以後再加上 Lantern。"
+            },
+            {
+              "id": "t5_talk_6",
+              "role": "guide",
+              "en": "Could anything change that?",
+              "zh": "有什麼會改變這個數字嗎？"
+            },
+            {
+              "id": "t5_talk_7",
+              "role": "accountant",
+              "en": "A sudden change in the Taiwan dollar would affect our costs.",
+              "zh": "新台幣如果突然變動，會影響我們的成本。"
+            },
+            {
+              "id": "t5_talk_8",
+              "role": "accountant",
+              "en": "So many factors determine the final number. It's hard to predict.",
+              "zh": "最後的數字由太多因素決定，很難預測。"
+            },
+            {
+              "id": "t5_talk_9",
+              "role": "guide",
+              "en": "I'd rather keep the forecast low and do better than expected.",
+              "zh": "我寧可預估保守一點，最後做得比預期好。"
+            },
+            {
+              "id": "t5_talk_10",
+              "role": "accountant",
+              "en": "Okay. Then I'll use five percent.",
+              "zh": "好。那我就用百分之五。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "When are the sales peaks?",
+              "zh": "銷售高峰在什麼時候？",
+              "options": ["May and December", "August and November", "January and June"],
+              "answer": 1
+            },
+            {
+              "en": "How much growth does Ms. Patel expect?",
+              "zh": "Ms. Patel 預估成長多少？",
+              "options": ["About 2 percent", "About 10 percent", "About 6 percent"],
+              "answer": 2
+            },
+            {
+              "en": "What do you suggest?",
+              "zh": "你建議怎麼做？",
+              "options": ["A low forecast", "A higher price", "A later launch"],
+              "answer": 0
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "Okay, the sales forecast is ready. Want to see it?",
+          "zh": "好，銷售預估做好了。要看看嗎？"
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What factors did you include in the sales forecast?",
+          "zh": "妳在銷售預估裡考慮了哪些因素？",
+          "chunkId": "what_factors_in_the_forecast"
+        },
+        {
+          "id": "t5_3",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "Last year's sales, our two peak months, and the May launch.",
+          "zh": "去年的銷售、兩個旺季月份，還有五月上市。"
+        },
+        {
+          "id": "t5_4",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "My assumption is steady growth, about six percent.",
+          "zh": "我的前提是穩定成長，大約百分之六。"
+        },
+        {
+          "id": "t5_5",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "But a sudden change in prices could affect everything.",
+          "zh": "不過價格要是突然變動，一切都會受影響。"
+        },
+        {
+          "id": "t5_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'd rather keep the forecast low and do better than expected.",
+          "zh": "我寧可預估保守一點，最後做得比預期好。",
+          "chunkId": "keep_the_forecast_low"
+        },
+        {
+          "id": "t5_7",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "Fair enough. It's hard to predict a new series anyway.",
+          "zh": "有道理。反正新系列本來就很難預測。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "刪減成本",
+      "newChunkIds": ["material_costs_have_gone_up", "what_id_suggest_is_cutting_back"],
+      "newWordIds": [
+        "gap",
+        "eliminate",
+        "freeze",
+        "premium",
+        "acceptable",
+        "allocate",
+        "withdraw",
+        "vary",
+        "sufficient",
+        "decrease"
+      ],
+      "cloze": [
+        {
+          "lineId": "t6_5",
+          "word": "vary",
+          "distractors": ["rehearse", "emphasize"]
+        },
+        {
+          "lineId": "t6_8",
+          "word": "sufficient",
+          "distractors": ["anxious", "colorful"]
+        },
+        {
+          "lineId": "t6_9",
+          "word": "freeze",
+          "distractors": ["rehearse", "illustrate"]
+        }
+      ],
+      "textFills": [
+        {
+          "id": "budget_changes_email",
+          "kind": "email",
+          "title": "Changes to the Lantern budget",
+          "lines": [
+            "Hi everyone,",
+            "Material costs have gone ___ nearly ten percent, so our total was $18,000 over budget.",
+            "To close the gap, we will ___ less money to the trade show and make fewer samples.",
+            "___",
+            "Ms. Carter says the new total is acceptable.",
+            "Ms. Patel"
+          ],
+          "zh": [
+            "大家好：",
+            "材料成本漲了將近一成，所以我們的總數超出預算一萬八千美元。",
+            "為了補上這個缺口，我們會少撥一點錢給商展，樣品也會少做一些。",
+            "高級款會等到明年再做。",
+            "Ms. Carter 說新的總數可以接受。",
+            "Ms. Patel"
+          ],
+          "blanks": [
+            {
+              "options": ["up", "off", "out", "back"],
+              "answer": 0,
+              "note": "數字上漲用 go up。"
+            },
+            {
+              "options": ["allocate", "decrease", "eliminate", "withdraw"],
+              "answer": 0,
+              "note": "把錢撥給某個用途：allocate ... to。"
+            },
+            {
+              "options": [
+                "The premium model will wait until next year.",
+                "We will add three more trade shows.",
+                "Please make more samples this year.",
+                "Material costs have gone down a lot."
+              ],
+              "answer": 0,
+              "note": "要省錢，所以高級款延到明年。"
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "So, how's the budget looking?",
+          "zh": "那，預算看起來怎麼樣？"
+        },
+        {
+          "id": "t6_2",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "Not great. It all adds up to $268,000.",
+          "zh": "不太好。全部加起來是二十六萬八千美元。"
+        },
+        {
+          "id": "t6_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "That's $18,000 over. Where's that gap coming from?",
+          "zh": "超出一萬八千美元。這個缺口是哪裡來的？"
+        },
+        {
+          "id": "t6_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Material costs have gone up nearly ten percent.",
+          "zh": "材料成本漲了將近一成。",
+          "chunkId": "material_costs_have_gone_up"
+        },
+        {
+          "id": "t6_5",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "And shipping costs vary a lot, too.",
+          "zh": "而且運費每個月都差很多。"
+        },
+        {
+          "id": "t6_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "We can't eliminate the trade show. We need it.",
+          "zh": "商展不能砍掉，我們需要它。"
+        },
+        {
+          "id": "t6_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What I'd suggest is cutting back on samples for the trade show.",
+          "zh": "我的建議是，商展要用的樣品少做一點。",
+          "chunkId": "what_id_suggest_is_cutting_back"
+        },
+        {
+          "id": "t6_8",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "Fifty samples would be sufficient.",
+          "zh": "五十個樣品就夠了。"
+        },
+        {
+          "id": "t6_9",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. And let's freeze the premium model until next year.",
+          "zh": "很好。高級款也先暫停，等明年再說。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "電台財經新聞",
+      "newChunkIds": ["slower_economy_fewer_orders"],
+      "newWordIds": [
+        "economy",
+        "economic",
+        "inflation",
+        "recession",
+        "billion",
+        "analyst",
+        "recovery",
+        "asset",
+        "anticipate",
+        "currency"
+      ],
+      "talks": [
+        {
+          "id": "business_news",
+          "kind": "monologue",
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "announcer",
+              "en": "Good afternoon. Here is today's business news.",
+              "zh": "午安，以下是今天的財經新聞。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "announcer",
+              "en": "The US economy grew by about two percent last year.",
+              "zh": "美國經濟去年成長了大約百分之二。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "announcer",
+              "en": "People also spent a record nine hundred billion dollars over the holidays.",
+              "zh": "假期期間，民眾的消費也創下九千億美元的紀錄。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "announcer",
+              "en": "However, analysts anticipate a slower year.",
+              "zh": "不過，分析師預期今年會比較慢。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "announcer",
+              "en": "Prices are still going up, and inflation is high in Europe, where some analysts warn of a recession.",
+              "zh": "物價還在上漲，歐洲的通膨很高，有些分析師警告那裡可能會經濟衰退。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "announcer",
+              "en": "Many people are moving their money into safer assets.",
+              "zh": "很多人正把錢轉到比較安全的資產。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "announcer",
+              "en": "The Taiwan dollar has risen against the US dollar, so goods from Taiwan cost more.",
+              "zh": "新台幣對美元升值，所以台灣來的貨變貴了。"
+            },
+            {
+              "id": "t7_talk_8",
+              "role": "announcer",
+              "en": "Still, most analysts expect an economic recovery in the second half of the year.",
+              "zh": "不過，大部分分析師預期下半年經濟會復甦。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "How much did the US economy grow last year?",
+              "zh": "美國經濟去年成長了多少？",
+              "options": ["About 2 percent", "About 6 percent", "About 9 percent"],
+              "answer": 0
+            },
+            {
+              "en": "What do analysts expect this year?",
+              "zh": "分析師預期今年會怎樣？",
+              "options": ["Lower prices", "A slower year", "A recession in the US"],
+              "answer": 1
+            },
+            {
+              "en": "Why do goods from Taiwan cost more?",
+              "zh": "為什麼台灣來的貨變貴了？",
+              "options": [
+                "Shipping is slower",
+                "Inflation is high in Europe",
+                "The Taiwan dollar has risen"
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Was that the business news just now?",
+          "zh": "剛剛那是財經新聞嗎？"
+        },
+        {
+          "id": "t7_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I missed it. Anything about the economy?",
+          "zh": "我沒聽到。有講到經濟嗎？"
+        },
+        {
+          "id": "t7_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "A slower economy could mean fewer orders this year.",
+          "zh": "經濟放緩的話，今年的訂單可能會變少。",
+          "chunkId": "slower_economy_fewer_orders"
+        },
+        {
+          "id": "t7_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Maybe. Analysts always worry. They said the same thing last year.",
+          "zh": "也許吧。分析師總是在擔心，去年他們也這樣說。"
+        },
+        {
+          "id": "t7_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "The Taiwan dollar worries me more than inflation.",
+          "zh": "比起通膨，我更擔心新台幣。"
+        },
+        {
+          "id": "t7_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "We pay Brightway in their currency, so every lamp costs us more.",
+          "zh": "我們付給 Brightway 的是他們的貨幣，所以每盞燈都要多花一點。",
+          "stage": {
+            "act": "want",
+            "item": "currency"
+          }
+        },
+        {
+          "id": "t7_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Material costs have gone up nearly ten percent.",
+          "zh": "材料成本漲了將近一成。",
+          "chunkId": "material_costs_have_gone_up"
+        },
+        {
+          "id": "t7_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Right. Let's keep some extra money for that, just in case.",
+          "zh": "對。我們留一點錢備用，以防萬一。"
+        },
+        {
+          "id": "t7_9",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Mr. Ellis will ask about it on Friday, so be ready.",
+          "zh": "Ellis 先生星期五會問這件事，你要準備好。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "總經理核准",
+      "newChunkIds": ["where_every_dollar_is_going", "the_risk_is_worth_it"],
+      "newWordIds": [
+        "risk",
+        "investment",
+        "justify",
+        "capital",
+        "authorization",
+        "bonus",
+        "incentive",
+        "loan",
+        "debt",
+        "minimize"
+      ],
+      "spellWordIds": ["chart", "curve", "factory", "presenter", "anxious"],
+      "cloze": [
+        {
+          "lineId": "t8_1",
+          "word": "investment",
+          "distractors": ["rehearsal", "presenter"]
+        },
+        {
+          "lineId": "t8_4",
+          "word": "risk",
+          "distractors": ["calculator", "spreadsheet"]
+        },
+        {
+          "lineId": "t8_7",
+          "word": "loan",
+          "distractors": ["curve", "chart"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "director",
+          "speaker": "npc",
+          "en": "So, $250,000 for Lantern. That's a big investment.",
+          "zh": "所以，Lantern 要二十五萬美元。這是一筆不小的投資。"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let me show you where every dollar is going.",
+          "zh": "我跟您說明一下每一塊錢會花在哪裡。",
+          "chunkId": "where_every_dollar_is_going"
+        },
+        {
+          "id": "t8_3",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Go ahead. I need every cost justified.",
+          "zh": "請說。每一筆成本都要有合理的理由。"
+        },
+        {
+          "id": "t8_4",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Still, a new series is always a risk.",
+          "zh": "不過，新系列總是有風險。"
+        },
+        {
+          "id": "t8_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I think the risk is worth it, and here's why.",
+          "zh": "我認為這個風險值得冒，原因是這樣的。",
+          "chunkId": "the_risk_is_worth_it"
+        },
+        {
+          "id": "t8_6",
+          "role": "director",
+          "speaker": "npc",
+          "en": "I see. You kept the forecast low and minimized the costs.",
+          "zh": "我懂了。你把預估做得保守，成本也壓到最低。"
+        },
+        {
+          "id": "t8_7",
+          "role": "director",
+          "speaker": "npc",
+          "en": "And we have the capital, so no loan and no debt.",
+          "zh": "而且我們有資金，所以不用貸款，也不會有負債。"
+        },
+        {
+          "id": "t8_8",
+          "role": "director",
+          "speaker": "npc",
+          "en": "All right, you have my authorization. Lantern launches in May.",
+          "zh": "好，我核准了。Lantern 五月上市。"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Before you see Mr. Ellis, let's do a quick practice.",
+          "zh": "你去見 Ellis 先生之前，我們先快速練習一次。"
+        },
+        {
+          "id": "t9_2",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "I printed the spreadsheet for both of you.",
+          "zh": "我幫你們兩個都印了試算表。",
+          "stage": {
+            "act": "give",
+            "item": "spreadsheet"
+          }
+        },
+        {
+          "id": "t9_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thanks for helping me put the budget together.",
+          "zh": "謝謝妳幫我一起把預算做出來。",
+          "chunkId": "put_the_budget_together"
+        },
+        {
+          "id": "t9_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Okay, let's begin. Why do we need a new series at all?",
+          "zh": "好，開始吧。我們到底為什麼需要新系列？"
+        },
+        {
+          "id": "t9_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Our profit margin on the glass lamp was pretty low.",
+          "zh": "我們那款玻璃檯燈的利潤率滿低的。",
+          "chunkId": "profit_margin_was_pretty_low"
+        },
+        {
+          "id": "t9_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Fair. And why is travel lower than in the quarterly report?",
+          "zh": "有道理。那差旅費為什麼比季報上的低？"
+        },
+        {
+          "id": "t9_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "It looks like the travel costs were counted twice.",
+          "zh": "看起來差旅費好像被算了兩次。",
+          "chunkId": "costs_were_counted_twice"
+        },
+        {
+          "id": "t9_8",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "We fixed it before the audit. It's $7,800 now.",
+          "zh": "我們在查帳前改好了，現在是七千八百美元。"
+        },
+        {
+          "id": "t9_9",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. But the materials line looks really high.",
+          "zh": "很好。不過材料那一行看起來很高。"
+        },
+        {
+          "id": "t9_10",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Material costs have gone up nearly ten percent.",
+          "zh": "材料成本漲了將近一成。",
+          "chunkId": "material_costs_have_gone_up"
+        },
+        {
+          "id": "t9_11",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I see. And your sales forecast seems low to me.",
+          "zh": "了解。還有，我覺得你的銷售預估有點低。"
+        },
+        {
+          "id": "t9_12",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'd rather keep the forecast low and do better than expected.",
+          "zh": "我寧可預估保守一點，最後做得比預期好。",
+          "chunkId": "keep_the_forecast_low"
+        },
+        {
+          "id": "t9_13",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Why so careful?",
+          "zh": "為什麼這麼保守？"
+        },
+        {
+          "id": "t9_14",
+          "role": "guide",
+          "speaker": "player",
+          "en": "A slower economy could mean fewer orders this year.",
+          "zh": "經濟放緩的話，今年的訂單可能會變少。",
+          "chunkId": "slower_economy_fewer_orders"
+        },
+        {
+          "id": "t9_15",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "Also, Brightway's prices change with the Taiwan dollar.",
+          "zh": "還有，Brightway 的價格會跟著新台幣變動。"
+        },
+        {
+          "id": "t9_16",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can the total be updated automatically when prices change?",
+          "zh": "價格變動的時候，總數可以自動更新嗎？",
+          "chunkId": "can_the_total_be_updated"
+        },
+        {
+          "id": "t9_17",
+          "role": "accountant",
+          "speaker": "npc",
+          "en": "It already is. I set that up last week.",
+          "zh": "已經是了，我上週就設定好了。"
+        },
+        {
+          "id": "t9_18",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Great. Mr. Ellis always asks where the money goes.",
+          "zh": "很好。Ellis 先生一定會問錢都花到哪裡去。"
+        },
+        {
+          "id": "t9_19",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let me show you where every dollar is going.",
+          "zh": "我跟您說明一下每一塊錢會花在哪裡。",
+          "chunkId": "where_every_dollar_is_going"
+        },
+        {
+          "id": "t9_20",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Perfect. And if Lantern does well, there's a bonus. Good incentive, right?",
+          "zh": "很好。而且如果 Lantern 賣得好，還有獎金喔。很有動力吧？"
+        }
+      ]
+    }
+  ]
+}
