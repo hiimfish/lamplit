@@ -10,6 +10,7 @@ import {
   defaultAct,
   firstNewTask,
   isActUnlocked,
+  isPlaceUnlocked,
   nextStop,
   openUnits,
   progressOf,
@@ -198,5 +199,36 @@ describe('isActUnlocked', () => {
       true,
       ...real.slice(1).map(() => false),
     ]);
+  });
+});
+
+describe('isPlaceUnlocked', () => {
+  const town = buildTown(acts, [unit('a', 2), unit('b', 1), unit('c', 1)]);
+  const [a, b, c] = [0, 1].flatMap((i) => actUnits(town[i]!));
+  if (!a || !b || !c) throw new Error('missing units');
+
+  it('opens only the first place of the first act on a new save', () => {
+    const save = createEmptySave(now);
+    expect(isPlaceUnlocked(town, save, 0, a)).toBe(true);
+    expect(isPlaceUnlocked(town, save, 0, b)).toBe(false);
+    expect(isPlaceUnlocked(town, save, 1, c)).toBe(false);
+  });
+
+  it('opens the next place once every task of the one before was played', () => {
+    expect(isPlaceUnlocked(town, played({ 'a/t1': 3 }), 0, b)).toBe(false);
+    expect(isPlaceUnlocked(town, played({ 'a/t1': 1, 'a/t2': 1 }), 0, b)).toBe(true);
+  });
+
+  it('opens the first place of a later act with the act', () => {
+    expect(isPlaceUnlocked(town, played({ 'a/t1': 1, 'a/t2': 1, 'b/t1': 1 }), 1, c)).toBe(true);
+  });
+
+  it('keeps a place open where the save already has a record', () => {
+    expect(isPlaceUnlocked(town, played({ 'b/t1': 2 }), 0, b)).toBe(true);
+  });
+
+  it('opens everything with the dev switch, and nothing for a unit not in the act', () => {
+    expect(isPlaceUnlocked(town, createEmptySave(now), 0, b, true)).toBe(true);
+    expect(isPlaceUnlocked(town, createEmptySave(now), 0, c)).toBe(false);
   });
 });

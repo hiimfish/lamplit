@@ -137,6 +137,30 @@ export function isActUnlocked<U extends UnitLike>(
   return prev.total > 0 && prev.done === prev.total;
 }
 
+/**
+ * Whether a place of an open act can be played: the act's first playable place
+ * always; a later one once every task of the playable place before it was played
+ * at least once. A place the save already has a record in stays open. `openAll`
+ * (the dev switch) opens everything.
+ */
+export function isPlaceUnlocked<U extends UnitLike>(
+  town: readonly TownAct<U>[],
+  save: SaveData,
+  actIndex: number,
+  unit: U,
+  openAll = false,
+): boolean {
+  if (openAll) return true;
+  const act = town[actIndex];
+  if (!act || !isActUnlocked(town, save, actIndex)) return false;
+  const units = actUnits(act);
+  const at = units.indexOf(unit);
+  if (at < 0) return false;
+  if (at === 0 || progressOf(save, [unit]).done > 0) return true;
+  const before = units[at - 1];
+  return before !== undefined && firstNewTask(save, before) === -1;
+}
+
 /** The playable units of every act that is open, in play order. */
 export function openUnits<U extends UnitLike>(
   town: readonly TownAct<U>[],

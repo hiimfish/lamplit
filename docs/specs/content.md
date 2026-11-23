@@ -420,7 +420,7 @@
 
 第一幕的十個地點都已做（2026-11-22）：80 個任務、140 個詞塊、301 個單字（148 個標 `abstract`，153 個有像素圖）、6 組對比詞、495 句劇情台詞。街道到公園這 7 個地點是 2026-11-22 新做的。
 
-小鎮畫面依 `src/content/unitOrder.ts` 的 `UNIT_ORDER` 排列（用字分析腳本也照這個順序）：先是第一幕的十個地點：搬家第一天、咖啡廳、便利商店、街道與公車站、超市與市集、服飾店、診所與藥局、餐廳與聚會、郵局、公園與社區（`move_in`、`cafe`、`store`、`street`、`market`、`clothes`、`clinic`、`restaurant`、`post_office`、`park`）；接著是第二幕的八個地點：銀行、社區中心、圖書館、修車與維修、就業服務站、履歷、面試、上班前一天（`bank`、`community_center`、`library`、`repair`、`job_center`、`resume`、`interview`、`day_before`）。同一幕的單元都一開始就能玩；幕和幕之間有鎖，前一幕每個任務都玩過才打開下一幕（2026-11-24，見 [ui-flow.md](ui-flow.md)）。
+小鎮畫面依 `src/content/unitOrder.ts` 的 `UNIT_ORDER` 排列（用字分析腳本也照這個順序）：先是第一幕的十個地點：搬家第一天、咖啡廳、便利商店、街道與公車站、超市與市集、服飾店、診所與藥局、餐廳與聚會、郵局、公園與社區（`move_in`、`cafe`、`store`、`street`、`market`、`clothes`、`clinic`、`restaurant`、`post_office`、`park`）；接著是第二幕的八個地點：銀行、社區中心、圖書館、修車與維修、就業服務站、履歷、面試、上班前一天（`bank`、`community_center`、`library`、`repair`、`job_center`、`resume`、`interview`、`day_before`）。地點照這個順序一個一個打開：前一個地點的每個任務都玩過才打開下一個，前一幕每個任務都玩過才打開下一幕（2026-11-24，見 [ui-flow.md](ui-flow.md)）。因為後面的地點假設前面教過的字已經學過（平滑規則 3），不能跳著玩。
 
 每個地點都是 14 個詞塊、8 個任務，第 8 個是角色扮演大挑戰（第二幕也是）。第一幕的新題型在哪些任務出現（第二幕見下方「第二幕」一節）：
 

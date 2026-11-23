@@ -17,6 +17,7 @@ import {
   defaultAct,
   firstNewTask,
   isActUnlocked,
+  isPlaceUnlocked,
   nextStop,
   progressOf,
   type Progress,
@@ -127,7 +128,7 @@ function NamePlate({
 
 /**
  * One location of the act: a key that opens its tasks, or a locked note when it is not
- * built yet or its act is still locked.
+ * built yet, its act is still locked, or the place before it is not finished.
  */
 function PlaceTile({
   no,
@@ -441,7 +442,11 @@ export function TownScreen() {
                   no={index + 1}
                   title={item.title}
                   unit={item.unit}
-                  locked={!actOpen}
+                  locked={
+                    !actOpen ||
+                    (item.unit !== undefined &&
+                      !isPlaceUnlocked(TOWN, save, actIndex, item.unit, openAll))
+                  }
                   isNext={item.unit !== undefined && item.unit === next?.unit}
                   save={save}
                   onOpen={(unitId) => show(actIndex, unitId)}
