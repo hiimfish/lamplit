@@ -122,7 +122,11 @@ function browserSpeechBusy(): boolean {
   }
 }
 
-const liveDeps: ConversationDeps = {
+/**
+ * The real clip, browser-speech, timer and clock hooks for playConversation. Shared with
+ * the other screens that play clips one after another (看圖聽句, 應答題).
+ */
+export const liveDeps: ConversationDeps = {
   play: playClip,
   speechBusy: browserSpeechBusy,
   stop: stopAudio,
