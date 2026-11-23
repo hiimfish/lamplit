@@ -1,0 +1,2160 @@
+{
+  "id": "promotion",
+  "title": "結業挑戰",
+  "titleEn": "Promotion Review",
+  "chunks": [
+    {
+      "id": "put_together_a_portfolio",
+      "en": "Should I put together a portfolio of my work?",
+      "zh": "我要不要把做過的東西整理成作品集帶去？",
+      "note": "問主管面談要準備什麼。put together = 把東西整理、彙整成一份。",
+      "distractors": [
+        {
+          "text": "Should I put together portfolio of my work?",
+          "error": "article"
+        },
+        {
+          "text": "Should I putting together a portfolio of my work?",
+          "error": "other"
+        },
+        {
+          "text": "Should I put together a portfolo of my work?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "push_the_review_back_to_friday",
+      "en": "Can we push the review back to Friday afternoon?",
+      "zh": "面談可以延到星期五下午嗎？",
+      "accept": ["Can we push back the review to Friday afternoon?"],
+      "note": "請對方把約好的時間往後延。push ... back to + 新的時間。",
+      "distractors": [
+        {
+          "text": "Can we push review back to Friday afternoon?",
+          "error": "article"
+        },
+        {
+          "text": "Can we push the review back at Friday afternoon?",
+          "error": "other"
+        },
+        {
+          "text": "Can we push the review back to Friday afternon?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "which_achievement_to_put_first",
+      "en": "Which achievement do you think I should put first?",
+      "zh": "你覺得我應該先寫哪一項成果？",
+      "note": "請別人幫忙排順序。do you think 插在疑問詞後面，後面照直述句的順序 I should。",
+      "distractors": [
+        {
+          "text": "Which achievement do you think should I put first?",
+          "error": "word-order"
+        },
+        {
+          "text": "Which achievement you think I should put first?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Which achievment do you think I should put first?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "mention_a_weakness_in_my_appraisal",
+      "en": "Is it a good idea to mention a weakness in my appraisal?",
+      "zh": "在考核表裡提到自己的缺點，這樣好嗎？",
+      "note": "問某件事該不該做。Is it a good idea to + 動詞原形？",
+      "distractors": [
+        {
+          "text": "Is it good idea to mention a weakness in my appraisal?",
+          "error": "article"
+        },
+        {
+          "text": "Is it a good idea to mentioning a weakness in my appraisal?",
+          "error": "other"
+        },
+        {
+          "text": "Is it a good idea mention a weakness in my appraisal?",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "you_said_never_be_boring",
+      "en": "You told me at my interview that no two days would be the same.",
+      "zh": "您在我面試的時候跟我說過，這裡每天都不一樣。",
+      "note": "間接引述：轉述對方以前說的話，will 往前退一格變成 would。",
+      "distractors": [
+        {
+          "text": "You told to me at my interview that no two days would be the same.",
+          "error": "extra-word"
+        },
+        {
+          "text": "You said me at my interview that no two days would be the same.",
+          "error": "other"
+        },
+        {
+          "text": "You told me at my interview that no two day would be the same.",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "what_surprised_me_was_how",
+      "en": "What surprised me was how much I enjoy working with clients.",
+      "zh": "讓我意外的是，我竟然這麼喜歡跟客戶打交道。",
+      "note": "名詞子句當主詞：What surprised me（讓我意外的事）整段當主語，後面接 was。",
+      "distractors": [
+        {
+          "text": "What surprised me were how much I enjoy working with clients.",
+          "error": "other"
+        },
+        {
+          "text": "What surprised me was how much do I enjoy working with clients.",
+          "error": "word-order"
+        },
+        {
+          "text": "What surprised me was how much I enjoy work with clients.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "role_involves_more_management",
+      "en": "This role involves a lot more management than I'm used to.",
+      "zh": "這個職位要管的事，比我習慣的多很多。",
+      "accept": ["This role involves a lot more management than I am used to."],
+      "note": "說新工作和現在的差別。be used to + 名詞 = 習慣；a lot more = 多很多。",
+      "distractors": [
+        {
+          "text": "This role involve a lot more management than I'm used to.",
+          "error": "other"
+        },
+        {
+          "text": "This role involves a lot more management that I'm used to.",
+          "error": "other"
+        },
+        {
+          "text": "This role involves a lot more managment than I'm used to.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "biggest_mistake_taught_me",
+      "en": "My biggest mistake taught me to check every order twice.",
+      "zh": "我犯過最大的錯，讓我學會每張訂單都要檢查兩次。",
+      "note": "面談時說犯錯學到什麼。teach + 人 + to + 動詞原形，過去式是 taught。",
+      "distractors": [
+        {
+          "text": "My biggest mistake taught me check every order twice.",
+          "error": "missing-word"
+        },
+        {
+          "text": "My biggest mistake teached me to check every order twice.",
+          "error": "other"
+        },
+        {
+          "text": "My biggest mistake taught me to check every orders twice.",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "proudest_of_how_the_team",
+      "en": "I'm proudest of how the team pulled together this year.",
+      "zh": "我最驕傲的是今年整個團隊齊心協力。",
+      "accept": ["I am proudest of how the team pulled together this year."],
+      "note": "說最驕傲的事。pull together = 大家同心協力；proudest of 後面可以接 how 帶出的一整件事。",
+      "distractors": [
+        {
+          "text": "I'm most proudest of how the team pulled together this year.",
+          "error": "extra-word"
+        },
+        {
+          "text": "I'm proudest how the team pulled together this year.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I'm proudest of how the team pulled together this years.",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "ill_have_leo_handle_incoming_orders",
+      "en": "I'll have Leo handle the incoming orders from now on.",
+      "zh": "之後新進來的訂單，我會讓 Leo 來處理。",
+      "accept": ["I will have Leo handle the incoming orders from now on."],
+      "note": "使役動詞：have + 人 + 動詞原形，表示交給某人去做。",
+      "distractors": [
+        {
+          "text": "I'll have Leo to handle the incoming orders from now on.",
+          "error": "extra-word"
+        },
+        {
+          "text": "I'll have Leo handles the incoming orders from now on.",
+          "error": "other"
+        },
+        {
+          "text": "I'll have Leo handle the incomming orders from now on.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "cut_out_unnecessary_steps",
+      "en": "Let's look at the ordering process and cut out any unnecessary steps.",
+      "zh": "我們把下單流程看一遍，把不必要的步驟都拿掉吧。",
+      "accept": ["Let us look at the ordering process and cut out any unnecessary steps."],
+      "note": "片語動詞：cut out = 拿掉、刪掉；受詞很長時放在 out 後面。",
+      "distractors": [
+        {
+          "text": "Let's look the ordering process and cut out any unnecessary steps.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Let's look at the ordering process and cuts out any unnecessary steps.",
+          "error": "other"
+        },
+        {
+          "text": "Let's look at the ordering process and cut out any unnecesary steps.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "promise_i_wont_let_you_down",
+      "en": "Thank you, and I promise I won't let you down.",
+      "zh": "謝謝您，我保證不會讓您失望。",
+      "accept": ["Thank you, and I promise I will not let you down."],
+      "note": "接下新工作時說。let someone down = 讓人失望，人放在 let 和 down 中間。",
+      "distractors": [
+        {
+          "text": "Thank you, and I promise I won't let down you.",
+          "error": "word-order"
+        },
+        {
+          "text": "Thank you, and I promise I won't letting you down.",
+          "error": "other"
+        },
+        {
+          "text": "Thank you, and I promise I won't let you dawn.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "learned_so_much_from_both_of_you",
+      "en": "I've learned so much from both of you over the past two years.",
+      "zh": "這兩年我從你們兩位身上學到好多。",
+      "accept": ["I have learned so much from both of you over the past two years."],
+      "note": "現在完成式說這兩年一路學到的。both of you = 你們兩位。",
+      "distractors": [
+        {
+          "text": "I've learn so much from both of you over the past two years.",
+          "error": "other"
+        },
+        {
+          "text": "I've learned so much from both you over the past two years.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I've learned so much from both of you over the past two year.",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "cant_wait_to_see_what_we_build",
+      "en": "I can't wait to see what we build together next year.",
+      "zh": "我好期待明年我們一起做出什麼成績。",
+      "accept": ["I cannot wait to see what we build together next year."],
+      "note": "很期待某件事時說。can't wait to + 動詞原形；what we build 是「我們做出的東西」。",
+      "distractors": [
+        {
+          "text": "I can't wait to see what do we build together next year.",
+          "error": "word-order"
+        },
+        {
+          "text": "I can't wait seeing what we build together next year.",
+          "error": "other"
+        },
+        {
+          "text": "I can't wait to see what we build together next years.",
+          "error": "plural"
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "id": "deep",
+      "en": "deep",
+      "zh": "深的（take a deep breath 深呼吸）",
+      "emoji": "🌊",
+      "abstract": true
+    },
+    {
+      "id": "duty",
+      "en": "duty",
+      "zh": "職責",
+      "emoji": "📌",
+      "abstract": true
+    },
+    {
+      "id": "objective",
+      "en": "objective",
+      "zh": "（工作）目標",
+      "emoji": "🎯",
+      "abstract": true
+    },
+    {
+      "id": "promotion",
+      "en": "promotion",
+      "zh": "升遷",
+      "emoji": "⬆️",
+      "abstract": true
+    },
+    {
+      "id": "finalize",
+      "en": "finalize",
+      "zh": "敲定；定案",
+      "emoji": "✔️",
+      "abstract": true
+    },
+    {
+      "id": "reviewer",
+      "en": "reviewer",
+      "zh": "評核人；審核的人",
+      "emoji": "🧐",
+      "abstract": true
+    },
+    {
+      "id": "portfolio",
+      "en": "portfolio",
+      "zh": "作品集",
+      "emoji": "💼",
+      "abstract": true
+    },
+    {
+      "id": "appraisal",
+      "en": "appraisal",
+      "zh": "（工作）考核；評估",
+      "emoji": "📝",
+      "abstract": true
+    },
+    {
+      "id": "clarify",
+      "en": "clarify",
+      "zh": "說清楚；釐清",
+      "emoji": "💬",
+      "abstract": true
+    },
+    {
+      "id": "slot",
+      "en": "slot",
+      "zh": "時段；空檔",
+      "emoji": "🗓️",
+      "abstract": true
+    },
+    {
+      "id": "retrieve",
+      "en": "retrieve",
+      "zh": "（從系統裡）找出來；調出",
+      "emoji": "🔍",
+      "abstract": true
+    },
+    {
+      "id": "perform",
+      "en": "perform",
+      "zh": "表現；做（工作）",
+      "emoji": "📊",
+      "abstract": true
+    },
+    {
+      "id": "commitment",
+      "en": "commitment",
+      "zh": "投入；承諾",
+      "emoji": "🤞",
+      "abstract": true
+    },
+    {
+      "id": "achievement",
+      "en": "achievement",
+      "zh": "成果；成就",
+      "emoji": "🏅",
+      "abstract": true
+    },
+    {
+      "id": "overcome",
+      "en": "overcome",
+      "zh": "克服",
+      "emoji": "🧗",
+      "abstract": true
+    },
+    {
+      "id": "weakness",
+      "en": "weakness",
+      "zh": "缺點；弱點",
+      "emoji": "🩹",
+      "abstract": true
+    },
+    {
+      "id": "tackle",
+      "en": "tackle",
+      "zh": "處理（難題）；著手解決",
+      "emoji": "🛠️",
+      "abstract": true
+    },
+    {
+      "id": "paragraph",
+      "en": "paragraph",
+      "zh": "段落",
+      "emoji": "📄",
+      "abstract": true
+    },
+    {
+      "id": "motivation",
+      "en": "motivation",
+      "zh": "動力；動機",
+      "emoji": "🔥",
+      "abstract": true
+    },
+    {
+      "id": "realistic",
+      "en": "realistic",
+      "zh": "實際的；務實的",
+      "emoji": "⚖️",
+      "abstract": true
+    },
+    {
+      "id": "creativity",
+      "en": "creativity",
+      "zh": "創意",
+      "emoji": "🎨",
+      "abstract": true
+    },
+    {
+      "id": "modest",
+      "en": "modest",
+      "zh": "謙虛的",
+      "emoji": "🙂",
+      "abstract": true
+    },
+    {
+      "id": "reflect",
+      "en": "reflect",
+      "zh": "回顧；反思",
+      "emoji": "🤔",
+      "abstract": true
+    },
+    {
+      "id": "farewell",
+      "en": "farewell",
+      "zh": "告別；歡送（會）",
+      "emoji": "👋",
+      "abstract": true
+    },
+    {
+      "id": "struggle",
+      "en": "struggle",
+      "zh": "吃力；苦撐",
+      "emoji": "😣",
+      "abstract": true
+    },
+    {
+      "id": "retire",
+      "en": "retire",
+      "zh": "退休",
+      "emoji": "🏖️",
+      "abstract": true
+    },
+    {
+      "id": "devote",
+      "en": "devote",
+      "zh": "投入（時間、心力）",
+      "emoji": "⏳",
+      "abstract": true
+    },
+    {
+      "id": "remarkable",
+      "en": "remarkable",
+      "zh": "了不起的；驚人的",
+      "emoji": "🌟",
+      "abstract": true
+    },
+    {
+      "id": "regret",
+      "en": "regret",
+      "zh": "後悔",
+      "emoji": "😔",
+      "abstract": true
+    },
+    {
+      "id": "invaluable",
+      "en": "invaluable",
+      "zh": "非常寶貴的",
+      "emoji": "💎",
+      "abstract": true
+    },
+    {
+      "id": "wisely",
+      "en": "wisely",
+      "zh": "明智地",
+      "emoji": "🦉",
+      "abstract": true
+    },
+    {
+      "id": "delicate",
+      "en": "delicate",
+      "zh": "棘手的；需要小心處理的",
+      "emoji": "🥚",
+      "abstract": true
+    },
+    {
+      "id": "meaningful",
+      "en": "meaningful",
+      "zh": "有意義的",
+      "emoji": "❤️",
+      "abstract": true
+    },
+    {
+      "id": "management",
+      "en": "management",
+      "zh": "管理",
+      "emoji": "🗃️",
+      "abstract": true
+    },
+    {
+      "id": "leadership",
+      "en": "leadership",
+      "zh": "領導能力",
+      "emoji": "🧭",
+      "abstract": true
+    },
+    {
+      "id": "undertake",
+      "en": "undertake",
+      "zh": "進行；承擔（工作）",
+      "emoji": "📥",
+      "abstract": true
+    },
+    {
+      "id": "constraint",
+      "en": "constraint",
+      "zh": "限制；（預算的）約束",
+      "emoji": "⛓️",
+      "abstract": true
+    },
+    {
+      "id": "scope",
+      "en": "scope",
+      "zh": "（工作）範圍",
+      "emoji": "🔭",
+      "abstract": true
+    },
+    {
+      "id": "managerial",
+      "en": "managerial",
+      "zh": "管理（職）的",
+      "emoji": "👔",
+      "abstract": true
+    },
+    {
+      "id": "maximize",
+      "en": "maximize",
+      "zh": "把⋯⋯提到最高",
+      "emoji": "🔝",
+      "abstract": true
+    },
+    {
+      "id": "advancement",
+      "en": "advancement",
+      "zh": "升遷；晉升機會",
+      "emoji": "🪜",
+      "abstract": true
+    },
+    {
+      "id": "organizational",
+      "en": "organizational",
+      "zh": "組織的；安排規劃的",
+      "emoji": "🧩",
+      "abstract": true
+    },
+    {
+      "id": "oversee",
+      "en": "oversee",
+      "zh": "監督；負責管理",
+      "emoji": "👀",
+      "abstract": true
+    },
+    {
+      "id": "collaboration",
+      "en": "collaboration",
+      "zh": "合作；協作",
+      "emoji": "🤝",
+      "abstract": true
+    },
+    {
+      "id": "operational",
+      "en": "operational",
+      "zh": "營運的；日常運作的",
+      "emoji": "⚙️",
+      "abstract": true
+    },
+    {
+      "id": "determination",
+      "en": "determination",
+      "zh": "決心；毅力",
+      "emoji": "💪",
+      "abstract": true
+    },
+    {
+      "id": "incur",
+      "en": "incur",
+      "zh": "產生（費用）；招致",
+      "emoji": "💸",
+      "abstract": true
+    },
+    {
+      "id": "apology",
+      "en": "apology",
+      "zh": "道歉",
+      "emoji": "🙇",
+      "abstract": true
+    },
+    {
+      "id": "duplicate",
+      "en": "duplicate",
+      "zh": "重複的；重複下的（單）",
+      "emoji": "📑",
+      "abstract": true
+    },
+    {
+      "id": "satisfactory",
+      "en": "satisfactory",
+      "zh": "令人滿意的；合格的",
+      "emoji": "👌",
+      "abstract": true
+    },
+    {
+      "id": "overlook",
+      "en": "overlook",
+      "zh": "漏看；忽略",
+      "emoji": "🙈",
+      "abstract": true
+    },
+    {
+      "id": "correction",
+      "en": "correction",
+      "zh": "更正",
+      "emoji": "✏️",
+      "abstract": true
+    },
+    {
+      "id": "favorable",
+      "en": "favorable",
+      "zh": "正面的；有利的",
+      "emoji": "👍",
+      "abstract": true
+    },
+    {
+      "id": "urgently",
+      "en": "urgently",
+      "zh": "緊急地",
+      "emoji": "🚨",
+      "abstract": true
+    },
+    {
+      "id": "indicator",
+      "en": "indicator",
+      "zh": "指標",
+      "emoji": "📈",
+      "abstract": true
+    },
+    {
+      "id": "cautious",
+      "en": "cautious",
+      "zh": "謹慎的；小心的",
+      "emoji": "⚠️",
+      "abstract": true
+    },
+    {
+      "id": "delegate",
+      "en": "delegate",
+      "zh": "把（工作）交給別人；授權",
+      "emoji": "🤲",
+      "abstract": true
+    },
+    {
+      "id": "accomplish",
+      "en": "accomplish",
+      "zh": "完成；做到",
+      "emoji": "🏔️",
+      "abstract": true
+    },
+    {
+      "id": "pursue",
+      "en": "pursue",
+      "zh": "爭取；開拓（市場）",
+      "emoji": "🏃",
+      "abstract": true
+    },
+    {
+      "id": "appoint",
+      "en": "appoint",
+      "zh": "任命；指派",
+      "emoji": "📜",
+      "abstract": true
+    },
+    {
+      "id": "seasonal",
+      "en": "seasonal",
+      "zh": "季節性的",
+      "emoji": "🍂"
+    },
+    {
+      "id": "unnecessary",
+      "en": "unnecessary",
+      "zh": "不必要的",
+      "emoji": "🚫",
+      "abstract": true
+    },
+    {
+      "id": "customize",
+      "en": "customize",
+      "zh": "客製化",
+      "emoji": "🎛️",
+      "abstract": true
+    },
+    {
+      "id": "redesign",
+      "en": "redesign",
+      "zh": "重新設計",
+      "emoji": "📐",
+      "abstract": true
+    },
+    {
+      "id": "reconsider",
+      "en": "reconsider",
+      "zh": "重新考慮",
+      "emoji": "🔄",
+      "abstract": true
+    },
+    {
+      "id": "actively",
+      "en": "actively",
+      "zh": "積極地",
+      "emoji": "⚡",
+      "abstract": true
+    },
+    {
+      "id": "incoming",
+      "en": "incoming",
+      "zh": "新進來的；即將到來的",
+      "emoji": "📨"
+    },
+    {
+      "id": "inefficient",
+      "en": "inefficient",
+      "zh": "沒效率的",
+      "emoji": "🐢",
+      "abstract": true
+    },
+    {
+      "id": "chief",
+      "en": "chief",
+      "zh": "主要的；首要的",
+      "emoji": "🥇",
+      "abstract": true
+    },
+    {
+      "id": "promote",
+      "en": "promote",
+      "zh": "升（職）；晉升",
+      "emoji": "📈",
+      "abstract": true
+    },
+    {
+      "id": "recognition",
+      "en": "recognition",
+      "zh": "肯定；表揚",
+      "emoji": "🏆",
+      "abstract": true
+    },
+    {
+      "id": "fulfill",
+      "en": "fulfill",
+      "zh": "實現；完成（目標、職責）",
+      "emoji": "✅",
+      "abstract": true
+    },
+    {
+      "id": "regardless",
+      "en": "regardless",
+      "zh": "不管；無論如何",
+      "emoji": "🔁",
+      "abstract": true
+    },
+    {
+      "id": "accordingly",
+      "en": "accordingly",
+      "zh": "相應地；照著調整",
+      "emoji": "↪️",
+      "abstract": true
+    },
+    {
+      "id": "dedication",
+      "en": "dedication",
+      "zh": "投入；奉獻",
+      "emoji": "🫡",
+      "abstract": true
+    },
+    {
+      "id": "dynamic",
+      "en": "dynamic",
+      "zh": "有活力的；積極的",
+      "emoji": "🌀",
+      "abstract": true
+    },
+    {
+      "id": "excellence",
+      "en": "excellence",
+      "zh": "卓越；優秀",
+      "emoji": "✨",
+      "abstract": true
+    },
+    {
+      "id": "merit",
+      "en": "merit",
+      "zh": "（工作）表現；實力",
+      "emoji": "🎖️",
+      "abstract": true
+    },
+    {
+      "id": "elevate",
+      "en": "elevate",
+      "zh": "提升",
+      "emoji": "🛗",
+      "abstract": true
+    },
+    {
+      "id": "inspiration",
+      "en": "inspiration",
+      "zh": "激勵人心的人；榜樣",
+      "emoji": "💡",
+      "abstract": true
+    },
+    {
+      "id": "chapter",
+      "en": "chapter",
+      "zh": "（人生的）一章；階段",
+      "emoji": "📖"
+    },
+    {
+      "id": "path",
+      "en": "path",
+      "zh": "（職涯的）路",
+      "emoji": "🛤️",
+      "abstract": true
+    },
+    {
+      "id": "spirit",
+      "en": "spirit",
+      "zh": "（團隊）精神",
+      "emoji": "🙌",
+      "abstract": true
+    },
+    {
+      "id": "tradition",
+      "en": "tradition",
+      "zh": "傳統；慣例",
+      "emoji": "🏮",
+      "abstract": true
+    },
+    {
+      "id": "grateful",
+      "en": "grateful",
+      "zh": "感激的",
+      "emoji": "🙏",
+      "abstract": true
+    },
+    {
+      "id": "inspire",
+      "en": "inspire",
+      "zh": "激勵；啟發",
+      "emoji": "🌠",
+      "abstract": true
+    },
+    {
+      "id": "appreciation",
+      "en": "appreciation",
+      "zh": "感謝之意",
+      "emoji": "💐",
+      "abstract": true
+    },
+    {
+      "id": "congratulate",
+      "en": "congratulate",
+      "zh": "恭喜；祝賀",
+      "emoji": "🎉",
+      "abstract": true
+    },
+    {
+      "id": "personalize",
+      "en": "personalize",
+      "zh": "（為個人）量身打造；印上名字",
+      "emoji": "🏷️",
+      "abstract": true
+    },
+    {
+      "id": "someday",
+      "en": "someday",
+      "zh": "將來有一天",
+      "emoji": "🔮",
+      "abstract": true
+    },
+    {
+      "id": "compliment",
+      "en": "compliment",
+      "zh": "稱讚；讚美的話",
+      "emoji": "😊",
+      "abstract": true
+    },
+    {
+      "id": "milestone",
+      "en": "milestone",
+      "zh": "里程碑",
+      "emoji": "🏁"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "升遷面談的通知",
+      "newChunkIds": ["put_together_a_portfolio", "push_the_review_back_to_friday"],
+      "newWordIds": [
+        "deep",
+        "duty",
+        "objective",
+        "promotion",
+        "finalize",
+        "reviewer",
+        "portfolio",
+        "appraisal",
+        "clarify",
+        "slot",
+        "retrieve"
+      ],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Got a minute? Mr. Ellis wants to talk to you about a promotion.",
+          "zh": "有空嗎？Ellis 先生想跟你談升遷的事。"
+        },
+        {
+          "id": "t1_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Your appraisal is next Thursday morning. He and I are the reviewers.",
+          "zh": "你的考核面談在下週四早上，評核人是他和我。"
+        },
+        {
+          "id": "t1_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can we push the review back to Friday afternoon?",
+          "zh": "面談可以延到星期五下午嗎？",
+          "chunkId": "push_the_review_back_to_friday"
+        },
+        {
+          "id": "t1_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Right, your call with London. Sure, he has a slot at two.",
+          "zh": "對，你要和倫敦通電話。可以啊，他兩點有空檔。"
+        },
+        {
+          "id": "t1_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Should I put together a portfolio of my work?",
+          "zh": "我要不要把做過的東西整理成作品集帶去？",
+          "chunkId": "put_together_a_portfolio"
+        },
+        {
+          "id": "t1_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good idea. You can retrieve your old reports from the system.",
+          "zh": "好主意。你可以從系統裡把以前的報告調出來。"
+        },
+        {
+          "id": "t1_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "We'll talk about your new duties and finalize next year's objectives.",
+          "zh": "我們會談你的新職責，也會把明年的目標定下來。"
+        },
+        {
+          "id": "t1_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "If anything isn't clear, I'm happy to clarify.",
+          "zh": "有哪裡不清楚的話，我很樂意說明。"
+        },
+        {
+          "id": "t1_9",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And take a deep breath. You earned this.",
+          "zh": "還有，深呼吸。這是你應得的。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "寫自我評估",
+      "newChunkIds": ["which_achievement_to_put_first", "mention_a_weakness_in_my_appraisal"],
+      "newWordIds": [
+        "perform",
+        "commitment",
+        "achievement",
+        "overcome",
+        "weakness",
+        "tackle",
+        "paragraph",
+        "motivation",
+        "realistic",
+        "creativity",
+        "modest"
+      ],
+      "fills": [
+        {
+          "id": "achievement_fill",
+          "en": "The Lantern launch was my biggest ___ this year.",
+          "zh": "Lantern 上市是我今年最大的成果。",
+          "options": ["achievement", "paragraph", "slot", "reviewer"],
+          "answer": 0,
+          "note": "上市成功是一項成果：achievement。"
+        },
+        {
+          "id": "encouraging_fill",
+          "en": "The comments Dan made on my appraisal were very ___.",
+          "zh": "Dan 對我考核表的意見很讓人振奮。",
+          "options": ["encouraging", "encouraged", "encourage", "encourages"],
+          "answer": 0,
+          "note": "意見讓人受到鼓勵：-ing 形容詞 encouraging。",
+          "grammar": true
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "So this is the appraisal you wrote? Let me see.",
+          "zh": "所以這是你寫的考核表？我看看。"
+        },
+        {
+          "id": "t2_2",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "The first paragraph is good. You performed really well this year.",
+          "zh": "第一段寫得不錯。你今年表現真的很好。"
+        },
+        {
+          "id": "t2_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Which achievement do you think I should put first?",
+          "zh": "你覺得我應該先寫哪一項成果？",
+          "chunkId": "which_achievement_to_put_first"
+        },
+        {
+          "id": "t2_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "The Lantern launch, for sure. It shows your commitment and creativity.",
+          "zh": "當然是 Lantern 上市。那能看出你的投入和創意。"
+        },
+        {
+          "id": "t2_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "And don't be too modest. You tackled some hard problems.",
+          "zh": "還有，別太謙虛。你解決過一些很難的問題。"
+        },
+        {
+          "id": "t2_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is it a good idea to mention a weakness in my appraisal?",
+          "zh": "在考核表裡提到自己的缺點，這樣好嗎？",
+          "chunkId": "mention_a_weakness_in_my_appraisal"
+        },
+        {
+          "id": "t2_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Sure, just one. Be realistic, and say how you overcame it.",
+          "zh": "可以，提一個就好。實際一點，再寫你是怎麼克服的。"
+        },
+        {
+          "id": "t2_8",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Then finish with a short paragraph about your motivation for next year.",
+          "zh": "最後用一小段寫你明年的動力。"
+        },
+        {
+          "id": "t2_9",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "And keep the whole thing short. Reviewers are busy people.",
+          "zh": "還有整份要寫短一點。評核的人都很忙。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "回顧這兩年",
+      "newChunkIds": ["you_said_never_be_boring", "what_surprised_me_was_how"],
+      "newWordIds": [
+        "reflect",
+        "farewell",
+        "struggle",
+        "retire",
+        "devote",
+        "remarkable",
+        "regret",
+        "invaluable",
+        "wisely",
+        "delicate",
+        "meaningful"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Two years already! Time to reflect, right?",
+          "zh": "已經兩年了！該回頭想想了，對吧？"
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "You told me at my interview that no two days would be the same.",
+          "zh": "您在我面試的時候跟我說過，這裡每天都不一樣。",
+          "chunkId": "you_said_never_be_boring"
+        },
+        {
+          "id": "t3_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Was I right? You struggled at first.",
+          "zh": "我說對了嗎？你一開始很吃力。"
+        },
+        {
+          "id": "t3_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What surprised me was how much I enjoy working with clients.",
+          "zh": "讓我意外的是，我竟然這麼喜歡跟客戶打交道。",
+          "chunkId": "what_surprised_me_was_how"
+        },
+        {
+          "id": "t3_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I can tell. And you handled some delicate problems wisely.",
+          "zh": "看得出來。而且有些棘手的問題你處理得很明智。"
+        },
+        {
+          "id": "t3_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "When I started here, my first manager was about to retire.",
+          "zh": "我剛進公司的時候，我的第一個主管快退休了。"
+        },
+        {
+          "id": "t3_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "At her farewell party, she told me to devote time to my team.",
+          "zh": "在她的歡送會上，她跟我說要把時間花在團隊身上。"
+        },
+        {
+          "id": "t3_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I never regretted it. Her advice was invaluable.",
+          "zh": "我從來沒後悔過。她的建議非常寶貴。"
+        },
+        {
+          "id": "t3_9",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "You've done remarkable work. I hope it's been meaningful.",
+          "zh": "你做得很了不起。希望這些對你也是有意義的。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀產品經理職務說明",
+      "newChunkIds": ["role_involves_more_management"],
+      "newWordIds": [
+        "management",
+        "leadership",
+        "undertake",
+        "constraint",
+        "scope",
+        "managerial",
+        "maximize",
+        "advancement",
+        "organizational",
+        "oversee",
+        "collaboration",
+        "operational"
+      ],
+      "passages": [
+        {
+          "id": "product_manager_job",
+          "kind": "email",
+          "title": "Job Description: Product Manager, Lantern Series",
+          "lines": [
+            "Read this before Friday. (Ms. Carter)",
+            "Job summary: The product manager oversees the Lantern series from design to sales and reports to the director. The scope of the role covers the whole product line, not one product. The product manager also works closely with the office manager and gives tasks to the team assistant.",
+            "Main duties: Undertake market research once a year. Lead the collaboration between the design team, the factory in Taoyuan and the sales office in London. Plan the yearly budget and work within its constraints. Maximize sales and profit. Check the monthly sales numbers and share them with the team. Take care of operational problems, such as late shipments. Finalize the yearly objectives with the director.",
+            "What we are looking for: Strong leadership and good organizational skills. At least two years with the company. Managerial experience is helpful but not required. Your portfolio of past work will be reviewed at your appraisal.",
+            "Salary and advancement: The salary is higher than at the coordinator level, and the new salary starts on January 1. Performance is reviewed once a year, and there are opportunities for further advancement.",
+            "Please contact me with any questions.",
+            "Ms. Reed, Human Resources"
+          ],
+          "questions": [
+            {
+              "en": "Who does the product manager report to?",
+              "zh": "產品經理要向誰報告？",
+              "options": ["The director", "Ms. Reed", "The London office"],
+              "answer": 0
+            },
+            {
+              "en": "Which is NOT a main duty?",
+              "zh": "哪一項不是主要職責？",
+              "options": [
+                "Planning the yearly budget",
+                "Placing the daily orders",
+                "Finalizing the objectives"
+              ],
+              "answer": 1
+            },
+            {
+              "en": "What is helpful but not required?",
+              "zh": "哪一項是有幫助、但不是必要的？",
+              "options": [
+                "Organizational skills",
+                "Two years with the company",
+                "Managerial experience"
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Ms. Reed sent the job description. Read it before Friday.",
+          "zh": "Reed 小姐把職務說明寄來了，星期五前看完。"
+        },
+        {
+          "id": "t4_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "As product manager, you'd oversee the whole Lantern series.",
+          "zh": "當產品經理，你要負責整個 Lantern 系列。"
+        },
+        {
+          "id": "t4_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "So the scope is much bigger than your job now.",
+          "zh": "所以工作範圍比你現在大很多。"
+        },
+        {
+          "id": "t4_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "This role involves a lot more management than I'm used to.",
+          "zh": "這個職位要管的事，比我習慣的多很多。",
+          "chunkId": "role_involves_more_management"
+        },
+        {
+          "id": "t4_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I know. But you've shown real leadership this year.",
+          "zh": "我知道。不過你今年已經展現出真正的領導能力了。"
+        },
+        {
+          "id": "t4_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And managerial experience isn't required. It just helps.",
+          "zh": "而且不一定要有管理經驗，有的話比較好而已。"
+        },
+        {
+          "id": "t4_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "It's a big step, and there's room for more advancement later.",
+          "zh": "這是一大步，而且之後還有往上升的機會。"
+        },
+        {
+          "id": "t4_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Read it tonight, and bring me your questions tomorrow.",
+          "zh": "今晚看一下，明天把問題帶來問我。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "面談：成果和犯過的錯",
+      "backdrop": "director",
+      "newChunkIds": ["biggest_mistake_taught_me", "proudest_of_how_the_team"],
+      "newWordIds": [
+        "determination",
+        "incur",
+        "apology",
+        "duplicate",
+        "satisfactory",
+        "overlook",
+        "correction",
+        "favorable",
+        "urgently",
+        "indicator",
+        "cautious"
+      ],
+      "talks": [
+        {
+          "id": "review_talk",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "director",
+              "en": "Let's start with your appraisal. Overall, it's more than satisfactory.",
+              "zh": "先從你的考核開始。整體來說，不只是合格而已。"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "director",
+              "en": "And the stores' feedback on the Lantern series is very favorable.",
+              "zh": "而且店家對 Lantern 系列的回饋很正面。"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "guide",
+              "en": "That's great to hear. Are they ordering again?",
+              "zh": "聽到這個真好。他們有再下單嗎？"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "director",
+              "en": "Most of them are. For me, that's the best indicator.",
+              "zh": "大部分都有。對我來說，這是最好的指標。"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "manager",
+              "en": "There was one problem, though. In March, you overlooked a duplicate order.",
+              "zh": "不過有一個問題。三月的時候，你漏看了一張重複下的訂單。"
+            },
+            {
+              "id": "t5_talk_6",
+              "role": "manager",
+              "en": "We got five hundred extra lamps from Brightway and incurred extra storage costs.",
+              "zh": "我們從 Brightway 多收到五百盞燈，多付了一筆倉儲費。"
+            },
+            {
+              "id": "t5_talk_7",
+              "role": "guide",
+              "en": "I know. I called Jack urgently that day and sent a correction.",
+              "zh": "我知道。我當天就緊急打給 Jack，也寄了更正。"
+            },
+            {
+              "id": "t5_talk_8",
+              "role": "manager",
+              "en": "And you went straight to Luis in the warehouse with an apology.",
+              "zh": "你也馬上去倉庫跟 Luis 道歉。"
+            },
+            {
+              "id": "t5_talk_9",
+              "role": "guide",
+              "en": "My biggest mistake taught me to check every order twice.",
+              "zh": "我犯過最大的錯，讓我學會每張訂單都要檢查兩次。"
+            },
+            {
+              "id": "t5_talk_10",
+              "role": "director",
+              "en": "That shows real determination. And being more cautious is a good thing.",
+              "zh": "這看得出你的決心。而且變得更謹慎是好事。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "What does Mr. Ellis call the best indicator?",
+              "zh": "Ellis 先生說最好的指標是什麼？",
+              "options": ["Stores ordering again", "Low storage costs", "Fast shipping"],
+              "answer": 0
+            },
+            {
+              "en": "What mistake was made in March?",
+              "zh": "三月犯了什麼錯？",
+              "options": [
+                "A duplicate order was overlooked.",
+                "A price was wrong.",
+                "Lamps went to the wrong store."
+              ],
+              "answer": 0
+            },
+            {
+              "en": "What happened because of the mistake?",
+              "zh": "這個錯造成了什麼結果？",
+              "options": [
+                "The launch was late.",
+                "The company paid extra storage costs.",
+                "A client stopped ordering."
+              ],
+              "answer": 1
+            }
+          ],
+          "once": true
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Come in, both of you. Please have a seat.",
+          "zh": "兩位請進，請坐。"
+        },
+        {
+          "id": "t5_2",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Your appraisal is more than satisfactory. The stores like your work, too.",
+          "zh": "你的考核不只是合格。店家也很喜歡你做的事。"
+        },
+        {
+          "id": "t5_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "We should talk about the duplicate order in March, though.",
+          "zh": "不過我們應該談談三月那張重複下的訂單。"
+        },
+        {
+          "id": "t5_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "My biggest mistake taught me to check every order twice.",
+          "zh": "我犯過最大的錯，讓我學會每張訂單都要檢查兩次。",
+          "chunkId": "biggest_mistake_taught_me"
+        },
+        {
+          "id": "t5_5",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Good. You fixed it fast, and now you're much more cautious with orders.",
+          "zh": "很好。你很快就處理好了，現在下單也更謹慎了。"
+        },
+        {
+          "id": "t5_6",
+          "role": "director",
+          "speaker": "npc",
+          "en": "So tell me, what are you proudest of?",
+          "zh": "那你說說，你最驕傲的是什麼？"
+        },
+        {
+          "id": "t5_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm proudest of how the team pulled together this year.",
+          "zh": "我最驕傲的是今年整個團隊齊心協力。",
+          "chunkId": "proudest_of_how_the_team"
+        },
+        {
+          "id": "t5_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "It's true. Even during the June delay, nobody on the team gave up.",
+          "zh": "真的。就連六月延誤的時候，也沒有人放棄。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "面談：新職責和團隊計畫",
+      "backdrop": "director",
+      "newChunkIds": ["ill_have_leo_handle_incoming_orders", "cut_out_unnecessary_steps"],
+      "newWordIds": [
+        "delegate",
+        "accomplish",
+        "pursue",
+        "appoint",
+        "seasonal",
+        "unnecessary",
+        "customize",
+        "redesign",
+        "reconsider",
+        "actively",
+        "incoming",
+        "inefficient"
+      ],
+      "cloze": [
+        {
+          "lineId": "t6_1",
+          "word": "accomplish",
+          "distractors": ["overlook", "retire"]
+        },
+        {
+          "lineId": "t6_4",
+          "word": "appoint",
+          "distractors": ["overlook", "retrieve"]
+        },
+        {
+          "lineId": "t6_8",
+          "word": "pursue",
+          "distractors": ["regret", "overlook"]
+        }
+      ],
+      "textFills": [
+        {
+          "id": "next_year_plan",
+          "kind": "email",
+          "title": "Plans for next year",
+          "lines": [
+            "Hi team,",
+            "Starting in January, we'll have Leo ___ all incoming orders.",
+            "Mr. Hughes would also like to ___ some lamps for his stores, with his company name on the base.",
+            "Our ordering process is still too slow. ___",
+            "Ms. Carter"
+          ],
+          "zh": [
+            "大家好：",
+            "從一月開始，我們會讓 Leo 處理所有新進來的訂單。",
+            "Hughes 先生也想為他的門市客製化一些燈，在燈座印上他的公司名稱。",
+            "我們的下單流程還是太慢了。星期一我們開個會，把不必要的步驟都拿掉。",
+            "Ms. Carter"
+          ],
+          "blanks": [
+            {
+              "options": ["handle", "to handle", "handling", "handled"],
+              "answer": 0,
+              "note": "使役：have + 人 + 動詞原形。"
+            },
+            {
+              "options": ["customize", "overlook", "retire", "regret"],
+              "answer": 0,
+              "note": "在燈座印上公司名稱，是客製化：customize。"
+            },
+            {
+              "options": [
+                "Let's meet on Monday and cut out any unnecessary steps.",
+                "Thank you for your farewell party.",
+                "The lamps were delivered yesterday.",
+                "I promise I will retire next year."
+              ],
+              "answer": 0,
+              "note": "流程太慢，接著說怎麼改善。"
+            }
+          ]
+        }
+      ],
+      "responds": [
+        {
+          "id": "t6_r1",
+          "prompt": {
+            "role": "director",
+            "en": "What do you want to accomplish next year?",
+            "zh": "你明年想完成什麼？"
+          },
+          "responses": [
+            {
+              "en": "I'd like to launch two new models.",
+              "zh": "我想推出兩款新的型號。"
+            },
+            {
+              "en": "I accomplished it last week.",
+              "zh": "我上週完成了。"
+            },
+            {
+              "en": "In Mr. Ellis's office.",
+              "zh": "在 Ellis 先生的辦公室。"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "t6_r2",
+          "prompt": {
+            "role": "manager",
+            "en": "Who will handle the incoming orders?",
+            "zh": "新進來的訂單要由誰處理？"
+          },
+          "responses": [
+            {
+              "en": "Next Monday, I think.",
+              "zh": "我想是下週一。"
+            },
+            {
+              "en": "Leo will, starting in January.",
+              "zh": "Leo 會處理，從一月開始。"
+            },
+            {
+              "en": "Yes, they came in this morning.",
+              "zh": "對，今天早上進來的。"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "t6_r3",
+          "prompt": {
+            "role": "director",
+            "en": "When should we redesign the base?",
+            "zh": "我們什麼時候該重新設計燈座？"
+          },
+          "responses": [
+            {
+              "en": "At the factory in Taoyuan.",
+              "zh": "在桃園的工廠。"
+            },
+            {
+              "en": "Yes, it was redesigned.",
+              "zh": "對，已經重新設計過了。"
+            },
+            {
+              "en": "After the seasonal orders are done.",
+              "zh": "等季節性的訂單忙完以後。"
+            }
+          ],
+          "answer": 2
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Now, let's talk about next year. There's a lot to accomplish.",
+          "zh": "現在來談談明年。要完成的事很多。"
+        },
+        {
+          "id": "t6_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Remember, a manager can't do everything. You'll have to delegate.",
+          "zh": "記得，主管不可能什麼都自己做，你得把工作交出去。"
+        },
+        {
+          "id": "t6_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll have Leo handle the incoming orders from now on.",
+          "zh": "之後新進來的訂單，我會讓 Leo 來處理。",
+          "chunkId": "ill_have_leo_handle_incoming_orders"
+        },
+        {
+          "id": "t6_4",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Good. We'll appoint him to that job in January.",
+          "zh": "很好。我們一月就正式指派他做這件事。"
+        },
+        {
+          "id": "t6_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "The ordering process is still inefficient, though. It takes too long.",
+          "zh": "不過下單流程還是沒效率，花太多時間了。"
+        },
+        {
+          "id": "t6_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let's look at the ordering process and cut out any unnecessary steps.",
+          "zh": "我們把下單流程看一遍，把不必要的步驟都拿掉吧。",
+          "chunkId": "cut_out_unnecessary_steps"
+        },
+        {
+          "id": "t6_7",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Agreed. And let's reconsider how we plan for seasonal orders.",
+          "zh": "同意。我們也重新考慮一下季節性訂單要怎麼安排。"
+        },
+        {
+          "id": "t6_8",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Mr. Hughes wants customized lamps. Let's actively pursue that.",
+          "zh": "Hughes 先生想要客製化的燈，我們要積極爭取。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "總經理宣布決定",
+      "backdrop": "director",
+      "newChunkIds": ["promise_i_wont_let_you_down"],
+      "newWordIds": [
+        "chief",
+        "promote",
+        "recognition",
+        "fulfill",
+        "regardless",
+        "accordingly",
+        "dedication",
+        "dynamic",
+        "excellence",
+        "merit",
+        "elevate",
+        "inspiration"
+      ],
+      "talks": [
+        {
+          "id": "ellis_decision",
+          "kind": "monologue",
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "director",
+              "en": "Ms. Carter and I have talked about your appraisal, and the decision was easy.",
+              "zh": "Ms. Carter 和我談過你的考核了，這個決定一點都不難。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "director",
+              "en": "This promotion is based on merit.",
+              "zh": "這次升遷是看你的表現。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "director",
+              "en": "You've had a remarkable year, and our stores have noticed.",
+              "zh": "你這一年表現很了不起，我們的店家也都看在眼裡。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "director",
+              "en": "Starting January 1, we'd like to promote you to product manager.",
+              "zh": "從一月一日起，我們要升你為產品經理。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "director",
+              "en": "Your chief job will be to elevate the Lantern brand and fulfill next year's goals.",
+              "zh": "你最主要的工作是提升 Lantern 這個品牌，完成明年的目標。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "director",
+              "en": "Your salary will go up accordingly, and Ms. Reed will send you the details on Monday.",
+              "zh": "你的薪水也會跟著調高，Reed 小姐星期一會把細節寄給你。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "director",
+              "en": "As you suggested, Leo will handle the incoming orders from now on.",
+              "zh": "照你的建議，之後新進來的訂單由 Leo 處理。"
+            },
+            {
+              "id": "t7_talk_8",
+              "role": "director",
+              "en": "Regardless of the new title, you'll still work closely with Ms. Carter.",
+              "zh": "不管職稱怎麼變，你還是會和 Ms. Carter 密切合作。"
+            },
+            {
+              "id": "t7_talk_9",
+              "role": "director",
+              "en": "Your dedication and your dynamic team are the reason for this recognition.",
+              "zh": "你的投入和你那個有活力的團隊，就是這次獲得肯定的原因。"
+            },
+            {
+              "id": "t7_talk_10",
+              "role": "director",
+              "en": "You've been an inspiration to everyone here.",
+              "zh": "你一直是這裡每個人的榜樣。"
+            },
+            {
+              "id": "t7_talk_11",
+              "role": "director",
+              "en": "We expect excellence, and I know you'll deliver it.",
+              "zh": "我們期待你做到最好，我知道你做得到。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "When does the new job start?",
+              "zh": "新的職位從什麼時候開始？",
+              "options": ["Next Monday", "January 1", "In March"],
+              "answer": 1
+            },
+            {
+              "en": "Who will send the salary details?",
+              "zh": "薪水的細節會由誰寄來？",
+              "options": ["Ms. Reed", "Ms. Carter", "Mr. Ellis"],
+              "answer": 0
+            },
+            {
+              "en": "What will stay the same after the promotion?",
+              "zh": "升遷以後，什麼不會改變？",
+              "options": ["The salary", "The job title", "Working closely with Ms. Carter"],
+              "answer": 2
+            }
+          ],
+          "once": true
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "director",
+          "speaker": "npc",
+          "en": "So, Ms. Carter and I agree. This promotion is based on merit.",
+          "zh": "所以，Ms. Carter 和我意見一致。這次升遷是靠你的表現。"
+        },
+        {
+          "id": "t7_2",
+          "role": "director",
+          "speaker": "npc",
+          "en": "From January 1, you're our product manager for the Lantern series.",
+          "zh": "從一月一日起，你就是我們 Lantern 系列的產品經理。"
+        },
+        {
+          "id": "t7_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thank you, and I promise I won't let you down.",
+          "zh": "謝謝您，我保證不會讓您失望。",
+          "chunkId": "promise_i_wont_let_you_down"
+        },
+        {
+          "id": "t7_4",
+          "role": "director",
+          "speaker": "npc",
+          "en": "I know you won't. Your dedication is an inspiration to everyone here.",
+          "zh": "我知道你不會。你的投入是這裡每個人的榜樣。"
+        },
+        {
+          "id": "t7_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And regardless of the new title, we'll still work closely together.",
+          "zh": "而且不管職稱怎麼變，我們還是會密切合作。"
+        },
+        {
+          "id": "t7_6",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Your chief goal next year is to fulfill the plan we just talked about.",
+          "zh": "你明年最主要的目標，是完成我們剛剛談的計畫。"
+        },
+        {
+          "id": "t7_7",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Your salary will go up accordingly. Ms. Reed will send you the details.",
+          "zh": "你的薪水也會跟著調高，Reed 小姐會把細節寄給你。"
+        },
+        {
+          "id": "t7_8",
+          "role": "director",
+          "speaker": "npc",
+          "en": "We expect excellence, and you have a dynamic team behind you.",
+          "zh": "我們期待你做到最好，而且你背後有一個很有活力的團隊。"
+        },
+        {
+          "id": "t7_9",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Now go and tell Dan the good news. He's been waiting all afternoon!",
+          "zh": "現在快去跟 Dan 說這個好消息吧。他已經等了一整個下午了！"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "新的一章",
+      "newChunkIds": ["learned_so_much_from_both_of_you", "cant_wait_to_see_what_we_build"],
+      "newWordIds": [
+        "chapter",
+        "path",
+        "spirit",
+        "tradition",
+        "grateful",
+        "inspire",
+        "appreciation",
+        "congratulate",
+        "personalize",
+        "someday",
+        "compliment",
+        "milestone"
+      ],
+      "spellWordIds": ["bright", "vote", "reward", "clap", "hit"],
+      "cloze": [
+        {
+          "lineId": "t8_2",
+          "word": "milestone",
+          "distractors": ["weakness", "farewell"]
+        },
+        {
+          "lineId": "t8_6",
+          "word": "grateful",
+          "distractors": ["inefficient", "duplicate"]
+        },
+        {
+          "lineId": "t8_7",
+          "word": "chapter",
+          "distractors": ["paragraph", "slot"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Come over here, Dan, and congratulate our new product manager!",
+          "zh": "Dan，過來恭喜我們的新產品經理！"
+        },
+        {
+          "id": "t8_2",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "I knew it! Congratulations. That's a big milestone.",
+          "zh": "我就知道！恭喜。這是一個大里程碑。"
+        },
+        {
+          "id": "t8_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Here, this cup is for you. I had it personalized with your new title.",
+          "zh": "來，這個杯子送你，上面印了你的新職稱。"
+        },
+        {
+          "id": "t8_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And these flowers are from all of us, with our appreciation.",
+          "zh": "還有這束花是大家送的，表示我們的感謝。",
+          "stage": {
+            "act": "give",
+            "item": "appreciation"
+          }
+        },
+        {
+          "id": "t8_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I've learned so much from both of you over the past two years.",
+          "zh": "這兩年我從你們兩位身上學到好多。",
+          "chunkId": "learned_so_much_from_both_of_you"
+        },
+        {
+          "id": "t8_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "What a nice compliment. I'm grateful, too. You inspire us.",
+          "zh": "這句稱讚真好。我也很感激你，你激勵了我們。"
+        },
+        {
+          "id": "t8_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "A new chapter! Someday you'll be running this place!",
+          "zh": "新的一章！總有一天這裡會由你來帶！"
+        },
+        {
+          "id": "t8_8",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I can't wait to see what we build together next year.",
+          "zh": "我好期待明年我們一起做出什麼成績。",
+          "chunkId": "cant_wait_to_see_what_we_build"
+        },
+        {
+          "id": "t8_9",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "That's the spirit! Now, office tradition: the new manager buys coffee.",
+          "zh": "就是這個精神！好了，辦公室的傳統：新主管請喝咖啡。"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Mr. Ellis would like to do your review next Thursday morning.",
+          "zh": "Ellis 先生想在下週四早上幫你做考核面談。"
+        },
+        {
+          "id": "t9_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Can we push the review back to Friday afternoon?",
+          "zh": "面談可以延到星期五下午嗎？",
+          "chunkId": "push_the_review_back_to_friday"
+        },
+        {
+          "id": "t9_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Your call with London, right? Friday at two is fine.",
+          "zh": "你要和倫敦通電話，對吧？星期五兩點可以。"
+        },
+        {
+          "id": "t9_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Have you finished your appraisal yet?",
+          "zh": "你的考核表寫好了嗎？"
+        },
+        {
+          "id": "t9_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is it a good idea to mention a weakness in my appraisal?",
+          "zh": "在考核表裡提到自己的缺點，這樣好嗎？",
+          "chunkId": "mention_a_weakness_in_my_appraisal"
+        },
+        {
+          "id": "t9_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Yes, one small one. And say how you overcame it.",
+          "zh": "好啊，提一個小的就好。再寫你是怎麼克服的。"
+        },
+        {
+          "id": "t9_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Now let's practice. You can be Mr. Ellis, Dan.",
+          "zh": "現在來練習吧。Dan，你來當 Ellis 先生。"
+        },
+        {
+          "id": "t9_8",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Okay! So, what was your biggest mistake this year?",
+          "zh": "好！那麼，你今年犯過最大的錯是什麼？"
+        },
+        {
+          "id": "t9_9",
+          "role": "guide",
+          "speaker": "player",
+          "en": "My biggest mistake taught me to check every order twice.",
+          "zh": "我犯過最大的錯，讓我學會每張訂單都要檢查兩次。",
+          "chunkId": "biggest_mistake_taught_me"
+        },
+        {
+          "id": "t9_10",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Good. And what do you think of the new role?",
+          "zh": "很好。那你覺得新職位怎麼樣？"
+        },
+        {
+          "id": "t9_11",
+          "role": "guide",
+          "speaker": "player",
+          "en": "This role involves a lot more management than I'm used to.",
+          "zh": "這個職位要管的事，比我習慣的多很多。",
+          "chunkId": "role_involves_more_management"
+        },
+        {
+          "id": "t9_12",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "So how will you find time for all of it?",
+          "zh": "那你要怎麼擠出時間做這些事？"
+        },
+        {
+          "id": "t9_13",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll have Leo handle the incoming orders from now on.",
+          "zh": "之後新進來的訂單，我會讓 Leo 來處理。",
+          "chunkId": "ill_have_leo_handle_incoming_orders"
+        },
+        {
+          "id": "t9_14",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Smart. Now, what surprised you most here?",
+          "zh": "聰明。那在這裡最讓你意外的是什麼？"
+        },
+        {
+          "id": "t9_15",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What surprised me was how much I enjoy working with clients.",
+          "zh": "讓我意外的是，我竟然這麼喜歡跟客戶打交道。",
+          "chunkId": "what_surprised_me_was_how"
+        },
+        {
+          "id": "t9_16",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Great answer. Okay, the job is yours!",
+          "zh": "回答得好。好，這個職位是你的了！"
+        },
+        {
+          "id": "t9_17",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thank you, and I promise I won't let you down.",
+          "zh": "謝謝您，我保證不會讓您失望。",
+          "chunkId": "promise_i_wont_let_you_down"
+        },
+        {
+          "id": "t9_18",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Save that for Friday! But really, you're ready.",
+          "zh": "這句留到星期五再說吧！不過說真的，你準備好了。"
+        },
+        {
+          "id": "t9_19",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I've learned so much from both of you over the past two years.",
+          "zh": "這兩年我從你們兩位身上學到好多。",
+          "chunkId": "learned_so_much_from_both_of_you"
+        }
+      ]
+    }
+  ]
+}
