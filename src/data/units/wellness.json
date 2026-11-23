@@ -1,0 +1,2190 @@
+{
+  "id": "wellness",
+  "title": "健康與福利",
+  "titleEn": "Health and Benefits",
+  "chunks": [
+    {
+      "id": "headaches_since_london",
+      "en": "I've been getting headaches ever since I got back from London.",
+      "zh": "從倫敦回來以後，我就一直頭痛。",
+      "accept": ["I have been getting headaches ever since I got back from London."],
+      "note": "說最近一直有的不舒服。have been getting 是「一直在…」，ever since 是「從那以後」。",
+      "distractors": [
+        {
+          "text": "I've been getting headache ever since I got back from London.",
+          "error": "plural"
+        },
+        {
+          "text": "I've been get headaches ever since I got back from London.",
+          "error": "other"
+        },
+        {
+          "text": "I've been getting headaches ever since I get back from London.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "tired_from_long_flight",
+      "en": "I think I'm still tired from the long flight home.",
+      "zh": "應該是回來那趟長途飛行還沒緩過來。",
+      "accept": ["I think I am still tired from the long flight home."],
+      "note": "說累的原因。tired from + 名詞 = 因為…而累。",
+      "distractors": [
+        {
+          "text": "I think I'm still tired of the long flight home.",
+          "error": "other"
+        },
+        {
+          "text": "I think I'm still tired from long flight home.",
+          "error": "article"
+        },
+        {
+          "text": "I think I'm still tierd from the long flight home.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "book_checkup_myself",
+      "en": "Do I need to make an appointment for the checkup myself?",
+      "zh": "健康檢查要我自己去預約嗎？",
+      "note": "問健康檢查要不要自己預約。make an appointment = 預約。",
+      "distractors": [
+        {
+          "text": "Do I need to make a appointment for the checkup myself?",
+          "error": "article"
+        },
+        {
+          "text": "Do I need make an appointment for the checkup myself?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Do I need to make an appointment for the checkup me?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "breakfast_before_blood_test",
+      "en": "Is it okay to eat breakfast before the blood test?",
+      "zh": "抽血之前可以吃早餐嗎？",
+      "accept": ["Is it OK to eat breakfast before the blood test?"],
+      "note": "問抽血前能不能吃東西。Is it okay to + 動詞 = 可以…嗎。",
+      "distractors": [
+        {
+          "text": "Is it okay eat breakfast before the blood test?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Is it okay to eat a breakfast before the blood test?",
+          "error": "article"
+        },
+        {
+          "text": "Is it okay to eat breakfast before the blod test?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "used_to_eat_at_desk",
+      "en": "I used to eat lunch at my desk almost every day.",
+      "zh": "我以前幾乎每天都在座位上吃午餐。",
+      "note": "used to + 動詞原形 = 以前常常…（現在不這樣了）。",
+      "distractors": [
+        {
+          "text": "I used to eating lunch at my desk almost every day.",
+          "error": "other"
+        },
+        {
+          "text": "I use to eat lunch at my desk almost every day.",
+          "error": "spelling"
+        },
+        {
+          "text": "I used eat lunch at my desk almost every day.",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "never_used_to_trouble_sleeping",
+      "en": "I never used to have trouble sleeping at night.",
+      "zh": "我以前晚上從來不會睡不好。",
+      "note": "never used to = 以前從來不會…。have trouble + -ing = …有困難。",
+      "distractors": [
+        {
+          "text": "I never used to have trouble sleep at night.",
+          "error": "other"
+        },
+        {
+          "text": "I never used to had trouble sleeping at night.",
+          "error": "other"
+        },
+        {
+          "text": "I never used to have trouble sleeping at the night.",
+          "error": "extra-word"
+        }
+      ]
+    },
+    {
+      "id": "compare_two_insurance_plans",
+      "en": "I'll compare the two insurance plans this weekend and decide.",
+      "zh": "我這個週末會比較一下兩種保險方案再決定。",
+      "accept": ["I will compare the two insurance plans this weekend and decide."],
+      "note": "還沒決定時，說會先比較再決定。",
+      "distractors": [
+        {
+          "text": "I'll compare the two insurance plan this weekend and decide.",
+          "error": "plural"
+        },
+        {
+          "text": "I'll compare two insurance plans this weekend and decide.",
+          "error": "article"
+        },
+        {
+          "text": "I'll compare the two insurance plans this weekend and decided.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "sick_leave_days_per_year",
+      "en": "How many days of sick leave do we get each year?",
+      "zh": "我們每年有幾天病假？",
+      "note": "問一年有幾天病假。sick leave = 病假，不可數，前面不加 a。",
+      "distractors": [
+        {
+          "text": "How much days of sick leave do we get each year?",
+          "error": "other"
+        },
+        {
+          "text": "How many days of sick leave we get each year?",
+          "error": "missing-word"
+        },
+        {
+          "text": "How many day of sick leave do we get each year?",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "flextime_start_at_ten",
+      "en": "So with flextime, I could start at ten and leave at seven?",
+      "zh": "所以彈性上班的話，我可以十點進來、七點走嗎？",
+      "accept": ["So with flextime, I could start at 10 and leave at 7?"],
+      "note": "確認自己有沒有聽懂制度。So … ? 用直述句加問號來確認。",
+      "distractors": [
+        {
+          "text": "So with flextime, I could starting at ten and leave at seven?",
+          "error": "other"
+        },
+        {
+          "text": "So with flextime, I could start in ten and leave at seven?",
+          "error": "other"
+        },
+        {
+          "text": "So with flextime, I could start at ten and leave on at seven?",
+          "error": "extra-word"
+        }
+      ]
+    },
+    {
+      "id": "signed_up_for_yoga",
+      "en": "I just signed up for the yoga class on Wednesday evenings.",
+      "zh": "我剛報名了週三晚上的瑜伽課。",
+      "note": "片語動詞 sign up for = 報名參加。片語動詞是動詞加小字，意思要整組記。",
+      "distractors": [
+        {
+          "text": "I just signed for the yoga class on Wednesday evenings.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I just signed up to the yoga class on Wednesday evenings.",
+          "error": "other"
+        },
+        {
+          "text": "I just signed up for the yoga class in Wednesday evenings.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "cut_down_on_coffee",
+      "en": "I'm trying to cut down on afternoon coffee.",
+      "zh": "我在試著少喝點下午的咖啡。",
+      "accept": ["I am trying to cut down on afternoon coffee."],
+      "note": "片語動詞 cut down on = 減少（吃、喝、用）某樣東西。",
+      "distractors": [
+        {
+          "text": "I'm trying to cut down afternoon coffee.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I'm trying to cut on down afternoon coffee.",
+          "error": "word-order"
+        },
+        {
+          "text": "I'm trying to cutting down on afternoon coffee.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "talk_made_me_think_habits",
+      "en": "That talk made me think about my own habits.",
+      "zh": "那場講座讓我反省了一下自己的習慣。",
+      "note": "聽完講座的感想。make + 人 + 動詞原形 = 讓某人…。",
+      "distractors": [
+        {
+          "text": "That talk made me to think about my own habits.",
+          "error": "extra-word"
+        },
+        {
+          "text": "That talk made me think about my own habit.",
+          "error": "plural"
+        },
+        {
+          "text": "That talk made me thinking about my own habits.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "take_next_friday_off",
+      "en": "Would it be okay if I took next Friday off?",
+      "zh": "我下週五請一天假可以嗎？",
+      "accept": ["Would it be OK if I took next Friday off?"],
+      "note": "客氣地請假。Would it be okay if I + 過去式 是很有禮貌的問法。",
+      "distractors": [
+        {
+          "text": "Would it be okay if I take next Friday off?",
+          "error": "other"
+        },
+        {
+          "text": "Would it be okay if I took the next Friday off?",
+          "error": "extra-word"
+        },
+        {
+          "text": "Would it be okay if I took next Friday of?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "leo_knows_while_away",
+      "en": "I'll make sure Leo knows what to do while I'm away.",
+      "zh": "我會確認 Leo 知道我不在的時候要做什麼。",
+      "accept": [
+        "I will make sure Leo knows what to do while I'm away.",
+        "I will make sure Leo knows what to do while I am away."
+      ],
+      "note": "請假前說工作會交代好。make sure + 句子 = 確認…。",
+      "distractors": [
+        {
+          "text": "I'll make sure Leo know what to do while I'm away.",
+          "error": "other"
+        },
+        {
+          "text": "I'll make sure Leo knows what do while I'm away.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I'll make sure Leo knows what to do while I'm way.",
+          "error": "spelling"
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "id": "suffer",
+      "en": "suffer",
+      "zh": "受（病痛）之苦；患有",
+      "emoji": "😣",
+      "abstract": true
+    },
+    {
+      "id": "pain",
+      "en": "pain",
+      "zh": "疼痛；痠痛",
+      "emoji": "😖",
+      "abstract": true
+    },
+    {
+      "id": "physical",
+      "en": "physical",
+      "zh": "身體的",
+      "emoji": "🧍",
+      "abstract": true
+    },
+    {
+      "id": "healthy",
+      "en": "healthy",
+      "zh": "健康的",
+      "emoji": "🥦",
+      "abstract": true
+    },
+    {
+      "id": "ill",
+      "en": "ill",
+      "zh": "生病的；不舒服的",
+      "emoji": "🤒",
+      "abstract": true
+    },
+    {
+      "id": "virus",
+      "en": "virus",
+      "zh": "病毒；（流感等）病毒感染",
+      "emoji": "🦠"
+    },
+    {
+      "id": "headache",
+      "en": "headache",
+      "zh": "頭痛",
+      "emoji": "🤕"
+    },
+    {
+      "id": "fatigue",
+      "en": "fatigue",
+      "zh": "疲勞；疲倦",
+      "emoji": "🥱",
+      "abstract": true
+    },
+    {
+      "id": "shoulder",
+      "en": "shoulder",
+      "zh": "肩膀",
+      "emoji": "🤷",
+      "abstract": true
+    },
+    {
+      "id": "neck",
+      "en": "neck",
+      "zh": "脖子",
+      "emoji": "🦒",
+      "abstract": true
+    },
+    {
+      "id": "medical",
+      "en": "medical",
+      "zh": "醫療的；醫學的",
+      "emoji": "⚕️",
+      "abstract": true
+    },
+    {
+      "id": "heart",
+      "en": "heart",
+      "zh": "心臟",
+      "emoji": "🫀"
+    },
+    {
+      "id": "blood",
+      "en": "blood",
+      "zh": "血；血液",
+      "emoji": "🩸"
+    },
+    {
+      "id": "severe",
+      "en": "severe",
+      "zh": "嚴重的",
+      "emoji": "⚠️",
+      "abstract": true
+    },
+    {
+      "id": "symptom",
+      "en": "symptom",
+      "zh": "症狀",
+      "emoji": "🤧",
+      "abstract": true
+    },
+    {
+      "id": "clinic",
+      "en": "clinic",
+      "zh": "診所",
+      "emoji": "🏨",
+      "abstract": true
+    },
+    {
+      "id": "optional",
+      "en": "optional",
+      "zh": "可自由選擇的；自選的",
+      "emoji": "☑️",
+      "abstract": true
+    },
+    {
+      "id": "physician",
+      "en": "physician",
+      "zh": "醫師",
+      "emoji": "🩺"
+    },
+    {
+      "id": "checkup",
+      "en": "checkup",
+      "zh": "健康檢查",
+      "emoji": "📋",
+      "abstract": true
+    },
+    {
+      "id": "allergy",
+      "en": "allergy",
+      "zh": "過敏",
+      "emoji": "🌼",
+      "abstract": true
+    },
+    {
+      "id": "consultation",
+      "en": "consultation",
+      "zh": "（醫師）諮詢；看診",
+      "emoji": "🗣️",
+      "abstract": true
+    },
+    {
+      "id": "habit",
+      "en": "habit",
+      "zh": "習慣",
+      "emoji": "🔁",
+      "abstract": true
+    },
+    {
+      "id": "regular",
+      "en": "regular",
+      "zh": "規律的；固定的",
+      "emoji": "📅",
+      "abstract": true
+    },
+    {
+      "id": "diet",
+      "en": "diet",
+      "zh": "飲食",
+      "emoji": "🥗",
+      "abstract": true
+    },
+    {
+      "id": "tough",
+      "en": "tough",
+      "zh": "辛苦的；難熬的",
+      "emoji": "😓",
+      "abstract": true
+    },
+    {
+      "id": "cope",
+      "en": "cope",
+      "zh": "應付；調適",
+      "emoji": "🧗",
+      "abstract": true
+    },
+    {
+      "id": "portion",
+      "en": "portion",
+      "zh": "（食物的）份量",
+      "emoji": "🍛",
+      "abstract": true
+    },
+    {
+      "id": "commuter",
+      "en": "commuter",
+      "zh": "通勤族",
+      "emoji": "🚇",
+      "abstract": true
+    },
+    {
+      "id": "leisure",
+      "en": "leisure",
+      "zh": "休閒；空閒",
+      "emoji": "🏖️",
+      "abstract": true
+    },
+    {
+      "id": "harmful",
+      "en": "harmful",
+      "zh": "有害的",
+      "emoji": "☠️",
+      "abstract": true
+    },
+    {
+      "id": "lifestyle",
+      "en": "lifestyle",
+      "zh": "生活方式",
+      "emoji": "🏡",
+      "abstract": true
+    },
+    {
+      "id": "consistently",
+      "en": "consistently",
+      "zh": "持續地；一直",
+      "emoji": "📈",
+      "abstract": true
+    },
+    {
+      "id": "pension",
+      "en": "pension",
+      "zh": "退休金；年金",
+      "emoji": "👴",
+      "abstract": true
+    },
+    {
+      "id": "retirement",
+      "en": "retirement",
+      "zh": "退休",
+      "emoji": "🧓",
+      "abstract": true
+    },
+    {
+      "id": "coverage",
+      "en": "coverage",
+      "zh": "（保險的）保障範圍",
+      "emoji": "☂️",
+      "abstract": true
+    },
+    {
+      "id": "insure",
+      "en": "insure",
+      "zh": "為…投保",
+      "emoji": "🛡️",
+      "abstract": true
+    },
+    {
+      "id": "prescription",
+      "en": "prescription",
+      "zh": "處方；處方藥",
+      "emoji": "📜",
+      "abstract": true
+    },
+    {
+      "id": "dental",
+      "en": "dental",
+      "zh": "牙齒的；牙科的",
+      "emoji": "🦷"
+    },
+    {
+      "id": "comprehensive",
+      "en": "comprehensive",
+      "zh": "全面的；完整的",
+      "emoji": "🧩",
+      "abstract": true
+    },
+    {
+      "id": "healthcare",
+      "en": "healthcare",
+      "zh": "醫療保健",
+      "emoji": "🏥",
+      "abstract": true
+    },
+    {
+      "id": "voluntary",
+      "en": "voluntary",
+      "zh": "自願的；自由參加的",
+      "emoji": "🙋",
+      "abstract": true
+    },
+    {
+      "id": "compensation",
+      "en": "compensation",
+      "zh": "（薪資和福利的）報酬",
+      "emoji": "💰",
+      "abstract": true
+    },
+    {
+      "id": "administer",
+      "en": "administer",
+      "zh": "管理；辦理（保險等）",
+      "emoji": "🗂️",
+      "abstract": true
+    },
+    {
+      "id": "exclusively",
+      "en": "exclusively",
+      "zh": "只限；專門",
+      "emoji": "🔒",
+      "abstract": true
+    },
+    {
+      "id": "aid",
+      "en": "aid",
+      "zh": "救助；急救（first aid）",
+      "emoji": "⛑️",
+      "abstract": true
+    },
+    {
+      "id": "injury",
+      "en": "injury",
+      "zh": "受傷；傷",
+      "emoji": "🩹",
+      "abstract": true
+    },
+    {
+      "id": "illness",
+      "en": "illness",
+      "zh": "疾病",
+      "emoji": "🛌",
+      "abstract": true
+    },
+    {
+      "id": "mental",
+      "en": "mental",
+      "zh": "心理的；精神的",
+      "emoji": "🧠",
+      "abstract": true
+    },
+    {
+      "id": "spouse",
+      "en": "spouse",
+      "zh": "配偶",
+      "emoji": "💑",
+      "abstract": true
+    },
+    {
+      "id": "morale",
+      "en": "morale",
+      "zh": "士氣",
+      "emoji": "📣",
+      "abstract": true
+    },
+    {
+      "id": "hotline",
+      "en": "hotline",
+      "zh": "專線",
+      "emoji": "☎️",
+      "abstract": true
+    },
+    {
+      "id": "unpaid",
+      "en": "unpaid",
+      "zh": "無薪的",
+      "emoji": "🚫",
+      "abstract": true
+    },
+    {
+      "id": "flextime",
+      "en": "flextime",
+      "zh": "彈性上班制",
+      "emoji": "🕙",
+      "abstract": true
+    },
+    {
+      "id": "partial",
+      "en": "partial",
+      "zh": "部分的",
+      "emoji": "🌓",
+      "abstract": true
+    },
+    {
+      "id": "separately",
+      "en": "separately",
+      "zh": "分開地；另外",
+      "emoji": "↔️",
+      "abstract": true
+    },
+    {
+      "id": "wellness",
+      "en": "wellness",
+      "zh": "身心健康",
+      "emoji": "🌿",
+      "abstract": true
+    },
+    {
+      "id": "active",
+      "en": "active",
+      "zh": "活躍的；常活動的",
+      "emoji": "🚴",
+      "abstract": true
+    },
+    {
+      "id": "fitness",
+      "en": "fitness",
+      "zh": "健身；體能",
+      "emoji": "🏋️",
+      "abstract": true
+    },
+    {
+      "id": "yoga",
+      "en": "yoga",
+      "zh": "瑜伽",
+      "emoji": "🧘"
+    },
+    {
+      "id": "locker",
+      "en": "locker",
+      "zh": "置物櫃",
+      "emoji": "🔐",
+      "abstract": true
+    },
+    {
+      "id": "massage",
+      "en": "massage",
+      "zh": "按摩",
+      "emoji": "💆"
+    },
+    {
+      "id": "relaxation",
+      "en": "relaxation",
+      "zh": "放鬆",
+      "emoji": "😌",
+      "abstract": true
+    },
+    {
+      "id": "recreational",
+      "en": "recreational",
+      "zh": "休閒的；娛樂的",
+      "emoji": "🎳",
+      "abstract": true
+    },
+    {
+      "id": "membership",
+      "en": "membership",
+      "zh": "會員資格",
+      "emoji": "🪪",
+      "abstract": true
+    },
+    {
+      "id": "enjoyable",
+      "en": "enjoyable",
+      "zh": "好玩的；令人愉快的",
+      "emoji": "😄",
+      "abstract": true
+    },
+    {
+      "id": "beneficial",
+      "en": "beneficial",
+      "zh": "有益的；有好處的",
+      "emoji": "👍",
+      "abstract": true
+    },
+    {
+      "id": "emotional",
+      "en": "emotional",
+      "zh": "情緒的；情感上的",
+      "emoji": "🥹",
+      "abstract": true
+    },
+    {
+      "id": "anxiety",
+      "en": "anxiety",
+      "zh": "焦慮",
+      "emoji": "😰",
+      "abstract": true
+    },
+    {
+      "id": "intense",
+      "en": "intense",
+      "zh": "強烈的；高強度的",
+      "emoji": "🔥",
+      "abstract": true
+    },
+    {
+      "id": "burden",
+      "en": "burden",
+      "zh": "負擔",
+      "emoji": "🎒",
+      "abstract": true
+    },
+    {
+      "id": "mood",
+      "en": "mood",
+      "zh": "心情；情緒",
+      "emoji": "🌦️",
+      "abstract": true
+    },
+    {
+      "id": "supplement",
+      "en": "supplement",
+      "zh": "營養補充品",
+      "emoji": "💊",
+      "abstract": true
+    },
+    {
+      "id": "relieve",
+      "en": "relieve",
+      "zh": "減輕；緩解",
+      "emoji": "😮‍💨",
+      "abstract": true
+    },
+    {
+      "id": "periodically",
+      "en": "periodically",
+      "zh": "定期地；每隔一段時間",
+      "emoji": "🔄",
+      "abstract": true
+    },
+    {
+      "id": "tidy",
+      "en": "tidy",
+      "zh": "整齊的；整潔的",
+      "emoji": "🧹",
+      "abstract": true
+    },
+    {
+      "id": "distraction",
+      "en": "distraction",
+      "zh": "讓人分心的事物",
+      "emoji": "📱",
+      "abstract": true
+    },
+    {
+      "id": "athletic",
+      "en": "athletic",
+      "zh": "運動型的；擅長運動的",
+      "emoji": "🏅",
+      "abstract": true
+    },
+    {
+      "id": "timer",
+      "en": "timer",
+      "zh": "計時器",
+      "emoji": "⏲️"
+    },
+    {
+      "id": "recover",
+      "en": "recover",
+      "zh": "（體力）恢復；康復",
+      "emoji": "🔋",
+      "abstract": true
+    },
+    {
+      "id": "harm",
+      "en": "harm",
+      "zh": "害處；傷害",
+      "emoji": "💥",
+      "abstract": true
+    },
+    {
+      "id": "careless",
+      "en": "careless",
+      "zh": "粗心的",
+      "emoji": "🙈",
+      "abstract": true
+    },
+    {
+      "id": "accuracy",
+      "en": "accuracy",
+      "zh": "準確度",
+      "emoji": "🎯",
+      "abstract": true
+    },
+    {
+      "id": "uncomfortable",
+      "en": "uncomfortable",
+      "zh": "不自在的；不好意思的",
+      "emoji": "😬",
+      "abstract": true
+    },
+    {
+      "id": "considerate",
+      "en": "considerate",
+      "zh": "體貼的；為人著想的",
+      "emoji": "🫶",
+      "abstract": true
+    },
+    {
+      "id": "refresh",
+      "en": "refresh",
+      "zh": "恢復精神；提神",
+      "emoji": "🌅",
+      "abstract": true
+    },
+    {
+      "id": "flexibility",
+      "en": "flexibility",
+      "zh": "彈性；通融",
+      "emoji": "🤸",
+      "abstract": true
+    },
+    {
+      "id": "partially",
+      "en": "partially",
+      "zh": "部分地",
+      "emoji": "◐",
+      "abstract": true
+    },
+    {
+      "id": "occurrence",
+      "en": "occurrence",
+      "zh": "（發生的）事；情形",
+      "emoji": "🗓️",
+      "abstract": true
+    },
+    {
+      "id": "exhausted",
+      "en": "exhausted",
+      "zh": "筋疲力盡的",
+      "emoji": "😫",
+      "abstract": true
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "出差回來累壞了",
+      "newChunkIds": ["headaches_since_london", "tired_from_long_flight"],
+      "newWordIds": [
+        "suffer",
+        "pain",
+        "physical",
+        "healthy",
+        "ill",
+        "virus",
+        "headache",
+        "fatigue",
+        "shoulder",
+        "neck"
+      ],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Welcome back! You look really tired. Are you okay?",
+          "zh": "歡迎回來！你看起來好累，還好嗎？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t1_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I've been getting headaches ever since I got back from London.",
+          "zh": "從倫敦回來以後，我就一直頭痛。",
+          "chunkId": "headaches_since_london"
+        },
+        {
+          "id": "t1_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "That's not good. Are you still suffering from jet lag?",
+          "zh": "這樣不太妙。你時差還沒調過來嗎？"
+        },
+        {
+          "id": "t1_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I think I'm still tired from the long flight home.",
+          "zh": "應該是回來那趟長途飛行還沒緩過來。",
+          "chunkId": "tired_from_long_flight"
+        },
+        {
+          "id": "t1_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "All those hours on a plane are hard on your neck and shoulders.",
+          "zh": "在飛機上坐那麼久，脖子和肩膀都會很難受。"
+        },
+        {
+          "id": "t1_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "If the pain doesn't go away, go see a doctor.",
+          "zh": "如果一直痠痛不會好，就去看個醫生。"
+        },
+        {
+          "id": "t1_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "And stay home if you feel ill. There's a virus going around.",
+          "zh": "還有，不舒服就待在家。最近有病毒在傳。",
+          "stage": { "act": "want", "item": "virus" }
+        },
+        {
+          "id": "t1_8",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Get some sleep this weekend. You need to stay healthy.",
+          "zh": "這個週末好好睡一覺，身體要顧好。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "年度健康檢查",
+      "newChunkIds": ["book_checkup_myself", "breakfast_before_blood_test"],
+      "newWordIds": [
+        "medical",
+        "heart",
+        "blood",
+        "severe",
+        "symptom",
+        "clinic",
+        "optional",
+        "physician",
+        "checkup",
+        "allergy",
+        "consultation"
+      ],
+      "fills": [
+        {
+          "id": "blood_test_fill",
+          "en": "Is it okay to eat breakfast before the ___ test?",
+          "zh": "抽血之前可以吃早餐嗎？",
+          "options": ["blood", "virus", "shoulder", "physician"],
+          "answer": 0,
+          "note": "抽血檢查是 blood test。",
+          "chunkId": "breakfast_before_blood_test"
+        },
+        {
+          "id": "asked_if_allergies_fill",
+          "en": "Ms. Reed asked ___ I had any allergies.",
+          "zh": "Ms. Reed 問我有沒有任何過敏。",
+          "options": ["if", "what", "that", "who"],
+          "answer": 0,
+          "note": "轉述是非問句用 if（是否）。",
+          "grammar": true
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Hi! Just a reminder: everyone's checkup is next month.",
+          "zh": "嗨！提醒你一下，下個月就是大家的健康檢查了。"
+        },
+        {
+          "id": "t2_2",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "It's at the clinic on Main Street, and the company pays.",
+          "zh": "在 Main Street 的診所，費用公司出。"
+        },
+        {
+          "id": "t2_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do I need to make an appointment for the checkup myself?",
+          "zh": "健康檢查要我自己去預約嗎？",
+          "chunkId": "book_checkup_myself"
+        },
+        {
+          "id": "t2_4",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Yes, just call them. Please fill out this medical form, too.",
+          "zh": "對，打電話給他們就好。這張醫療表格也請你填一下。"
+        },
+        {
+          "id": "t2_5",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "If you have any severe allergies, write them on the form.",
+          "zh": "如果你有嚴重的過敏，要寫在表格上。"
+        },
+        {
+          "id": "t2_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Is it okay to eat breakfast before the blood test?",
+          "zh": "抽血之前可以吃早餐嗎？",
+          "chunkId": "breakfast_before_blood_test"
+        },
+        {
+          "id": "t2_7",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "No, nothing after midnight. Water is okay.",
+          "zh": "不行，半夜十二點以後什麼都不能吃。喝水可以。"
+        },
+        {
+          "id": "t2_8",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "The consultation with the physician is optional, but I'd go.",
+          "zh": "跟醫師諮詢那部分可以自己選，不過我會去。",
+          "stage": { "act": "want", "item": "physician" }
+        },
+        {
+          "id": "t2_9",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Tell her about those headaches and any other symptoms.",
+          "zh": "把你頭痛的事和其他症狀都跟她說。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "以前的生活習慣",
+      "newChunkIds": ["used_to_eat_at_desk", "never_used_to_trouble_sleeping"],
+      "newWordIds": [
+        "habit",
+        "regular",
+        "diet",
+        "tough",
+        "cope",
+        "portion",
+        "commuter",
+        "leisure",
+        "harmful",
+        "lifestyle",
+        "consistently"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "So you're eating in here today? That's new.",
+          "zh": "你今天在這裡吃飯？真難得。"
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I used to eat lunch at my desk almost every day.",
+          "zh": "我以前幾乎每天都在座位上吃午餐。",
+          "chunkId": "used_to_eat_at_desk"
+        },
+        {
+          "id": "t3_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Me too, until my doctor asked me about my lifestyle.",
+          "zh": "我以前也是，後來醫生問起我的生活方式。"
+        },
+        {
+          "id": "t3_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "She said sitting all day is more harmful than people think.",
+          "zh": "她說整天坐著，比大家想的還傷身。"
+        },
+        {
+          "id": "t3_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "So how are you sleeping these days? Any better?",
+          "zh": "那你最近睡得怎麼樣？有好一點嗎？",
+          "stage": { "act": "ask" }
+        },
+        {
+          "id": "t3_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I never used to have trouble sleeping at night.",
+          "zh": "我以前晚上從來不會睡不好。",
+          "chunkId": "never_used_to_trouble_sleeping"
+        },
+        {
+          "id": "t3_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Regular hours help. Go to bed at the same time every night.",
+          "zh": "作息規律會有幫助。每天晚上同一個時間上床。"
+        },
+        {
+          "id": "t3_8",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "And watch your diet. Smaller portions at dinner helped me a lot.",
+          "zh": "飲食也要注意。我晚餐吃少一點以後，差很多。"
+        },
+        {
+          "id": "t3_9",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "It's tough for the first week or two, but it works.",
+          "zh": "頭一兩個禮拜會有點辛苦，不過真的有用。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀福利說明",
+      "newChunkIds": ["compare_two_insurance_plans"],
+      "newWordIds": [
+        "pension",
+        "retirement",
+        "coverage",
+        "insure",
+        "prescription",
+        "dental",
+        "comprehensive",
+        "healthcare",
+        "voluntary",
+        "compensation",
+        "administer",
+        "exclusively"
+      ],
+      "passages": [
+        {
+          "id": "benefits_set",
+          "texts": [
+            {
+              "kind": "email",
+              "title": "Your benefits for next year",
+              "lines": [
+                "Hi everyone,",
+                "Good news: your benefits will be better next year. From January 1, we are moving to a more comprehensive health insurance plan. It will still be administered by the same insurance company.",
+                "There are two plans this time, Basic and Plus. Both include prescription medicine. Please see the attached table.",
+                "You may also insure members of your family. This is voluntary. It costs $30 a month for each person, and it comes out of your pay.",
+                "Our pension and retirement plans will not change. Please note that the Plus plan is exclusively for employees who work full time.",
+                "Please return your form to me by September 30.",
+                "Thanks,",
+                "Ms. Reed"
+              ]
+            },
+            {
+              "kind": "form",
+              "title": "Health Plans for Next Year",
+              "lines": [
+                "Basic plan: The company pays the full cost. Coverage includes doctor visits, hospital care and prescription medicine.",
+                "Plus plan: You pay $40 a month. Coverage includes everything in the Basic plan, plus dental care and eye care.",
+                "Dental care and eye care are not part of the Basic plan.",
+                "You can change your plan once a year, in September.",
+                "Your total compensation includes your salary, insurance, pension and $300 a year for healthcare."
+              ]
+            }
+          ],
+          "questions": [
+            {
+              "en": "What is the email mainly about?",
+              "zh": "這封 email 主要在說什麼？",
+              "options": ["Changes to health benefits", "A new office", "A health talk at lunch"],
+              "answer": 0,
+              "needs": [0]
+            },
+            {
+              "en": "When should employees return the form?",
+              "zh": "員工最晚什麼時候要交回表格？",
+              "options": ["By January 1", "By September 30", "By December 31"],
+              "answer": 1,
+              "needs": [0]
+            },
+            {
+              "en": "How do employees pay to insure family members?",
+              "zh": "員工替家人投保要怎麼付費？",
+              "options": ["The company pays", "It comes out of their pay", "They pay the hospital"],
+              "answer": 1,
+              "needs": [0]
+            },
+            {
+              "en": "You want dental care and want to insure one family member. How much do you pay each month?",
+              "zh": "你想要有牙科保障，又要替一位家人投保，每個月總共自付多少？",
+              "options": ["$30", "$40", "$70"],
+              "answer": 2,
+              "needs": [0, 1]
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Hi! Did you get my email about next year's benefits?",
+          "zh": "嗨！你有收到我寄的明年福利 email 嗎？"
+        },
+        {
+          "id": "t4_2",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "We're moving to a more comprehensive health plan.",
+          "zh": "我們要換成保障更完整的健康保險方案。"
+        },
+        {
+          "id": "t4_3",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Prescription medicine is covered on both plans.",
+          "zh": "兩種方案都有包含處方藥。"
+        },
+        {
+          "id": "t4_4",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "The Plus plan adds dental care, but you pay forty dollars a month.",
+          "zh": "Plus 方案多了牙科，不過每個月要自付四十美元。"
+        },
+        {
+          "id": "t4_5",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "You can add family members, too. That part's voluntary.",
+          "zh": "你也可以替家人加保，那部分是自由參加的。"
+        },
+        {
+          "id": "t4_6",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Have you had a chance to look at the two plans yet?",
+          "zh": "兩種方案你有空看過了嗎？"
+        },
+        {
+          "id": "t4_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll compare the two insurance plans this weekend and decide.",
+          "zh": "我這個週末會比較一下兩種保險方案再決定。",
+          "chunkId": "compare_two_insurance_plans"
+        },
+        {
+          "id": "t4_8",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Sounds good. Just get the form back to me by September 30.",
+          "zh": "好啊。只要在九月三十日前把表格交回給我就好。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "請假和彈性上班",
+      "backdrop": "hr",
+      "newChunkIds": ["sick_leave_days_per_year", "flextime_start_at_ten"],
+      "newWordIds": [
+        "aid",
+        "injury",
+        "illness",
+        "mental",
+        "spouse",
+        "morale",
+        "hotline",
+        "unpaid",
+        "flextime",
+        "partial",
+        "separately"
+      ],
+      "talks": [
+        {
+          "id": "leave_talk",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "guide",
+              "en": "How many days of sick leave do we get each year?",
+              "zh": "我們每年有幾天病假？"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "hr",
+              "en": "Ten paid days. You can also use them when your spouse or children are ill.",
+              "zh": "十天有薪假。配偶或小孩生病的時候也可以用。"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "hr",
+              "en": "For a long illness or injury, you get partial pay for one month. After that, it's unpaid.",
+              "zh": "如果是長期生病或受傷，第一個月領部分薪水，之後就是無薪。"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "manager",
+              "en": "And you worked weekends in London, so you get two extra days off.",
+              "zh": "還有，你在倫敦週末也在工作，所以多給你兩天假。"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "guide",
+              "en": "Really? Thank you. I could use the rest.",
+              "zh": "真的嗎？謝謝您，我正需要休息。"
+            },
+            {
+              "id": "t5_talk_6",
+              "role": "hr",
+              "en": "There's also one mental health day a year. We keep a record of it separately.",
+              "zh": "另外每年有一天心理健康假，我們會分開記。"
+            },
+            {
+              "id": "t5_talk_7",
+              "role": "hr",
+              "en": "And our hotline is free if you ever need someone to talk to.",
+              "zh": "如果你需要找人聊聊，我們也有免費的專線。"
+            },
+            {
+              "id": "t5_talk_8",
+              "role": "manager",
+              "en": "We're also trying flextime this fall. It's good for morale.",
+              "zh": "我們今年秋天也在試行彈性上班，對士氣有幫助。"
+            },
+            {
+              "id": "t5_talk_9",
+              "role": "guide",
+              "en": "So with flextime, I could start at ten and leave at seven?",
+              "zh": "所以彈性上班的話，我可以十點進來、七點走嗎？"
+            },
+            {
+              "id": "t5_talk_10",
+              "role": "hr",
+              "en": "Yes, as long as you're here from ten to four.",
+              "zh": "可以，只要十點到四點都在公司就好。"
+            },
+            {
+              "id": "t5_talk_11",
+              "role": "hr",
+              "en": "And if you get hurt at work, the first aid supplies are in the break room.",
+              "zh": "還有，如果在公司受傷，急救用品在茶水間。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "How many days of paid sick leave do employees get each year?",
+              "zh": "員工每年有幾天有薪病假？",
+              "options": ["Two", "Ten", "Twelve"],
+              "answer": 1
+            },
+            {
+              "en": "Why does Ms. Carter give two extra days off?",
+              "zh": "Ms. Carter 為什麼多給兩天假？",
+              "options": [
+                "Because of weekend work in London",
+                "Because of an injury",
+                "Because of the new flextime plan"
+              ],
+              "answer": 0
+            },
+            {
+              "en": "What do people need to do with flextime?",
+              "zh": "彈性上班要符合什麼條件？",
+              "options": [
+                "Start at ten every day",
+                "Be at work from ten to four",
+                "Leave at seven every day"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "So, any other questions about your benefits?",
+          "zh": "那，福利方面還有其他問題嗎？"
+        },
+        {
+          "id": "t5_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How many days of sick leave do we get each year?",
+          "zh": "我們每年有幾天病假？",
+          "chunkId": "sick_leave_days_per_year"
+        },
+        {
+          "id": "t5_3",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Ten paid days. After that, it's partial pay.",
+          "zh": "十天有薪假。超過的話就是領部分薪水。"
+        },
+        {
+          "id": "t5_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Can I add something? We're also trying flextime this fall.",
+          "zh": "我補充一下，我們今年秋天也在試行彈性上班。"
+        },
+        {
+          "id": "t5_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "So with flextime, I could start at ten and leave at seven?",
+          "zh": "所以彈性上班的話，我可以十點進來、七點走嗎？",
+          "chunkId": "flextime_start_at_ten"
+        },
+        {
+          "id": "t5_6",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Yes, as long as you're here from ten to four.",
+          "zh": "可以，只要十點到四點都在公司就好。"
+        },
+        {
+          "id": "t5_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "It should help morale. Everyone's been working so hard.",
+          "zh": "這應該對士氣有幫助，大家最近都很拚。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "報名健康計畫",
+      "newChunkIds": ["signed_up_for_yoga", "cut_down_on_coffee"],
+      "newWordIds": [
+        "wellness",
+        "active",
+        "fitness",
+        "yoga",
+        "locker",
+        "massage",
+        "relaxation",
+        "recreational",
+        "membership",
+        "enjoyable",
+        "beneficial"
+      ],
+      "cloze": [
+        {
+          "lineId": "t6_4",
+          "word": "membership",
+          "distractors": ["headache", "allergy"]
+        },
+        {
+          "lineId": "t6_5",
+          "word": "massage",
+          "distractors": ["virus", "injury"]
+        },
+        {
+          "lineId": "t6_9",
+          "word": "active",
+          "distractors": ["ill", "unpaid"]
+        }
+      ],
+      "textFills": [
+        {
+          "id": "wellness_flyer",
+          "kind": "flyer",
+          "title": "Our New Wellness Program",
+          "lines": [
+            "Staying active is beneficial for everyone, so we are starting a wellness program this month.",
+            "Yoga: Wednesdays at 6 p.m. Please ___ on the sheet in the break room.",
+            "Fitness: The company pays half of your gym membership, and the lockers are free.",
+            "Massage: Every other Friday. Enjoy fifteen minutes of ___.",
+            "Recreational sports: ___"
+          ],
+          "zh": [
+            "保持活動對每個人都有好處，所以這個月起我們推出健康計畫。",
+            "瑜伽：每週三晚上六點。請在茶水間的表上報名。",
+            "健身：公司幫你付一半的健身房會費，置物櫃免費。",
+            "按摩：每隔一週的星期五。享受十五分鐘的放鬆。",
+            "休閒運動：加入我們星期六的健走團！"
+          ],
+          "blanks": [
+            {
+              "options": ["sign up", "signing up", "signs up", "signed up"],
+              "answer": 0,
+              "note": "Please 後面用動詞原形。"
+            },
+            {
+              "options": ["relaxation", "pension", "coverage", "injury"],
+              "answer": 0,
+              "note": "按摩帶來的是放鬆：relaxation。"
+            },
+            {
+              "options": [
+                "Join our Saturday walking group!",
+                "Your blood test is on Monday.",
+                "The clinic closes at noon.",
+                "Return your form by September 30."
+              ],
+              "answer": 0,
+              "note": "休閒運動後面要接一個活動。"
+            }
+          ]
+        }
+      ],
+      "responds": [
+        {
+          "id": "t6_r1",
+          "prompt": {
+            "role": "coworker",
+            "en": "When does the yoga class meet?",
+            "zh": "瑜伽課什麼時候上？"
+          },
+          "responses": [
+            {
+              "en": "On Wednesday evenings.",
+              "zh": "每週三晚上。"
+            },
+            {
+              "en": "In the meeting room.",
+              "zh": "在會議室。"
+            },
+            {
+              "en": "Yes, I like yoga.",
+              "zh": "對，我喜歡瑜伽。"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "t6_r2",
+          "prompt": {
+            "role": "hr",
+            "en": "Have you signed up for a massage yet?",
+            "zh": "你報名按摩了嗎？"
+          },
+          "responses": [
+            {
+              "en": "She signed it yesterday.",
+              "zh": "她昨天簽了。"
+            },
+            {
+              "en": "Not yet, but I will today.",
+              "zh": "還沒，不過我今天會報。"
+            },
+            {
+              "en": "It's in the break room.",
+              "zh": "在茶水間。"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "t6_r3",
+          "prompt": {
+            "role": "coworker",
+            "en": "Where can I leave my gym bag?",
+            "zh": "我的健身包可以放哪裡？"
+          },
+          "responses": [
+            {
+              "en": "At six o'clock.",
+              "zh": "六點。"
+            },
+            {
+              "en": "I left early yesterday.",
+              "zh": "我昨天提早走了。"
+            },
+            {
+              "en": "In one of the lockers.",
+              "zh": "放在置物櫃裡。"
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "id": "t6_r4",
+          "prompt": {
+            "role": "hr",
+            "en": "Would you like the Wednesday class or the Friday class?",
+            "zh": "你想上週三的課還是週五的課？"
+          },
+          "responses": [
+            {
+              "en": "Yes, I would.",
+              "zh": "好，我想。"
+            },
+            {
+              "en": "Wednesday works better for me.",
+              "zh": "週三對我比較方便。"
+            },
+            {
+              "en": "It was a great class.",
+              "zh": "那堂課很棒。"
+            }
+          ],
+          "answer": 1
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Did you see the flyer for the new wellness program?",
+          "zh": "你有看到新健康計畫的傳單嗎？"
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I just signed up for the yoga class on Wednesday evenings.",
+          "zh": "我剛報名了週三晚上的瑜伽課。",
+          "chunkId": "signed_up_for_yoga",
+          "stage": { "act": "want", "item": "yoga" }
+        },
+        {
+          "id": "t6_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Nice! I work out at the gym before work.",
+          "zh": "不錯喔！我是上班前去健身房運動。"
+        },
+        {
+          "id": "t6_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "The company pays half of the gym membership now.",
+          "zh": "現在公司會幫忙出一半的健身房會費。"
+        },
+        {
+          "id": "t6_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "And there's a free massage every other Friday.",
+          "zh": "而且每隔一週的星期五還有免費按摩。",
+          "stage": { "act": "want", "item": "massage" }
+        },
+        {
+          "id": "t6_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Want some coffee? I just made a fresh pot.",
+          "zh": "要不要喝咖啡？我剛煮了一壺。"
+        },
+        {
+          "id": "t6_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm trying to cut down on afternoon coffee.",
+          "zh": "我在試著少喝點下午的咖啡。",
+          "chunkId": "cut_down_on_coffee"
+        },
+        {
+          "id": "t6_8",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Smart. How about some tea instead?",
+          "zh": "聰明。那改喝茶怎麼樣？"
+        },
+        {
+          "id": "t6_9",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Honestly, staying active has made work more enjoyable for me.",
+          "zh": "說真的，多動一動以後，我上班都覺得開心多了。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "午休健康講座",
+      "newChunkIds": ["talk_made_me_think_habits"],
+      "newWordIds": [
+        "emotional",
+        "anxiety",
+        "intense",
+        "burden",
+        "mood",
+        "supplement",
+        "relieve",
+        "periodically",
+        "tidy",
+        "distraction",
+        "athletic",
+        "timer"
+      ],
+      "talks": [
+        {
+          "id": "health_talk",
+          "kind": "monologue",
+          "once": true,
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "announcer",
+              "en": "Good afternoon, everyone. Many of you sit at a desk all day and check your phone in bed.",
+              "zh": "大家午安。你們很多人整天坐在辦公桌前，躺在床上還在看手機。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "announcer",
+              "en": "That's not good for your heart. And fatigue isn't only physical.",
+              "zh": "這對心臟不好。而且疲勞不只是身體上的。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "announcer",
+              "en": "Long hours and intense deadlines put a real burden on your body and your mood.",
+              "zh": "長時間工作和很趕的期限，對身體和心情都是很大的負擔。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "announcer",
+              "en": "Stress and anxiety don't go away by themselves. You need healthy ways to cope.",
+              "zh": "壓力和焦慮不會自己消失，你需要用健康的方法來調適。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "announcer",
+              "en": "Whether you are a commuter or work from home, here are three simple things.",
+              "zh": "不管你是通勤族還是在家工作，這裡有三件簡單的事。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "announcer",
+              "en": "First, stand up and walk around every hour. Set a timer on your phone.",
+              "zh": "第一，每個小時站起來走一走。可以用手機設個計時器。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "announcer",
+              "en": "Second, at night, leave your phone in another room.",
+              "zh": "第二，晚上把手機放在別的房間。"
+            },
+            {
+              "id": "t7_talk_8",
+              "role": "announcer",
+              "en": "Third, you don't need to be athletic. A short walk after lunch really helps.",
+              "zh": "第三，你不需要很會運動。午餐後散步一下就很有幫助。"
+            },
+            {
+              "id": "t7_talk_9",
+              "role": "announcer",
+              "en": "These steps relieve stress and help your emotional health.",
+              "zh": "這些小事能減輕壓力，對情緒健康也有幫助。"
+            },
+            {
+              "id": "t7_talk_10",
+              "role": "announcer",
+              "en": "A tidy desk also means fewer distractions.",
+              "zh": "桌面整齊，讓你分心的事也會比較少。"
+            },
+            {
+              "id": "t7_talk_11",
+              "role": "announcer",
+              "en": "Make time for leisure, and check in with yourself periodically. You don't need supplements.",
+              "zh": "要留點休閒時間，也每隔一段時間關心一下自己。你不需要靠營養補充品。"
+            },
+            {
+              "id": "t7_talk_12",
+              "role": "announcer",
+              "en": "Do these things consistently, and you'll feel the difference.",
+              "zh": "持續做這些事，你就會感覺到不同。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "What does the speaker want people to use a timer for?",
+              "zh": "講者建議用計時器做什麼？",
+              "options": ["To stand up every hour", "To go to bed early", "To take supplements"],
+              "answer": 0
+            },
+            {
+              "en": "Where should people keep their phones at night?",
+              "zh": "晚上手機應該放在哪裡？",
+              "options": ["Next to the bed", "In another room", "On their desk"],
+              "answer": 1
+            },
+            {
+              "en": "What does the speaker say helps after lunch?",
+              "zh": "講者說午餐後做什麼有幫助？",
+              "options": ["A cup of coffee", "A tidy desk", "A short walk"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "So, what did you think of the doctor's talk?",
+          "zh": "所以，你覺得醫師的講座怎麼樣？"
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "That talk made me think about my own habits.",
+          "zh": "那場講座讓我反省了一下自己的習慣。",
+          "chunkId": "talk_made_me_think_habits"
+        },
+        {
+          "id": "t7_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Me too. I read work emails in bed every night.",
+          "zh": "我也是。我每天晚上都躺在床上看工作的 email。"
+        },
+        {
+          "id": "t7_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I never used to have trouble sleeping at night.",
+          "zh": "我以前晚上從來不會睡不好。",
+          "chunkId": "never_used_to_trouble_sleeping"
+        },
+        {
+          "id": "t7_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Maybe it's those late emails. They're bad for my mood, too.",
+          "zh": "說不定就是那些很晚的 email 害的，也會影響我的心情。"
+        },
+        {
+          "id": "t7_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "And my desk is a mess. Too many distractions.",
+          "zh": "還有我的桌子亂七八糟，太多讓人分心的東西了。"
+        },
+        {
+          "id": "t7_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "She said a tidy desk helps, so I'm cleaning mine today.",
+          "zh": "她說桌面整齊會有幫助，所以我今天就要來整理。"
+        },
+        {
+          "id": "t7_8",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Who knew a lunch talk could be so useful?",
+          "zh": "誰想得到一場午休講座這麼有用？"
+        },
+        {
+          "id": "t7_9",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Let's both try one new thing this week and see how it goes.",
+          "zh": "我們這個禮拜都試一件新的事，看看效果怎麼樣。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "請一天假",
+      "newChunkIds": ["take_next_friday_off", "leo_knows_while_away"],
+      "newWordIds": [
+        "recover",
+        "harm",
+        "careless",
+        "accuracy",
+        "uncomfortable",
+        "considerate",
+        "refresh",
+        "flexibility",
+        "partially",
+        "occurrence",
+        "exhausted"
+      ],
+      "spellWordIds": ["briefcase", "restroom", "subway", "construction", "courier"],
+      "cloze": [
+        {
+          "lineId": "t8_1",
+          "word": "exhausted",
+          "distractors": ["healthy", "athletic"]
+        },
+        {
+          "lineId": "t8_5",
+          "word": "partially",
+          "distractors": ["consistently", "periodically"]
+        },
+        {
+          "lineId": "t8_8",
+          "word": "harm",
+          "distractors": ["coverage", "membership"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "You wanted to talk? You look exhausted.",
+          "zh": "你想找我談？你看起來累壞了。"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Would it be okay if I took next Friday off?",
+          "zh": "我下週五請一天假可以嗎？",
+          "chunkId": "take_next_friday_off"
+        },
+        {
+          "id": "t8_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Of course. Don't feel uncomfortable asking.",
+          "zh": "當然可以。開口請假不用不好意思。"
+        },
+        {
+          "id": "t8_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Your accuracy is usually great, but I've seen a few careless mistakes.",
+          "zh": "你平常都很準確，不過我最近看到幾個粗心的錯。"
+        },
+        {
+          "id": "t8_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Working weekends shouldn't be a regular occurrence. It's partially my fault.",
+          "zh": "週末加班不該是常態，這有一部分是我的錯。"
+        },
+        {
+          "id": "t8_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Thanks for your flexibility. You're always so considerate.",
+          "zh": "謝謝你一直這麼配合，你總是很體貼。"
+        },
+        {
+          "id": "t8_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll make sure Leo knows what to do while I'm away.",
+          "zh": "我會確認 Leo 知道我不在的時候要做什麼。",
+          "chunkId": "leo_knows_while_away"
+        },
+        {
+          "id": "t8_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. A day off won't do any harm. Rest and recover.",
+          "zh": "很好。休一天不會有什麼壞處，好好休息、恢復一下。"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "backdrop": "main",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "There you are! So, what did you think of today's talk?",
+          "zh": "原來你在這裡！你覺得今天的講座怎麼樣？"
+        },
+        {
+          "id": "t9_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "That talk made me think about my own habits.",
+          "zh": "那場講座讓我反省了一下自己的習慣。",
+          "chunkId": "talk_made_me_think_habits"
+        },
+        {
+          "id": "t9_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Same here. How are you feeling since your trip?",
+          "zh": "我也是。出差回來以後，你身體還好嗎？"
+        },
+        {
+          "id": "t9_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I've been getting headaches ever since I got back from London.",
+          "zh": "從倫敦回來以後，我就一直頭痛。",
+          "chunkId": "headaches_since_london"
+        },
+        {
+          "id": "t9_5",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Then your checkup comes at a good time. It's next Tuesday.",
+          "zh": "那健康檢查來得正是時候，就在下週二。"
+        },
+        {
+          "id": "t9_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do I need to make an appointment for the checkup myself?",
+          "zh": "健康檢查要我自己去預約嗎？",
+          "chunkId": "book_checkup_myself"
+        },
+        {
+          "id": "t9_7",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Yes, but I can call the clinic for you if you're busy.",
+          "zh": "對，不過你忙的話，我可以幫你打給診所。"
+        },
+        {
+          "id": "t9_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And please take a real lunch break. Not at your desk.",
+          "zh": "還有，午休請好好休息，別在座位上吃。"
+        },
+        {
+          "id": "t9_9",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I used to eat lunch at my desk almost every day.",
+          "zh": "我以前幾乎每天都在座位上吃午餐。",
+          "chunkId": "used_to_eat_at_desk"
+        },
+        {
+          "id": "t9_10",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Used to? Good. Keep it that way.",
+          "zh": "以前？很好，繼續保持。"
+        },
+        {
+          "id": "t9_11",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Have you picked a health plan yet? The forms are due soon.",
+          "zh": "你選好保險方案了嗎？表格快到期了。"
+        },
+        {
+          "id": "t9_12",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll compare the two insurance plans this weekend and decide.",
+          "zh": "我這個週末會比較一下兩種保險方案再決定。",
+          "chunkId": "compare_two_insurance_plans"
+        },
+        {
+          "id": "t9_13",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Mornings are hard after a long trip. Try the new flextime.",
+          "zh": "長途出差回來早上很難起床，試試新的彈性上班吧。"
+        },
+        {
+          "id": "t9_14",
+          "role": "guide",
+          "speaker": "player",
+          "en": "So with flextime, I could start at ten and leave at seven?",
+          "zh": "所以彈性上班的話，我可以十點進來、七點走嗎？",
+          "chunkId": "flextime_start_at_ten"
+        },
+        {
+          "id": "t9_15",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Exactly. Just be here between ten and four.",
+          "zh": "沒錯，只要十點到四點之間在公司就好。"
+        },
+        {
+          "id": "t9_16",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "And the yoga class still has a few spots left.",
+          "zh": "還有，瑜伽課還剩幾個名額。"
+        },
+        {
+          "id": "t9_17",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I just signed up for the yoga class on Wednesday evenings.",
+          "zh": "我剛報名了週三晚上的瑜伽課。",
+          "chunkId": "signed_up_for_yoga"
+        },
+        {
+          "id": "t9_18",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Great. Honestly, I think you need a real break, too.",
+          "zh": "很好。說真的，我覺得你也需要好好放個假。"
+        },
+        {
+          "id": "t9_19",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Would it be okay if I took next Friday off?",
+          "zh": "我下週五請一天假可以嗎？",
+          "chunkId": "take_next_friday_off"
+        },
+        {
+          "id": "t9_20",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Of course. Rest, recover, and come back refreshed.",
+          "zh": "當然可以。好好休息、恢復體力，回來的時候精神會好一點。"
+        },
+        {
+          "id": "t9_21",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll make sure Leo knows what to do while I'm away.",
+          "zh": "我會確認 Leo 知道我不在的時候要做什麼。",
+          "chunkId": "leo_knows_while_away"
+        }
+      ]
+    }
+  ]
+}
