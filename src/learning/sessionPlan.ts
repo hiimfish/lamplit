@@ -17,7 +17,8 @@ export const FAST_MS_LISTEN_CHOOSE = 4000;
 /**
  * Arranging blocks takes longer, and so does typing a word, hearing a whole line for a
  * cloze, reading a sign or reading sentences about a picture, completing a sentence or a
- * text, reading a passage or hearing a conversation, so their fast threshold is higher.
+ * text, reading a passage, hearing a conversation or a prompt and three responses, so their
+ * fast threshold is higher.
  */
 export const FAST_MS_ARRANGE = 12000;
 
@@ -37,6 +38,7 @@ const SLOW_KINDS: readonly QuestionKind[] = [
   'text-fill',
   'read-passage',
   'talk',
+  'respond',
 ];
 
 function isFastAnswer(ms: number, kind: QuestionKind): boolean {

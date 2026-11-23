@@ -14,7 +14,6 @@ import {
   type ClozeQuestion,
   type ListenPairQuestion,
   type ListenPickQuestion,
-  type PictureQuestion,
   type Question,
   type SignQuestion,
   type SpeakQuestion,
@@ -23,6 +22,8 @@ import {
 import { chunkItemId, pairItemId, shuffle, wordItemId, type Rng } from './gen/common';
 import { fillQuestions } from './gen/fills';
 import { passageQuestions } from './gen/passages';
+import { pictureQuestions } from './gen/pictures';
+import { respondQuestions } from './gen/responds';
 import { talkQuestions } from './gen/talks';
 import { textFillQuestions } from './gen/textFills';
 
@@ -309,21 +310,6 @@ function signQuestions(task: Task, rng: Rng): SignQuestion[] {
   });
 }
 
-/** Picture questions (看圖選句) for the task's `pictures`, sentences in a shuffled order. */
-function pictureQuestions(unit: Unit, task: Task, rng: Rng): PictureQuestion[] {
-  return (task.pictures ?? []).map((picture) => ({
-    kind: 'picture',
-    pictureId: picture.pictureId,
-    audioId: `${unit.id}.picture.${picture.id}`,
-    options: shuffle(
-      picture.options.map((option, i) => ({ id: `o${i}`, en: option.en, zh: option.zh })),
-      rng,
-    ),
-    correctId: `o${picture.answer}`,
-    itemId: NO_ITEM,
-  }));
-}
-
 /**
  * Each typed letter against the answer at the same place (case ignored); letters past
  * the end of the answer are wrong.
@@ -338,7 +324,7 @@ export function spellMarks(typed: string, answer: string): ('right' | 'wrong')[]
  * listen-and-pick questions, signs to read and pictures after choosing replies, then
  * sentence fills, text fills (one blank at a time), passages to read and conversations or
  * monologues to hear (one sentence, then a short text, then a conversation heard only
- * once), all before arranging; typing questions
+ * once), then 應答題 heard by ear, all before arranging; typing questions
  * (`spellWordIds`) after arranging and before speaking. Typed and blanked words are looked
  * up in `units` (pass every unit, since they may come from an earlier one).
  */
@@ -370,6 +356,7 @@ export function buildTaskPractice(
     ...textFillQuestions(task, rng),
     ...passageQuestions(task, rng),
     ...talkQuestions(unit, task, rng),
+    ...respondQuestions(unit, task, rng),
     ...compact(chunks.map((c) => arrangeChunk(unit, c, rng))),
     ...compact((task.spellWordIds ?? []).map((id) => spellWord(units, id))),
     ...chunks.map((c) => speakChunk(unit, c)),

@@ -373,12 +373,20 @@ const ACT2_SMOOTHNESS: SmoothnessLimits = {
   maxUnplannedRank: 1800,
 };
 
-/** Limits by act (index 0 is Act 1). Acts 3 and 4 use the Act 2 values for now. */
+/**
+ * Act 4 keeps the Act 2 values. Its syllabus curve (docs/specs/act4-syllabus.md, 新項目數的
+ * 曲線) grows by at most one item a task, 11 to 14, and starts one below the end of Act 3
+ * (company_event t8 has 12), so item growth stays +1; the score, coverage and untaught-word
+ * rules stay as they are, so a real break is still caught.
+ */
+const ACT4_SMOOTHNESS: SmoothnessLimits = { ...ACT2_SMOOTHNESS };
+
+/** Limits by act (index 0 is Act 1). Act 3 uses the Act 2 values. */
 const SMOOTHNESS: readonly SmoothnessLimits[] = [
   ACT1_SMOOTHNESS,
   ACT2_SMOOTHNESS,
   ACT2_SMOOTHNESS,
-  ACT2_SMOOTHNESS,
+  ACT4_SMOOTHNESS,
 ];
 
 /** The limits for a unit, by the act it is in (src/content/acts.ts); a unit in no act uses Act 1's. */
@@ -468,13 +476,18 @@ function withAnswers(
  * Every English text a task's questions show besides the story, as lines to profile like a
  * story (tests/smoothness.test.ts checks they use only taught words): cloze words and their
  * wrong choices; signs with their question and options; picture sentences; each fill
- * sentence with each option in the blank; passages (title, lines, questions, options);
- * talks and monologues (lines, table title and cells, questions, options); and text fills
- * (title, the lines with each blank's answer in, every option of every blank).
+ * sentence with each option in the blank; passages (title, lines, questions, options; every
+ * text of a passage set); talks and monologues (lines, table title and cells, questions,
+ * options); 應答題 (the prompt and every response); and text fills (title, the lines with
+ * each blank's answer in, every option of every blank). Sound-option picture sentences are
+ * picture sentences like any other.
  */
 export function questionTexts(task: Task): SceneLine[] {
   const choices = (questions: readonly { en: string; options: string[] }[]) =>
     questions.flatMap((q) => [q.en, ...q.options]);
+  // A passage set has `texts`; a single passage is its own one text.
+  const passageTexts = (p: NonNullable<Task['passages']>[number]) =>
+    ('texts' in p ? p.texts : [p]).flatMap((t) => [t.title ?? '', ...t.lines]);
   const texts = [
     ...(task.cloze ?? []).flatMap((c) => [c.word, ...c.distractors]),
     ...(task.signs ?? []).flatMap((s) => [
@@ -485,13 +498,14 @@ export function questionTexts(task: Task): SceneLine[] {
     ]),
     ...(task.pictures ?? []).flatMap((p) => p.options.map((o) => o.en)),
     ...(task.fills ?? []).flatMap((f) => f.options.map((o) => f.en.replace('___', o))),
-    ...(task.passages ?? []).flatMap((p) => [p.title ?? '', ...p.lines, ...choices(p.questions)]),
+    ...(task.passages ?? []).flatMap((p) => [...passageTexts(p), ...choices(p.questions)]),
     ...(task.talks ?? []).flatMap((t) => [
       ...t.lines.map((l) => l.en),
       t.table?.title ?? '',
       ...(t.table?.rows.flat() ?? []),
       ...choices(t.questions),
     ]),
+    ...(task.responds ?? []).flatMap((r) => [r.prompt.en, ...r.responses.map((s) => s.en)]),
     ...(task.textFills ?? []).flatMap((t) => [
       t.title ?? '',
       ...withAnswers(t.lines, t.blanks),

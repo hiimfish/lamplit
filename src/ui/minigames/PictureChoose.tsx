@@ -10,7 +10,7 @@ import type { MinigameProps } from './shared';
 const urls = new Map<string, string>();
 
 /** Paints a picture once and keeps it as an image URL (undefined when it cannot be drawn). */
-function pictureUrl(id: string): string | undefined {
+export function pictureUrl(id: string): string | undefined {
   const cached = urls.get(id);
   if (cached) return cached;
   const paint = getPicture(id);

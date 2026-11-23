@@ -250,3 +250,14 @@
   scrollbar-width: thin;
   scrollbar-color: var(--ink) var(--paper);
 }
+
+/* 兩篇／三篇一組 (minimal): the texts one after another, each under its number, a rule between. */
+.rp-set-text + .rp-set-text {
+  margin-top: calc(6 * var(--px));
+  padding-top: calc(4 * var(--px));
+  border-top: var(--px) dashed var(--ink);
+}
+
+.rp-set-label {
+  margin: 0 0 calc(2 * var(--px));
+}

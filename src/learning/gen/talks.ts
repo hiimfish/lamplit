@@ -15,10 +15,18 @@ export interface TalkQuestion {
   talkId: string;
   /** The conversation in order; each line's clip is `${unitId}.talk.${lineId}`. */
   lines: { audioId: string; role: Role; en: string; zh: string }[];
-  /** The speakers in the order they first speak (two for a checked conversation, one for a monologue). */
+  /**
+   * The speakers in the order they first speak (two for a checked conversation, two or three
+   * in Act 4, one for a monologue).
+   */
   speakers: Role[];
   /** 聽獨白: one speaker (a voicemail, an announcement, a speech). */
   monologue?: true;
+  /**
+   * 只播一次: it plays once by itself; replay and slow stay off until the last question on
+   * it (index total - 1) is answered.
+   */
+  once?: true;
   /** A table shown while listening and answering (Part 3 with a graphic); not spoken. */
   table?: TalkTable;
   /** The question, in English and Chinese. */
@@ -62,6 +70,7 @@ export function talkQuestions(unit: Unit, task: Task, rng: Rng): TalkQuestion[] 
       };
       if (talk.kind === 'monologue') question.monologue = true;
       if (talk.table) question.table = talk.table;
+      if (talk.once) question.once = true;
       return question;
     });
   });

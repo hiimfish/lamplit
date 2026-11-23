@@ -1,7 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { TalkItem, Task, Unit } from '../src/content/types';
 import type { TaskCheckContext } from '../src/content/checks/common';
-import { checkTalks } from '../src/content/checks/talks';
+import { ACTS } from '../src/content/acts';
+import { checkTalks, playOnceRequired } from '../src/content/checks/talks';
 import { validateUnit } from '../src/content/validate';
 import { talkQuestions, type TalkQuestion } from '../src/learning/gen/talks';
 import { buildTaskPractice, makeRng } from '../src/learning/questionGen';
@@ -605,5 +606,168 @@ describe('talk limits from Act 3 on', () => {
     expect(act3).toContainEqual(expect.stringContaining('has 1 tasks'));
     expect(act3.filter((p) => p.includes('lines'))).toEqual([]);
     expect(validateUnit(long)).toEqual([expect.stringContaining('3 to 6')]);
+  });
+});
+
+describe('Act 4 talks: three speakers, longer monologues, play once', () => {
+  const act4 = (over: Partial<TaskCheckContext> = {}): TaskCheckContext => ({
+    ...context(),
+    act: 4,
+    ...over,
+  });
+  /** `n` lines taking turns among `roles`. */
+  const turns = (n: number, roles: string[]) =>
+    Array.from({ length: n }, (_, i) => ({
+      id: `a${i}`,
+      role: roles[i % roles.length],
+      en: 'We can talk about it later today.',
+      zh: '我們今天晚點再談。',
+    }));
+  const three = ['clerk', 'friend', 'guide'];
+  /** Act 4 talks have exactly 3 questions. */
+  const questions3 = [...talk().questions, { ...q0, en: 'Who is helping?' }];
+  const withLines = (n: number, roles: string[]) => ({
+    ...talk(),
+    lines: turns(n, roles),
+    questions: questions3,
+  });
+
+  it('needs exactly 3 questions in Act 4', () => {
+    expect(checkTalks({ talks: [withLines(8, three)] }, act4())).toEqual([]);
+    const two = { ...withLines(8, three), questions: talk().questions };
+    expect(checkTalks({ talks: [two] }, act4())).toEqual([
+      expect.stringContaining('needs exactly 3 questions in Act 4'),
+    ]);
+  });
+
+  it('accepts 8 to 12 lines by two or three speakers (the guide may be one)', () => {
+    for (const n of [8, 12]) {
+      expect(checkTalks({ talks: [withLines(n, three)] }, act4())).toEqual([]);
+      expect(checkTalks({ talks: [withLines(n, ['clerk', 'friend'])] }, act4())).toEqual([]);
+    }
+  });
+
+  it('rejects fewer than 8 or more than 12 lines, four speakers, and a shared label', () => {
+    expect(checkTalks({ talks: [withLines(7, three)] }, act4())[0]).toContain('8 to 12');
+    expect(checkTalks({ talks: [withLines(13, three)] }, act4())[0]).toContain('8 to 12');
+    expect(
+      checkTalks({ talks: [withLines(8, ['clerk', 'friend', 'guide', 'barista'])] }, act4()),
+    ).toEqual([expect.stringContaining('two or three speakers (has 4')]);
+    // The clerk and the barista are both 店員.
+    expect(checkTalks({ talks: [withLines(9, ['clerk', 'friend', 'barista'])] }, act4())).toEqual([
+      expect.stringContaining('"clerk" and "barista" are both shown as'),
+    ]);
+  });
+
+  it('keeps three speakers out of Acts 1 to 3', () => {
+    expect(checkTalks({ talks: [withLines(6, three)] }, { ...context(), act: 3 })).toEqual([
+      expect.stringContaining('exactly two speakers (has 3'),
+    ]);
+  });
+
+  it('lets a monologue have 12 lines and 160 words in Act 4', () => {
+    const mono = (n: number, words: number) => ({
+      ...talk(),
+      questions: questions3,
+      kind: 'monologue',
+      lines: Array.from({ length: n }, (_, i) => ({
+        id: `m${i}`,
+        role: 'clerk',
+        en: Array.from({ length: words }, () => 'word').join(' '),
+        zh: '字',
+      })),
+    });
+    expect(checkTalks({ talks: [mono(12, 13)] }, act4())).toEqual([]); // 156 words
+    expect(checkTalks({ talks: [mono(10, 16)] }, act4())).toEqual([]); // 160 words
+    expect(checkTalks({ talks: [mono(10, 17)] }, act4())).toEqual([
+      expect.stringContaining('170 words; a monologue has 30 to 160'),
+    ]);
+    expect(checkTalks({ talks: [mono(13, 5)] }, act4())[0]).toContain('3 to 12');
+    expect(checkTalks({ talks: [mono(12, 5)] }, { ...context(), act: 3 })[0]).toContain('3 to 10');
+  });
+
+  it('lists three speakers in the order they first speak', () => {
+    const t = talk({ lines: turns(9, ['friend', 'guide', 'clerk']) as TalkItem['lines'] });
+    const [q] = talkQuestions(unit([t]), task({ talks: [t] }), makeRng(1));
+    expect(q?.speakers).toEqual(['friend', 'guide', 'clerk']);
+  });
+
+  describe('只播一次 (once)', () => {
+    const order = [
+      { no: '一', title: 'a', places: [{ title: 'early', unitId: 'early' }] },
+      {
+        no: '四',
+        title: 'd',
+        places: [
+          { title: 'w', unitId: 'wellness' },
+          { title: 'm', unitId: 'media' },
+        ],
+      },
+    ];
+
+    it('is required in the 5th and 7th task from wellness t7 on, nowhere else', () => {
+      expect(playOnceRequired('wellness', 4, order)).toBe(false); // wellness t5
+      expect(playOnceRequired('wellness', 6, order)).toBe(true); // wellness t7
+      expect(playOnceRequired('wellness', 5, order)).toBe(false); // wellness t6
+      expect(playOnceRequired('media', 4, order)).toBe(true);
+      expect(playOnceRequired('media', 6, order)).toBe(true);
+      expect(playOnceRequired('media', 2, order)).toBe(false);
+      expect(playOnceRequired('early', 6, order)).toBe(false);
+      expect(playOnceRequired('nowhere', 6, order)).toBe(false);
+      expect(playOnceRequired('media', 6, [])).toBe(false);
+    });
+
+    it('follows the real play order: wellness t7, then media, annual_meeting, promotion', () => {
+      for (const id of ['media', 'annual_meeting', 'promotion']) {
+        expect(
+          [4, 6].map((i) => playOnceRequired(id, i, ACTS)),
+          id,
+        ).toEqual([true, true]);
+      }
+      expect(playOnceRequired('wellness', 6, ACTS)).toBe(true);
+      expect(playOnceRequired('wellness', 4, ACTS)).toBe(false);
+      expect(playOnceRequired('branch', 6, ACTS)).toBe(false);
+      expect(playOnceRequired('company_event', 6, ACTS)).toBe(false);
+    });
+
+    it('needs "once" where required and rejects it elsewhere', () => {
+      const at = (unitId: string, taskIndex: number) => act4({ unitId, taskIndex, acts: order });
+      const plain = withLines(8, three);
+      const once = { ...plain, once: true };
+      expect(checkTalks({ talks: [once] }, at('media', 4))).toEqual([]);
+      expect(checkTalks({ talks: [plain] }, at('media', 4))).toEqual([
+        expect.stringContaining('must play only once: add "once": true'),
+      ]);
+      expect(checkTalks({ talks: [plain] }, at('wellness', 4))).toEqual([]);
+      expect(checkTalks({ talks: [once] }, at('wellness', 4))).toEqual([
+        expect.stringContaining('has "once"'),
+      ]);
+      expect(checkTalks({ talks: [once] }, act4())).toEqual([
+        expect.stringContaining('has "once"'),
+      ]);
+      expect(checkTalks({ talks: [{ ...once, once: 'yes' }] }, at('media', 4))).toEqual([
+        expect.stringContaining('bad once "yes"'),
+      ]);
+    });
+
+    it('gets the unit, the task and the acts from validateUnit', () => {
+      const tasks = Array.from({ length: 5 }, (_, i) => task({ id: `t${i + 1}` }));
+      tasks[4] = task({ id: 't5', talks: [talk({ once: true })] });
+      const inMedia = { ...unit([], tasks), id: 'media' };
+      const report = validateUnit(inMedia, order);
+      expect(report.filter((p) => p.includes('once'))).toEqual([]);
+      tasks[4] = task({ id: 't5', talks: [talk()] });
+      expect(validateUnit({ ...unit([], tasks), id: 'media' }, order)).toContainEqual(
+        expect.stringContaining('must play only once'),
+      );
+    });
+
+    it('marks every question of a play-once talk', () => {
+      const t = talk({ once: true });
+      const qs = talkQuestions(unit([t]), task({ talks: [t] }), makeRng(1));
+      expect(qs.map((q) => q.once)).toEqual([true, true]);
+      const plain = talkQuestions(unit([talk()]), task({ talks: [talk()] }), makeRng(1));
+      expect(plain[0]).not.toHaveProperty('once');
+    });
   });
 });

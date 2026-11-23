@@ -1,16 +1,20 @@
 /**
  * 聽對話答題 (TOEIC Part 3) and 聽獨白答題 (TOEIC Part 4): checks a task's `talks`
- * (TalkItem in types.ts). A conversation has two speakers and may carry a table (Part 3
- * with a graphic); a monologue (`kind: 'monologue'`) has one.
+ * (TalkItem in types.ts). A conversation has two speakers (two or three in Act 4, 三人對話)
+ * and may carry a table (Part 3 with a graphic); a monologue (`kind: 'monologue'`) has one.
+ * `once` (只播一次) is required on the talks of the 5th and 7th task from wellness t7 on,
+ * and allowed nowhere else (see playOnceRequired).
  * Line audio ids are `${unitId}.talk.${lineId}`, so line ids are unique across the unit
  * and use only what an audio id accepts (lower-case letters, digits, underscore).
  * (tests/smoothness.test.ts checks that the lines, table, questions and options use taught words.)
  */
+import type { Act } from '../acts';
 import { ROLE_LABEL } from '../roles';
 import type { Role } from '../types';
 import {
   checkChoiceQuestion,
   ID_PATTERN,
+  isAct4,
   isLateAct,
   isObject,
   sameText,
@@ -22,6 +26,10 @@ export const TALK_MIN_LINES = 3;
 export const TALK_MAX_LINES = 6;
 /** A conversation may be longer from Act 3 on. */
 export const TALK_MAX_LINES_LATE = 8;
+/** A conversation in Act 4: 8 to 12 lines, by two or three speakers (三人對話). */
+export const TALK_MIN_LINES_ACT4 = 8;
+export const TALK_MAX_LINES_ACT4 = 12;
+export const TALK_MAX_SPEAKERS_ACT4 = 3;
 export const TALK_MAX_QUESTIONS = 3;
 /** One conversation per task: each one is heard in full, so more would make the round long. */
 export const TALK_MAX_PER_TASK = 1;
@@ -33,6 +41,16 @@ export const MONOLOGUE_MIN_LINES = 3;
 export const MONOLOGUE_MAX_LINES = 10;
 export const MONOLOGUE_MIN_WORDS = 30;
 export const MONOLOGUE_MAX_WORDS = 120;
+/** A monologue in Act 4 may be longer (the syllabus's t7 talks run to 160 words). */
+export const MONOLOGUE_MAX_LINES_ACT4 = 12;
+export const MONOLOGUE_MAX_WORDS_ACT4 = 160;
+
+/**
+ * 只播一次: from this unit's task on (1-based), every talk of the tasks numbered in
+ * PLAY_ONCE_TASKS plays once; in the units after it in the play order too.
+ */
+export const PLAY_ONCE_FROM = { unitId: 'wellness', task: 7 } as const;
+export const PLAY_ONCE_TASKS: readonly number[] = [5, 7];
 
 /** A talk's table: rows (header included), cells per row, words per cell. */
 export const TABLE_MIN_ROWS = 2;
@@ -41,7 +59,7 @@ export const TABLE_MIN_COLUMNS = 2;
 export const TABLE_MAX_COLUMNS = 4;
 export const TABLE_MAX_CELL_WORDS = 3;
 
-const TALK_KEYS = ['id', 'kind', 'lines', 'questions', 'table'];
+const TALK_KEYS = ['id', 'kind', 'lines', 'questions', 'table', 'once'];
 const LINE_KEYS = ['id', 'role', 'en', 'zh'];
 const TABLE_KEYS = ['title', 'rows'];
 const ID_HINT = 'use lower-case letters, digits and _ only, like "t5_talk_1"';
@@ -52,6 +70,21 @@ const hasText = (value: unknown): value is string =>
 /** Fields a writer may have misspelled or invented ("question", "speaker", "text"...). */
 function unknownKeys(value: Record<string, unknown>, known: string[]): string[] {
   return Object.keys(value).filter((key) => !known.includes(key));
+}
+
+/**
+ * True when the talks of task `taskIndex` (0-based) of unit `unitId` must play only once:
+ * a task numbered in PLAY_ONCE_TASKS, in PLAY_ONCE_FROM's unit from its task on or in a
+ * unit after it in `acts`. False for a unit in no act, and when `acts` lacks that unit.
+ */
+export function playOnceRequired(unitId: string, taskIndex: number, acts: readonly Act[]): boolean {
+  const number = taskIndex + 1;
+  if (!PLAY_ONCE_TASKS.includes(number)) return false;
+  const order = acts.flatMap((act) => act.places.flatMap((place) => place.unitId ?? []));
+  const from = order.indexOf(PLAY_ONCE_FROM.unitId);
+  const at = order.indexOf(unitId);
+  if (from < 0 || at < 0 || at < from) return false;
+  return at > from || number >= PLAY_ONCE_FROM.task;
 }
 
 /** Problems with the task's `talks`, or none when it has no such field. */
@@ -94,14 +127,40 @@ function checkTalk(talk: Record<string, unknown>, ctx: TaskCheckContext): string
   }
   const monologue = talk.kind === 'monologue';
   problems.push(...checkLines(talk.lines, label, ctx, monologue));
+  const required =
+    ctx.unitId !== undefined &&
+    ctx.taskIndex !== undefined &&
+    ctx.acts !== undefined &&
+    playOnceRequired(ctx.unitId, ctx.taskIndex, ctx.acts);
+  const from = `${PLAY_ONCE_FROM.unitId} t${PLAY_ONCE_FROM.task}`;
+  if (talk.once !== undefined && talk.once !== true) {
+    problems.push(`${label} has bad once "${String(talk.once)}" (true, or leave it out)`);
+  } else if (required && talk.once !== true) {
+    problems.push(
+      `${label} must play only once: add "once": true (every t5 and t7 talk from ${from} on)`,
+    );
+  } else if (!required && talk.once === true) {
+    problems.push(
+      `${label} has "once", which only the t5 and t7 talks from ${from} on have: remove it`,
+    );
+  }
   if (talk.table !== undefined) {
     if (monologue) problems.push(`${label} is a monologue; only a conversation may have a table`);
     else problems.push(...checkTable(talk.table, label));
   }
 
   const questions = talk.questions;
-  if (!Array.isArray(questions) || questions.length < 1 || questions.length > TALK_MAX_QUESTIONS) {
-    problems.push(`${label} needs 1 to ${TALK_MAX_QUESTIONS} questions`);
+  const minQuestions = isAct4(ctx) ? TALK_MAX_QUESTIONS : 1;
+  if (
+    !Array.isArray(questions) ||
+    questions.length < minQuestions ||
+    questions.length > TALK_MAX_QUESTIONS
+  ) {
+    problems.push(
+      minQuestions === TALK_MAX_QUESTIONS
+        ? `${label} needs exactly ${TALK_MAX_QUESTIONS} questions in Act 4`
+        : `${label} needs 1 to ${TALK_MAX_QUESTIONS} questions`,
+    );
   } else {
     const asked: string[] = [];
     questions.forEach((q: unknown, i) => {
@@ -123,12 +182,17 @@ function checkLines(
   ctx: TaskCheckContext,
   monologue: boolean,
 ): string[] {
-  const min = monologue ? MONOLOGUE_MIN_LINES : TALK_MIN_LINES;
+  const act4 = isAct4(ctx);
+  const min = monologue ? MONOLOGUE_MIN_LINES : act4 ? TALK_MIN_LINES_ACT4 : TALK_MIN_LINES;
   const max = monologue
-    ? MONOLOGUE_MAX_LINES
-    : isLateAct(ctx)
-      ? TALK_MAX_LINES_LATE
-      : TALK_MAX_LINES;
+    ? act4
+      ? MONOLOGUE_MAX_LINES_ACT4
+      : MONOLOGUE_MAX_LINES
+    : act4
+      ? TALK_MAX_LINES_ACT4
+      : isLateAct(ctx)
+        ? TALK_MAX_LINES_LATE
+        : TALK_MAX_LINES;
   const what = monologue ? 'a monologue' : 'it';
   if (!Array.isArray(value)) return [`${label} needs "lines", a list of ${min} to ${max} lines`];
   if (value.length < min || value.length > max) {
@@ -183,20 +247,32 @@ function checkLines(
         `${label} is a monologue and needs exactly one speaker (has ${roles.length}: ${roles.join(', ') || 'none'})`,
       );
     }
-    if (words < MONOLOGUE_MIN_WORDS || words > MONOLOGUE_MAX_WORDS) {
+    const maxWords = act4 ? MONOLOGUE_MAX_WORDS_ACT4 : MONOLOGUE_MAX_WORDS;
+    if (words < MONOLOGUE_MIN_WORDS || words > maxWords) {
       problems.push(
-        `${label} has ${words} words; a monologue has ${MONOLOGUE_MIN_WORDS} to ${MONOLOGUE_MAX_WORDS}`,
+        `${label} has ${words} words; a monologue has ${MONOLOGUE_MIN_WORDS} to ${maxWords}`,
       );
     }
-  } else if (roles.length !== 2) {
-    problems.push(
-      `${label} needs exactly two speakers (has ${roles.length}: ${roles.join(', ') || 'none'})`,
-    );
-  } else if (ROLE_LABEL[roles[0]!] === ROLE_LABEL[roles[1]!]) {
-    problems.push(
-      `${label} speakers "${roles[0]}" and "${roles[1]}" are both shown as 「${ROLE_LABEL[roles[0]!]}」; pick roles with different labels`,
-    );
+    return problems;
   }
+  const maxSpeakers = act4 ? TALK_MAX_SPEAKERS_ACT4 : 2;
+  if (roles.length < 2 || roles.length > maxSpeakers) {
+    const has = `has ${roles.length}: ${roles.join(', ') || 'none'}`;
+    problems.push(
+      maxSpeakers === 2
+        ? `${label} needs exactly two speakers (${has})`
+        : `${label} needs two or three speakers (${has})`,
+    );
+    return problems;
+  }
+  roles.forEach((role, i) => {
+    const same = roles.slice(0, i).find((other) => ROLE_LABEL[other] === ROLE_LABEL[role]);
+    if (same) {
+      problems.push(
+        `${label} speakers "${same}" and "${role}" are both shown as 「${ROLE_LABEL[role]}」; pick roles with different labels`,
+      );
+    }
+  });
   return problems;
 }
 

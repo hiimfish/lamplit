@@ -2,14 +2,23 @@
 import type { Role } from '../content/types';
 import type { FillQuestion } from './gen/fills';
 import type { PassageQuestion } from './gen/passages';
+import type { PictureQuestion } from './gen/pictures';
+import type { RespondQuestion } from './gen/responds';
 import type { TalkQuestion } from './gen/talks';
 import type { TextFillQuestion } from './gen/textFills';
 
 /**
- * The Act 2 and Act 3 kinds are defined next to their generators in ./gen (one folder of
- * files per question type) and re-exported here.
+ * The kinds from Act 2 on (and the picture question) are defined next to their generators
+ * in ./gen (one file per question type) and re-exported here.
  */
-export type { FillQuestion, PassageQuestion, TalkQuestion, TextFillQuestion };
+export type {
+  FillQuestion,
+  PassageQuestion,
+  PictureQuestion,
+  RespondQuestion,
+  TalkQuestion,
+  TextFillQuestion,
+};
 
 export interface ListenPickQuestion {
   kind: 'listen-pick';
@@ -137,22 +146,6 @@ export interface SignQuestion {
   itemId: string;
 }
 
-/**
- * 看圖選句: a picture and 2 to 4 sentences, one of which describes it (the first TOEIC
- * listening part, read instead of heard for now).
- */
-export interface PictureQuestion {
-  kind: 'picture';
-  /** Key of the picture in src/art/pictures. */
-  pictureId: string;
-  /** Clip of the right sentence, played after answering. */
-  audioId: string;
-  options: { id: string; en: string; zh: string }[];
-  correctId: string;
-  /** Always NO_ITEM: describing a picture is not one item to review. */
-  itemId: string;
-}
-
 export type Question =
   | ListenPickQuestion
   | ListenPairQuestion
@@ -166,6 +159,7 @@ export type Question =
   | FillQuestion
   | PassageQuestion
   | TalkQuestion
+  | RespondQuestion
   | TextFillQuestion;
 
 export interface AnswerResult {

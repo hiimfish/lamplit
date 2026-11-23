@@ -227,6 +227,13 @@ function TalkTableView({ table }: { table: TalkTable }) {
  *
  * 聽對話答題加圖表 (Part 3 with a graphic, `table`): the table sits under the prompt from
  * the start and stays while listening and answering.
+ *
+ * 三人對話 (Act 4): three speaker tags; in the transcript the third speaker's lines sit
+ * further in than the second's.
+ *
+ * 只播一次 (`once`): the talk plays once by itself; 再聽一次 stays off and the transcript
+ * (with its replay and 慢速 keys) stays hidden until the last question on the talk is
+ * answered (minimal version, to be refined).
  */
 export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
   const clock = useAnswerClock();
@@ -246,6 +253,10 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
   const total = question.lines.length;
   const speaking = question.lines[current]?.role;
   const words = talkWords(question);
+  /** 只播一次: nothing can be replayed before the last question on the talk is answered. */
+  const locked = question.once === true && !(answered && question.index === question.total - 1);
+  const speakerClass = (role: TalkLine['role']) =>
+    role === question.speakers[1] ? ' second' : role === question.speakers[2] ? ' third' : '';
 
   const playAll = async () => {
     const mine = ++token.current;
@@ -327,8 +338,9 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
           type="button"
           class="pixel-button"
           data-testid="talk-replay"
-          disabled={playing}
+          disabled={playing || locked}
           onClick={() => {
+            if (locked) return;
             if (!answered) clock.markHelp();
             void playAll();
           }}
@@ -398,7 +410,7 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
           />
         )}
       </FeedbackSlot>
-      {answered && (
+      {answered && !locked && (
         <div class="talk-transcript" data-testid="talk-transcript">
           <p class="talk-transcript-title">{words.transcript}</p>
           {question.lines.map((line, i) => {
@@ -406,10 +418,7 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
             // A monologue has one speaker: the name tag on its first line is enough.
             const tagged = !question.monologue || i === 0 || now;
             return (
-              <div
-                key={line.audioId}
-                class={`bubble-row talk-row${line.role === question.speakers[1] ? ' second' : ''}`}
-              >
+              <div key={line.audioId} class={`bubble-row talk-row${speakerClass(line.role)}`}>
                 <button
                   type="button"
                   class={`bubble talk-bubble${now ? ' talk-now' : ''}`}

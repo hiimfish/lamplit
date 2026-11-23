@@ -104,6 +104,11 @@
   padding-left: calc(16 * var(--px));
 }
 
+/* 三人對話: the third speaker's lines sit further in. */
+.talk-row.third {
+  padding-left: calc(32 * var(--px));
+}
+
 .bubble.talk-bubble {
   min-height: var(--tap);
 }

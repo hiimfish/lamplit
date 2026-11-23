@@ -72,9 +72,10 @@
 | `tasks[].passages`     | 讀短文的題目（選填），同上                                                                                                                                  |
 | `tasks[].talks`        | 聽對話答題的題目（選填），同上；第三幕起也可以是聽獨白（`kind: "monologue"`）或加一張表格（`table`），見下方「第三幕的新題型」                              |
 | `tasks[].textFills`    | 段落填空的題目（選填），見下方「第三幕的新題型」                                                                                                            |
+| `tasks[].responds`     | 應答題的題目（選填），第四幕才能用，見下方「第四幕的新題型和限制」                                                                                          |
 | `tasks[].backdrop`     | 這個任務的小劇場用哪張背景（選填）：小劇場 `backdrops` 裡的角色 key，或 `main`（一般的那張）；不寫就照第一個說話的 NPC，見 [scene-stage.md](scene-stage.md) |
 
-任務數：第一、二幕每個單元 8 個任務，第三幕起 9 個；最後一個（只有最後一個）是角色扮演大挑戰（`kind: "roleplay"`）。幕別照 `src/content/acts.ts` 找單元 id，任務數寫在同一個檔案的 `TASKS_PER_UNIT`；不在任何一幕裡的單元（測試用的小單元）不限任務數。
+任務數：第一、二幕每個單元 8 個任務，第三幕起 9 個（第四幕也是 9 個）；最後一個（只有最後一個）是角色扮演大挑戰（`kind: "roleplay"`）。幕別照 `src/content/acts.ts` 找單元 id，任務數寫在同一個檔案的 `TASKS_PER_UNIT`；不在任何一幕裡的單元（測試用的小單元）不限任務數。
 
 對比詞的例子（`move_in.json`）：
 
@@ -309,12 +310,66 @@
 - 練習順序：段落填空接在句子填空後面、讀短文前面。快答門檻用比較長的那個（12 秒）。
 - 角色扮演大挑戰的任務不能有 `textFills`。
 
+### 第四幕的新題型和限制
+
+狀態：**部分做到**（2026-11-23）。資料格式、內容檢查、出題、音檔項目、用字檢查都做好了；五種畫面目前是能用的最小版本（能播、能選、對錯、繼續），之後會再做好。第四幕的內容還沒寫。型別在 `types.ts`：`PictureItem.listen`、`PassageText`、`SinglePassage`、`PassageSet`（`PassageSetQuestion.needs`）、`RespondItem`（`RespondResponse`）、`TalkItem.once`。下面的新題型都只能用在第四幕的單元（照 `acts.ts`），用在別的幕會被擋下來；只播一次另有自己的位置規則。
+
+- **看圖選句聲音選項**（多益第 1 大題）：`pictures` 的一題加 `"listen": true`。**剛好 4 個句子**（`options`，各有 `en`、`zh`），答題前只聽不看：畫面有圖和 A 到 D 四個鍵，每個可以重聽；答完才顯示英文和中文。4 句都有自己的音檔 `<單元>.pictureopt.<題目 id>_<0 到 3>`（照內容裡的順序），用 `announcer` 的聲線；這種題目沒有 `<單元>.picture.<id>` 的音檔。`listen` 只能寫 `true` 或不寫。圖片 id 照舊要在 `src/art/pictures` 裡（第四幕的三張：`presenter_chart`、`meeting_table`、`speaker_microphone`）。
+- **兩篇／三篇一組閱讀**（多益第 7 大題）：`passages` 的一篇改寫成 `{ "id", "texts": [...], "questions": [...] }`。`texts` 是 2 或 3 篇文字，每篇有自己的 `kind`、`title`（選填，規則和單篇一樣：`message`、`email` 一定要有）、`lines`（至少 2 行，每篇至少 15 個字）。整組只有一份問題；問題可以加 `"needs": [0, 1]`，寫答案要看哪幾篇（從 0 算，不重複），兩篇以上就算「要看不只一篇」。
+  - 兩篇一組：全部文字（含標題）180 到 260 個字，**剛好 4 題**，至少 1 題要兩篇一起看。
+  - 三篇一組：全部文字 180 到 320 個字，**4 或 5 題**，至少 2 題要看不只一篇。
+  - 一組算一篇（一個任務最多 2 篇）；id 和單篇共用，整個單元內不重複。組的欄位只能是 `id`、`texts`、`questions`，每篇只能是 `kind`、`title`、`lines`。單篇的問題不能有 `needs`。
+- **應答題**（多益第 2 大題，只有聲音）：新的任務欄位 `responds`，一個任務 3 或 4 題。
+
+```json
+{
+  "responds": [
+    {
+      "id": "t6_r1",
+      "prompt": {
+        "role": "agency",
+        "en": "Should we try a blog too?",
+        "zh": "我們也要試試部落格嗎？"
+      },
+      "responses": [
+        { "en": "Sure, if it doesn't cost too much.", "zh": "好啊，如果不會太貴的話。" },
+        { "en": "It's on the second floor.", "zh": "在二樓。" },
+        { "en": "I wrote it last week.", "zh": "我上週寫的。" }
+      ],
+      "answer": 0
+    }
+  ]
+}
+```
+
+| 欄位                   | 說明                                                                                   |
+| ---------------------- | -------------------------------------------------------------------------------------- |
+| `responds[].id`        | 題目的 id，整個單元內不重複                                                            |
+| `responds[].prompt`    | 問話或說明：`role`（有聲線的角色，**不能是 `guide`**）、`en`、`zh`；同一個任務裡不重複 |
+| `responds[].responses` | **剛好 3 個**回答，各有 `en`、`zh`，英文不重複；全部用「你」（`guide`）的聲線說        |
+| `responds[].answer`    | 正確的回答是第幾個（從 0 算）；出題時 3 個回答會打亂順序，變成 A、B、C                 |
+
+- 應答題答題前什麼字都不顯示：先播問話，再播 A、B、C 三個回答；答完才顯示問話和回答的英文、中文。音檔 id：問話 `<單元>.respond.<題目 id>`（用 `prompt.role` 的聲線），回答 `<單元>.response.<題目 id>_<0 到 2>`（照內容順序，用 `guide` 的聲線）。沒有複習卡片（`NO_ITEM`）。
+- **三人對話**（多益第 3 大題）：第四幕的對話（不是獨白）可以有兩個或三個說話者，「你」（`guide`）可以是其中一個；三個人的中文名稱都不能一樣。不用另外標記。
+- **只播一次**：`talks` 的一段加 `"once": true`：自動播一次，所有問題答完之前「再聽一次」和慢速都不能按；答完最後一題才能重聽。從健康與福利（`wellness`）t7 起，**每個第 5 和第 7 個任務的每段對話或獨白都一定要有**（健康與福利 t7、媒體採訪、年度大會、結業挑戰的 t5 和 t7）；其他地方都不能有。規則寫在 `checks/talks.ts` 的 `playOnceRequired`（照 `acts.ts` 的遊玩順序）。
+
+第四幕的長度和數量限制（第一到三幕都不變）：
+
+- 每個單元 9 個任務，t9 是角色扮演（和第三幕一樣）。
+- 詞塊：每個 5 到 14 個字（用空白分開來數，it's 算一個字）。
+- 每個教新東西的任務（t1 到 t8）：新單字 9 到 12 個；新項目（詞塊、單字、對比詞）合計最多 14 個。
+- 單篇短文：標題加內文 150 到 300 個字，**剛好 3 題**。兩篇／三篇一組見上面。
+- 對話：8 到 12 句，兩或三個說話者，**剛好 3 題**。獨白：3 到 12 句，30 到 160 個字，也是剛好 3 題。
+- 用字：聲音選項的 4 個句子、應答題的問話和每個回答、一組閱讀的每一篇（標題和內文）都只能用那個任務之前教過的字（`questionTexts`），和其他題目一樣。
+- 練習順序：應答題接在聽對話答題後面、排句子前面。快答門檻用比較長的那個（12 秒）。
+- 角色扮演大挑戰的任務不能有 `responds`。
+
 ## id 規則
 
 - 單元、詞塊、單字、對比詞（和它的兩個字）、台詞、任務、招牌、看圖選句題目、填空題、短文、對話（和對話的每一句）的 id 只能用小寫英文、數字和底線：`^[a-z0-9_]+$`。圖片的 `pictureId` 也是。
 - 學習項目 id：`chunk:<詞塊 id>`、`word:<單字 id>`、`pair:<對比詞 id>`，用於存檔和複習。一組對比詞是一個學習項目。
 - 學習項目 id 不含單元，所以**不同單元不能用同一個詞塊、單字或對比詞 id**，否則會共用複習卡片、查到別的單元。`tests/content.test.ts` 會檢查。
-- 音檔 id：`<單元>.<類型>.<id>`，例如 `cafe.chunk.can_i_get`、`cafe.word.latte`、`cafe.line.t1_1`、`move_in.pair.fan`、`clinic.picture.pic1`（看圖選句的正確句子，2026-11-22 新增）、`bank.talk.k1_1`（聽對話答題的一句，用那句的角色聲線，2026-11-22 新增）。音檔腳本和播放程式都會拒絕不符合格式的 id。
+- 音檔 id：`<單元>.<類型>.<id>`，例如 `cafe.chunk.can_i_get`、`cafe.word.latte`、`cafe.line.t1_1`、`move_in.pair.fan`、`clinic.picture.pic1`（看圖選句的正確句子，2026-11-22 新增）、`bank.talk.k1_1`（聽對話答題的一句，用那句的角色聲線，2026-11-22 新增）；第四幕再加 `presentation.pictureopt.p1_0`（看圖選句聲音選項的一句）、`marketing.respond.t6_r1`（應答題的問話）、`marketing.response.t6_r1_0`（應答題的一個回答）。音檔腳本和播放程式都會拒絕不符合格式的 id。
 - 聽力填空和讀招牌沒有自己的音檔：填空播的是那句台詞的音檔，招牌題沒有聲音。
 - 讀招牌和看圖選句不是某一個詞塊或單字，所以沒有學習項目 id，也不會有複習卡片（程式裡的 `NO_ITEM`）。讀短文、聽對話答題也一樣；句子填空有 `chunkId` 時算那個詞塊，沒有時是 `NO_ITEM`。聽力填空挖的字如果是教過的單字，就用那個單字的 `word:<id>`。
 
@@ -331,7 +386,7 @@
 - `spellWordIds` 有寫的話，是不重複、格式正確的單字 id 清單，不能是空的。`tests/content.test.ts` 再檢查每個字都在這個任務之前教過（照遊玩順序，可以是更早的單元）。
 - 任務數（2026-11-23）：第一、二幕的單元剛好 8 個任務、第三幕起 9 個，最後一個是角色扮演，其他任務都不是；不在任何一幕的單元不檢查。`validateUnit(unit, acts)` 的第二個參數預設是 `ACTS`，測試可以傳自己的幕。
 - `backdrop` 有寫的話是合法角色或 `main`；`tests/stageArt.test.ts` 再檢查角色 key 真的在那個單元小劇場的 `backdrops` 裡。
-- `kind` 只能是 `roleplay`。角色扮演任務：`newChunkIds`、`newWordIds` 是空的，沒有 `newPairIds`，也沒有 `cloze`、`signs`、`pictures`、`fills`、`passages`、`talks`、`textFills`；第一句是 NPC 說的，每句 `player` 台詞前面都是 NPC 的台詞；至少 2 句 `player` 台詞；台詞用的詞塊都在同一個單元更早的任務教過。
+- `kind` 只能是 `roleplay`。角色扮演任務：`newChunkIds`、`newWordIds` 是空的，沒有 `newPairIds`，也沒有 `cloze`、`signs`、`pictures`、`fills`、`passages`、`talks`、`responds`、`textFills`；第一句是 NPC 說的，每句 `player` 台詞前面都是 NPC 的台詞；至少 2 句 `player` 台詞；台詞用的詞塊都在同一個單元更早的任務教過。
 - `cloze`（2026-11-22）：不能是空清單；`lineId` 是這個任務的台詞；`word` 是一個字，而且在那句台詞裡；同一句不能挖同一個字兩次；`distractors` 是 2 或 3 個不同的字，不能和答案一樣。
 - `signs`（2026-11-22）：不能是空清單；id 符合格式，整個單元內不重複；`heading` 有寫就不能是空的；至少一行，每行有 `label`；全部加起來最多 15 個字；問題有 `en` 和 `zh`；2 到 4 個不同的答案；`answer` 指到其中一個。
 - `pictures`（2026-11-22）：不能是空清單；id 和 `pictureId` 符合格式，id 在整個單元內不重複；2 到 4 個句子，都有 `en` 和 `zh`，英文不重複；`answer` 指到其中一個。
@@ -340,7 +395,8 @@
   - `fills` 和詞塊的關係（`checkFillChunks`，在整個單元層級檢查，因為要看單元的詞塊）：有 `chunkId` 的題目，把答案放進去的句子必須等於那個詞塊的 `en` 或 `accept`（不分大小寫，忽略句尾標點和空白）。
   - `passages`：不能是空清單；一個任務最多 2 篇；`kind` 是 `message`、`flyer`、`notice`、`ad`、`form`、`email` 其中一個；`message` 和 `email` 一定要有 `title`，其他種類有寫就不能是空的；`lines` 至少 2 行，每行都不是空的；標題加內文 15 到 80 個字（第三幕起 160 個字）；每篇 1 到 3 個問題，同一篇裡不能有兩個一樣的問題。
   - `talks`：不能是空清單；一個任務最多 1 段；id 符合格式、整個單元內不重複，欄位只能是 `id`、`kind`、`lines`、`questions`、`table`；3 到 6 句（第三幕起 8 句；聽獨白的規則見上方「第三幕的新題型」），每句只有 `id`、`role`、`en`、`zh`，句子 id 符合格式、整個單元內不重複，`role` 是有聲線的合法角色，`en` 和 `zh` 都要有；剛好兩位說話者，他們的中文名稱不能一樣（例如兩個都顯示「店員」不行）；同一個人最多連說 2 句；1 到 3 個問題，同一段裡不能有兩個一樣的問題。`table` 和 `kind` 的檢查見上方「第三幕的新題型」。
-  - 文法填空（`grammar`）也在 `fills.ts` 檢查；`textFills`（2026-11-23）在 `src/content/checks/textFills.ts`。限制依幕別的地方用 `TaskCheckContext.act`（`isLateAct`）。
+  - 文法填空（`grammar`）也在 `fills.ts` 檢查；`textFills`（2026-11-23）在 `src/content/checks/textFills.ts`。限制依幕別的地方用 `TaskCheckContext.act`（`isLateAct`、第四幕用 `isAct4`）。
+  - 第四幕（2026-11-23）：看圖選句（含聲音選項）的檢查搬到 `src/content/checks/pictures.ts`；應答題在 `checks/responds.ts`；一組閱讀在 `checks/passages.ts`；三人對話和只播一次在 `checks/talks.ts`（`TaskCheckContext` 多了 `unitId`、`taskIndex`、`acts`，給只播一次的位置規則用）；詞塊長度和每個任務的新單字數在 `validate.ts`。規則見上方「第四幕的新題型和限制」。
 
 不合格的單元不會被載入，開發模式下會在 console 顯示警告。`tests/content.test.ts` 會檢查 `src/data/units/` 裡的每個單元。
 
@@ -358,6 +414,7 @@
 - `tests/content.test.ts` 的「tasks per act」：8／9 個任務的規則，和一個 9 個任務的測試單元（每個任務都能出題，9 個都做完才算完成）。
 - `tests/stageArt.test.ts`：每個有 `backdrop` 的任務（`main` 除外），寫的 key 都在那個單元小劇場的 `backdrops` 裡。
 - `tests/audioItems.test.ts`：`announcer` 說的聽獨白，每句一個音檔項目、id 合法、每個聲線家族都有 `announcer`。
+- 第四幕（2026-11-23）：`tests/listenPicture.test.ts`（看圖選句聲音選項）、`tests/passages.test.ts`（第四幕的單篇長度和一組閱讀）、`tests/responds.test.ts`（應答題）、`tests/talks.test.ts`（三人對話、第四幕的長度、只播一次）各測內容檢查、出題、音檔項目和用字；`tests/content.test.ts` 的「Act 4 units」測 9 個任務、詞塊長度和每個任務的新單字數；`tests/smoothness.test.ts` 測第四幕的平滑規則能通過 syllabus 的新項目曲線；`tests/stageState.test.ts` 測第四幕每個小劇場的任兩到四個 NPC 都站在不同的位置。
 
 ## 現有單元
 

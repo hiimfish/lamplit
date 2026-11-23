@@ -1,0 +1,26 @@
+/* 看圖選句聲音選項 (ListenPicture.tsx), minimal: one row per letter, a ♪ key and a pick key. */
+.lp-options {
+  display: flex;
+  flex-direction: column;
+  gap: calc(3 * var(--px));
+  width: 100%;
+}
+
+.lp-row {
+  display: flex;
+  gap: calc(3 * var(--px));
+  align-items: stretch;
+}
+
+.lp-play {
+  flex: none;
+}
+
+.lp-play.on {
+  outline: var(--px) solid var(--ink);
+}
+
+.lp-pick {
+  flex: 1;
+  text-align: left;
+}

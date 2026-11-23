@@ -545,3 +545,137 @@ describe('tasks per act', () => {
     expect(withBackdrop(3)).not.toEqual([]);
   });
 });
+
+describe('Act 4 units', () => {
+  /**
+   * A unit of Act 4 (presentation, by the real acts): t1-t8 teach one chunk of `chunkWords`
+   * words and `words` new words each, t9 is the role-play.
+   */
+  const act4Unit = ({ chunkWords = 8, words = 10 } = {}): Unit => {
+    const chunks = Array.from({ length: 8 }, (_, i) => ({
+      id: `c${i + 1}`,
+      en: ['Thank', 'you', ...Array.from({ length: chunkWords - 2 }, () => 'so')].join(' '),
+      zh: '謝謝。',
+    }));
+    const allWords = Array.from({ length: 8 * words }, (_, i) => ({
+      id: `w${i}`,
+      en: `word${i}`,
+      zh: '字',
+      emoji: '🔤',
+      abstract: true as const,
+    }));
+    const tasks: Task[] = chunks.map((chunk, i) => ({
+      id: `t${i + 1}`,
+      title: `任務 ${i + 1}`,
+      newChunkIds: [chunk.id],
+      newWordIds: allWords.slice(i * words, (i + 1) * words).map((w) => w.id),
+      scene: [
+        { id: `t${i + 1}_1`, role: 'manager', speaker: 'npc', en: 'Ready?', zh: '好了嗎？' },
+        {
+          id: `t${i + 1}_2`,
+          role: 'guide',
+          speaker: 'player',
+          en: chunk.en,
+          zh: chunk.zh,
+          chunkId: chunk.id,
+        },
+      ],
+    }));
+    tasks.push({
+      id: 't9',
+      title: '角色扮演大挑戰',
+      kind: 'roleplay',
+      newChunkIds: [],
+      newWordIds: [],
+      scene: [chunks[0]!, chunks[1]!].flatMap((chunk, i) => [
+        {
+          id: `rp_${i}_1`,
+          role: 'manager' as const,
+          speaker: 'npc' as const,
+          en: 'Hi!',
+          zh: '嗨！',
+        },
+        {
+          id: `rp_${i}_2`,
+          role: 'guide' as const,
+          speaker: 'player' as const,
+          en: chunk.en,
+          zh: chunk.zh,
+          chunkId: chunk.id,
+        },
+      ]),
+    });
+    return {
+      id: 'presentation',
+      title: 'p',
+      titleEn: 'p',
+      chunks,
+      words: allWords,
+      tasks,
+    };
+  };
+
+  it('has 9 tasks, the last the role-play, like Act 3', () => {
+    expect(TASKS_PER_UNIT[3]).toBe(9);
+    expect(actOf('presentation', ACTS)).toBe(4);
+    expect(validateUnit(act4Unit())).toEqual([]);
+    const eight = act4Unit();
+    eight.tasks.splice(7, 1);
+    expect(validateUnit(eight)).toContainEqual(
+      expect.stringContaining('has 8 tasks; a unit of Act 4 has 9'),
+    );
+  });
+
+  it('needs chunks of 5 to 14 words', () => {
+    expect(validateUnit(act4Unit({ chunkWords: 5 }))).toEqual([]);
+    expect(validateUnit(act4Unit({ chunkWords: 14 }))).toEqual([]);
+    expect(validateUnit(act4Unit({ chunkWords: 4 }))).toContainEqual(
+      expect.stringContaining('chunk "c1" has 4 words; an Act 4 chunk has 5 to 14'),
+    );
+    expect(validateUnit(act4Unit({ chunkWords: 15 }))).toContainEqual(
+      expect.stringContaining('has 15 words'),
+    );
+  });
+
+  it('needs 9 to 12 new words in every task that teaches, and 14 new items at most', () => {
+    expect(validateUnit(act4Unit({ words: 9 }))).toEqual([]);
+    expect(validateUnit(act4Unit({ words: 12 }))).toEqual([]);
+    expect(validateUnit(act4Unit({ words: 8 }))).toContainEqual(
+      expect.stringContaining('task "t1" teaches 8 new words; an Act 4 task teaches 9 to 12'),
+    );
+    expect(validateUnit(act4Unit({ words: 13 }))).toContainEqual(
+      expect.stringContaining('teaches 13 new words'),
+    );
+    const crowded = act4Unit({ words: 12 });
+    crowded.chunks.push(
+      { id: 'x1', en: 'One more thing to say here.', zh: '再一句。' },
+      { id: 'x2', en: 'And yet another thing here.', zh: '又一句。' },
+    );
+    crowded.tasks[0]!.newChunkIds.push('x1', 'x2');
+    expect(validateUnit(crowded)).toEqual([
+      expect.stringContaining(
+        'task "t1" has 15 new items (chunks, words and pairs); an Act 4 task has at most 14',
+      ),
+    ]);
+  });
+
+  it('keeps 應答題 out of a role-play', () => {
+    const unit = act4Unit() as unknown as { tasks: Record<string, unknown>[] };
+    unit.tasks[8]!.responds = [];
+    expect(validateUnit(unit)).toContainEqual(
+      expect.stringContaining('is a role-play and must not have responds'),
+    );
+  });
+
+  it('leaves the Act 1 to 3 units alone: no chunk or word-count rule there', () => {
+    const short = { id: 'third', en: 'Hi.', zh: '嗨。' };
+    const acts: Act[] = [
+      { no: '一', title: 'a', places: [] },
+      { no: '二', title: 'b', places: [] },
+      { no: '三', title: 'c', places: [{ title: 'third', unitId: 'third' }] },
+    ];
+    const unit = { ...act4Unit({ words: 2 }), id: 'third' };
+    unit.chunks = [...unit.chunks, short];
+    expect(validateUnit(unit, acts)).toEqual([]);
+  });
+});

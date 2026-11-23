@@ -1,5 +1,15 @@
 import { describe, expect, it } from 'vitest';
-import type { PassageItem, Task, Unit } from '../src/content/types';
+import type {
+  PassageItem,
+  PassageKind,
+  PassageSet,
+  PassageSetQuestion,
+  PassageText,
+  SinglePassage,
+  Task,
+  Unit,
+} from '../src/content/types';
+import { questionTexts } from '../src/content/vocab';
 import type { TaskCheckContext } from '../src/content/checks/common';
 import {
   checkPassages,
@@ -11,7 +21,7 @@ import { findAnswerLine, passageQuestions } from '../src/learning/gen/passages';
 import { buildTaskPractice, makeRng } from '../src/learning/questionGen';
 import { NO_ITEM } from '../src/learning/questions';
 
-const passage = (over: Partial<PassageItem> = {}): PassageItem => ({
+const passage = (over: Partial<SinglePassage> = {}): SinglePassage => ({
   id: 'p1',
   kind: 'notice',
   title: 'Job Fair',
@@ -268,5 +278,206 @@ describe('passageQuestions', () => {
       ['p2', 1],
     ]);
     expect(first).toBeLessThan(questions.findIndex((q) => q.kind === 'arrange'));
+  });
+});
+
+describe('Act 4 passages: longer single texts and 兩篇／三篇一組 sets', () => {
+  const act4 = (): TaskCheckContext => ({ ...context(), act: 4 });
+  const inAct4 = (p: unknown) => checkPassages({ passages: [p] }, act4());
+  const q = (en: string, needs?: number[]): PassageSetQuestion => ({
+    en,
+    zh: '問題',
+    options: ['Monday', 'Friday', 'Sunday', 'Tuesday'],
+    answer: 0,
+    ...(needs ? { needs } : {}),
+  });
+  const threeQuestions = [q('One?'), q('Two?'), q('Three?')];
+  /** A text of `n` words in two lines, no title. */
+  const text = (n: number, kind: PassageKind = 'notice'): PassageText => ({
+    kind,
+    lines: [words(n - Math.floor(n / 2)), words(Math.floor(n / 2))],
+  });
+  const double = (over: Partial<PassageSet> = {}): PassageSet => ({
+    id: 's1',
+    texts: [text(100), text(100)],
+    questions: [q('One?'), q('Two?'), q('Three?', [0, 1]), q('Four?')],
+    ...over,
+  });
+  const triple = (over: Partial<PassageSet> = {}): PassageSet => ({
+    id: 's2',
+    texts: [text(80), text(80), text(80)],
+    questions: [q('One?', [0, 2]), q('Two?'), q('Three?', [1, 2]), q('Four?', [1])],
+    ...over,
+  });
+
+  it('needs 150 to 300 words and exactly 3 questions in a single text', () => {
+    const single = (n: number) => passage({ title: undefined, lines: [words(n - 50), words(50)] });
+    expect(inAct4({ ...single(150), questions: threeQuestions })).toEqual([]);
+    expect(inAct4({ ...single(300), questions: threeQuestions })).toEqual([]);
+    expect(inAct4({ ...single(149), questions: threeQuestions })).toEqual([
+      expect.stringContaining('149 words with the title (min 150 in Act 4)'),
+    ]);
+    expect(inAct4({ ...single(301), questions: threeQuestions })).toEqual([
+      expect.stringContaining('301 words with the title (max 300)'),
+    ]);
+    expect(inAct4({ ...single(200), questions: threeQuestions.slice(0, 2) })).toEqual([
+      expect.stringContaining('exactly 3 questions in Act 4'),
+    ]);
+    // Acts 1 to 3 keep their limits.
+    expect(checkPassages({ passages: [single(200)] }, { ...context(), act: 3 })).toEqual([
+      expect.stringContaining('max 160'),
+    ]);
+  });
+
+  it('accepts a double set and a triple set', () => {
+    expect(inAct4(double())).toEqual([]);
+    expect(inAct4(triple())).toEqual([]);
+    expect(inAct4(triple({ questions: [...triple().questions, q('Five?')] }))).toEqual([]);
+    expect(inAct4(double({ texts: [text(90, 'email'), text(90)] }))).toEqual([
+      expect.stringContaining('text 1 is an email and needs a title'),
+    ]);
+  });
+
+  it('keeps sets out of Acts 1 to 3', () => {
+    expect(checkPassages({ passages: [double()] }, { ...context(), act: 3 })).toEqual([
+      expect.stringContaining('passage set (texts), which is for Act 4 units only'),
+    ]);
+  });
+
+  it('counts the words of every text and title together', () => {
+    expect(inAct4(double({ texts: [text(90), text(89)] }))).toEqual([
+      expect.stringContaining('179 words in all with the titles; a double set has 180 to 260'),
+    ]);
+    expect(inAct4(double({ texts: [text(130), text(131)] }))).toEqual([
+      expect.stringContaining('261 words'),
+    ]);
+    expect(inAct4(triple({ texts: [text(100), text(100), text(120)] }))).toEqual([]);
+    expect(inAct4(triple({ texts: [text(100), text(100), text(121)] }))).toEqual([
+      expect.stringContaining('321 words in all with the titles; a triple set has 180 to 320'),
+    ]);
+    const titled = { ...text(88), title: 'Two words' };
+    expect(inAct4(double({ texts: [titled, text(90)] }))).toEqual([]);
+  });
+
+  it('needs 2 or 3 texts, each a real text', () => {
+    expect(inAct4(double({ texts: [text(200)] }))[0]).toContain('a list of 2 or 3 texts');
+    expect(inAct4({ ...double(), texts: [text(100), 'text'] })).toContainEqual(
+      expect.stringContaining('text 2 must be an object'),
+    );
+    expect(
+      inAct4(double({ texts: [text(170), { kind: 'notice', lines: ['Short one.', 'Ok.'] }] })),
+    ).toContainEqual(expect.stringContaining('text 2 has 3 words with the title (min 15)'));
+    expect(inAct4({ ...double(), title: 'Set' })).toEqual([
+      expect.stringContaining('unknown field "title"'),
+    ]);
+  });
+
+  it('needs 4 questions in a double set and 4 or 5 in a triple set', () => {
+    expect(inAct4(double({ questions: double().questions.slice(0, 3) }))).toEqual([
+      expect.stringContaining('double set and needs exactly 4 questions'),
+    ]);
+    const six = [...triple().questions, q('Five?'), q('Six?')];
+    expect(inAct4(triple({ questions: six }))).toEqual([
+      expect.stringContaining('triple set and needs 4 to 5 questions'),
+    ]);
+  });
+
+  it('needs questions that need more than one text: 1 in a double set, 2 in a triple', () => {
+    const plain = [q('One?'), q('Two?'), q('Three?', [1]), q('Four?')];
+    expect(inAct4(double({ questions: plain }))).toEqual([
+      expect.stringContaining(
+        'has 0 question(s) that need more than one text; a double set needs at least 1',
+      ),
+    ]);
+    const one = [q('One?', [0, 1, 2]), q('Two?'), q('Three?'), q('Four?')];
+    expect(inAct4(triple({ questions: one }))).toEqual([
+      expect.stringContaining(
+        'has 1 question(s) that need more than one text; a triple set needs at least 2',
+      ),
+    ]);
+  });
+
+  it('rejects bad "needs", and "needs" on a single passage', () => {
+    for (const needs of [[], [0, 0], [0, 2], [-1, 1], 'both']) {
+      const bad = {
+        ...double(),
+        questions: [q('One?'), q('Two?', [0, 1]), q('Three?'), { ...q('Four?'), needs }],
+      };
+      expect(inAct4(bad), JSON.stringify(needs)).toEqual([
+        expect.stringContaining('question 4 has bad "needs"'),
+      ]);
+    }
+    expect(problems([{ ...passage(), questions: [q('One?', [0, 1])] }]).join()).toMatch(
+      /"needs", which only a passage set has/,
+    );
+  });
+
+  it('makes one question per set question, each with every text', () => {
+    const set = double({
+      texts: [
+        { kind: 'notice', title: 'Cost Report', lines: [words(90), 'Travel was $9,600.'] },
+        { kind: 'email', title: 'A mistake', lines: [words(90), 'It was counted twice.'] },
+      ],
+      questions: [
+        {
+          en: 'How much was travel?',
+          zh: '差旅費多少？',
+          options: ['$9,600', '$7,800'],
+          answer: 0,
+        },
+        {
+          en: 'What was wrong?',
+          zh: '哪裡錯了？',
+          options: ['counted twice', 'too low'],
+          answer: 0,
+          needs: [1, 0],
+        },
+      ],
+    });
+    const qs = passageQuestions(task({ passages: [set] }), makeRng(1));
+    expect(qs).toHaveLength(2);
+    expect(qs[0]).toMatchObject({
+      kind: 'read-passage',
+      passageId: 's1',
+      passageKind: 'notice',
+      title: 'Cost Report',
+      index: 0,
+      total: 2,
+      answerText: 0,
+      answerLine: 1,
+    });
+    expect(qs[0]?.texts?.map((t) => [t.passageKind, t.title])).toEqual([
+      ['notice', 'Cost Report'],
+      ['email', 'A mistake'],
+    ]);
+    expect(qs[0]).not.toHaveProperty('needs');
+    expect(qs[1]).toMatchObject({ needs: [1, 0], answerText: 1, answerLine: 1 });
+    // A single passage carries no texts.
+    expect(passageQuestions(task({ passages: [passage()] }), makeRng(1))[0]).not.toHaveProperty(
+      'texts',
+    );
+  });
+
+  it('takes every text of a set into questionTexts', () => {
+    const set = double({
+      texts: [
+        { kind: 'notice', title: 'Report', lines: ['One line.', 'Two lines.'] },
+        { kind: 'email', title: 'Mail', lines: ['Three.', 'Four.'] },
+      ],
+      questions: [q('Which?', [0, 1])],
+    });
+    expect(questionTexts(task({ passages: [set] })).map((l) => l.en)).toEqual([
+      'Report',
+      'One line.',
+      'Two lines.',
+      'Mail',
+      'Three.',
+      'Four.',
+      'Which?',
+      'Monday',
+      'Friday',
+      'Sunday',
+      'Tuesday',
+    ]);
   });
 });

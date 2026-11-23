@@ -5,7 +5,6 @@
 
 import {
   ID_PATTERN,
-  allDifferent,
   isIndex,
   isObject,
   isText,
@@ -18,6 +17,8 @@ import {
 import { ACTS, TASKS_PER_UNIT, actOf, type Act } from './acts';
 import { checkFillChunks, checkFills } from './checks/fills';
 import { checkPassages } from './checks/passages';
+import { checkPictures } from './checks/pictures';
+import { checkResponds } from './checks/responds';
 import { checkTalks } from './checks/talks';
 import { checkTextFills } from './checks/textFills';
 
@@ -69,8 +70,10 @@ const SPEAKERS = ['npc', 'player'];
 
 /**
  * Some limits depend on the act the unit is in (looked up by id in `acts`, by default
- * ACTS from src/content/acts.ts): the number of tasks, and longer passages and
- * conversations from Act 3 on. A unit in no act gets the Act 1 limits and any number of tasks.
+ * ACTS from src/content/acts.ts): the number of tasks, longer passages and conversations
+ * from Act 3 on, and in Act 4 the chunk length, new words per task, passage sets, 應答題,
+ * sound-option pictures, three-speaker talks and only-play-once talks. A unit in no act
+ * gets the Act 1 limits and any number of tasks.
  */
 export function validateUnit(unit: unknown, acts: readonly Act[] = ACTS): string[] {
   const problems: string[] = [];
@@ -109,16 +112,17 @@ export function validateUnit(unit: unknown, acts: readonly Act[] = ACTS): string
   const wordIds = ids(words ?? [], 'word');
   ids(tasks ?? [], 'task');
   if (tasks) checkTaskCount(tasks, act, (p) => problems.push(where(p)));
+  if (act >= 4) checkAct4Chunks(chunks ?? [], (p) => problems.push(where(p)));
   const pairIds = checkPairs(unit.pairs, problems, where);
 
   // Line audio ids are `${unitId}.line.${id}`, so line ids are unique across the unit.
   const lineIds = new Set<string>();
-  // Sign and picture ids are unique across the unit too (picture audio is `${unitId}.picture.${id}`).
+  // Sign ids are unique across the unit too.
   const signIds = new Set<string>();
-  const pictureIds = new Set<string>();
   /** Chunks introduced by the tasks before the current one. */
   const taughtChunks = new Set<string>();
-  // Fill, passage and talk ids (and talk line ids) are unique across the unit too.
+  // Picture, fill, passage, talk and respond ids (and talk line ids) are unique across the
+  // unit too (picture audio is `${unitId}.picture.${id}`).
   const idSpaces = new Map<string, Set<string>>();
   const seen = (kind: string) => {
     let ids = idSpaces.get(kind);
@@ -126,7 +130,7 @@ export function validateUnit(unit: unknown, acts: readonly Act[] = ACTS): string
     return ids;
   };
   const isRole = (value: unknown) => typeof value === 'string' && ROLES.includes(value);
-  for (const task of tasks ?? []) {
+  for (const [taskIndex, task] of (tasks ?? []).entries()) {
     const taskId = String(task.id);
     if (task.kind !== undefined && task.kind !== 'roleplay') {
       problems.push(where(`task "${taskId}" has bad kind "${String(task.kind)}"`));
@@ -201,17 +205,27 @@ export function validateUnit(unit: unknown, acts: readonly Act[] = ACTS): string
     const report = (p: string) => problems.push(where(`task "${taskId}" ${p}`));
     if (task.cloze !== undefined) checkCloze(task.cloze, scene, report);
     if (task.signs !== undefined) checkSigns(task.signs, signIds, report);
-    if (task.pictures !== undefined) checkPictures(task.pictures, pictureIds, report);
     const newChunks = Array.isArray(task.newChunkIds) ? task.newChunkIds.filter(isText) : [];
     const ctx: TaskCheckContext = {
       seen,
       taughtChunks: new Set([...taughtChunks, ...newChunks]),
       isRole,
       act,
+      unitId,
+      taskIndex,
+      acts,
     };
-    for (const check of [checkFills, checkPassages, checkTalks, checkTextFills]) {
+    for (const check of [
+      checkPictures,
+      checkFills,
+      checkPassages,
+      checkTalks,
+      checkResponds,
+      checkTextFills,
+    ]) {
       check(task, ctx).forEach(report);
     }
+    if (act >= 4 && task.kind !== 'roleplay') checkAct4Items(task, report);
     if (task.kind === 'roleplay') checkRolePlay(task, scene, taughtChunks, report);
     if (Array.isArray(task.newChunkIds)) {
       for (const id of task.newChunkIds) if (typeof id === 'string') taughtChunks.add(id);
@@ -247,6 +261,42 @@ function checkTaskCount(
   });
 }
 
+/** Act 4 chunks are 5 to 14 words long (split on white space, so "it's" is one word). */
+export const ACT4_CHUNK_WORDS = { min: 5, max: 14 } as const;
+/** An Act 4 task that teaches has 9 to 12 new words and at most 14 new items in all. */
+export const ACT4_NEW_WORDS = { min: 9, max: 12 } as const;
+export const ACT4_MAX_NEW_ITEMS = 14;
+
+function checkAct4Chunks(chunks: Record<string, unknown>[], report: (p: string) => void): void {
+  for (const chunk of chunks) {
+    if (!isText(chunk.en)) continue;
+    const words = wordCount(chunk.en);
+    if (words < ACT4_CHUNK_WORDS.min || words > ACT4_CHUNK_WORDS.max) {
+      report(
+        `chunk "${String(chunk.id)}" has ${words} words; an Act 4 chunk has ${ACT4_CHUNK_WORDS.min} to ${ACT4_CHUNK_WORDS.max}`,
+      );
+    }
+  }
+}
+
+/** The new words and new items of an Act 4 task that teaches (not the role-play). */
+function checkAct4Items(task: Record<string, unknown>, report: (p: string) => void): void {
+  const count = (key: string) => (Array.isArray(task[key]) ? (task[key] as unknown[]).length : 0);
+  const words = count('newWordIds');
+  const items = count('newChunkIds') + words + count('newPairIds');
+  const taskId = String(task.id);
+  if (words < ACT4_NEW_WORDS.min || words > ACT4_NEW_WORDS.max) {
+    report(
+      `task "${taskId}" teaches ${words} new words; an Act 4 task teaches ${ACT4_NEW_WORDS.min} to ${ACT4_NEW_WORDS.max}`,
+    );
+  }
+  if (items > ACT4_MAX_NEW_ITEMS) {
+    report(
+      `task "${taskId}" has ${items} new items (chunks, words and pairs); an Act 4 task has at most ${ACT4_MAX_NEW_ITEMS}`,
+    );
+  }
+}
+
 /**
  * A role-play task reviews only: nothing new, and every player line is a chunk taught
  * earlier in the unit. Each player line follows an NPC line (the conversation so far is
@@ -263,7 +313,17 @@ function checkRolePlay(
     report('is a role-play and must not teach new items');
   }
   // A role-play has no practice round, so these questions would never be asked.
-  for (const key of ['cloze', 'signs', 'pictures', 'fills', 'passages', 'talks', 'textFills']) {
+  const questionKeys = [
+    'cloze',
+    'signs',
+    'pictures',
+    'fills',
+    'passages',
+    'talks',
+    'responds',
+    'textFills',
+  ];
+  for (const key of questionKeys) {
     if (task[key] !== undefined) report(`is a role-play and must not have ${key}`);
   }
   if (scene[0]?.speaker !== 'npc') report('role-play must start with an NPC line');
@@ -359,37 +419,6 @@ function checkSigns(value: unknown, seen: Set<string>, report: (problem: string)
     const options = textList(sign.options, 2, 4);
     if (!options) report(`${label} needs 2 to 4 different options`);
     else if (!isIndex(sign.answer, options.length)) report(`${label} has a bad answer`);
-  }
-}
-
-/** 看圖選句: a picture and 2 to 4 different sentences with a translation each. */
-function checkPictures(value: unknown, seen: Set<string>, report: (problem: string) => void): void {
-  const pictures = list(value);
-  if (!pictures || pictures.length === 0) {
-    report('pictures must be a non-empty list');
-    return;
-  }
-  for (const picture of pictures) {
-    const label = `picture "${String(picture.id)}"`;
-    if (typeof picture.id !== 'string' || !ID_PATTERN.test(picture.id)) {
-      report(`${label} has a bad id`);
-    } else if (seen.has(picture.id)) {
-      report(`duplicate picture id "${picture.id}"`);
-    } else {
-      seen.add(picture.id);
-    }
-    if (typeof picture.pictureId !== 'string' || !ID_PATTERN.test(picture.pictureId)) {
-      report(`${label} has a bad pictureId`);
-    }
-    const options = list(picture.options);
-    const optionsOk =
-      options !== null &&
-      options.length >= 2 &&
-      options.length <= 4 &&
-      options.every((o) => isText(o.en) && isText(o.zh)) &&
-      allDifferent(options.map((o) => String(o.en)));
-    if (!optionsOk) report(`${label} needs 2 to 4 different sentences with en and zh`);
-    else if (!isIndex(picture.answer, options.length)) report(`${label} has a bad answer`);
   }
 }
 

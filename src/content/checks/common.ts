@@ -2,6 +2,7 @@
  * Small helpers shared by validateUnit (src/content/validate.ts) and the per-question-type
  * checks in this folder. Content arrives as untyped JSON, so everything takes `unknown`.
  */
+import type { Act } from '../acts';
 
 /** Ids end up in audio file names and save keys, so keep them plain. */
 export const ID_PATTERN = /^[a-z0-9_]+$/;
@@ -55,10 +56,19 @@ export interface TaskCheckContext {
    * Act 3 on. Absent or 0 for a unit in no act: it gets the Act 1 limits.
    */
   act?: number;
+  /** The unit's id, for rules tied to one place in the play order (only-play-once talks). */
+  unitId?: string;
+  /** The task's place in the unit, 0-based (the 5th task is 4). */
+  taskIndex?: number;
+  /** The acts the unit was checked against (ACTS by default), for the play order. */
+  acts?: readonly Act[];
 }
 
 /** True when a check should use the limits of Act 3 and later. */
 export const isLateAct = (ctx: Pick<TaskCheckContext, 'act'>) => (ctx.act ?? 0) >= 3;
+
+/** True when a check should use the limits of Act 4 (and the question types new there). */
+export const isAct4 = (ctx: Pick<TaskCheckContext, 'act'>) => (ctx.act ?? 0) >= 4;
 
 /**
  * Checks an id: pattern, then unique among `seen` (added when it is new). Returns a

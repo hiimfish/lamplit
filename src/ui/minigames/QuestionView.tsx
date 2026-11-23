@@ -13,9 +13,11 @@ import { Cloze } from './Cloze';
 import { Fill } from './Fill';
 import { ListenPair } from './ListenPair';
 import { ListenPick } from './ListenPick';
+import { ListenPicture } from './ListenPicture';
 import { PictureChoose } from './PictureChoose';
 import { ReadPassage } from './ReadPassage';
 import { ReadSign } from './ReadSign';
+import { Respond } from './Respond';
 import { Speak } from './Speak';
 import { Spell } from './Spell';
 import { Talk } from './Talk';
@@ -87,7 +89,12 @@ function Body({ question, onAnswer }: QuestionViewProps) {
       view = <ReadSign question={question} onAnswered={onAnswered} />;
       break;
     case 'picture':
-      view = <PictureChoose question={question} onAnswered={onAnswered} />;
+      // 看圖選句聲音選項 (Act 4): the sentences are heard, not read.
+      view = question.listen ? (
+        <ListenPicture question={question} onAnswered={onAnswered} />
+      ) : (
+        <PictureChoose question={question} onAnswered={onAnswered} />
+      );
       break;
     case 'fill':
       view = <Fill question={question} onAnswered={onAnswered} />;
@@ -98,9 +105,17 @@ function Body({ question, onAnswer }: QuestionViewProps) {
     case 'talk':
       view = <Talk question={question} onAnswered={onAnswered} />;
       break;
+    case 'respond':
+      view = <Respond question={question} onAnswered={onAnswered} />;
+      break;
     case 'text-fill':
       view = <TextFill question={question} onAnswered={onAnswered} />;
       break;
+    default: {
+      // Every kind has a case: a new kind fails to compile here until it gets one.
+      const missing: never = question;
+      view = missing;
+    }
   }
 
   return (

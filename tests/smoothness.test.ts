@@ -155,7 +155,7 @@ describe('smoothness limits per act', () => {
     ).toHaveLength(1);
   });
 
-  it('gives Acts 3 and 4 the Act 2 values for now', () => {
+  it('gives Act 3 the Act 2 values, and Act 4 its own row with the same values', () => {
     const acts: Act[] = ['a', 'b', 'c', 'd'].map((id) => ({
       no: id,
       title: id,
@@ -164,6 +164,49 @@ describe('smoothness limits per act', () => {
     expect(smoothnessFor('c', acts)).toEqual(smoothnessFor('b', acts));
     expect(smoothnessFor('d', acts)).toEqual(smoothnessFor('b', acts));
     expect(smoothnessFor('b', acts)).not.toEqual(smoothnessFor('a', acts));
+    expect(smoothnessFor('presentation', ACTS)).toEqual(smoothnessFor('bank', ACTS));
+  });
+
+  /** New items per teaching task in play order (docs/specs/act4-syllabus.md, 新項目數的曲線). */
+  const ACT4_CURVE: Record<string, number[]> = {
+    presentation: [11, 12, 12, 11, 12, 12, 11, 12],
+    budget: [11, 12, 12, 11, 12, 12, 11, 12],
+    marketing: [11, 12, 12, 12, 12, 12, 12, 12],
+    recruiting: [11, 12, 12, 12, 12, 12, 12, 12],
+    training: [12, 12, 12, 12, 12, 13, 12, 13],
+    legal: [12, 12, 12, 12, 12, 13, 12, 13],
+    factory: [12, 13, 13, 12, 13, 13, 13, 13],
+    branch: [12, 13, 13, 12, 13, 13, 13, 13],
+    wellness: [12, 13, 13, 13, 13, 13, 13, 13],
+    media: [12, 13, 13, 13, 13, 13, 13, 13],
+    annual_meeting: [13, 13, 13, 13, 13, 14, 13, 14],
+    promotion: [13, 13, 13, 13, 13, 14, 13, 14],
+  };
+  /** The curve as profiles, a role-play (no items) after each unit, after company_event t8 (12). */
+  const curve = (edit: (unitId: string, i: number, items: number) => number = (_u, _i, n) => n) => [
+    task({ unitId: 'company_event', taskId: 't8', newItems: 12 }),
+    ...Object.entries(ACT4_CURVE).flatMap(([unitId, items]) => [
+      ...items.map((n, i) => task({ unitId, taskId: `t${i + 1}`, newItems: edit(unitId, i, n) })),
+      task({ unitId, taskId: 't9', newItems: 0, review: true }),
+    ]),
+  ];
+
+  it('passes the Act 4 syllabus curve, and catches a jump of two items', () => {
+    expect(Object.keys(ACT4_CURVE)).toEqual(ACTS[3]!.places.map((place) => place.unitId));
+    expect(smoothnessBreaks(curve(), lists, ACTS)).toEqual([]);
+    const jump = curve((unitId, i, n) => (unitId === 'factory' && i === 1 ? n + 1 : n));
+    expect(smoothnessBreaks(jump, lists, ACTS)).toEqual([
+      expect.stringContaining('factory/t2：新項目從 12 增加到 14'),
+    ]);
+  });
+
+  it('still catches untaught words and score jumps in Act 4', () => {
+    const act4 = (over: Partial<TaskProfile> = {}) => task({ unitId: 'media', ...over });
+    expect(smoothnessBreaks([act4({ unplanned: ['open', 'bus'] })], lists, ACTS)).toHaveLength(1);
+    expect(smoothnessBreaks([act4({ unplanned: ['negotiate'] })], lists, ACTS)).toHaveLength(1);
+    expect(smoothnessBreaks([act4(), act4({ score: 24 })], lists, ACTS)).toHaveLength(1);
+    const long = { tokens: 60, unplanned: ['open', 'bus'] };
+    expect(smoothnessBreaks([act4({ ...long, coverage: 0.94 })], lists, ACTS)).toHaveLength(1);
   });
 });
 

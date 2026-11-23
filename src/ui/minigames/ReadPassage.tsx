@@ -2,6 +2,7 @@ import type { ComponentChildren } from 'preact';
 import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
+import type { PassageQuestionText } from '../../learning/gen/passages';
 import type { PassageQuestion } from '../../learning/questions';
 import './ReadPassage.css';
 import { ChoiceKeys, Feedback, FeedbackSlot, useAnswerClock } from './shared';
@@ -57,9 +58,9 @@ function Line({ hit, children }: { hit: boolean; children: ComponentChildren }) 
   );
 }
 
-/** The passage's text, laid out the way its kind looks in real life. */
-function PassageText({ question, hit }: { question: PassageQuestion; hit: number }) {
-  const { passageKind: kind, title, lines } = question;
+/** One text, laid out the way its kind looks in real life. */
+function PassageText({ text, hit }: { text: PassageQuestionText; hit: number }) {
+  const { passageKind: kind, title, lines } = text;
   const body = lines.map((line, i) => (
     <Line key={i} hit={i === hit}>
       {line}
@@ -226,7 +227,7 @@ export function ReadPassage({ question, onAnswered }: MinigameProps<PassageQuest
         <div class="rp-frame">
           <div
             ref={boxRef}
-            class={`rp-paper rp-${question.passageKind}`}
+            class={`rp-paper ${question.texts ? 'rp-set' : `rp-${question.passageKind}`}`}
             data-testid="passage"
             role="region"
             aria-label="短文"
@@ -234,7 +235,19 @@ export function ReadPassage({ question, onAnswered }: MinigameProps<PassageQuest
             onScroll={onScroll}
           >
             <div class="rp-text" lang="en">
-              <PassageText question={question} hit={hit} />
+              {question.texts ? (
+                // 兩篇／三篇一組: every text in turn, each under its number.
+                question.texts.map((text, t) => (
+                  <div key={t} class="rp-set-text" data-testid={`passage-text-${t}`}>
+                    <p class="rp-set-label" lang="zh-Hant">
+                      第 {t + 1} 篇
+                    </p>
+                    <PassageText text={text} hit={t === question.answerText ? hit : -1} />
+                  </div>
+                ))
+              ) : (
+                <PassageText text={question} hit={hit} />
+              )}
             </div>
           </div>
           {more && (

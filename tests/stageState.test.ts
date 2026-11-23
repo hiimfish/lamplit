@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { SceneLine } from '../src/content/types';
 import { actorSpot, STAGE_UNIT_IDS, stageFor } from '../src/art/stage';
+import { ACTS } from '../src/content/acts';
 import { getUnit } from '../src/content/units';
 import { rolesOnStage, stageAfter, stageAt } from '../src/ui/stage/stageState';
 
@@ -218,5 +219,54 @@ describe('actorSpot', () => {
     expect(first).toBeGreaterThan(0);
     expect(rolesOnStage(castRoles, t8.scene, first)).toEqual(['guide', 'landlord']);
     expect(rolesOnStage(castRoles, t8.scene, first + 1)).toEqual(['guide', 'landlord', 'neighbor']);
+  });
+});
+
+describe('three-person scenes on the Act 4 stages (two NPCs and you)', () => {
+  const act4Units = ACTS[3]!.places.flatMap((place) => place.unitId ?? []);
+  /** Every subset of `items` with at least two members. */
+  const groups = <T>(items: readonly T[]): T[][] =>
+    items
+      .reduce<T[][]>((all, item) => [...all, ...all.map((g) => [...g, item])], [[]])
+      .filter((g) => g.length >= 2);
+
+  it.each(act4Units)('%s: any two, three or four NPCs stand on spots of their own', (unitId) => {
+    const config = stageFor(unitId)!;
+    const npcs = (Object.keys(config.cast) as SceneLine['role'][]).filter((r) => r !== 'guide');
+    for (const group of groups(npcs)) {
+      const roles: SceneLine['role'][] = ['guide', ...group];
+      const spots = group.map((r) => JSON.stringify(actorSpot(config, r, roles)));
+      expect(new Set(spots).size, `${unitId}: ${group.join(' ')}`).toBe(group.length);
+      // An NPC without a beside spot keeps its own spot; the others move to their beside.
+      for (const role of group) {
+        const actor = config.cast[role]!;
+        expect(actorSpot(config, role, roles), `${unitId}: ${role}`).toEqual(
+          actor.beside ?? { x: actor.x, y: actor.y },
+        );
+      }
+    }
+  });
+
+  it('shows both NPCs of a three-person scene: the first from the start, the other at their line', () => {
+    const config = stageFor('presentation')!;
+    const castRoles = Object.keys(config.cast) as SceneLine['role'][];
+    const qa = [
+      line('a', 'director'),
+      line('b', 'guide'),
+      line('c', 'manager'),
+      line('d', 'guide'),
+    ];
+    expect(rolesOnStage(castRoles, qa, 1)).toEqual(['guide', 'director']);
+    const all = rolesOnStage(castRoles, qa, 3);
+    expect([...all].sort()).toEqual(['director', 'guide', 'manager']);
+    // The director stands alone on the main spot, then steps to his beside spot.
+    const director = config.cast.director!;
+    expect(actorSpot(config, 'director', ['guide', 'director'])).toEqual({
+      x: director.x,
+      y: director.y,
+    });
+    expect(actorSpot(config, 'director', all)).toEqual(director.beside);
+    const manager = config.cast.manager!;
+    expect(actorSpot(config, 'manager', all)).toEqual({ x: manager.x, y: manager.y });
   });
 });

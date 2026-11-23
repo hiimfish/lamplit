@@ -128,6 +128,8 @@ export interface Task {
   passages?: PassageItem[];
   /** Short conversations or monologues to hear (聽對話答題／聽獨白), 1 to 3 questions each. */
   talks?: TalkItem[];
+  /** Spoken prompts to answer by ear (應答題, TOEIC Part 2), 3 or 4 per task, from Act 4 on. */
+  responds?: RespondItem[];
   /** Short texts with 2 to 4 blanks to fill (段落填空), one question per blank. */
   textFills?: TextFillItem[];
   /**
@@ -164,15 +166,25 @@ interface SignItem {
   answer: number;
 }
 
-/** 看圖選句: one picture and 2 to 4 sentences, one of which describes it. */
-interface PictureItem {
-  /** Unique in the unit. Audio id of the right sentence is `${unitId}.picture.${id}`. */
+/**
+ * 看圖選句: one picture and 2 to 4 sentences, one of which describes it.
+ * With `listen` (看圖選句聲音選項, TOEIC Part 1, from Act 4 on): exactly 4 sentences that are
+ * heard, not shown, each in the announcer's voice; their text and Chinese show after answering.
+ */
+export interface PictureItem {
+  /**
+   * Unique in the unit. Audio id of the right sentence is `${unitId}.picture.${id}` (said by
+   * the guide); for a `listen` item each option has its own, `${unitId}.pictureopt.${id}_${index}`
+   * (index 0 to 3 in content order, said by the announcer), and there is no right-sentence clip.
+   */
   id: string;
   /** Key of the picture in src/art/pictures. */
   pictureId: string;
   options: { en: string; zh: string }[];
   /** Index of the right option. */
   answer: number;
+  /** 看圖選句聲音選項: the 4 sentences are heard (keys A to D replay them), not read. */
+  listen?: true;
 }
 
 /** One multiple-choice question about a text or a conversation. */
@@ -210,20 +222,53 @@ export interface FillItem {
 
 export type PassageKind = 'message' | 'flyer' | 'notice' | 'ad' | 'form' | 'email';
 
-/**
- * 讀短文 (TOEIC Part 7): a message, flyer, notice, ad, form or email of up to 80 words
- * (160 from Act 3 on), 1-3 questions.
- */
-export interface PassageItem {
-  /** Unique in the unit. */
-  id: string;
+/** One text to read: of a single passage, or one of the texts of a passage set. */
+export interface PassageText {
   kind: PassageKind;
   /** Heading or sender, e.g. "Job Fair" or "Tony (repair shop)". */
   title?: string;
   /** The text, one entry per line or paragraph. */
   lines: string[];
+}
+
+/**
+ * 讀短文 (TOEIC Part 7): a message, flyer, notice, ad, form or email of up to 80 words
+ * (160 in Act 3; 150 to 300 in Act 4, with exactly 3 questions), 1-3 questions.
+ */
+export interface SinglePassage extends PassageText {
+  /** Unique in the unit (across single passages and sets). */
+  id: string;
   questions: ChoiceQuestion[];
 }
+
+/** A question on a passage set: which texts it needs may be marked. */
+export interface PassageSetQuestion extends ChoiceQuestion {
+  /**
+   * Indexes in the set's `texts` (0-based, each different) of the texts the answer needs.
+   * Two or more marks a question that needs more than one text; leave out for one text.
+   */
+  needs?: number[];
+}
+
+/**
+ * 兩篇／三篇一組閱讀 (TOEIC Part 7 double and triple passages, Act 4 only): 2 or 3 related
+ * texts read together, with one list of questions for the set. A double set: 180 to 260
+ * words in all (titles included), exactly 4 questions, at least 1 needing both texts. A
+ * triple set: 180 to 320 words in all, 4 or 5 questions, at least 2 needing more than one.
+ */
+export interface PassageSet {
+  /** Unique in the unit (across single passages and sets). */
+  id: string;
+  /** 2 or 3 texts, in reading order; each follows the rules of a passage's kind and title. */
+  texts: PassageText[];
+  questions: PassageSetQuestion[];
+}
+
+/** A task's passage: a single text, or (Act 4) a set of 2 or 3 texts. */
+export type PassageItem = SinglePassage | PassageSet;
+
+/** True for a passage set (兩篇／三篇一組). */
+export const isPassageSet = (passage: PassageItem): passage is PassageSet => 'texts' in passage;
 
 /** One line of a conversation to hear. Audio id is `${unitId}.talk.${id}`; ids are unique in the unit. */
 export interface TalkLine {
@@ -251,16 +296,47 @@ export interface TalkTable {
 export interface TalkItem {
   /** Unique in the unit. */
   id: string;
-  /** Leave out for a conversation by two speakers. */
+  /** Leave out for a conversation (two speakers; two or three in Act 4). */
   kind?: 'monologue';
   /**
-   * A conversation: 3 to 6 lines by two speakers (3 to 8 from Act 3 on). A monologue:
-   * 3 to 10 lines all by one speaker, 30 to 120 words in all.
+   * A conversation: 3 to 6 lines by two speakers (3 to 8 in Act 3; in Act 4 8 to 12 lines
+   * by two or three speakers, 三人對話, the guide may be one). A monologue: 3 to 10 lines all
+   * by one speaker, 30 to 120 words in all (Act 4: 3 to 12 lines, 30 to 160 words).
    */
   lines: TalkLine[];
+  /** 1 to 3 questions; exactly 3 in Act 4. */
   questions: ChoiceQuestion[];
   /** A table to look at while listening (conversations only). */
   table?: TalkTable;
+  /**
+   * 只播一次: it plays once by itself; replay and slow stay off until every question on it
+   * is answered. Required on every talk of the 5th and 7th task from wellness t7 on
+   * (wellness t7, then media, annual_meeting, promotion), allowed nowhere else.
+   */
+  once?: true;
+}
+
+/** One spoken response of a 應答題 item. Audio id is `${unitId}.response.${itemId}_${index}`. */
+export interface RespondResponse {
+  en: string;
+  zh: string;
+}
+
+/**
+ * 應答題 (TOEIC Part 2, sound only, from Act 4 on): hear a question or remark, then three
+ * responses (A, B, C), and pick the one that fits. Nothing shows before answering; then the
+ * prompt and responses show with their Chinese. The responses are said by the guide (your
+ * voice), so the prompt is said by another role.
+ */
+export interface RespondItem {
+  /** Unique in the unit. The prompt's audio id is `${unitId}.respond.${id}`. */
+  id: string;
+  /** The question or remark, said by `role` (any role with a voice but the guide). */
+  prompt: { role: Role; en: string; zh: string };
+  /** Exactly 3 responses, each different; the game shuffles them into A, B, C. */
+  responses: RespondResponse[];
+  /** Index of the right response. */
+  answer: number;
 }
 
 /** One blank of a text fill. */

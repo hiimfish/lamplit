@@ -1,0 +1,42 @@
+/* 應答題 (Respond.tsx), minimal: the prompt box, then one row per letter, a ♪ key and a pick key. */
+.rs-prompt {
+  display: flex;
+  gap: calc(4 * var(--px));
+  align-items: baseline;
+  padding: calc(3 * var(--px)) calc(5 * var(--px));
+  border: var(--px) solid var(--ink);
+}
+
+.rs-prompt.on {
+  outline: var(--px) solid var(--ink);
+}
+
+.rs-who {
+  flex: none;
+}
+
+.rs-options {
+  display: flex;
+  flex-direction: column;
+  gap: calc(3 * var(--px));
+  width: 100%;
+}
+
+.rs-row {
+  display: flex;
+  gap: calc(3 * var(--px));
+  align-items: stretch;
+}
+
+.rs-play {
+  flex: none;
+}
+
+.rs-play.on {
+  outline: var(--px) solid var(--ink);
+}
+
+.rs-pick {
+  flex: 1;
+  text-align: left;
+}
