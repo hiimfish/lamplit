@@ -38,11 +38,16 @@
 
 ## 單字快練
 
+2026-11-24 決定：**提前教，但只教接下來馬上會遇到的字**；學過的字的複習照舊交給 FSRS 的今日複習，快練不重複練。理由見下方「研究依據」。
+
 - 一次 10 個字，題型是聽音選字。之後加入看字選意思。
-- 照 [第一幕分配表](act1-syllabus.md)（和之後各幕的分配表）的順序，**提前教**還沒玩到的任務會用到的單字。
+- 照遊玩順序（`UNIT_ORDER` → 任務 → 任務的 `newWordIds`），**提前教**還沒玩到的任務會用到的單字。
+- **最多領先目前進度一個地點**（約 8～9 個任務），不跨幕（幕要玩完才會解鎖）。教到領先上限就暫停新字，等劇情追上來；這時快練只剩到期的複習。
 - 之後玩到那些任務時，就變成在情境裡複習。答得又快又對，就跳過介紹卡（平滑規則 8）。
+- 快練的答題直接建立和更新 FSRS 卡片（和任務一樣用 `applySessionAnswer`）。到期的複習一律先做，新字排在後面；複習太多時先停新字（平滑規則 9）。
+- 誘答選項要從已經出過的字裡找，不能只找同一個單元（現在的 `listenPickWord` 只找同一單元，見 `questionGen.ts`）。
 - 平滑規則 3（沒教過的字要很少）只會更容易符合，因為已知的字只會變多。
-- 每天的新字數慢慢加：
+- 每天的新字數慢慢加（**待重算**：下表是 2026-11-22 的估計，假設全遊戲約 2,900 字；實際內容是 2,501 字（[curriculum.md](curriculum.md)），而且有了領先上限，每天的新字數不會超過劇情的進度）：
 
 | 週    | 每天新字 | 這段時間合計 |
 | ----- | -------- | ------------ |
@@ -51,8 +56,18 @@
 | 3～11 | 約 42    | 約 2,650     |
 | 12    | 0        | 0            |
 
-- 合計約 2,930 個字，等於整個遊戲要教的約 2,900 個單字。
+- 合計約 2,930 個字，比實際內容的 2,501 字多，要用實際數字重算。
 - 詞塊（會用的句子）不提前教，照劇情任務的順序學。
+
+### 研究依據（2026-11-24）
+
+要選「提前教後面的字」還是「只練已經學過的字」，查了第二語言單字學習的研究：
+
+- **只練學過的字，等於重複今日複習。** 間隔練習比集中練習記得久（Kim & Webb 2022 的統合分析：效果小到中等）。FSRS 已經在「快忘的時候」排複習；快練再練一次還沒到期的字就是集中練習，多花時間效果少，還會讓 FSRS 的排程失準。衝刺路線要快，也需要新字。
+- **字卡式的刻意學習有效。** 統合分析顯示字卡學單字的進步幅度相對大（Webb、Yanagisawa、Uchihara 2020）。之後在故事裡遇到同一個字，又多一次在情境裡的間隔複習。
+- **先教和讀的時候教一樣好。** 明確教字比只靠閱讀學得多；先教再讀和讀的時候教，效果沒有差別（Pellicer-Sánchez 等 2020）。所以先在快練學、再在劇情遇到，不會比照劇情順序學差。
+- **還沒學過就先猜也有幫助。** 預測驗效應：先試著回答還沒學的東西，就算猜錯，之後也學得比較好（Richland、Kornell、Kao 2009；單字版見 Potts & Shanks 2014、Seabrooke 等）。所以快練直接用聽音選字考新字是合理的。
+- **風險是教得太前面。** 一個字學了很久都沒在故事出現，只靠字卡，學到字形卻沒學到用法；所以設領先上限，讓每個新字幾天內就在劇情裡遇到。
 
 ## 12 週安排
 
@@ -64,8 +79,7 @@
 | 9～11 | 第四幕 108 個任務                  | 約 5 個   | 約 2,900 | —                                            |
 | 12    | 不教新內容：模擬考、加強弱項、複習 | 0         | 約 2,900 | 第四幕結業考（縮短版的完整模擬考），目標 600 |
 
-- 第一幕的累積單字（約 570）比一般路線多（約 330），因為單字快練會提前教後面幾幕的字。
-- 第二幕做完後（2026-11-23），第一、二幕的劇情實際教了 301 + 342 = 643 個單字（這是一般路線的累積數字，不含單字快練提前教的字）。上表是衝刺路線的計畫，含單字快練提前教的字，還沒有用實際內容重算。
+- 上表的累積單字是 2026-11-22 的計畫，假設單字快練會提前教後面幾幕的字。2026-11-24 改成最多領先一個地點、不跨幕，所以累積單字會跟著劇情：四幕實際教了 301、342、832、1,026 個單字（累積到 2,501），**待重算**。
 - 每幕的結業考已經在 [curriculum.md](curriculum.md) 規劃，衝刺路線直接用。
 
 ## 跟不上時
@@ -100,3 +114,9 @@
 
 - ETS 多益與 CEFR 對照表：https://www.ets.org/pdfs/toeic/toeic-mapping-cefr-reference.pdf
 - 從零到 B1 的學習時數是 Cambridge English 常引用的估計（指導學習時數，不含自修），只能當參考。
+- 單字快練的研究依據：
+  - Kim, S. K., & Webb, S. (2022). The effects of spaced practice on second language learning: A meta-analysis. _Language Learning_, 72(1). https://doi.org/10.1111/lang.12479
+  - Webb, S., Yanagisawa, A., & Uchihara, T. (2020). How effective are intentional vocabulary-learning activities? A meta-analysis. _The Modern Language Journal_, 104(4). https://doi.org/10.1111/modl.12671
+  - Pellicer-Sánchez, A., Conklin, K., & Vilkaitė-Lozdienė, L. (2020). Re-examining the benefits of pre-reading instruction for vocabulary learning. https://discovery-pp.ucl.ac.uk/10134003/
+  - Richland, L. E., Kornell, N., & Kao, L. S. (2009). The pretesting effect: Do unsuccessful retrieval attempts enhance learning? https://learninglab.uchicago.edu/Pre-Testing_files/RichlandKornellKao.pdf
+  - Seabrooke 等（errorful generation，猜錯的效果）：https://link.springer.com/article/10.3758/s13421-021-01218-6
