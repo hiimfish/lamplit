@@ -19,8 +19,9 @@ describe('BLOCK_KEYS (排句子 keys)', () => {
       const unit = JSON.parse(readFileSync(`src/data/units/${file}`, 'utf8'));
       const lines: string[] = [
         ...unit.chunks.map((c: { en: string }) => c.en),
-        ...unit.tasks.flatMap((t: { scene?: { speaker: string; chunkId?: string; en: string }[] }) =>
-          (t.scene ?? []).filter((l) => l.speaker === 'player' && l.chunkId).map((l) => l.en),
+        ...unit.tasks.flatMap(
+          (t: { scene?: { speaker: string; chunkId?: string; en: string }[] }) =>
+            (t.scene ?? []).filter((l) => l.speaker === 'player' && l.chunkId).map((l) => l.en),
         ),
       ];
       for (const line of lines) longest = Math.max(longest, line.split(/\s+/).length);

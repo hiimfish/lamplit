@@ -155,7 +155,8 @@ export const KEY_LIST: [keys: string, what: string][] = [
   ['← →', '上一張／下一張'],
   ['打字', '拼字：打出單字'],
   ['Backspace', '排句子：拿掉最後一個字'],
-  ['Esc', '排句子：重排；關閉設定'],
+  ['Esc', '排句子：重排；跟我說：取消辨識；關閉設定'],
+  ['R　P　C', '跟我說：錄音／停止、播放我的錄音、辨識'],
 ];
 
 function KeyList() {

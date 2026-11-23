@@ -46,7 +46,8 @@ export function Speak({ question, onAnswered }: MinigameProps<SpeakQuestion>) {
     if (!takeJustChecked(question.audioId)) replay();
   }, []);
 
-  // Space 播放示範, Shift+Space 慢速 (help), Enter 我說完了. The mic keys stay tap or Tab.
+  // Space 播放示範, Shift+Space 慢速 (help), Enter 我說完了. The mic keys (R, P, C) live in
+  // MicControls, and the first-recognition notice takes Enter / Esc while it shows.
   useKeys(
     {
       Space: () => {
@@ -82,7 +83,7 @@ export function Speak({ question, onAnswered }: MinigameProps<SpeakQuestion>) {
               primary
               id="done"
               label="我說完了"
-              hint="Enter"
+              hint={recog.status === 'confirm' ? undefined : 'Enter'}
               disabled={micBusy}
               onClick={() => finish(false)}
             />
@@ -123,21 +124,49 @@ function MicControls({
     rec.clearMessage();
     recog.request(target);
   };
+  // Fixed letter keys, since these buttons come and go: R 錄音 / 停止 (Record), P 播放我的錄音
+  // (Play), C 辨識 (Check). Each acts only when its button is shown and enabled.
+  useKeys({
+    r: () => {
+      if (rec.phase === 'recording') rec.stop();
+      else if (!recordBlocked) record();
+    },
+    p: () => {
+      if (rec.url && !listening) rec.playMine();
+    },
+    c: () => {
+      if (canRecognize && !micBusy && recog.status === 'idle') recognize();
+    },
+  });
   return (
     <>
       <div class="mg-row">
         {rec.phase === 'recording' ? (
-          <Btn primary id="stop" label="停止" onClick={rec.stop} />
+          <Btn primary id="stop" label="停止" hint="r" onClick={rec.stop} />
         ) : (
-          <Btn primary id="record" label="● 錄音" disabled={recordBlocked} onClick={record} />
+          <Btn
+            primary
+            id="record"
+            label="● 錄音"
+            hint="r"
+            disabled={recordBlocked}
+            onClick={record}
+          />
         )}
         {rec.url && (
-          <Btn id="play-mine" label="播放我的錄音" disabled={listening} onClick={rec.playMine} />
+          <Btn
+            id="play-mine"
+            label="播放我的錄音"
+            hint="p"
+            disabled={listening}
+            onClick={rec.playMine}
+          />
         )}
         {canRecognize && !micBusy && (
           <Btn
             id="recognize"
             label={listening ? '聽你說…' : '辨識'}
+            hint="c"
             disabled={recog.status !== 'idle'}
             onClick={recognize}
           />
@@ -194,14 +223,22 @@ function SpeakReplay(props: { onReplay: () => void; onSlow: () => void; disabled
 
 /** Shown before the first recognition: nothing is sent until 繼續辨識. */
 function RecognitionNotice(props: { onConfirm: () => void; onCancel: () => void }) {
+  // Registered after Speak's own keys, so here Enter is 繼續辨識 (not 我說完了) and Esc 取消.
+  useKeys({ Enter: props.onConfirm, Escape: props.onCancel });
   return (
     <>
       <p class="mg-note" data-testid="recognize-note">
         {RECOGNITION_NOTE}
       </p>
       <div class="mg-row">
-        <Btn primary id="recognize-confirm" label="繼續辨識" onClick={props.onConfirm} />
-        <Btn id="recognize-cancel" label="取消" onClick={props.onCancel} />
+        <Btn
+          primary
+          id="recognize-confirm"
+          label="繼續辨識"
+          hint="Enter"
+          onClick={props.onConfirm}
+        />
+        <Btn id="recognize-cancel" label="取消" hint="Escape" onClick={props.onCancel} />
       </div>
     </>
   );
