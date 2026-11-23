@@ -1,0 +1,1782 @@
+{
+  "id": "annual_meeting",
+  "title": "年度大會",
+  "titleEn": "Annual Meeting",
+  "chunks": [
+    {
+      "id": "how_much_time_for_results",
+      "en": "How much time will I have for the Lantern results?",
+      "zh": "Lantern 的成果報告我大概有多少時間？",
+      "note": "確認自己上台報告有多長的時間。How much time 問的是時間長短。",
+      "distractors": [
+        {
+          "text": "How many time will I have for the Lantern results?",
+          "error": "other"
+        },
+        {
+          "text": "How much time I will have for the Lantern results?",
+          "error": "word-order"
+        },
+        {
+          "text": "How much time will I have for the Lantern resluts?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "ask_hughes_to_join_by_video",
+      "en": "Could we ask Mr. Hughes to join us by video?",
+      "zh": "我們可以請 Mr. Hughes 用視訊參加嗎？",
+      "note": "提議請不能到場的人用視訊參加。ask + 人 + to + 動詞。",
+      "distractors": [
+        {
+          "text": "Could we ask Mr. Hughes join us by video?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Could we ask to Mr. Hughes to join us by video?",
+          "error": "extra-word"
+        },
+        {
+          "text": "Could we ask Mr. Hughes to join us by a video?",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "show_how_sales_grew",
+      "en": "I want to show how sales grew month by month.",
+      "zh": "我想呈現業績每個月是怎麼成長的。",
+      "note": "說明報告要怎麼呈現數字。month by month 是「一個月一個月地」。",
+      "distractors": [
+        {
+          "text": "I want to show how sales grewed month by month.",
+          "error": "other"
+        },
+        {
+          "text": "I want show how sales grew month by month.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I want to show how did sales grow month by month.",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "should_i_mention_the_delay",
+      "en": "Do you think I should mention the delay in June?",
+      "zh": "您覺得六月延誤的事我要不要提？",
+      "note": "拿不定主意時，問主管的看法。",
+      "distractors": [
+        {
+          "text": "Do you think should I mention the delay in June?",
+          "error": "word-order"
+        },
+        {
+          "text": "Do you think I should mention about the delay in June?",
+          "error": "extra-word"
+        },
+        {
+          "text": "Do you think I should mention the delay on June?",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "should_october_numbers_be_included",
+      "en": "Should the October numbers be included in my slides?",
+      "zh": "十月的數字要放進我的投影片嗎？",
+      "note": "文法複習：助動詞加被動 should + be + 過去分詞，問東西該不該放進去。",
+      "distractors": [
+        {
+          "text": "Should the October numbers be include in my slides?",
+          "error": "other"
+        },
+        {
+          "text": "Should the October numbers included in my slides?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Should be the October numbers included in my slides?",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "however_numbers_not_ready",
+      "en": "However, the final October numbers won't be ready until Friday.",
+      "zh": "不過十月的最終數字要到星期五才會出來。",
+      "note": "文法複習：However 放句首加逗號，帶出和前面不一樣的情況。",
+      "distractors": [
+        {
+          "text": "However, the final October numbers won't ready until Friday.",
+          "error": "missing-word"
+        },
+        {
+          "text": "However, the final October numbers won't be ready since Friday.",
+          "error": "other"
+        },
+        {
+          "text": "However, the final October numbers won't be ready until on Friday.",
+          "error": "extra-word"
+        }
+      ]
+    },
+    {
+      "id": "agenda_has_me_speaking",
+      "en": "The agenda has me speaking right before the video from Mr. Hughes.",
+      "zh": "議程上排我在 Mr. Hughes 的影片前面上台。",
+      "note": "說自己在議程上排在哪裡。has me speaking 是「把我排在…上台」。",
+      "distractors": [
+        {
+          "text": "The agenda have me speaking right before the video from Mr. Hughes.",
+          "error": "other"
+        },
+        {
+          "text": "The agenda has me speaking right before video from Mr. Hughes.",
+          "error": "article"
+        },
+        {
+          "text": "The agenda has me speeking right before the video from Mr. Hughes.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "show_you_to_your_seat",
+      "en": "Let me show you to your seat before we get started.",
+      "zh": "開始前我先帶您到座位上。",
+      "note": "帶客人入座時說。show + 人 + to 地方是「帶人過去」。",
+      "distractors": [
+        {
+          "text": "Let me to show you to your seat before we get started.",
+          "error": "extra-word"
+        },
+        {
+          "text": "Let me show you to your seet before we get started.",
+          "error": "spelling"
+        },
+        {
+          "text": "Let me show you to your seat before get started.",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "will_the_merger_change_anything",
+      "en": "So will the merger change anything for our Lantern orders?",
+      "zh": "所以合併之後，我們 Lantern 的訂單會有什麼改變嗎？",
+      "note": "聽到對方公司的大消息後，問對自己這邊有沒有影響。",
+      "distractors": [
+        {
+          "text": "So will the merger changes anything for our Lantern orders?",
+          "error": "other"
+        },
+        {
+          "text": "So the merger will change anything for our Lantern orders?",
+          "error": "word-order"
+        },
+        {
+          "text": "So will merger change anything for our Lantern orders?",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "despite_the_delay_we_hit",
+      "en": "Despite the June delay, we still hit our sales target.",
+      "zh": "雖然六月出貨延誤，我們還是達成了業績目標。",
+      "note": "文法複習：despite 後面接名詞（the June delay），意思是「儘管有…」。",
+      "distractors": [
+        {
+          "text": "Despite of the June delay, we still hit our sales target.",
+          "error": "extra-word"
+        },
+        {
+          "text": "Despite the June delay, we still hitted our sales target.",
+          "error": "other"
+        },
+        {
+          "text": "Despite the June delay, we still hit our sale target.",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "if_we_had_one_more_designer",
+      "en": "If we had one more designer, we'd get new models out faster.",
+      "zh": "如果我們再多一位設計師，新款就能更快推出。",
+      "accept": ["If we had one more designer, we would get new models out faster."],
+      "note": "文法複習：第二條件句 If + 過去式, we'd + 原形，假設現在沒有的情況。",
+      "distractors": [
+        {
+          "text": "If we have one more designer, we'd get new models out faster.",
+          "error": "other"
+        },
+        {
+          "text": "If we had one more designer, we'd got new models out faster.",
+          "error": "other"
+        },
+        {
+          "text": "If we had one more designers, we'd get new models out faster.",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "next_a_video_message",
+      "en": "Next, we have a short video message from Mr. Hughes in England.",
+      "zh": "接下來是 Mr. Hughes 從英國錄的一段影片致詞。",
+      "note": "主持時介紹下一段節目。",
+      "distractors": [
+        {
+          "text": "Next, we have short video message from Mr. Hughes in England.",
+          "error": "article"
+        },
+        {
+          "text": "Next, we have a short video massage from Mr. Hughes in England.",
+          "error": "spelling"
+        },
+        {
+          "text": "Next, we have a short message video from Mr. Hughes in England.",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "couldnt_have_done_it_without_team",
+      "en": "I couldn't have done any of this without the whole team.",
+      "zh": "沒有整個團隊，這些我一件也做不到。",
+      "accept": ["I could not have done any of this without the whole team."],
+      "note": "得獎或被稱讚時，把功勞歸給團隊。couldn't have + 過去分詞是「當時不可能做到」。",
+      "distractors": [
+        {
+          "text": "I couldn't have did any of this without the whole team.",
+          "error": "other"
+        },
+        {
+          "text": "I couldn't done any of this without the whole team.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I couldn't have done any of this without whole team.",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "share_this_award_with",
+      "en": "I'd like to share this award with Leo and everyone in the warehouse.",
+      "zh": "我想把這個獎和 Leo 還有倉庫的每一位同事一起分享。",
+      "accept": ["I would like to share this award with Leo and everyone in the warehouse."],
+      "note": "領獎時說要和誰一起分享這份榮譽。",
+      "distractors": [
+        {
+          "text": "I'd like to share this award to Leo and everyone in the warehouse.",
+          "error": "other"
+        },
+        {
+          "text": "I'd like share this award with Leo and everyone in the warehouse.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I'd like to share this award with Leo and everyone in warehouse.",
+          "error": "article"
+        }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "state", "en": "state", "zh": "（正式）寫明；說明", "emoji": "📝", "abstract": true },
+    { "id": "among", "en": "among", "zh": "在…之中", "emoji": "↔️", "abstract": true },
+    {
+      "id": "associate",
+      "en": "associate",
+      "zh": "（生意上的）夥伴",
+      "emoji": "🤝",
+      "abstract": true
+    },
+    {
+      "id": "committee",
+      "en": "committee",
+      "zh": "委員會；籌備小組",
+      "emoji": "🗣️",
+      "abstract": true
+    },
+    { "id": "executive", "en": "executive", "zh": "高階主管", "emoji": "👩‍💼", "abstract": true },
+    { "id": "annual", "en": "annual", "zh": "年度的；一年一次的", "emoji": "📆", "abstract": true },
+    { "id": "gather", "en": "gather", "zh": "聚在一起；集合", "emoji": "🫂", "abstract": true },
+    {
+      "id": "corporate",
+      "en": "corporate",
+      "zh": "公司的；企業的",
+      "emoji": "🏢",
+      "abstract": true
+    },
+    { "id": "internal", "en": "internal", "zh": "內部的", "emoji": "🔒", "abstract": true },
+    { "id": "previously", "en": "previously", "zh": "以前；先前", "emoji": "⏪", "abstract": true },
+    { "id": "cater", "en": "cater", "zh": "（為活動）提供餐點", "emoji": "🍱", "abstract": true },
+    {
+      "id": "development",
+      "en": "development",
+      "zh": "開發；發展",
+      "emoji": "🛠️",
+      "abstract": true
+    },
+    { "id": "field", "en": "field", "zh": "領域；行業", "emoji": "🔬", "abstract": true },
+    {
+      "id": "performance",
+      "en": "performance",
+      "zh": "表現；業績",
+      "emoji": "📊",
+      "abstract": true
+    },
+    { "id": "largely", "en": "largely", "zh": "主要；大部分是", "emoji": "🟰", "abstract": true },
+    { "id": "increasingly", "en": "increasingly", "zh": "越來越", "emoji": "⏫", "abstract": true },
+    { "id": "impact", "en": "impact", "zh": "影響", "emoji": "💥", "abstract": true },
+    { "id": "phase", "en": "phase", "zh": "階段", "emoji": "🌓", "abstract": true },
+    { "id": "core", "en": "core", "zh": "核心的；最主要的", "emoji": "🎯", "abstract": true },
+    { "id": "rapidly", "en": "rapidly", "zh": "快速地", "emoji": "⚡", "abstract": true },
+    { "id": "versus", "en": "versus", "zh": "相對於；和…相比", "emoji": "🆚", "abstract": true },
+    { "id": "steadily", "en": "steadily", "zh": "穩定地；持續地", "emoji": "🐢", "abstract": true },
+    { "id": "beyond", "en": "beyond", "zh": "超過；在…之外", "emoji": "➡️", "abstract": true },
+    { "id": "strategy", "en": "strategy", "zh": "策略", "emoji": "♟️", "abstract": true },
+    { "id": "vision", "en": "vision", "zh": "願景", "emoji": "🔭", "abstract": true },
+    { "id": "mission", "en": "mission", "zh": "使命；任務", "emoji": "🚩", "abstract": true },
+    {
+      "id": "initiative",
+      "en": "initiative",
+      "zh": "（新的）計畫；措施",
+      "emoji": "💡",
+      "abstract": true
+    },
+    {
+      "id": "ultimately",
+      "en": "ultimately",
+      "zh": "最終；說到底",
+      "emoji": "🏁",
+      "abstract": true
+    },
+    {
+      "id": "boardroom",
+      "en": "boardroom",
+      "zh": "（公司的）會議室",
+      "emoji": "🚪",
+      "abstract": true
+    },
+    {
+      "id": "nationwide",
+      "en": "nationwide",
+      "zh": "全國的；全國各地",
+      "emoji": "🗾",
+      "abstract": true
+    },
+    { "id": "outlook", "en": "outlook", "zh": "前景", "emoji": "🌅", "abstract": true },
+    { "id": "timely", "en": "timely", "zh": "及時的", "emoji": "⏱️", "abstract": true },
+    { "id": "await", "en": "await", "zh": "等待；等候", "emoji": "⏳", "abstract": true },
+    { "id": "survive", "en": "survive", "zh": "撐過；存活下來", "emoji": "🛟", "abstract": true },
+    { "id": "invest", "en": "invest", "zh": "投資", "emoji": "🌱", "abstract": true },
+    { "id": "expansion", "en": "expansion", "zh": "擴展；擴張", "emoji": "🌏", "abstract": true },
+    { "id": "crucial", "en": "crucial", "zh": "非常關鍵的", "emoji": "🔑", "abstract": true },
+    { "id": "shareholder", "en": "shareholder", "zh": "股東", "emoji": "📃", "abstract": true },
+    { "id": "stability", "en": "stability", "zh": "穩定", "emoji": "⚖️", "abstract": true },
+    {
+      "id": "downturn",
+      "en": "downturn",
+      "zh": "（景氣）下滑；衰退",
+      "emoji": "📉",
+      "abstract": true
+    },
+    { "id": "closure", "en": "closure", "zh": "（店、工廠）關閉", "emoji": "🔐", "abstract": true },
+    {
+      "id": "uncertainty",
+      "en": "uncertainty",
+      "zh": "不確定（的情況）",
+      "emoji": "❓",
+      "abstract": true
+    },
+    { "id": "founder", "en": "founder", "zh": "創辦人", "emoji": "🌱", "abstract": true },
+    { "id": "downsize", "en": "downsize", "zh": "縮編；裁員", "emoji": "✂️", "abstract": true },
+    { "id": "consecutive", "en": "consecutive", "zh": "連續的", "emoji": "🔁", "abstract": true },
+    { "id": "president", "en": "president", "zh": "總裁；董事長", "emoji": "🎩", "abstract": true },
+    { "id": "merger", "en": "merger", "zh": "（公司）合併", "emoji": "🔗", "abstract": true },
+    { "id": "acquire", "en": "acquire", "zh": "收購；取得", "emoji": "🛒", "abstract": true },
+    {
+      "id": "corporation",
+      "en": "corporation",
+      "zh": "（大）公司；企業",
+      "emoji": "🏬",
+      "abstract": true
+    },
+    { "id": "numerous", "en": "numerous", "zh": "許多的", "emoji": "🔢", "abstract": true },
+    { "id": "transform", "en": "transform", "zh": "徹底改變", "emoji": "🦋", "abstract": true },
+    { "id": "monthly", "en": "monthly", "zh": "每月的", "emoji": "🗓️", "abstract": true },
+    {
+      "id": "considerably",
+      "en": "considerably",
+      "zh": "相當多地；大幅地",
+      "emoji": "⬆️",
+      "abstract": true
+    },
+    {
+      "id": "ownership",
+      "en": "ownership",
+      "zh": "所有權；經營權",
+      "emoji": "🔑",
+      "abstract": true
+    },
+    { "id": "optimistic", "en": "optimistic", "zh": "樂觀的", "emoji": "🌤️", "abstract": true },
+    { "id": "fortunately", "en": "fortunately", "zh": "幸好", "emoji": "😮‍💨", "abstract": true },
+    { "id": "though", "en": "though", "zh": "不過（放句尾）", "emoji": "🔀", "abstract": true },
+    { "id": "hit", "en": "hit", "zh": "達到（目標）", "emoji": "🎯", "abstract": true },
+    { "id": "extent", "en": "extent", "zh": "程度", "emoji": "📏", "abstract": true },
+    { "id": "principal", "en": "principal", "zh": "主要的", "emoji": "🥇", "abstract": true },
+    { "id": "massive", "en": "massive", "zh": "非常大的；大量的", "emoji": "🐘", "abstract": true },
+    { "id": "mature", "en": "mature", "zh": "成熟的（市場）", "emoji": "🌳", "abstract": true },
+    { "id": "boost", "en": "boost", "zh": "提升；帶動", "emoji": "🚀", "abstract": true },
+    {
+      "id": "dramatically",
+      "en": "dramatically",
+      "zh": "大幅地；明顯地",
+      "emoji": "🎢",
+      "abstract": true
+    },
+    {
+      "id": "surprisingly",
+      "en": "surprisingly",
+      "zh": "出乎意料地",
+      "emoji": "😲",
+      "abstract": true
+    },
+    { "id": "disrupt", "en": "disrupt", "zh": "打亂；中斷", "emoji": "🚧", "abstract": true },
+    { "id": "strategic", "en": "strategic", "zh": "策略上的", "emoji": "🧠", "abstract": true },
+    { "id": "evident", "en": "evident", "zh": "明顯的", "emoji": "👀", "abstract": true },
+    { "id": "decade", "en": "decade", "zh": "十年", "emoji": "🔟", "abstract": true },
+    { "id": "bright", "en": "bright", "zh": "（前景）光明的；亮的", "emoji": "🌞" },
+    { "id": "enterprise", "en": "enterprise", "zh": "企業", "emoji": "🏭", "abstract": true },
+    {
+      "id": "extraordinary",
+      "en": "extraordinary",
+      "zh": "非凡的；了不起的",
+      "emoji": "🌟",
+      "abstract": true
+    },
+    {
+      "id": "venture",
+      "en": "venture",
+      "zh": "（新的）事業；合作案",
+      "emoji": "⛵",
+      "abstract": true
+    },
+    { "id": "strengthen", "en": "strengthen", "zh": "加強；鞏固", "emoji": "💪", "abstract": true },
+    { "id": "ongoing", "en": "ongoing", "zh": "持續進行的", "emoji": "🔄", "abstract": true },
+    { "id": "entrepreneur", "en": "entrepreneur", "zh": "創業家", "emoji": "🧑‍🚀", "abstract": true },
+    { "id": "fortunate", "en": "fortunate", "zh": "幸運的", "emoji": "🍀", "abstract": true },
+    { "id": "loyalty", "en": "loyalty", "zh": "忠誠；忠實支持", "emoji": "🫶", "abstract": true },
+    {
+      "id": "prestigious",
+      "en": "prestigious",
+      "zh": "有名望的；聲譽很高的",
+      "emoji": "👑",
+      "abstract": true
+    },
+    {
+      "id": "underway",
+      "en": "underway",
+      "zh": "已經開始；進行中",
+      "emoji": "▶️",
+      "abstract": true
+    },
+    { "id": "vote", "en": "vote", "zh": "投票", "emoji": "🗳️" },
+    {
+      "id": "officer",
+      "en": "officer",
+      "zh": "（負責某項業務的）專員",
+      "emoji": "🦺",
+      "abstract": true
+    },
+    {
+      "id": "administration",
+      "en": "administration",
+      "zh": "行政（工作、部門）",
+      "emoji": "🗂️",
+      "abstract": true
+    },
+    {
+      "id": "association",
+      "en": "association",
+      "zh": "協會；公會",
+      "emoji": "🧑‍🤝‍🧑",
+      "abstract": true
+    },
+    { "id": "fellow", "en": "fellow", "zh": "同為…的；同事的", "emoji": "👫", "abstract": true },
+    { "id": "reward", "en": "reward", "zh": "獎勵；回報", "emoji": "🎖️" },
+    { "id": "foundation", "en": "foundation", "zh": "基金會", "emoji": "💝", "abstract": true },
+    { "id": "nominate", "en": "nominate", "zh": "提名", "emoji": "☝️", "abstract": true },
+    { "id": "clap", "en": "clap", "zh": "鼓掌", "emoji": "👏" },
+    { "id": "charitable", "en": "charitable", "zh": "慈善的", "emoji": "❤️", "abstract": true },
+    {
+      "id": "tremendous",
+      "en": "tremendous",
+      "zh": "極大的；非常多的",
+      "emoji": "🌊",
+      "abstract": true
+    },
+    { "id": "cheer", "en": "cheer", "zh": "歡呼", "emoji": "🙌", "abstract": true }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "年度大會的通知",
+      "backdrop": "director",
+      "newChunkIds": ["how_much_time_for_results", "ask_hughes_to_join_by_video"],
+      "newWordIds": [
+        "state",
+        "among",
+        "associate",
+        "committee",
+        "executive",
+        "annual",
+        "gather",
+        "corporate",
+        "internal",
+        "previously",
+        "cater"
+      ],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Did you get my email? The annual meeting is on November 21.",
+          "zh": "你有收到我的 email 嗎？年度大會訂在十一月二十一日。"
+        },
+        {
+          "id": "t1_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "We'll all gather at the Riverside Hotel, with a few business associates.",
+          "zh": "大家會在 Riverside Hotel 聚一聚，還有幾位生意上的夥伴也會來。"
+        },
+        {
+          "id": "t1_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Previously, only executives gave reports. This year, you'll present Lantern.",
+          "zh": "以前只有高階主管上台報告。今年由你來報告 Lantern。"
+        },
+        {
+          "id": "t1_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How much time will I have for the Lantern results?",
+          "zh": "Lantern 的成果報告我大概有多少時間？",
+          "chunkId": "how_much_time_for_results"
+        },
+        {
+          "id": "t1_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "You'll have 45 minutes. Lunch is catered, so we can't run late.",
+          "zh": "你有四十五分鐘。午餐是外燴，所以時間不能拖。"
+        },
+        {
+          "id": "t1_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Mr. Hughes can't fly in from England this time, which is too bad.",
+          "zh": "Mr. Hughes 這次沒辦法從英國飛過來，真可惜。"
+        },
+        {
+          "id": "t1_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could we ask Mr. Hughes to join us by video?",
+          "zh": "我們可以請 Mr. Hughes 用視訊參加嗎？",
+          "chunkId": "ask_hughes_to_join_by_video"
+        },
+        {
+          "id": "t1_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good idea. The meeting is internal, but he's among our closest partners.",
+          "zh": "好主意。大會是公司內部的，不過他是我們最親近的夥伴之一。"
+        },
+        {
+          "id": "t1_9",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I'll ask the planning committee today.",
+          "zh": "我今天就去問籌備小組。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "準備成果報告",
+      "backdrop": "director",
+      "newChunkIds": ["show_how_sales_grew", "should_i_mention_the_delay"],
+      "newWordIds": [
+        "development",
+        "field",
+        "performance",
+        "largely",
+        "increasingly",
+        "impact",
+        "phase",
+        "core",
+        "rapidly",
+        "versus",
+        "steadily"
+      ],
+      "fills": [
+        {
+          "id": "performance_fill",
+          "en": "Lantern's sales ___ this year was better than we expected.",
+          "zh": "Lantern 今年的業績比我們預期的好。",
+          "options": ["performance", "committee", "associate", "field"],
+          "answer": 0,
+          "note": "業績、表現是 performance。"
+        },
+        {
+          "id": "will_be_sent_fill",
+          "en": "The final numbers will ___ sent to you on Friday.",
+          "zh": "最終的數字會在星期五寄給你。",
+          "options": ["be", "been", "being", "are"],
+          "answer": 0,
+          "note": "will 後面接 be + 過去分詞，是被動。",
+          "grammar": true
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "How's your report for the annual meeting coming along?",
+          "zh": "你年度大會的報告準備得怎麼樣了？"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I want to show how sales grew month by month.",
+          "zh": "我想呈現業績每個月是怎麼成長的。",
+          "chunkId": "show_how_sales_grew"
+        },
+        {
+          "id": "t2_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. Sales grew steadily in the first phase, then rapidly after July.",
+          "zh": "很好。第一個階段是穩定成長，七月之後就成長得很快。"
+        },
+        {
+          "id": "t2_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Show Lantern versus our older lamps, too. That's the real impact.",
+          "zh": "也把 Lantern 和我們的舊款燈放在一起比。那才看得出真正的影響。"
+        },
+        {
+          "id": "t2_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you think I should mention the delay in June?",
+          "zh": "您覺得六月延誤的事我要不要提？",
+          "chunkId": "should_i_mention_the_delay"
+        },
+        {
+          "id": "t2_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Yes, be honest. It was largely a factory problem, and you fixed it fast.",
+          "zh": "要，老實講。那主要是工廠的問題，而且你很快就處理好了。"
+        },
+        {
+          "id": "t2_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "People in our field increasingly care about how a company handles problems.",
+          "zh": "我們這一行的人，越來越在意一家公司怎麼處理問題。"
+        },
+        {
+          "id": "t2_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Then finish with the new models in development. That's your core message.",
+          "zh": "最後講正在開發的新款。那是你最主要想講的。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "和總經理對議程",
+      "newChunkIds": ["should_october_numbers_be_included", "however_numbers_not_ready"],
+      "newWordIds": [
+        "beyond",
+        "strategy",
+        "vision",
+        "mission",
+        "initiative",
+        "ultimately",
+        "boardroom",
+        "nationwide",
+        "outlook",
+        "timely",
+        "await"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Thanks for coming. Let's go through the agenda for the big day.",
+          "zh": "謝謝你們過來。我們來看一下大會當天的議程。"
+        },
+        {
+          "id": "t3_2",
+          "role": "director",
+          "speaker": "npc",
+          "en": "I'll open at nine with our vision, our mission and next year's strategy.",
+          "zh": "我九點開場，講公司的願景、使命和明年的策略。"
+        },
+        {
+          "id": "t3_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Then you're on at ten with Lantern. Any questions?",
+          "zh": "然後十點換你上台講 Lantern。有問題嗎？"
+        },
+        {
+          "id": "t3_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Should the October numbers be included in my slides?",
+          "zh": "十月的數字要放進我的投影片嗎？",
+          "chunkId": "should_october_numbers_be_included"
+        },
+        {
+          "id": "t3_5",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Yes, please. Timely numbers always make a good impression.",
+          "zh": "要。數字越即時，越能給人好印象。"
+        },
+        {
+          "id": "t3_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "However, the final October numbers won't be ready until Friday.",
+          "zh": "不過十月的最終數字要到星期五才會出來。",
+          "chunkId": "however_numbers_not_ready"
+        },
+        {
+          "id": "t3_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "That's fine. Put in September for now, and add October next week.",
+          "zh": "沒關係。先放九月的，下星期再把十月的加進去。"
+        },
+        {
+          "id": "t3_8",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Ultimately, people want to hear the outlook. Will Lantern go nationwide?",
+          "zh": "說到底，大家想聽的是前景。Lantern 會不會賣到全國？"
+        },
+        {
+          "id": "t3_9",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "That's our big initiative for next year, isn't it?",
+          "zh": "那就是我們明年的大計畫，不是嗎？"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀議程和總經理的信",
+      "backdrop": "director",
+      "newChunkIds": ["agenda_has_me_speaking"],
+      "newWordIds": [
+        "survive",
+        "invest",
+        "expansion",
+        "crucial",
+        "shareholder",
+        "stability",
+        "downturn",
+        "closure",
+        "uncertainty",
+        "founder",
+        "downsize",
+        "consecutive"
+      ],
+      "passages": [
+        {
+          "id": "agenda_and_letter",
+          "texts": [
+            {
+              "kind": "email",
+              "title": "Annual Meeting Agenda",
+              "lines": [
+                "Hi everyone,",
+                "Our annual meeting will be held at the Riverside Hotel on Friday, November 21.",
+                "9:00 Welcome and the year in review: Mr. Ellis",
+                "10:00 Lantern series results: our product coordinator",
+                "10:45 A video message from Mr. Hughes",
+                "12:00 Lunch (catered)",
+                "2:00 Announcements and awards",
+                "Several of our business associates and a few shareholders will join us. As stated in the invitation, the meeting is internal, so please do not share the slides outside the company.",
+                "Ms. Carter"
+              ]
+            },
+            {
+              "kind": "email",
+              "title": "A Letter from Mr. Ellis",
+              "lines": [
+                "Dear coworkers,",
+                "This year was hard for many companies in our field. Because of the downturn, some had to downsize, and several stores in town announced their closure.",
+                "Thanks to all of you, we did much more than survive. Despite the uncertainty, our sales grew for the fifth consecutive year, and the Lantern series, launched in May, was crucial to this.",
+                "Our expansion beyond the US is also going well: the London office opened in August.",
+                "Because of this stability, we will invest in two new Lantern models next year. A busy and exciting year awaits us. The details will be explained by our product coordinator at the meeting. I hope to see all of you there.",
+                "Mr. Ellis, Founder and Director"
+              ]
+            }
+          ],
+          "questions": [
+            {
+              "en": "How did this year's sales compare with past years?",
+              "zh": "今年的業績和前幾年比起來怎麼樣？",
+              "options": [
+                "They grew for the fifth year in a row.",
+                "They went down a little.",
+                "They were the same as last year."
+              ],
+              "answer": 0,
+              "needs": [1]
+            },
+            {
+              "en": "When did the London office open?",
+              "zh": "倫敦辦公室是什麼時候開的？",
+              "options": ["In May", "In August", "In November"],
+              "answer": 1,
+              "needs": [1]
+            },
+            {
+              "en": "What will the company invest in next year?",
+              "zh": "公司明年要投資什麼？",
+              "options": ["A bigger warehouse", "A new office in London", "Two new Lantern models"],
+              "answer": 2,
+              "needs": [1]
+            },
+            {
+              "en": "What time will the Lantern details be explained?",
+              "zh": "Lantern 的細節幾點會報告？",
+              "options": ["9:00", "10:00", "10:45", "2:00"],
+              "answer": 1,
+              "needs": [0, 1]
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I sent out the agenda and Mr. Ellis's letter this morning.",
+          "zh": "我今天早上把議程和 Mr. Ellis 的信寄出去了。"
+        },
+        {
+          "id": "t4_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "His letter is about this year. Many stores in town didn't survive the downturn.",
+          "zh": "他的信在講今年。鎮上很多店都沒撐過這波不景氣。"
+        },
+        {
+          "id": "t4_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "But our sales grew for the fifth consecutive year.",
+          "zh": "可是我們的業績已經連續第五年成長了。"
+        },
+        {
+          "id": "t4_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "So, did you find your name on the agenda?",
+          "zh": "那你在議程上找到自己的名字了嗎？"
+        },
+        {
+          "id": "t4_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "The agenda has me speaking right before the video from Mr. Hughes.",
+          "zh": "議程上排我在 Mr. Hughes 的影片前面上台。",
+          "chunkId": "agenda_has_me_speaking"
+        },
+        {
+          "id": "t4_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Right. It's a nice way to end the morning.",
+          "zh": "對。這樣結束上午剛剛好。"
+        },
+        {
+          "id": "t4_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "A few shareholders will be there, so be ready for questions.",
+          "zh": "會有幾位股東在場，所以要準備好回答問題。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "Jack 帶來的消息",
+      "newChunkIds": ["show_you_to_your_seat", "will_the_merger_change_anything"],
+      "newWordIds": [
+        "president",
+        "merger",
+        "acquire",
+        "corporation",
+        "numerous",
+        "transform",
+        "monthly",
+        "considerably",
+        "ownership",
+        "optimistic",
+        "fortunately"
+      ],
+      "talks": [
+        {
+          "id": "merger_talk",
+          "once": true,
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "manager",
+              "en": "So, Jack, tell us more about the merger.",
+              "zh": "那，Jack，跟我們多說一點合併的事吧。"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "supplier",
+              "en": "Sure. Since last month, we've been part of a large corporation.",
+              "zh": "好啊。從上個月起，我們就是一家大企業的一部分了。"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "supplier",
+              "en": "The new owners acquired the building next to our plant in Taoyuan.",
+              "zh": "新老闆把我們桃園工廠隔壁那棟廠房買下來了。"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "guide",
+              "en": "Really? What are they doing with it?",
+              "zh": "真的嗎？他們要拿那棟來做什麼？"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "supplier",
+              "en": "They're filling it with numerous new machines.",
+              "zh": "他們要在裡面放很多新機器。"
+            },
+            {
+              "id": "t5_talk_6",
+              "role": "supplier",
+              "en": "So our monthly output will go up considerably.",
+              "zh": "所以我們每個月的產量會大幅增加。"
+            },
+            {
+              "id": "t5_talk_7",
+              "role": "manager",
+              "en": "Will that change your prices?",
+              "zh": "那價格會變嗎？"
+            },
+            {
+              "id": "t5_talk_8",
+              "role": "supplier",
+              "en": "Fortunately, no. Prices and delivery times stay the same.",
+              "zh": "幸好不會。價格和交期都一樣。"
+            },
+            {
+              "id": "t5_talk_9",
+              "role": "guide",
+              "en": "That's good news for Lantern.",
+              "zh": "這對 Lantern 來說是好消息。"
+            },
+            {
+              "id": "t5_talk_10",
+              "role": "supplier",
+              "en": "I'm very optimistic. This merger will transform the company.",
+              "zh": "我非常樂觀。這次合併會讓公司徹底改頭換面。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "What happened to Brightway last month?",
+              "zh": "Brightway 上個月發生了什麼事？",
+              "options": [
+                "It became part of a large corporation.",
+                "It opened a store in London.",
+                "It closed its plant in Taoyuan."
+              ],
+              "answer": 0
+            },
+            {
+              "en": "What will happen to Brightway's monthly output?",
+              "zh": "Brightway 每個月的產量會怎樣？",
+              "options": [
+                "It will stay the same.",
+                "It will go up a lot.",
+                "It will go down a little."
+              ],
+              "answer": 1
+            },
+            {
+              "en": "What does Jack say will not change?",
+              "zh": "Jack 說什麼不會改變？",
+              "options": [
+                "The number of machines",
+                "The plant in Taoyuan",
+                "Prices and delivery times"
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Jack! Thanks for coming all this way.",
+          "zh": "Jack！謝謝你特地跑這一趟。"
+        },
+        {
+          "id": "t5_2",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "I wouldn't miss it. And I've got some big news.",
+          "zh": "我怎麼可能錯過。而且我還帶了個大消息。"
+        },
+        {
+          "id": "t5_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let me show you to your seat before we get started.",
+          "zh": "開始前我先帶您到座位上。",
+          "chunkId": "show_you_to_your_seat"
+        },
+        {
+          "id": "t5_4",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Thanks. So, Brightway went through a merger last month.",
+          "zh": "謝謝。是這樣的，Brightway 上個月合併了。"
+        },
+        {
+          "id": "t5_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "That's big news! So there's a new president?",
+          "zh": "這真的是大消息！所以換了新的總裁？"
+        },
+        {
+          "id": "t5_6",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Yes. New ownership, new president. It's a lot of change.",
+          "zh": "對。新的老闆，新的總裁。變動很大。"
+        },
+        {
+          "id": "t5_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "So will the merger change anything for our Lantern orders?",
+          "zh": "所以合併之後，我們 Lantern 的訂單會有什麼改變嗎？",
+          "chunkId": "will_the_merger_change_anything"
+        },
+        {
+          "id": "t5_8",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Fortunately, no. Same prices, same delivery times.",
+          "zh": "幸好不會。價格一樣，交期也一樣。"
+        },
+        {
+          "id": "t5_9",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "That's a relief. Now, coffee's at the back, Jack. Help yourself.",
+          "zh": "那就放心了。對了，咖啡在後面，Jack，自己來喔。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "報告 Lantern 成果",
+      "backdrop": "main",
+      "newChunkIds": ["despite_the_delay_we_hit", "if_we_had_one_more_designer"],
+      "newWordIds": [
+        "though",
+        "hit",
+        "extent",
+        "principal",
+        "massive",
+        "mature",
+        "boost",
+        "dramatically",
+        "surprisingly",
+        "disrupt",
+        "strategic",
+        "evident"
+      ],
+      "cloze": [
+        {
+          "lineId": "t6_2",
+          "word": "disrupt",
+          "distractors": ["acquire", "invest"]
+        },
+        {
+          "lineId": "t6_5",
+          "word": "massive",
+          "distractors": ["corporate", "consecutive"]
+        },
+        {
+          "lineId": "t6_7",
+          "word": "evident",
+          "distractors": ["internal", "annual"]
+        }
+      ],
+      "textFills": [
+        {
+          "id": "lantern_results_email",
+          "kind": "email",
+          "title": "Great job this morning",
+          "lines": [
+            "Hi team,",
+            "What a morning! ___ the June delay, Lantern still hit its sales target.",
+            "Demand was ___ , and stores are still asking for more lamps.",
+            "Next year, we want to bring out two new models. ___",
+            "Ms. Carter"
+          ],
+          "zh": [
+            "大家好：",
+            "今天上午真精彩！雖然六月出貨延誤，Lantern 還是達成了業績目標。",
+            "需求量非常大，店家現在還一直要更多的燈。",
+            "明年我們想推出兩款新燈。如果我們再多一位設計師，就能更快推出了。",
+            "Ms. Carter"
+          ],
+          "blanks": [
+            {
+              "options": ["Despite", "Although", "Because", "Unless"],
+              "answer": 0,
+              "note": "後面只有名詞，要用 despite。"
+            },
+            {
+              "options": ["massive", "mature", "strategic", "principal"],
+              "answer": 0,
+              "note": "店家還一直要更多，表示需求量非常大。"
+            },
+            {
+              "options": [
+                "If we had one more designer, we'd get them out faster.",
+                "The June delay was in August.",
+                "Mr. Hughes didn't buy any lamps.",
+                "We had no sales this year."
+              ],
+              "answer": 0,
+              "note": "接著講明年的新款，只有這句說得通。"
+            }
+          ]
+        }
+      ],
+      "responds": [
+        {
+          "id": "t6_r1",
+          "prompt": {
+            "role": "supplier",
+            "en": "When will the new models be ready?",
+            "zh": "新款什麼時候會好？"
+          },
+          "responses": [
+            {
+              "en": "Probably by next summer.",
+              "zh": "大概明年夏天吧。"
+            },
+            {
+              "en": "In the boardroom upstairs.",
+              "zh": "在樓上的會議室。"
+            },
+            {
+              "en": "The old models are great.",
+              "zh": "舊款很棒。"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "t6_r2",
+          "prompt": {
+            "role": "director",
+            "en": "Did the delay hurt sales much?",
+            "zh": "延誤對業績的影響大嗎？"
+          },
+          "responses": [
+            {
+              "en": "The sales office is in London.",
+              "zh": "業務辦公室在倫敦。"
+            },
+            {
+              "en": "Not really. We still hit our target.",
+              "zh": "還好。我們還是達成了目標。"
+            },
+            {
+              "en": "It'll hurt for a week.",
+              "zh": "會痛一個星期。"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "t6_r3",
+          "prompt": {
+            "role": "director",
+            "en": "Why don't we hire one more designer?",
+            "zh": "我們何不再請一位設計師？"
+          },
+          "responses": [
+            {
+              "en": "She designed it last year.",
+              "zh": "那是她去年設計的。"
+            },
+            {
+              "en": "Because he was late.",
+              "zh": "因為他遲到了。"
+            },
+            {
+              "en": "That would really help.",
+              "zh": "那真的會很有幫助。"
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "id": "t6_r4",
+          "prompt": {
+            "role": "manager",
+            "en": "What boosted sales the most this year?",
+            "zh": "今年最能帶動業績的是什麼？"
+          },
+          "responses": [
+            {
+              "en": "Yes, it boosted them a lot.",
+              "zh": "對，它帶動了很多。"
+            },
+            {
+              "en": "The new Lantern desk lamps.",
+              "zh": "新的 Lantern 檯燈。"
+            },
+            {
+              "en": "It'll be ready next month.",
+              "zh": "下個月會好。"
+            }
+          ],
+          "answer": 1
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Great talk. I'll ask the first question.",
+          "zh": "講得很好。我先問第一個問題。"
+        },
+        {
+          "id": "t6_2",
+          "role": "director",
+          "speaker": "npc",
+          "en": "To what extent did the June delay disrupt sales?",
+          "zh": "六月的延誤對業績的影響有多大？"
+        },
+        {
+          "id": "t6_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Despite the June delay, we still hit our sales target.",
+          "zh": "雖然六月出貨延誤，我們還是達成了業績目標。",
+          "chunkId": "despite_the_delay_we_hit"
+        },
+        {
+          "id": "t6_4",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "Although the delay was our fault, your team handled it well.",
+          "zh": "雖然延誤是我們的錯，你們團隊處理得很好。"
+        },
+        {
+          "id": "t6_5",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Demand was massive, though. Can your designers keep up?",
+          "zh": "不過需求量真的很大。你們的設計師跟得上嗎？"
+        },
+        {
+          "id": "t6_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "If we had one more designer, we'd get new models out faster.",
+          "zh": "如果我們再多一位設計師，新款就能更快推出。",
+          "chunkId": "if_we_had_one_more_designer"
+        },
+        {
+          "id": "t6_7",
+          "role": "director",
+          "speaker": "npc",
+          "en": "That's evident from your slides. Let's talk about it next week.",
+          "zh": "從你的投影片就看得出來。我們下星期再談這件事。"
+        },
+        {
+          "id": "t6_8",
+          "role": "supplier",
+          "speaker": "npc",
+          "en": "And surprisingly, sales in the UK went up dramatically, too.",
+          "zh": "而且出乎意料的是，英國那邊的業績也大幅成長。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "Mr. Hughes 的影片致詞",
+      "newChunkIds": ["next_a_video_message"],
+      "newWordIds": [
+        "decade",
+        "bright",
+        "enterprise",
+        "extraordinary",
+        "venture",
+        "strengthen",
+        "ongoing",
+        "entrepreneur",
+        "fortunate",
+        "loyalty",
+        "prestigious",
+        "underway"
+      ],
+      "talks": [
+        {
+          "id": "hughes_video",
+          "kind": "monologue",
+          "once": true,
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "client",
+              "en": "My father started Hughes Home and Garden four decades ago.",
+              "zh": "我父親在四十年前創立了 Hughes Home and Garden。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "client",
+              "en": "He was a young entrepreneur with one small shop.",
+              "zh": "他那時是個年輕的創業家，只有一間小店。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "client",
+              "en": "Today, we're a family enterprise with twelve stores.",
+              "zh": "現在，我們是一家有十二間門市的家族企業。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "client",
+              "en": "For almost two years, we've been fortunate to work with Harbor Trading.",
+              "zh": "這將近兩年來，我們很幸運能和 Harbor Trading 合作。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "client",
+              "en": "This year was extraordinary. The Lantern lamps sold out twice.",
+              "zh": "今年真的很了不起。Lantern 的燈賣完了兩次。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "client",
+              "en": "Our customers' loyalty to the series surprised even me.",
+              "zh": "連我都沒想到，客人會這麼忠實地支持這個系列。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "client",
+              "en": "And I'm pleased to say the Lantern desk lamp has been chosen for a prestigious design award here in the UK.",
+              "zh": "我也很高興告訴大家，Lantern 檯燈入選了英國一個很有名望的設計獎。"
+            },
+            {
+              "id": "t7_talk_8",
+              "role": "client",
+              "en": "Our new venture with your London office is already underway.",
+              "zh": "我們和你們倫敦辦公室的新合作已經開始了。"
+            },
+            {
+              "id": "t7_talk_9",
+              "role": "client",
+              "en": "It will only strengthen our ongoing work together.",
+              "zh": "這只會讓我們持續的合作更加穩固。"
+            },
+            {
+              "id": "t7_talk_10",
+              "role": "client",
+              "en": "The future looks very bright. Thank you, everyone!",
+              "zh": "未來一片光明。謝謝大家！"
+            }
+          ],
+          "questions": [
+            {
+              "en": "How did Mr. Hughes's company start?",
+              "zh": "Mr. Hughes 的公司一開始是什麼樣子？",
+              "options": ["As one small shop", "As twelve stores", "As a lamp factory"],
+              "answer": 0
+            },
+            {
+              "en": "What happened to the Lantern desk lamp in the UK?",
+              "zh": "Lantern 檯燈在英國發生了什麼事？",
+              "options": [
+                "It sold very slowly.",
+                "It was chosen for a design award.",
+                "Its price went up twice."
+              ],
+              "answer": 1
+            },
+            {
+              "en": "How does Mr. Hughes feel about the future?",
+              "zh": "Mr. Hughes 怎麼看未來？",
+              "options": [
+                "He is worried about it.",
+                "He thinks it looks very bright.",
+                "He wants to close some stores."
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Next, we have a short video message from Mr. Hughes in England.",
+          "zh": "接下來是 Mr. Hughes 從英國錄的一段影片致詞。",
+          "chunkId": "next_a_video_message"
+        },
+        {
+          "id": "t7_2",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Hello, everyone! I'm sorry I can't be there with you today.",
+          "zh": "大家好！很抱歉今天不能到現場和大家一起。"
+        },
+        {
+          "id": "t7_3",
+          "role": "client",
+          "speaker": "npc",
+          "en": "It's raining here in England, of course.",
+          "zh": "英國這裡當然又在下雨。"
+        },
+        {
+          "id": "t7_4",
+          "role": "client",
+          "speaker": "npc",
+          "en": "First, I want to thank the Lantern team.",
+          "zh": "首先，我要謝謝 Lantern 團隊。"
+        },
+        {
+          "id": "t7_5",
+          "role": "client",
+          "speaker": "npc",
+          "en": "June was hard for all of us, but you never gave up.",
+          "zh": "六月對我們大家都很辛苦，可是你們從來沒有放棄。"
+        },
+        {
+          "id": "t7_6",
+          "role": "client",
+          "speaker": "npc",
+          "en": "You called me with news every single day.",
+          "zh": "你們每天都打電話告訴我最新的消息。"
+        },
+        {
+          "id": "t7_7",
+          "role": "client",
+          "speaker": "npc",
+          "en": "Now, let me tell you a little about our year.",
+          "zh": "現在，讓我跟大家說說我們這一年。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "公告與頒獎",
+      "newChunkIds": ["couldnt_have_done_it_without_team", "share_this_award_with"],
+      "newWordIds": [
+        "vote",
+        "officer",
+        "administration",
+        "association",
+        "fellow",
+        "reward",
+        "foundation",
+        "nominate",
+        "clap",
+        "charitable",
+        "tremendous",
+        "cheer"
+      ],
+      "spellWordIds": ["radio", "reporter", "memorize", "pollution", "studio"],
+      "cloze": [
+        {
+          "lineId": "t8_1",
+          "word": "votes",
+          "distractors": ["mergers", "closures"]
+        },
+        {
+          "lineId": "t8_4",
+          "word": "clap",
+          "distractors": ["invest", "survive"]
+        },
+        {
+          "lineId": "t8_5",
+          "word": "tremendous",
+          "distractors": ["internal", "consecutive"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Now, Project of the Year. Your votes are in.",
+          "zh": "接下來是年度最佳專案。大家的票都投好了。",
+          "stage": { "act": "want", "item": "vote" }
+        },
+        {
+          "id": "t8_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "The winner is... the Lantern team!",
+          "zh": "得獎的是……Lantern 團隊！"
+        },
+        {
+          "id": "t8_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I couldn't have done any of this without the whole team.",
+          "zh": "沒有整個團隊，這些我一件也做不到。",
+          "chunkId": "couldnt_have_done_it_without_team"
+        },
+        {
+          "id": "t8_4",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Listen to them clap and cheer!",
+          "zh": "你聽大家的掌聲和歡呼！"
+        },
+        {
+          "id": "t8_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "The support was tremendous. You earned this reward.",
+          "zh": "大家的支持非常多。這是你應得的獎勵。",
+          "stage": { "act": "give", "item": "reward" }
+        },
+        {
+          "id": "t8_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'd like to share this award with Leo and everyone in the warehouse.",
+          "zh": "我想把這個獎和 Leo 還有倉庫的每一位同事一起分享。",
+          "chunkId": "share_this_award_with"
+        },
+        {
+          "id": "t8_7",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Well said. One more cheer, everyone!",
+          "zh": "說得好。大家再歡呼一次！"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "So this is the hall. Let's walk through tomorrow.",
+          "zh": "這就是會議廳。我們把明天的流程走一遍。"
+        },
+        {
+          "id": "t9_2",
+          "role": "director",
+          "speaker": "npc",
+          "en": "I open at nine. Then you have the stage at ten.",
+          "zh": "我九點開場，十點換你上台。"
+        },
+        {
+          "id": "t9_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "How much time will I have for the Lantern results?",
+          "zh": "Lantern 的成果報告我大概有多少時間？",
+          "chunkId": "how_much_time_for_results"
+        },
+        {
+          "id": "t9_4",
+          "role": "director",
+          "speaker": "npc",
+          "en": "You have 45 minutes, with questions at the end.",
+          "zh": "你有四十五分鐘，最後留時間問答。"
+        },
+        {
+          "id": "t9_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "The agenda has me speaking right before the video from Mr. Hughes.",
+          "zh": "議程上排我在 Mr. Hughes 的影片前面上台。",
+          "chunkId": "agenda_has_me_speaking"
+        },
+        {
+          "id": "t9_6",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Right, so don't run late. Tell me how you'll start.",
+          "zh": "對，所以別超時。跟我說說你要怎麼開頭。"
+        },
+        {
+          "id": "t9_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I want to show how sales grew month by month.",
+          "zh": "我想呈現業績每個月是怎麼成長的。",
+          "chunkId": "show_how_sales_grew"
+        },
+        {
+          "id": "t9_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. The final October numbers came in on Friday, by the way.",
+          "zh": "很好。對了，十月的最終數字星期五出來了。"
+        },
+        {
+          "id": "t9_9",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Should the October numbers be included in my slides?",
+          "zh": "十月的數字要放進我的投影片嗎？",
+          "chunkId": "should_october_numbers_be_included"
+        },
+        {
+          "id": "t9_10",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Of course. October was your best month.",
+          "zh": "當然。十月是你們最好的一個月。"
+        },
+        {
+          "id": "t9_11",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Someone will ask about the June delay, though.",
+          "zh": "不過一定會有人問到六月延誤的事。"
+        },
+        {
+          "id": "t9_12",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Despite the June delay, we still hit our sales target.",
+          "zh": "雖然六月出貨延誤，我們還是達成了業績目標。",
+          "chunkId": "despite_the_delay_we_hit"
+        },
+        {
+          "id": "t9_13",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Perfect answer. Then the video plays. Let's hear your line.",
+          "zh": "回答得很好。接著要播影片。來聽聽你要怎麼介紹。"
+        },
+        {
+          "id": "t9_14",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Next, we have a short video message from Mr. Hughes in England.",
+          "zh": "接下來是 Mr. Hughes 從英國錄的一段影片致詞。",
+          "chunkId": "next_a_video_message"
+        },
+        {
+          "id": "t9_15",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Nice and clear. Now, let's say I'm Jack. Good morning!",
+          "zh": "清楚又好聽。現在當作我是 Jack。早安！"
+        },
+        {
+          "id": "t9_16",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let me show you to your seat before we get started.",
+          "zh": "開始前我先帶您到座位上。",
+          "chunkId": "show_you_to_your_seat"
+        },
+        {
+          "id": "t9_17",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Very good. Then at two, the announcements and awards.",
+          "zh": "很好。然後兩點是公告和頒獎。"
+        },
+        {
+          "id": "t9_18",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Luis becomes our safety officer, and we're giving to a charitable foundation.",
+          "zh": "Luis 要當我們的安全專員，還有公司要捐款給一個慈善基金會。"
+        },
+        {
+          "id": "t9_19",
+          "role": "director",
+          "speaker": "npc",
+          "en": "And your fellow employees nominated Lantern for Project of the Year.",
+          "zh": "還有，同事們把 Lantern 提名為年度最佳專案了。"
+        },
+        {
+          "id": "t9_20",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I couldn't have done any of this without the whole team.",
+          "zh": "沒有整個團隊，這些我一件也做不到。",
+          "chunkId": "couldnt_have_done_it_without_team"
+        },
+        {
+          "id": "t9_21",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Then say exactly that. See you here at eight.",
+          "zh": "那就照這樣說。明天八點這裡見。"
+        }
+      ]
+    }
+  ]
+}
