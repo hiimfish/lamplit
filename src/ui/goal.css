@@ -61,6 +61,7 @@
 }
 
 :root[data-orientation='landscape'] .goal-row {
+  row-gap: 0;
   min-height: 0;
   padding-top: var(--px);
   padding-bottom: var(--px);

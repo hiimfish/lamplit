@@ -4,6 +4,7 @@ import { playMusic } from '../audio/music';
 import { playSfx } from '../audio/sfx';
 import { appStore, commitSave, currentNow } from '../core/appState';
 import { dailyFor, type Route } from '../core/save';
+import { devUnlockAll, settingsStore } from '../core/settings';
 import { useStore } from '../core/store';
 import { buildDailyReview } from '../learning/sessionPlan';
 import {
@@ -18,6 +19,7 @@ import {
 } from '../learning/sprint';
 import './flow.css';
 import './goal.css';
+import { nextStop, openUnits } from '../learning/townPlan';
 import { useKeys } from './keys';
 import { KeyCap } from './KeyCap';
 import { TOWN } from './TownScreen';
@@ -71,7 +73,8 @@ function GoalRow({
 
 /** 每日目標: the route (一般／衝刺) and today's blocks, each with the key that starts it. */
 export function GoalScreen() {
-  const { save } = useStore(appStore);
+  const { save, activeTask } = useStore(appStore);
+  const openAll = devUnlockAll(useStore(settingsStore));
   useEffect(() => playMusic('town'), []);
   const toTown = () => appStore.set({ screen: 'town' });
   useKeys({ Enter: toTown });
@@ -81,6 +84,18 @@ export function GoalScreen() {
   const due = buildDailyReview(save, now, reviewLimit(save.route)).length;
   const plan = sprintPlan(TOWN, save, now, due);
   const week = sprintWeek(save.route, now);
+  // The story task 下一關 would open: the next new task among the open acts.
+  const stop = nextStop(save, openUnits(TOWN, save, openAll), activeTask?.unitId);
+  const stopTask = stop?.unit.tasks[stop.index];
+  const playStory = () => {
+    if (!stop || !stopTask) return;
+    playSfx('click');
+    appStore.set({
+      screen: 'task',
+      activeTask: { unitId: stop.unit.id, taskId: stopTask.id },
+      result: undefined,
+    });
+  };
   const go = (screen: 'sprint' | 'review') => {
     playSfx('click');
     appStore.set({ screen, result: undefined });
@@ -130,7 +145,7 @@ export function GoalScreen() {
           {save.route.kind === 'sprint' && save.route.start
             ? week > SPRINT_WEEKS
               ? `衝刺的 ${SPRINT_WEEKS} 週已經過了（${save.route.start} 開始），可以繼續或改回一般。`
-              : `衝刺第 ${week}／${SPRINT_WEEKS} 週，預計 ${sprintEndDate(save.route.start)} 結束，每天 4～6 小時。`
+              : `衝刺第 ${week}／${SPRINT_WEEKS} 週，預計 ${sprintEndDate(save.route.start)} 結束。`
             : '照自己的步調玩，每天一點點。'}
         </p>
 
@@ -139,8 +154,20 @@ export function GoalScreen() {
             name="劇情任務"
             done={daily.tasksDone}
             total={taskGoal(save.route)}
+            note={
+              stop && stopTask ? `下一關：${stop.unit.title}・${stopTask.title}` : '劇情都玩過了。'
+            }
             testId="goal-tasks"
-          />
+          >
+            <button
+              class="pixel-button primary"
+              disabled={!stopTask}
+              onClick={playStory}
+              data-testid="goal-story"
+            >
+              {Object.keys(save.tasks).length > 0 ? '下一關' : '開始第一關'}
+            </button>
+          </GoalRow>
           <GoalRow
             name="單字快練"
             done={plan.today}
