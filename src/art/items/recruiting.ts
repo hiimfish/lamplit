@@ -1,4 +1,298 @@
+/** Item icons for the recruiting unit (the interview room). */
 import type { PixelSprite } from '../../game/sprites';
+import { withShadow } from './draw';
 
-/** Word pictures of the interview room (none drawn yet). */
-export const RECRUITING_ITEMS: Readonly<Record<string, PixelSprite>> = {};
+// Legend keys are shared by every icon below: i ink, S slate, s stone, c concrete,
+// f fog, w paper, n night, h honey, a amber, e ember, r red, m maroon, y cyan,
+// t teal, d denim, k sky, l leaf, M moss, x skin, T tan, I indigo, N neon, z shadow.
+
+// ---------------------------------------------------------------------------
+// Submission: a blue in-tray with sheets in it and a red arrow pointing down into it.
+const SUBMISSION: PixelSprite = {
+  rows: withShadow(
+    [
+      '........................',
+      '.........Nrrrm..........',
+      '.........Nrrrm..........',
+      '.........Nrrrm..........',
+      '.........Nrrrm..........',
+      '.........Nrrrm..........',
+      '......NNNNrrrmmmm.......',
+      '.......Nrrrrrrrm........',
+      '........Nrrrrrm.........',
+      '.....wwwwNrrrmwwww......',
+      '.....wffffNrmfffff......',
+      '..kkkwwwwwwmwwwwwfkkk...',
+      '.kIIIwfffffffffffIIIIk..',
+      'kddddddddddddddddddddId.',
+      'kddddddddddddddddddddId.',
+      'kkddddddIIIIIIIddddddId.',
+      'kkddddddIdddddIddddddId.',
+      'kddddddddddddddddddddId.',
+      'kddddddddddddddddddddId.',
+      'kddddddddddddddddddddId.',
+      'IIIIIIIIIIIIIIIIIIIIIII.',
+      '........................',
+      '........................',
+      '........................',
+    ],
+    { cx: 11.5, cy: 21, rx: 11.5, ry: 1.4, key: 'z' },
+  ),
+  legend: {
+    f: 'fog',
+    w: 'paper',
+    r: 'red',
+    m: 'maroon',
+    d: 'denim',
+    k: 'sky',
+    I: 'indigo',
+    N: 'neon',
+    z: 'fog',
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Applicant: a person raising one hand, holding a resume sheet in the other.
+const APPLICANT: PixelSprite = {
+  rows: withShadow(
+    [
+      '........................',
+      '....x.x.................',
+      '...xxxxx................',
+      '...xxxxx................',
+      '...xxxxT.....nnnn.......',
+      '....xxT.....nnnnnn......',
+      '....ttT....nnnnnnnn.....',
+      '....tty....nnxxxxxn.....',
+      '....tty....nxixxixT.....',
+      '.....tty...nxxxxxxT.....',
+      '.....tty....xxeexT......',
+      '......tty....xxTT.......',
+      '......ttyyyywwwwyyy.....',
+      '.......ttttttwwtttty....',
+      '........ttttttttttttt...',
+      '........tttttwwwwwwwf...',
+      '........ttttxwSSSSwf....',
+      '........ttttxwwwwwwf....',
+      '........tttttwSSSwwf....',
+      '........tttttwwwwwwf....',
+      '........ttttttffffff....',
+      '........ttttttttttMM....',
+      '........................',
+      '........................',
+    ],
+    { cx: 13, cy: 22, rx: 8, ry: 1.3, key: 'z' },
+  ),
+  legend: {
+    i: 'ink',
+    S: 'slate',
+    f: 'fog',
+    w: 'paper',
+    n: 'night',
+    e: 'ember',
+    y: 'cyan',
+    t: 'teal',
+    M: 'moss',
+    x: 'skin',
+    T: 'tan',
+    z: 'fog',
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Scholarship: a graduation cap with a gold tassel and a gold dollar coin in front.
+const SCHOLARSHIP: PixelSprite = {
+  rows: withShadow(
+    [
+      '........................',
+      '...........S............',
+      '.........SSsSS..........',
+      '.......SSsssssSS........',
+      '.....SSsssssssssSS......',
+      '...SSnnnnnnnnnnnnnSS....',
+      'iiihhhhhhhhhhnnnnnnniii.',
+      '..hiinnnnnnnnnnnnnii....',
+      '..h..iinnnnnnnnnii......',
+      '..h...SiinnnnniinI......',
+      '..h...SnniiniinnnI......',
+      '..a...SnnnninnnnnI......',
+      '..ha..Snnnnnnnniaaa.....',
+      '..hha..Snnnnnnaaahaaa...',
+      '..hha...IIIIIaahhehhee..',
+      '..hha........ahheeehhe..',
+      '..aaa.......aahhehhhhee.',
+      '............ahhheeehhae.',
+      '............aahhhhehaee.',
+      '.............ahheeeaae..',
+      '.............aehheaaee..',
+      '..............eeeaeee...',
+      '................eee.....',
+      '........................',
+    ],
+    { cx: 12, cy: 22.6, rx: 10, ry: 1.3, key: 'z' },
+  ),
+  legend: {
+    i: 'ink',
+    S: 'slate',
+    s: 'stone',
+    n: 'night',
+    h: 'honey',
+    a: 'amber',
+    e: 'ember',
+    I: 'indigo',
+    z: 'fog',
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Panel: three interviewers seated side by side behind a long wooden desk.
+const PANEL: PixelSprite = {
+  rows: withShadow(
+    [
+      '........................',
+      '........................',
+      '..........ccc...........',
+      '.........ccccc..........',
+      '...eee...cxxxc...iii....',
+      '..eeeee..xixiT..iiiii...',
+      '..exxxe..xxxxT..ixxxi...',
+      '..xixiT...xTT...xixiT...',
+      '..xxxxT..SwwS...xxxxT...',
+      '...xTT..SSwrSSn..xTT....',
+      '..dwwd..SSSrSSn.twwt....',
+      '.ddwkddISSSrSnnttwtttM..',
+      '.dddkddISSSrSnnttttttM..',
+      '.dddkdIISSSSSnntttttMM..',
+      'hhhhhhhhhhhhhhhhhhhhhhhh',
+      'haaaawwaaaaaaaaaawwaaaae',
+      'eeeeeeeeeeeeeeeeeeeeeeee',
+      '.haaaaaaaaaaaaaaaaaaaae.',
+      '.haaaaaaaaaaaaaaaaaaaae.',
+      '.haaaaaaaaaaaaaaaaaaaae.',
+      '.haaaaaaaaaaaaaaaaaaaae.',
+      '.eeeeeeeeeeeeeeeeeeeeee.',
+      '........................',
+      '........................',
+    ],
+    { cx: 12, cy: 22, rx: 11.5, ry: 1.3, key: 'z' },
+  ),
+  legend: {
+    i: 'ink',
+    S: 'slate',
+    c: 'concrete',
+    w: 'paper',
+    n: 'night',
+    h: 'honey',
+    a: 'amber',
+    e: 'ember',
+    r: 'red',
+    t: 'teal',
+    d: 'denim',
+    k: 'sky',
+    M: 'moss',
+    x: 'skin',
+    T: 'tan',
+    I: 'indigo',
+    z: 'fog',
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Punctual: a steel stopwatch, its hand at twelve, with a green check badge.
+const PUNCTUAL: PixelSprite = {
+  rows: withShadow(
+    [
+      '........................',
+      '.........cccccc.........',
+      '.........SSSSSS.........',
+      '..........fcS...........',
+      '..........fsS....cS.....',
+      '.......ssssfssssfcS.....',
+      '......ssfffffffssSS.....',
+      '.....sfffwwwwwffcS......',
+      '....sffwwwwiwwwwccS.....',
+      '...ssfwwwwwrwwwwwcSS....',
+      '...sffwwwwwrwwwwwccS....',
+      '...sfwwwwwwrwwwwwwcS....',
+      '...sfwwwwwwrwwwwwwcS....',
+      '..sffwiwwwwiwwwwiwccS...',
+      '...sfwwwwwwwwwwwlllS....',
+      '...sfwwwwwwwwwwlllll....',
+      '...sffwwwwwwwwlllllwM...',
+      '...ssfwwwwwwwlllllwllM..',
+      '....sccwwwwiwllwlwwllM..',
+      '.....ScccwwwflllwwlllM..',
+      '......SScccccclllwllM...',
+      '.......SSSScSSSMlllM....',
+      '...........S....MMM.....',
+      '........................',
+    ],
+    { cx: 12, cy: 22.6, rx: 9.5, ry: 1.3, key: 'z' },
+  ),
+  legend: {
+    i: 'ink',
+    S: 'slate',
+    s: 'stone',
+    c: 'concrete',
+    f: 'fog',
+    w: 'paper',
+    r: 'red',
+    l: 'leaf',
+    M: 'moss',
+    z: 'fog',
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Probation: a wooden hourglass, sand running from the top bulb into the bottom.
+const PROBATION: PixelSprite = {
+  rows: withShadow(
+    [
+      '........................',
+      '........................',
+      '....aaaaaaaaaaaaaaaa....',
+      '....ahhhhhhhhhhhhhhe....',
+      '....eeeeeeeeeeeeeeee....',
+      '.....hdwwkkkkkkkkIe.....',
+      '.....hdwkkkkkkkkkIe.....',
+      '.....h.dwhhhhhhhI.e.....',
+      '.....h.dhhhhhhhaI.e.....',
+      '.....h..dhhhhhaI..e.....',
+      '.....h...dhhhaI...e.....',
+      '.....h....dhaI....e.....',
+      '.....h....dhkI....e.....',
+      '.....h...dkhkkI...e.....',
+      '.....h..dkkhkkkI..e.....',
+      '.....h.dkkkhkkkkI.e.....',
+      '.....h.dkkhhhhkkI.e.....',
+      '.....hdkhhhhhhhaaIe.....',
+      '.....hdhhhhhhhhaaIe.....',
+      '....aaaaaaaaaaaaaaaa....',
+      '....ahhhhhhhhhhhhhhe....',
+      '....eeeeeeeeeeeeeeee....',
+      '........................',
+      '........................',
+    ],
+    { cx: 12, cy: 22, rx: 10, ry: 1.4, key: 'z' },
+  ),
+  legend: {
+    w: 'paper',
+    h: 'honey',
+    a: 'amber',
+    e: 'ember',
+    d: 'denim',
+    k: 'sky',
+    I: 'indigo',
+    z: 'fog',
+  },
+};
+
+/** Word pictures of the interview room. */
+export const RECRUITING_ITEMS: Readonly<Record<string, PixelSprite>> = {
+  submission: SUBMISSION,
+  applicant: APPLICANT,
+  scholarship: SCHOLARSHIP,
+  panel: PANEL,
+  punctual: PUNCTUAL,
+  probation: PROBATION,
+};
