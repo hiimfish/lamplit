@@ -8,7 +8,8 @@
  *
  * Height on a phone held upright (about 270 x 580 logical px): prompt 14, 全部再聽 26, the
  * box 4 rows of the tap height (44 CSS px) plus gaps and padding, the status line 14: well
- * under half the screen.
+ * under half the screen. Held sideways a logical px is smaller, so the 44 px floor makes each
+ * row taller than planned; the prompt and 全部再聽 then share one line to win that back.
  */
 .rs-stage {
   display: flex;
@@ -164,4 +165,23 @@
 :root[data-orientation='landscape'] .rs-stage {
   gap: calc(3 * var(--px));
   padding: calc(3 * var(--px)) calc(5 * var(--px));
+}
+
+/* Sideways: 聽問句選回應 on the left and 全部再聽 on the right of one line; the rest spans it. */
+:root[data-orientation='landscape'] .mg.respond {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+:root[data-orientation='landscape'] .mg.respond > * {
+  grid-column: 1 / -1;
+}
+
+:root[data-orientation='landscape'] .mg.respond > .mg-prompt {
+  grid-column: 1;
+}
+
+:root[data-orientation='landscape'] .mg.respond > .mg-row {
+  grid-column: 2;
 }
