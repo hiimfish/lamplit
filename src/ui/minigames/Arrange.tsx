@@ -25,7 +25,24 @@ import type { MinigameProps } from './shared';
  * row by row (1 2 3 4, Q W E R, A S D F, Z X C V). A block keeps its key while others are
  * placed. Lines have at most 14 blocks; a 17th block would have no key (tap only).
  */
-export const BLOCK_KEYS = ['1', '2', '3', '4', 'q', 'w', 'e', 'r', 'a', 's', 'd', 'f', 'z', 'x', 'c', 'v'];
+export const BLOCK_KEYS = [
+  '1',
+  '2',
+  '3',
+  '4',
+  'q',
+  'w',
+  'e',
+  'r',
+  'a',
+  's',
+  'd',
+  'f',
+  'z',
+  'x',
+  'c',
+  'v',
+];
 
 /**
  * The clip of the line an arrange question just played on 檢查. A 跟我說 step for the same
