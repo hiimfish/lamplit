@@ -1,6 +1,6 @@
 /**
  * What the town (home) screen shows: the acts with their locations, how far
- * each location is, and which task 繼續 opens. Pure, so it can be tested
+ * each location is, and which task 下一關 opens. Pure, so it can be tested
  * without a browser.
  */
 import type { Act } from '../content/acts';
@@ -98,7 +98,7 @@ export function firstNewTask(save: SaveData, unit: UnitLike): number {
 }
 
 /**
- * Where 繼續 goes among `units` (in play order): the next new task of the
+ * Where 下一關 goes among `units` (in play order): the next new task of the
  * location played last (`lastUnitId`) while it still has one, otherwise the
  * first new task in play order. Undefined when every task has been played.
  * A unit's first new task is always unlocked (see isTaskUnlocked).

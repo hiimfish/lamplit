@@ -104,7 +104,7 @@
 }
 
 /*
- * 今日複習 and 繼續 side by side (or 回第一幕 alone): big keys for the thumb.
+ * 今日複習 and 下一關 side by side (or 回第一幕 alone): big keys for the thumb.
  * They sit in the card on both layouts (the right column in landscape).
  */
 .town-actions {
@@ -171,7 +171,7 @@
   text-align: left;
 }
 
-/* The location 繼續 opens. */
+/* The location 下一關 opens. */
 .pixel-button.place-tile.next {
   background: var(--lamp-tint);
 }
@@ -230,6 +230,40 @@
   display: flex;
   flex-direction: column;
   gap: calc(3 * var(--px));
+}
+
+/*
+ * Landscape (a computer, clicked with a mouse): slimmer keys and tiles and
+ * tighter gaps, so the twelve locations of an act (with 今日複習 and 下一關) and
+ * 回第N幕 with nine tasks fit the right column without scrolling.
+ */
+:root[data-orientation='landscape'] .flow-card:has(.place-grid),
+:root[data-orientation='landscape'] .flow-card:has(.task-list) {
+  gap: calc(3 * var(--px));
+  padding-top: calc(3 * var(--px));
+  padding-bottom: calc(3 * var(--px));
+}
+
+:root[data-orientation='landscape'] .place-grid {
+  row-gap: var(--px);
+}
+
+:root[data-orientation='landscape'] .task-list {
+  gap: calc(2 * var(--px));
+}
+
+:root[data-orientation='landscape'] .pixel-button.act-tab,
+:root[data-orientation='landscape'] .town-actions .pixel-button,
+:root[data-orientation='landscape'] .pixel-button.task-row {
+  min-height: calc(18 * var(--px));
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+:root[data-orientation='landscape'] .pixel-button.place-tile {
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: calc(12 * var(--px));
 }
 
 /*

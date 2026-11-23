@@ -34,7 +34,7 @@ src/
                     PictureChoose（看圖選句）、Fill（句子填空）、ReadPassage（讀短文）、Talk（聽對話答題）、
                     Speak、QuestionView，共用的小元件（shared），以及錄音和辨識的 hook
   learning/         出題（questionGen）、題目的型別和 NO_ITEM（questions）、批改、錯誤提示、FSRS 排程、
-                    練習與複習的規則（sessionPlan）、小鎮畫面的進度和「繼續」要去哪一關（townPlan）
+                    練習與複習的規則（sessionPlan）、小鎮畫面的進度和「下一關」要去哪一關（townPlan）
   learning/gen/     句子填空、讀短文、聽對話答題各自的出題檔（fills、passages、talks），加上共用的亂數和打亂選項（common）
   content/          單元型別、載入、內容檢查、音檔項目、角色的中文名稱（roles）、
                     單元順序（unitOrder）、四幕和各幕的地點（acts）、用字分析和平滑度規則（vocab）

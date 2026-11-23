@@ -240,12 +240,12 @@ export function TownScreen() {
   const dueCount = buildDailyReview(save, now).length;
   const streak = currentStreak(save, now);
 
-  // What 繼續 opens: the next new task of this act (the name plate names it).
+  // What 下一關 opens: the next new task of this act (the name plate names it).
   const stop = nextStop(save, units, lastUnitId);
   const stopTask = stop?.unit.tasks[stop.index];
   const next = stop && stopTask ? { unit: stop.unit, task: stopTask } : undefined;
 
-  // The scene: the open location, else the one 繼續 leads to, else the act's last one.
+  // The scene: the open location, else the one 下一關 leads to, else the act's last one.
   const sceneUnit = place ?? next?.unit ?? units.at(-1);
   const sceneTask =
     sceneUnit &&
@@ -288,7 +288,7 @@ export function TownScreen() {
         onClick={() => next && startTask(next.unit.id, next.task.id)}
         data-testid="continue"
       >
-        {Object.keys(save.tasks).length > 0 ? '繼續' : '開始'}
+        {Object.keys(save.tasks).length > 0 ? '下一關' : '開始第一關'}
       </button>
     </div>
   );
