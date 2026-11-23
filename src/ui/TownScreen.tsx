@@ -22,6 +22,7 @@ import {
 } from '../learning/townPlan';
 import './flow.css';
 import { useRefocus } from './focus';
+import { useKeys } from './keys';
 import { SettingsPanel } from './SettingsPanel';
 import { SceneStage } from './stage/SceneStage';
 import { stageArea } from './stage/stageArea';
@@ -234,6 +235,15 @@ export function TownScreen() {
     return () => frame.style.removeProperty('--stage-w');
   }, [frame, landscape, area.w]);
 
+  // Enter starts 下一關 (開始第一關) from the act view, unless another key has focus. The
+  // handler is set further down, once 下一關 is known (hooks stay above the early return).
+  const enterRef = useRef<(() => void) | undefined>(undefined);
+  useKeys({
+    get Enter() {
+      return enterRef.current;
+    },
+  });
+
   if (!act) return null;
 
   const now = currentNow();
@@ -264,6 +274,21 @@ export function TownScreen() {
   const startReview = () => {
     playSfx('click');
     appStore.set({ screen: 'review', result: undefined });
+  };
+
+  enterRef.current =
+    !place && !settingsOpen && next ? () => startTask(next.unit.id, next.task.id) : undefined;
+  // The act tabs are one radio group: ←/→ (or ↑/↓) move the choice and the focus.
+  const onActKey = (e: KeyboardEvent) => {
+    const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+    if (!step) return;
+    e.preventDefault();
+    const to = (actIndex + step + TOWN.length) % TOWN.length;
+    show(to);
+    const group = e.currentTarget instanceof HTMLElement ? e.currentTarget : null;
+    requestAnimationFrame(() =>
+      group?.querySelector<HTMLElement>(`[data-testid="act-${to + 1}"]`)?.focus(),
+    );
   };
 
   const actions = place ? (
@@ -342,13 +367,14 @@ export function TownScreen() {
           </>
         ) : (
           <>
-            <div class="act-tabs" role="radiogroup" aria-label="選一幕">
+            <div class="act-tabs" role="radiogroup" aria-label="選一幕" onKeyDown={onActKey}>
               {TOWN.map((item, index) => (
                 <button
                   key={item.no}
                   type="button"
                   role="radio"
                   aria-checked={index === actIndex}
+                  tabIndex={index === actIndex ? 0 : -1}
                   aria-label={`第${item.no}幕 ${item.title}`}
                   class={`pixel-button act-tab${actUnits(item).length > 0 ? '' : ' soon'}`}
                   onClick={() => show(index)}

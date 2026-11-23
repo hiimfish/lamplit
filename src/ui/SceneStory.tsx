@@ -2,7 +2,9 @@ import { useEffect, useState } from 'preact/hooks';
 import { playAudio, stopAudio } from '../audio/pronounce';
 import type { Task, Unit } from '../content/types';
 import { lineAudioId } from '../content/units';
+import { settingsStore } from '../core/settings';
 import { ChatLines, ZhToggle } from './ChatLines';
+import { useKeys } from './keys';
 import './flow.css';
 
 interface Props {
@@ -34,6 +36,15 @@ export function SceneStory({ unit, task, onDone, onShown }: Props) {
   useEffect(() => () => stopAudio(), []);
 
   const last = shown >= lines.length;
+  const next = () => (last ? onDone() : setShown(shown + 1));
+  // Enter or → for the next line, Space / Shift+Space to hear the newest line, 0 for 中文.
+  useKeys({
+    Enter: next,
+    ArrowRight: next,
+    Space: () => play(shown - 1, false),
+    'Shift+Space': () => play(shown - 1, true),
+    '0': () => settingsStore.set({ showZh: !settingsStore.get().showZh }),
+  });
   return (
     <div class={`story${last ? '' : ' more'}`} data-testid="story">
       <p class="flow-heading">先看看發生什麼事</p>

@@ -64,14 +64,28 @@ function VolumeSlider({
   );
 }
 function VoiceChoice({ voiceMode }: { voiceMode: VoiceMode }) {
+  // A radio group: ←/→ (or ↑/↓) move the choice and the focus.
+  const onKey = (e: KeyboardEvent) => {
+    const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+    if (!step) return;
+    e.preventDefault();
+    const at = VOICES.findIndex((v) => v.mode === voiceMode);
+    const to = (at + step + VOICES.length) % VOICES.length;
+    settingsStore.set({ voiceMode: VOICES[to]!.mode });
+    const group = e.currentTarget instanceof HTMLElement ? e.currentTarget : null;
+    requestAnimationFrame(() =>
+      group?.querySelectorAll<HTMLElement>('[role="radio"]')[to]?.focus(),
+    );
+  };
   return (
-    <div class="settings-group" role="radiogroup" aria-label="發音聲線">
+    <div class="settings-group" role="radiogroup" aria-label="發音聲線" onKeyDown={onKey}>
       {VOICES.map(({ mode, label }) => (
         <button
           key={mode}
           type="button"
           role="radio"
           aria-checked={voiceMode === mode}
+          tabIndex={voiceMode === mode ? 0 : -1}
           class={`pixel-button settings-choice${voiceMode === mode ? ' primary' : ''}`}
           onClick={() => settingsStore.set({ voiceMode: mode })}
         >
@@ -129,6 +143,37 @@ function ZhSwitch({ showZh }: { showZh: boolean }) {
   );
 }
 
+/** The keyboard scheme (src/ui/keys.ts), shown only on computers with a mouse. */
+export const KEY_LIST: [keys: string, what: string][] = [
+  ['1～9', '選答案（A～D 的題目也可以按字母）'],
+  ['Enter', '下一句、下一張、檢查、繼續、下一關'],
+  ['空白鍵', '再聽一次'],
+  ['Shift＋空白鍵', '慢速（算用了幫助）'],
+  ['0', '看中文／中文開關'],
+  ['← →', '上一張／下一張'],
+  ['打字', '排句子、拼字：打出單字'],
+  ['Backspace', '排句子：拿掉最後一個字'],
+  ['Esc', '排句子：重排；關閉設定'],
+];
+
+function KeyList() {
+  return (
+    <div class="settings-group settings-keys">
+      <p class="settings-label">鍵盤</p>
+      <dl class="settings-key-list">
+        {KEY_LIST.map(([keys, what]) => (
+          <div key={keys} class="settings-key-row">
+            <dt>
+              <kbd>{keys}</kbd>
+            </dt>
+            <dd>{what}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  );
+}
+
 /** Dev server only: open every task, to try any of them without clearing the ones before. */
 function DevSwitch({ unlockAll }: { unlockAll: boolean }) {
   return (
@@ -172,6 +217,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
       <VolumeGroup settings={settings} />
       <TestButtons />
       <ZhSwitch showZh={settings.showZh} />
+      <KeyList />
       {DEV_TOOLS && <DevSwitch unlockAll={settings.unlockAll} />}
       <button type="button" class="pixel-button settings-close" onClick={onClose}>
         關閉

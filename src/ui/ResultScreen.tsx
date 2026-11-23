@@ -1,17 +1,32 @@
 import { useEffect } from 'preact/hooks';
 import { playMusic } from '../audio/music';
 import { playSfx } from '../audio/sfx';
-import { getItem } from '../content/units';
+import { playAudio, stopAudio } from '../audio/pronounce';
+import { getItem, type ItemInfo } from '../content/units';
 import { appStore } from '../core/appState';
 import { useStore } from '../core/store';
 import { En } from './En';
 import './flow.css';
+import { clipsOf } from './IntroCards';
 import { hasItemIcon, iconIdOf, ItemIcon } from './ItemIcon';
+import { useKeys } from './keys';
 import { StarMarks } from './TownScreen';
+
+/** Says a learned item once (a pair: one side, then the other); a new tap cuts it off. */
+let hearing = 0;
+async function hearItem(item: ItemInfo): Promise<void> {
+  const mine = ++hearing;
+  for (const [audioId, text] of clipsOf(item)) {
+    if (mine !== hearing) return;
+    await playAudio(audioId, { text });
+  }
+}
 
 export function ResultScreen() {
   const { result, save } = useStore(appStore);
   useEffect(() => playMusic('town'), []);
+  useEffect(() => () => stopAudio(), []);
+  useKeys({ Enter: () => appStore.set({ screen: 'town' }) });
   if (!result) {
     return (
       <div class="flow">
@@ -64,6 +79,14 @@ export function ResultScreen() {
                     </span>
                   )}
                   <En>{item.text}</En> <span class="flow-note">{item.zh}</span>
+                  <button
+                    type="button"
+                    class="pixel-button small result-play"
+                    aria-label={`聽 ${item.text}`}
+                    onClick={() => void hearItem(item)}
+                  >
+                    ♪
+                  </button>
                 </li>
               ))}
             </ul>

@@ -615,3 +615,17 @@
 :root[data-orientation='landscape'] .practice {
   gap: calc(3 * var(--px));
 }
+
+/* Result: a small ♪ key after each learned item says it once. */
+.result-new li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  column-gap: calc(3 * var(--px));
+}
+
+.pixel-button.small.result-play {
+  min-width: calc(18 * var(--px));
+  padding: 0 calc(4 * var(--px));
+}

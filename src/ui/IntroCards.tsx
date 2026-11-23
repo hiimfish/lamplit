@@ -7,6 +7,7 @@ import { useStore } from '../core/store';
 import { hasItemIcon, iconIdOf, ItemIcon } from './ItemIcon';
 import './flow.css';
 import { useRefocus } from './focus';
+import { useKeys } from './keys';
 
 interface Props {
   task: Task;
@@ -15,6 +16,12 @@ interface Props {
 
 const play = (audioId: string, text: string, slow: boolean) =>
   void playAudio(audioId, { speed: slow ? 'slow' : 'normal', text });
+
+/** The clips a card says, in order: its word or chunk, or both sides of a pair. */
+export function clipsOf(item: ItemInfo): [audioId: string, text: string][] {
+  if (item.kind === 'pair') return (item.sides ?? []).map((side) => [side.audioId, side.en]);
+  return [[item.audioId, item.text]];
+}
 
 /** A minimal pair: both words side by side, each with its own 聽發音 / 慢速 keys. */
 function PairCard({ item, showZh }: { item: ItemInfo; showZh: boolean }) {
@@ -58,8 +65,40 @@ export function IntroCards({ task, onDone }: Props) {
   }, [item]);
   // 開始練習 or 先回小鎮 while a card is speaking: don't let it run on.
   useEffect(() => () => stopAudio(), []);
-  if (!item) return null;
+  // Each card says its word or chunk once as it appears (a pair: one side, then the other).
+  const cancel = useRef<() => void>(() => {});
+  const hear = (slow: boolean) => {
+    cancel.current();
+    if (!item) return;
+    let cancelled = false;
+    cancel.current = () => {
+      cancelled = true;
+    };
+    void (async () => {
+      for (const [audioId, text] of clipsOf(item)) {
+        if (cancelled) return;
+        await playAudio(audioId, { speed: slow ? 'slow' : 'normal', text });
+      }
+    })();
+  };
+  useEffect(() => {
+    hear(false);
+    return () => cancel.current();
+  }, [item?.itemId]);
   const last = index >= items.length - 1;
+  const next = () => (last ? onDone() : setIndex(index + 1));
+  const back = () => index > 0 && setIndex(index - 1);
+  useKeys(
+    {
+      Enter: next,
+      ArrowRight: next,
+      ArrowLeft: back,
+      Space: () => hear(false),
+      'Shift+Space': () => hear(true),
+    },
+    !!item,
+  );
+  if (!item) return null;
   const iconId = iconIdOf(item.itemId);
   const kindLabel = item.kind === 'chunk' ? '句子' : item.kind === 'pair' ? '發音' : '單字';
 
@@ -94,13 +133,13 @@ export function IntroCards({ task, onDone }: Props) {
       )}
       <div class="flow-actions">
         {index > 0 && (
-          <button class="pixel-button small" onClick={() => setIndex(index - 1)}>
+          <button class="pixel-button small" onClick={back}>
             上一張
           </button>
         )}
         <button
           class="pixel-button primary"
-          onClick={() => (last ? onDone() : setIndex(index + 1))}
+          onClick={next}
           data-testid="intro-next"
         >
           {last ? '開始練習' : '下一張'}
