@@ -1,0 +1,1540 @@
+{
+  "id": "recruiting",
+  "title": "招募新人",
+  "titleEn": "Recruiting",
+  "chunks": [
+    {
+      "id": "need_full_or_part_time",
+      "en": "Do we need someone full time, or would part time be enough?",
+      "zh": "我們要找全職的嗎？還是兼職就夠了？",
+      "note": "討論要找什麼樣的人時，先問全職還是兼職。",
+      "distractors": [
+        {
+          "text": "Do we need someone full time, or part time would be enough?",
+          "error": "word-order"
+        },
+        { "text": "Do we need someone full time, or would part time is enough?", "error": "other" },
+        {
+          "text": "Do we need someone full time, or would part time be enought?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "need_extra_pair_of_hands",
+      "en": "We really need an extra pair of hands.",
+      "zh": "我們真的需要多一個人手。",
+      "note": "工作太多、需要多一個人幫忙時說。a pair of hands 指「一個幫手」。",
+      "distractors": [
+        { "text": "We really need a extra pair of hands.", "error": "article" },
+        { "text": "We really need an extra pair of hand.", "error": "plural" },
+        { "text": "We really need an extra pair hands.", "error": "missing-word" }
+      ]
+    },
+    {
+      "id": "list_skills_job_requires",
+      "en": "Let's only list the skills the job really requires.",
+      "zh": "我們只列這份工作真正需要的技能就好。",
+      "note": "寫徵人廣告時，提醒條件不要列太多。",
+      "distractors": [
+        { "text": "Let's only list the skill the job really requires.", "error": "plural" },
+        { "text": "Let's only list the skills the job really require.", "error": "other" },
+        { "text": "Let's only list the skills the job really requieres.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "experience_matters_more_than_degree",
+      "en": "Experience matters more to me than a degree.",
+      "zh": "對我來說，經驗比學歷重要。",
+      "note": "說自己比較看重什麼。A matters more to me than B：對我來說 A 比 B 重要。",
+      "distractors": [
+        { "text": "Experience matters more to me then a degree.", "error": "spelling" },
+        { "text": "Experience matter more to me than a degree.", "error": "other" },
+        { "text": "Experience matters more to me than degree.", "error": "article" }
+      ]
+    },
+    {
+      "id": "know_how_many_applied",
+      "en": "Do you know how many people have applied so far?",
+      "zh": "你知道到目前為止有多少人應徵嗎？",
+      "note": "間接問句：Do you know 後面的問句要用直述句的順序，說 how many people have applied，不說 how many have people applied。",
+      "distractors": [
+        { "text": "Do you know how many have people applied so far?", "error": "word-order" },
+        { "text": "Do you know how much people have applied so far?", "error": "other" },
+        { "text": "Do you know how many people has applied so far?", "error": "other" }
+      ]
+    },
+    {
+      "id": "wonder_why_programmer_apply",
+      "en": "I wonder why a programmer would apply for this job.",
+      "zh": "不知道一個程式設計師為什麼會來應徵這個工作。",
+      "note": "間接問句：I wonder why 後面也用直述句的順序，說 why a programmer would apply，不說 why would a programmer apply。",
+      "distractors": [
+        { "text": "I wonder why would a programmer apply for this job.", "error": "word-order" },
+        { "text": "I wonder why programmer would apply for this job.", "error": "article" },
+        { "text": "I wonder why a programmer would applying for this job.", "error": "other" }
+      ]
+    },
+    {
+      "id": "cover_letter_well_written",
+      "en": "His cover letter is short, but it's really well written.",
+      "zh": "他的求職信很短，但寫得真的很好。",
+      "accept": ["His cover letter is short, but it is really well written."],
+      "note": "看完求職信說感想：先說短，再用 but 說優點。",
+      "distractors": [
+        { "text": "His cover letter is short, but it's really well wrote.", "error": "other" },
+        {
+          "text": "His cover letter is short, but it really well written.",
+          "error": "missing-word"
+        },
+        { "text": "His cover leter is short, but it's really well written.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "start_by_telling_about_yourself",
+      "en": "Why don't you start by telling us about yourself?",
+      "zh": "要不要先跟我們介紹一下您自己？",
+      "note": "面試開場，請應徵者先自我介紹。Why don't you…? 是客氣的提議，不是問原因。",
+      "distractors": [
+        { "text": "Why you don't start by telling us about yourself?", "error": "word-order" },
+        { "text": "Why don't you start by tell us about yourself?", "error": "other" },
+        { "text": "Why don't you start by telling us about yourslef?", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "tell_us_why_interested",
+      "en": "Could you tell us why you're interested in this job?",
+      "zh": "可以跟我們說說您為什麼對這份工作有興趣嗎？",
+      "accept": ["Could you tell us why you are interested in this job?"],
+      "note": "面試時問動機。Could you tell us 後面接 why you're interested，順序和直述句一樣。",
+      "distractors": [
+        { "text": "Could you tell us why are you interested in this job?", "error": "word-order" },
+        { "text": "Could you tell us why you're interesting in this job?", "error": "other" },
+        { "text": "Could you tell us why you're interested on this job?", "error": "other" }
+      ]
+    },
+    {
+      "id": "former_manager_said_on_time",
+      "en": "His former manager said he was always on time.",
+      "zh": "他之前的主管說他一向很準時。",
+      "accept": ["His former manager said that he was always on time."],
+      "note": "間接引述：轉述別人說過的話，動詞往前退一個時態（is 變 was）。",
+      "distractors": [
+        { "text": "His former manager say he was always on time.", "error": "other" },
+        { "text": "His former manager said he were always on time.", "error": "other" },
+        { "text": "His formar manager said he was always on time.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "told_me_not_lose_him",
+      "en": "She told me they really didn't want to lose him.",
+      "zh": "她跟我說，他們真的很捨不得他走。",
+      "accept": ["She told me that they really didn't want to lose him."],
+      "note": "間接引述：told 後面先接聽的人（me），don't 也退成 didn't。",
+      "distractors": [
+        { "text": "She said me they really didn't want to lose him.", "error": "other" },
+        { "text": "She told me they really don't wanted to lose him.", "error": "other" },
+        { "text": "She told me they really didn't want to loose him.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "agree_leo_best_fit",
+      "en": "I agree Leo is the best fit for the team.",
+      "zh": "我也覺得 Leo 是最適合我們團隊的人。",
+      "accept": ["I agree that Leo is the best fit for the team."],
+      "note": "同意對方挑的人選。the best fit：最合適的人選。",
+      "distractors": [
+        { "text": "I am agree Leo is the best fit for the team.", "error": "extra-word" },
+        { "text": "I agree Leo is best fit for the team.", "error": "article" },
+        { "text": "I agree Leo is the best fits for the team.", "error": "other" }
+      ]
+    },
+    {
+      "id": "offer_you_assistant_position",
+      "en": "We'd like to offer you the assistant position.",
+      "zh": "我們想錄取您擔任助理這個職位。",
+      "accept": ["We would like to offer you the assistant position."],
+      "note": "打電話錄取人時的說法。We'd like to 比 We want to 客氣。",
+      "distractors": [
+        { "text": "We'd like offer you the assistant position.", "error": "missing-word" },
+        { "text": "We'd like to offer you assistant position.", "error": "article" },
+        { "text": "We'd like to offer you the assistant positon.", "error": "spelling" }
+      ]
+    },
+    {
+      "id": "april_first_work_for_you",
+      "en": "Does April first work for you as a start date?",
+      "zh": "四月一號開始上班，您方便嗎？",
+      "accept": ["Does April 1 work for you as a start date?"],
+      "note": "和對方確認日期方不方便。…work for you? 是「你方便嗎？」",
+      "distractors": [
+        { "text": "Does April first works for you as a start date?", "error": "other" },
+        { "text": "Do April first work for you as a start date?", "error": "other" },
+        { "text": "Does April first work for you as start date?", "error": "article" }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "young", "en": "young", "zh": "年輕的", "emoji": "🧒", "abstract": true },
+    { "id": "expert", "en": "expert", "zh": "專家", "emoji": "🎯", "abstract": true },
+    { "id": "secretary", "en": "secretary", "zh": "秘書", "emoji": "📞", "abstract": true },
+    { "id": "talent", "en": "talent", "zh": "人才；才華", "emoji": "🌟", "abstract": true },
+    { "id": "recruit", "en": "recruit", "zh": "招募（新人）", "emoji": "📣", "abstract": true },
+    {
+      "id": "vacant",
+      "en": "vacant",
+      "zh": "（位子、職位）空著的",
+      "emoji": "⬜",
+      "abstract": true
+    },
+    { "id": "junior", "en": "junior", "zh": "資淺的；初階的", "emoji": "🔰", "abstract": true },
+    {
+      "id": "freelance",
+      "en": "freelance",
+      "zh": "接案的；自由工作的",
+      "emoji": "🏡",
+      "abstract": true
+    },
+    {
+      "id": "unreliable",
+      "en": "unreliable",
+      "zh": "靠不住的；不可靠的",
+      "emoji": "⚠️",
+      "abstract": true
+    },
+    { "id": "seek", "en": "seek", "zh": "徵求；尋找", "emoji": "🔎", "abstract": true },
+    {
+      "id": "requirement",
+      "en": "requirement",
+      "zh": "（職缺的）條件；要求",
+      "emoji": "☑️",
+      "abstract": true
+    },
+    { "id": "submission", "en": "submission", "zh": "（資料的）投遞；繳交", "emoji": "📥" },
+    { "id": "suitable", "en": "suitable", "zh": "合適的", "emoji": "👌", "abstract": true },
+    {
+      "id": "proficiency",
+      "en": "proficiency",
+      "zh": "熟練程度；能力",
+      "emoji": "📶",
+      "abstract": true
+    },
+    {
+      "id": "inappropriate",
+      "en": "inappropriate",
+      "zh": "不恰當的；不得體的",
+      "emoji": "🙅",
+      "abstract": true
+    },
+    { "id": "ideally", "en": "ideally", "zh": "最好是；理想的話", "emoji": "💭", "abstract": true },
+    { "id": "energetic", "en": "energetic", "zh": "有活力的", "emoji": "⚡", "abstract": true },
+    {
+      "id": "desirable",
+      "en": "desirable",
+      "zh": "（條件）加分的；理想的",
+      "emoji": "➕",
+      "abstract": true
+    },
+    { "id": "fluent", "en": "fluent", "zh": "流利的", "emoji": "🗣️", "abstract": true },
+    { "id": "former", "en": "former", "zh": "之前的；前任的", "emoji": "⏪", "abstract": true },
+    { "id": "applicant", "en": "applicant", "zh": "應徵者", "emoji": "🙋" },
+    { "id": "reject", "en": "reject", "zh": "不錄取；刷掉", "emoji": "❌", "abstract": true },
+    { "id": "qualify", "en": "qualify", "zh": "符合資格", "emoji": "✔️", "abstract": true },
+    {
+      "id": "profile",
+      "en": "profile",
+      "zh": "（個人）簡介；個人檔案",
+      "emoji": "👤",
+      "abstract": true
+    },
+    { "id": "cashier", "en": "cashier", "zh": "收銀員", "emoji": "💲", "abstract": true },
+    { "id": "graduation", "en": "graduation", "zh": "畢業", "emoji": "🎉", "abstract": true },
+    { "id": "programmer", "en": "programmer", "zh": "程式設計師", "emoji": "👨‍💻", "abstract": true },
+    { "id": "certification", "en": "certification", "zh": "證照", "emoji": "🏅", "abstract": true },
+    { "id": "irrelevant", "en": "irrelevant", "zh": "不相關的", "emoji": "🚮", "abstract": true },
+    { "id": "highly", "en": "highly", "zh": "非常；高度地", "emoji": "⬆️", "abstract": true },
+    { "id": "employment", "en": "employment", "zh": "工作；就業", "emoji": "💼", "abstract": true },
+    {
+      "id": "salesperson",
+      "en": "salesperson",
+      "zh": "店員；業務員",
+      "emoji": "🛍️",
+      "abstract": true
+    },
+    { "id": "specialize", "en": "specialize", "zh": "專門從事", "emoji": "🔬", "abstract": true },
+    { "id": "internship", "en": "internship", "zh": "實習", "emoji": "🌱", "abstract": true },
+    {
+      "id": "knowledgeable",
+      "en": "knowledgeable",
+      "zh": "很懂的；知識豐富的",
+      "emoji": "🧠",
+      "abstract": true
+    },
+    { "id": "possess", "en": "possess", "zh": "具備；擁有", "emoji": "🤲", "abstract": true },
+    { "id": "scholarship", "en": "scholarship", "zh": "獎學金", "emoji": "🎓" },
+    { "id": "campus", "en": "campus", "zh": "校園", "emoji": "🏫", "abstract": true },
+    { "id": "enthusiasm", "en": "enthusiasm", "zh": "熱情", "emoji": "🔥", "abstract": true },
+    { "id": "broaden", "en": "broaden", "zh": "拓展；擴大", "emoji": "↔️", "abstract": true },
+    { "id": "personality", "en": "personality", "zh": "個性", "emoji": "😊", "abstract": true },
+    { "id": "panel", "en": "panel", "zh": "（面試）小組", "emoji": "👥" },
+    {
+      "id": "prospect",
+      "en": "prospect",
+      "zh": "（發展的）機會；前景",
+      "emoji": "🔭",
+      "abstract": true
+    },
+    {
+      "id": "aggressive",
+      "en": "aggressive",
+      "zh": "（推銷）很強勢的",
+      "emoji": "😤",
+      "abstract": true
+    },
+    { "id": "curious", "en": "curious", "zh": "好奇的", "emoji": "🤔", "abstract": true },
+    {
+      "id": "informal",
+      "en": "informal",
+      "zh": "輕鬆的；非正式的",
+      "emoji": "👕",
+      "abstract": true
+    },
+    { "id": "ambitious", "en": "ambitious", "zh": "有企圖心的", "emoji": "🚀", "abstract": true },
+    { "id": "beginner", "en": "beginner", "zh": "新手；初學者", "emoji": "🐣", "abstract": true },
+    {
+      "id": "reluctant",
+      "en": "reluctant",
+      "zh": "不太情願的；捨不得的",
+      "emoji": "😕",
+      "abstract": true
+    },
+    { "id": "honestly", "en": "honestly", "zh": "老實說", "emoji": "🙂", "abstract": true },
+    { "id": "capable", "en": "capable", "zh": "能幹的；有能力的", "emoji": "💪", "abstract": true },
+    { "id": "retain", "en": "retain", "zh": "留住（員工）", "emoji": "🧲", "abstract": true },
+    {
+      "id": "specialist",
+      "en": "specialist",
+      "zh": "（某方面的）專員；行家",
+      "emoji": "🧑‍🏫",
+      "abstract": true
+    },
+    { "id": "resign", "en": "resign", "zh": "辭職", "emoji": "🚪", "abstract": true },
+    {
+      "id": "inexperience",
+      "en": "inexperience",
+      "zh": "經驗不足",
+      "emoji": "🍼",
+      "abstract": true
+    },
+    { "id": "eager", "en": "eager", "zh": "很想（做）；熱切的", "emoji": "🙌", "abstract": true },
+    { "id": "punctual", "en": "punctual", "zh": "準時的", "emoji": "⏱️" },
+    {
+      "id": "professionally",
+      "en": "professionally",
+      "zh": "專業地；在專業上",
+      "emoji": "👔",
+      "abstract": true
+    },
+    {
+      "id": "hardworking",
+      "en": "hardworking",
+      "zh": "認真的；勤奮的",
+      "emoji": "🐝",
+      "abstract": true
+    },
+    {
+      "id": "willingness",
+      "en": "willingness",
+      "zh": "意願；願意（做）",
+      "emoji": "✋",
+      "abstract": true
+    },
+    { "id": "conduct", "en": "conduct", "zh": "進行；舉行", "emoji": "▶️", "abstract": true },
+    { "id": "equal", "en": "equal", "zh": "不相上下的；相等的", "emoji": "🟰", "abstract": true },
+    { "id": "selection", "en": "selection", "zh": "甄選；挑選", "emoji": "👆", "abstract": true },
+    { "id": "criteria", "en": "criteria", "zh": "標準", "emoji": "📏", "abstract": true },
+    { "id": "personnel", "en": "personnel", "zh": "人事", "emoji": "🗂️", "abstract": true },
+    { "id": "verbal", "en": "verbal", "zh": "口頭的", "emoji": "💬", "abstract": true },
+    {
+      "id": "workforce",
+      "en": "workforce",
+      "zh": "（公司的）全體員工",
+      "emoji": "👷",
+      "abstract": true
+    },
+    { "id": "recruitment", "en": "recruitment", "zh": "招募", "emoji": "📢", "abstract": true },
+    {
+      "id": "referral",
+      "en": "referral",
+      "zh": "（熟人）推薦來的人",
+      "emoji": "🔗",
+      "abstract": true
+    },
+    {
+      "id": "placement",
+      "en": "placement",
+      "zh": "（人力）仲介；職位安排",
+      "emoji": "🧩",
+      "abstract": true
+    },
+    {
+      "id": "individually",
+      "en": "individually",
+      "zh": "個別地；一個一個",
+      "emoji": "1️⃣",
+      "abstract": true
+    },
+    { "id": "employ", "en": "employ", "zh": "僱用", "emoji": "🤝", "abstract": true },
+    { "id": "tuition", "en": "tuition", "zh": "學費", "emoji": "💵", "abstract": true },
+    {
+      "id": "acceptance",
+      "en": "acceptance",
+      "zh": "（同意）接受",
+      "emoji": "✅",
+      "abstract": true
+    },
+    { "id": "formally", "en": "formally", "zh": "正式地", "emoji": "🎩", "abstract": true },
+    { "id": "attire", "en": "attire", "zh": "服裝", "emoji": "👗", "abstract": true },
+    { "id": "expedite", "en": "expedite", "zh": "加快處理", "emoji": "⏩", "abstract": true },
+    { "id": "overpay", "en": "overpay", "zh": "（薪水）給太多", "emoji": "💸", "abstract": true },
+    { "id": "obligate", "en": "obligate", "zh": "使有義務", "emoji": "⛓️", "abstract": true },
+    {
+      "id": "permanently",
+      "en": "permanently",
+      "zh": "長期地；正式（聘用）",
+      "emoji": "♾️",
+      "abstract": true
+    },
+    { "id": "probation", "en": "probation", "zh": "試用期", "emoji": "⏳" }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "團隊需要一個助理",
+      "newChunkIds": ["need_full_or_part_time", "need_extra_pair_of_hands"],
+      "newWordIds": [
+        "young",
+        "expert",
+        "secretary",
+        "talent",
+        "recruit",
+        "vacant",
+        "junior",
+        "freelance",
+        "unreliable"
+      ],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "The desk next to yours has been vacant since January.",
+          "zh": "你旁邊那張桌子從一月就一直空著。"
+        },
+        {
+          "id": "t1_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We really need an extra pair of hands.",
+          "zh": "我們真的需要多一個人手。",
+          "chunkId": "need_extra_pair_of_hands"
+        },
+        {
+          "id": "t1_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I know. That's why I asked Ms. Reed to help us recruit someone.",
+          "zh": "我知道。所以我才請 Ms. Reed 幫我們找人。"
+        },
+        {
+          "id": "t1_4",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Happy to help. Let's start with the hours.",
+          "zh": "很樂意幫忙。我們先從上班時間開始談吧。"
+        },
+        {
+          "id": "t1_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do we need someone full time, or would part time be enough?",
+          "zh": "我們要找全職的嗎？還是兼職就夠了？",
+          "chunkId": "need_full_or_part_time"
+        },
+        {
+          "id": "t1_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Full time. The freelance people we used last year were unreliable.",
+          "zh": "全職。我們去年找的接案人員都靠不住。"
+        },
+        {
+          "id": "t1_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And junior is fine. We don't need an expert or a secretary.",
+          "zh": "資淺一點也沒關係。我們不需要專家，也不是要找秘書。"
+        },
+        {
+          "id": "t1_8",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Got it. The business college has lots of young talent.",
+          "zh": "了解。商學院有很多年輕的人才。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "寫徵人廣告",
+      "newChunkIds": ["list_skills_job_requires", "experience_matters_more_than_degree"],
+      "newWordIds": [
+        "seek",
+        "requirement",
+        "submission",
+        "suitable",
+        "proficiency",
+        "inappropriate",
+        "ideally",
+        "energetic",
+        "desirable",
+        "fluent"
+      ],
+      "fills": [
+        {
+          "id": "fluent_fill",
+          "en": "Ideally, the person is also ___ in Spanish.",
+          "zh": "最好這個人也會說流利的西班牙文。",
+          "options": ["fluent", "vacant", "junior", "unreliable"],
+          "answer": 0,
+          "note": "說語言說得好是 fluent（流利的）。"
+        },
+        {
+          "id": "although_suitable_fill",
+          "en": "___ he doesn't have a degree, he's suitable for the job.",
+          "zh": "雖然他沒有學歷，但他很適合這份工作。",
+          "options": ["Although", "However", "Because", "So"],
+          "answer": 0,
+          "note": "although 接一句話來連兩句；however 不行。",
+          "grammar": true
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Here's my draft. It starts, 'Harbor Trading is seeking an assistant.'",
+          "zh": "這是我的草稿。開頭是「Harbor Trading 徵求助理一名」。"
+        },
+        {
+          "id": "t2_2",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "But my list of requirements is pretty long.",
+          "zh": "不過我列的條件有點長。"
+        },
+        {
+          "id": "t2_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let's only list the skills the job really requires.",
+          "zh": "我們只列這份工作真正需要的技能就好。",
+          "chunkId": "list_skills_job_requires"
+        },
+        {
+          "id": "t2_4",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Fair enough. So does a college degree have to be on the list?",
+          "zh": "有道理。那大學學歷一定要列上去嗎？"
+        },
+        {
+          "id": "t2_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Experience matters more to me than a degree.",
+          "zh": "對我來說，經驗比學歷重要。",
+          "chunkId": "experience_matters_more_than_degree"
+        },
+        {
+          "id": "t2_6",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Then let's call a degree desirable, not required.",
+          "zh": "那學歷就寫成加分條件，不是必要條件。"
+        },
+        {
+          "id": "t2_7",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "I also took out the photo. Asking for one is inappropriate.",
+          "zh": "我也把照片那條拿掉了。要人附照片不太恰當。"
+        },
+        {
+          "id": "t2_8",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Submissions close on March twentieth. I'll post it today.",
+          "zh": "三月二十號截止收件。我今天就貼出去。",
+          "stage": { "act": "give", "item": "submission" }
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "看應徵資料",
+      "newChunkIds": ["know_how_many_applied", "wonder_why_programmer_apply"],
+      "newWordIds": [
+        "former",
+        "applicant",
+        "reject",
+        "qualify",
+        "profile",
+        "cashier",
+        "graduation",
+        "programmer",
+        "certification",
+        "irrelevant"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "The applications are coming in fast.",
+          "zh": "應徵資料一直進來。"
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you know how many people have applied so far?",
+          "zh": "你知道到目前為止有多少人應徵嗎？",
+          "chunkId": "know_how_many_applied"
+        },
+        {
+          "id": "t3_3",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Thirty applicants, but only six of them really qualify.",
+          "zh": "三十個應徵者，但真正符合條件的只有六個。"
+        },
+        {
+          "id": "t3_4",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "This one's a former cashier. She's friendly, but she has no office skills.",
+          "zh": "這位之前是收銀員。人很親切，但沒有辦公室的技能。"
+        },
+        {
+          "id": "t3_5",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "And this profile says he's a programmer.",
+          "zh": "還有這份簡介說他是程式設計師。"
+        },
+        {
+          "id": "t3_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I wonder why a programmer would apply for this job.",
+          "zh": "不知道一個程式設計師為什麼會來應徵這個工作。",
+          "chunkId": "wonder_why_programmer_apply"
+        },
+        {
+          "id": "t3_7",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Me too. His certifications are all irrelevant to this job.",
+          "zh": "我也是。他的證照跟這份工作都沒關係。"
+        },
+        {
+          "id": "t3_8",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "I'll reject him. And here's Leo Martin's application.",
+          "zh": "那我就不錄取他了。對了，這是 Leo Martin 的應徵資料。",
+          "stage": { "act": "give", "item": "applicant" }
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀求職信",
+      "newChunkIds": ["cover_letter_well_written"],
+      "newWordIds": [
+        "highly",
+        "employment",
+        "salesperson",
+        "specialize",
+        "internship",
+        "knowledgeable",
+        "possess",
+        "scholarship",
+        "campus",
+        "enthusiasm",
+        "broaden"
+      ],
+      "passages": [
+        {
+          "id": "leo_cover_letter",
+          "kind": "email",
+          "title": "Application for the assistant position",
+          "lines": [
+            "Dear Ms. Reed,",
+            "I am writing about the assistant position you are seeking to fill at Harbor Trading.",
+            "I studied business in college on a scholarship. While I was on campus, I did an internship at a small design company.",
+            "After graduation, I worked for two years as a salesperson at Bright Corner, a store that specializes in lighting. I became very knowledgeable about desk lamps, and I learned how to help all kinds of customers.",
+            "I am highly organized, and I possess the computer proficiency the job requires, although I am still learning some office software.",
+            "I am now seeking employment in an office, where I can work full time and broaden my experience. I would bring real enthusiasm to your team.",
+            "My resume is attached. I can start on April 1.",
+            "I would be happy to talk with you about the job at any time.",
+            "Thank you for your time.",
+            "Sincerely, Leo Martin"
+          ],
+          "questions": [
+            {
+              "en": "What did Leo do for the last two years?",
+              "zh": "Leo 過去兩年在做什麼工作？",
+              "options": [
+                "He worked at a design company.",
+                "He sold lamps in a store.",
+                "He studied business."
+              ],
+              "answer": 1
+            },
+            {
+              "en": "What is he still learning?",
+              "zh": "他說自己哪方面還在學？",
+              "options": ["How to help customers", "Some office software", "About desk lamps"],
+              "answer": 1
+            },
+            {
+              "en": "When can he start?",
+              "zh": "他最快什麼時候可以上班？",
+              "options": ["On April 1", "On March 20", "In May"],
+              "answer": 0
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Did you read Leo Martin's cover letter? It came with his resume.",
+          "zh": "你看了 Leo Martin 的求職信嗎？是跟履歷一起寄來的。"
+        },
+        {
+          "id": "t4_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "His cover letter is short, but it's really well written.",
+          "zh": "他的求職信很短，但寫得真的很好。",
+          "chunkId": "cover_letter_well_written"
+        },
+        {
+          "id": "t4_3",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Agreed. He was a salesperson at a lamp store for two years.",
+          "zh": "同意。他在一家燈具店當了兩年店員。"
+        },
+        {
+          "id": "t4_4",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "The store specializes in lighting, so he's very knowledgeable about lamps.",
+          "zh": "那家店專賣燈具，所以他對燈很懂。"
+        },
+        {
+          "id": "t4_5",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "He studied business on a scholarship, too.",
+          "zh": "他念商科，而且是拿獎學金念的。",
+          "stage": { "act": "want", "item": "scholarship" }
+        },
+        {
+          "id": "t4_6",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "And you can really feel his enthusiasm. I'd like to meet him.",
+          "zh": "而且看得出他真的很有熱情。我想見見他。"
+        },
+        {
+          "id": "t4_7",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "I'll ask Ms. Carter about an interview this week.",
+          "zh": "我來問 Ms. Carter 這週能不能面試他。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "三人面試",
+      "backdrop": "new_hire",
+      "newChunkIds": ["start_by_telling_about_yourself", "tell_us_why_interested"],
+      "newWordIds": [
+        "personality",
+        "panel",
+        "prospect",
+        "aggressive",
+        "curious",
+        "informal",
+        "ambitious",
+        "beginner",
+        "reluctant",
+        "honestly"
+      ],
+      "talks": [
+        {
+          "id": "panel_interview",
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "manager",
+              "en": "You sold a lot of lamps at Bright Corner, Leo. Are you a strong salesperson?",
+              "zh": "Leo，你在 Bright Corner 賣了很多燈。你很會推銷嗎？"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "new_hire",
+              "en": "I'm not an aggressive salesperson. I listen to the customer first.",
+              "zh": "我不是很強勢的推銷員。我會先聽客人怎麼說。"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "guide",
+              "en": "And why do you want to leave the store?",
+              "zh": "那你為什麼想離開那家店？"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "new_hire",
+              "en": "I want to learn office work. There aren't many prospects at a small store.",
+              "zh": "我想學辦公室的工作。在小店裡沒什麼往上發展的機會。"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "manager",
+              "en": "How are you with spreadsheets?",
+              "zh": "那你試算表用得怎麼樣？"
+            },
+            {
+              "id": "t5_talk_6",
+              "role": "new_hire",
+              "en": "Honestly, I'm a beginner with spreadsheets. But I learn fast.",
+              "zh": "老實說，我的試算表還是新手程度。不過我學得很快。"
+            },
+            {
+              "id": "t5_talk_7",
+              "role": "guide",
+              "en": "That's fine. We can teach you.",
+              "zh": "沒關係，我們可以教你。"
+            },
+            {
+              "id": "t5_talk_8",
+              "role": "manager",
+              "en": "Is it hard to leave your customers?",
+              "zh": "要離開你的客人會很難嗎？"
+            },
+            {
+              "id": "t5_talk_9",
+              "role": "new_hire",
+              "en": "A little. Some of them have come in for years, so I'm a bit reluctant.",
+              "zh": "有一點。有些客人來了好幾年，所以我有點捨不得。"
+            },
+            {
+              "id": "t5_talk_10",
+              "role": "manager",
+              "en": "Thank you, Leo. We'll call you by Friday.",
+              "zh": "謝謝你，Leo。我們星期五前會打給你。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "Who is interviewing Leo?",
+              "zh": "誰在面試 Leo？",
+              "options": ["Ms. Reed and you", "Ms. Carter and Ms. Reed", "Ms. Carter and you"],
+              "answer": 2
+            },
+            {
+              "en": "Why does Leo want a new job?",
+              "zh": "Leo 為什麼想換工作？",
+              "options": [
+                "He wants to learn office work.",
+                "He wants more money.",
+                "He doesn't like customers."
+              ],
+              "answer": 0
+            },
+            {
+              "en": "What is Leo a beginner at?",
+              "zh": "Leo 說自己哪方面是新手？",
+              "options": ["Selling lamps", "Spreadsheets", "Talking to customers"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Welcome, Leo. We're your interview panel today, just the two of us.",
+          "zh": "歡迎，Leo。今天的面試小組就是我們兩個。"
+        },
+        {
+          "id": "t5_2",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Nice to meet you both. Honestly, I'm a little nervous.",
+          "zh": "很高興見到兩位。老實說，我有點緊張。"
+        },
+        {
+          "id": "t5_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Don't be. This is pretty informal.",
+          "zh": "別緊張，今天很輕鬆。"
+        },
+        {
+          "id": "t5_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Why don't you start by telling us about yourself?",
+          "zh": "要不要先跟我們介紹一下您自己？",
+          "chunkId": "start_by_telling_about_yourself"
+        },
+        {
+          "id": "t5_5",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Sure. I studied business, and then I sold lamps for two years.",
+          "zh": "好的。我念商科，之後賣了兩年的燈。"
+        },
+        {
+          "id": "t5_6",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "I have a curious personality. I like to know how things are made.",
+          "zh": "我的個性很好奇，喜歡知道東西是怎麼做出來的。"
+        },
+        {
+          "id": "t5_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could you tell us why you're interested in this job?",
+          "zh": "可以跟我們說說您為什麼對這份工作有興趣嗎？",
+          "chunkId": "tell_us_why_interested"
+        },
+        {
+          "id": "t5_8",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "I'm ambitious. I want to help make products, not just sell them.",
+          "zh": "我有企圖心。我想幫忙做產品，不只是賣產品。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "打電話問推薦人",
+      "newChunkIds": ["former_manager_said_on_time", "told_me_not_lose_him"],
+      "newWordIds": [
+        "capable",
+        "retain",
+        "specialist",
+        "resign",
+        "inexperience",
+        "eager",
+        "punctual",
+        "professionally",
+        "hardworking",
+        "willingness"
+      ],
+      "cloze": [
+        { "lineId": "t6_3", "word": "punctual", "distractors": ["unreliable", "inappropriate"] },
+        { "lineId": "t6_6", "word": "hardworking", "distractors": ["unreliable", "irrelevant"] },
+        { "lineId": "t6_7", "word": "inexperience", "distractors": ["enthusiasm", "proficiency"] }
+      ],
+      "textFills": [
+        {
+          "id": "reference_notes_email",
+          "kind": "email",
+          "title": "Reference check for Leo",
+          "lines": [
+            "Hi Ms. Reed,",
+            "I called Leo's former manager today. She told me she ___ miss him a lot.",
+            "Customers called him the lamp ___ because he knew every lamp in the store.",
+            "She said he always showed a real willingness to learn.",
+            "She tried hard to retain him, but he wants to work in an office. ___",
+            "See you at the meeting."
+          ],
+          "zh": [
+            "Ms. Reed 您好：",
+            "我今天打給 Leo 之前的主管了。她跟我說她會很想他。",
+            "客人都叫他「檯燈行家」，因為店裡每一盞燈他都很熟。",
+            "她說他一直都很願意學新東西。",
+            "她很努力想留住他，但他想在辦公室工作。所以我覺得他會是很棒的助理。",
+            "開會見。"
+          ],
+          "blanks": [
+            {
+              "options": ["would", "is", "been", "having"],
+              "answer": 0,
+              "note": "間接引述：will 退成 would。"
+            },
+            {
+              "options": ["specialist", "cashier", "beginner", "secretary"],
+              "answer": 0,
+              "note": "每一盞燈都很熟的人是行家：specialist。"
+            },
+            {
+              "options": [
+                "So I think he'd be a great assistant for us.",
+                "So we should reject his application.",
+                "So he can't start until next year.",
+                "So she's going to give him more hours."
+              ],
+              "answer": 0,
+              "note": "前面都在說他的好話，最後的結論是他會是很好的助理。"
+            }
+          ]
+        }
+      ],
+      "responds": [
+        {
+          "id": "t6_r1",
+          "prompt": {
+            "role": "hr",
+            "en": "When are you calling his former manager?",
+            "zh": "你什麼時候要打給他之前的主管？"
+          },
+          "responses": [
+            { "en": "Right after lunch.", "zh": "吃完午餐就打。" },
+            { "en": "At the lamp store.", "zh": "在那家燈具店。" },
+            { "en": "She was his manager for two years.", "zh": "她當了他兩年的主管。" }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "t6_r2",
+          "prompt": {
+            "role": "manager",
+            "en": "How did he treat customers at the store?",
+            "zh": "他在店裡對客人怎麼樣？"
+          },
+          "responses": [
+            { "en": "At a store downtown.", "zh": "在市中心的一家店。" },
+            { "en": "Very professionally, she said.", "zh": "她說他很專業。" },
+            { "en": "He'll treat them next week.", "zh": "他下週會請他們。" }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "t6_r3",
+          "prompt": { "role": "hr", "en": "Why did Leo resign?", "zh": "Leo 為什麼辭職？" },
+          "responses": [
+            { "en": "He resigned last Friday.", "zh": "他上星期五辭職的。" },
+            { "en": "Yes, he did.", "zh": "對，他辭了。" },
+            { "en": "He wants to learn office work.", "zh": "他想學辦公室的工作。" }
+          ],
+          "answer": 2
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "So, you called the lamp store. How did it go?",
+          "zh": "所以你打給那家燈具店了。結果怎麼樣？"
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "His former manager said he was always on time.",
+          "zh": "他之前的主管說他一向很準時。",
+          "chunkId": "former_manager_said_on_time"
+        },
+        {
+          "id": "t6_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. We need someone punctual.",
+          "zh": "很好。我們需要準時的人。",
+          "stage": { "act": "give", "item": "punctual" }
+        },
+        {
+          "id": "t6_4",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "And how did they feel when he resigned?",
+          "zh": "那他辭職的時候，他們有什麼反應？"
+        },
+        {
+          "id": "t6_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "She told me they really didn't want to lose him.",
+          "zh": "她跟我說，他們真的很捨不得他走。",
+          "chunkId": "told_me_not_lose_him"
+        },
+        {
+          "id": "t6_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I'm not surprised. He sounds hardworking and capable.",
+          "zh": "我不意外。聽起來他很認真，也很能幹。"
+        },
+        {
+          "id": "t6_7",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "His only weak spot is his inexperience in an office.",
+          "zh": "他唯一的弱點是沒有辦公室的經驗。"
+        },
+        {
+          "id": "t6_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "That's fine. He's eager to learn, and that's what matters.",
+          "zh": "沒關係。他很想學，這才是重點。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "Ms. Reed 的語音訊息",
+      "newChunkIds": ["agree_leo_best_fit"],
+      "newWordIds": [
+        "conduct",
+        "equal",
+        "selection",
+        "criteria",
+        "personnel",
+        "verbal",
+        "workforce",
+        "recruitment",
+        "referral",
+        "placement",
+        "individually"
+      ],
+      "talks": [
+        {
+          "id": "reed_voicemail",
+          "kind": "monologue",
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "hr",
+              "en": "Hi, it's Ms. Reed. I've put the panel's notes together.",
+              "zh": "嗨，我是 Ms. Reed。面試小組的筆記我整理好了。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "hr",
+              "en": "We scored the three applicants individually, with the same selection criteria.",
+              "zh": "三位應徵者是用同一套甄選標準，一個一個打分數的。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "hr",
+              "en": "Leo and the referral from Dan's friend were almost equal.",
+              "zh": "Leo 和 Dan 的朋友推薦來的那位幾乎不相上下。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "hr",
+              "en": "But Leo had the highest score, mostly because he knows lamps and customers.",
+              "zh": "不過 Leo 分數最高，主要是因為他懂燈，也懂客人。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "hr",
+              "en": "Lantern launches in May, so let's not wait.",
+              "zh": "Lantern 五月就要上市了，所以我們別再等了。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "hr",
+              "en": "Please call Leo tomorrow and make him a verbal offer.",
+              "zh": "請你明天打給 Leo，先口頭錄取他。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "hr",
+              "en": "After he says yes, I'll send the offer letter and the personnel forms.",
+              "zh": "他答應之後，我會寄錄取信和人事資料表給他。"
+            },
+            {
+              "id": "t7_talk_8",
+              "role": "hr",
+              "en": "He'll be the first person we've added to our workforce this year.",
+              "zh": "他會是公司今年第一個新增的員工。"
+            },
+            {
+              "id": "t7_talk_9",
+              "role": "hr",
+              "en": "I'll also tell the placement agency that our recruitment is over.",
+              "zh": "我也會通知人力仲介，這次招募結束了。"
+            },
+            {
+              "id": "t7_talk_10",
+              "role": "hr",
+              "en": "And I'm conducting one last reference check this afternoon. Bye!",
+              "zh": "還有，我今天下午會做最後一次推薦人查核。拜拜！"
+            }
+          ],
+          "questions": [
+            {
+              "en": "How were the applicants compared?",
+              "zh": "應徵者是怎麼比較的？",
+              "options": [
+                "By a spreadsheet test",
+                "One by one, with the same criteria",
+                "By the placement agency"
+              ],
+              "answer": 1
+            },
+            {
+              "en": "What does Ms. Reed ask you to do?",
+              "zh": "Ms. Reed 請你做什麼？",
+              "options": [
+                "Call Leo tomorrow",
+                "Send the personnel forms",
+                "Call the placement agency"
+              ],
+              "answer": 0
+            },
+            {
+              "en": "What will she tell the placement agency?",
+              "zh": "她會跟人力仲介說什麼？",
+              "options": [
+                "Leo starts in April.",
+                "Please send more resumes.",
+                "The recruitment is over."
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Hi, thanks for calling back. Did you get my message?",
+          "zh": "嗨，謝謝你回電。你有聽到我的留言嗎？"
+        },
+        {
+          "id": "t7_2",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "We scored all three applicants the same way.",
+          "zh": "三位應徵者我們都是用同樣的方式打分數。"
+        },
+        {
+          "id": "t7_3",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Leo had the highest score, but the referral was close.",
+          "zh": "Leo 分數最高，不過那位推薦來的人也很接近。"
+        },
+        {
+          "id": "t7_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I agree Leo is the best fit for the team.",
+          "zh": "我也覺得 Leo 是最適合我們團隊的人。",
+          "chunkId": "agree_leo_best_fit"
+        },
+        {
+          "id": "t7_5",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Great. Then please call him tomorrow and make a verbal offer.",
+          "zh": "太好了。那請你明天打給他，先口頭錄取他。"
+        },
+        {
+          "id": "t7_6",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "When he says yes, I'll send the personnel forms.",
+          "zh": "他答應之後，我再寄人事資料表給他。"
+        },
+        {
+          "id": "t7_7",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Our workforce is finally growing again. Nice work!",
+          "zh": "我們公司終於又要多一個人了。做得好！"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "打電話錄取",
+      "backdrop": "main",
+      "newChunkIds": ["offer_you_assistant_position", "april_first_work_for_you"],
+      "newWordIds": [
+        "employ",
+        "tuition",
+        "acceptance",
+        "formally",
+        "attire",
+        "expedite",
+        "overpay",
+        "obligate",
+        "permanently",
+        "probation"
+      ],
+      "spellWordIds": ["consultant", "questionnaire", "festival", "supermarket", "bulb"],
+      "cloze": [
+        { "lineId": "t8_6", "word": "attire", "distractors": ["tuition", "probation"] },
+        { "lineId": "t8_7", "word": "permanently", "distractors": ["honestly", "highly"] },
+        { "lineId": "t8_8", "word": "tuition", "distractors": ["probation", "attire"] }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Leo's on speaker. Go ahead.",
+          "zh": "Leo 在擴音上了，你說吧。"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We'd like to offer you the assistant position.",
+          "zh": "我們想錄取您擔任助理這個職位。",
+          "chunkId": "offer_you_assistant_position"
+        },
+        {
+          "id": "t8_3",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "No pressure, Leo. You're not obligated to answer today.",
+          "zh": "不用有壓力，Leo。你不一定要今天回覆。"
+        },
+        {
+          "id": "t8_4",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "I don't need time. I'm happy to accept!",
+          "zh": "我不用考慮，我很樂意接受！"
+        },
+        {
+          "id": "t8_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Does April first work for you as a start date?",
+          "zh": "四月一號開始上班，您方便嗎？",
+          "chunkId": "april_first_work_for_you"
+        },
+        {
+          "id": "t8_6",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Yes, that works. What's the attire at your office?",
+          "zh": "可以。你們辦公室要穿什麼樣的衣服？"
+        },
+        {
+          "id": "t8_7",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "Business casual. After three months' probation, you'll be employed permanently.",
+          "zh": "商務休閒就好。三個月的試用期過了，你就是正式員工。"
+        },
+        {
+          "id": "t8_8",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Great. And does the company help with tuition for classes?",
+          "zh": "太好了。那公司有補助上課的學費嗎？"
+        },
+        {
+          "id": "t8_9",
+          "role": "hr",
+          "speaker": "npc",
+          "en": "It does. I'll expedite the paperwork so you can formally accept.",
+          "zh": "有喔。我會加快處理文件，讓你可以正式接受。"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "backdrop": "new_hire",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Leo's our first interview today, and applications keep coming in.",
+          "zh": "Leo 是今天第一個面試的，應徵資料還一直進來。"
+        },
+        {
+          "id": "t9_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Do you know how many people have applied so far?",
+          "zh": "你知道到目前為止有多少人應徵嗎？",
+          "chunkId": "know_how_many_applied"
+        },
+        {
+          "id": "t9_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Almost forty. But I like Leo's file the best.",
+          "zh": "快四十個了。不過我最喜歡 Leo 的資料。"
+        },
+        {
+          "id": "t9_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "His cover letter is short, but it's really well written.",
+          "zh": "他的求職信很短，但寫得真的很好。",
+          "chunkId": "cover_letter_well_written"
+        },
+        {
+          "id": "t9_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "True. But he doesn't have a design degree.",
+          "zh": "對。不過他沒有設計的學歷。"
+        },
+        {
+          "id": "t9_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Experience matters more to me than a degree.",
+          "zh": "對我來說，經驗比學歷重要。",
+          "chunkId": "experience_matters_more_than_degree"
+        },
+        {
+          "id": "t9_7",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Hi, I'm Leo Martin. Nice to meet you both.",
+          "zh": "您好，我是 Leo Martin。很高興見到兩位。"
+        },
+        {
+          "id": "t9_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Welcome, Leo. Have a seat. This is pretty informal.",
+          "zh": "歡迎，Leo。請坐。今天很輕鬆。"
+        },
+        {
+          "id": "t9_9",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Why don't you start by telling us about yourself?",
+          "zh": "要不要先跟我們介紹一下您自己？",
+          "chunkId": "start_by_telling_about_yourself"
+        },
+        {
+          "id": "t9_10",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Sure. I've sold lamps at Bright Corner for two years.",
+          "zh": "好的。我在 Bright Corner 賣了兩年的燈。"
+        },
+        {
+          "id": "t9_11",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Can I ask why the job is open now?",
+          "zh": "可以問一下為什麼現在要找人嗎？"
+        },
+        {
+          "id": "t9_12",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We really need an extra pair of hands.",
+          "zh": "我們真的需要多一個人手。",
+          "chunkId": "need_extra_pair_of_hands"
+        },
+        {
+          "id": "t9_13",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Thanks, Leo. Could you wait outside for a few minutes?",
+          "zh": "謝謝你，Leo。可以請你在外面等幾分鐘嗎？"
+        },
+        {
+          "id": "t9_14",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "So, you called his store this morning. What did they say?",
+          "zh": "你今天早上打給他的店了吧。他們怎麼說？"
+        },
+        {
+          "id": "t9_15",
+          "role": "guide",
+          "speaker": "player",
+          "en": "His former manager said he was always on time.",
+          "zh": "他之前的主管說他一向很準時。",
+          "chunkId": "former_manager_said_on_time"
+        },
+        {
+          "id": "t9_16",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. He's energetic, and we're not overpaying him. I think he's the one.",
+          "zh": "很好。他很有活力，薪水也不會給太多。我覺得就是他了。"
+        },
+        {
+          "id": "t9_17",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I agree Leo is the best fit for the team.",
+          "zh": "我也覺得 Leo 是最適合我們團隊的人。",
+          "chunkId": "agree_leo_best_fit"
+        },
+        {
+          "id": "t9_18",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Then let's ask him back in.",
+          "zh": "那我們請他回來吧。"
+        },
+        {
+          "id": "t9_19",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Is everything okay?",
+          "zh": "一切都還好嗎？"
+        },
+        {
+          "id": "t9_20",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We'd like to offer you the assistant position.",
+          "zh": "我們想錄取您擔任助理這個職位。",
+          "chunkId": "offer_you_assistant_position"
+        },
+        {
+          "id": "t9_21",
+          "role": "new_hire",
+          "speaker": "npc",
+          "en": "Really? Yes! Thank you both so much!",
+          "zh": "真的嗎？好！真的很謝謝兩位！"
+        }
+      ]
+    }
+  ]
+}
