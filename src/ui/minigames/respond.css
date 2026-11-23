@@ -1,42 +1,167 @@
-/* 應答題 (Respond.tsx), minimal: the prompt box, then one row per letter, a ♪ key and a pick key. */
-.rs-prompt {
-  display: flex;
-  gap: calc(4 * var(--px));
-  align-items: baseline;
-  padding: calc(3 * var(--px)) calc(5 * var(--px));
-  border: var(--px) solid var(--ink);
-}
-
-.rs-prompt.on {
-  outline: var(--px) solid var(--ink);
-}
-
-.rs-who {
-  flex: none;
-}
-
-.rs-options {
+/*
+ * 聽問句選回應 (應答題, Respond.tsx). Before answering there is no English: a paper box holds
+ * the speaker's line (a name tab, not a key) and the three wide pick keys A, B, C, each with a
+ * small square ♪ key on its right, kept apart by a wider gap so playing is never picking.
+ * The clip being heard is marked like Talk's speaking tab: solid ink tab with ▶, never colour
+ * alone. After answering the lines become story bubbles (flow.css) with 慢速 beside them; the
+ * right response gets a green rim and ○, a wrong pick a red rim and ×. Nothing animates.
+ *
+ * Height on a phone held upright (about 270 x 580 logical px): prompt 14, 全部再聽 26, the
+ * box 4 rows of the tap height (44 CSS px) plus gaps and padding, the status line 14: well
+ * under half the screen.
+ */
+.rs-stage {
   display: flex;
   flex-direction: column;
-  gap: calc(3 * var(--px));
-  width: 100%;
+  gap: calc(4 * var(--px));
+  padding: calc(5 * var(--px)) calc(5 * var(--px)) calc(4 * var(--px));
+  background: var(--paper);
+  box-shadow: inset 0 0 0 var(--px) var(--dim);
 }
 
-.rs-row {
+/* One line: the wide part, then its ♪ (or 慢速) key; the wider gap keeps the two apart. */
+.rs-line {
   display: flex;
-  gap: calc(3 * var(--px));
-  align-items: stretch;
+  align-items: center;
+  gap: calc(8 * var(--px));
 }
 
-.rs-play {
-  flex: none;
-}
-
-.rs-play.on {
-  outline: var(--px) solid var(--ink);
-}
-
-.rs-pick {
+.rs-ask {
   flex: 1;
-  text-align: left;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: calc(4 * var(--px));
+  min-height: var(--tap);
+  font-size: calc(11 * var(--px));
+  color: var(--ink);
+}
+
+/* The speaker's or the letter's tab: 1px ink rim; solid ink while its clip plays. */
+.rs-tab {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: calc(2 * var(--px));
+  min-width: calc(24 * var(--px));
+  padding: calc(2 * var(--px)) calc(5 * var(--px));
+  color: var(--ink);
+  background: var(--paper);
+  box-shadow: inset 0 0 0 var(--px) var(--ink);
+}
+
+.rs-ask.on .rs-tab,
+.rs-pick.on .rs-tab {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+/* Room for ▶ is kept, so the names and letters do not shift while the set plays. */
+.rs-mark {
+  display: inline-block;
+  min-width: calc(8 * var(--px));
+  text-align: center;
+}
+
+.pixel-button.rs-pick {
+  flex: 1;
+  min-width: 0;
+  min-height: var(--tap);
+  justify-content: flex-start;
+  padding-left: calc(4 * var(--px));
+}
+
+/* The key being heard: lamp-tint paper as well as the solid tab and ▶. */
+.pixel-button.rs-pick.on {
+  background: var(--lamp-tint);
+}
+
+/* ♪: a square key, as tall as the line, so it reads as a different kind of key from the pick. */
+.pixel-button.rs-play {
+  flex: none;
+  min-width: var(--tap);
+  min-height: var(--tap);
+  padding: 0;
+}
+
+.rs-status {
+  margin: 0;
+  font-size: calc(11 * var(--px));
+  color: var(--ink);
+}
+
+.rs-transcript {
+  display: flex;
+  flex-direction: column;
+  gap: calc(4 * var(--px));
+}
+
+.rs-transcript .rs-line {
+  gap: calc(4 * var(--px));
+}
+
+/* The responses sit a little to the right of the prompt, as your lines do in a talk. */
+.rs-answer {
+  padding-left: calc(12 * var(--px));
+}
+
+.bubble.rs-bubble {
+  min-height: var(--tap);
+}
+
+@media (hover: hover) {
+  .bubble.rs-bubble:hover {
+    background: var(--lamp-tint);
+  }
+}
+
+.rs-bubble.rs-now .bubble-who {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.bubble.rs-bubble.right {
+  border-color: var(--good);
+}
+
+.bubble.rs-bubble.wrong {
+  border-color: var(--bad);
+}
+
+/* ○ / × on a coloured square in the top right corner: never colour alone. */
+.rs-bubble.right::after,
+.rs-bubble.wrong::after {
+  position: absolute;
+  top: calc(2 * var(--px));
+  right: calc(2 * var(--px));
+  min-width: calc(13 * var(--px));
+  padding: 0 var(--px);
+  text-align: center;
+  color: var(--paper);
+}
+
+.rs-bubble.right::after {
+  content: '○';
+  background: var(--good);
+}
+
+.rs-bubble.wrong::after {
+  content: '×';
+  background: var(--bad);
+}
+
+/* Room for the mark, so the English never runs under it. */
+.bubble.rs-bubble.right,
+.bubble.rs-bubble.wrong {
+  padding-right: calc(18 * var(--px));
+}
+
+.pixel-button.rs-slow {
+  flex: none;
+  min-height: var(--tap);
+}
+
+:root[data-orientation='landscape'] .rs-stage {
+  gap: calc(3 * var(--px));
+  padding: calc(3 * var(--px)) calc(5 * var(--px));
 }

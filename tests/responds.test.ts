@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { isValidAudioId } from '../src/audio/voices';
 import { unitToAudioItems } from '../src/content/audioItems';
 import type { TaskCheckContext } from '../src/content/checks/common';
@@ -15,6 +15,15 @@ import { buildTaskPractice, makeRng } from '../src/learning/questionGen';
 import { NO_ITEM } from '../src/learning/questions';
 import { applyAnswer, FAST_MS_ARRANGE, FAST_MS_LISTEN_CHOOSE } from '../src/learning/sessionPlan';
 import { createEmptySave } from '../src/core/save';
+import {
+  AFTER_PROMPT_MS,
+  BETWEEN_RESPONSES_MS,
+  gapBeforeMs,
+  playClips,
+  respondClips,
+  respondStatus,
+} from '../src/ui/minigames/Respond';
+import { LEAD_IN_MS, type ConversationDeps } from '../src/ui/minigames/Talk';
 
 const item = (id: string, over: Partial<RespondItem> = {}): RespondItem => ({
   id,
@@ -247,5 +256,119 @@ describe('應答題 audio and words', () => {
       'It is on the second floor.',
       'About twenty dollars.',
     ]);
+  });
+});
+
+describe('the 應答題 screen', () => {
+  const question = () => respondQuestions(unit([]), task({ responds: items() }), makeRng(1))[0]!;
+
+  it('plays the prompt in its role, then the responses as A, B, C in your voice', () => {
+    const q = question();
+    const clips = respondClips(q);
+    expect(clips.map((c) => c.audioId)).toEqual([
+      q.prompt.audioId,
+      ...q.options.map((o) => o.audioId),
+    ]);
+    expect(clips.map((c) => c.role)).toEqual([
+      'agency',
+      RESPONSE_ROLE,
+      RESPONSE_ROLE,
+      RESPONSE_ROLE,
+    ]);
+  });
+
+  it('says what is playing, and what to do when nothing is', () => {
+    expect(respondStatus(0, false)).toContain('問句');
+    expect(respondStatus(2, false)).toContain('B');
+    expect(respondStatus(-1, false)).toContain('A、B、C');
+    expect(respondStatus(-1, true)).toContain('慢速');
+  });
+
+  describe('playClips', () => {
+    beforeEach(() => vi.useFakeTimers());
+    afterEach(() => vi.useRealTimers());
+
+    const world = (
+      play: ConversationDeps['play'],
+      speech: (t: number) => boolean = () => false,
+    ) => {
+      const t0 = Date.now();
+      const time = () => Date.now() - t0;
+      const log: string[] = [];
+      const deps: ConversationDeps = {
+        play: async (clip) => {
+          log.push(`play ${clip.audioId} @${time()}`);
+          return play(clip);
+        },
+        speechBusy: () => speech(time()),
+        stop: () => log.push(`stop @${time()}`),
+        sleep: (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
+        now: () => Date.now(),
+      };
+      return { deps, log, time };
+    };
+    const ids = () => respondClips(question()).map((c) => c.audioId);
+    const run = async (
+      deps: ConversationDeps,
+      order: number[],
+      onClip: (i: number) => void = () => undefined,
+      cancelled = () => false,
+    ) => {
+      const done = playClips(respondClips(question()), order, onClip, cancelled, deps);
+      await vi.runAllTimersAsync();
+      return done;
+    };
+
+    it('waits for each clip to end, with a longer quiet after the prompt', async () => {
+      const w = world(async () => {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        return true;
+      });
+      const lit: number[] = [];
+      expect(await run(w.deps, [0, 1, 2, 3], (i) => lit.push(i))).toBe(true);
+      expect(lit).toEqual([0, 1, 2, 3]);
+      const [p, a, b, c] = ids();
+      const first = LEAD_IN_MS;
+      const second = first + 1000 + AFTER_PROMPT_MS + LEAD_IN_MS;
+      const third = second + 1000 + BETWEEN_RESPONSES_MS + LEAD_IN_MS;
+      expect(w.log).toEqual([
+        `play ${p} @${first}`,
+        `play ${a} @${second}`,
+        `play ${b} @${third}`,
+        `play ${c} @${third + 1000 + BETWEEN_RESPONSES_MS + LEAD_IN_MS}`,
+      ]);
+      expect(gapBeforeMs(1)).toBeGreaterThan(gapBeforeMs(2));
+    });
+
+    it('waits for browser speech to fall silent before the next response', async () => {
+      let speechEnds = 0;
+      const w = world(
+        async () => {
+          speechEnds = w.time() + 2000;
+          return false;
+        },
+        (t) => t < speechEnds,
+      );
+      await run(w.deps, [1, 2]);
+      const [, a, b] = ids();
+      expect(w.log).toEqual([
+        `play ${a} @${LEAD_IN_MS}`,
+        `play ${b} @${LEAD_IN_MS + 2000 + BETWEEN_RESPONSES_MS + LEAD_IN_MS}`,
+      ]);
+    });
+
+    it('plays one line alone for its ♪ key, and stops when cancelled', async () => {
+      const one = world(async () => true);
+      expect(await run(one.deps, [2])).toBe(true);
+      expect(one.log).toEqual([`play ${ids()[2]} @${LEAD_IN_MS}`]);
+
+      let cancel = false;
+      const cut = world(async () => {
+        cancel = true;
+        return true;
+      });
+      expect(await run(cut.deps, [0, 1, 2, 3], undefined, () => cancel)).toBe(false);
+      expect(cut.log).toEqual([`play ${ids()[0]} @${LEAD_IN_MS}`]);
+    });
   });
 });
