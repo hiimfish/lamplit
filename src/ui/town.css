@@ -57,6 +57,13 @@
   box-shadow: 0 0 0 var(--px) var(--ink);
 }
 
+/* 每日目標 and 設定, side by side at the top right. */
+.town-hud-keys {
+  flex: none;
+  display: flex;
+  gap: calc(2 * var(--px));
+}
+
 /* Over the dusk scene a paper focus ring reads better than ink. */
 .town-hud .pixel-button:focus-visible {
   outline-color: var(--paper);

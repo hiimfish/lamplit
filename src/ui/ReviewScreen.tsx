@@ -6,6 +6,7 @@ import { appStore, commitSave, currentNow } from '../core/appState';
 import { buildReviewQuestions, makeRng } from '../learning/questionGen';
 import type { AnswerResult, Question } from '../learning/questions';
 import { addCoins, buildDailyReview, reviewCoins, starsForAccuracy } from '../learning/sessionPlan';
+import { finishReview, reviewLimit } from '../learning/sprint';
 import './flow.css';
 import { QuestionRunner } from './TaskScreen';
 
@@ -24,17 +25,18 @@ function buildQuestions(ids: string[], seed: number): Question[] {
   return questions;
 }
 
-/** Today's due items, up to 20, ending in the shared result screen. */
+/** Today's due items (up to 20, or 200 on the sprint route), ending in the shared result screen. */
 export function ReviewScreen() {
   useEffect(() => playMusic('cafe'), []);
   const questions = useMemo(() => {
     const now = currentNow();
-    return buildQuestions(buildDailyReview(appStore.get().save, now), now.getTime());
+    const save = appStore.get().save;
+    return buildQuestions(buildDailyReview(save, now, reviewLimit(save.route)), now.getTime());
   }, []);
 
   const finish = (results: AnswerResult[]) => {
     const coins = reviewCoins(results);
-    commitSave(addCoins(appStore.get().save, coins));
+    commitSave(addCoins(finishReview(appStore.get().save, results.length, currentNow()), coins));
     const correct = results.filter((r) => r.correct).length;
     playSfx('complete');
     appStore.set({

@@ -3,10 +3,12 @@ import { playChime, unlockAudio } from '../audio/audioContext';
 import { appStore } from '../core/appState';
 import { useStore } from '../core/store';
 import { focusStatic } from './focus';
+import { GoalScreen } from './GoalScreen';
 import { useKeys } from './keys';
 import { KeyCap } from './KeyCap';
 import { ResultScreen } from './ResultScreen';
 import { ReviewScreen } from './ReviewScreen';
+import { SprintScreen } from './SprintScreen';
 import { TaskScreen } from './TaskScreen';
 import { TownScreen } from './TownScreen';
 
@@ -61,6 +63,8 @@ export function App() {
       {screen === 'town' && <TownScreen />}
       {screen === 'task' && <TaskScreen />}
       {screen === 'review' && <ReviewScreen />}
+      {screen === 'sprint' && <SprintScreen />}
+      {screen === 'goal' && <GoalScreen />}
       {screen === 'result' && <ResultScreen />}
       {showDebug && (
         <div class="debug" data-testid="debug">

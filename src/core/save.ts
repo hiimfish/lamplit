@@ -21,6 +21,19 @@ export interface DailyCounters {
   answered: number;
   correct: number;
   tasksDone: number;
+  /** New words taught by 單字快練 today. */
+  sprintNew: number;
+  /** Answers given in 今日複習 today. */
+  reviewed: number;
+}
+
+/**
+ * 一般 or 衝刺 (docs/specs/sprint.md). `start` is the day 衝刺 was last chosen
+ * (YYYY-MM-DD), kept when switching back to 一般; null if it never was.
+ */
+export interface Route {
+  kind: 'normal' | 'sprint';
+  start: string | null;
 }
 
 export interface SaveData {
@@ -32,6 +45,7 @@ export interface SaveData {
   streak: { count: number; lastDate: string | null };
   lastPlayedDate: string | null;
   daily: DailyCounters;
+  route: Route;
 }
 
 /** The tiny part of localStorage we use, so tests can pass a fake. */
@@ -76,7 +90,7 @@ export function resolveNow(search: string, real: Date): Date {
 }
 
 function emptyDaily(now: Date): DailyCounters {
-  return { date: dateKey(now), answered: 0, correct: 0, tasksDone: 0 };
+  return { date: dateKey(now), answered: 0, correct: 0, tasksDone: 0, sprintNew: 0, reviewed: 0 };
 }
 
 export function createEmptySave(now: Date): SaveData {
@@ -88,6 +102,7 @@ export function createEmptySave(now: Date): SaveData {
     streak: { count: 0, lastDate: null },
     lastPlayedDate: null,
     daily: emptyDaily(now),
+    route: { kind: 'normal', start: null },
   };
 }
 
@@ -216,7 +231,18 @@ export function sanitizeSave(raw: unknown, now: Date): SaveData {
       answered: whole(raw.daily.answered),
       correct: whole(raw.daily.correct),
       tasksDone: whole(raw.daily.tasksDone),
+      sprintNew: whole(raw.daily.sprintNew),
+      reviewed: whole(raw.daily.reviewed),
     };
+  }
+  // Older saves have no route: they play the normal one.
+  if (isObject(raw.route)) {
+    save.route = {
+      kind: raw.route.kind === 'sprint' ? 'sprint' : 'normal',
+      start: isDateKey(raw.route.start) ? raw.route.start : null,
+    };
+    if (save.route.kind === 'sprint' && !save.route.start)
+      save.route = { kind: 'normal', start: null };
   }
   return save;
 }
@@ -270,7 +296,8 @@ const laterDate = (a: string | null, b: string | null): string | null =>
 /**
  * Combines two saves that both moved on from the same starting point (two tabs).
  * Per item the newer data wins: newer card, best stars, most plays, later streak
- * day, today's larger counters. Coins take the larger total.
+ * day, today's larger counters. Coins take the larger total. The route is ours
+ * (the tab that is saving is the one the player just used).
  */
 export function mergeSaves(ours: SaveData, theirs: SaveData): SaveData {
   const cards: Record<string, StoredCard> = { ...theirs.cards };
@@ -299,6 +326,8 @@ export function mergeSaves(ours: SaveData, theirs: SaveData): SaveData {
       answered: Math.max(ours.daily.answered, theirs.daily.answered),
       correct: Math.max(ours.daily.correct, theirs.daily.correct),
       tasksDone: Math.max(ours.daily.tasksDone, theirs.daily.tasksDone),
+      sprintNew: Math.max(ours.daily.sprintNew, theirs.daily.sprintNew),
+      reviewed: Math.max(ours.daily.reviewed, theirs.daily.reviewed),
     };
   } else {
     daily = ours.daily.date > theirs.daily.date ? ours.daily : theirs.daily;

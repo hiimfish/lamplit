@@ -11,7 +11,10 @@ import { useKeys } from './keys';
 import { KeyCap } from './KeyCap';
 
 interface Props {
-  task: Task;
+  /** The task whose new items are shown, or */
+  task?: Task;
+  /** these item ids (單字快練). */
+  itemIds?: readonly string[];
   onDone: () => void;
 }
 
@@ -52,10 +55,10 @@ function PairCard({ item, showZh }: { item: ItemInfo; showZh: boolean }) {
   );
 }
 
-/** The task's new chunks, words and minimal pairs, one card at a time. */
-export function IntroCards({ task, onDone }: Props) {
+/** The task's new chunks, words and minimal pairs (or the given items), one card at a time. */
+export function IntroCards({ task, itemIds, onDone }: Props) {
   const { showZh } = useStore(settingsStore);
-  const items = taskItemIds(task).flatMap((id) => getItem(id) ?? []);
+  const items = (itemIds ?? (task ? taskItemIds(task) : [])).flatMap((id) => getItem(id) ?? []);
   const [index, setIndex] = useState(0);
   const headingRef = useRef<HTMLParagraphElement>(null);
   const item = items[index];
@@ -141,11 +144,7 @@ export function IntroCards({ task, onDone }: Props) {
             <KeyCap k="ArrowLeft" />
           </button>
         )}
-        <button
-          class="pixel-button primary"
-          onClick={next}
-          data-testid="intro-next"
-        >
+        <button class="pixel-button primary" onClick={next} data-testid="intro-next">
           {last ? '開始練習' : '下一張'}
           <KeyCap k="Enter" />
         </button>

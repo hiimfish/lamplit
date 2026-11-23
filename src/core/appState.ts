@@ -11,11 +11,11 @@ import {
 } from './save';
 import { createStore } from './store';
 
-type Screen = 'title' | 'town' | 'task' | 'review' | 'result';
+type Screen = 'title' | 'town' | 'task' | 'review' | 'sprint' | 'goal' | 'result';
 
-/** What the result screen shows after a task or a daily review. */
+/** What the result screen shows after a task, a daily review or a 單字快練 round. */
 interface ResultData {
-  kind: 'task' | 'review';
+  kind: 'task' | 'review' | 'sprint';
   unitId?: string;
   taskId?: string;
   outcome: TaskOutcome;

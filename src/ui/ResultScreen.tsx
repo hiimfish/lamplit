@@ -42,6 +42,7 @@ export function ResultScreen() {
 
   const { outcome } = result;
   const isTask = result.kind === 'task';
+  const isSprint = result.kind === 'sprint';
   const newItems = outcome.newItemIds.flatMap((id) => getItem(id) ?? []);
   const replay = () => {
     if (!result.unitId || !result.taskId) return;
@@ -56,7 +57,7 @@ export function ResultScreen() {
   return (
     <div class="flow" data-testid="result">
       <div class="flow-card result">
-        <h1 class="flow-title">{isTask ? '任務完成！' : '複習完成！'}</h1>
+        <h1 class="flow-title">{isTask ? '任務完成！' : isSprint ? '快練完成！' : '複習完成！'}</h1>
         {isTask && (
           <div class="result-stars" data-testid="result-stars">
             <StarMarks n={outcome.stars} />
@@ -91,10 +92,14 @@ export function ResultScreen() {
                 </li>
               ))}
             </ul>
-            <p class="flow-note">這些之後會排進今日複習。</p>
+            <p class="flow-note">
+              {isSprint
+                ? '這些字很快會在劇情裡遇到，也會排進今日複習。'
+                : '這些之後會排進今日複習。'}
+            </p>
           </div>
         )}
-        {!isTask && <p class="flow-note">明天再來，會有新的複習。</p>}
+        {result.kind === 'review' && <p class="flow-note">明天再來，會有新的複習。</p>}
         <div class="flow-actions">
           <button
             class="pixel-button primary"
@@ -107,6 +112,15 @@ export function ResultScreen() {
           {isTask && (
             <button class="pixel-button" onClick={replay} data-testid="replay">
               再玩一次
+            </button>
+          )}
+          {isSprint && (
+            <button
+              class="pixel-button"
+              onClick={() => appStore.set({ screen: 'goal', result: undefined })}
+              data-testid="to-goal"
+            >
+              每日目標
             </button>
           )}
         </div>

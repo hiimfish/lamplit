@@ -1,0 +1,73 @@
+/*
+ * 每日目標 (GoalScreen.tsx): the route as two keys in one row (the chosen one is lamp,
+ * aria-checked), then one paper box per block of the day. A met block gets a ✓ before
+ * its name and a solid ink rim: shape, never colour alone.
+ */
+.route-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(2 * var(--px));
+}
+
+.pixel-button.route-tab {
+  min-width: 0;
+  min-height: var(--tap);
+  white-space: nowrap;
+}
+
+.goal-rows {
+  display: grid;
+  gap: calc(3 * var(--px));
+}
+
+/* One block on one line: name and count on the left, its key on the right, a note below. */
+.goal-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: calc(2 * var(--px)) calc(4 * var(--px));
+  min-height: var(--tap);
+  padding: calc(2 * var(--px)) calc(5 * var(--px));
+  color: var(--ink);
+  background: var(--paper);
+  box-shadow: inset 0 0 0 var(--px) var(--dim);
+}
+
+.goal-row.met {
+  box-shadow: inset 0 0 0 var(--px) var(--ink);
+}
+
+.goal-count {
+  margin-left: calc(6 * var(--px));
+}
+
+.goal-mark {
+  margin-right: calc(3 * var(--px));
+}
+
+.goal-note {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+/* The name and its count never wrap; the note below may. */
+.goal-name {
+  white-space: nowrap;
+}
+
+/* Sideways the screen is short: tighter rows and keys. */
+:root[data-orientation='landscape'] .goal-rows {
+  gap: calc(2 * var(--px));
+}
+
+:root[data-orientation='landscape'] .goal-row {
+  min-height: 0;
+  padding-top: var(--px);
+  padding-bottom: var(--px);
+}
+
+:root[data-orientation='landscape'] .goal .pixel-button {
+  min-height: calc(18 * var(--px));
+  padding-top: 0;
+  padding-bottom: 0;
+}

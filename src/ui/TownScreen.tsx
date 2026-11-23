@@ -10,6 +10,7 @@ import { currentStreak, type SaveData } from '../core/save';
 import { devUnlockAll, settingsStore } from '../core/settings';
 import { useStore } from '../core/store';
 import { buildDailyReview, isTaskUnlocked, taskKey } from '../learning/sessionPlan';
+import { reviewLimit } from '../learning/sprint';
 import {
   actUnits,
   buildTown,
@@ -31,7 +32,7 @@ import { stageArea } from './stage/stageArea';
 import type { StageView } from './stage/stageState';
 import './town.css';
 
-const TOWN: TownAct<Unit>[] = buildTown(ACTS, UNITS);
+export const TOWN: TownAct<Unit>[] = buildTown(ACTS, UNITS);
 
 /** Height of the name plate under the scene, in logical pixels (two lines of text). */
 const PLATE_H = 32;
@@ -263,7 +264,7 @@ export function TownScreen() {
   if (!act) return null;
 
   const now = currentNow();
-  const dueCount = buildDailyReview(save, now).length;
+  const dueCount = buildDailyReview(save, now, reviewLimit(save.route)).length;
   const streak = currentStreak(save, now);
 
   // What 下一關 opens: the next new task of this act (the name plate names it); none while
@@ -366,9 +367,21 @@ export function TownScreen() {
             </span>
             <span data-testid="streak">連續 {streak} 天</span>
           </span>
-          <button class="pixel-button small" onClick={() => setSettingsOpen(true)}>
-            設定
-          </button>
+          <span class="town-hud-keys">
+            <button
+              class="pixel-button small"
+              onClick={() => {
+                playSfx('click');
+                appStore.set({ screen: 'goal' });
+              }}
+              data-testid="goal"
+            >
+              每日目標
+            </button>
+            <button class="pixel-button small" onClick={() => setSettingsOpen(true)}>
+              設定
+            </button>
+          </span>
         </div>
       </div>
       <NamePlate act={act} place={place} next={next} locked={before} save={save} />

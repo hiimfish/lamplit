@@ -35,9 +35,18 @@ function sameText(a: string, b: string): boolean {
   return normalize(a) === normalize(b);
 }
 
-function listenPickWord(unit: Unit, word: Word, rng: Rng): ListenPickQuestion | null {
+/**
+ * Hear a word, pick it among up to four. Wrong options come from `pool` (the
+ * word's own place by default; 單字快練 passes words from several places).
+ */
+function listenPickWord(
+  unit: Unit,
+  word: Word,
+  rng: Rng,
+  pool: readonly Word[] = unit.words,
+): ListenPickQuestion | null {
   const others = shuffle(
-    unit.words.filter((w) => w.id !== word.id && !sameText(w.en, word.en)),
+    pool.filter((w) => w.id !== word.id && !sameText(w.en, word.en)),
     rng,
   ).slice(0, MAX_OPTIONS - 1);
   if (others.length < 1) return null;
@@ -459,6 +468,23 @@ export function buildReviewQuestions(unit: Unit, itemIds: string[], rng: Rng): Q
     }
   }
   return questions;
+}
+
+/**
+ * 單字快練: one listen-pick per word, in a shuffled order. Wrong options come from
+ * `pool` (words of the places being taught and words already learned), so a round
+ * that mixes two places still has four options.
+ */
+export function buildSprintQuestions(
+  entries: readonly { unit: Unit; word: Word }[],
+  pool: readonly Word[],
+  rng: Rng,
+): Question[] {
+  const unique = [...new Map(pool.map((w) => [w.id, w])).values()];
+  return shuffle(
+    entries.flatMap(({ unit, word }) => listenPickWord(unit, word, rng, unique) ?? []),
+    rng,
+  );
 }
 
 /** Joins the chosen blocks (indices into `blocks`) into a sentence. */
