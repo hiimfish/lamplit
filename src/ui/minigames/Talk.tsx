@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { nowPlaying, playAudio, preloadAudio, stopAudio } from '../../audio/pronounce';
 import { ROLE_LABEL } from '../../content/roles';
-import type { TalkTable } from '../../content/types';
+import type { Role, TalkTable } from '../../content/types';
 import { settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
 import type { TalkQuestion } from '../../learning/questions';
@@ -171,6 +171,81 @@ export function talkWords(question: Pick<TalkQuestion, 'monologue' | 'table'>): 
   };
 }
 
+/** The fill of a speaker's name tab: paper, lamp-tint or lamp, each with ink text. */
+export type SpeakerTone = 'paper' | 'tint' | 'lamp';
+const TONES: readonly SpeakerTone[] = ['paper', 'tint', 'lamp'];
+
+/**
+ * 三人對話: each of three speakers gets its own name-tab fill, so who speaks reads at a
+ * glance. You (`guide`) always get lamp-tint, as your lines have in the story; the others
+ * take the remaining fills in the order they first speak. Two speakers or one keep the
+ * plain paper tab (null).
+ */
+export function speakerTones(speakers: readonly Role[]): Map<Role, SpeakerTone> | null {
+  if (speakers.length !== 3) return null;
+  const tones = new Map<Role, SpeakerTone>();
+  if (speakers.includes('guide')) tones.set('guide', 'tint');
+  const free = TONES.filter((tone) => ![...tones.values()].includes(tone));
+  for (const role of speakers) {
+    if (!tones.has(role)) tones.set(role, free.shift()!);
+  }
+  return tones;
+}
+
+/** 只播一次: the note under the disabled 再聽一次. */
+export const ONCE_NOTE = '只播一次，答完才能重聽';
+/** 只播一次, when the talk was already played before the learner came back to it. */
+export const ONCE_PLAYED_NOTE = '已經播過一次，答完才能重聽';
+
+/**
+ * 只播一次 talks that have started playing and whose last question is not answered yet,
+ * by key (onceKey). Kept for the page's life, so leaving the task (先回小鎮) and coming
+ * back cannot be used to hear the talk again; a page reload clears it. Answering the last
+ * question on the talk removes it, so the task can be played again later.
+ */
+const playedOnce = new Set<string>();
+
+/** The key of a talk across units: its first line's clip id is unique in the game. */
+export function onceKey(question: Pick<TalkQuestion, 'lines' | 'talkId'>): string {
+  return question.lines[0]?.audioId ?? question.talkId;
+}
+
+/**
+ * True when the talk may play by itself as this question opens: the first question on it,
+ * and for a 只播一次 talk only if it has not played already (it is then marked as played).
+ */
+export function claimAutoplay(
+  question: Pick<TalkQuestion, 'lines' | 'talkId' | 'once' | 'index'>,
+): boolean {
+  if (question.index !== 0) return false;
+  if (!question.once) return true;
+  const key = onceKey(question);
+  if (playedOnce.has(key)) return false;
+  playedOnce.add(key);
+  return true;
+}
+
+/** The last question on a 只播一次 talk is answered: it may play again next time. */
+export function releaseOnce(question: Pick<TalkQuestion, 'lines' | 'talkId'>): void {
+  playedOnce.delete(onceKey(question));
+}
+
+/** For tests: forget every played talk. */
+export function resetPlayedOnce(): void {
+  playedOnce.clear();
+}
+
+/**
+ * 只播一次: replay and slow stay off until the last question on the talk is answered.
+ * Always false for a talk that may be replayed.
+ */
+export function onceLocked(
+  question: Pick<TalkQuestion, 'once' | 'index' | 'total'>,
+  answered: boolean,
+): boolean {
+  return question.once === true && !(answered && question.index === question.total - 1);
+}
+
 /**
  * The table of a talk with a graphic (TOEIC Part 3 with a graphic): an optional title,
  * then the header row (solid ink, like the speaking tab) and the body rows ruled on paper.
@@ -228,12 +303,16 @@ function TalkTableView({ table }: { table: TalkTable }) {
  * 聽對話答題加圖表 (Part 3 with a graphic, `table`): the table sits under the prompt from
  * the start and stays while listening and answering.
  *
- * 三人對話 (Act 4): three speaker tags; in the transcript the third speaker's lines sit
+ * 三人對話 (Act 4): three speaker tags, each with its own fill (speakerTones), and the
+ * same fill on each line's name tag in the transcript, where the third speaker's lines sit
  * further in than the second's.
  *
- * 只播一次 (`once`): the talk plays once by itself; 再聽一次 stays off and the transcript
- * (with its replay and 慢速 keys) stays hidden until the last question on the talk is
- * answered (minimal version, to be refined).
+ * 只播一次 (`once`): the talk plays once by itself as its first question opens, and never
+ * again by itself in this page's life until its last question is answered (claimAutoplay),
+ * so leaving and coming back does not replay it. Until then 再聽一次 is disabled with a
+ * padlock and the note 只播一次，答完才能重聽; the transcript (with its replay and 慢速 keys)
+ * stays hidden, as it would give away the later questions' answers. Answering the last
+ * question unlocks all of it.
  */
 export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
   const clock = useAnswerClock();
@@ -241,7 +320,11 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
   const [playing, setPlaying] = useState(false);
   /** Index of the line being heard during a whole-conversation play, or -1. */
   const [current, setCurrent] = useState(-1);
-  const [heard, setHeard] = useState(question.index > 0);
+  /** Decided once as the question opens (it marks a 只播一次 talk as played). */
+  const [autoplay] = useState(() => claimAutoplay(question));
+  /** A 只播一次 talk that already played before the learner came back to it. */
+  const playedBefore = question.once === true && question.index === 0 && !autoplay;
+  const [heard, setHeard] = useState(!autoplay);
   const [picked, setPicked] = useState<string | null>(null);
   /** Bumped on every play and on unmount, so an older queue of lines stops. */
   const token = useRef(0);
@@ -254,9 +337,15 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
   const speaking = question.lines[current]?.role;
   const words = talkWords(question);
   /** 只播一次: nothing can be replayed before the last question on the talk is answered. */
-  const locked = question.once === true && !(answered && question.index === question.total - 1);
+  const locked = onceLocked(question, answered);
+  const tones = speakerTones(question.speakers);
+  const toneClass = (role: Role) => {
+    const tone = tones?.get(role);
+    return tone ? ` tone-${tone}` : '';
+  };
   const speakerClass = (role: TalkLine['role']) =>
-    role === question.speakers[1] ? ' second' : role === question.speakers[2] ? ' third' : '';
+    (role === question.speakers[1] ? ' second' : role === question.speakers[2] ? ' third' : '') +
+    toneClass(role);
 
   const playAll = async () => {
     const mine = ++token.current;
@@ -290,7 +379,7 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
 
   useEffect(() => {
     preloadAudio(question.lines.map((line) => line.audioId));
-    if (question.index === 0) void playAll();
+    if (autoplay) void playAll();
     return () => {
       token.current++;
       stopAudio();
@@ -305,6 +394,7 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
   const choose = (id: string) => {
     if (picked !== null) return;
     setPicked(id);
+    if (question.once && question.index === question.total - 1) releaseOnce(question);
     const right = id === question.correctId;
     const result = clock.finish(question.itemId, right, right ? undefined : 'wrong-choice');
     if (result) onAnswered(result);
@@ -326,7 +416,7 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
 
   return (
     <div
-      class={`mg talk${question.monologue ? ' talk-monologue' : ''}${question.table ? ' talk-with-table' : ''}`}
+      class={`mg talk${question.monologue ? ' talk-monologue' : ''}${question.table ? ' talk-with-table' : ''}${tones ? ' talk-three' : ''}`}
     >
       <p class="mg-prompt">
         {words.prompt}
@@ -336,17 +426,23 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
       <div class="mg-row">
         <button
           type="button"
-          class="pixel-button"
+          class={`pixel-button${locked ? ' talk-locked' : ''}`}
           data-testid="talk-replay"
           disabled={playing || locked}
+          aria-describedby={locked ? 'talk-once-note' : undefined}
           onClick={() => {
             if (locked) return;
             if (!answered) clock.markHelp();
             void playAll();
           }}
         >
-          ♪ 再聽一次
+          {locked && <span class="lock-mark" aria-hidden="true" />}♪ 再聽一次
         </button>
+        {locked && (
+          <span class="talk-once-note" id="talk-once-note" data-testid="talk-once-note">
+            {playedBefore ? ONCE_PLAYED_NOTE : ONCE_NOTE}
+          </span>
+        )}
       </div>
       {showQuestion ? (
         <>
@@ -371,7 +467,7 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
               return (
                 <span
                   key={role}
-                  class={`talk-speaker${on ? ' on' : ''}`}
+                  class={`talk-speaker${toneClass(role)}${on ? ' on' : ''}`}
                   aria-current={on ? 'true' : undefined}
                 >
                   <span class="talk-mark" aria-hidden="true">

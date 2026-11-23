@@ -9,12 +9,19 @@ import { buildTaskPractice, makeRng } from '../src/learning/questionGen';
 import { NO_ITEM } from '../src/learning/questions';
 import {
   LEAD_IN_MS,
+  ONCE_NOTE,
   PAUSE_NEW_SPEAKER_MS,
   PAUSE_SAME_SPEAKER_MS,
   lineTimeoutMs,
   optionForKey,
   pauseBeforeMs,
+  claimAutoplay,
+  onceKey,
+  onceLocked,
   playConversation,
+  releaseOnce,
+  resetPlayedOnce,
+  speakerTones,
   talkWords,
   type ConversationDeps,
 } from '../src/ui/minigames/Talk';
@@ -768,6 +775,75 @@ describe('Act 4 talks: three speakers, longer monologues, play once', () => {
       expect(qs.map((q) => q.once)).toEqual([true, true]);
       const plain = talkQuestions(unit([talk()]), task({ talks: [talk()] }), makeRng(1));
       expect(plain[0]).not.toHaveProperty('once');
+    });
+
+    describe('on the screen', () => {
+      const onceQuestions = (t: TalkItem = talk({ once: true })) =>
+        talkQuestions(unit([t]), task({ talks: [t] }), makeRng(1));
+      beforeEach(() => resetPlayedOnce());
+
+      it('locks replay and slow until the last question on the talk is answered', () => {
+        const [first, last] = onceQuestions();
+        expect(onceLocked(first!, false)).toBe(true);
+        expect(onceLocked(first!, true)).toBe(true); // later questions still to come
+        expect(onceLocked(last!, false)).toBe(true);
+        expect(onceLocked(last!, true)).toBe(false);
+        const [plain] = talkQuestions(unit([talk()]), task({ talks: [talk()] }), makeRng(1));
+        expect(onceLocked(plain!, false)).toBe(false);
+        expect(ONCE_NOTE).toBe('只播一次，答完才能重聽');
+      });
+
+      it('plays by itself once: coming back to the talk does not play it again', () => {
+        const [first, last] = onceQuestions();
+        expect(claimAutoplay(first!)).toBe(true);
+        // The learner leaves (先回小鎮) and comes back: a new set of questions, same talk.
+        const [again] = onceQuestions();
+        expect(onceKey(again!)).toBe(onceKey(first!));
+        expect(claimAutoplay(again!)).toBe(false);
+        expect(claimAutoplay(last!)).toBe(false); // later questions never play by themselves
+        // Once every question is answered the task can be played afresh.
+        releaseOnce(last!);
+        expect(claimAutoplay(onceQuestions()[0]!)).toBe(true);
+      });
+
+      it('leaves other talks playing by themselves every time', () => {
+        const [plain, second] = talkQuestions(
+          unit([talk()]),
+          task({ talks: [talk()] }),
+          makeRng(1),
+        );
+        expect(claimAutoplay(plain!)).toBe(true);
+        expect(claimAutoplay(plain!)).toBe(true);
+        expect(claimAutoplay(second!)).toBe(false);
+      });
+
+      it('keeps play-once talks of different units apart', () => {
+        const t = talk({ once: true });
+        const [a] = talkQuestions(unit([t]), task({ talks: [t] }), makeRng(1));
+        const [b] = talkQuestions({ ...unit([t]), id: 'v' }, task({ talks: [t] }), makeRng(1));
+        expect(claimAutoplay(a!)).toBe(true);
+        expect(claimAutoplay(b!)).toBe(true);
+      });
+    });
+  });
+
+  describe('speaker tones (三人對話)', () => {
+    it('gives three speakers three different fills, you always lamp-tint', () => {
+      expect([...speakerTones(['clerk', 'friend', 'barista'])!]).toEqual([
+        ['clerk', 'paper'],
+        ['friend', 'tint'],
+        ['barista', 'lamp'],
+      ]);
+      const withYou = speakerTones(['friend', 'clerk', 'guide'])!;
+      expect(withYou.get('guide')).toBe('tint');
+      expect(withYou.get('friend')).toBe('paper');
+      expect(withYou.get('clerk')).toBe('lamp');
+      expect(new Set(withYou.values()).size).toBe(3);
+    });
+
+    it('leaves two speakers and monologues with the plain tab', () => {
+      expect(speakerTones(['clerk', 'friend'])).toBeNull();
+      expect(speakerTones(['clerk'])).toBeNull();
     });
   });
 });

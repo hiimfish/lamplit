@@ -37,6 +37,24 @@
   box-shadow: inset 0 0 0 var(--px) var(--ink);
 }
 
+/*
+ * 三人對話: each speaker's tab has its own fill (ink text on paper, lamp-tint or lamp), the
+ * same as its name tag in the transcript. The one talking is still solid ink with ▶.
+ * Three tabs of the longest label (5 characters, e.g. 分公司經理) take about 77 logical px
+ * each: with the narrower gap they fit one row of the ~270 an upright phone gives.
+ */
+.talk-three .talk-speakers {
+  column-gap: calc(6 * var(--px));
+}
+
+.talk-speaker.tone-tint {
+  background: var(--lamp-tint);
+}
+
+.talk-speaker.tone-lamp {
+  background: var(--lamp);
+}
+
 .talk-speaker.on {
   color: var(--paper);
   background: var(--ink);
@@ -119,6 +137,15 @@
   }
 }
 
+/* 三人對話: each line's name tag has its speaker's fill (paper is the plain tag). */
+.talk-row.tone-tint .bubble-who {
+  background: var(--lamp-tint);
+}
+
+.talk-row.tone-lamp .bubble-who {
+  background: var(--lamp);
+}
+
 /* While 再聽一次 plays after answering, the line being heard gets the solid tab and ▶. */
 .talk-bubble.talk-now .bubble-who {
   color: var(--paper);
@@ -127,6 +154,19 @@
 
 .talk-bubble .talk-mark {
   margin-right: calc(2 * var(--px));
+}
+
+/*
+ * 只播一次: until the last question is answered 再聽一次 is a locked key (dim, dashed rim,
+ * padlock, as locked tasks in town) with its note beside it in ink.
+ */
+.pixel-button.talk-locked:disabled {
+  border-style: dashed;
+}
+
+.talk-once-note {
+  font-size: calc(11 * var(--px));
+  color: var(--ink);
 }
 
 .pixel-button.talk-slow {
