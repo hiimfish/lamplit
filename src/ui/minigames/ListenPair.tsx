@@ -2,7 +2,16 @@ import { useState } from 'preact/hooks';
 import { settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
 import type { ListenPairQuestion } from '../../learning/questions';
-import { Feedback, FeedbackSlot, ReplayBar, play, useAnswerClock } from './shared';
+import { useKeys } from '../keys';
+import {
+  Feedback,
+  FeedbackSlot,
+  KeyBadge,
+  ReplayBar,
+  choiceKeyMap,
+  play,
+  useAnswerClock,
+} from './shared';
 import type { MinigameProps } from './shared';
 
 /**
@@ -23,7 +32,10 @@ export function ListenPair({ question, onAnswered }: MinigameProps<ListenPairQue
     const isRight = id === question.correctId;
     const result = clock.finish(question.itemId, isRight, isRight ? undefined : 'wrong-choice');
     if (result) onAnswered(result);
+    // The word heard plays once more with its answer, as on ListenPick.
+    play(question.audioId, correctLabel);
   };
+  useKeys(choiceKeyMap(question.options, choose), picked === null);
 
   return (
     <div class="mg">
@@ -33,7 +45,7 @@ export function ListenPair({ question, onAnswered }: MinigameProps<ListenPairQue
       </p>
       <ReplayBar audioId={question.audioId} text={correctLabel} onHelp={clock.markHelp} autoplay />
       <div class="mg-options">
-        {question.options.map((option) => {
+        {question.options.map((option, index) => {
           const state =
             picked === null
               ? ''
@@ -51,6 +63,7 @@ export function ListenPair({ question, onAnswered }: MinigameProps<ListenPairQue
               disabled={picked !== null}
               onClick={() => choose(option.id)}
             >
+              {index < 9 && <KeyBadge label={String(index + 1)} />}
               <span class="mg-pair-en" lang="en">
                 {option.label}
               </span>

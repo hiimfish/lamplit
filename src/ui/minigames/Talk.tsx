@@ -6,6 +6,7 @@ import { settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
 import type { TalkQuestion } from '../../learning/questions';
 import { focusLost, focusStatic } from '../focus';
+import { useKeys } from '../keys';
 import '../flow.css';
 import './Talk.css';
 import { ChoiceKeys, Feedback, FeedbackSlot, play, useAnswerClock } from './shared';
@@ -133,17 +134,6 @@ export const liveDeps: ConversationDeps = {
   sleep: (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
   now: () => Date.now(),
 };
-
-/** The option a number key (1 = first shown) picks, or null for any other key. */
-export function optionForKey(e: KeyboardEvent, count: number): number | null {
-  if (e.ctrlKey || e.metaKey || e.altKey || e.repeat) return null;
-  // Typing in the settings dialog (or any field) is not an answer.
-  const target = typeof Element !== 'undefined' && e.target instanceof Element ? e.target : null;
-  if (target?.closest('[role="dialog"], input, textarea, select')) return null;
-  if (!/^[1-9]$/.test(e.key)) return null;
-  const index = Number(e.key) - 1;
-  return index < count ? index : null;
-}
 
 /** The Chinese wording of the screen, which differs for a monologue and a talk with a table. */
 export interface TalkWords {
@@ -404,19 +394,14 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
     if (result) onAnswered(result);
   };
 
-  // Number keys pick an answer; once answered, Enter is left to the focused 繼續.
-  useEffect(() => {
-    if (!showQuestion || answered) return undefined;
-    const onKey = (e: KeyboardEvent) => {
-      const index = optionForKey(e, question.options.length);
-      const option = index === null ? undefined : question.options[index];
-      if (!option) return;
-      e.preventDefault();
-      choose(option.id);
-    };
-    document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
-  }, [showQuestion, answered]);
+  /** 再聽一次 (tap or Space): help before answering; never while a 只播一次 talk is locked. */
+  const replay = () => {
+    if (locked || playing) return;
+    if (!answered) clock.markHelp();
+    void playAll();
+  };
+  // Number keys pick an answer (ChoiceKeys, shown once the talk is heard); Space replays.
+  useKeys({ Space: replay });
 
   return (
     <div
@@ -434,11 +419,7 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
           data-testid="talk-replay"
           disabled={playing || locked}
           aria-describedby={locked ? 'talk-once-note' : undefined}
-          onClick={() => {
-            if (locked) return;
-            if (!answered) clock.markHelp();
-            void playAll();
-          }}
+          onClick={replay}
         >
           {locked && <span class="lock-mark" aria-hidden="true" />}♪ 再聽一次
         </button>

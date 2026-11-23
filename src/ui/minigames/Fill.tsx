@@ -1,18 +1,8 @@
-import { useEffect, useState } from 'preact/hooks';
+import { useState } from 'preact/hooks';
 import type { FillQuestion } from '../../learning/questions';
 import './Fill.css';
 import { ChoiceKeys, Feedback, FeedbackSlot, useAnswerClock } from './shared';
 import type { MinigameProps } from './shared';
-
-/** The option a number key (1 to 4) picks, or null when the game should ignore the key. */
-function optionForKey(e: KeyboardEvent, count: number): number | null {
-  if (e.ctrlKey || e.metaKey || e.altKey) return null;
-  // Typing in the settings dialog (or any field) is not an answer.
-  const target = e.target instanceof Element ? e.target : null;
-  if (target?.closest('[role="dialog"], input, textarea, select')) return null;
-  const n = Number(e.key);
-  return Number.isInteger(n) && n >= 1 && n <= count ? n - 1 : null;
-}
 
 /** The prompt: 文法填空 (`grammar`) names itself; a plain 句子填空 asks for the word that fits. */
 export function fillPrompt(question: Pick<FillQuestion, 'grammar'>): string {
@@ -64,20 +54,7 @@ export function Fill({ question, onAnswered }: MinigameProps<FillQuestion>) {
     if (result) onAnswered(result);
   };
 
-  // Number keys 1-4 pick the option at that place. Once answered, keys are left alone
-  // (Enter goes to the focused 繼續).
-  useEffect(() => {
-    if (answered) return undefined;
-    const onKey = (e: KeyboardEvent) => {
-      const index = optionForKey(e, question.options.length);
-      const option = index === null ? undefined : question.options[index];
-      if (!option) return;
-      e.preventDefault();
-      choose(option.id);
-    };
-    document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
-  }, [answered]);
+  // Number keys 1-4 pick the option at that place (ChoiceKeys).
 
   return (
     <div class="mg fill">

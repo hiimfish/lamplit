@@ -6,9 +6,10 @@ import { useStore } from '../../core/store';
 import type { RespondQuestion } from '../../learning/questions';
 import '../flow.css';
 import './respond.css';
+import { digitIndex, letterIndex, useKeys } from '../keys';
 import { Feedback, FeedbackSlot, useAnswerClock } from './shared';
 import type { MinigameProps } from './shared';
-import { optionForKey, playConversation, type ConversationDeps } from './Talk';
+import { playConversation, type ConversationDeps } from './Talk';
 
 /** Letters of the responses, in the order heard. */
 export const RESPONSE_LETTERS = ['A', 'B', 'C'];
@@ -158,28 +159,32 @@ export function Respond({ question, onAnswered }: MinigameProps<RespondQuestion>
 
   const choose = (id: string) => {
     if (picked !== null) return;
-    token.current++;
-    stopAudio();
-    setPlaying(-1);
     setPicked(id);
     const ok = id === question.correctId;
     const result = clock.finish(question.itemId, ok, ok ? undefined : 'wrong-choice');
     if (result) onAnswered(result);
+    // Answering stops the set and plays the right response once (marked in the transcript).
+    const right = question.options.findIndex((o) => o.id === question.correctId);
+    if (right >= 0) void run([right + 1]);
+    else {
+      token.current++;
+      stopAudio();
+      setPlaying(-1);
+    }
   };
 
-  // Number keys pick a response; once answered, Enter is left to the focused 繼續.
-  useEffect(() => {
-    if (answered) return undefined;
-    const onKey = (e: KeyboardEvent) => {
-      const index = optionForKey(e, question.options.length);
-      const option = index === null ? undefined : question.options[index];
-      if (!option) return;
-      e.preventDefault();
-      choose(option.id);
+  // Keys 1-3 or A-C pick a response; Space is ♪ 全部再聽; once answered, Enter goes to 繼續.
+  const pickKeys: Record<string, () => void> = {};
+  question.options.forEach((option, i) => {
+    const pick = () => {
+      if (!answered) choose(option.id);
     };
-    document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
-  }, [answered]);
+    if (digitIndex(String(i + 1), question.options.length) !== null) pickKeys[String(i + 1)] = pick;
+    const letter = RESPONSE_LETTERS[i]?.toLowerCase();
+    if (letter && letterIndex(letter, question.options.length) !== null) pickKeys[letter] = pick;
+  });
+  useKeys(pickKeys, !answered);
+  useKeys({ Space: () => replay(clips.map((_, i) => i)) });
 
   const speaker = ROLE_LABEL[question.prompt.role];
 

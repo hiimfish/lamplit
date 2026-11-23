@@ -12,7 +12,6 @@ import {
   WIDE_OPTION_CHARS,
   emailHeader,
   emailShape,
-  textFillKey,
   wideOptions,
 } from '../src/ui/minigames/TextFill';
 
@@ -250,27 +249,7 @@ describe('textFillQuestions', () => {
 });
 
 describe('TextFill screen helpers', () => {
-  const key = (k: string, over: Partial<KeyboardEvent> = {}) =>
-    ({
-      key: k,
-      ctrlKey: false,
-      metaKey: false,
-      altKey: false,
-      repeat: false,
-      target: null,
-      ...over,
-    }) as KeyboardEvent;
-
-  it('maps number keys 1-4 to options, like the Fill and Talk screens', () => {
-    expect(['1', '2', '3', '4'].map((k) => textFillKey(key(k), 4))).toEqual([0, 1, 2, 3]);
-    expect(textFillKey(key('5'), 4)).toBeNull();
-    expect(textFillKey(key('0'), 4)).toBeNull();
-    expect(textFillKey(key('a'), 4)).toBeNull();
-    expect(textFillKey(key('1', { ctrlKey: true }), 4)).toBeNull();
-    expect(textFillKey(key('1', { altKey: true }), 4)).toBeNull();
-    expect(textFillKey(key('1', { repeat: true }), 4)).toBeNull();
-  });
-
+  // Number keys are the shared ChoiceKeys map now (tests/keys-choice.test.ts).
   it('puts the keys one per row only when an option is a phrase or a sentence', () => {
     const labels = (...l: string[]) => l.map((label) => ({ label }));
     expect(wideOptions(labels('on', 'in', 'at', 'by'))).toBe(false);

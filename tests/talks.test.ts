@@ -13,7 +13,6 @@ import {
   PAUSE_NEW_SPEAKER_MS,
   PAUSE_SAME_SPEAKER_MS,
   lineTimeoutMs,
-  optionForKey,
   pauseBeforeMs,
   claimAutoplay,
   onceKey,
@@ -377,32 +376,6 @@ describe('playConversation', () => {
     const { finished } = await world.run(undefined, () => cancel);
     expect(finished).toBe(false);
     expect(world.log).toEqual(['play u.talk.k1_1 @300']);
-  });
-});
-
-describe('optionForKey', () => {
-  const key = (k: string, over: Partial<KeyboardEvent> = {}) =>
-    ({
-      key: k,
-      ctrlKey: false,
-      metaKey: false,
-      altKey: false,
-      repeat: false,
-      ...over,
-    }) as KeyboardEvent;
-
-  it('maps 1 to the first option shown, up to the number of options', () => {
-    expect(optionForKey(key('1'), 3)).toBe(0);
-    expect(optionForKey(key('3'), 3)).toBe(2);
-    expect(optionForKey(key('4'), 3)).toBeNull();
-    expect(optionForKey(key('0'), 3)).toBeNull();
-    expect(optionForKey(key('a'), 3)).toBeNull();
-    expect(optionForKey(key(' '), 3)).toBeNull();
-  });
-
-  it('ignores shortcuts and held keys', () => {
-    expect(optionForKey(key('1', { ctrlKey: true }), 3)).toBeNull();
-    expect(optionForKey(key('1', { repeat: true }), 3)).toBeNull();
   });
 });
 

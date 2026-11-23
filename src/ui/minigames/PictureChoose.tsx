@@ -4,7 +4,8 @@ import { settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
 import { canvasPainter } from '../../game/painter';
 import type { PictureQuestion } from '../../learning/questions';
-import { Feedback, FeedbackSlot, play, useAnswerClock } from './shared';
+import { useKeys } from '../keys';
+import { Feedback, FeedbackSlot, KeyBadge, choiceKeyMap, play, useAnswerClock } from './shared';
 import type { MinigameProps } from './shared';
 
 const urls = new Map<string, string>();
@@ -49,6 +50,7 @@ export function PictureChoose({ question, onAnswered }: MinigameProps<PictureQue
     if (result) onAnswered(result);
     play(question.audioId, right?.en ?? '');
   };
+  useKeys(choiceKeyMap(question.options, choose), picked === null);
 
   return (
     <div class="mg">
@@ -65,7 +67,7 @@ export function PictureChoose({ question, onAnswered }: MinigameProps<PictureQue
         />
       )}
       <div class="mg-sentences">
-        {question.options.map((option) => {
+        {question.options.map((option, index) => {
           const state =
             picked === null
               ? ''
@@ -83,6 +85,7 @@ export function PictureChoose({ question, onAnswered }: MinigameProps<PictureQue
               disabled={picked !== null}
               onClick={() => choose(option.id)}
             >
+              {index < 9 && <KeyBadge label={String(index + 1)} />}
               <span class="mg-say">
                 <span lang="en">{option.en}</span>
                 {showZh && state !== '' && <span class="mg-pair-zh">{option.zh}</span>}

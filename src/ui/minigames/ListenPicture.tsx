@@ -5,6 +5,7 @@ import { LISTEN_PICTURE_ROLE } from '../../content/checks/pictures';
 import { settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
 import type { PictureQuestion, TalkQuestion } from '../../learning/questions';
+import { digitIndex, letterIndex, useKeys } from '../keys';
 import './listenPicture.css';
 import { pictureUrl } from './PictureChoose';
 import { Feedback, FeedbackSlot, play, useAnswerClock } from './shared';
@@ -169,6 +170,32 @@ export function ListenPicture({ question, onAnswered }: MinigameProps<PictureQue
     const right = question.options.find((o) => o.id === question.correctId);
     play(question.audioId, right?.en ?? '');
   };
+
+  // Keys 1-4 or A-D pick while the question is open. Space plays all four again (help, like
+  // ♪); once answered, Space / Shift+Space play the right sentence at normal / slow speed.
+  const pickKeys: Record<string, () => void> = {};
+  question.options.forEach((option, i) => {
+    const pick = () => choose(option.id);
+    if (digitIndex(String(i + 1), count) !== null) pickKeys[String(i + 1)] = pick;
+    const letter = OPTION_LETTERS[i]?.toLowerCase();
+    if (letter && letterIndex(letter, count) !== null) pickKeys[letter] = pick;
+  });
+  useKeys(pickKeys, !answered);
+  const rightIndex = question.options.findIndex((o) => o.id === question.correctId);
+  useKeys({
+    Space: () => {
+      if (answered) {
+        playOne(rightIndex);
+        return;
+      }
+      clock.markHelp();
+      stopAudio();
+      void playAll();
+    },
+    'Shift+Space': () => {
+      if (answered) playOne(rightIndex, true);
+    },
+  });
 
   return (
     <div class={`mg listen-picture${answered ? ' answered' : ''}`}>

@@ -1,7 +1,17 @@
 import { useState } from 'preact/hooks';
 import type { ListenPickQuestion } from '../../learning/questions';
 import { hasItemIcon, ItemIcon } from '../ItemIcon';
-import { Feedback, FeedbackSlot, ReplayBar, hintFor, play, useAnswerClock } from './shared';
+import { useKeys } from '../keys';
+import {
+  Feedback,
+  FeedbackSlot,
+  KeyBadge,
+  ReplayBar,
+  choiceKeyMap,
+  hintFor,
+  play,
+  useAnswerClock,
+} from './shared';
 import type { MinigameProps } from './shared';
 
 export function ListenPick({ question, onAnswered }: MinigameProps<ListenPickQuestion>) {
@@ -18,13 +28,14 @@ export function ListenPick({ question, onAnswered }: MinigameProps<ListenPickQue
     if (result) onAnswered(result);
     play(question.audioId, correctLabel);
   };
+  useKeys(choiceKeyMap(question.options, choose), picked === null);
 
   return (
     <div class="mg">
       <p class="mg-prompt">聽聽看，選出你聽到的</p>
       <ReplayBar audioId={question.audioId} text={correctLabel} onHelp={clock.markHelp} autoplay />
       <div class="mg-options">
-        {question.options.map((option) => {
+        {question.options.map((option, index) => {
           const state =
             picked === null
               ? ''
@@ -42,6 +53,7 @@ export function ListenPick({ question, onAnswered }: MinigameProps<ListenPickQue
               disabled={picked !== null}
               onClick={() => choose(option.id)}
             >
+              {index < 9 && <KeyBadge label={String(index + 1)} />}
               {(hasItemIcon(option.id) || option.emoji) && (
                 <span class="mg-emoji">
                   <ItemIcon id={option.id} fallback={option.emoji} />

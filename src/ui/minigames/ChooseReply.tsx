@@ -2,7 +2,17 @@ import { useState } from 'preact/hooks';
 import { ROLE_LABEL } from '../../content/roles';
 import type { ChooseReplyQuestion } from '../../learning/questions';
 import { En } from '../En';
-import { Feedback, FeedbackSlot, ReplayBar, hintFor, play, useAnswerClock } from './shared';
+import { useKeys } from '../keys';
+import {
+  Feedback,
+  FeedbackSlot,
+  KeyBadge,
+  ReplayBar,
+  choiceKeyMap,
+  hintFor,
+  play,
+  useAnswerClock,
+} from './shared';
 import type { MinigameProps } from './shared';
 
 export function ChooseReply({ question, onAnswered }: MinigameProps<ChooseReplyQuestion>) {
@@ -22,6 +32,7 @@ export function ChooseReply({ question, onAnswered }: MinigameProps<ChooseReplyQ
     // The reply's clip is the chunk clip: swap `.line.<id>` in the NPC audio id for `.chunk.<id>`.
     play(question.npcAudioId.replace(/\.line\..*$/, `.chunk.${question.correctId}`), correctText);
   };
+  useKeys(choiceKeyMap(question.options, choose), picked === null);
 
   return (
     <div class="mg">
@@ -40,7 +51,7 @@ export function ChooseReply({ question, onAnswered }: MinigameProps<ChooseReplyQ
         />
       </div>
       <div class="mg-options">
-        {question.options.map((option) => {
+        {question.options.map((option, index) => {
           const state =
             picked === null
               ? ''
@@ -58,6 +69,7 @@ export function ChooseReply({ question, onAnswered }: MinigameProps<ChooseReplyQ
               disabled={picked !== null}
               onClick={() => choose(option.id)}
             >
+              {index < 9 && <KeyBadge label={String(index + 1)} />}
               <En>{option.text}</En>
             </button>
           );

@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import { stopAudio } from '../../audio/pronounce';
 import type { AnswerResult, Question } from '../../learning/questions';
 import { focusAndReveal, focusLost, focusStatic } from '../focus';
+import { useKeys } from '../keys';
 import { Arrange } from './Arrange';
 import { ChooseReply } from './ChooseReply';
 import { Cloze } from './Cloze';
@@ -61,6 +62,8 @@ function Body({ question, onAnswer }: QuestionViewProps) {
   useEffect(() => {
     if (result) focusAndReveal(continueRef.current);
   }, [result]);
+  // Enter presses 繼續 even when focus wandered off it (a focused 繼續 takes Enter itself).
+  useKeys({ Enter: () => continueRef.current?.click() }, result !== null);
 
   let view;
   switch (question.kind) {

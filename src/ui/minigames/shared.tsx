@@ -5,6 +5,7 @@ import { playAudio } from '../../audio/pronounce';
 import { ERROR_HINTS } from '../../learning/errorHints';
 import type { ErrorType } from '../../learning/grading';
 import type { AnswerResult } from '../../learning/questions';
+import { useKeys } from '../keys';
 
 /** Every minigame reports its result once; QuestionView then shows 繼續. */
 export interface MinigameProps<Q> {
@@ -61,7 +62,7 @@ export interface ReplayBarProps {
   autoplay?: boolean;
 }
 
-/** 再聽一次 / 慢速 buttons. Slow replay counts as help. */
+/** 再聽一次 / 慢速 buttons (keys Space / Shift+Space). Slow replay counts as help. */
 export function ReplayBar({
   audioId,
   text,
@@ -73,6 +74,11 @@ export function ReplayBar({
     if (autoplay) play(audioId, text);
     // Only on mount: the parent remounts this component for each question.
   }, []);
+  const slow = () => {
+    onHelp();
+    play(audioId, text, true);
+  };
+  useKeys({ Space: () => play(audioId, text), 'Shift+Space': slow });
   return (
     <div class="mg-row">
       <button
@@ -87,10 +93,7 @@ export function ReplayBar({
         type="button"
         class="pixel-button"
         data-testid="slow"
-        onClick={() => {
-          onHelp();
-          play(audioId, text, true);
-        }}
+        onClick={slow}
       >
         慢速
       </button>
@@ -147,11 +150,28 @@ export interface ChoiceKeysProps {
   onPick: (id: string) => void;
 }
 
-/** One boxed key per text choice; once picked, the right one and a wrong pick are marked. */
+/** The number-key map for a row of choices: '1' picks the first shown, up to '9'. */
+export function choiceKeyMap(
+  options: readonly { id: string }[],
+  onPick: (id: string) => void,
+): Record<string, () => void> {
+  const map: Record<string, () => void> = {};
+  options.slice(0, 9).forEach((option, i) => {
+    map[String(i + 1)] = () => onPick(option.id);
+  });
+  return map;
+}
+
+/**
+ * One boxed key per text choice; once picked, the right one and a wrong pick are marked.
+ * Number keys 1-9 pick while the question is open. With a mouse or trackpad (a fine
+ * pointer) each key shows its number; phones look unchanged.
+ */
 export function ChoiceKeys({ options, correctId, picked, onPick }: ChoiceKeysProps) {
+  useKeys(choiceKeyMap(options, onPick), picked === null);
   return (
     <div class="mg-options">
-      {options.map((option) => {
+      {options.map((option, index) => {
         const state =
           picked === null
             ? ''
@@ -169,10 +189,20 @@ export function ChoiceKeys({ options, correctId, picked, onPick }: ChoiceKeysPro
             disabled={picked !== null}
             onClick={() => onPick(option.id)}
           >
+            {index < 9 && <KeyBadge label={String(index + 1)} />}
             <span lang="en">{option.label}</span>
           </button>
         );
       })}
     </div>
+  );
+}
+
+/** The key that picks a choice ("1", "A"): a small ink box, shown only with a fine pointer. */
+export function KeyBadge({ label }: { label: string }) {
+  return (
+    <span class="mg-key" aria-hidden="true">
+      {label}
+    </span>
   );
 }

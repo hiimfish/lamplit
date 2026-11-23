@@ -85,15 +85,6 @@ export function formRow(line: string): { label: string; value: string } | null {
   return match ? { label: match[1]!.trim(), value: match[2]!.trim() } : null;
 }
 
-/** Number keys 1-4 pick an option; ignored while typing in a field or a dialog. */
-function optionKey(e: KeyboardEvent, count: number): number | null {
-  if (e.ctrlKey || e.metaKey || e.altKey) return null;
-  const target = e.target instanceof Element ? e.target : null;
-  if (target?.closest('[role="dialog"], input, textarea, select')) return null;
-  const n = Number(e.key);
-  return Number.isInteger(n) && n >= 1 && n <= count ? n - 1 : null;
-}
-
 function Line({ hit, children }: { hit: boolean; children: ComponentChildren }) {
   return (
     <p class={`rp-line ${hit ? 'rp-hit' : ''}`} data-hit={hit ? 'true' : undefined}>
@@ -266,19 +257,7 @@ export function ReadPassage({ question, onAnswered }: MinigameProps<PassageQuest
     }
   }, [picked, hit, tab]);
 
-  // Number keys pick an option; once answered, Enter is left to the focused 繼續.
-  useEffect(() => {
-    if (picked !== null) return undefined;
-    const onKey = (e: KeyboardEvent) => {
-      const n = optionKey(e, question.options.length);
-      const option = n === null ? undefined : question.options[n];
-      if (!option) return;
-      e.preventDefault();
-      choose(option.id);
-    };
-    document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
-  }, [picked]);
+  // Number keys 1-4 pick an option (ChoiceKeys); once answered, Enter goes to 繼續.
 
   // The tabs: arrow keys, Home and End move between them, as in any tab row.
   const onTabKey = (e: KeyboardEvent) => {

@@ -43,17 +43,6 @@ export function wideOptions(options: readonly { label: string }[]): boolean {
   return options.some((o) => o.label.length > WIDE_OPTION_CHARS);
 }
 
-/** The option a number key (1 = first shown) picks, or null for any other key. */
-export function textFillKey(e: KeyboardEvent, count: number): number | null {
-  if (e.ctrlKey || e.metaKey || e.altKey || e.repeat) return null;
-  // Typing in the settings dialog (or any field) is not an answer.
-  const target = typeof Element !== 'undefined' && e.target instanceof Element ? e.target : null;
-  if (target?.closest('[role="dialog"], input, textarea, select')) return null;
-  if (!/^[1-9]$/.test(e.key)) return null;
-  const index = Number(e.key) - 1;
-  return index < count ? index : null;
-}
-
 /**
  * An email's header line from its title: a title that names its own field ("From: Dan",
  * "Re: Price list") keeps it; any other title is the subject, as on the ReadPassage screen.
@@ -300,19 +289,7 @@ export function TextFill({ question, onAnswered }: MinigameProps<TextFillQuestio
     showGap();
   }, [picked]);
 
-  // Number keys pick an option; once answered, Enter is left to the focused 繼續.
-  useEffect(() => {
-    if (answered) return undefined;
-    const onKey = (e: KeyboardEvent) => {
-      const index = textFillKey(e, question.options.length);
-      const option = index === null ? undefined : question.options[index];
-      if (!option) return;
-      e.preventDefault();
-      choose(option.id);
-    };
-    document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
-  }, [answered]);
+  // Number keys pick an option (ChoiceKeys); once answered, Enter goes to 繼續.
 
   return (
     <div class="mg text-fill tf">
