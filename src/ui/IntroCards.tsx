@@ -8,6 +8,7 @@ import { hasItemIcon, iconIdOf, ItemIcon } from './ItemIcon';
 import './flow.css';
 import { useRefocus } from './focus';
 import { useKeys } from './keys';
+import { KeyCap } from './KeyCap';
 
 interface Props {
   task: Task;
@@ -124,9 +125,11 @@ export function IntroCards({ task, onDone }: Props) {
           <div class="flow-actions">
             <button class="pixel-button" onClick={() => play(item.audioId, item.text, false)}>
               聽發音
+              <KeyCap k="Space" />
             </button>
             <button class="pixel-button" onClick={() => play(item.audioId, item.text, true)}>
               慢速
+              <KeyCap k="Shift+Space" />
             </button>
           </div>
         </div>
@@ -135,6 +138,7 @@ export function IntroCards({ task, onDone }: Props) {
         {index > 0 && (
           <button class="pixel-button small" onClick={back}>
             上一張
+            <KeyCap k="ArrowLeft" />
           </button>
         )}
         <button
@@ -143,6 +147,7 @@ export function IntroCards({ task, onDone }: Props) {
           data-testid="intro-next"
         >
           {last ? '開始練習' : '下一張'}
+          <KeyCap k="Enter" />
         </button>
       </div>
     </div>

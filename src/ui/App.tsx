@@ -4,6 +4,7 @@ import { appStore } from '../core/appState';
 import { useStore } from '../core/store';
 import { focusStatic } from './focus';
 import { useKeys } from './keys';
+import { KeyCap } from './KeyCap';
 import { ResultScreen } from './ResultScreen';
 import { ReviewScreen } from './ReviewScreen';
 import { TaskScreen } from './TaskScreen';
@@ -30,6 +31,7 @@ function TitleScreen() {
       </div>
       <button class="pixel-button primary blink" onClick={start} data-testid="start">
         點一下開始
+        <KeyCap k="Enter" />
       </button>
     </div>
   );

@@ -23,6 +23,7 @@ import {
 import './flow.css';
 import { useRefocus } from './focus';
 import { useKeys } from './keys';
+import { KeyCap } from './KeyCap';
 import { SettingsPanel } from './SettingsPanel';
 import { SceneStage } from './stage/SceneStage';
 import { stageArea } from './stage/stageArea';
@@ -314,6 +315,7 @@ export function TownScreen() {
         data-testid="continue"
       >
         {Object.keys(save.tasks).length > 0 ? '下一關' : '開始第一關'}
+        <KeyCap k="Enter" />
       </button>
     </div>
   );

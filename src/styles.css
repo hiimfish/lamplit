@@ -231,6 +231,42 @@ body {
   padding-left: calc(10 * var(--px));
 }
 
+/*
+ * Key hints (KeyCap): an ink box with the key's name inside the button, after its words
+ * (before them on answer keys). Only on a computer, and only once the keyboard has been used
+ * (data-input="keys", set by trackInputMode); a tap or click hides them again.
+ */
+.kc {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :root[data-input='keys'] .kc {
+    display: inline-block;
+    flex: none;
+    padding: 0 calc(2 * var(--px));
+    line-height: 1.2;
+    white-space: nowrap;
+    color: var(--paper);
+    background: var(--ink);
+  }
+
+  :root[data-input='keys'] .pixel-button:disabled .kc {
+    opacity: 0.5;
+  }
+
+  /* Answered: the number keys no longer pick, so their caps go (keeping their room). */
+  :root[data-input='keys'] .pixel-button:disabled .kc-lead {
+    visibility: hidden;
+  }
+
+  /* A button with a cap trims its side padding, so 再聽一次 and 慢速 still share a row. */
+  :root[data-input='keys'] .pixel-button:has(> .kc) {
+    padding-right: calc(3 * var(--px));
+    padding-left: calc(4 * var(--px));
+  }
+}
+
 @media (hover: hover) {
   .pixel-button:hover:not(:disabled):not(.primary):not([aria-checked='true']) {
     background: var(--lamp-tint);

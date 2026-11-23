@@ -3,6 +3,7 @@ import { stopAudio } from '../../audio/pronounce';
 import { settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
 import { useKeys } from '../keys';
+import { KeyCap } from '../KeyCap';
 import { takeJustChecked } from './Arrange';
 import { isRecognitionSupported, RECOGNITION_NOTE } from '../../audio/recognize';
 import type { SpokenComparison } from '../../audio/recognize';
@@ -81,6 +82,7 @@ export function Speak({ question, onAnswered }: MinigameProps<SpeakQuestion>) {
               primary
               id="done"
               label="我說完了"
+              hint="Enter"
               disabled={micBusy}
               onClick={() => finish(false)}
             />
@@ -160,9 +162,11 @@ interface BtnProps {
   disabled?: boolean;
   onClick: () => void;
   label: string;
+  /** A KeyCap shown after the label (a key name from keys.ts). */
+  hint?: string;
 }
 
-function Btn({ id, label, primary = false, disabled = false, onClick }: BtnProps) {
+function Btn({ id, label, hint, primary = false, disabled = false, onClick }: BtnProps) {
   return (
     <button
       type="button"
@@ -172,6 +176,7 @@ function Btn({ id, label, primary = false, disabled = false, onClick }: BtnProps
       onClick={onClick}
     >
       {label}
+      {hint && <KeyCap k={hint} />}
     </button>
   );
 }
@@ -181,8 +186,8 @@ function SpeakReplay(props: { onReplay: () => void; onSlow: () => void; disabled
   const { onReplay, onSlow, disabled } = props;
   return (
     <div class="mg-row">
-      <Btn id="replay" label="♪ 播放示範" disabled={disabled} onClick={onReplay} />
-      <Btn id="slow" label="慢速" disabled={disabled} onClick={onSlow} />
+      <Btn id="replay" label="♪ 播放示範" hint="Space" disabled={disabled} onClick={onReplay} />
+      <Btn id="slow" label="慢速" hint="Shift+Space" disabled={disabled} onClick={onSlow} />
     </div>
   );
 }

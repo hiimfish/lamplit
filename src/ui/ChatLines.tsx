@@ -3,6 +3,7 @@ import { ROLE_LABEL } from '../content/roles';
 import type { SceneLine } from '../content/types';
 import { settingsStore } from '../core/settings';
 import { useStore } from '../core/store';
+import { KeyCap } from './KeyCap';
 import './flow.css';
 
 interface Props {
@@ -11,10 +12,13 @@ interface Props {
   /** Index of the newest line, drawn as current (typed out); -1 for none. */
   current: number;
   onPlay: (index: number, slow: boolean) => void;
+  /** Key caps on the newest line (the story maps Space / Shift+Space to it). */
+  keyHints?: boolean;
 }
 
 /** The 中文 key: shows or hides the Chinese under every line (a saved setting). */
-export function ZhToggle() {
+/** `hint` shows the 0 key cap where the screen maps 0 to this key. */
+export function ZhToggle({ hint = false }: { hint?: boolean }) {
   const { showZh } = useStore(settingsStore);
   return (
     <button
@@ -23,6 +27,7 @@ export function ZhToggle() {
       aria-pressed={showZh}
     >
       中文：{showZh ? '開' : '關'}
+      {hint && <KeyCap k="0" />}
     </button>
   );
 }
@@ -31,7 +36,7 @@ export function ZhToggle() {
  * A chat log of boxed scene lines: each line is a key that plays it again, with a
  * 慢速 key beside it. Scrolls to the newest line whenever one is added.
  */
-export function ChatLines({ lines, current, onPlay }: Props) {
+export function ChatLines({ lines, current, onPlay, keyHints = false }: Props) {
   const { showZh } = useStore(settingsStore);
   const listRef = useRef<HTMLDivElement>(null);
 
@@ -52,6 +57,7 @@ export function ChatLines({ lines, current, onPlay }: Props) {
             <span class="bubble-who">
               {line.speaker === 'npc' ? ROLE_LABEL[line.role] : ROLE_LABEL.guide}
             </span>
+            {keyHints && index === current && <KeyCap k="Space" />}
             <span class="bubble-en" lang="en">
               {line.en}
             </span>
@@ -63,6 +69,7 @@ export function ChatLines({ lines, current, onPlay }: Props) {
             onClick={() => onPlay(index, true)}
           >
             慢速
+            {keyHints && index === current && <KeyCap k="Shift+Space" />}
           </button>
         </div>
       ))}

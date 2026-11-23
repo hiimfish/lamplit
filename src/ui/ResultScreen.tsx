@@ -10,6 +10,7 @@ import './flow.css';
 import { clipsOf } from './IntroCards';
 import { hasItemIcon, iconIdOf, ItemIcon } from './ItemIcon';
 import { useKeys } from './keys';
+import { KeyCap } from './KeyCap';
 import { StarMarks } from './TownScreen';
 
 /** Says a learned item once (a pair: one side, then the other); a new tap cuts it off. */
@@ -101,6 +102,7 @@ export function ResultScreen() {
             data-testid="to-town"
           >
             回小鎮
+            <KeyCap k="Enter" />
           </button>
           {isTask && (
             <button class="pixel-button" onClick={replay} data-testid="replay">

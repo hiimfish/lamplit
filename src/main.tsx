@@ -4,6 +4,7 @@ import { applyGameLayout, createGame } from './game/createGame';
 import { sameLayout, type Layout } from './layout';
 import './styles.css';
 import { App } from './ui/App';
+import { trackInputMode } from './ui/keys';
 
 function applyCssLayout(layout: Layout): void {
   const root = document.documentElement;
@@ -23,6 +24,7 @@ let currentLayout = appStore.get().layout;
 applyCssLayout(currentLayout);
 const game = createGame(gameElement, currentLayout);
 render(<App />, uiElement);
+trackInputMode();
 if (import.meta.env.DEV) {
   // Handy for poking at the game from the browser console while developing.
   (window as unknown as { __game?: unknown }).__game = game;

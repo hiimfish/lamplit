@@ -73,27 +73,9 @@
   overflow-wrap: anywhere;
 }
 
-/*
- * The key that picks a choice (1-9, or A-D on lettered keys): a small ink box before the
- * label, shown only with a mouse or trackpad (a fine pointer), so phones keep plain keys.
- */
-.mg-key {
-  display: none;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .mg-key {
-    display: inline-block;
-    flex: none;
-    min-width: calc(7 * var(--px));
-    margin-right: calc(2 * var(--px));
-    padding: 0 var(--px);
-    font-size: calc(9 * var(--px));
-    line-height: 1.2;
-    text-align: center;
-    color: var(--ink);
-    border: var(--px) solid var(--ink);
-  }
+/* The answer key's cap (KeyCap, styles.css) sits before the label with a gap. */
+.kc-lead {
+  margin-right: calc(3 * var(--px));
 }
 
 .mg-emoji {

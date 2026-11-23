@@ -6,6 +6,7 @@ import type { ArrangeQuestion } from '../../learning/questions';
 import { settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
 import { useKeys } from '../keys';
+import { KeyCap } from '../KeyCap';
 import type { KeyMap } from '../keys';
 import './Arrange.css';
 import { Feedback, FeedbackSlot, ReplayBar, hintFor, play, useAnswerClock } from './shared';
@@ -82,6 +83,7 @@ function ZhHint({ zh, visible, onReveal }: { zh: string; visible: boolean; onRev
   return (
     <button type="button" class="pixel-button" data-testid="show-zh" onClick={onReveal}>
       看中文
+      <KeyCap k="0" />
     </button>
   );
 }
@@ -189,6 +191,7 @@ function CheckRow({
         onClick={onCheck}
       >
         檢查
+        <KeyCap k="Enter" />
       </button>
       <button
         type="button"
@@ -198,6 +201,7 @@ function CheckRow({
         onClick={onReset}
       >
         重排
+        <KeyCap k="Escape" />
       </button>
     </div>
   );

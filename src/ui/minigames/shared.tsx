@@ -6,6 +6,7 @@ import { ERROR_HINTS } from '../../learning/errorHints';
 import type { ErrorType } from '../../learning/grading';
 import type { AnswerResult } from '../../learning/questions';
 import { useKeys } from '../keys';
+import { KeyCap } from '../KeyCap';
 
 /** Every minigame reports its result once; QuestionView then shows 繼續. */
 export interface MinigameProps<Q> {
@@ -88,6 +89,7 @@ export function ReplayBar({
         onClick={() => play(audioId, text)}
       >
         ♪ {replayLabel}
+        <KeyCap k="Space" />
       </button>
       <button
         type="button"
@@ -96,6 +98,7 @@ export function ReplayBar({
         onClick={slow}
       >
         慢速
+        <KeyCap k="Shift+Space" />
       </button>
     </div>
   );
@@ -198,10 +201,10 @@ export function ChoiceKeys({ options, correctId, picked, onPick }: ChoiceKeysPro
   );
 }
 
-/** The key that picks a choice ("1", "A"): a small ink box, shown only with a fine pointer. */
+/** The key that picks a choice ("1", "A"): a KeyCap before the label (see KeyCap.tsx). */
 export function KeyBadge({ label }: { label: string }) {
   return (
-    <span class="mg-key" aria-hidden="true">
+    <span class="kc kc-lead" aria-hidden="true">
       {label}
     </span>
   );

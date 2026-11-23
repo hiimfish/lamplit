@@ -7,6 +7,7 @@ import type { RespondQuestion } from '../../learning/questions';
 import '../flow.css';
 import './respond.css';
 import { digitIndex, letterIndex, useKeys } from '../keys';
+import { KeyCap } from '../KeyCap';
 import { Feedback, FeedbackSlot, useAnswerClock } from './shared';
 import type { MinigameProps } from './shared';
 import { playConversation, type ConversationDeps } from './Talk';
@@ -202,6 +203,7 @@ export function Respond({ question, onAnswered }: MinigameProps<RespondQuestion>
           onClick={() => replay(clips.map((_, i) => i))}
         >
           ♪ 全部再聽
+          <KeyCap k="Space" />
         </button>
       </div>
       {answered ? (

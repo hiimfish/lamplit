@@ -7,6 +7,7 @@ import { useStore } from '../../core/store';
 import type { TalkQuestion } from '../../learning/questions';
 import { focusLost, focusStatic } from '../focus';
 import { useKeys } from '../keys';
+import { KeyCap } from '../KeyCap';
 import '../flow.css';
 import './Talk.css';
 import { ChoiceKeys, Feedback, FeedbackSlot, play, useAnswerClock } from './shared';
@@ -422,6 +423,7 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
           onClick={replay}
         >
           {locked && <span class="lock-mark" aria-hidden="true" />}♪ 再聽一次
+          <KeyCap k="Space" />
         </button>
         {locked && (
           <span class="talk-once-note" id="talk-once-note" data-testid="talk-once-note">

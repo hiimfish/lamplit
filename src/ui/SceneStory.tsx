@@ -5,6 +5,7 @@ import { lineAudioId } from '../content/units';
 import { settingsStore } from '../core/settings';
 import { ChatLines, ZhToggle } from './ChatLines';
 import { useKeys } from './keys';
+import { KeyCap } from './KeyCap';
 import './flow.css';
 
 interface Props {
@@ -48,12 +49,13 @@ export function SceneStory({ unit, task, onDone, onShown }: Props) {
   return (
     <div class={`story${last ? '' : ' more'}`} data-testid="story">
       <p class="flow-heading">先看看發生什麼事</p>
-      <ChatLines lines={lines.slice(0, shown)} current={shown - 1} onPlay={play} />
+      <ChatLines lines={lines.slice(0, shown)} current={shown - 1} onPlay={play} keyHints />
       <div class="flow-actions">
-        <ZhToggle />
+        <ZhToggle hint />
         {last ? (
           <button class="pixel-button primary" onClick={onDone} data-testid="story-next">
             認識新詞塊
+            <KeyCap k="Enter" />
           </button>
         ) : (
           <button
@@ -62,6 +64,7 @@ export function SceneStory({ unit, task, onDone, onShown }: Props) {
             data-testid="story-next"
           >
             下一句
+            <KeyCap k="Enter" />
           </button>
         )}
       </div>

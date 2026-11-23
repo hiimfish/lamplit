@@ -119,6 +119,24 @@ export function useKeys(map: KeyMap, enabled = true): void {
   }, [enabled]);
 }
 
+/**
+ * Key hints (KeyCap) show once the player uses the keyboard and hide again on a tap or
+ * click: sets data-input="keys" or "pointer" on <html>. Call once at start-up.
+ */
+export function trackInputMode(): void {
+  const root = document.documentElement;
+  document.addEventListener(
+    'keydown',
+    (e) => {
+      if (['Shift', 'Control', 'Alt', 'Meta', 'CapsLock'].includes(e.key)) return;
+      if (ignoreKey(e) && !targetOf(e)?.closest('[role="dialog"]')) return;
+      root.dataset.input = 'keys';
+    },
+    true,
+  );
+  document.addEventListener('pointerdown', () => (root.dataset.input = 'pointer'), true);
+}
+
 /** Clicks the first visible, enabled element matching `selector`; true if it found one. */
 export function clickVisible(selector: string): boolean {
   for (const el of document.querySelectorAll<HTMLElement>(selector)) {

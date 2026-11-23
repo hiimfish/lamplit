@@ -8,6 +8,7 @@ import { stopAudio } from '../../audio/pronounce';
 import type { AnswerResult, Question } from '../../learning/questions';
 import { focusAndReveal, focusLost, focusStatic } from '../focus';
 import { useKeys } from '../keys';
+import { KeyCap } from '../KeyCap';
 import { Arrange } from './Arrange';
 import { ChooseReply } from './ChooseReply';
 import { Cloze } from './Cloze';
@@ -138,6 +139,7 @@ function Body({ question, onAnswer }: QuestionViewProps) {
           }}
         >
           繼續
+          <KeyCap k="Enter" />
         </button>
       )}
     </div>

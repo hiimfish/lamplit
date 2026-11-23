@@ -387,6 +387,13 @@
   box-shadow: inset 0 0 0 var(--px) var(--ink);
 }
 
+/* The newest line's 空白 cap sits on the name tag's row, at the box's top right. */
+.bubble > .kc {
+  position: absolute;
+  top: calc(3 * var(--px));
+  right: calc(4 * var(--px));
+}
+
 .bubble.current .bubble-who {
   color: var(--paper);
   background: var(--ink);

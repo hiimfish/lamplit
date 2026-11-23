@@ -6,6 +6,7 @@ import { settingsStore, type Settings, DEV_TOOLS } from '../core/settings';
 import { useStore } from '../core/store';
 import './settings.css';
 import { useModal } from './useModal';
+import { KeyCap } from './KeyCap';
 
 const TEST_CLIP = 'cafe.chunk.can_i_get';
 const TEST_TEXT = 'Can I get';
@@ -221,6 +222,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
       {DEV_TOOLS && <DevSwitch unlockAll={settings.unlockAll} />}
       <button type="button" class="pixel-button settings-close" onClick={onClose}>
         關閉
+        <KeyCap k="Escape" />
       </button>
     </div>
   );

@@ -9,6 +9,7 @@ import type { AnswerResult } from '../learning/questions';
 import { ChatLines, ZhToggle } from './ChatLines';
 import './flow.css';
 import { useKeys } from './keys';
+import { KeyCap } from './KeyCap';
 import { QuestionRunner } from './TaskScreen';
 
 interface Props {
@@ -121,6 +122,7 @@ export function RolePlay({ unit, task, onShown, onFinish }: Props) {
             data-testid="roleplay-start"
           >
             開始
+            <KeyCap k="Enter" />
           </button>
         </div>
       </div>
@@ -149,13 +151,14 @@ export function RolePlay({ unit, task, onShown, onFinish }: Props) {
       <p class="flow-heading">你完成了整段對話！</p>
       {chat}
       <div class="flow-actions">
-        <ZhToggle />
+        <ZhToggle hint />
         <button
           class="pixel-button primary"
           onClick={() => onFinish(results)}
           data-testid="roleplay-done"
         >
           看結果
+          <KeyCap k="Enter" />
         </button>
       </div>
     </div>
