@@ -1,0 +1,1740 @@
+{
+  "id": "media",
+  "title": "媒體採訪",
+  "titleEn": "Media Interview",
+  "chunks": [
+    {
+      "id": "interview_me_instead",
+      "en": "Why does he want to interview me instead of Mr. Ellis?",
+      "zh": "他為什麼想訪問我，而不是訪問 Mr. Ellis？",
+      "note": "被點名受訪時問原因。instead of + 人 = 而不是……。",
+      "distractors": [
+        {
+          "text": "Why does he wants to interview me instead of Mr. Ellis?",
+          "error": "other"
+        },
+        {
+          "text": "Why he does want to interview me instead of Mr. Ellis?",
+          "error": "word-order"
+        },
+        {
+          "text": "Why does he want to interview me instead Mr. Ellis?",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "never_done_interview",
+      "en": "I've never talked to a reporter, so any tips would help.",
+      "zh": "我從來沒跟記者打過交道，有什麼建議都很有幫助。",
+      "accept": ["I have never talked to a reporter, so any tips would help."],
+      "note": "第一次受訪，請對方給點建議。any tips would help = 什麼建議都好。",
+      "distractors": [
+        {
+          "text": "I've never talk to a reporter, so any tips would help.",
+          "error": "other"
+        },
+        {
+          "text": "I've never talked to reporter, so any tips would help.",
+          "error": "article"
+        },
+        {
+          "text": "I've never talked to a reporter, so any tip would helps.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "memorize_my_answers",
+      "en": "Should I memorize my answers, or is that a bad idea?",
+      "zh": "我要把答案背下來嗎？還是這樣反而不好？",
+      "note": "問準備的方法對不對。or is that a bad idea? = 還是這樣不好？",
+      "distractors": [
+        {
+          "text": "Should I to memorize my answers, or is that a bad idea?",
+          "error": "extra-word"
+        },
+        {
+          "text": "Should I memorize my answers, or is that bad idea?",
+          "error": "article"
+        },
+        {
+          "text": "Should I memorize my answers, or that is a bad idea?",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "points_to_get_across",
+      "en": "Let's agree on the three points I need to get across.",
+      "zh": "我們先講好我一定要講清楚的三個重點吧。",
+      "note": "受訪前先講好重點。get across = 把意思講清楚、讓人聽懂。",
+      "distractors": [
+        {
+          "text": "Let's agree on the three point I need to get across.",
+          "error": "plural"
+        },
+        {
+          "text": "Let's agree on the three points I need get across.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Let's agree in the three points I need to get across.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "what_makes_lantern_different",
+      "en": "What makes Lantern different is that it's designed by us and made in Taiwan.",
+      "zh": "Lantern 最不一樣的地方，是我們自己設計、在台灣製造。",
+      "note": "What makes Lantern different（讓它不一樣的地方）整句當主詞，後面接 is that + 一句話。",
+      "distractors": [
+        {
+          "text": "What make Lantern different is that it's designed by us and made in Taiwan.",
+          "error": "other"
+        },
+        {
+          "text": "What makes Lantern different is that it's designed by us and made Taiwan.",
+          "error": "missing-word"
+        },
+        {
+          "text": "What makes Lantern diferent is that it's designed by us and made in Taiwan.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "what_customers_love",
+      "en": "What our customers love is how little energy the lamps use.",
+      "zh": "客人最喜歡的，是這些燈非常省電。",
+      "note": "What our customers love（客人喜歡的）整句當主詞，後面接 is。how little energy = 多麼省電。",
+      "distractors": [
+        {
+          "text": "What do our customers love is how little energy the lamps use.",
+          "error": "extra-word"
+        },
+        {
+          "text": "What our customers love is how few energy the lamps use.",
+          "error": "other"
+        },
+        {
+          "text": "What our customers love is how little energy use the lamps.",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "write_back_thursday",
+      "en": "I'll write back and tell him Thursday afternoon works for us.",
+      "zh": "我回信跟他說，我們星期四下午可以。",
+      "note": "回覆對方提的時間。write back = 回信；works for us = 我們可以。",
+      "distractors": [
+        {
+          "text": "I'll write back and tell him Thursday afternoon work for us.",
+          "error": "other"
+        },
+        {
+          "text": "I'll write back and tell Thursday afternoon works for us.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I'll write back and say him Thursday afternoon works for us.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "started_lantern_because",
+      "en": "We started Lantern because stores kept asking us for better design.",
+      "zh": "我們會做 Lantern，是因為店家一直跟我們說想要設計更好的燈。",
+      "note": "說產品是怎麼開始的。kept + -ing = 一直在……。",
+      "distractors": [
+        {
+          "text": "We started Lantern because stores kept ask us for better design.",
+          "error": "other"
+        },
+        {
+          "text": "We started Lantern because stores kept asking us better design.",
+          "error": "missing-word"
+        },
+        {
+          "text": "We started Lantern because store kept asking us for better design.",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "gave_lamps_to_schools",
+      "en": "This year we gave two hundred lamps to local schools.",
+      "zh": "我們今年送了兩百盞燈給附近的學校。",
+      "accept": ["This year we gave 200 lamps to local schools."],
+      "note": "介紹公司做的公益。two hundred 的 hundred 不加 s。",
+      "distractors": [
+        {
+          "text": "This year we gave two hundreds lamps to local schools.",
+          "error": "plural"
+        },
+        {
+          "text": "This year we gave two hundred lamp to local schools.",
+          "error": "plural"
+        },
+        {
+          "text": "This year we gave two hundred lamps local schools.",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "as_i_told_our_staff",
+      "en": "As I told our team, we're actually hiring this year.",
+      "zh": "就像我跟團隊說過的，我們今年其實還在徵人。",
+      "note": "As I told + 人 = 就像我跟……說過的，轉述自己說過的話；那件事現在還是真的，後面用現在式。",
+      "distractors": [
+        {
+          "text": "As I said our team, we're actually hiring this year.",
+          "error": "other"
+        },
+        {
+          "text": "As I told to our team, we're actually hiring this year.",
+          "error": "extra-word"
+        },
+        {
+          "text": "As I told our team, we're actually hire this year.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "said_earlier_hiring",
+      "en": "As I mentioned earlier, I can't share our exact sales numbers.",
+      "zh": "我剛才也提過，確切的銷售數字我沒辦法透露。",
+      "note": "As I mentioned earlier = 我剛才提過，再說一次自己講過的話。",
+      "distractors": [
+        {
+          "text": "As I mentioned earlier, I can't share our exact sales number.",
+          "error": "plural"
+        },
+        {
+          "text": "As I mention earlier, I can't share our exact sales numbers.",
+          "error": "other"
+        },
+        {
+          "text": "As I mentioned earlier, I can't to share our exact sales numbers.",
+          "error": "extra-word"
+        }
+      ]
+    },
+    {
+      "id": "played_my_answer_radio",
+      "en": "I can't believe they played my whole answer on the radio.",
+      "zh": "真不敢相信他們在廣播裡把我的回答整段播出來了。",
+      "note": "聽到自己上廣播很驚訝。on the radio 要有 the。",
+      "distractors": [
+        {
+          "text": "I can't believe they played my whole answer on radio.",
+          "error": "article"
+        },
+        {
+          "text": "I can't believe they played my all answer on the radio.",
+          "error": "other"
+        },
+        {
+          "text": "I can't believe they play my whole answer on the radio.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "quoted_me_correctly",
+      "en": "I'm glad he quoted me correctly on the hard question.",
+      "zh": "還好那個難回答的問題，他引用我的話沒寫錯。",
+      "note": "看報導時說。quote = 引用某人說的話。",
+      "distractors": [
+        {
+          "text": "I'm glad he quoted me correct on the hard question.",
+          "error": "other"
+        },
+        {
+          "text": "I'm glad he quoted me correctly on hard question.",
+          "error": "article"
+        },
+        {
+          "text": "I'm glad he quoted me correctly on the hard questoin.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "if_i_did_it_again",
+      "en": "If I did it again, I'd keep my answers even shorter.",
+      "zh": "如果再來一次，我會把回答講得更簡短。",
+      "note": "回想做過的事，說下次會怎麼改。If + 過去式, I'd … = 假設的情況。",
+      "distractors": [
+        {
+          "text": "If I do it again, I'd keep my answers even shorter.",
+          "error": "other"
+        },
+        {
+          "text": "If I did it again, I'd keep my answers even more shorter.",
+          "error": "extra-word"
+        },
+        {
+          "text": "If I did again, I'd keep my answers even shorter.",
+          "error": "missing-word"
+        }
+      ]
+    }
+  ],
+  "words": [
+    { "id": "public", "en": "public", "zh": "公開的；大眾的", "emoji": "👥", "abstract": true },
+    { "id": "national", "en": "national", "zh": "全國性的", "emoji": "🏳️", "abstract": true },
+    { "id": "radio", "en": "radio", "zh": "廣播；電台", "emoji": "📻" },
+    { "id": "reader", "en": "reader", "zh": "讀者", "emoji": "📖", "abstract": true },
+    { "id": "media", "en": "media", "zh": "媒體", "emoji": "📡", "abstract": true },
+    { "id": "editor", "en": "editor", "zh": "編輯", "emoji": "✍️", "abstract": true },
+    {
+      "id": "neighborhood",
+      "en": "neighborhood",
+      "zh": "社區；附近一帶",
+      "emoji": "🏘️",
+      "abstract": true
+    },
+    { "id": "reporter", "en": "reporter", "zh": "記者", "emoji": "🎙️" },
+    { "id": "publish", "en": "publish", "zh": "刊登；發表", "emoji": "🗞️", "abstract": true },
+    { "id": "publicity", "en": "publicity", "zh": "曝光；宣傳", "emoji": "📣", "abstract": true },
+    {
+      "id": "environmental",
+      "en": "environmental",
+      "zh": "環境的；環保的",
+      "emoji": "🌏",
+      "abstract": true
+    },
+    { "id": "ordinary", "en": "ordinary", "zh": "一般的；普通的", "emoji": "🙂", "abstract": true },
+    { "id": "reputation", "en": "reputation", "zh": "名聲；信譽", "emoji": "⭐", "abstract": true },
+    { "id": "spokesperson", "en": "spokesperson", "zh": "發言人", "emoji": "🗣️", "abstract": true },
+    { "id": "rumor", "en": "rumor", "zh": "傳言", "emoji": "💭", "abstract": true },
+    { "id": "generic", "en": "generic", "zh": "籠統的；制式的", "emoji": "📄", "abstract": true },
+    { "id": "memorize", "en": "memorize", "zh": "背下來", "emoji": "🧠" },
+    { "id": "convey", "en": "convey", "zh": "傳達", "emoji": "📨", "abstract": true },
+    { "id": "factual", "en": "factual", "zh": "根據事實的", "emoji": "✅", "abstract": true },
+    { "id": "caution", "en": "caution", "zh": "提醒；小心", "emoji": "⚠️", "abstract": true },
+    { "id": "repetition", "en": "repetition", "zh": "重複", "emoji": "🔂", "abstract": true },
+    {
+      "id": "environmentally",
+      "en": "environmentally",
+      "zh": "（environmentally friendly）環保地；對環境友善地",
+      "emoji": "🌱",
+      "abstract": true
+    },
+    { "id": "pollution", "en": "pollution", "zh": "污染", "emoji": "🌫️" },
+    { "id": "climate", "en": "climate", "zh": "氣候", "emoji": "🌦️", "abstract": true },
+    { "id": "awareness", "en": "awareness", "zh": "意識；認識", "emoji": "💡", "abstract": true },
+    {
+      "id": "popularity",
+      "en": "popularity",
+      "zh": "受歡迎（的程度）",
+      "emoji": "👍",
+      "abstract": true
+    },
+    {
+      "id": "conform",
+      "en": "conform",
+      "zh": "符合（標準）（conform to）",
+      "emoji": "📐",
+      "abstract": true
+    },
+    {
+      "id": "authentic",
+      "en": "authentic",
+      "zh": "道地的；真正的",
+      "emoji": "💯",
+      "abstract": true
+    },
+    {
+      "id": "reliability",
+      "en": "reliability",
+      "zh": "可靠度；耐用程度",
+      "emoji": "🔒",
+      "abstract": true
+    },
+    { "id": "excessive", "en": "excessive", "zh": "過多的", "emoji": "➕", "abstract": true },
+    {
+      "id": "dispose",
+      "en": "dispose",
+      "zh": "（dispose of）處理掉；丟棄",
+      "emoji": "🗑️",
+      "abstract": true
+    },
+    { "id": "drawback", "en": "drawback", "zh": "缺點", "emoji": "👎", "abstract": true },
+    { "id": "edition", "en": "edition", "zh": "（報紙的）版；期", "emoji": "📰", "abstract": true },
+    {
+      "id": "broadcast",
+      "en": "broadcast",
+      "zh": "（廣播）節目；播出",
+      "emoji": "📶",
+      "abstract": true
+    },
+    { "id": "episode", "en": "episode", "zh": "（節目的）一集", "emoji": "🔢", "abstract": true },
+    { "id": "studio", "en": "studio", "zh": "錄音室", "emoji": "🎚️" },
+    { "id": "approximate", "en": "approximate", "zh": "大約的", "emoji": "≈", "abstract": true },
+    {
+      "id": "alternate",
+      "en": "alternate",
+      "zh": "替代的；另外的",
+      "emoji": "🔄",
+      "abstract": true
+    },
+    {
+      "id": "introductory",
+      "en": "introductory",
+      "zh": "開場的；介紹性的",
+      "emoji": "👋",
+      "abstract": true
+    },
+    { "id": "compile", "en": "compile", "zh": "整理；彙整", "emoji": "🗂️", "abstract": true },
+    { "id": "query", "en": "query", "zh": "疑問；詢問", "emoji": "❓", "abstract": true },
+    {
+      "id": "influential",
+      "en": "influential",
+      "zh": "有影響力的",
+      "emoji": "🌟",
+      "abstract": true
+    },
+    {
+      "id": "whoever",
+      "en": "whoever",
+      "zh": "不管是誰；任何…的人",
+      "emoji": "🙋",
+      "abstract": true
+    },
+    { "id": "spam", "en": "spam", "zh": "垃圾郵件", "emoji": "📧", "abstract": true },
+    { "id": "found", "en": "found", "zh": "（founded）創立", "emoji": "🏗️", "abstract": true },
+    { "id": "amaze", "en": "amaze", "zh": "讓人驚訝", "emoji": "😲", "abstract": true },
+    { "id": "donation", "en": "donation", "zh": "捐贈；捐款", "emoji": "💝", "abstract": true },
+    { "id": "charity", "en": "charity", "zh": "慈善機構", "emoji": "🤲", "abstract": true },
+    {
+      "id": "reasonably",
+      "en": "reasonably",
+      "zh": "（reasonably priced）價格合理地；相當",
+      "emoji": "⚖️",
+      "abstract": true
+    },
+    {
+      "id": "specialty",
+      "en": "specialty",
+      "zh": "專長；招牌產品",
+      "emoji": "🏅",
+      "abstract": true
+    },
+    { "id": "worthwhile", "en": "worthwhile", "zh": "值得的", "emoji": "👌", "abstract": true },
+    {
+      "id": "enthusiastically",
+      "en": "enthusiastically",
+      "zh": "熱烈地；熱情地",
+      "emoji": "🙌",
+      "abstract": true
+    },
+    { "id": "youth", "en": "youth", "zh": "青少年；年輕人", "emoji": "🧒" },
+    {
+      "id": "historic",
+      "en": "historic",
+      "zh": "有歷史的；老字號的",
+      "emoji": "🏚️",
+      "abstract": true
+    },
+    { "id": "tablet", "en": "tablet", "zh": "平板電腦", "emoji": "📲", "abstract": true },
+    { "id": "reveal", "en": "reveal", "zh": "透露", "emoji": "🔓", "abstract": true },
+    { "id": "crisis", "en": "crisis", "zh": "危機", "emoji": "🆘", "abstract": true },
+    { "id": "threat", "en": "threat", "zh": "威脅", "emoji": "☠️", "abstract": true },
+    { "id": "critic", "en": "critic", "zh": "批評的人", "emoji": "🤨", "abstract": true },
+    { "id": "illegal", "en": "illegal", "zh": "非法的", "emoji": "🚫", "abstract": true },
+    {
+      "id": "controversial",
+      "en": "controversial",
+      "zh": "有爭議的",
+      "emoji": "⚡",
+      "abstract": true
+    },
+    { "id": "layoff", "en": "layoff", "zh": "裁員", "emoji": "📦", "abstract": true },
+    { "id": "reassure", "en": "reassure", "zh": "讓人放心", "emoji": "🫂", "abstract": true },
+    {
+      "id": "repeatedly",
+      "en": "repeatedly",
+      "zh": "一再地；一直",
+      "emoji": "🔁",
+      "abstract": true
+    },
+    {
+      "id": "officially",
+      "en": "officially",
+      "zh": "正式地；官方說法上",
+      "emoji": "📜",
+      "abstract": true
+    },
+    { "id": "truth", "en": "truth", "zh": "事實；真相", "emoji": "🔍", "abstract": true },
+    {
+      "id": "bulletin",
+      "en": "bulletin",
+      "zh": "（新聞）快報；簡報節目",
+      "emoji": "📢",
+      "abstract": true
+    },
+    {
+      "id": "prominent",
+      "en": "prominent",
+      "zh": "知名的；重要的",
+      "emoji": "🏆",
+      "abstract": true
+    },
+    { "id": "soar", "en": "soar", "zh": "飆升", "emoji": "🚀", "abstract": true },
+    {
+      "id": "streamline",
+      "en": "streamline",
+      "zh": "簡化（流程）",
+      "emoji": "〰️",
+      "abstract": true
+    },
+    { "id": "sustain", "en": "sustain", "zh": "維持（成長）", "emoji": "♾️", "abstract": true },
+    { "id": "carbon", "en": "carbon", "zh": "碳", "emoji": "🏭", "abstract": true },
+    { "id": "exposure", "en": "exposure", "zh": "曝光（度）", "emoji": "👀", "abstract": true },
+    { "id": "opt", "en": "opt", "zh": "（opt for）選擇", "emoji": "☑️", "abstract": true },
+    { "id": "remainder", "en": "remainder", "zh": "剩下的部分", "emoji": "⏳", "abstract": true },
+    { "id": "absorb", "en": "absorb", "zh": "自行吸收（成本）", "emoji": "🧽", "abstract": true },
+    { "id": "insufficient", "en": "insufficient", "zh": "不足的", "emoji": "🪫", "abstract": true },
+    { "id": "bankruptcy", "en": "bankruptcy", "zh": "破產", "emoji": "💸", "abstract": true },
+    { "id": "headline", "en": "headline", "zh": "標題", "emoji": "🔠", "abstract": true },
+    { "id": "correctly", "en": "correctly", "zh": "正確地", "emoji": "✔️", "abstract": true },
+    { "id": "circulate", "en": "circulate", "zh": "傳閱", "emoji": "📤", "abstract": true },
+    {
+      "id": "purchaser",
+      "en": "purchaser",
+      "zh": "（店家的）採購人員",
+      "emoji": "🛒",
+      "abstract": true
+    },
+    {
+      "id": "validate",
+      "en": "validate",
+      "zh": "肯定；證明（做得對）",
+      "emoji": "🆗",
+      "abstract": true
+    },
+    {
+      "id": "adjustment",
+      "en": "adjustment",
+      "zh": "小修改；調整",
+      "emoji": "🛠️",
+      "abstract": true
+    },
+    { "id": "effectiveness", "en": "effectiveness", "zh": "效果", "emoji": "🎯", "abstract": true },
+    { "id": "urge", "en": "urge", "zh": "力勸；呼籲", "emoji": "👉", "abstract": true },
+    { "id": "handy", "en": "handy", "zh": "放在手邊的；方便的", "emoji": "🤏", "abstract": true },
+    {
+      "id": "complexity",
+      "en": "complexity",
+      "zh": "複雜（的地方）",
+      "emoji": "🧩",
+      "abstract": true
+    },
+    { "id": "alert", "en": "alert", "zh": "通知；提醒", "emoji": "🔔", "abstract": true }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "記者想訪問你",
+      "backdrop": "coworker",
+      "newChunkIds": ["interview_me_instead", "never_done_interview"],
+      "newWordIds": [
+        "public",
+        "national",
+        "radio",
+        "reader",
+        "media",
+        "editor",
+        "neighborhood",
+        "reporter",
+        "publish",
+        "publicity"
+      ],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "A reporter from the local paper called this morning.",
+          "zh": "地方報社的記者今天早上打來。",
+          "stage": { "act": "want", "item": "reporter" }
+        },
+        {
+          "id": "t1_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "His name is Ryan Cole, and he wants to interview you about Lantern.",
+          "zh": "他叫 Ryan Cole，想訪問你，聊 Lantern。"
+        },
+        {
+          "id": "t1_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Why does he want to interview me instead of Mr. Ellis?",
+          "zh": "他為什麼想訪問我，而不是訪問 Mr. Ellis？",
+          "chunkId": "interview_me_instead"
+        },
+        {
+          "id": "t1_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "His editor wants a story on the product. You know it best.",
+          "zh": "他的編輯想要一篇講產品的報導。你最了解它了。"
+        },
+        {
+          "id": "t1_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "It's not a national paper, but half the neighborhood reads it.",
+          "zh": "那不是全國性的報紙，不過這一帶有一半的人都在看。"
+        },
+        {
+          "id": "t1_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "It's good publicity, and it's your first time speaking in public for the company.",
+          "zh": "這是很好的宣傳，也是你第一次代表公司公開發言。"
+        },
+        {
+          "id": "t1_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I've never talked to a reporter, so any tips would help.",
+          "zh": "我從來沒跟記者打過交道，有什麼建議都很有幫助。",
+          "chunkId": "never_done_interview"
+        },
+        {
+          "id": "t1_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Don't worry. We'll prepare together tomorrow.",
+          "zh": "別擔心。我們明天一起準備。"
+        },
+        {
+          "id": "t1_9",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "They'll publish it on Saturday, and part of it may be on the radio.",
+          "zh": "他們星期六會刊出來，有一部分說不定還會上廣播。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "和主管準備回答",
+      "backdrop": "coworker",
+      "newChunkIds": ["memorize_my_answers", "points_to_get_across"],
+      "newWordIds": [
+        "environmental",
+        "ordinary",
+        "reputation",
+        "spokesperson",
+        "rumor",
+        "generic",
+        "memorize",
+        "convey",
+        "factual",
+        "caution",
+        "repetition"
+      ],
+      "fills": [
+        {
+          "id": "memorize_fill",
+          "en": "Should I ___ my answers, or is that a bad idea?",
+          "zh": "我要把答案背下來嗎？還是這樣反而不好？",
+          "options": ["memorize", "publish", "borrow", "repair"],
+          "answer": 0,
+          "note": "把答案背下來：memorize。",
+          "chunkId": "memorize_my_answers"
+        },
+        {
+          "id": "if_more_time_fill",
+          "en": "If I ___ more time, I'd practice every answer twice.",
+          "zh": "如果我有更多時間，每個回答我都會練兩次。",
+          "options": ["had", "have", "will have", "having"],
+          "answer": 0,
+          "note": "If 後面用過去式，後半句用 I'd。",
+          "grammar": true
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "With the media, you're our spokesperson now. Let's get you ready.",
+          "zh": "面對媒體，你現在就是我們的發言人。我們來幫你準備吧。"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Should I memorize my answers, or is that a bad idea?",
+          "zh": "我要把答案背下來嗎？還是這樣反而不好？",
+          "chunkId": "memorize_my_answers"
+        },
+        {
+          "id": "t2_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Don't memorize every word. Answers like that always sound generic.",
+          "zh": "別每個字都背。那樣的回答聽起來總是很制式。",
+          "stage": { "act": "want", "item": "memorize" }
+        },
+        {
+          "id": "t2_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Just know what you want to convey, and say it in your own words.",
+          "zh": "只要清楚你想傳達什麼，再用自己的話說出來就好。"
+        },
+        {
+          "id": "t2_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let's agree on the three points I need to get across.",
+          "zh": "我們先講好我一定要講清楚的三個重點吧。",
+          "chunkId": "points_to_get_across"
+        },
+        {
+          "id": "t2_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. Our design, the factory in Taiwan, and the lamps for the schools.",
+          "zh": "好。我們的設計、台灣的工廠，還有送給學校的燈。"
+        },
+        {
+          "id": "t2_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Say them more than once. A little repetition helps ordinary readers remember.",
+          "zh": "多講幾次。重複一點，一般讀者比較記得住。"
+        },
+        {
+          "id": "t2_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And one word of caution: keep everything factual.",
+          "zh": "還要提醒你一件事：每句話都要有事實根據。"
+        },
+        {
+          "id": "t2_9",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "If he asks about a rumor, don't guess. Our reputation matters more.",
+          "zh": "如果他問到什麼傳言，不要用猜的。公司的名聲比較重要。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "和 Dan 練習",
+      "backdrop": "coworker",
+      "newChunkIds": ["what_makes_lantern_different", "what_customers_love"],
+      "newWordIds": [
+        "environmentally",
+        "pollution",
+        "climate",
+        "awareness",
+        "popularity",
+        "conform",
+        "authentic",
+        "reliability",
+        "excessive",
+        "dispose",
+        "drawback"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Okay, I'm the reporter now. So, why should a store sell Lantern?",
+          "zh": "好，現在我是記者。那麼，店家為什麼要賣 Lantern？"
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What makes Lantern different is that it's designed by us and made in Taiwan.",
+          "zh": "Lantern 最不一樣的地方，是我們自己設計、在台灣製造。",
+          "chunkId": "what_makes_lantern_different"
+        },
+        {
+          "id": "t3_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Nice. Stores like that it's authentic, not a cheap copy.",
+          "zh": "不錯。店家就是喜歡它是真材實料，不是便宜的仿冒品。"
+        },
+        {
+          "id": "t3_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Next question. Are the lamps environmentally friendly?",
+          "zh": "下一題。這些燈環保嗎？"
+        },
+        {
+          "id": "t3_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What our customers love is how little energy the lamps use.",
+          "zh": "客人最喜歡的，是這些燈非常省電。",
+          "chunkId": "what_customers_love"
+        },
+        {
+          "id": "t3_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Great answer. Less energy means less pollution, so say that, too.",
+          "zh": "答得好。用電少就代表污染少，這點也要說。"
+        },
+        {
+          "id": "t3_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "He might also ask if they conform to US safety standards.",
+          "zh": "他可能還會問，這些燈有沒有符合美國的安全標準。"
+        },
+        {
+          "id": "t3_8",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "And every product has a drawback. Be ready to talk about the price.",
+          "zh": "而且每個產品都有缺點。要準備好談價格的問題。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀記者的來信",
+      "backdrop": "coworker",
+      "newChunkIds": ["write_back_thursday"],
+      "newWordIds": [
+        "edition",
+        "broadcast",
+        "episode",
+        "studio",
+        "approximate",
+        "alternate",
+        "introductory",
+        "compile",
+        "query",
+        "influential",
+        "whoever",
+        "spam"
+      ],
+      "passages": [
+        {
+          "id": "reporter_email",
+          "kind": "email",
+          "title": "Your interview for the Saturday edition",
+          "lines": [
+            "Hi,",
+            "Thank you for agreeing to talk to me. I'm writing a piece for our \"Local Business\" page in the Saturday edition on October 22. It is published online on the same day, and most of our readers live in the neighborhood.",
+            "A short version will also be part of our radio broadcast, \"City Talk.\" Your episode is planned for Thursday, October 20.",
+            "Could we meet on Thursday, October 13, at 2:00 p.m. in your conference room? The approximate length is 45 minutes. Later, at a different time, I'd like you to come to our studio and record a short version of about ten minutes for the radio.",
+            "I'll start with an introductory question about your job. Then I'll ask about the Lantern series and the company's work in the neighborhood. I've compiled a list of questions and attached it to this email. If you don't see the attachment, please check your spam folder. Don't worry, the list isn't excessive: there are only twelve questions.",
+            "Many of our readers care about the climate, so I may also ask how stores dispose of old lamps.",
+            "If Thursday doesn't work for you, please suggest an alternate time. Whoever would like to join you is welcome, too.",
+            "Harbor Trading has become one of the most influential small businesses in town, so our readers are curious. If you have any queries, call me at the paper.",
+            "Best, Ryan Cole"
+          ],
+          "questions": [
+            {
+              "en": "When will the radio episode be on?",
+              "zh": "廣播那一集哪一天播出？",
+              "options": ["Thursday, October 13", "Thursday, October 20", "Saturday, October 22"],
+              "answer": 1
+            },
+            {
+              "en": "What should you do if you can't find the list of questions?",
+              "zh": "如果找不到問題清單，應該怎麼做？",
+              "options": ["Call the studio", "Ask Ms. Carter", "Check the spam folder"],
+              "answer": 2
+            },
+            {
+              "en": "About how long will the interview on Thursday take?",
+              "zh": "星期四的訪問大約多久？",
+              "options": ["10 minutes", "45 minutes", "Two hours"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I hear the reporter wrote to you. Can I see?",
+          "zh": "聽說記者寫信給你了。我可以看看嗎？"
+        },
+        {
+          "id": "t4_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Thursday at two, in our conference room? That works for me.",
+          "zh": "星期四兩點，在我們的會議室？我可以。"
+        },
+        {
+          "id": "t4_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "He says the time is only approximate, so keep the whole afternoon free.",
+          "zh": "他說時間只是大概，所以那天下午整個空下來。"
+        },
+        {
+          "id": "t4_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And his list of questions went to your spam folder? Funny.",
+          "zh": "他的問題清單跑到你的垃圾郵件匣了？真好笑。"
+        },
+        {
+          "id": "t4_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Later he wants to record a short version in their studio. Very nice.",
+          "zh": "之後他還想在他們的錄音室錄一個短版。很不錯。"
+        },
+        {
+          "id": "t4_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll write back and tell him Thursday afternoon works for us.",
+          "zh": "我回信跟他說，我們星期四下午可以。",
+          "chunkId": "write_back_thursday"
+        },
+        {
+          "id": "t4_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Thanks. I'll come, too. He says whoever wants to join is welcome.",
+          "zh": "謝謝。我也會去。他說誰想一起來都歡迎。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "採訪開始",
+      "newChunkIds": ["started_lantern_because", "gave_lamps_to_schools"],
+      "newWordIds": [
+        "found",
+        "amaze",
+        "donation",
+        "charity",
+        "reasonably",
+        "specialty",
+        "worthwhile",
+        "enthusiastically",
+        "youth",
+        "historic",
+        "tablet"
+      ],
+      "talks": [
+        {
+          "id": "interview_talk",
+          "once": true,
+          "lines": [
+            {
+              "id": "t5_talk_1",
+              "role": "reporter",
+              "en": "I'm recording on my tablet, okay? Ms. Carter, how did Harbor Trading begin?",
+              "zh": "我用平板錄音，可以吧？Carter 女士，Harbor Trading 是怎麼開始的？"
+            },
+            {
+              "id": "t5_talk_2",
+              "role": "manager",
+              "en": "We started 21 years ago, in a historic building by the harbor.",
+              "zh": "二十一年前，在港口邊一棟老建築裡開始的。"
+            },
+            {
+              "id": "t5_talk_3",
+              "role": "reporter",
+              "en": "And desk lamps were always your specialty?",
+              "zh": "桌燈一直都是你們的招牌產品嗎？"
+            },
+            {
+              "id": "t5_talk_4",
+              "role": "manager",
+              "en": "Always. And Lantern is reasonably priced, so ordinary stores can sell it.",
+              "zh": "一直都是。而且 Lantern 價格合理，一般的店家也能賣。"
+            },
+            {
+              "id": "t5_talk_5",
+              "role": "reporter",
+              "en": "Now, the donation. How did the lamps get to the schools?",
+              "zh": "接下來談捐贈。這些燈是怎麼送到學校的？"
+            },
+            {
+              "id": "t5_talk_6",
+              "role": "guide",
+              "en": "We worked with a local charity. They took them to the schools and a youth center.",
+              "zh": "我們和本地的一個慈善機構合作，由他們送到學校和一間青少年中心。"
+            },
+            {
+              "id": "t5_talk_7",
+              "role": "reporter",
+              "en": "And how did the kids react?",
+              "zh": "那孩子們的反應怎麼樣？"
+            },
+            {
+              "id": "t5_talk_8",
+              "role": "guide",
+              "en": "They thanked us very enthusiastically. Some even wrote us letters.",
+              "zh": "他們很熱情地跟我們道謝，有些還寫信給我們。"
+            },
+            {
+              "id": "t5_talk_9",
+              "role": "reporter",
+              "en": "That's amazing.",
+              "zh": "太了不起了。"
+            },
+            {
+              "id": "t5_talk_10",
+              "role": "guide",
+              "en": "It was really worthwhile for all of us.",
+              "zh": "這件事對我們大家來說真的很值得。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "How long ago did Harbor Trading start?",
+              "zh": "Harbor Trading 是多久以前創立的？",
+              "options": ["12 years ago", "20 years ago", "21 years ago"],
+              "answer": 2
+            },
+            {
+              "en": "Who took the lamps to the schools?",
+              "zh": "誰把燈送到學校的？",
+              "options": ["A local charity", "Ms. Carter", "The reporter"],
+              "answer": 0
+            },
+            {
+              "en": "What is Ryan using to record the interview?",
+              "zh": "Ryan 用什麼錄下這次訪問？",
+              "options": ["His phone", "A tablet", "A laptop"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "reporter",
+          "speaker": "npc",
+          "en": "Thanks for having me. I'll record this on my tablet, if that's okay.",
+          "zh": "謝謝你們邀我來。我會用平板錄音，可以嗎？"
+        },
+        {
+          "id": "t5_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Of course. Welcome to Harbor Trading. We founded it just down the street.",
+          "zh": "當然。歡迎來到 Harbor Trading。我們當初就是在這條街過去一點的地方創立的。"
+        },
+        {
+          "id": "t5_3",
+          "role": "reporter",
+          "speaker": "npc",
+          "en": "So, tell me how the Lantern series began.",
+          "zh": "那麼，跟我說說 Lantern 系列是怎麼開始的。"
+        },
+        {
+          "id": "t5_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We started Lantern because stores kept asking us for better design.",
+          "zh": "我們會做 Lantern，是因為店家一直跟我們說想要設計更好的燈。",
+          "chunkId": "started_lantern_because"
+        },
+        {
+          "id": "t5_5",
+          "role": "reporter",
+          "speaker": "npc",
+          "en": "And I hear the company does a lot for the neighborhood.",
+          "zh": "我還聽說你們公司為這一帶做了很多事。"
+        },
+        {
+          "id": "t5_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "This year we gave two hundred lamps to local schools.",
+          "zh": "我們今年送了兩百盞燈給附近的學校。",
+          "chunkId": "gave_lamps_to_schools",
+          "stage": { "act": "want", "item": "youth" }
+        },
+        {
+          "id": "t5_7",
+          "role": "reporter",
+          "speaker": "npc",
+          "en": "That's amazing. How did the kids like them?",
+          "zh": "太了不起了。孩子們喜歡嗎？"
+        },
+        {
+          "id": "t5_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "They loved them. One school sent us a big card from every class.",
+          "zh": "他們很喜歡。有一間學校每一班都寄了一張大卡片給我們。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "尖銳的問題",
+      "newChunkIds": ["as_i_told_our_staff", "said_earlier_hiring"],
+      "newWordIds": [
+        "reveal",
+        "crisis",
+        "threat",
+        "critic",
+        "illegal",
+        "controversial",
+        "layoff",
+        "reassure",
+        "repeatedly",
+        "officially",
+        "truth"
+      ],
+      "cloze": [
+        {
+          "lineId": "t6_1",
+          "word": "rumor",
+          "distractors": ["studio", "tablet"]
+        },
+        {
+          "lineId": "t6_4",
+          "word": "officially",
+          "distractors": ["enthusiastically", "reasonably"]
+        },
+        {
+          "lineId": "t6_7",
+          "word": "illegal",
+          "distractors": ["historic", "worthwhile"]
+        }
+      ],
+      "textFills": [
+        {
+          "id": "after_interview_note",
+          "kind": "email",
+          "title": "The interview",
+          "lines": [
+            "Hi team,",
+            "The interview went well. The reporter asked about the ___ online, and we said there will be no layoffs.",
+            "Some critics online ask about it repeatedly, but this is not a crisis.",
+            "As I ___ you on Monday, we are hiring two more people this year.",
+            "The reporter may call some of you, too. ___",
+            "Ms. Carter"
+          ],
+          "zh": [
+            "大家好：",
+            "採訪很順利。記者問到網路上的傳言，我們說公司不會裁員。",
+            "網路上有些批評的人一直在問這件事，不過這不是什麼危機。",
+            "就像我星期一跟大家說的，我們今年還要再請兩個人。",
+            "記者可能也會打給你們其中幾位。請不要跟他說我們的銷售數字。",
+            "Ms. Carter"
+          ],
+          "blanks": [
+            {
+              "options": ["rumor", "donation", "specialty", "charity"],
+              "answer": 0,
+              "note": "網路上說要裁員的是傳言：rumor。"
+            },
+            {
+              "options": ["told", "tell", "tells", "telling"],
+              "answer": 0,
+              "note": "說的是星期一的事，用過去式 told。"
+            },
+            {
+              "options": [
+                "Please don't share our sales numbers with him.",
+                "Please memorize his phone number for him.",
+                "Please ask him to stop calling the paper.",
+                "Please send him to the youth center."
+              ],
+              "answer": 0,
+              "note": "記者打來時，提醒大家不要透露數字。"
+            }
+          ]
+        }
+      ],
+      "responds": [
+        {
+          "id": "t6_r1",
+          "prompt": {
+            "role": "reporter",
+            "en": "Is it true you're cutting jobs?",
+            "zh": "你們要裁員是真的嗎？"
+          },
+          "responses": [
+            {
+              "en": "No, we're actually hiring.",
+              "zh": "沒有，我們其實在徵人。"
+            },
+            {
+              "en": "Yes, I cut it this morning.",
+              "zh": "對，我今天早上剪的。"
+            },
+            {
+              "en": "In about two weeks.",
+              "zh": "大概兩個星期後。"
+            }
+          ],
+          "answer": 0
+        },
+        {
+          "id": "t6_r2",
+          "prompt": {
+            "role": "reporter",
+            "en": "Can you reveal your sales numbers?",
+            "zh": "你可以透露你們的銷售數字嗎？"
+          },
+          "responses": [
+            {
+              "en": "At the factory in Taiwan.",
+              "zh": "在台灣的工廠。"
+            },
+            {
+              "en": "Sorry, those aren't public yet.",
+              "zh": "抱歉，那些還沒公開。"
+            },
+            {
+              "en": "I counted the numbers yesterday.",
+              "zh": "我昨天數過那些數字了。"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "t6_r3",
+          "prompt": {
+            "role": "manager",
+            "en": "Did the reporter get everything he needed?",
+            "zh": "記者要的東西都拿到了嗎？"
+          },
+          "responses": [
+            {
+              "en": "He'll need it tomorrow.",
+              "zh": "他明天會需要。"
+            },
+            {
+              "en": "He's a reporter for the paper.",
+              "zh": "他是報社的記者。"
+            },
+            {
+              "en": "Yes, he said he had enough.",
+              "zh": "有，他說這樣就夠了。"
+            }
+          ],
+          "answer": 2
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "reporter",
+          "speaker": "npc",
+          "en": "Now a more controversial question. There's a rumor online about layoffs here.",
+          "zh": "接下來是比較有爭議的問題。網路上有傳言說你們要裁員。"
+        },
+        {
+          "id": "t6_2",
+          "role": "reporter",
+          "speaker": "npc",
+          "en": "So I have to ask. Is it true you're cutting jobs?",
+          "zh": "所以我一定要問。你們真的要裁員嗎？"
+        },
+        {
+          "id": "t6_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "As I told our team, we're actually hiring this year.",
+          "zh": "就像我跟團隊說過的，我們今年其實還在徵人。",
+          "chunkId": "as_i_told_our_staff"
+        },
+        {
+          "id": "t6_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And officially, there are no plans for layoffs. You can quote me on that.",
+          "zh": "而且正式來說，公司沒有任何裁員計畫。這句你可以直接引用。"
+        },
+        {
+          "id": "t6_5",
+          "role": "reporter",
+          "speaker": "npc",
+          "en": "That should reassure a lot of people. So, how much has Lantern sold?",
+          "zh": "這應該能讓很多人放心。那麼，Lantern 賣了多少？"
+        },
+        {
+          "id": "t6_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "As I mentioned earlier, I can't share our exact sales numbers.",
+          "zh": "我剛才也提過，確切的銷售數字我沒辦法透露。",
+          "chunkId": "said_earlier_hiring"
+        },
+        {
+          "id": "t6_7",
+          "role": "reporter",
+          "speaker": "npc",
+          "en": "Fair enough. Last one: there are illegal copies of Lantern online. Are they a threat?",
+          "zh": "好吧。最後一題：網路上有 Lantern 的非法仿冒品。那對你們是威脅嗎？"
+        },
+        {
+          "id": "t6_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Not really. Stores want the real thing, and so do their customers.",
+          "zh": "其實還好。店家要的是真品，他們的客人也是。"
+        },
+        {
+          "id": "t6_9",
+          "role": "reporter",
+          "speaker": "npc",
+          "en": "Good. That's the truth people want to hear. Thank you both.",
+          "zh": "很好。這就是大家想聽的實話。謝謝兩位。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "電台節目播出",
+      "backdrop": "coworker",
+      "newChunkIds": ["played_my_answer_radio"],
+      "newWordIds": [
+        "bulletin",
+        "prominent",
+        "soar",
+        "streamline",
+        "sustain",
+        "carbon",
+        "exposure",
+        "opt",
+        "remainder",
+        "absorb",
+        "insufficient",
+        "bankruptcy"
+      ],
+      "talks": [
+        {
+          "id": "radio_report",
+          "kind": "monologue",
+          "once": true,
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "reporter",
+              "en": "This is Ryan Cole with the City Talk business bulletin.",
+              "zh": "這裡是 Ryan Cole，為您帶來 City Talk 的商業快報。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "reporter",
+              "en": "A few years ago, several small lamp stores in town went into bankruptcy.",
+              "zh": "幾年前，鎮上好幾家小燈具店破產了。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "reporter",
+              "en": "But one local company, Harbor Trading, has become a prominent name.",
+              "zh": "但有一家本地公司 Harbor Trading 卻成了知名的公司。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "reporter",
+              "en": "Since its Lantern series came out in May, sales have soared.",
+              "zh": "它的 Lantern 系列五月上市後，銷售量一路飆升。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "reporter",
+              "en": "When material costs went up, the company absorbed the cost instead of raising prices.",
+              "zh": "材料成本上漲時，公司自己吸收了成本，沒有漲價。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "reporter",
+              "en": "It also streamlined the way it takes orders from stores.",
+              "zh": "它也簡化了接店家訂單的流程。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "reporter",
+              "en": "Lantern lamps use much less energy than older models, so they produce less carbon.",
+              "zh": "Lantern 的燈比舊型的省電很多，產生的碳也比較少。"
+            },
+            {
+              "id": "t7_talk_8",
+              "role": "reporter",
+              "en": "With more awareness of the climate, that matters to buyers.",
+              "zh": "大家愈來愈注意氣候問題，這一點對買家很重要。"
+            },
+            {
+              "id": "t7_talk_9",
+              "role": "reporter",
+              "en": "Store owners tell me the popularity of the lamps comes from their reliability.",
+              "zh": "店家老闆跟我說，這些燈受歡迎是因為它們很耐用。"
+            },
+            {
+              "id": "t7_talk_10",
+              "role": "reporter",
+              "en": "Many offices have insufficient light, and more stores now opt for desk lamps with good design.",
+              "zh": "很多辦公室的照明不足，現在也有愈來愈多店家選擇設計好的桌燈。"
+            },
+            {
+              "id": "t7_talk_11",
+              "role": "reporter",
+              "en": "Can the company sustain this growth? We will see. For now, the exposure is good for business.",
+              "zh": "這家公司能不能維持這樣的成長？我們拭目以待。至少目前，這些曝光對生意很有幫助。"
+            },
+            {
+              "id": "t7_talk_12",
+              "role": "reporter",
+              "en": "For the remainder of the show, we'll take your calls.",
+              "zh": "節目接下來的時間，我們開放聽眾來電。"
+            }
+          ],
+          "questions": [
+            {
+              "en": "What did the company do when costs went up?",
+              "zh": "成本上漲時，公司怎麼做？",
+              "options": ["It raised its prices.", "It paid the extra cost.", "It closed a store."],
+              "answer": 1
+            },
+            {
+              "en": "How are Lantern lamps better than older models?",
+              "zh": "Lantern 的燈比舊型的好在哪裡？",
+              "options": ["They use less energy.", "They are bigger.", "They are cheaper."],
+              "answer": 0
+            },
+            {
+              "en": "What will the show do next?",
+              "zh": "節目接下來要做什麼？",
+              "options": ["Play some music", "Visit a store", "Take calls from listeners"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Quick, turn up the radio! The reporter's show is on.",
+          "zh": "快，把收音機開大聲！那個記者的節目開始了。",
+          "stage": { "act": "want", "item": "radio" }
+        },
+        {
+          "id": "t7_2",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Listen, there you are! That was your voice. You sounded great.",
+          "zh": "你聽，是你耶！那是你的聲音。你聽起來很棒。"
+        },
+        {
+          "id": "t7_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I can't believe they played my whole answer on the radio.",
+          "zh": "真不敢相信他們在廣播裡把我的回答整段播出來了。",
+          "chunkId": "played_my_answer_radio"
+        },
+        {
+          "id": "t7_4",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "And he called us a prominent company. Not bad at all!",
+          "zh": "而且他說我們是知名的公司。真不賴！"
+        },
+        {
+          "id": "t7_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Sales have soared, he said. Ms. Carter is going to love that.",
+          "zh": "他說銷售飆升。Carter 女士一定會很愛聽這句。"
+        },
+        {
+          "id": "t7_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "This kind of exposure is great for Lantern.",
+          "zh": "這種曝光對 Lantern 很有幫助。"
+        },
+        {
+          "id": "t7_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Now we just have to sustain it, right?",
+          "zh": "現在我們只要把它維持下去就好了，對吧？"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "報導刊出",
+      "backdrop": "coworker",
+      "newChunkIds": ["quoted_me_correctly", "if_i_did_it_again"],
+      "newWordIds": [
+        "headline",
+        "correctly",
+        "circulate",
+        "purchaser",
+        "validate",
+        "adjustment",
+        "effectiveness",
+        "urge",
+        "handy",
+        "complexity",
+        "alert"
+      ],
+      "spellWordIds": ["virus", "headache", "heart", "blood", "yoga"],
+      "cloze": [
+        {
+          "lineId": "t8_1",
+          "word": "headline",
+          "distractors": ["studio", "tablet"]
+        },
+        {
+          "lineId": "t8_4",
+          "word": "purchasers",
+          "distractors": ["studios", "tablets"]
+        },
+        {
+          "lineId": "t8_5",
+          "word": "handy",
+          "distractors": ["factual", "national"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Look at that headline! And he even got the part about layoffs right.",
+          "zh": "你看那個標題！而且連裁員那部分他都寫對了。"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm glad he quoted me correctly on the hard question.",
+          "zh": "還好那個難回答的問題，他引用我的話沒寫錯。",
+          "chunkId": "quoted_me_correctly"
+        },
+        {
+          "id": "t8_3",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "This article really validates the work you put into Lantern.",
+          "zh": "這篇報導真的證明你在 Lantern 上下的功夫是對的。"
+        },
+        {
+          "id": "t8_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Two store purchasers have already called about it.",
+          "zh": "已經有兩家店的採購打來問了。"
+        },
+        {
+          "id": "t8_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "I'll circulate it and keep a few copies handy.",
+          "zh": "我會把它傳給大家看，再留幾份放在手邊。"
+        },
+        {
+          "id": "t8_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "So, now that it's over, how do you feel?",
+          "zh": "那麼，現在都結束了，你覺得怎麼樣？"
+        },
+        {
+          "id": "t8_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "If I did it again, I'd keep my answers even shorter.",
+          "zh": "如果再來一次，我會把回答講得更簡短。",
+          "chunkId": "if_i_did_it_again"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good news. A reporter from the city radio station called. He wants an interview, too.",
+          "zh": "好消息。市裡的電台有記者打來，他也想採訪。"
+        },
+        {
+          "id": "t9_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And he asked for you by name.",
+          "zh": "而且他指名要找你。"
+        },
+        {
+          "id": "t9_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Why does he want to interview me instead of Mr. Ellis?",
+          "zh": "他為什麼想訪問我，而不是訪問 Mr. Ellis？",
+          "chunkId": "interview_me_instead"
+        },
+        {
+          "id": "t9_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "He heard your answer on Ryan's show and liked it.",
+          "zh": "他在 Ryan 的節目上聽到你的回答，很喜歡。"
+        },
+        {
+          "id": "t9_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I can't believe they played my whole answer on the radio.",
+          "zh": "真不敢相信他們在廣播裡把我的回答整段播出來了。",
+          "chunkId": "played_my_answer_radio"
+        },
+        {
+          "id": "t9_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Well, it was a good answer. And Ryan's article helped, too.",
+          "zh": "嗯，那個回答很好。Ryan 的報導也有幫助。"
+        },
+        {
+          "id": "t9_7",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'm glad he quoted me correctly on the hard question.",
+          "zh": "還好那個難回答的問題，他引用我的話沒寫錯。",
+          "chunkId": "quoted_me_correctly"
+        },
+        {
+          "id": "t9_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "He did. So, can you do the same time as last time, Thursday at two?",
+          "zh": "確實。那你可以跟上次一樣，星期四兩點嗎？"
+        },
+        {
+          "id": "t9_9",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'll write back and tell him Thursday afternoon works for us.",
+          "zh": "我回信跟他說，我們星期四下午可以。",
+          "chunkId": "write_back_thursday"
+        },
+        {
+          "id": "t9_10",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Great. Any adjustments you want to make this time?",
+          "zh": "很好。這次有什麼想調整的地方嗎？"
+        },
+        {
+          "id": "t9_11",
+          "role": "guide",
+          "speaker": "player",
+          "en": "If I did it again, I'd keep my answers even shorter.",
+          "zh": "如果再來一次，我會把回答講得更簡短。",
+          "chunkId": "if_i_did_it_again"
+        },
+        {
+          "id": "t9_12",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good. I'd urge you to do that. Now, let's prepare like last time.",
+          "zh": "很好，我也很建議你這樣做。那我們就跟上次一樣準備吧。"
+        },
+        {
+          "id": "t9_13",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Let's agree on the three points I need to get across.",
+          "zh": "我們先講好我一定要講清楚的三個重點吧。",
+          "chunkId": "points_to_get_across"
+        },
+        {
+          "id": "t9_14",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Same three as before. Can you play the reporter again, Dan?",
+          "zh": "跟上次一樣那三個。Dan，你可以再扮一次記者嗎？"
+        },
+        {
+          "id": "t9_15",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Sure. First question: why did you start Lantern?",
+          "zh": "沒問題。第一題：你們為什麼會做 Lantern？"
+        },
+        {
+          "id": "t9_16",
+          "role": "guide",
+          "speaker": "player",
+          "en": "We started Lantern because stores kept asking us for better design.",
+          "zh": "我們會做 Lantern，是因為店家一直跟我們說想要設計更好的燈。",
+          "chunkId": "started_lantern_because"
+        },
+        {
+          "id": "t9_17",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "And what makes it special?",
+          "zh": "那它有什麼特別的地方？"
+        },
+        {
+          "id": "t9_18",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What makes Lantern different is that it's designed by us and made in Taiwan.",
+          "zh": "Lantern 最不一樣的地方，是我們自己設計、在台灣製造。",
+          "chunkId": "what_makes_lantern_different"
+        },
+        {
+          "id": "t9_19",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Some critics say you're cutting jobs. Is that true?",
+          "zh": "有些批評的人說你們要裁員。是真的嗎？"
+        },
+        {
+          "id": "t9_20",
+          "role": "guide",
+          "speaker": "player",
+          "en": "As I told our team, we're actually hiring this year.",
+          "zh": "就像我跟團隊說過的，我們今年其實還在徵人。",
+          "chunkId": "as_i_told_our_staff"
+        },
+        {
+          "id": "t9_21",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Perfect. You're more than ready.",
+          "zh": "太好了。你已經準備得非常充分了。"
+        }
+      ]
+    }
+  ]
+}
