@@ -3,53 +3,48 @@ import type { PixelSprite } from '../../game/sprites';
 import { withShadow } from './draw';
 
 // ---------------------------------------------------------------------------
-// Bright: a glowing light bulb with short rays all round, a filament inside
-// and a metal screw base.
-// O lit outline, o shade outline, h glass, y glass shade, w glint, a filament,
-// l rays, S base light, s base, d base dark, k base outline, z shadow.
+// Bright: a big white-gold four-point sparkle with concave arms, two small
+// sparkles in the other corners and short rays in the empty two.
+// O lit outline, o shade outline (both amber), w white core, h gold,
+// y gold shade, l rays, z shadow.
 
 const BRIGHT: PixelSprite = {
   rows: withShadow(
     [
-      '...........ll...........',
-      '...l.......ll.......l...',
-      '....l..............l....',
-      '.........OOOOOO.........',
-      '.......OOhhhhhhoo.......',
-      '......OhhwwhhhhhyO......',
-      '.....OhwwhhhhhhhhyO.....',
-      '.....Ohwhhhhhhhhhyo.....',
-      '.....Ohhhhahhahhhyo.....',
-      '.ll..Ohhhhahhahhhyo..ll.',
-      '.....Ohhhhaaaahhyyo.....',
-      '.....Ohhhhhaahhhyyo.....',
-      '.....Ohhhhhaahhhyyo.....',
-      '....l.Ohhhhaahyyo.l.....',
-      '...l...Ohhhaahyo...l....',
-      '........ohhaahyo........',
-      '........kSSSssdk........',
-      '........kssssddk........',
-      '........kSSSssdk........',
-      '........kssssddk........',
-      '.........kSssdk.........',
-      '..........kkkk..........',
+      '...........OO......OO...',
+      '...........OO......OO...',
+      '..........OhhO....Ohho..',
+      '....l.....OhhO..OOhwwhoo',
+      '.....l....OhhO..OOhwwyoo',
+      '......l...OhhO....ohyo..',
+      '.........OhhhhO....oo...',
+      '.........OhhhhO....oo...',
+      '.......OOhhwwhhoo.......',
+      '...OOOOhhhwwwwhyyoooo...',
+      '.OOhhhhhhwwwwwwyyyyyyoo.',
+      '.OOhhhhhhwwwwwwyyyyyyoo.',
+      '...OOOOhhhwwwwyyyoooo...',
+      '.......OOhhwwyyoo.......',
+      '.........oyyyyo.........',
+      '.........oyyyyo.........',
+      '...OO.....oyyo...l......',
+      '...OO.....oyyo....l.....',
+      '.OOhhoo...oyyo.....l....',
+      '.OOhhoo...oyyo..........',
+      '...oo......oo...........',
+      '...oo......oo...........',
       '........................',
       '........................',
     ],
-    { cx: 12, cy: 22.6, rx: 6, ry: 1.2, key: 'z' },
+    { cx: 12, cy: 22.8, rx: 5, ry: 1, key: 'z' },
   ),
   legend: {
     O: 'amber',
-    o: 'ember',
+    o: 'amber',
     h: 'honey',
     y: 'lamp',
     w: 'paper',
-    a: 'amber',
     l: 'lamp',
-    S: 'fog',
-    s: 'concrete',
-    d: 'stone',
-    k: 'slate',
     z: 'fog',
   },
 };
