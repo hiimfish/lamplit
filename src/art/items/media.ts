@@ -64,10 +64,11 @@ const RADIO: PixelSprite = {
 };
 
 // ---------------------------------------------------------------------------
-// Reporter: a man in a blue jacket and red tie holding up a hand microphone
-// with a red station cube on it, mouth open as he speaks.
+// Reporter: a man in an olive jacket with a press lanyard (Ryan Cole's look on
+// the stage, so he is not the blue-suited consultant) holding up a hand
+// microphone with a red station cube on it, mouth open as he speaks.
 // n hair outline, H hair, h hair shine, s skin, t skin shade, k eye, q mouth,
-// O lit outline, o shade outline, J jacket, j jacket shade, w shirt, R tie,
+// O lit outline, o shade outline, J jacket, j jacket shade, w shirt, R lanyard,
 // S mic outline, w mic light, g mic mesh, c mic shade, M cube, m cube shade,
 // z shadow.
 
@@ -111,10 +112,10 @@ const REPORTER: PixelSprite = {
     q: 'maroon',
     O: 'indigo',
     o: 'deep',
-    J: 'denim',
-    j: 'indigo',
+    J: 'leaf',
+    j: 'moss',
     w: 'paper',
-    R: 'red',
+    R: 'cyan',
     S: 'stone',
     g: 'fog',
     c: 'concrete',
