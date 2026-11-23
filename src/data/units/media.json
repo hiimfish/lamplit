@@ -6,7 +6,7 @@
     {
       "id": "interview_me_instead",
       "en": "Why does he want to interview me instead of Mr. Ellis?",
-      "zh": "他為什麼想訪問我，而不是訪問 Mr. Ellis？",
+      "zh": "他為什麼想訪問我，而不是訪問 Ellis 先生？",
       "note": "被點名受訪時問原因。instead of + 人 = 而不是……。",
       "distractors": [
         {
@@ -578,7 +578,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "Why does he want to interview me instead of Mr. Ellis?",
-          "zh": "他為什麼想訪問我，而不是訪問 Mr. Ellis？",
+          "zh": "他為什麼想訪問我，而不是訪問 Ellis 先生？",
           "chunkId": "interview_me_instead"
         },
         {
@@ -807,8 +807,8 @@
           "id": "t3_8",
           "role": "coworker",
           "speaker": "npc",
-          "en": "And every product has a drawback. Be ready to talk about the price.",
-          "zh": "而且每個產品都有缺點。要準備好談價格的問題。"
+          "en": "And every product has a drawback. Be ready if he calls the price excessive.",
+          "zh": "而且每個產品都有缺點。如果他說價格太高，你要準備好怎麼回答。"
         }
       ]
     },
@@ -838,10 +838,10 @@
           "title": "Your interview for the Saturday edition",
           "lines": [
             "Hi,",
-            "Thank you for agreeing to talk to me. I'm writing a piece for our \"Local Business\" page in the Saturday edition on October 22. It is published online on the same day, and most of our readers live in the neighborhood.",
-            "A short version will also be part of our radio broadcast, \"City Talk.\" Your episode is planned for Thursday, October 20.",
-            "Could we meet on Thursday, October 13, at 2:00 p.m. in your conference room? The approximate length is 45 minutes. Later, at a different time, I'd like you to come to our studio and record a short version of about ten minutes for the radio.",
-            "I'll start with an introductory question about your job. Then I'll ask about the Lantern series and the company's work in the neighborhood. I've compiled a list of questions and attached it to this email. If you don't see the attachment, please check your spam folder. Don't worry, the list isn't excessive: there are only twelve questions.",
+            "Thank you for agreeing to talk to me. I'm writing a piece for our \"Local Business\" page in the Saturday edition on October 25. It is published online on the same day, and most of our readers live in the neighborhood.",
+            "A short version will also be part of our radio broadcast, \"City Talk.\" Your episode is planned for Thursday, October 23.",
+            "Could we meet on Thursday, October 16, at 2:00 p.m. in your conference room? The approximate length is 45 minutes. Later, at a different time, I'd like you to come to our studio and record a short version of about ten minutes for the radio.",
+            "I'll start with an introductory question about your job. Then I'll ask about the Lantern series and the company's work in the neighborhood. I've compiled a list of questions and attached it to this email. If you don't see the attachment, please check your spam folder. Don't worry, it's a short list: there are only twelve questions.",
             "Many of our readers care about the climate, so I may also ask how stores dispose of old lamps.",
             "If Thursday doesn't work for you, please suggest an alternate time. Whoever would like to join you is welcome, too.",
             "Harbor Trading has become one of the most influential small businesses in town, so our readers are curious. If you have any queries, call me at the paper.",
@@ -851,7 +851,7 @@
             {
               "en": "When will the radio episode be on?",
               "zh": "廣播那一集哪一天播出？",
-              "options": ["Thursday, October 13", "Thursday, October 20", "Saturday, October 22"],
+              "options": ["Thursday, October 16", "Thursday, October 23", "Saturday, October 25"],
               "answer": 1
             },
             {
@@ -888,8 +888,8 @@
           "id": "t4_3",
           "role": "manager",
           "speaker": "npc",
-          "en": "He says the time is only approximate, so keep the whole afternoon free.",
-          "zh": "他說時間只是大概，所以那天下午整個空下來。"
+          "en": "He says 45 minutes, but that's only approximate. Keep the afternoon free.",
+          "zh": "他說四十五分鐘，不過那只是大概。那天下午就整個空下來吧。"
         },
         {
           "id": "t4_4",
@@ -948,7 +948,7 @@
               "id": "t5_talk_1",
               "role": "reporter",
               "en": "I'm recording on my tablet, okay? Ms. Carter, how did Harbor Trading begin?",
-              "zh": "我用平板錄音，可以吧？Carter 女士，Harbor Trading 是怎麼開始的？"
+              "zh": "我用平板錄音，可以吧？Carter 小姐，Harbor Trading 是怎麼開始的？"
             },
             {
               "id": "t5_talk_2",
@@ -1039,8 +1039,8 @@
           "id": "t5_2",
           "role": "manager",
           "speaker": "npc",
-          "en": "Of course. Welcome to Harbor Trading. We founded it just down the street.",
-          "zh": "當然。歡迎來到 Harbor Trading。我們當初就是在這條街過去一點的地方創立的。"
+          "en": "Of course. Welcome to Harbor Trading. Mr. Ellis founded it right here in town.",
+          "zh": "當然。歡迎來到 Harbor Trading。這間公司是 Ellis 先生在鎮上創立的。"
         },
         {
           "id": "t5_3",
@@ -1158,9 +1158,9 @@
             {
               "options": [
                 "Please don't share our sales numbers with him.",
-                "Please memorize his phone number for him.",
-                "Please ask him to stop calling the paper.",
-                "Please send him to the youth center."
+                "Please give him our sales numbers if he asks.",
+                "Please tell him we are not hiring this year.",
+                "He already has all of our sales numbers."
               ],
               "answer": 0,
               "note": "記者打來時，提醒大家不要透露數字。"
@@ -1273,8 +1273,8 @@
           "id": "t6_5",
           "role": "reporter",
           "speaker": "npc",
-          "en": "That should reassure a lot of people. So, how much has Lantern sold?",
-          "zh": "這應該能讓很多人放心。那麼，Lantern 賣了多少？"
+          "en": "That should reassure people. I know you can't reveal numbers, but how's Lantern selling?",
+          "zh": "這應該能讓大家放心。我知道你不能透露數字，不過 Lantern 賣得怎麼樣？"
         },
         {
           "id": "t6_6",
@@ -1463,7 +1463,7 @@
           "role": "coworker",
           "speaker": "npc",
           "en": "Sales have soared, he said. Ms. Carter is going to love that.",
-          "zh": "他說銷售飆升。Carter 女士一定會很愛聽這句。"
+          "zh": "他說銷售飆升。Carter 小姐一定會很愛聽這句。"
         },
         {
           "id": "t7_6",
@@ -1597,7 +1597,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "Why does he want to interview me instead of Mr. Ellis?",
-          "zh": "他為什麼想訪問我，而不是訪問 Mr. Ellis？",
+          "zh": "他為什麼想訪問我，而不是訪問 Ellis 先生？",
           "chunkId": "interview_me_instead"
         },
         {
@@ -1664,8 +1664,8 @@
           "id": "t9_12",
           "role": "manager",
           "speaker": "npc",
-          "en": "Good. I'd urge you to do that. Now, let's prepare like last time.",
-          "zh": "很好，我也很建議你這樣做。那我們就跟上次一樣準備吧。"
+          "en": "Good. I'd also urge you to slow down a little. Now, let's prepare.",
+          "zh": "很好。我也會勸你講慢一點。好，我們來準備吧。"
         },
         {
           "id": "t9_13",

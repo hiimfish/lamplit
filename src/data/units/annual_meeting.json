@@ -26,7 +26,7 @@
     {
       "id": "ask_hughes_to_join_by_video",
       "en": "Could we ask Mr. Hughes to join us by video?",
-      "zh": "我們可以請 Mr. Hughes 用視訊參加嗎？",
+      "zh": "我們可以請 Hughes 先生用視訊參加嗎？",
       "note": "提議請不能到場的人用視訊參加。ask + 人 + to + 動詞。",
       "distractors": [
         {
@@ -126,7 +126,7 @@
     {
       "id": "agenda_has_me_speaking",
       "en": "The agenda has me speaking right before the video from Mr. Hughes.",
-      "zh": "議程上排我在 Mr. Hughes 的影片前面上台。",
+      "zh": "議程上排我在 Hughes 先生的影片前面上台。",
       "note": "說自己在議程上排在哪裡。has me speaking 是「把我排在…上台」。",
       "distractors": [
         {
@@ -146,7 +146,7 @@
     {
       "id": "show_you_to_your_seat",
       "en": "Let me show you to your seat before we get started.",
-      "zh": "開始前我先帶您到座位上。",
+      "zh": "開始前我先帶你到座位上。",
       "note": "帶客人入座時說。show + 人 + to 地方是「帶人過去」。",
       "distractors": [
         {
@@ -227,7 +227,7 @@
     {
       "id": "next_a_video_message",
       "en": "Next, we have a short video message from Mr. Hughes in England.",
-      "zh": "接下來是 Mr. Hughes 從英國錄的一段影片致詞。",
+      "zh": "接下來是 Hughes 先生從英國錄的一段影片致詞。",
       "note": "主持時介紹下一段節目。",
       "distractors": [
         {
@@ -586,14 +586,14 @@
           "role": "manager",
           "speaker": "npc",
           "en": "Mr. Hughes can't fly in from England this time, which is too bad.",
-          "zh": "Mr. Hughes 這次沒辦法從英國飛過來，真可惜。"
+          "zh": "Hughes 先生這次沒辦法從英國飛過來，真可惜。"
         },
         {
           "id": "t1_7",
           "role": "guide",
           "speaker": "player",
           "en": "Could we ask Mr. Hughes to join us by video?",
-          "zh": "我們可以請 Mr. Hughes 用視訊參加嗎？",
+          "zh": "我們可以請 Hughes 先生用視訊參加嗎？",
           "chunkId": "ask_hughes_to_join_by_video"
         },
         {
@@ -761,8 +761,8 @@
           "id": "t3_5",
           "role": "director",
           "speaker": "npc",
-          "en": "Yes, please. Timely numbers always make a good impression.",
-          "zh": "要。數字越即時，越能給人好印象。"
+          "en": "Yes, please. The more timely, the better.",
+          "zh": "要。數字越即時越好。"
         },
         {
           "id": "t3_6",
@@ -783,15 +783,15 @@
           "id": "t3_8",
           "role": "director",
           "speaker": "npc",
-          "en": "Ultimately, people want to hear the outlook. Will Lantern go nationwide?",
-          "zh": "說到底，大家想聽的是前景。Lantern 會不會賣到全國？"
+          "en": "Ultimately, people want to hear the outlook. Our big initiative is taking Lantern nationwide.",
+          "zh": "說到底，大家想聽的是前景。我們的大計畫，是讓 Lantern 賣到全國。"
         },
         {
           "id": "t3_9",
           "role": "manager",
           "speaker": "npc",
-          "en": "That's our big initiative for next year, isn't it?",
-          "zh": "那就是我們明年的大計畫，不是嗎？"
+          "en": "Then let's end your talk with that. People will love it.",
+          "zh": "那你的報告就用這個收尾吧，大家一定會很喜歡。"
         }
       ]
     },
@@ -888,7 +888,7 @@
           "role": "manager",
           "speaker": "npc",
           "en": "I sent out the agenda and Mr. Ellis's letter this morning.",
-          "zh": "我今天早上把議程和 Mr. Ellis 的信寄出去了。"
+          "zh": "我今天早上把議程和 Ellis 先生的信寄出去了。"
         },
         {
           "id": "t4_2",
@@ -916,7 +916,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "The agenda has me speaking right before the video from Mr. Hughes.",
-          "zh": "議程上排我在 Mr. Hughes 的影片前面上台。",
+          "zh": "議程上排我在 Hughes 先生的影片前面上台。",
           "chunkId": "agenda_has_me_speaking"
         },
         {
@@ -1072,7 +1072,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "Let me show you to your seat before we get started.",
-          "zh": "開始前我先帶您到座位上。",
+          "zh": "開始前我先帶你到座位上。",
           "chunkId": "show_you_to_your_seat"
         },
         {
@@ -1164,7 +1164,7 @@
           "lines": [
             "Hi team,",
             "What a morning! ___ the June delay, Lantern still hit its sales target.",
-            "Demand was ___ , and stores are still asking for more lamps.",
+            "Demand was ___, and stores are still asking for more lamps.",
             "Next year, we want to bring out two new models. ___",
             "Ms. Carter"
           ],
@@ -1189,9 +1189,9 @@
             {
               "options": [
                 "If we had one more designer, we'd get them out faster.",
-                "The June delay was in August.",
-                "Mr. Hughes didn't buy any lamps.",
-                "We had no sales this year."
+                "We will stop selling Lantern lamps next year.",
+                "Stores have stopped asking for new models.",
+                "We don't need any more designers."
               ],
               "answer": 0,
               "note": "接著講明年的新款，只有這句說得通。"
@@ -1442,7 +1442,7 @@
           "questions": [
             {
               "en": "How did Mr. Hughes's company start?",
-              "zh": "Mr. Hughes 的公司一開始是什麼樣子？",
+              "zh": "Hughes 先生的公司一開始是什麼樣子？",
               "options": ["As one small shop", "As twelve stores", "As a lamp factory"],
               "answer": 0
             },
@@ -1458,7 +1458,7 @@
             },
             {
               "en": "How does Mr. Hughes feel about the future?",
-              "zh": "Mr. Hughes 怎麼看未來？",
+              "zh": "Hughes 先生怎麼看未來？",
               "options": [
                 "He is worried about it.",
                 "He thinks it looks very bright.",
@@ -1475,7 +1475,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "Next, we have a short video message from Mr. Hughes in England.",
-          "zh": "接下來是 Mr. Hughes 從英國錄的一段影片致詞。",
+          "zh": "接下來是 Hughes 先生從英國錄的一段影片致詞。",
           "chunkId": "next_a_video_message"
         },
         {
@@ -1563,8 +1563,8 @@
           "id": "t8_1",
           "role": "manager",
           "speaker": "npc",
-          "en": "Now, Project of the Year. Your votes are in.",
-          "zh": "接下來是年度最佳專案。大家的票都投好了。",
+          "en": "And now, Project of the Year. The votes are in.",
+          "zh": "接下來是年度最佳專案。投票結果出來了。",
           "stage": { "act": "want", "item": "vote" }
         },
         {
@@ -1593,8 +1593,8 @@
           "id": "t8_5",
           "role": "manager",
           "speaker": "npc",
-          "en": "The support was tremendous. You earned this reward.",
-          "zh": "大家的支持非常多。這是你應得的獎勵。",
+          "en": "You did a tremendous job. This is your reward.",
+          "zh": "你們做得太棒了。這是你們應得的獎勵。",
           "stage": { "act": "give", "item": "reward" }
         },
         {
@@ -1655,7 +1655,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "The agenda has me speaking right before the video from Mr. Hughes.",
-          "zh": "議程上排我在 Mr. Hughes 的影片前面上台。",
+          "zh": "議程上排我在 Hughes 先生的影片前面上台。",
           "chunkId": "agenda_has_me_speaking"
         },
         {
@@ -1722,7 +1722,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "Next, we have a short video message from Mr. Hughes in England.",
-          "zh": "接下來是 Mr. Hughes 從英國錄的一段影片致詞。",
+          "zh": "接下來是 Hughes 先生從英國錄的一段影片致詞。",
           "chunkId": "next_a_video_message"
         },
         {
@@ -1737,7 +1737,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "Let me show you to your seat before we get started.",
-          "zh": "開始前我先帶您到座位上。",
+          "zh": "開始前我先帶你到座位上。",
           "chunkId": "show_you_to_your_seat"
         },
         {
@@ -1751,8 +1751,8 @@
           "id": "t9_18",
           "role": "manager",
           "speaker": "npc",
-          "en": "Luis becomes our safety officer, and we're giving to a charitable foundation.",
-          "zh": "Luis 要當我們的安全專員，還有公司要捐款給一個慈善基金會。"
+          "en": "Luis is our new safety officer, and we're making a donation to a charitable foundation.",
+          "zh": "Luis 是我們的新安全專員，還有公司要捐款給一個慈善基金會。"
         },
         {
           "id": "t9_19",

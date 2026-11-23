@@ -872,8 +872,8 @@
           "id": "t5_6",
           "role": "plant_manager",
           "speaker": "npc",
-          "en": "We study the failure, and that lamp never leaves the plant.",
-          "zh": "我們會研究故障的原因，而那盞燈絕對不會出廠。"
+          "en": "We find the cause of the failure, and that lamp never leaves the plant.",
+          "zh": "我們會找出故障的原因，而那盞燈絕對不會出廠。"
         },
         {
           "id": "t5_7",
@@ -946,9 +946,9 @@
             },
             {
               "options": [
-                "None of these lamps left the plant, so there is no recall.",
+                "None of these lamps have left the plant, so no recall is needed.",
                 "All of these lamps were sent to stores last week.",
-                "Please keep your hard hat on in the office.",
+                "We will have to recall every lamp in this batch.",
                 "The new material is better than the old one."
               ],
               "answer": 0,
@@ -1244,8 +1244,8 @@
           "id": "t7_6",
           "role": "plant_manager",
           "speaker": "npc",
-          "en": "We also make about a third of our own electricity.",
-          "zh": "我們也自己發了大約三分之一的電。"
+          "en": "We also make about a third of the electricity we use.",
+          "zh": "我們用的電，大約有三分之一是自己發的。"
         },
         {
           "id": "t7_7",
@@ -1306,8 +1306,8 @@
           "id": "t8_3",
           "role": "plant_manager",
           "speaker": "npc",
-          "en": "We automated packing, so productivity is up, too.",
-          "zh": "我們把包裝自動化了，所以生產力也提高了。"
+          "en": "We automated packing, so efficiency and productivity are both up.",
+          "zh": "我們把包裝自動化了，所以效率和生產力都提高了。"
         },
         {
           "id": "t8_4",

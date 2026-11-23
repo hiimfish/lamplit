@@ -1021,7 +1021,7 @@
         {
           "id": "asked_if_allergies_fill",
           "en": "Ms. Reed asked ___ I had any allergies.",
-          "zh": "Ms. Reed 問我有沒有任何過敏。",
+          "zh": "Reed 小姐問我有沒有任何過敏。",
           "options": ["if", "what", "that", "who"],
           "answer": 0,
           "note": "轉述是非問句用 if（是否）。",
@@ -1033,8 +1033,8 @@
           "id": "t2_1",
           "role": "hr",
           "speaker": "npc",
-          "en": "Hi! Just a reminder: everyone's checkup is next month.",
-          "zh": "嗨！提醒你一下，下個月就是大家的健康檢查了。"
+          "en": "Hi! Quick reminder: our yearly checkups are next month.",
+          "zh": "嗨！提醒你一下，每年的健康檢查下個月就要做了。"
         },
         {
           "id": "t2_2",
@@ -1178,8 +1178,8 @@
           "id": "t3_9",
           "role": "coworker",
           "speaker": "npc",
-          "en": "It's tough for the first week or two, but it works.",
-          "zh": "頭一兩個禮拜會有點辛苦，不過真的有用。"
+          "en": "It's tough the first week or two, but do it consistently and it works.",
+          "zh": "頭一兩個禮拜會有點辛苦，不過持續做下去，真的有用。"
         }
       ]
     },
@@ -1212,7 +1212,7 @@
                 "Hi everyone,",
                 "Good news: your benefits will be better next year. From January 1, we are moving to a more comprehensive health insurance plan. It will still be administered by the same insurance company.",
                 "There are two plans this time, Basic and Plus. Both include prescription medicine. Please see the attached table.",
-                "You may also insure members of your family. This is voluntary. It costs $30 a month for each person, and it comes out of your pay.",
+                "You may also insure your family members. This is voluntary. It costs $30 a month for each person, and it comes out of your pay.",
                 "Our pension and retirement plans will not change. Please note that the Plus plan is exclusively for employees who work full time.",
                 "Please return your form to me by September 30.",
                 "Thanks,",
@@ -1227,7 +1227,7 @@
                 "Plus plan: You pay $40 a month. Coverage includes everything in the Basic plan, plus dental care and eye care.",
                 "Dental care and eye care are not part of the Basic plan.",
                 "You can change your plan once a year, in September.",
-                "Your total compensation includes your salary, insurance, pension and $300 a year for healthcare."
+                "Your total compensation includes your salary, insurance, pension and $300 a year to spend on healthcare."
               ]
             }
           ],
@@ -1421,7 +1421,7 @@
             },
             {
               "en": "Why does Ms. Carter give two extra days off?",
-              "zh": "Ms. Carter 為什麼多給兩天假？",
+              "zh": "Carter 小姐為什麼多給兩天假？",
               "options": [
                 "Because of weekend work in London",
                 "Because of an injury",
@@ -1764,7 +1764,7 @@
             {
               "id": "t7_talk_1",
               "role": "announcer",
-              "en": "Good afternoon, everyone. Many of you sit at a desk all day and check your phone in bed.",
+              "en": "Good afternoon. Many of you sit at a desk all day and check your phone in bed.",
               "zh": "大家午安。你們很多人整天坐在辦公桌前，躺在床上還在看手機。"
             },
             {
@@ -1794,8 +1794,8 @@
             {
               "id": "t7_talk_6",
               "role": "announcer",
-              "en": "First, stand up and walk around every hour. Set a timer on your phone.",
-              "zh": "第一，每個小時站起來走一走。可以用手機設個計時器。"
+              "en": "First, stand up and walk around periodically. Set a timer for every hour.",
+              "zh": "第一，每隔一段時間就站起來走一走。可以設個每小時響一次的計時器。"
             },
             {
               "id": "t7_talk_7",
@@ -1818,20 +1818,8 @@
             {
               "id": "t7_talk_10",
               "role": "announcer",
-              "en": "A tidy desk also means fewer distractions.",
-              "zh": "桌面整齊，讓你分心的事也會比較少。"
-            },
-            {
-              "id": "t7_talk_11",
-              "role": "announcer",
-              "en": "Make time for leisure, and check in with yourself periodically. You don't need supplements.",
-              "zh": "要留點休閒時間，也每隔一段時間關心一下自己。你不需要靠營養補充品。"
-            },
-            {
-              "id": "t7_talk_12",
-              "role": "announcer",
-              "en": "Do these things consistently, and you'll feel the difference.",
-              "zh": "持續做這些事，你就會感覺到不同。"
+              "en": "Make time for leisure. And no, you don't need supplements.",
+              "zh": "要留點休閒時間。還有，你不需要靠營養補充品。"
             }
           ],
           "questions": [

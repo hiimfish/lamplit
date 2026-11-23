@@ -979,7 +979,7 @@
           "id": "t1_4",
           "role": "manager",
           "speaker": "npc",
-          "en": "Right, your call with London. Sure, he has a slot at two.",
+          "en": "Right, your call with London. Sure, he has an open slot at two.",
           "zh": "對，你要和倫敦通電話。可以啊，他兩點有空檔。"
         },
         {
@@ -1161,8 +1161,8 @@
           "id": "t3_3",
           "role": "manager",
           "speaker": "npc",
-          "en": "Was I right? You struggled at first.",
-          "zh": "我說對了嗎？你一開始很吃力。"
+          "en": "You struggled at first, but look at you now.",
+          "zh": "你一開始很吃力，可是看看你現在。"
         },
         {
           "id": "t3_4",
@@ -1176,7 +1176,7 @@
           "id": "t3_5",
           "role": "manager",
           "speaker": "npc",
-          "en": "I can tell. And you handled some delicate problems wisely.",
+          "en": "I can tell. You handled some delicate problems wisely.",
           "zh": "看得出來。而且有些棘手的問題你處理得很明智。"
         },
         {
@@ -1386,8 +1386,8 @@
             {
               "id": "t5_talk_6",
               "role": "manager",
-              "en": "We got five hundred extra lamps from Brightway and incurred extra storage costs.",
-              "zh": "我們從 Brightway 多收到五百盞燈，多付了一筆倉儲費。"
+              "en": "We received five hundred extra lamps, and we incurred storage costs.",
+              "zh": "我們多收到五百盞燈，還多付了一筆倉儲費。"
             },
             {
               "id": "t5_talk_7",
@@ -1575,9 +1575,9 @@
             {
               "options": [
                 "Let's meet on Monday and cut out any unnecessary steps.",
-                "Thank you for your farewell party.",
+                "So let's keep every step the way it is.",
                 "The lamps were delivered yesterday.",
-                "I promise I will retire next year."
+                "So Leo will stop handling orders in January."
               ],
               "answer": 0,
               "note": "流程太慢，接著說怎麼改善。"
@@ -1683,8 +1683,8 @@
           "id": "t6_4",
           "role": "director",
           "speaker": "npc",
-          "en": "Good. We'll appoint him to that job in January.",
-          "zh": "很好。我們一月就正式指派他做這件事。"
+          "en": "Good. Let's appoint him order coordinator in January, then.",
+          "zh": "很好。那我們一月就正式任命他當訂單協調專員。"
         },
         {
           "id": "t6_5",
@@ -1745,7 +1745,7 @@
               "id": "t7_talk_1",
               "role": "director",
               "en": "Ms. Carter and I have talked about your appraisal, and the decision was easy.",
-              "zh": "Ms. Carter 和我談過你的考核了，這個決定一點都不難。"
+              "zh": "Carter 小姐和我談過你的考核了，這個決定一點都不難。"
             },
             {
               "id": "t7_talk_2",
@@ -1787,7 +1787,7 @@
               "id": "t7_talk_8",
               "role": "director",
               "en": "Regardless of the new title, you'll still work closely with Ms. Carter.",
-              "zh": "不管職稱怎麼變，你還是會和 Ms. Carter 密切合作。"
+              "zh": "不管職稱怎麼變，你還是會和 Carter 小姐密切合作。"
             },
             {
               "id": "t7_talk_9",
@@ -1837,7 +1837,7 @@
           "role": "director",
           "speaker": "npc",
           "en": "So, Ms. Carter and I agree. This promotion is based on merit.",
-          "zh": "所以，Ms. Carter 和我意見一致。這次升遷是靠你的表現。"
+          "zh": "所以，Carter 小姐和我意見一致。這次升遷是靠你的表現。"
         },
         {
           "id": "t7_2",
@@ -2143,8 +2143,8 @@
           "id": "t9_18",
           "role": "manager",
           "speaker": "npc",
-          "en": "Save that for Friday! But really, you're ready.",
-          "zh": "這句留到星期五再說吧！不過說真的，你準備好了。"
+          "en": "Save that for Friday! But really, you're on the right path.",
+          "zh": "這句留到星期五再說吧！不過說真的，你走在對的路上。"
         },
         {
           "id": "t9_19",

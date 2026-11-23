@@ -389,8 +389,8 @@
           "id": "t1_1",
           "role": "branch_manager",
           "speaker": "npc",
-          "en": "Hi! Can you hear me? This is our new London office.",
-          "zh": "嗨！聽得到嗎？這裡就是我們倫敦的新辦公室。"
+          "en": "Hi! Can you hear me? This is our new London office, our first one overseas.",
+          "zh": "嗨！聽得到嗎？這裡就是我們倫敦的新辦公室，也是我們第一間海外辦公室。"
         },
         {
           "id": "t1_2",
@@ -447,8 +447,8 @@
           "id": "t1_9",
           "role": "branch_manager",
           "speaker": "npc",
-          "en": "And bring your briefcase. Mr. Hughes wants to meet you.",
-          "zh": "還有，公事包記得帶著。Hughes 先生想跟你見個面。",
+          "en": "Mr. Hughes wants to meet you, so bring a few samples in your briefcase.",
+          "zh": "Hughes 先生想跟你見個面，記得在公事包裡放幾個樣品。",
           "stage": { "act": "want", "item": "briefcase" }
         }
       ]
@@ -622,16 +622,16 @@
           "id": "t3_7",
           "role": "branch_manager",
           "speaker": "npc",
-          "en": "This district is very accessible. The subway is right around the corner.",
-          "zh": "這一區交通很方便，地鐵站就在轉角。",
+          "en": "This district is very accessible. There's a subway station around the corner.",
+          "zh": "這一區交通很方便，轉角就有地鐵站。",
           "stage": { "act": "want", "item": "subway" }
         },
         {
           "id": "t3_8",
           "role": "branch_manager",
           "speaker": "npc",
-          "en": "Take the Tube to work. The traffic jams here are terrible.",
-          "zh": "上班就搭地鐵吧。這裡塞車很可怕。"
+          "en": "We call it the Tube. Take it to work. The traffic jams here are terrible.",
+          "zh": "我們這裡叫它 the Tube。上班就搭地鐵吧，這裡塞車很可怕。"
         },
         {
           "id": "t3_9",
@@ -682,7 +682,7 @@
                 "Your hotel is conveniently close to the office, about ten minutes away.",
                 "Our landlord is doing renovation work in the building, so the front door is closed. For now, we use the door at the side of the building.",
                 "Courier packages for tenants now go to the basement, so the box of Lantern samples you sent will be there.",
-                "All visitors need registration at the front desk on their first day.",
+                "Visitor registration is at the front desk, so please stop there on your first day.",
                 "Let's start at 9:30 on Monday, August 4.",
                 "Ms. Wright"
               ]
@@ -700,7 +700,7 @@
           ],
           "questions": [
             {
-              "en": "Where is the traveler in transit, and for how long?",
+              "en": "Where will the traveler be in transit, and for how long?",
               "zh": "這位旅客在哪裡轉機？轉機多久？",
               "options": [
                 "In New York, for 2 hours",
@@ -1490,8 +1490,8 @@
           "id": "t9_10",
           "role": "client",
           "speaker": "npc",
-          "en": "Hello! So you're the one from Harbor Trading. How long are you with us?",
-          "zh": "你好！你就是 Harbor Trading 派來的吧。會在這裡待多久？"
+          "en": "Hello! So you're the one from Harbor Trading. What brings you to London?",
+          "zh": "你好！你就是 Harbor Trading 派來的吧。這次來倫敦是為了什麼？"
         },
         {
           "id": "t9_11",
@@ -1505,8 +1505,8 @@
           "id": "t9_12",
           "role": "client",
           "speaker": "npc",
-          "en": "Good. Then Ms. Wright should accompany you to one of my stores.",
-          "zh": "很好。那 Wright 小姐該帶你去我的店看看。"
+          "en": "Good. Then you must see one of my stores. Ms. Wright can accompany you.",
+          "zh": "很好。那你一定要來我的店看看，Wright 小姐可以陪你去。"
         },
         {
           "id": "t9_13",
