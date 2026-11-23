@@ -207,9 +207,11 @@
 /* Form: "Label: value" lines as two columns, the value on a dotted line like a filled-in field. */
 .rp-row {
   display: grid;
+  /* Every row is its own grid, so fixed shares keep the values lined up; baseline keeps a
+     wrapped value's label on its first line. */
   grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
   gap: calc(4 * var(--px));
-  align-items: end;
+  align-items: baseline;
 }
 
 .rp-label::after {
@@ -338,4 +340,41 @@
 :root[data-orientation='landscape'] .rp-layout-set > .rp-ask {
   grid-column: 2;
   grid-row: 1 / span 2;
+}
+
+/*
+ * Landscape on a phone leaves the set's columns narrow: each tab reads "1 表格" on one
+ * line (the word 文件 is dropped), and the answer keys go one per row so a phrase wraps
+ * at its spaces instead of breaking at a comma.
+ */
+:root[data-orientation='landscape'] .rp-tab-word {
+  display: none;
+}
+
+:root[data-orientation='landscape'] .rp-tabs > .pixel-button.rp-tab {
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+:root[data-orientation='landscape'] .rp-ask .mg-options {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+:root[data-orientation='landscape'] .rp-ask .mg-option {
+  overflow-wrap: break-word;
+}
+
+:root[data-orientation='landscape'] .rp-tabs > .pixel-button.rp-tab {
+  font-size: calc(9 * var(--px));
+  column-gap: calc(2 * var(--px));
+  padding: var(--px) calc(3 * var(--px));
+}
+
+/* Landscape: the text column is too narrow for two form columns; the label sits over its value. */
+:root[data-orientation='landscape'] .rp-row {
+  display: block;
+}
+
+:root[data-orientation='landscape'] .rp-row > .rp-label {
+  display: block;
 }

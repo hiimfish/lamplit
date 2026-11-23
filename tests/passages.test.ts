@@ -21,7 +21,7 @@ import { validateUnit } from '../src/content/validate';
 import { findAnswerLine, passageQuestions } from '../src/learning/gen/passages';
 import { buildTaskPractice, makeRng } from '../src/learning/questionGen';
 import { NO_ITEM } from '../src/learning/questions';
-import { docNames, docTabs, PASSAGE_KIND_ZH } from '../src/ui/minigames/ReadPassage';
+import { docNames, docTabs, formRow, PASSAGE_KIND_ZH } from '../src/ui/minigames/ReadPassage';
 
 const passage = (over: Partial<SinglePassage> = {}): SinglePassage => ({
   id: 'p1',
@@ -533,5 +533,19 @@ describe('the passage set screen (ReadPassage tabs)', () => {
     const [question] = passageQuestions(task({ passages: [set] }), makeRng(1));
     expect(question).toMatchObject({ answerText: 1, answerLine: 1 });
     expect(docTabs(question!).map((t) => t.needed)).toEqual([true, true]);
+  });
+});
+
+describe('formRow', () => {
+  it('keeps a time inside the label and splits at the colon followed by a space', () => {
+    expect(formRow('August 2, 6:30 p.m.: Overnight flight')).toEqual({
+      label: 'August 2, 6:30 p.m.',
+      value: 'Overnight flight',
+    });
+    expect(formRow('Name: Lisa Chen')).toEqual({ label: 'Name', value: 'Lisa Chen' });
+  });
+
+  it('leaves a line without a "label: value" shape alone', () => {
+    expect(formRow('Meet at 6:30 in the lobby.')).toBeNull();
   });
 });

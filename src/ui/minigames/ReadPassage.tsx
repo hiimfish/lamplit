@@ -76,9 +76,12 @@ export function docNames(indexes: readonly number[]): string {
   return `${names.slice(0, -1).join('、')} 和${names[names.length - 1]}`;
 }
 
-/** A form line "Label: value" (colon then a space, so 9:00 is not split), or null. */
+/**
+ * A form line "Label: value", or null. The label ends at the first colon followed by a
+ * space, so a time like "6:30 p.m." stays in the label and 9:00 is never split.
+ */
 export function formRow(line: string): { label: string; value: string } | null {
-  const match = /^([^:]{1,30}):\s+(\S.*)$/.exec(line);
+  const match = /^((?:[^:]|:(?!\s)){1,30}):\s+(\S.*)$/.exec(line);
   return match ? { label: match[1]!.trim(), value: match[2]!.trim() } : null;
 }
 
@@ -336,7 +339,11 @@ export function ReadPassage({ question, onAnswered }: MinigameProps<PassageQuest
                 data-needed={doc.needed ? 'true' : undefined}
                 onClick={() => selectTab(t)}
               >
-                <span>{doc.name}</span>
+                {/* "文件 1"; landscape hides the word so the tab reads "1 表格" on one line. */}
+                <span>
+                  <span class="rp-tab-word">文件 </span>
+                  {t + 1}
+                </span>
                 <span>{doc.kindZh}</span>
                 {doc.needed && <span class="sr-only">，這題要看</span>}
               </button>
