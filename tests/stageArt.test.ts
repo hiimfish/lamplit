@@ -428,3 +428,101 @@ describe('Act 3 stages', () => {
     for (const role of ACT3_ROLES) expect(drawn.has(role), role).toBe(!UNDRAWN.includes(role));
   });
 });
+
+describe('Act 4 placeholder stages', () => {
+  /** Who stands on each stage, primary first (everyone seen, or heard in a dialogue). */
+  const ACT4_CAST: Record<string, Role[]> = {
+    presentation: ['manager', 'director', 'coworker'],
+    budget: ['accountant', 'manager', 'director'],
+    marketing: ['agency', 'manager'],
+    recruiting: ['hr', 'manager', 'new_hire'],
+    training: ['new_hire', 'manager', 'coworker'],
+    legal: ['manager', 'client', 'lawyer'],
+    factory: ['plant_manager', 'supplier'],
+    branch: ['branch_manager', 'client', 'officer', 'manager'],
+    wellness: ['coworker', 'hr', 'manager'],
+    media: ['manager', 'reporter', 'coworker'],
+    annual_meeting: ['manager', 'director', 'supplier', 'client'],
+    promotion: ['manager', 'director', 'coworker'],
+  };
+  /** Everyone heard in a location (docs/specs/act4-syllabus.md), the announcer included. */
+  const ACT4_HEARD: Record<string, Role[]> = {
+    presentation: ['manager', 'coworker', 'director'],
+    budget: ['accountant', 'manager', 'director', 'announcer'],
+    marketing: ['agency', 'manager'],
+    recruiting: ['manager', 'hr', 'new_hire'],
+    training: ['new_hire', 'manager', 'coworker', 'announcer'],
+    legal: ['manager', 'client', 'lawyer'],
+    factory: ['supplier', 'plant_manager'],
+    branch: ['branch_manager', 'client', 'officer', 'manager', 'announcer'],
+    wellness: ['coworker', 'hr', 'manager', 'announcer'],
+    media: ['manager', 'reporter', 'coworker'],
+    annual_meeting: ['manager', 'director', 'supplier', 'client'],
+    promotion: ['manager', 'coworker', 'director'],
+  };
+  const ACT4_ROLES: Role[] = [
+    'accountant',
+    'agency',
+    'new_hire',
+    'lawyer',
+    'plant_manager',
+    'branch_manager',
+    'reporter',
+    'officer',
+  ];
+  const NEURAL2_NAME = /^en-(US|GB|AU)-Neural2-[A-J]$/;
+  const CHIRP_NAME = /^en-(US|GB|AU)-Chirp3-HD-[A-Z][a-z]+$/;
+
+  it.each(Object.entries(ACT4_CAST))('%s casts exactly its roles, and you', (id, roles) => {
+    const config = stageFor(id);
+    expect(config).toBeDefined();
+    const cast = config!.cast;
+    expect(Object.keys(cast).sort()).toEqual(['guide', ...roles].sort());
+    // the first stands on the base spot; every other one has a beside spot of its own
+    const base = cast[roles[0]!]!;
+    expect(base.beside).toBeUndefined();
+    const spots = roles.slice(1).map((r) => cast[r]!.beside);
+    for (const spot of spots) expect(spot).toBeDefined();
+    const keys = [{ x: base.x, y: base.y }, ...spots].map((s) => JSON.stringify(s));
+    expect(new Set(keys).size, keys.join(' ')).toBe(keys.length);
+  });
+
+  it.each(Object.entries(ACT4_HEARD))(
+    '%s gives everyone heard a label and voices, shared with nobody else there',
+    (id, roles) => {
+      // you (the guide) are heard everywhere too
+      const heard: Role[] = [...roles, 'guide'];
+      for (const role of heard) {
+        expect(ROLE_LABEL[role], role).toBeTruthy();
+        expect(VOICE_NAMES.neural2[role], role).toMatch(NEURAL2_NAME);
+        expect(VOICE_NAMES.chirp[role], role).toMatch(CHIRP_NAME);
+      }
+      for (const names of [
+        heard.map((r) => VOICE_NAMES.neural2[r]),
+        heard.map((r) => VOICE_NAMES.chirp[r]),
+        heard.map((r) => ROLE_LABEL[r]),
+      ]) {
+        expect(new Set(names).size, `${id}: ${names.join(' ')}`).toBe(names.length);
+      }
+      for (const role of ACT4_CAST[id]!) expect(roles, role).toContain(role);
+    },
+  );
+
+  it('gives every new role a label and a voice in both families', () => {
+    for (const role of ACT4_ROLES) {
+      expect(ROLE_LABEL[role], role).toBeTruthy();
+      expect(VOICE_NAMES.neural2[role], role).toMatch(NEURAL2_NAME);
+      expect(VOICE_NAMES.chirp[role], role).toMatch(/^en-(US|GB|AU)-Chirp3-HD-/);
+    }
+    // the branch manager and the border officer are British, in both families
+    for (const family of ['neural2', 'chirp'] as const) {
+      expect(VOICE_NAMES[family].branch_manager).toMatch(/^en-GB-/);
+      expect(VOICE_NAMES[family].officer).toMatch(/^en-GB-/);
+    }
+  });
+
+  it('draws every new role on some stage', () => {
+    const drawn = new Set(STAGE_UNIT_IDS.flatMap((id) => Object.keys(stageFor(id)!.cast)));
+    for (const role of ACT4_ROLES) expect(drawn.has(role), role).toBe(true);
+  });
+});

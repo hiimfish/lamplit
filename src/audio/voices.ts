@@ -17,8 +17,10 @@ export const VOICE_NAMES: Record<VoiceMode, Record<Role, string>> = {
     neighbor: 'en-US-Neural2-F',
     clerk: 'en-US-Neural2-I',
     // Neural2 has nine US voices, so roles of different locations share one;
-    // two roles of the same location never do. Three roles are not American:
-    // the librarian and the client are British, the supplier is Australian.
+    // two roles of the same location never do. Six roles are not American:
+    // the librarian, the client, the branch manager and the border officer are
+    // British, the supplier is Australian. The reporter is Canadian, but Google
+    // has no en-CA voice, so he speaks with a US one.
     passerby: 'en-US-Neural2-E',
     driver: 'en-US-Neural2-J',
     cashier: 'en-US-Neural2-G',
@@ -48,6 +50,14 @@ export const VOICE_NAMES: Record<VoiceMode, Record<Role, string>> = {
     hotel_clerk: 'en-US-Neural2-G',
     director: 'en-US-Neural2-J',
     announcer: 'en-US-Neural2-E',
+    accountant: 'en-US-Neural2-G',
+    agency: 'en-US-Neural2-C',
+    new_hire: 'en-US-Neural2-I',
+    lawyer: 'en-US-Neural2-J',
+    plant_manager: 'en-US-Neural2-F',
+    branch_manager: 'en-GB-Neural2-A',
+    reporter: 'en-US-Neural2-J',
+    officer: 'en-GB-Neural2-D',
     guide: 'en-US-Neural2-A',
   },
   chirp: {
@@ -88,6 +98,20 @@ export const VOICE_NAMES: Record<VoiceMode, Record<Role, string>> = {
     hotel_clerk: 'en-US-Chirp3-HD-Vindemiatrix',
     director: 'en-US-Chirp3-HD-Rasalgethi',
     announcer: 'en-US-Chirp3-HD-Zephyr',
+    // Act 4: only Enceladus was still free, so the lawyer has it and the others reuse a
+    // voice of Act 1 or 2 that is never heard in the same location: the accountant the
+    // pharmacist's, the agency the receptionist's, the new hire the clerk's (not Achird,
+    // which is yours and heard everywhere), the plant manager the teller's, the reporter
+    // the server's. The branch manager and the border officer are the neighbor's and the
+    // vendor's voices in a British accent. The reporter is Canadian on a US voice.
+    accountant: 'en-US-Chirp3-HD-Despina',
+    agency: 'en-US-Chirp3-HD-Callirrhoe',
+    new_hire: 'en-US-Chirp3-HD-Puck',
+    lawyer: 'en-US-Chirp3-HD-Enceladus',
+    plant_manager: 'en-US-Chirp3-HD-Autonoe',
+    branch_manager: 'en-GB-Chirp3-HD-Aoede',
+    reporter: 'en-US-Chirp3-HD-Umbriel',
+    officer: 'en-GB-Chirp3-HD-Orus',
     guide: 'en-US-Chirp3-HD-Achird',
   },
 };

@@ -35,6 +35,14 @@ export type Role =
   | 'hotel_clerk'
   | 'director'
   | 'announcer'
+  | 'accountant'
+  | 'agency'
+  | 'new_hire'
+  | 'lawyer'
+  | 'plant_manager'
+  | 'branch_manager'
+  | 'reporter'
+  | 'officer'
   | 'guide';
 
 export interface Chunk {

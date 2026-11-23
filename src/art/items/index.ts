@@ -20,6 +20,18 @@ import { AIRPORT_ITEMS } from './airport';
 import { HOTEL_ITEMS } from './hotel';
 import { TRADE_FAIR_ITEMS } from './tradeFair';
 import { COMPANY_EVENT_ITEMS } from './companyEvent';
+import { PRESENTATION_ITEMS } from './presentation';
+import { BUDGET_ITEMS } from './budget';
+import { MARKETING_ITEMS } from './marketing';
+import { RECRUITING_ITEMS } from './recruiting';
+import { TRAINING_ITEMS } from './training';
+import { LEGAL_ITEMS } from './legal';
+import { FACTORY_ITEMS } from './factory';
+import { BRANCH_ITEMS } from './branch';
+import { WELLNESS_ITEMS } from './wellness';
+import { MEDIA_ITEMS } from './media';
+import { ANNUAL_MEETING_ITEMS } from './annualMeeting';
+import { PROMOTION_ITEMS } from './promotion';
 import { CAFE_ITEMS } from './cafe';
 import { CLINIC_ITEMS } from './clinic';
 import { CLOTHES_ITEMS } from './clothes';
@@ -78,6 +90,18 @@ export const ITEM_SPRITES: Readonly<Record<string, PixelSprite>> = {
   ...HOTEL_ITEMS,
   ...TRADE_FAIR_ITEMS,
   ...COMPANY_EVENT_ITEMS,
+  ...PRESENTATION_ITEMS,
+  ...BUDGET_ITEMS,
+  ...MARKETING_ITEMS,
+  ...RECRUITING_ITEMS,
+  ...TRAINING_ITEMS,
+  ...LEGAL_ITEMS,
+  ...FACTORY_ITEMS,
+  ...BRANCH_ITEMS,
+  ...WELLNESS_ITEMS,
+  ...MEDIA_ITEMS,
+  ...ANNUAL_MEETING_ITEMS,
+  ...PROMOTION_ITEMS,
 };
 
 export function getItemSprite(id: string): PixelSprite | undefined {

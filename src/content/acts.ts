@@ -28,8 +28,6 @@ export function actOf(unitId: string, acts: readonly Act[]): number {
  */
 export const TASKS_PER_UNIT: readonly number[] = [8, 8, 9, 9];
 
-const soon = (...titles: string[]): ActPlace[] => titles.map((title) => ({ title }));
-
 export const ACTS: readonly Act[] = [
   {
     no: '一',
@@ -82,19 +80,19 @@ export const ACTS: readonly Act[] = [
   {
     no: '四',
     title: '升遷之路',
-    places: soon(
-      '簡報',
-      '預算與報表',
-      '行銷',
-      '招募新人',
-      '教育訓練',
-      '合約與法務',
-      '工廠參觀',
-      '海外分公司',
-      '健康與福利',
-      '媒體採訪',
-      '年度大會',
-      '結業挑戰',
-    ),
+    places: [
+      { unitId: 'presentation', title: '簡報' },
+      { unitId: 'budget', title: '預算與報表' },
+      { unitId: 'marketing', title: '行銷' },
+      { unitId: 'recruiting', title: '招募新人' },
+      { unitId: 'training', title: '教育訓練' },
+      { unitId: 'legal', title: '合約與法務' },
+      { unitId: 'factory', title: '工廠參觀' },
+      { unitId: 'branch', title: '海外分公司' },
+      { unitId: 'wellness', title: '健康與福利' },
+      { unitId: 'media', title: '媒體採訪' },
+      { unitId: 'annual_meeting', title: '年度大會' },
+      { unitId: 'promotion', title: '結業挑戰' },
+    ],
   },
 ];

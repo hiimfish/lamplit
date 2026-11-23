@@ -241,17 +241,29 @@ describe('role voice table', () => {
     'director',
     'announcer',
   ] as const;
+  const act4Roles = [
+    'accountant',
+    'agency',
+    'new_hire',
+    'lawyer',
+    'plant_manager',
+    'branch_manager',
+    'reporter',
+    'officer',
+  ] as const;
   const allRoles = Object.keys(VOICE_NAMES.neural2) as (keyof typeof VOICE_NAMES.neural2)[];
 
   it('gives every role a voice in both families', () => {
     expect(Object.keys(VOICE_NAMES.chirp).sort()).toEqual([...allRoles].sort());
   });
 
-  it('uses US voices for every role except the British librarian and client and the Australian supplier', () => {
+  it('uses US voices for every role except the British and Australian ones (the Canadian reporter too)', () => {
     const accents: Partial<Record<(typeof allRoles)[number], string>> = {
       librarian: 'en-GB',
       client: 'en-GB',
       supplier: 'en-AU',
+      branch_manager: 'en-GB',
+      officer: 'en-GB',
     };
     for (const role of allRoles) {
       const expected = accents[role] ?? 'en-US';
@@ -273,6 +285,29 @@ describe('role voice table', () => {
       VOICE_NAMES.neural2.announcer,
       VOICE_NAMES.neural2.announcer,
       VOICE_NAMES.chirp.announcer,
+    ]);
+  });
+
+  it('pins the Act 4 voices', () => {
+    expect(act4Roles.map((r) => VOICE_NAMES.neural2[r])).toEqual([
+      'en-US-Neural2-G',
+      'en-US-Neural2-C',
+      'en-US-Neural2-I',
+      'en-US-Neural2-J',
+      'en-US-Neural2-F',
+      'en-GB-Neural2-A',
+      'en-US-Neural2-J',
+      'en-GB-Neural2-D',
+    ]);
+    expect(act4Roles.map((r) => VOICE_NAMES.chirp[r])).toEqual([
+      'en-US-Chirp3-HD-Despina',
+      'en-US-Chirp3-HD-Callirrhoe',
+      'en-US-Chirp3-HD-Puck',
+      'en-US-Chirp3-HD-Enceladus',
+      'en-US-Chirp3-HD-Autonoe',
+      'en-GB-Chirp3-HD-Aoede',
+      'en-US-Chirp3-HD-Umbriel',
+      'en-GB-Chirp3-HD-Orus',
     ]);
   });
 

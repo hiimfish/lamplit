@@ -36,5 +36,14 @@ export const ROLE_LABEL: Record<Role, string> = {
   director: '總經理',
   // A voice over a speaker (voicemail, the warehouse, the airport, the fair): never drawn on a stage.
   announcer: '廣播',
+  accountant: '會計',
+  agency: '行銷顧問',
+  new_hire: '新助理',
+  lawyer: '律師',
+  plant_manager: '廠長',
+  branch_manager: '分公司經理',
+  reporter: '記者',
+  // The UK border officer at the London airport (海外分公司 t2): no name, drawn only on that stage.
+  officer: '入境審查官',
   guide: '你',
 };

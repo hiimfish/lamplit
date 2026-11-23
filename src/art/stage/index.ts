@@ -20,6 +20,18 @@ import { AIRPORT_STAGE } from './airport';
 import { HOTEL_STAGE } from './hotel';
 import { TRADE_FAIR_STAGE } from './tradeFair';
 import { COMPANY_EVENT_STAGE } from './companyEvent';
+import { PRESENTATION_STAGE } from './presentation';
+import { BUDGET_STAGE } from './budget';
+import { MARKETING_STAGE } from './marketing';
+import { RECRUITING_STAGE } from './recruiting';
+import { TRAINING_STAGE } from './training';
+import { LEGAL_STAGE } from './legal';
+import { FACTORY_STAGE } from './factory';
+import { BRANCH_STAGE } from './branch';
+import { WELLNESS_STAGE } from './wellness';
+import { MEDIA_STAGE } from './media';
+import { ANNUAL_MEETING_STAGE } from './annualMeeting';
+import { PROMOTION_STAGE } from './promotion';
 import { CLINIC_STAGE } from './clinic';
 import { CLOTHES_STAGE } from './clothes';
 import { GUIDE_ACTOR, type StageConfig, type StageSide } from './config';
@@ -123,6 +135,18 @@ const STAGES: Readonly<Record<string, StageConfig>> = {
   hotel: HOTEL_STAGE,
   trade_fair: TRADE_FAIR_STAGE,
   company_event: COMPANY_EVENT_STAGE,
+  presentation: PRESENTATION_STAGE,
+  budget: BUDGET_STAGE,
+  marketing: MARKETING_STAGE,
+  recruiting: RECRUITING_STAGE,
+  training: TRAINING_STAGE,
+  legal: LEGAL_STAGE,
+  factory: FACTORY_STAGE,
+  branch: BRANCH_STAGE,
+  wellness: WELLNESS_STAGE,
+  media: MEDIA_STAGE,
+  annual_meeting: ANNUAL_MEETING_STAGE,
+  promotion: PROMOTION_STAGE,
 };
 
 export function stageFor(unitId: string): StageConfig | undefined {
