@@ -61,7 +61,7 @@ export function takeJustChecked(audioId: string): boolean {
 function ZhHint({ zh, visible, onReveal }: { zh: string; visible: boolean; onReveal: () => void }) {
   if (visible) {
     return (
-      <p class="mg-zh" data-testid="zh">
+      <p class="mg-zh mg-zh-target" data-testid="zh">
         {zh}
       </p>
     );
