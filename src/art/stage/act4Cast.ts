@@ -1,10 +1,4 @@
 import type { PixelSprite } from '../../game/sprites';
-import { AIRLINE_AGENT_SPRITE } from './act3Cast';
-import { COUNSELOR_SPRITE } from './jobCenter';
-import { LANDLORD_SPRITE, NEIGHBOR_SPRITE } from './moveIn';
-import { VOLUNTEER_SPRITE } from './park';
-import { FRIEND_SPRITE } from './restaurant';
-import { CLERK_SPRITE } from './store';
 
 /**
  * The new people of Act 4, one 16x24 sprite each, facing left like every other
@@ -12,27 +6,335 @@ import { CLERK_SPRITE } from './store';
  * border officer of the branch is drawn in branch.ts only; the announcer is
  * only a voice and is never drawn.)
  *
- * Stand-ins for now: each borrows the sprite of someone from an earlier act
- * (a woman's for the women) until the real one is drawn here.
+ * Each has a hair shape, two colours and one detail that nobody else has, so a
+ * learner can tell who is speaking at a glance, even in a three-person scene.
  */
 
-/** Ms. Patel, the part-time accountant. */
-export const ACCOUNTANT_SPRITE: PixelSprite = COUNSELOR_SPRITE;
+/** Ms. Patel, the part-time accountant: a low black bun, gold glasses, a plum cardigan, a ledger. */
+export const ACCOUNTANT_SPRITE: PixelSprite = {
+  rows: [
+    '................',
+    '.....hhhhhh.....',
+    '....hhHHHhhhh...',
+    '....hhhhhhHhh...',
+    '....sshhhhhhh...',
+    '...sgegggshhh...',
+    '....sssssshh....',
+    '....rsssshhbb...',
+    '......sss.bbb...',
+    '.....wwccccbc...',
+    '....cwwcccccc...',
+    '....cwwccccac...',
+    '....ccwccccac...',
+    '....cccccccac...',
+    '....ccccccaFFF..',
+    '....ccccccaFnF..',
+    '....cccccccsnF..',
+    '.....ddddddFFF..',
+    '.....dddddd.....',
+    '.....ddddddD....',
+    '......ttqq......',
+    '......ttqq......',
+    '......ttqq......',
+    '....kkkkk.......',
+  ],
+  legend: {
+    h: 'ink',
+    H: 'slate',
+    b: 'ink',
+    s: 'tan',
+    g: 'honey',
+    e: 'ink',
+    r: 'ember',
+    w: 'paper',
+    c: 'plum',
+    a: 'night',
+    F: 'maroon',
+    n: 'paper',
+    d: 'stone',
+    D: 'slate',
+    t: 'tan',
+    q: 'ember',
+    k: 'ink',
+  },
+};
 
-/** Nina Ortiz, of the marketing agency. */
-export const AGENCY_SPRITE: PixelSprite = FRIEND_SPRITE;
+/** Nina Ortiz, of the marketing agency: long dark wavy hair, a mustard blazer, a tablet. */
+export const AGENCY_SPRITE: PixelSprite = {
+  rows: [
+    '................',
+    '.....hhhhhh.....',
+    '....hhHHhhhhh...',
+    '....hhhhhhHhhh..',
+    '....shhhhhhhHh..',
+    '...ssesshhhHhhh.',
+    '....sssshhhhHh..',
+    '....rssshhHhhhh.',
+    '......sshhhhHh..',
+    '.....yyyyhhHhhh.',
+    '....ynnyyyhhHh..',
+    '....yynyyyyhhH..',
+    '....yynyyyayhh..',
+    '....yyyyyyay.H..',
+    '....yyyyyyaTTT..',
+    '....yyyyyyaTcT..',
+    '....YYYYYYsTcT..',
+    '.....nnnnnnTTT..',
+    '......nnmm......',
+    '......nnmm......',
+    '......nnmm......',
+    '......nnmm......',
+    '......nnmm......',
+    '....kkkkk.......',
+  ],
+  legend: {
+    h: 'ink',
+    H: 'plum',
+    s: 'skin',
+    e: 'ink',
+    r: 'rosy',
+    y: 'lamp',
+    Y: 'amber',
+    a: 'amber',
+    n: 'night',
+    m: 'ink',
+    T: 'ink',
+    c: 'cyan',
+    k: 'neonDeep',
+  },
+};
 
-/** Leo Martin, 26: the applicant, then the new assistant. */
-export const NEW_HIRE_SPRITE: PixelSprite = CLERK_SPRITE;
+/** Leo Martin, the applicant and then the new assistant: short black curls, a blue sweater and a tie, slim. */
+export const NEW_HIRE_SPRITE: PixelSprite = {
+  rows: [
+    '................',
+    '.....h.hh.h.....',
+    '....hhhHhhhh....',
+    '....hHhhhHhhh...',
+    '....sshhhhhhh...',
+    '...ssesssshhh...',
+    '....ssssssh.....',
+    '....rsssss......',
+    '......sss.......',
+    '......wtwvv.....',
+    '.....vwtwvvv....',
+    '.....vvtvvav....',
+    '.....vvvvvav....',
+    '.....vvvvvav....',
+    '.....vvvvvav....',
+    '.....vvvvvav....',
+    '.....VVVVVsV....',
+    '......pppp......',
+    '......ppqq......',
+    '......ppqq......',
+    '......ppqq......',
+    '......ppqq......',
+    '......ppqq......',
+    '....kkkkk.......',
+  ],
+  legend: {
+    h: 'ink',
+    H: 'slate',
+    s: 'ember',
+    e: 'ink',
+    r: 'amber',
+    w: 'paper',
+    t: 'deep',
+    v: 'denim',
+    V: 'indigo',
+    a: 'indigo',
+    p: 'tan',
+    q: 'amber',
+    k: 'ink',
+  },
+};
 
-/** Mr. Shaw, the lawyer. */
-export const LAWYER_SPRITE: PixelSprite = LANDLORD_SPRITE;
+/** Mr. Shaw, the lawyer: bald with a grey beard, a charcoal three-piece suit, a briefcase. */
+export const LAWYER_SPRITE: PixelSprite = {
+  rows: [
+    '................',
+    '......ssss......',
+    '.....sssssS.....',
+    '....sssssssG....',
+    '....GGssssGGG...',
+    '...ssessssGGG...',
+    '....BBsssssG....',
+    '....BBBBBB......',
+    '.....BBss.......',
+    '.....wwtjjjj....',
+    '....jwtvjjjjj...',
+    '....jvtvjjjjj...',
+    '....jvvvjjjaj...',
+    '....jvnvjjjaj...',
+    '....jvvvjjjaj...',
+    '....jjjjjjjaKKK.',
+    '....jjjjjjjsKAK.',
+    '.....jjjjjjKKK..',
+    '......ppqq......',
+    '......ppqq......',
+    '......ppqq......',
+    '......ppqq......',
+    '......ppqq......',
+    '....kkkkk.......',
+  ],
+  legend: {
+    s: 'skin',
+    S: 'tan',
+    G: 'fog',
+    B: 'concrete',
+    e: 'ink',
+    w: 'paper',
+    t: 'maroon',
+    j: 'stone',
+    v: 'slate',
+    n: 'fog',
+    a: 'night',
+    K: 'ember',
+    A: 'lamp',
+    p: 'stone',
+    q: 'night',
+    k: 'ink',
+  },
+};
 
-/** Ms. Varga, who runs Brightway's plant in Taoyuan. */
-export const PLANT_MANAGER_SPRITE: PixelSprite = NEIGHBOR_SPRITE;
+/** Ms. Varga, who runs the plant: short copper hair, safety glasses up on her head, a grey work jacket with a patch. */
+export const PLANT_MANAGER_SPRITE: PixelSprite = {
+  rows: [
+    '................',
+    '.....hhhhhh.....',
+    '....hccccchh....',
+    '....hhhhhhhhH...',
+    '....sshhhhhhH...',
+    '...ssesshhhH....',
+    '....sssshhH.....',
+    '....rsssss......',
+    '......sss.......',
+    '.....wwffff.....',
+    '....fwwfffffF...',
+    '....ffffffaFF...',
+    '....fttfffaFF...',
+    '....fttfffaFF...',
+    '....ffffffaFF...',
+    '....ffffffaFF...',
+    '....FFFFFFsFF...',
+    '.....pppppp.....',
+    '......ppqq......',
+    '......ppqq......',
+    '......ppqq......',
+    '......ppqq......',
+    '.....kkkkk......',
+    '....kkkkkk......',
+  ],
+  legend: {
+    h: 'amber',
+    H: 'ember',
+    c: 'cyan',
+    s: 'skin',
+    e: 'ink',
+    r: 'tan',
+    w: 'paper',
+    f: 'fog',
+    F: 'concrete',
+    a: 'concrete',
+    t: 'teal',
+    p: 'slate',
+    q: 'night',
+    k: 'ember',
+  },
+};
 
-/** Ms. Wright, the British manager of the new London branch. */
-export const BRANCH_MANAGER_SPRITE: PixelSprite = AIRLINE_AGENT_SPRITE;
+/** Ms. Wright, the London branch manager: a silver-blonde bob, a belted navy trench coat, a pink silk scarf. */
+export const BRANCH_MANAGER_SPRITE: PixelSprite = {
+  rows: [
+    '................',
+    '.....hhhhhh.....',
+    '....hhhhyhhhh...',
+    '....hhhyhhhyhH..',
+    '....shhhhhhhhH..',
+    '...ssesshhhhhH..',
+    '....sssshhhhHH..',
+    '....rssshhHHHH..',
+    '......ssxx......',
+    '.....xxXxcc.....',
+    '....cxXxccccc...',
+    '....ccXcccccc...',
+    '....cccccccac...',
+    '....bbbbbbbab...',
+    '....cccccccac...',
+    '....cccccccac...',
+    '....cccccccsc...',
+    '.....cccccccC...',
+    '.....cccccccC...',
+    '.....ccccccc....',
+    '......ggqq......',
+    '......ggqq......',
+    '......ggqq......',
+    '....kkkkk.......',
+  ],
+  legend: {
+    h: 'fog',
+    H: 'concrete',
+    y: 'honey',
+    s: 'skin',
+    e: 'ink',
+    r: 'rosy',
+    x: 'neon',
+    X: 'neonDeep',
+    c: 'indigo',
+    C: 'deep',
+    a: 'deep',
+    b: 'sky',
+    g: 'skin',
+    q: 'tan',
+    k: 'ink',
+  },
+};
 
-/** Ryan Cole, the Canadian reporter. */
-export const REPORTER_SPRITE: PixelSprite = VOLUNTEER_SPRITE;
+/** Ryan Cole, the reporter: red-brown hair and a short beard, an olive jacket, a press lanyard and a notebook. */
+export const REPORTER_SPRITE: PixelSprite = {
+  rows: [
+    '................',
+    '.....hhhhhh.....',
+    '....hhHHhhhh....',
+    '....hhhhhhhhh...',
+    '....sshhhhhhh...',
+    '...ssesssshhh...',
+    '....sssssBhh....',
+    '....BBBBBB......',
+    '.....BBss.......',
+    '.....wrwjjjj....',
+    '....jlwrjjjjj...',
+    '....jlrwjjjjj...',
+    '....jnnjjjjaj...',
+    '....jnnjjjjaj...',
+    '....jjjjjjjaj...',
+    '....jjjjjjjaNN..',
+    '....JJJJJJJsNN..',
+    '.....dddddd.....',
+    '......ppqq......',
+    '......ppqq......',
+    '......ppqq......',
+    '......ppqq......',
+    '......ppqq......',
+    '....kkkkk.......',
+  ],
+  legend: {
+    h: 'ember',
+    H: 'amber',
+    B: 'ember',
+    s: 'skin',
+    e: 'ink',
+    w: 'paper',
+    r: 'red',
+    l: 'cyan',
+    n: 'paper',
+    j: 'leaf',
+    J: 'moss',
+    a: 'moss',
+    N: 'paper',
+    d: 'denim',
+    p: 'denim',
+    q: 'indigo',
+    k: 'ink',
+  },
+};
