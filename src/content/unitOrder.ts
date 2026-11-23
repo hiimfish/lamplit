@@ -40,4 +40,6 @@ export const UNIT_ORDER: readonly string[] = [
   'branch',
   'wellness',
   'media',
+  'annual_meeting',
+  'promotion',
 ];
