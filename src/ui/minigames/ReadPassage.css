@@ -251,13 +251,91 @@
   scrollbar-color: var(--ink) var(--paper);
 }
 
-/* 兩篇／三篇一組 (minimal): the texts one after another, each under its number, a rule between. */
-.rp-set-text + .rp-set-text {
-  margin-top: calc(6 * var(--px));
-  padding-top: calc(4 * var(--px));
-  border-top: var(--px) dashed var(--ink);
+/*
+ * 兩篇／三篇一組: a row of tab keys over the one paper box, which shows the open text in
+ * its kind's look. The tabs share the width equally; a label that does not fit on one line
+ * wraps to "文件 1" over "公告". The open text is lamp-filled with an extra inset ink pixel
+ * (like a chosen setting); a text this question needs carries a small ink square in its
+ * top right corner, the same square as the "這題要看" note in the heading, so the mark does
+ * not rely on colour.
+ */
+.rp-head:has(.rp-need-note) {
+  flex-wrap: wrap;
 }
 
-.rp-set-label {
-  margin: 0 0 calc(2 * var(--px));
+.rp-need-note {
+  flex: none;
+  margin-left: auto;
+  font-size: calc(11 * var(--px));
+  color: var(--ink);
+}
+
+.rp-need-note::before,
+.rp-tab.rp-need::after {
+  content: '';
+  display: inline-block;
+  width: calc(4 * var(--px));
+  height: calc(4 * var(--px));
+  background: var(--ink);
+}
+
+.rp-need-note::before {
+  margin-right: calc(3 * var(--px));
+  vertical-align: middle;
+}
+
+.rp-tabs {
+  flex: none;
+  display: flex;
+  gap: calc(3 * var(--px));
+}
+
+.rp-tabs > .pixel-button.rp-tab {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: var(--tap);
+  flex-wrap: wrap;
+  column-gap: calc(4 * var(--px));
+  row-gap: 0;
+  padding: var(--px) calc(5 * var(--px));
+  text-align: center;
+}
+
+.rp-tabs > .pixel-button.rp-tab[aria-selected='true'] {
+  box-shadow:
+    inset 0 0 0 var(--px) var(--ink),
+    var(--drop);
+}
+
+.rp-tabs > .pixel-button.rp-tab[aria-selected='true']:active {
+  box-shadow: inset 0 0 0 var(--px) var(--ink);
+}
+
+.rp-tab.rp-need::after {
+  position: absolute;
+  top: calc(2 * var(--px));
+  right: calc(2 * var(--px));
+}
+
+/*
+ * Landscape: the tabs sit above the text in the left column and the question spans both
+ * rows on the right; the text's row takes the height that is left.
+ */
+:root[data-orientation='landscape'] .rp-layout-set {
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+:root[data-orientation='landscape'] .rp-layout-set > .rp-tabs {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+:root[data-orientation='landscape'] .rp-layout-set > .rp-frame {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+:root[data-orientation='landscape'] .rp-layout-set > .rp-ask {
+  grid-column: 2;
+  grid-row: 1 / span 2;
 }

@@ -13,6 +13,7 @@ import { questionTexts } from '../src/content/vocab';
 import type { TaskCheckContext } from '../src/content/checks/common';
 import {
   checkPassages,
+  PASSAGE_KINDS,
   PASSAGE_MAX_WORDS,
   PASSAGE_MIN_WORDS,
 } from '../src/content/checks/passages';
@@ -20,6 +21,7 @@ import { validateUnit } from '../src/content/validate';
 import { findAnswerLine, passageQuestions } from '../src/learning/gen/passages';
 import { buildTaskPractice, makeRng } from '../src/learning/questionGen';
 import { NO_ITEM } from '../src/learning/questions';
+import { docNames, docTabs, PASSAGE_KIND_ZH } from '../src/ui/minigames/ReadPassage';
 
 const passage = (over: Partial<SinglePassage> = {}): SinglePassage => ({
   id: 'p1',
@@ -479,5 +481,57 @@ describe('Act 4 passages: longer single texts and 兩篇／三篇一組 sets', (
       'Sunday',
       'Tuesday',
     ]);
+  });
+});
+
+describe('the passage set screen (ReadPassage tabs)', () => {
+  it('names every kind of text in Chinese', () => {
+    for (const kind of PASSAGE_KINDS) {
+      expect(PASSAGE_KIND_ZH[kind as PassageKind], kind).toMatch(/^\p{Script=Han}{2}$/u);
+    }
+  });
+
+  it('makes one tab per text, marking the texts the question needs', () => {
+    const texts = (['notice', 'email', 'form'] as const).map((passageKind) => ({
+      passageKind,
+      lines: ['One.', 'Two.'],
+    }));
+    expect(docTabs({ texts, needs: [2, 0] })).toEqual([
+      { name: '文件 1', kindZh: '公告', needed: true },
+      { name: '文件 2', kindZh: '郵件', needed: false },
+      { name: '文件 3', kindZh: '表格', needed: true },
+    ]);
+    expect(docTabs({ texts: texts.slice(0, 2) }).map((t) => t.needed)).toEqual([false, false]);
+    // A single passage has no tabs.
+    expect(docTabs({})).toEqual([]);
+  });
+
+  it('names the needed texts for the feedback, in reading order', () => {
+    expect(docNames([1])).toBe('文件 2');
+    expect(docNames([1, 0])).toBe('文件 1 和文件 2');
+    expect(docNames([2, 0, 1])).toBe('文件 1、文件 2 和文件 3');
+    expect(docNames([])).toBe('');
+  });
+
+  it('gives a set question the text that holds its answer, and its needed tabs', () => {
+    const set: PassageSet = {
+      id: 's1',
+      texts: [
+        { kind: 'notice', title: 'Cost Report', lines: [words(90), 'Travel was $9,600.'] },
+        { kind: 'email', title: 'A mistake', lines: [words(90), 'Travel was $7,800.'] },
+      ],
+      questions: [
+        {
+          en: 'What should travel be?',
+          zh: '差旅費應該是多少？',
+          options: ['$9,600', '$7,800'],
+          answer: 1,
+          needs: [0, 1],
+        },
+      ],
+    };
+    const [question] = passageQuestions(task({ passages: [set] }), makeRng(1));
+    expect(question).toMatchObject({ answerText: 1, answerLine: 1 });
+    expect(docTabs(question!).map((t) => t.needed)).toEqual([true, true]);
   });
 });
