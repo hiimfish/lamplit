@@ -1,38 +1,12 @@
 /*
- * 排句子 typing (keyboard): the letters typed so far in a small boxed line under the answer,
- * and the pool keys that still match them lamp-tinted. Nothing animates; a letter no block
- * starts with only shows a quiet note.
+ * 排句子 by keyboard: each pool block carries its key (1234 / QWER / ASDF / ZXCV) as a KeyCap.
+ * A placed block leaves a ghost that keeps its cap's room but hides it, so nothing shifts.
  */
-.mg-typed {
-  align-self: flex-start;
-  display: flex;
-  align-items: baseline;
-  gap: calc(4 * var(--px));
-  margin: 0;
-  padding: var(--px) calc(4 * var(--px));
-  font-size: calc(11 * var(--px));
-  background: var(--paper);
-  border: var(--px) solid var(--ink);
+.mg-block.ghost .kc {
+  visibility: hidden;
 }
 
-.mg-typed-text {
-  min-width: calc(6 * var(--px));
-  border-bottom: var(--px) solid var(--ink);
-}
-
-.mg-typed.miss {
-  border-style: dashed;
-}
-
-.mg-typed-note {
-  color: var(--bad);
-}
-
-.pixel-button.mg-block.typed {
-  background: var(--lamp-tint);
-}
-
-/* "也可以直接打字" only where there is likely a keyboard. */
+/* 「也可以按字塊上的鍵」 only where there is likely a keyboard. */
 .mg-type-tip {
   display: none;
 }
@@ -43,16 +17,11 @@
   }
 }
 
-/*
- * The empty 打字 line is a how-to ("打字母或按數字"), shown only on a computer
- * once the keyboard is in use, like the key caps on the blocks.
- */
-.mg-typed.idle {
-  display: none;
-}
-
+/* With caps showing, the ghost trims like a capped key (styles.css) so it keeps the same size. */
 @media (hover: hover) and (pointer: fine) {
-  :root[data-input='keys'] .mg-typed.idle {
-    display: flex;
+  :root[data-input='keys'] .mg-block.ghost:has(> .kc) {
+    gap: calc(4 * var(--px));
+    padding-right: calc(3 * var(--px));
+    padding-left: calc(4 * var(--px));
   }
 }

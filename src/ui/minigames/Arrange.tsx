@@ -20,58 +20,12 @@ import {
 } from './shared';
 import type { MinigameProps } from './shared';
 
-/** Case and curly apostrophes folded, so typed "im" style keys compare with a block. */
-function fold(text: string): string {
-  return text.toLowerCase().replace(/[‘’]/g, "'");
-}
-
-/** What typing `typed` means for the blocks still in the pool. */
-export interface TypedMatch {
-  /** The block to place now: every remaining block starting with the text says the same word. */
-  place: number | null;
-  /** Some remaining block starts with the typed text. */
-  any: boolean;
-}
-
 /**
- * Typing to place a block: the remaining blocks that start with the typed text (ignoring
- * case). When they all say the same word, the first of them is placed at once; when they
- * differ ("i" for I and in), the learner types on or presses Space for an exact match.
+ * The key for each block, by its place in the pool: the left hand's 4 x 4 block of keys,
+ * row by row (1 2 3 4, Q W E R, A S D F, Z X C V). A block keeps its key while others are
+ * placed. Lines have at most 14 blocks; a 17th block would have no key (tap only).
  */
-/** The blocks not yet placed, in pool order: number key n places the n-th of these. */
-export function remainingBlocks(blockCount: number, placed: readonly number[]): number[] {
-  const out: number[] = [];
-  for (let index = 0; index < blockCount; index++) if (!placed.includes(index)) out.push(index);
-  return out;
-}
-
-export function matchTyped(
-  blocks: readonly string[],
-  placed: readonly number[],
-  typed: string,
-): TypedMatch {
-  const text = fold(typed);
-  if (!text) return { place: null, any: false };
-  const hits = blocks
-    .map((_, index) => index)
-    .filter((index) => !placed.includes(index) && fold(blocks[index]!).startsWith(text));
-  if (hits.length === 0) return { place: null, any: false };
-  const first = fold(blocks[hits[0]!]!);
-  const same = hits.every((index) => fold(blocks[index]!) === first);
-  return { place: same ? hits[0]! : null, any: true };
-}
-
-/** The first remaining block that is exactly the typed word (Space places it), or null. */
-export function exactBlock(
-  blocks: readonly string[],
-  placed: readonly number[],
-  typed: string,
-): number | null {
-  const text = fold(typed);
-  if (!text) return null;
-  const index = blocks.findIndex((block, i) => !placed.includes(i) && fold(block) === text);
-  return index < 0 ? null : index;
-}
+export const BLOCK_KEYS = ['1', '2', '3', '4', 'q', 'w', 'e', 'r', 'a', 's', 'd', 'f', 'z', 'x', 'c', 'v'];
 
 /**
  * The clip of the line an arrange question just played on 檢查. A 跟我說 step for the same
@@ -117,7 +71,7 @@ function AnswerLine({ blocks, placed, grade, onRemove }: LineProps) {
     <div class="mg-line" data-testid="answer-line">
       {placed.length === 0 && (
         <span class="mg-placeholder">
-          點下面的單字放到這裡<span class="mg-type-tip">，也可以直接打字</span>
+          點下面的單字放到這裡<span class="mg-type-tip">，也可以按字塊上的鍵</span>
         </span>
       )}
       {placed.map((index) => (
@@ -137,40 +91,24 @@ function AnswerLine({ blocks, placed, grade, onRemove }: LineProps) {
   );
 }
 
-/** The letters typed so far, and a quiet note when no block starts with the last try. */
-function TypedLine({ typed, miss, locked }: { typed: string; miss: boolean; locked: boolean }) {
-  if (locked) return null;
-  // Empty, it is a how-to line that only shows once the keyboard is in use (Arrange.css).
-  const idle = !typed && !miss;
-  return (
-    <p class={`mg-typed${miss ? ' miss' : ''}${idle ? ' idle' : ''}`} data-testid="typed">
-      打字：
-      <span class="mg-typed-text" lang="en">
-        {typed}
-      </span>
-      {miss && <span class="mg-typed-note">沒有這樣開頭的字</span>}
-      {idle && <span class="mg-typed-help">打字母或按數字</span>}
-    </p>
-  );
-}
-
 interface PoolProps {
   blocks: string[];
   placed: number[];
   locked: boolean;
-  typed: string;
   onAdd: (index: number) => void;
 }
 
 /** The words still to place; a used word leaves a ghost of the same size. */
-function WordPool({ blocks, placed, locked, typed, onAdd }: PoolProps) {
-  const prefix = fold(typed);
-  const remaining = remainingBlocks(blocks.length, placed);
+function WordPool({ blocks, placed, locked, onAdd }: PoolProps) {
+  // The ghost keeps its cap (hidden) so the pool does not shift when a block is placed.
+  const cap = (index: number) =>
+    !locked && BLOCK_KEYS[index] ? <KeyBadge label={BLOCK_KEYS[index]!.toUpperCase()} /> : null;
   return (
     <div class="mg-pool">
       {blocks.map((block, index) =>
         placed.includes(index) ? (
           <span key={index} class="mg-block ghost" aria-hidden="true">
+            {cap(index)}
             {block}
           </span>
         ) : (
@@ -178,14 +116,12 @@ function WordPool({ blocks, placed, locked, typed, onAdd }: PoolProps) {
             type="button"
             key={index}
             lang="en"
-            class={`pixel-button mg-block${prefix && fold(block).startsWith(prefix) ? ' typed' : ''}`}
+            class="pixel-button mg-block"
             data-testid={`block-${index}`}
             disabled={locked}
             onClick={() => onAdd(index)}
           >
-            {!locked && remaining.indexOf(index) < 9 && (
-              <KeyBadge label={String(remaining.indexOf(index) + 1)} />
-            )}
+            {cap(index)}
             {block}
           </button>
         ),
@@ -262,9 +198,8 @@ function useArrange(
 }
 
 /**
- * Keys while building: 1-9 place the n-th block left in the pool; letters (and ' -) type a
- * word and place it, Space places an exact match, Backspace takes back a letter or the last
- * block, Escape is 重排, Enter is 檢查 and 0 is 看中文. All off once checked.
+ * Keys while building: each block's own key (BLOCK_KEYS) places it, Backspace takes back
+ * the last block, Escape is 重排, Enter is 檢查 and 0 is 看中文. All off once checked.
  */
 function useArrangeKeys(
   question: ArrangeQuestion,
@@ -272,66 +207,19 @@ function useArrangeKeys(
   revealZh: (() => void) | null,
 ) {
   const { placed, locked, add, remove, check, reset } = state;
-  const [typed, setTyped] = useState('');
-  const [miss, setMiss] = useState(false);
-
-  const type = (ch: string) => {
-    const next = typed + ch;
-    const match = matchTyped(question.blocks, placed, next);
-    if (!match.any) {
-      setMiss(true);
-      return;
-    }
-    setMiss(false);
-    if (match.place === null) {
-      setTyped(next);
-      return;
-    }
-    add(match.place);
-    setTyped('');
-  };
   const keys: KeyMap = {
     Backspace: () => {
-      setMiss(false);
-      if (typed) setTyped(typed.slice(0, -1));
-      else if (placed.length > 0) remove(placed[placed.length - 1]!);
+      if (placed.length > 0) remove(placed[placed.length - 1]!);
     },
-    Escape: () => {
-      setTyped('');
-      setMiss(false);
-      reset();
-    },
+    Escape: reset,
     Enter: check,
-    "'": () => type("'"),
-    '-': () => type('-'),
   };
-  for (const letter of 'abcdefghijklmnopqrstuvwxyz') keys[letter] = () => type(letter);
-  // 1-9 place the n-th block still in the pool (the number on its cap).
-  for (let n = 1; n <= 9; n++) {
-    keys[String(n)] = () => {
-      const index = remainingBlocks(question.blocks.length, placed)[n - 1];
-      if (index === undefined) return;
-      add(index);
-      setTyped('');
-      setMiss(false);
-    };
-  }
+  question.blocks.forEach((_, index) => {
+    const key = BLOCK_KEYS[index];
+    if (key) keys[key] = () => !placed.includes(index) && add(index);
+  });
   if (revealZh) keys['0'] = revealZh;
-  // Space only means something while a word is half typed; otherwise it is left to others.
-  if (typed) {
-    keys.Space = () => {
-      const index = exactBlock(question.blocks, placed, typed);
-      if (index === null) {
-        setMiss(true);
-        return;
-      }
-      add(index);
-      setTyped('');
-      setMiss(false);
-    };
-  }
   useKeys(keys, !locked);
-  return { typed: locked ? '' : typed, miss: !locked && miss };
 }
 
 export function Arrange({ question, onAnswered }: MinigameProps<ArrangeQuestion>) {
@@ -344,7 +232,7 @@ export function Arrange({ question, onAnswered }: MinigameProps<ArrangeQuestion>
     setZhRevealed(true);
   };
   const zhVisible = (showZh && !question.zhOnRequest) || zhRevealed;
-  const { typed, miss } = useArrangeKeys(question, state, zhVisible ? null : revealZh);
+  useArrangeKeys(question, state, zhVisible ? null : revealZh);
   // A new question forgets the line an earlier check played.
   useEffect(() => {
     justChecked = null;
@@ -358,14 +246,7 @@ export function Arrange({ question, onAnswered }: MinigameProps<ArrangeQuestion>
         <ZhHint zh={question.zh} visible={zhVisible} onReveal={revealZh} />
       )}
       <AnswerLine blocks={question.blocks} placed={placed} grade={grade} onRemove={remove} />
-      <TypedLine typed={typed} miss={miss} locked={locked} />
-      <WordPool
-        blocks={question.blocks}
-        placed={placed}
-        locked={locked}
-        typed={typed}
-        onAdd={add}
-      />
+      <WordPool blocks={question.blocks} placed={placed} locked={locked} onAdd={add} />
       {!locked && <CheckRow empty={placed.length === 0} onCheck={check} onReset={reset} />}
       <FeedbackSlot>
         {grade && (
