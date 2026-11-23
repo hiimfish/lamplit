@@ -1,0 +1,1906 @@
+{
+  "id": "presentation",
+  "title": "簡報",
+  "titleEn": "Presentation",
+  "chunks": [
+    {
+      "id": "who_in_the_audience",
+      "en": "Who's going to be in the audience on Friday?",
+      "zh": "星期五會有哪些人來聽？",
+      "accept": ["Who is going to be in the audience on Friday?"],
+      "note": "問誰會來聽你的簡報。be going to be 表示「到時候會在場」。",
+      "distractors": [
+        {
+          "text": "Who's going to be in the audience in Friday?",
+          "error": "other"
+        },
+        {
+          "text": "Who's going to in the audience on Friday?",
+          "error": "missing-word"
+        },
+        {
+          "text": "Who's going to be in the audiance on Friday?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "what_approach_works_best",
+      "en": "What approach do you think works best with Mr. Ellis?",
+      "zh": "您覺得對 Mr. Ellis 用什麼方式講最有效？",
+      "note": "請主管指點對某個人怎麼講最好。do you think 插在疑問詞後面，後面照直述句的順序。",
+      "distractors": [
+        {
+          "text": "What approach do you think work best with Mr. Ellis?",
+          "error": "other"
+        },
+        {
+          "text": "What approach you think works best with Mr. Ellis?",
+          "error": "missing-word"
+        },
+        {
+          "text": "What aproach do you think works best with Mr. Ellis?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "time_me_run_through_slides",
+      "en": "Could you time me while I run through the slides?",
+      "zh": "我從頭講一遍投影片，你可以幫我計時嗎？",
+      "note": "排練時請人幫你計時。run through = 從頭到尾順一遍。",
+      "distractors": [
+        {
+          "text": "Could you time me while I running through the slides?",
+          "error": "other"
+        },
+        {
+          "text": "Could you time me while I run though the slides?",
+          "error": "spelling"
+        },
+        {
+          "text": "Could you time while I run through the slides?",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "am_i_talking_too_fast",
+      "en": "Be honest with me: am I talking too fast?",
+      "zh": "老實跟我說，我是不是講太快了？",
+      "note": "請人老實給意見。Be honest with me 後面直接接你的問題。",
+      "distractors": [
+        {
+          "text": "Be honest to me: am I talking too fast?",
+          "error": "other"
+        },
+        {
+          "text": "Be honest with me: am I talk too fast?",
+          "error": "other"
+        },
+        {
+          "text": "Be honest with me: am I talking to fast?",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "walk_you_through_our_plan",
+      "en": "I'd like to walk you through our plan for Lantern.",
+      "zh": "我想跟各位說明一下 Lantern 系列的計畫。",
+      "accept": ["I would like to walk you through our plan for Lantern."],
+      "note": "簡報開場說要一步步說明。文法：講事情「讓人覺得」怎樣用 -ing（interesting），講人的感覺用 -ed（interested）。",
+      "distractors": [
+        {
+          "text": "I'd like walk you through our plan for Lantern.",
+          "error": "missing-word"
+        },
+        {
+          "text": "I'd like to walk you though our plan for Lantern.",
+          "error": "spelling"
+        },
+        {
+          "text": "I'd like to walk through you our plan for Lantern.",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "find_numbers_surprising",
+      "en": "I think you'll find some of these numbers surprising.",
+      "zh": "這裡有些數字，各位可能會覺得蠻意外的。",
+      "accept": ["I think you will find some of these numbers surprising."],
+      "note": "文法：數字「讓人意外」用 surprising；人「感到意外」才用 surprised（I was surprised.）。",
+      "distractors": [
+        {
+          "text": "I think you'll find some of these numbers surprised.",
+          "error": "other"
+        },
+        {
+          "text": "I think you'll find some of this numbers surprising.",
+          "error": "other"
+        },
+        {
+          "text": "I think you'll find some these numbers surprising.",
+          "error": "missing-word"
+        }
+      ]
+    },
+    {
+      "id": "report_gives_us_evidence",
+      "en": "This report gives us exactly the evidence we need.",
+      "zh": "這份報告正好就是我們需要的證據。",
+      "note": "拿資料出來支持你的說法。evidence 不可數，不加 s。",
+      "distractors": [
+        {
+          "text": "This report gives us exactly the evidences we need.",
+          "error": "plural"
+        },
+        {
+          "text": "This report give us exactly the evidence we need.",
+          "error": "other"
+        },
+        {
+          "text": "This report gives us exactly the evidense we need.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "as_you_can_see_office_stores",
+      "en": "As you can see, office stores are our biggest customers.",
+      "zh": "大家可以看到，辦公用品店是我們最大的客戶。",
+      "note": "指著圖表講重點。As you can see 是簡報很常用的開頭。",
+      "distractors": [
+        {
+          "text": "As you can see, office stores are our bigger customers.",
+          "error": "other"
+        },
+        {
+          "text": "As you can see, office stores are our biggest customer.",
+          "error": "plural"
+        },
+        {
+          "text": "As you can see, office stores is our biggest customers.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "orange_slice_online_sales",
+      "en": "This orange slice here shows our online sales.",
+      "zh": "這塊橘色的部分是我們的網路銷售。",
+      "note": "指著圓餅圖的一塊說明。slice = 圓餅圖的一塊。",
+      "distractors": [
+        {
+          "text": "This orange slice here show our online sales.",
+          "error": "other"
+        },
+        {
+          "text": "This orange slice here shows our online sale.",
+          "error": "plural"
+        },
+        {
+          "text": "This slice orange here shows our online sales.",
+          "error": "word-order"
+        }
+      ]
+    },
+    {
+      "id": "however_lasts_twice_as_long",
+      "en": "However, a Lantern lamp lasts twice as long as the glass one.",
+      "zh": "不過，Lantern 的燈可以用的時間是玻璃燈的兩倍。",
+      "note": "文法：However 放句首、後面加逗號，接一句和前面意思相反的話。",
+      "distractors": [
+        {
+          "text": "However, a Lantern lamp lasts twice as longer as the glass one.",
+          "error": "other"
+        },
+        {
+          "text": "However, a Lantern lamp last twice as long as the glass one.",
+          "error": "other"
+        },
+        {
+          "text": "However, a Lantern lamp lasts twice as long as glass one.",
+          "error": "article"
+        }
+      ]
+    },
+    {
+      "id": "good_question_get_back_to_you",
+      "en": "Good question, let me check and get back to you.",
+      "zh": "好問題，我確認一下再回覆您。",
+      "accept": ["Good question. Let me check and get back to you."],
+      "note": "被問到不確定的事，先肯定問題，再說查清楚會回覆。get back to you = 之後再回覆你。",
+      "distractors": [
+        {
+          "text": "Good question, let me check and get back you.",
+          "error": "missing-word"
+        },
+        {
+          "text": "Good question, let me checking and get back to you.",
+          "error": "other"
+        },
+        {
+          "text": "Good question, let me check and get back to your.",
+          "error": "other"
+        }
+      ]
+    },
+    {
+      "id": "means_a_lot_coming_from_you",
+      "en": "Thank you, that means a lot coming from you.",
+      "zh": "能聽到您這麼說，我真的很開心。",
+      "accept": ["Thank you. That means a lot coming from you."],
+      "note": "長官或前輩稱讚你時的回應。coming from you = 由您說出來，特別有份量。",
+      "distractors": [
+        {
+          "text": "Thank you, that means a lot came from you.",
+          "error": "other"
+        },
+        {
+          "text": "Thank you, that mean a lot coming from you.",
+          "error": "other"
+        },
+        {
+          "text": "Thank you, that means a lots coming from you.",
+          "error": "plural"
+        }
+      ]
+    },
+    {
+      "id": "nervous_at_first_got_easier",
+      "en": "I was really nervous at first, but it got easier.",
+      "zh": "我一開始真的很緊張，不過後來就順多了。",
+      "note": "說自己一開始很緊張，後來越來越順。at first = 一開始。",
+      "distractors": [
+        {
+          "text": "I was really nervous at the first, but it got easier.",
+          "error": "article"
+        },
+        {
+          "text": "I was really nervous at first, but it get easier.",
+          "error": "other"
+        },
+        {
+          "text": "I was really nervous at first, but it got easyer.",
+          "error": "spelling"
+        }
+      ]
+    },
+    {
+      "id": "one_thing_do_better",
+      "en": "What's one thing I could do better next time?",
+      "zh": "您覺得我下次有哪一點可以做得更好？",
+      "accept": ["What is one thing I could do better next time?"],
+      "note": "請別人給你一個具體的改進建議。",
+      "distractors": [
+        {
+          "text": "What's one thing I could do more better next time?",
+          "error": "extra-word"
+        },
+        {
+          "text": "What's one thing could I do better next time?",
+          "error": "word-order"
+        },
+        {
+          "text": "What's one things I could do better next time?",
+          "error": "plural"
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "id": "everybody",
+      "en": "everybody",
+      "zh": "每個人；大家",
+      "emoji": "🙌",
+      "abstract": true
+    },
+    {
+      "id": "structure",
+      "en": "structure",
+      "zh": "架構；結構",
+      "emoji": "🏗️",
+      "abstract": true
+    },
+    {
+      "id": "series",
+      "en": "series",
+      "zh": "系列",
+      "emoji": "📚",
+      "abstract": true
+    },
+    {
+      "id": "presentation",
+      "en": "presentation",
+      "zh": "簡報；報告",
+      "emoji": "🧑‍🏫",
+      "abstract": true
+    },
+    {
+      "id": "coordinator",
+      "en": "coordinator",
+      "zh": "協調人；負責統籌的人",
+      "emoji": "🧑‍💼",
+      "abstract": true
+    },
+    {
+      "id": "preparation",
+      "en": "preparation",
+      "zh": "準備（工作）",
+      "emoji": "🧰",
+      "abstract": true
+    },
+    {
+      "id": "timeline",
+      "en": "timeline",
+      "zh": "時程表",
+      "emoji": "⏳",
+      "abstract": true
+    },
+    {
+      "id": "layout",
+      "en": "layout",
+      "zh": "版面配置",
+      "emoji": "🧱",
+      "abstract": true
+    },
+    {
+      "id": "visual",
+      "en": "visual",
+      "zh": "視覺的；圖像的",
+      "emoji": "👓",
+      "abstract": true
+    },
+    {
+      "id": "face",
+      "en": "face",
+      "zh": "面向；面對",
+      "emoji": "😐",
+      "abstract": true
+    },
+    {
+      "id": "generally",
+      "en": "generally",
+      "zh": "一般來說",
+      "emoji": "🔄",
+      "abstract": true
+    },
+    {
+      "id": "fairly",
+      "en": "fairly",
+      "zh": "相當；還算",
+      "emoji": "➗",
+      "abstract": true
+    },
+    {
+      "id": "emphasize",
+      "en": "emphasize",
+      "zh": "強調",
+      "emoji": "❗",
+      "abstract": true
+    },
+    {
+      "id": "rehearse",
+      "en": "rehearse",
+      "zh": "排練；預演",
+      "emoji": "🔁",
+      "abstract": true
+    },
+    {
+      "id": "beforehand",
+      "en": "beforehand",
+      "zh": "事先；預先",
+      "emoji": "⏪",
+      "abstract": true
+    },
+    {
+      "id": "lengthy",
+      "en": "lengthy",
+      "zh": "冗長的；太長的",
+      "emoji": "📜",
+      "abstract": true
+    },
+    {
+      "id": "shorten",
+      "en": "shorten",
+      "zh": "縮短",
+      "emoji": "🤏",
+      "abstract": true
+    },
+    {
+      "id": "anxious",
+      "en": "anxious",
+      "zh": "焦慮的；緊張不安的",
+      "emoji": "😰"
+    },
+    {
+      "id": "hint",
+      "en": "hint",
+      "zh": "提示；小訣竅",
+      "emoji": "💬",
+      "abstract": true
+    },
+    {
+      "id": "logical",
+      "en": "logical",
+      "zh": "有條理的；合乎邏輯的",
+      "emoji": "🧮",
+      "abstract": true
+    },
+    {
+      "id": "significant",
+      "en": "significant",
+      "zh": "重大的；明顯的",
+      "emoji": "🔺",
+      "abstract": true
+    },
+    {
+      "id": "instance",
+      "en": "instance",
+      "zh": "例子（for instance 例如）",
+      "emoji": "🔖",
+      "abstract": true
+    },
+    {
+      "id": "context",
+      "en": "context",
+      "zh": "背景；來龍去脈",
+      "emoji": "🧾",
+      "abstract": true
+    },
+    {
+      "id": "importance",
+      "en": "importance",
+      "zh": "重要性",
+      "emoji": "🔝",
+      "abstract": true
+    },
+    {
+      "id": "aspect",
+      "en": "aspect",
+      "zh": "方面；層面",
+      "emoji": "🔷",
+      "abstract": true
+    },
+    {
+      "id": "insight",
+      "en": "insight",
+      "zh": "深入的了解；洞見",
+      "emoji": "🧠",
+      "abstract": true
+    },
+    {
+      "id": "presenter",
+      "en": "presenter",
+      "zh": "報告人；簡報者",
+      "emoji": "🗣️"
+    },
+    {
+      "id": "simplify",
+      "en": "simplify",
+      "zh": "簡化",
+      "emoji": "➖",
+      "abstract": true
+    },
+    {
+      "id": "informative",
+      "en": "informative",
+      "zh": "內容豐富的；有參考價值的",
+      "emoji": "ℹ️",
+      "abstract": true
+    },
+    {
+      "id": "indicate",
+      "en": "indicate",
+      "zh": "顯示；表明",
+      "emoji": "👉",
+      "abstract": true
+    },
+    {
+      "id": "contrast",
+      "en": "contrast",
+      "zh": "對比（in contrast 相較之下）",
+      "emoji": "🌓",
+      "abstract": true
+    },
+    {
+      "id": "relatively",
+      "en": "relatively",
+      "zh": "相對地；比較",
+      "emoji": "⚖️",
+      "abstract": true
+    },
+    {
+      "id": "moreover",
+      "en": "moreover",
+      "zh": "此外；而且",
+      "emoji": "➕",
+      "abstract": true
+    },
+    {
+      "id": "consist",
+      "en": "consist",
+      "zh": "由…組成（consist of）",
+      "emoji": "🧬",
+      "abstract": true
+    },
+    {
+      "id": "comparison",
+      "en": "comparison",
+      "zh": "比較",
+      "emoji": "🆚",
+      "abstract": true
+    },
+    {
+      "id": "respectively",
+      "en": "respectively",
+      "zh": "分別；各自",
+      "emoji": "🔢",
+      "abstract": true
+    },
+    {
+      "id": "similarly",
+      "en": "similarly",
+      "zh": "同樣地",
+      "emoji": "🟰",
+      "abstract": true
+    },
+    {
+      "id": "statistic",
+      "en": "statistic",
+      "zh": "統計數字",
+      "emoji": "📑",
+      "abstract": true
+    },
+    {
+      "id": "appendix",
+      "en": "appendix",
+      "zh": "附錄",
+      "emoji": "📒",
+      "abstract": true
+    },
+    {
+      "id": "bottom",
+      "en": "bottom",
+      "zh": "底部；下方",
+      "emoji": "⬇️",
+      "abstract": true
+    },
+    {
+      "id": "mostly",
+      "en": "mostly",
+      "zh": "大部分；主要",
+      "emoji": "🔵",
+      "abstract": true
+    },
+    {
+      "id": "obvious",
+      "en": "obvious",
+      "zh": "明顯的",
+      "emoji": "💥",
+      "abstract": true
+    },
+    {
+      "id": "column",
+      "en": "column",
+      "zh": "（長條圖的）長條；直欄",
+      "emoji": "📶",
+      "abstract": true
+    },
+    {
+      "id": "chart",
+      "en": "chart",
+      "zh": "圖表",
+      "emoji": "🥧"
+    },
+    {
+      "id": "illustrate",
+      "en": "illustrate",
+      "zh": "說明；用圖表示",
+      "emoji": "🖍️",
+      "abstract": true
+    },
+    {
+      "id": "curve",
+      "en": "curve",
+      "zh": "曲線",
+      "emoji": "➰"
+    },
+    {
+      "id": "greatly",
+      "en": "greatly",
+      "zh": "大大地；非常",
+      "emoji": "⏫",
+      "abstract": true
+    },
+    {
+      "id": "visible",
+      "en": "visible",
+      "zh": "看得見的；明顯的",
+      "emoji": "👀",
+      "abstract": true
+    },
+    {
+      "id": "calculation",
+      "en": "calculation",
+      "zh": "計算",
+      "emoji": "🔣",
+      "abstract": true
+    },
+    {
+      "id": "however",
+      "en": "however",
+      "zh": "不過；然而",
+      "emoji": "↔️",
+      "abstract": true
+    },
+    {
+      "id": "negative",
+      "en": "negative",
+      "zh": "負面的；不利的",
+      "emoji": "👎",
+      "abstract": true
+    },
+    {
+      "id": "necessarily",
+      "en": "necessarily",
+      "zh": "必然；一定（not necessarily 不一定）",
+      "emoji": "❓",
+      "abstract": true
+    },
+    {
+      "id": "unlike",
+      "en": "unlike",
+      "zh": "不像；和…不同",
+      "emoji": "≠",
+      "abstract": true
+    },
+    {
+      "id": "extremely",
+      "en": "extremely",
+      "zh": "極度地；非常",
+      "emoji": "🔥",
+      "abstract": true
+    },
+    {
+      "id": "strongly",
+      "en": "strongly",
+      "zh": "強烈地",
+      "emoji": "💢",
+      "abstract": true
+    },
+    {
+      "id": "besides",
+      "en": "besides",
+      "zh": "除此之外；而且",
+      "emoji": "➡️",
+      "abstract": true
+    },
+    {
+      "id": "remark",
+      "en": "remark",
+      "zh": "（一句）意見；評論",
+      "emoji": "🗨️",
+      "abstract": true
+    },
+    {
+      "id": "somewhat",
+      "en": "somewhat",
+      "zh": "有點；稍微",
+      "emoji": "🤷",
+      "abstract": true
+    },
+    {
+      "id": "alternatively",
+      "en": "alternatively",
+      "zh": "或者；另一個做法是",
+      "emoji": "🔀",
+      "abstract": true
+    },
+    {
+      "id": "indeed",
+      "en": "indeed",
+      "zh": "確實；的確",
+      "emoji": "✔️",
+      "abstract": true
+    },
+    {
+      "id": "therefore",
+      "en": "therefore",
+      "zh": "因此",
+      "emoji": "∴",
+      "abstract": true
+    },
+    {
+      "id": "thus",
+      "en": "thus",
+      "zh": "因此；這樣一來",
+      "emoji": "⤵️",
+      "abstract": true
+    },
+    {
+      "id": "prove",
+      "en": "prove",
+      "zh": "證明",
+      "emoji": "🧪",
+      "abstract": true
+    },
+    {
+      "id": "conclusion",
+      "en": "conclusion",
+      "zh": "結論",
+      "emoji": "🏁",
+      "abstract": true
+    },
+    {
+      "id": "launch",
+      "en": "launch",
+      "zh": "推出；上市",
+      "emoji": "🚀",
+      "abstract": true
+    },
+    {
+      "id": "factory",
+      "en": "factory",
+      "zh": "工廠",
+      "emoji": "🏭"
+    },
+    {
+      "id": "equally",
+      "en": "equally",
+      "zh": "同樣地；一樣",
+      "emoji": "🤝",
+      "abstract": true
+    },
+    {
+      "id": "participation",
+      "en": "participation",
+      "zh": "參與",
+      "emoji": "🙋",
+      "abstract": true
+    },
+    {
+      "id": "definite",
+      "en": "definite",
+      "zh": "確定的；明確的",
+      "emoji": "📌",
+      "abstract": true
+    },
+    {
+      "id": "score",
+      "en": "score",
+      "zh": "分數；評分",
+      "emoji": "🔟",
+      "abstract": true
+    },
+    {
+      "id": "spot",
+      "en": "spot",
+      "zh": "發現；看出（錯誤）",
+      "emoji": "🔎",
+      "abstract": true
+    },
+    {
+      "id": "apparently",
+      "en": "apparently",
+      "zh": "聽說；看來",
+      "emoji": "👂",
+      "abstract": true
+    },
+    {
+      "id": "emphasis",
+      "en": "emphasis",
+      "zh": "重點；強調",
+      "emoji": "🖊️",
+      "abstract": true
+    },
+    {
+      "id": "fantastic",
+      "en": "fantastic",
+      "zh": "很棒的；極好的",
+      "emoji": "🤩",
+      "abstract": true
+    },
+    {
+      "id": "differently",
+      "en": "differently",
+      "zh": "不同地；換個方式",
+      "emoji": "🔃",
+      "abstract": true
+    },
+    {
+      "id": "listener",
+      "en": "listener",
+      "zh": "聽眾；傾聽的人",
+      "emoji": "🎧",
+      "abstract": true
+    },
+    {
+      "id": "graphic",
+      "en": "graphic",
+      "zh": "圖像；圖片",
+      "emoji": "🎨"
+    },
+    {
+      "id": "colorful",
+      "en": "colorful",
+      "zh": "色彩豐富的",
+      "emoji": "🌈"
+    },
+    {
+      "id": "rehearsal",
+      "en": "rehearsal",
+      "zh": "排練",
+      "emoji": "🎬",
+      "abstract": true
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "第一次上台報告",
+      "backdrop": "coworker",
+      "newChunkIds": ["who_in_the_audience", "what_approach_works_best"],
+      "newWordIds": [
+        "everybody",
+        "structure",
+        "series",
+        "presentation",
+        "coordinator",
+        "preparation",
+        "timeline",
+        "layout",
+        "visual"
+      ],
+      "scene": [
+        {
+          "id": "t1_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "So, how does it feel to be the Lantern series coordinator?",
+          "zh": "當上 Lantern 系列的協調人，感覺怎麼樣？"
+        },
+        {
+          "id": "t1_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Your first big job: on Friday, you'll give a presentation on the plan.",
+          "zh": "你的第一個大任務：星期五要簡報 Lantern 的計畫。"
+        },
+        {
+          "id": "t1_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Who's going to be in the audience on Friday?",
+          "zh": "星期五會有哪些人來聽？",
+          "chunkId": "who_in_the_audience"
+        },
+        {
+          "id": "t1_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Mr. Ellis, me, and everybody on the team.",
+          "zh": "Mr. Ellis、我，還有團隊的每個人。"
+        },
+        {
+          "id": "t1_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What approach do you think works best with Mr. Ellis?",
+          "zh": "您覺得對 Mr. Ellis 用什麼方式講最有效？",
+          "chunkId": "what_approach_works_best"
+        },
+        {
+          "id": "t1_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "He likes a clear structure. Start with the timeline, then the numbers.",
+          "zh": "他喜歡架構清楚。先講時程，再講數字。"
+        },
+        {
+          "id": "t1_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And make it visual. Keep the layout simple, with big pictures.",
+          "zh": "還有，多用圖像。版面簡單一點，圖放大。"
+        },
+        {
+          "id": "t1_8",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good preparation is everything. You'll do fine.",
+          "zh": "準備充分最重要。你會表現得很好的。"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "找 Dan 排練",
+      "backdrop": "main",
+      "newChunkIds": ["time_me_run_through_slides", "am_i_talking_too_fast"],
+      "newWordIds": [
+        "face",
+        "generally",
+        "fairly",
+        "emphasize",
+        "rehearse",
+        "beforehand",
+        "lengthy",
+        "shorten",
+        "anxious",
+        "hint"
+      ],
+      "fills": [
+        {
+          "id": "lengthy_fill",
+          "en": "The part about costs is ___, so I'll shorten it.",
+          "zh": "成本那一段太長了，所以我會把它縮短。",
+          "options": ["lengthy", "anxious", "honest", "visual"],
+          "answer": 0,
+          "note": "要縮短，是因為那段太長：lengthy。"
+        },
+        {
+          "id": "talking_fill",
+          "en": "Be honest with me: am I ___ too fast?",
+          "zh": "老實跟我說，我是不是講太快了？",
+          "options": ["talking", "talk", "talks", "talked"],
+          "answer": 0,
+          "note": "am I 後面接 V-ing，表示正在做的事。",
+          "chunkId": "am_i_talking_too_fast",
+          "grammar": true
+        }
+      ],
+      "scene": [
+        {
+          "id": "t2_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Okay, the meeting room's free. Ready to rehearse?",
+          "zh": "好，會議室空著。準備好排練了嗎？"
+        },
+        {
+          "id": "t2_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could you time me while I run through the slides?",
+          "zh": "我從頭講一遍投影片，你可以幫我計時嗎？",
+          "chunkId": "time_me_run_through_slides"
+        },
+        {
+          "id": "t2_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Sure. Go ahead... Okay, fourteen minutes. That's fairly long.",
+          "zh": "沒問題，開始吧……好，十四分鐘。有點長喔。"
+        },
+        {
+          "id": "t2_4",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Be honest with me: am I talking too fast?",
+          "zh": "老實跟我說，我是不是講太快了？",
+          "chunkId": "am_i_talking_too_fast"
+        },
+        {
+          "id": "t2_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "A little. You look anxious. Face the room, not the screen.",
+          "zh": "有一點。你看起來很緊張。要面向大家，不要對著螢幕。",
+          "stage": {
+            "act": "want",
+            "item": "anxious"
+          }
+        },
+        {
+          "id": "t2_6",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Here's a hint: shorten the lengthy part about costs.",
+          "zh": "給你一個小訣竅：成本那段太長了，縮短一點。"
+        },
+        {
+          "id": "t2_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "And emphasize the price. He generally asks about it first.",
+          "zh": "還有，價格要強調。他一般第一個就會問價格。"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "開場",
+      "newChunkIds": ["walk_you_through_our_plan", "find_numbers_surprising"],
+      "newWordIds": [
+        "logical",
+        "significant",
+        "instance",
+        "context",
+        "importance",
+        "aspect",
+        "insight",
+        "presenter",
+        "simplify",
+        "informative"
+      ],
+      "scene": [
+        {
+          "id": "t3_1",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Okay, everybody's here. Whenever you're ready.",
+          "zh": "好，大家都到了。你準備好就可以開始。"
+        },
+        {
+          "id": "t3_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'd like to walk you through our plan for Lantern.",
+          "zh": "我想跟各位說明一下 Lantern 系列的計畫。",
+          "chunkId": "walk_you_through_our_plan"
+        },
+        {
+          "id": "t3_3",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Good. Give us some context first. Why a new lamp, and why now?",
+          "zh": "好。先講一下背景。為什麼要做新燈？為什麼是現在？"
+        },
+        {
+          "id": "t3_4",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Our glass lamp still sells fairly well, doesn't it?",
+          "zh": "我們的玻璃燈還賣得不錯，不是嗎？"
+        },
+        {
+          "id": "t3_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I think you'll find some of these numbers surprising.",
+          "zh": "這裡有些數字，各位可能會覺得蠻意外的。",
+          "chunkId": "find_numbers_surprising"
+        },
+        {
+          "id": "t3_6",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Surprising? All right, now I'm interested.",
+          "zh": "意外？好，那我有興趣了。"
+        },
+        {
+          "id": "t3_7",
+          "role": "director",
+          "speaker": "npc",
+          "en": "I like the order of your slides, too. Very logical.",
+          "zh": "你投影片的順序我也很喜歡，很有條理。"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "讀去年的銷售報告",
+      "newChunkIds": ["report_gives_us_evidence"],
+      "newWordIds": [
+        "indicate",
+        "contrast",
+        "relatively",
+        "moreover",
+        "consist",
+        "comparison",
+        "respectively",
+        "similarly",
+        "statistic",
+        "appendix"
+      ],
+      "passages": [
+        {
+          "id": "lamp_sales_report",
+          "kind": "notice",
+          "title": "Desk Lamp Sales Last Year: Summary",
+          "lines": [
+            "Prepared by Dan for Ms. Carter",
+            "This report consists of three parts: sales by product, sales by customer, and comments from stores.",
+            "1. Sales by product: Our desk lamp sales grew 12 percent last year. Sales of our newer lamps were relatively strong. In contrast, our basic glass lamp grew only 2 percent.",
+            "2. Sales by customer: Office stores and online orders made up 60 and 25 percent of our sales, respectively. Lighting stores bought the other 15 percent.",
+            "3. Comments from stores: Many stores asked for a lamp with a more modern design. Similarly, several lighting stores said their customers will pay a little more for good quality.",
+            "One statistic stands out: 70 percent of the lamps that came back to us were returned because the light stopped working.",
+            "The numbers indicate a clear chance for a new series of lamps. A full comparison of all products is in the appendix.",
+            "Let me know if you need anything else for your presentation."
+          ],
+          "questions": [
+            {
+              "en": "What is the report about?",
+              "zh": "這份報告主要在說什麼？",
+              "options": [
+                "Last year's desk lamp sales",
+                "A new office for the team",
+                "Next year's trade shows"
+              ],
+              "answer": 0
+            },
+            {
+              "en": "How much of the sales came from online orders?",
+              "zh": "網路訂單佔銷售的多少？",
+              "options": ["12 percent", "60 percent", "25 percent"],
+              "answer": 2
+            },
+            {
+              "en": "Where is the full comparison of all products?",
+              "zh": "所有產品的完整比較在哪裡？",
+              "options": ["On the first page", "In the appendix", "In Dan's email"],
+              "answer": 1
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t4_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Everybody has a copy of Dan's report now.",
+          "zh": "現在大家手上都有一份 Dan 的報告了。"
+        },
+        {
+          "id": "t4_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Why does last year matter so much for Lantern?",
+          "zh": "為什麼去年的數字對 Lantern 這麼重要？"
+        },
+        {
+          "id": "t4_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "This report gives us exactly the evidence we need.",
+          "zh": "這份報告正好就是我們需要的證據。",
+          "chunkId": "report_gives_us_evidence"
+        },
+        {
+          "id": "t4_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Right. Sales grew twelve percent, and the newer lamps were relatively strong.",
+          "zh": "對。銷售成長了百分之十二，新款的燈賣得相對好。"
+        },
+        {
+          "id": "t4_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "In contrast, the glass lamp grew only two percent.",
+          "zh": "相較之下，玻璃燈只成長了百分之二。"
+        },
+        {
+          "id": "t4_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Moreover, many stores asked for a more modern design.",
+          "zh": "而且，很多店家都希望有設計更現代的燈。"
+        },
+        {
+          "id": "t4_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "The full comparison is in the appendix, if anyone wants it.",
+          "zh": "完整的比較在附錄裡，有需要的人可以看。"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "解釋圖表",
+      "newChunkIds": ["as_you_can_see_office_stores", "orange_slice_online_sales"],
+      "newWordIds": [
+        "bottom",
+        "mostly",
+        "obvious",
+        "column",
+        "chart",
+        "illustrate",
+        "curve",
+        "greatly",
+        "visible",
+        "calculation"
+      ],
+      "pictures": [
+        {
+          "id": "p1",
+          "pictureId": "presenter_chart",
+          "listen": true,
+          "options": [
+            {
+              "en": "She's turning off the screen.",
+              "zh": "她正在關掉螢幕。"
+            },
+            {
+              "en": "She's pointing at the screen.",
+              "zh": "她正指著螢幕。"
+            },
+            {
+              "en": "She's sitting at a desk.",
+              "zh": "她正坐在桌子前。"
+            },
+            {
+              "en": "She's carrying a box.",
+              "zh": "她正搬著一個箱子。"
+            }
+          ],
+          "answer": 1
+        },
+        {
+          "id": "p2",
+          "pictureId": "meeting_table",
+          "listen": true,
+          "options": [
+            {
+              "en": "Some people are standing in line.",
+              "zh": "有些人正在排隊。"
+            },
+            {
+              "en": "A man is cleaning the table.",
+              "zh": "一位男士正在擦桌子。"
+            },
+            {
+              "en": "Some people are sitting around a table.",
+              "zh": "有些人圍著一張桌子坐著。"
+            },
+            {
+              "en": "There is nothing on the table.",
+              "zh": "桌上什麼都沒有。"
+            }
+          ],
+          "answer": 2
+        },
+        {
+          "id": "p3",
+          "pictureId": "speaker_microphone",
+          "listen": true,
+          "options": [
+            {
+              "en": "A man is speaking into a microphone.",
+              "zh": "一位男士正對著麥克風說話。"
+            },
+            {
+              "en": "A man is putting a microphone in a box.",
+              "zh": "一位男士正把麥克風放進箱子裡。"
+            },
+            {
+              "en": "The people in front are standing up.",
+              "zh": "前排的人正站起來。"
+            },
+            {
+              "en": "A woman is singing on a stage.",
+              "zh": "一位女士正在舞台上唱歌。"
+            }
+          ],
+          "answer": 0
+        }
+      ],
+      "scene": [
+        {
+          "id": "t5_1",
+          "role": "guide",
+          "speaker": "player",
+          "en": "As you can see, office stores are our biggest customers.",
+          "zh": "大家可以看到，辦公用品店是我們最大的客戶。",
+          "chunkId": "as_you_can_see_office_stores"
+        },
+        {
+          "id": "t5_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "That's obvious from the first column. And what's the round chart?",
+          "zh": "從第一根長條就看得出來。那個圓形的圖表是什麼？",
+          "stage": {
+            "act": "want",
+            "item": "chart"
+          }
+        },
+        {
+          "id": "t5_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "This orange slice here shows our online sales.",
+          "zh": "這塊橘色的部分是我們的網路銷售。",
+          "chunkId": "orange_slice_online_sales"
+        },
+        {
+          "id": "t5_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "It's still pretty small. Is it growing at all?",
+          "zh": "還是滿小的。它到底有沒有在成長？"
+        },
+        {
+          "id": "t5_5",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Wait, there's a curve at the bottom. It's not very visible from here.",
+          "zh": "等等，下面有一條曲線。從這裡不太看得清楚。",
+          "stage": {
+            "act": "want",
+            "item": "curve"
+          }
+        },
+        {
+          "id": "t5_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Okay, I see it now. It goes up almost every month.",
+          "zh": "好，我看到了。幾乎每個月都在往上。"
+        },
+        {
+          "id": "t5_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "That slide illustrates your point really well, by the way. Nice work.",
+          "zh": "那張投影片把你的重點說明得很好。做得好。"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "回答問題",
+      "newChunkIds": ["however_lasts_twice_as_long", "good_question_get_back_to_you"],
+      "newWordIds": [
+        "however",
+        "negative",
+        "necessarily",
+        "unlike",
+        "extremely",
+        "strongly",
+        "besides",
+        "remark",
+        "somewhat",
+        "alternatively"
+      ],
+      "cloze": [
+        {
+          "lineId": "t6_1",
+          "word": "costs",
+          "distractors": ["shortens", "rehearses"]
+        },
+        {
+          "lineId": "t6_4",
+          "word": "quality",
+          "distractors": ["timeline", "layout"]
+        },
+        {
+          "lineId": "t6_7",
+          "word": "call",
+          "distractors": ["shorten", "emphasize"]
+        }
+      ],
+      "textFills": [
+        {
+          "id": "price_question_email",
+          "kind": "email",
+          "title": "A question from Mr. Ellis",
+          "lines": [
+            "Hi Jack,",
+            "Mr. Ellis made a remark about price in our meeting today. Lantern costs somewhat more than our glass lamp. ___, it lasts twice as long, and stores like that.",
+            "He also asked how many Lantern lamps you can make a month. He feels ___ that we need a real number.",
+            "___",
+            "Ms. Carter"
+          ],
+          "zh": [
+            "Jack 你好：",
+            "今天開會時 Mr. Ellis 提到價格的問題。Lantern 比我們的玻璃燈貴一些。不過，它可以用兩倍久，店家很喜歡這一點。",
+            "他也問到你們一個月可以做多少盞 Lantern 的燈。他很堅持我們需要一個確實的數字。",
+            "可以在星期五前告訴我嗎？",
+            "Ms. Carter"
+          ],
+          "blanks": [
+            {
+              "options": ["However", "Because", "Unless", "So"],
+              "answer": 0,
+              "note": "前後意思相反，句首用 However，後面加逗號。"
+            },
+            {
+              "options": ["strongly", "respectively", "beforehand", "relatively"],
+              "answer": 0,
+              "note": "feel strongly 是「很堅持、很在意」。"
+            },
+            {
+              "options": [
+                "Could you let me know by Friday?",
+                "The room has ten round tables.",
+                "I'll see you at the airport.",
+                "Here is the menu for the party."
+              ],
+              "answer": 0,
+              "note": "信是在問數字，最後請 Jack 回覆。"
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t6_1",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Here's my question. Lantern costs more than the glass lamp.",
+          "zh": "我的問題是：Lantern 比玻璃燈貴。"
+        },
+        {
+          "id": "t6_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "However, a Lantern lamp lasts twice as long as the glass one.",
+          "zh": "不過，Lantern 的燈可以用的時間是玻璃燈的兩倍。",
+          "chunkId": "however_lasts_twice_as_long"
+        },
+        {
+          "id": "t6_3",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Twice as long? Then price isn't necessarily a negative.",
+          "zh": "用兩倍久？那價格就不一定是缺點了。"
+        },
+        {
+          "id": "t6_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Besides, stores say people will pay more for quality.",
+          "zh": "而且，店家說客人願意多花一點錢買好品質。"
+        },
+        {
+          "id": "t6_5",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Fair enough. How many can Brightway make a month?",
+          "zh": "有道理。Brightway 一個月可以做多少盞燈？"
+        },
+        {
+          "id": "t6_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Good question, let me check and get back to you.",
+          "zh": "好問題，我確認一下再回覆您。",
+          "chunkId": "good_question_get_back_to_you"
+        },
+        {
+          "id": "t6_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Alternatively, I can call Jack right after the meeting.",
+          "zh": "或者，開完會我馬上打給 Jack 問。"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "總經理的結語",
+      "newChunkIds": ["means_a_lot_coming_from_you"],
+      "newWordIds": [
+        "indeed",
+        "therefore",
+        "thus",
+        "prove",
+        "conclusion",
+        "launch",
+        "factory",
+        "equally",
+        "participation",
+        "definite"
+      ],
+      "talks": [
+        {
+          "id": "ellis_closing",
+          "kind": "monologue",
+          "lines": [
+            {
+              "id": "t7_talk_1",
+              "role": "director",
+              "en": "Thank you, everybody. That was indeed a clear plan.",
+              "zh": "謝謝大家。這確實是一份很清楚的計畫。"
+            },
+            {
+              "id": "t7_talk_2",
+              "role": "director",
+              "en": "It was informative, and it gave me real insight into what stores want.",
+              "zh": "內容很充實，也讓我真正了解店家要的是什麼。"
+            },
+            {
+              "id": "t7_talk_3",
+              "role": "director",
+              "en": "You covered every aspect, from price to design.",
+              "zh": "從價格到設計，每個方面你都講到了。"
+            },
+            {
+              "id": "t7_talk_4",
+              "role": "director",
+              "en": "The numbers prove that stores want a lamp designed by us and made in Taiwan.",
+              "zh": "數字證明了，店家想要的是我們設計、台灣製造的燈。"
+            },
+            {
+              "id": "t7_talk_5",
+              "role": "director",
+              "en": "And thus, I'm happy for the Lantern series to move to the next step.",
+              "zh": "所以，我很樂意讓 Lantern 系列進到下一步。"
+            },
+            {
+              "id": "t7_talk_6",
+              "role": "director",
+              "en": "You gave us two dates to launch, April or May.",
+              "zh": "你給了我們兩個上市日期：四月或五月。"
+            },
+            {
+              "id": "t7_talk_7",
+              "role": "director",
+              "en": "I'd choose May, because the factory in Taiwan needs time.",
+              "zh": "我會選五月，因為台灣的工廠需要時間。"
+            },
+            {
+              "id": "t7_talk_8",
+              "role": "director",
+              "en": "Therefore, I'd like a definite date by the end of January.",
+              "zh": "因此，我希望一月底以前有一個確定的日期。"
+            },
+            {
+              "id": "t7_talk_9",
+              "role": "director",
+              "en": "Equally important, I'd like everyone's participation, not just our coordinator's.",
+              "zh": "同樣重要的是，我希望大家都參與，不只是我們的協調人。"
+            },
+            {
+              "id": "t7_talk_10",
+              "role": "director",
+              "en": "This is a big project, and it needs the whole team.",
+              "zh": "這是一個大計畫，需要整個團隊一起來。"
+            },
+            {
+              "id": "t7_talk_11",
+              "role": "director",
+              "en": "In conclusion, well done. Let's get Lantern into the stores!",
+              "zh": "總之，做得很好。我們一起讓 Lantern 上架吧！"
+            }
+          ],
+          "questions": [
+            {
+              "en": "What does Mr. Ellis say the numbers prove?",
+              "zh": "Mr. Ellis 說數字證明了什麼？",
+              "options": [
+                "Stores want a lamp like Lantern",
+                "The glass lamp sells best",
+                "Online sales are going down"
+              ],
+              "answer": 0
+            },
+            {
+              "en": "Which month does he choose, and why?",
+              "zh": "他選哪個月上市？為什麼？",
+              "options": [
+                "April, because stores are ready",
+                "May, because the factory needs time",
+                "May, because of a trade show"
+              ],
+              "answer": 1
+            },
+            {
+              "en": "What does he want by the end of January?",
+              "zh": "他要在一月底前拿到什麼？",
+              "options": ["A new chart", "A second presentation", "A definite launch date"],
+              "answer": 2
+            }
+          ]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t7_1",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Well, that's my conclusion. You did a great job today.",
+          "zh": "好，這就是我的結論。你今天表現得很好。"
+        },
+        {
+          "id": "t7_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thank you, that means a lot coming from you.",
+          "zh": "能聽到您這麼說，我真的很開心。",
+          "chunkId": "means_a_lot_coming_from_you"
+        },
+        {
+          "id": "t7_3",
+          "role": "director",
+          "speaker": "npc",
+          "en": "I mean it. You were extremely well prepared for this.",
+          "zh": "我是說真的。你這次準備得非常充分。"
+        },
+        {
+          "id": "t7_4",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Now, about the launch. Please talk to Jack this week.",
+          "zh": "接下來是上市的事。這個星期去跟 Jack 談。"
+        },
+        {
+          "id": "t7_5",
+          "role": "director",
+          "speaker": "npc",
+          "en": "The factory in Taiwan needs to know our date soon.",
+          "zh": "台灣的工廠需要早點知道我們的日期。",
+          "stage": {
+            "act": "want",
+            "item": "factory"
+          }
+        },
+        {
+          "id": "t7_6",
+          "role": "director",
+          "speaker": "npc",
+          "en": "I want a definite date from you by the end of January.",
+          "zh": "一月底以前，我要你給我一個確定的日期。"
+        },
+        {
+          "id": "t7_7",
+          "role": "director",
+          "speaker": "npc",
+          "en": "And bring the whole team in, Dan included. He has good ideas.",
+          "zh": "還有，讓整個團隊一起參與，包括 Dan。他很有想法。"
+        },
+        {
+          "id": "t7_8",
+          "role": "director",
+          "speaker": "npc",
+          "en": "Remember, this is everybody's project, not just yours.",
+          "zh": "記住，這是大家的計畫，不只是你一個人的。"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "會後回饋",
+      "backdrop": "coworker",
+      "newChunkIds": ["nervous_at_first_got_easier", "one_thing_do_better"],
+      "newWordIds": [
+        "score",
+        "spot",
+        "apparently",
+        "emphasis",
+        "fantastic",
+        "differently",
+        "listener",
+        "graphic",
+        "colorful",
+        "rehearsal"
+      ],
+      "spellWordIds": ["stage", "location", "chef", "award", "lucky"],
+      "cloze": [
+        {
+          "lineId": "t8_6",
+          "word": "spotted",
+          "distractors": ["decorated", "poured"]
+        },
+        {
+          "lineId": "t8_7",
+          "word": "emphasis",
+          "distractors": ["appendix", "timeline"]
+        },
+        {
+          "lineId": "t8_8",
+          "word": "colorful",
+          "distractors": ["lengthy", "anxious"]
+        }
+      ],
+      "scene": [
+        {
+          "id": "t8_1",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "There you are! So, how did it go in there?",
+          "zh": "你回來了！怎麼樣，裡面還順利嗎？"
+        },
+        {
+          "id": "t8_2",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I was really nervous at first, but it got easier.",
+          "zh": "我一開始真的很緊張，不過後來就順多了。",
+          "chunkId": "nervous_at_first_got_easier"
+        },
+        {
+          "id": "t8_3",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Apparently Mr. Ellis loved it. All that rehearsal helped!",
+          "zh": "聽說 Mr. Ellis 很喜歡。排練那麼多次有用了！"
+        },
+        {
+          "id": "t8_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "He did. My score? Nine out of ten.",
+          "zh": "他是很喜歡。我的評分？十分給九分。"
+        },
+        {
+          "id": "t8_5",
+          "role": "guide",
+          "speaker": "player",
+          "en": "What's one thing I could do better next time?",
+          "zh": "您覺得我下次有哪一點可以做得更好？",
+          "chunkId": "one_thing_do_better"
+        },
+        {
+          "id": "t8_6",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Mr. Ellis spotted a small mistake on slide six. Nothing significant.",
+          "zh": "Mr. Ellis 在第六張投影片看出一個小錯，不是什麼大問題。"
+        },
+        {
+          "id": "t8_7",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "And put more emphasis on the stores. They are your listeners, too.",
+          "zh": "還有，店家的部分要多強調。他們也是你的聽眾。"
+        },
+        {
+          "id": "t8_8",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "And that graphic on slide three? Fantastic. So colorful!",
+          "zh": "還有第三張投影片的那張圖？超棒的，顏色好豐富！"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "角色扮演大挑戰",
+      "backdrop": "coworker",
+      "kind": "roleplay",
+      "newChunkIds": [],
+      "newWordIds": [],
+      "scene": [
+        {
+          "id": "t9_1",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Good news. Mr. Ellis wants you to give your presentation again.",
+          "zh": "好消息。Mr. Ellis 想請你再做一次簡報。"
+        },
+        {
+          "id": "t9_2",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "This time it's for the people from Brightway, next Friday.",
+          "zh": "這次是給 Brightway 的人聽，下星期五。"
+        },
+        {
+          "id": "t9_3",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Who's going to be in the audience on Friday?",
+          "zh": "星期五會有哪些人來聽？",
+          "chunkId": "who_in_the_audience"
+        },
+        {
+          "id": "t9_4",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "It's Jack and two people from their sales office in town.",
+          "zh": "是 Jack，還有他們在鎮上業務辦公室的兩個人。"
+        },
+        {
+          "id": "t9_5",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Want to practice? I'm free for the next hour.",
+          "zh": "要不要練習一下？我接下來一個小時有空。"
+        },
+        {
+          "id": "t9_6",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Could you time me while I run through the slides?",
+          "zh": "我從頭講一遍投影片，你可以幫我計時嗎？",
+          "chunkId": "time_me_run_through_slides"
+        },
+        {
+          "id": "t9_7",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Okay, the clock is running. Whenever you're ready.",
+          "zh": "好，開始計時。你準備好就開始。"
+        },
+        {
+          "id": "t9_8",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I'd like to walk you through our plan for Lantern.",
+          "zh": "我想跟各位說明一下 Lantern 系列的計畫。",
+          "chunkId": "walk_you_through_our_plan"
+        },
+        {
+          "id": "t9_9",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Let's say I'm Jack. Can I trust your calculations?",
+          "zh": "假設我是 Jack。你們算出來的數字可信嗎？"
+        },
+        {
+          "id": "t9_10",
+          "role": "guide",
+          "speaker": "player",
+          "en": "This report gives us exactly the evidence we need.",
+          "zh": "這份報告正好就是我們需要的證據。",
+          "chunkId": "report_gives_us_evidence"
+        },
+        {
+          "id": "t9_11",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Okay. And who buys your lamps, mostly?",
+          "zh": "好。那你們的燈主要是誰在買？"
+        },
+        {
+          "id": "t9_12",
+          "role": "guide",
+          "speaker": "player",
+          "en": "As you can see, office stores are our biggest customers.",
+          "zh": "大家可以看到，辦公用品店是我們最大的客戶。",
+          "chunkId": "as_you_can_see_office_stores"
+        },
+        {
+          "id": "t9_13",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Unlike the glass lamp, Lantern isn't cheap. Why pay more?",
+          "zh": "Lantern 不像玻璃燈那麼便宜。為什麼要多花錢？"
+        },
+        {
+          "id": "t9_14",
+          "role": "guide",
+          "speaker": "player",
+          "en": "However, a Lantern lamp lasts twice as long as the glass one.",
+          "zh": "不過，Lantern 的燈可以用的時間是玻璃燈的兩倍。",
+          "chunkId": "however_lasts_twice_as_long"
+        },
+        {
+          "id": "t9_15",
+          "role": "coworker",
+          "speaker": "npc",
+          "en": "Eleven minutes. Perfect! You sound much calmer than last time.",
+          "zh": "十一分鐘，完美！你聽起來比上次冷靜多了。"
+        },
+        {
+          "id": "t9_16",
+          "role": "guide",
+          "speaker": "player",
+          "en": "I was really nervous at first, but it got easier.",
+          "zh": "我一開始真的很緊張，不過後來就順多了。",
+          "chunkId": "nervous_at_first_got_easier"
+        },
+        {
+          "id": "t9_17",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "I heard that. You're turning into a real presenter.",
+          "zh": "我聽到了。你越來越有簡報者的樣子了。"
+        },
+        {
+          "id": "t9_18",
+          "role": "guide",
+          "speaker": "player",
+          "en": "Thank you, that means a lot coming from you.",
+          "zh": "能聽到您這麼說，我真的很開心。",
+          "chunkId": "means_a_lot_coming_from_you"
+        },
+        {
+          "id": "t9_19",
+          "role": "manager",
+          "speaker": "npc",
+          "en": "Just simplify slide four a little, and you'll be fine.",
+          "zh": "第四張投影片再簡化一點，就沒問題了。"
+        }
+      ]
+    }
+  ]
+}
