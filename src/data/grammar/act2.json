@@ -550,8 +550,8 @@
     {
       "id": "g_will-wont_10",
       "grammarId": "will-wont",
-      "en": "Thank you so much. I ___ forget your help.",
-      "zh": "非常謝謝你，我不會忘記你的幫忙。",
+      "en": "Thank you so much. I ___ forget what you did for me.",
+      "zh": "非常謝謝你，我不會忘記你為我做的事。",
       "options": [
         "won't",
         "not",
