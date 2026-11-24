@@ -58,7 +58,15 @@ export function ResultScreen() {
   return (
     <div class="flow" data-testid="result">
       <div class="flow-card result">
-        <h1 class="flow-title">{isTask ? '任務完成！' : isSprint ? '快練完成！' : '複習完成！'}</h1>
+        <h1 class="flow-title">
+          {isTask
+            ? '任務完成！'
+            : isSprint
+              ? '快練完成！'
+              : outcome.kind === 'grammar'
+                ? '文法快練完成！'
+                : '複習完成！'}
+        </h1>
         {isTask && (
           <div class="result-stars" data-testid="result-stars">
             <StarMarks n={outcome.stars} />

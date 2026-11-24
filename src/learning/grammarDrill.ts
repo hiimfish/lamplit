@@ -14,6 +14,7 @@ import { mistakeTotals } from './mistakes';
 import type { AnswerResult, FillQuestion, Question } from './questions';
 import { addCoins, reviewCoins, taskKey } from './sessionPlan';
 import { buildSentence, sentenceFill } from './sentenceGen';
+import { grammarPointOf } from '../content/grammar';
 import type { Sentence, Taught } from './sentenceGen';
 import { actUnits } from './townPlan';
 import type { TownAct } from './townPlan';
@@ -39,7 +40,11 @@ export interface DrillDeps {
   sentenceFill: (sentence: Sentence, blank: BlankKind, rng: Rng) => FillQuestion | null;
 }
 
-const realDeps: DrillDeps = { buildSentence, sentenceFill };
+const realDeps: DrillDeps = {
+  buildSentence,
+  sentenceFill: (sentence, blank, rng) =>
+    sentenceFill(sentence, blank, rng, (id) => grammarPointOf(id)?.note),
+};
 
 /** Questions in one round: 10 on the normal route, 15 on the sprint. */
 export function grammarGoal(route: Route): number {
