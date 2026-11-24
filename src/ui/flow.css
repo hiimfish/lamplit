@@ -446,6 +446,29 @@
   color: var(--ink);
 }
 
+.bubble-row .bubble-peek {
+  flex: none;
+  min-width: var(--tap);
+  padding-inline: calc(3 * var(--px));
+}
+
+.bubble-row .bubble-peek[aria-pressed='true'] {
+  background: var(--lamp);
+}
+
+/* Words not heard when you spoke: dotted when missed, thin solid when close; no red. */
+.bubble-en .mark-missed {
+  text-decoration: underline dotted var(--ink);
+  text-decoration-thickness: var(--line);
+  text-underline-offset: calc(2 * var(--px));
+}
+
+.bubble-en .mark-near {
+  text-decoration: underline solid var(--ink);
+  text-decoration-thickness: var(--px);
+  text-underline-offset: calc(2 * var(--px));
+}
+
 .bubble.current .bubble-en {
   animation: typewriter 0.7s steps(14, end) both;
 }
