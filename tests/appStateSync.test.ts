@@ -110,3 +110,22 @@ describe('goalBack (where a block of 今天的目標 returns)', () => {
     expect(app.goalBack()).toEqual({ screen: 'goal', label: '回每日目標' });
   });
 });
+
+describe('resetProgress (設定 → 重置進度)', () => {
+  it('empties the save, keeps the old one as a backup, and does not merge it back', () => {
+    app.commitSave(withCoins(30, ['here']));
+    // Another tab wrote meanwhile: a plain commit would merge this progress back in.
+    data.set(SAVE_KEY, JSON.stringify(withCoins(50, ['there'])));
+    const before = data.get(SAVE_KEY);
+    app.appStore.set({ town: { act: 2, picking: true }, backTo: 'town' });
+    app.resetProgress();
+    const save = app.appStore.get().save;
+    expect(save.coins).toBe(0);
+    expect(save.cards).toEqual({});
+    expect(save.tasks).toEqual({});
+    expect(JSON.parse(data.get(SAVE_KEY)!).coins).toBe(0);
+    expect(data.get('lamplit.save.v1.pre-import')).toBe(before);
+    expect(app.appStore.get().town).toBeUndefined();
+    expect(app.appStore.get().backTo).toBeUndefined();
+  });
+});

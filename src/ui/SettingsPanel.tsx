@@ -2,7 +2,7 @@ import { useRef, useState } from 'preact/hooks';
 import { playAudio } from '../audio/pronounce';
 import { playSfx } from '../audio/sfx';
 import type { VoiceMode } from '../audio/voices';
-import { appStore, applyImport, currentNow } from '../core/appState';
+import { appStore, applyImport, currentNow, resetProgress } from '../core/appState';
 import {
   CODE_ERRORS,
   MAX_CODE_CHARS,
@@ -404,6 +404,59 @@ function SaveGroup() {
   );
 }
 
+/**
+ * 重置進度: clears this device's progress (tasks, words, coins, exams, history) after a second
+ * press; settings stay. Copying the save code first is suggested.
+ */
+function ResetGroup() {
+  const [armed, setArmed] = useState(false);
+  const [done, setDone] = useState(false);
+  const reset = () => {
+    playSfx('click');
+    if (!armed) {
+      setArmed(true);
+      setDone(false);
+      return;
+    }
+    resetProgress();
+    setArmed(false);
+    setDone(true);
+  };
+  return (
+    <div class="settings-group" data-testid="reset-group">
+      <p class="settings-label">重置進度</p>
+      <p class="settings-note">
+        {armed
+          ? '這台裝置的任務、單字、金幣、考試和每天的紀錄都會清掉，回到第一次玩的樣子（設定不變）。確定的話再按一次。'
+          : '從頭開始玩。想留著現在的進度，先在上面複製或下載存檔。'}
+      </p>
+      <div class="settings-actions">
+        <button
+          type="button"
+          class={`pixel-button${armed ? ' primary' : ''}`}
+          onClick={reset}
+          data-testid="reset-progress"
+        >
+          {armed ? '確定重置' : '重置進度'}
+        </button>
+        {armed && (
+          <button
+            type="button"
+            class="pixel-button"
+            onClick={() => setArmed(false)}
+            data-testid="reset-cancel"
+          >
+            取消
+          </button>
+        )}
+      </div>
+      <p class="settings-note" role="status" aria-live="polite">
+        {done ? '進度已重置。' : ''}
+      </p>
+    </div>
+  );
+}
+
 /** Dev server only: open every task, to try any of them without clearing the ones before. */
 function DevSwitch({ unlockAll }: { unlockAll: boolean }) {
   return (
@@ -452,6 +505,7 @@ export function SettingsPanel({ onClose, onHowTo }: { onClose: () => void; onHow
       <TestButtons />
       <ZhSwitch showZh={settings.showZh} />
       <SaveGroup />
+      <ResetGroup />
       {onHowTo && (
         <div class="settings-group">
           <button type="button" class="pixel-button" onClick={onHowTo} data-testid="settings-howto">

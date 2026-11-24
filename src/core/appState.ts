@@ -198,6 +198,33 @@ export function applyImport(
   return appStore.get().save;
 }
 
+/**
+ * 重置進度 (設定): an empty save in place of this device's progress. The old save is kept
+ * under STORAGE_KEYS.preImportSave first (as before a 完全取代 import), and it is not merged
+ * with what is stored. Settings (voices, 中文, ...) stay as they are.
+ */
+export function resetProgress(): void {
+  const storage = readStorage();
+  if (storage) {
+    const before = readStored(storage);
+    try {
+      if (before !== null) storage.setItem(STORAGE_KEYS.preImportSave, before);
+    } catch {
+      // no room for the backup; the reset still goes ahead
+    }
+    lastSynced = before;
+  }
+  appStore.set({
+    town: undefined,
+    activeTask: undefined,
+    activeExam: undefined,
+    activeSkip: undefined,
+    result: undefined,
+    backTo: undefined,
+  });
+  commitSave(createEmptySave(currentNow()));
+}
+
 window.addEventListener('storage', onStorage);
 
 export function remeasureLayout(): Layout {
