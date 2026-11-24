@@ -1,1 +1,251 @@
-[]
+[
+  {
+    "id": "a4_modal_passive_will_docs",
+    "grammarId": "modal-passive",
+    "shape": "passive",
+    "tense": "will",
+    "cues": ["tomorrow", "next week"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["approve", "review", "revise", "verify", "finalize"],
+    "objects": ["report", "proposal", "contract", "budget", "schedule", "agreement"],
+    "subjects": ["manager", "director", "supervisor"]
+  },
+  {
+    "id": "a4_modal_passive_will_events",
+    "grammarId": "modal-passive",
+    "shape": "passive",
+    "tense": "will",
+    "cues": ["tomorrow", "next week"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["cancel", "postpone", "reschedule", "arrange"],
+    "objects": ["conference", "workshop", "seminar", "presentation", "interview"],
+    "subjects": ["manager", "director", "coordinator", "secretary"]
+  },
+  {
+    "id": "a4_modal_passive_can_money",
+    "grammarId": "modal-passive",
+    "shape": "passive",
+    "tense": "can",
+    "blanks": ["verb-form", "article"],
+    "verbs": ["reduce", "increase", "cut"],
+    "objects": ["price", "fee", "expense", "salary"],
+    "subjects": ["manager", "director", "accountant"]
+  },
+  {
+    "id": "a4_must_passive_forms",
+    "grammarId": "modal-passive-obligation",
+    "shape": "passive",
+    "tense": "must",
+    "blanks": ["verb-form", "article"],
+    "verbs": ["submit", "print"],
+    "objects": ["form", "report", "application", "request"],
+    "subjects": ["employee", "applicant", "candidate", "assistant"]
+  },
+  {
+    "id": "a4_must_passive_check",
+    "grammarId": "modal-passive-obligation",
+    "shape": "passive",
+    "tense": "must",
+    "blanks": ["verb-form", "article"],
+    "verbs": ["approve", "review", "verify"],
+    "objects": ["form", "report", "application", "contract", "claim"],
+    "subjects": ["manager", "supervisor", "director"]
+  },
+  {
+    "id": "a4_must_passive_machines",
+    "grammarId": "modal-passive-obligation",
+    "shape": "passive",
+    "tense": "must",
+    "blanks": ["verb-form", "article"],
+    "verbs": ["inspect", "repair", "maintain"],
+    "objects": ["machine", "engine", "elevator", "printer", "copier", "truck"],
+    "subjects": ["technician", "mechanic", "engineer"]
+  },
+  {
+    "id": "a4_perfect_passive_docs",
+    "grammarId": "passive-progressive-perfect",
+    "shape": "passive",
+    "tense": "perfect",
+    "cues": ["already", "just"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["approve", "review", "revise", "verify", "finalize"],
+    "objects": ["report", "proposal", "contract", "budget", "schedule", "agreement"],
+    "subjects": ["manager", "director", "supervisor"]
+  },
+  {
+    "id": "a4_perfect_passive_machines",
+    "grammarId": "passive-progressive-perfect",
+    "shape": "passive",
+    "tense": "perfect",
+    "cues": ["already", "just"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["inspect", "repair", "install", "replace"],
+    "objects": ["machine", "engine", "elevator", "printer", "copier", "tire"],
+    "subjects": ["technician", "mechanic", "engineer"]
+  },
+  {
+    "id": "a4_past_perfect_passive",
+    "grammarId": "passive-progressive-perfect",
+    "shape": "passive",
+    "tense": "past-perfect",
+    "blanks": ["verb-form", "article"],
+    "verbs": ["approve", "review", "revise", "verify", "finalize"],
+    "objects": ["report", "proposal", "contract", "budget", "schedule", "agreement"],
+    "subjects": ["manager", "director", "supervisor"]
+  },
+  {
+    "id": "a4_ed_adjectives_past",
+    "grammarId": "ed-ing-adjectives",
+    "shape": "be-adj",
+    "tense": "past",
+    "cues": ["yesterday", "last week"],
+    "blanks": ["verb-form", "subject"],
+    "adjectives": ["excited", "disappointed", "embarrassed", "satisfied", "nervous", "upset"],
+    "pronoun": ["i", "we", "they", "he", "she"]
+  },
+  {
+    "id": "a4_ed_adjectives_now",
+    "grammarId": "ed-ing-adjectives",
+    "shape": "be-adj",
+    "tense": "present",
+    "cues": ["now", "right now"],
+    "blanks": ["verb-form", "subject"],
+    "adjectives": ["excited", "disappointed", "satisfied", "nervous", "upset", "anxious"],
+    "pronoun": ["i", "we", "they", "he", "she"]
+  },
+  {
+    "id": "a4_ing_adjectives",
+    "grammarId": "ed-ing-adjectives",
+    "shape": "be-adj",
+    "tense": "past",
+    "cues": ["yesterday", "last week"],
+    "blanks": ["verb-form", "subject"],
+    "adjectives": ["frustrating"],
+    "subjects": ["delay", "negotiation", "conversation", "discussion", "process"]
+  },
+  {
+    "id": "a4_comparative_devices",
+    "grammarId": "comparative",
+    "shape": "comparative",
+    "tense": "present",
+    "blanks": ["subject", "article"],
+    "adjectives": ["cheap", "new", "old"],
+    "subjects": ["printer", "copier", "computer", "projector", "camera", "tablet"]
+  },
+  {
+    "id": "a4_comparative_money",
+    "grammarId": "comparative",
+    "shape": "comparative",
+    "tense": "present",
+    "blanks": ["subject", "article"],
+    "adjectives": ["high", "low"],
+    "subjects": ["price", "fee", "expense"]
+  },
+  {
+    "id": "a4_perfect_active_docs",
+    "grammarId": "present-perfect-just-already-yet",
+    "shape": "svo",
+    "tense": "perfect",
+    "cues": ["already", "just"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["review", "revise", "verify", "finalize", "print"],
+    "objects": ["report", "proposal", "contract", "budget", "schedule", "agreement"],
+    "pronoun": ["i", "we", "they", "he", "she"]
+  },
+  {
+    "id": "a4_perfect_question_yet",
+    "grammarId": "present-perfect-just-already-yet",
+    "shape": "yes-no-question",
+    "tense": "perfect",
+    "cues": ["yet"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["review", "revise", "verify", "finalize", "submit", "print"],
+    "objects": ["report", "proposal", "contract", "budget", "schedule", "agreement"],
+    "pronoun": ["you", "they", "he", "she"]
+  },
+  {
+    "id": "a4_request_could",
+    "grammarId": "could-would-request",
+    "shape": "yes-no-question",
+    "tense": "could",
+    "blanks": ["verb-form", "article"],
+    "verbs": ["review", "revise", "proofread", "print", "summarize", "translate"],
+    "objects": ["report", "proposal", "contract", "letter", "article", "email"],
+    "pronoun": ["you"]
+  },
+  {
+    "id": "a4_wh_past_docs",
+    "grammarId": "past-did-didnt",
+    "shape": "wh-question",
+    "tense": "past",
+    "cues": ["yesterday", "last week"],
+    "blanks": ["verb-form"],
+    "verbs": ["review", "revise", "finalize", "submit", "print"],
+    "objects": ["report", "proposal", "contract", "budget", "schedule"],
+    "pronoun": ["you", "they", "he", "she"]
+  },
+  {
+    "id": "a4_past_events",
+    "grammarId": "past-regular",
+    "shape": "svo-time",
+    "tense": "past",
+    "cues": ["yesterday", "last week"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["attend", "organize", "cancel", "postpone", "reschedule"],
+    "objects": ["conference", "workshop", "seminar", "presentation", "session"],
+    "pronoun": ["i", "we", "they", "he", "she"]
+  },
+  {
+    "id": "a4_future_docs",
+    "grammarId": "will-wont",
+    "shape": "svo-time",
+    "tense": "will",
+    "cues": ["tomorrow", "next week"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["review", "revise", "finalize", "submit", "print"],
+    "objects": ["report", "proposal", "contract", "budget", "schedule"],
+    "pronoun": ["i", "we", "they", "he", "she"]
+  },
+  {
+    "id": "a4_there_be_office_items",
+    "grammarId": "there-is-are",
+    "shape": "there-be",
+    "tense": "present",
+    "blanks": ["verb-form", "number"],
+    "subjects": ["contract", "invoice", "report", "proposal", "folder", "file"],
+    "pobjects": ["desk", "table", "counter", "shelf"],
+    "preps": ["on"]
+  },
+  {
+    "id": "a4_there_be_office_rooms",
+    "grammarId": "there-is-are",
+    "shape": "there-be",
+    "tense": "present",
+    "blanks": ["verb-form", "number"],
+    "subjects": ["projector", "printer", "copier", "computer", "microphone", "speaker"],
+    "pobjects": ["boardroom", "lobby", "storeroom", "showroom", "lab"],
+    "preps": ["in"]
+  },
+  {
+    "id": "a4_passive_past_docs",
+    "grammarId": "passive-past",
+    "shape": "passive",
+    "tense": "past",
+    "cues": ["yesterday", "last week"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["approve", "review", "revise", "verify"],
+    "objects": ["report", "proposal", "contract", "budget", "schedule", "agreement"],
+    "subjects": ["manager", "director", "supervisor"]
+  },
+  {
+    "id": "a4_passive_present_machines",
+    "grammarId": "passive-present",
+    "shape": "passive",
+    "tense": "present",
+    "cues": ["every week", "every month"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["inspect", "repair", "maintain"],
+    "objects": ["machine", "engine", "elevator", "printer", "copier", "truck"],
+    "subjects": ["technician", "mechanic", "engineer"]
+  }
+]
