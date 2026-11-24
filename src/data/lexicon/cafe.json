@@ -1,1 +1,196 @@
-{}
+{
+  "latte": {
+    "pos": "n",
+    "cls": "drink",
+    "forms": {
+      "pl": "lattes"
+    }
+  },
+  "tea": {
+    "pos": "n",
+    "cls": "drink",
+    "forms": {
+      "pl": "teas"
+    }
+  },
+  "muffin": {
+    "pos": "n",
+    "cls": "food",
+    "forms": {
+      "pl": "muffins"
+    }
+  },
+  "water": {
+    "pos": "n",
+    "cls": "drink",
+    "countable": false
+  },
+  "cake": {
+    "pos": "n",
+    "cls": "food",
+    "forms": {
+      "pl": "cakes"
+    }
+  },
+  "sandwich": {
+    "pos": "n",
+    "cls": "food",
+    "forms": {
+      "pl": "sandwiches"
+    }
+  },
+  "coffee": {
+    "pos": "n",
+    "cls": "drink",
+    "forms": {
+      "pl": "coffees"
+    }
+  },
+  "ice": {
+    "pos": "n",
+    "cls": "food",
+    "countable": false
+  },
+  "sugar": {
+    "pos": "n",
+    "cls": "food",
+    "countable": false
+  },
+  "small": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["drink", "food", "object"]
+      }
+    ]
+  },
+  "large": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["drink", "food", "object"]
+      }
+    ]
+  },
+  "medium": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["drink", "food"]
+      }
+    ]
+  },
+  "cookie": {
+    "pos": "n",
+    "cls": "food",
+    "forms": {
+      "pl": "cookies"
+    }
+  },
+  "table": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "tables"
+    }
+  },
+  "window": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "windows"
+    }
+  },
+  "outside": {
+    "pos": "other",
+    "skip": true
+  },
+  "inside": {
+    "pos": "other",
+    "skip": true
+  },
+  "sit": {
+    "pos": "v",
+    "forms": {
+      "s3": "sits",
+      "past": "sat",
+      "pp": "sat",
+      "ing": "sitting"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      },
+      {
+        "subj": ["person", "role"],
+        "prep": {
+          "word": "at",
+          "cls": ["object"]
+        }
+      }
+    ]
+  },
+  "seat": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "seats"
+    }
+  },
+  "read": {
+    "pos": "v",
+    "forms": {
+      "s3": "reads",
+      "past": "read",
+      "pp": "read",
+      "ing": "reading"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["document"]
+      }
+    ]
+  },
+  "book": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "books"
+    }
+  },
+  "lines": {
+    "t1_1": {
+      "side": "question",
+      "qtype": "what"
+    },
+    "t1_2": {
+      "side": "answer",
+      "atype": "thing"
+    },
+    "t2_1": {
+      "side": "question",
+      "qtype": "choice"
+    },
+    "t2_2": {
+      "side": "answer",
+      "atype": "choice"
+    },
+    "t4_2": {
+      "side": "question",
+      "qtype": "offer"
+    },
+    "t4_3": {
+      "side": "answer",
+      "atype": "decline"
+    },
+    "t8_5": {
+      "side": "question",
+      "qtype": "choice"
+    },
+    "t8_6": {
+      "side": "answer",
+      "atype": "choice"
+    }
+  }
+}
