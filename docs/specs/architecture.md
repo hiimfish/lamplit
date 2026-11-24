@@ -26,7 +26,10 @@ src/
   styles.css        全域樣式和配色變數
   game/             Phaser 街景：palette、painter、street/（配置與繪製）、scenes/TitleScene
   ui/               Preact 畫面：App、TownScreen、TaskScreen、SceneStory、ChatLines（對話紀錄）、RolePlay（角色扮演大挑戰）、IntroCards、
-                    ResultScreen、ReviewScreen、SettingsPanel、ItemIcon、焦點與對話框工具
+                    ResultScreen、ReviewScreen、SettingsPanel、ItemIcon、焦點與對話框工具；
+                    ListenScreen（聽力加量）和 listenLoop（它的播放節奏）、GrammarDrillScreen（文法快練）、
+                    MistakePanel（進度畫面的最常錯）、exam/（幕結業考：ExamScreen、ExamRunner、ExamListening、
+                    ExamReading、ExamResult、ExamReview、ExamTile）
   ui/stage/         劇情小劇場：SceneStage（畫面；TaskStage 讓整個任務都顯示）、stageState（每一句和劇情結束後的舞台狀態）；
                     整個任務都由 audio/pronounce 的 nowPlaying 和 content/units 的 speakerOf 決定誰在跳動
   ui/minigames/     題型元件：ListenPick、ListenPair（聽辨挑戰）、ChooseReply、Arrange、
@@ -34,10 +37,16 @@ src/
                     PictureChoose（看圖選句）、Fill（句子填空）、ReadPassage（讀短文）、Talk（聽對話答題）、
                     Speak、QuestionView，共用的小元件（shared），以及錄音和辨識的 hook
   learning/         出題（questionGen）、題目的型別和 NO_ITEM（questions）、批改、錯誤提示、FSRS 排程、
-                    練習與複習的規則（sessionPlan）、小鎮畫面的進度和「下一關」要去哪一關（townPlan）
+                    練習與複習的規則（sessionPlan）、小鎮畫面的進度和「下一關」要去哪一關（townPlan）；
+                    幕結業考（exam 規則、examGen 出題、examScore 估分）、最常錯（mistakes）、
+                    句子產生器（sentenceGen）、文法快練（grammarDrill、grammarOn）、跟著說評分（spokenScore）、
+                    衝刺的 12 週表（sprintSchedule）、聽力加量的中文顯示（zhMode）
   learning/gen/     句子填空、讀短文、聽對話答題各自的出題檔（fills、passages、talks），加上共用的亂數和打亂選項（common）
   content/          單元型別、載入、內容檢查、音檔項目、角色的中文名稱（roles）、
-                    單元順序（unitOrder）、四幕和各幕的地點（acts）、用字分析和平滑度規則（vocab）
+                    單元順序（unitOrder）、四幕和各幕的地點（acts）、用字分析和平滑度規則（vocab）、
+                    幕結業考的型別和計畫（exam）、讀進 src/data/exams 的題目檔（exams）、詞庫和句型的型別（lexicon）、
+                    讀進 src/data/lexicon、patterns、sentences、responds 的載入（lexicons）、74 個文法點（grammar）、
+                    結業考和詞庫檔案的檢查（validateExam、validateLexicon）
   content/checks/   三種新題型各自的內容檢查（fills、passages、talks），加上共用的小工具（common）
   core/             共用狀態、存檔、設定
   audio/            發音播放、音軌與音量、背景音樂、音效、錄音、語音辨識、每個角色的聲線（voices）
@@ -50,14 +59,37 @@ src/
                     第二幕的 8 個檔（bank、communityCenter、library、repair、jobCenter、resume、interview、dayBefore）也各匯出整份舞台設定；
                     修車與維修、上班前一天各有兩張背景（`backdrops`）
   art/pictures/     看圖選句的圖（96×64）：對照表、尺寸和型別 PictureFn（index）、第一幕的 10 張（act1）、第二幕的 4 張（act2）
-  data/units/       單元內容 JSON（第一到三幕共 30 個地點）
+  data/units/       單元內容 JSON（第一到四幕共 42 個地點）
+  data/lexicon/     每個地點一份詞庫 JSON（42 份，2026-11-24 已做；見下方「結業考與句子產生器」）
+  data/patterns/    句型 act1～act4（2026-11-24：四個檔都是空陣列 []）
+  data/sentences/   句子池 act1～act4（2026-11-24：四個檔都是空陣列 []）
+  data/responds/    應答題題庫 act1～act4（2026-11-24：四個檔都是空陣列 []）
+  data/exams/       幕結業考的手寫題，`<exam>.<section>.json`（2026-11-24：12 個檔；沒有手寫題的段落沒有檔）
+  data/examExclude.json  產生器不用的句子 id（2026-11-24：`respond` 和 `cloze` 都是空的）
   data/wordlists/   NGSL、TSL 和補充字表（CC BY-SA 4.0，出處見那裡的 README）
 scripts/            gen-audio（產生音檔）、spike-tts（聲線比較）、check-font-glyphs（字型檢查）、
-                    vocab-report（用字和難度報表）
+                    vocab-report（用字和難度報表）、sprint-table（產生 sprint.md 的 12 週表）；
+                    gen-audio 也讀 src/data/exams、sentences、responds
 public/audio/       產生出來的發音 mp3 和 manifest.json
 public/assets/fonts 俐方體 11 號和授權文件
 tests/              Vitest 測試
 ```
+
+### 結業考與句子產生器（2026-11-24 已做）
+
+| 資料                           | 誰讀                                                                         | 哪裡檢查                                                                                      |
+| ------------------------------ | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `src/data/exams/*.json`        | `content/exams.ts` → `learning/exam.ts`、`examGen.ts`；`gen-audio.mjs`       | `content/validateExam.ts`；`tests/validateExam.test.ts`、`tests/examContent.test.ts`          |
+| `src/data/lexicon/*.json`      | `content/lexicons.ts`（LEXICONS、LINE_TAGS）→ `sentenceGen.ts`、`examGen.ts` | `content/validateLexicon.ts`；`tests/validateLexicon.test.ts`、`tests/lexiconContent.test.ts` |
+| `src/data/patterns/act*.json`  | `content/lexicons.ts`（PATTERNS）→ `sentenceGen.ts`                          | `validatePatterns`（validateLexicon.ts）；`tests/sentencePool.test.ts`                        |
+| `src/data/sentences/act*.json` | `content/lexicons.ts`（SENTENCE_POOL）→ `examGen.ts`；`gen-audio.mjs`        | `validatePool`（validateLexicon.ts）；`tests/sentencePool.test.ts`                            |
+| `src/data/responds/act*.json`  | `content/lexicons.ts`（RESPOND_BANK）→ `examGen.ts`；`gen-audio.mjs`         | `validatePool`（validateLexicon.ts）；`tests/examPool.test.ts`                                |
+| `src/data/examExclude.json`    | `learning/examGen.ts`（不能變成題目的句子 id）                               | 沒有專門的測試                                                                                |
+
+- 結業考的段落定義在 `content/exam.ts`（`EXAM_PLAN`：每幕 2 到 5 段，四幕共 210 題；手寫題和產生題的數量分開記）。`examGen.ts` 產生的題型有應答題、聽力填空、文法選句、價目表、拼句填空，每次重考換一組題（用 seed）。
+- 資料不夠的題型沒有題目可出，會報告為缺少（`generatedShortfall`），那一段畫面顯示「準備中」。2026-11-24 時 patterns、sentences、responds 都還是空的，沒有句型、句子和應答題可以用，依賴它們的題型目前出不了題。
+- `tests/examContent.test.ts` 檢查真的題目檔（環境變數 `EXAM_FILE` 只檢查一個檔，`EXAM_REQUIRE_COMPLETE=1` 要求每一段都完成）；`tests/examGen.test.ts` 和 `tests/examPool.test.ts` 檢查產生器（同一個 seed 得到同一組題、應答題的錯選項一定和題型不相容）；`tests/sentencePool.test.ts` 檢查句型（每個句型至少 6 句不同的句子、問答配對）；`tests/sprintSchedule.test.ts` 檢查 12 週表的數字（`scripts/sprint-table.mjs` 會執行它）。
+- 寫出草稿的開關：`SENTENCE_POOL=write`（寫進 `src/data/sentences/`）、`RESPOND_BANK=write`（寫候選到 `.tmp/respond-candidates/`）。`SENTENCE_SAMPLE=print`、`EXAM_POOL=print`、`SPRINT_TABLE=print` 只印出來。
 
 ## 狀態
 
@@ -75,23 +107,27 @@ tests/              Vitest 測試
 
 ### 存檔格式（版本 1）
 
-| 欄位             | 內容                                                                                                                                                                                                           |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `cards`          | 學習項目 id → FSRS 卡片（日期存成 ISO 字串）                                                                                                                                                                   |
-| `tasks`          | `<單元>/<任務>` → 最佳星星數、遊玩次數和聽力加量聽完的次數（`heard`，沒聽過就沒有這欄）                                                                                                                        |
-| `coins`          | 金幣                                                                                                                                                                                                           |
-| `streak`         | 連續天數和最後日期                                                                                                                                                                                             |
-| `lastPlayedDate` | 最後遊玩日期                                                                                                                                                                                                   |
-| `daily`          | 當天的答題數、答對數、完成任務數、單字快練學的新字數（`sprintNew`）、今日複習答的題數（`reviewed`）、聽力加量聽完的場景數（`listened`）                                                                        |
-| `history`        | 最近 120 天，每天一筆（key 是 YYYY-MM-DD）：當天的各項數字和 `met`（每日目標是否全部達成，達成過就一直算達成）。每次存檔（`commitSave`）都更新今天那一筆；舊存檔沒有這欄，讀成空的                             |
-| `route`          | 路線：`kind` 是 `normal` 或 `sprint`，`start` 是最近一次選衝刺的日期（YYYY-MM-DD，沒選過是 null）；`weeks` 是延長後的週數（沒有就是 12），`askedOn` 是最近一次問要不要延長的日期；舊存檔沒有這欄，讀成一般路線 |
-| `checkpoints`    | 玩家輸入的 ETS 練習題分數，依日期排序：`{ date, listening, reading }`，分數 5～495、5 的倍數；最多留 50 筆；舊存檔沒有這欄，讀成空的                                                                           |
+| 欄位             | 內容                                                                                                                                                                                                                                                                                                     |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `cards`          | 學習項目 id → FSRS 卡片（日期存成 ISO 字串）                                                                                                                                                                                                                                                             |
+| `tasks`          | `<單元>/<任務>` → 最佳星星數、遊玩次數、聽力加量聽完的次數（`heard`，沒聽過就沒有這欄），和跟著說的最佳成績（`spoken`：`{ score, lines }`，分數是 0～100 的整數、至少 1 句；沒有就沒有這欄）                                                                                                             |
+| `coins`          | 金幣                                                                                                                                                                                                                                                                                                     |
+| `streak`         | 連續天數和最後日期                                                                                                                                                                                                                                                                                       |
+| `lastPlayedDate` | 最後遊玩日期                                                                                                                                                                                                                                                                                             |
+| `daily`          | 當天的答題數、答對數、完成任務數、單字快練學的新字數（`sprintNew`）、今日複習答的題數（`reviewed`）、聽力加量聽完的場景數（`listened`）、文法快練答的題數（`grammar`）                                                                                                                                   |
+| `history`        | 最近 120 天，每天一筆（key 是 YYYY-MM-DD）：當天的各項數字（含 `grammar`）和 `met`（每日目標是否全部達成，達成過就一直算達成）。每次存檔（`commitSave`）都更新今天那一筆；舊存檔沒有這欄，讀成空的                                                                                                       |
+| `route`          | 路線：`kind` 是 `normal` 或 `sprint`，`start` 是最近一次選衝刺的日期（YYYY-MM-DD，沒選過是 null）；`weeks` 是延長後的週數（沒有就是 12），`askedOn` 是最近一次問要不要延長的日期；舊存檔沒有這欄，讀成一般路線                                                                                           |
+| `checkpoints`    | 依日期排序的分數：`{ date, listening, reading }`，分數 5～495、5 的倍數；最多留 50 筆；舊存檔沒有這欄，讀成空的。來自結業考的分數多了 `source: "exam"` 和 `act`（1～4），重考時多了 `retake: true`（看過題目，分數可能偏高）；沒有這些欄位的就是玩家輸入的 ETS 練習題分數                                |
+| `mistakes`       | 最常錯：日期（YYYY-MM-DD）→ 標籤 → `[答錯次數, 作答次數]`。標籤是 `p:`（相似音組）、`e:`（錯誤類型）、`k:`（題型）、`g:`（文法點）開頭；只留最近 120 天，每天最多 60 個標籤（答錯多的留下）；舊存檔沒有這欄，讀成空的                                                                                    |
+| `exams`          | 每場結業考（`exam1`～`exam4`）：`attempts`（考過幾次）、`lastDate`、`listening`、`reading`（估計分數，5～495、5 的倍數）、`seen`（題目 id → 看過幾次，最多 1000 題）。另有 `calibration`：`listening`、`reading`（依 ETS 分數校正的數字，各在 ±50 之內）和 `pairs`（配對過幾次，至少 1）；沒有就沒有這欄 |
+| `examRun`        | 進行中的一場結業考：`exam`、`seed`、`startedOn`、`done`（已完成的段，例如 `s1`）、`answers`（題號 → 選項，例如 `o2`）。超過 7 天就丟掉；沒有進行中的就沒有這欄                                                                                                                                           |
 
 規則：
 
 - 讀檔時驗證每個欄位；JSON 壞掉時用新存檔，卡片數值不合法時換成新卡，**永遠不會因為存檔而讓遊戲出錯**。
 - 每答一題就存檔。
-- 開兩個分頁時：另一個分頁寫入會讓這個分頁重新讀取；寫入前若發現被別的分頁改過，會合併（卡片取較新的、星星取較高的、金幣取較多的）。
+- 讀檔時，不合法的新欄位（跟著說的成績、最常錯的標籤、結業考的分數和 `examRun`）會被丟掉，其餘照常讀。
+- 開兩個分頁時：另一個分頁寫入會讓這個分頁重新讀取；寫入前若發現被別的分頁改過，會合併（卡片取較新的、星星取較高的、金幣取較多的）。新欄位的合併規則：跟著說取分數較高的一次（同分取句數較多的）；最常錯的次數取較大的，每天仍最多 60 個標籤；結業考取 `attempts` 較多的、分數取日期較晚的那一次、`seen` 取較大的次數；校正取配對次數較多的那份；進行中的一場取完成段數較多的那份（同一場才比）；每日和 `history` 的數字（含 `grammar`）取較大的。
 - 匯出／匯入存檔代碼的函式已寫好，還沒有介面。
 
 ## 安全
@@ -129,10 +165,11 @@ tests/              Vitest 測試
 
 | 指令                                          | 作用                                                                                                                                                                                                                             |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `node --env-file=.env scripts/gen-audio.mjs`  | 產生發音音檔；加 `--dry-run` 只預演、不花錢（見 [audio.md](audio.md)）                                                                                                                                                           |
+| `node --env-file=.env scripts/gen-audio.mjs`  | 產生發音音檔，包括各單元、結業考（`src/data/exams`）、句子池（`src/data/sentences`）和應答題（`src/data/responds`）；加 `--dry-run` 只預演、不花錢（見 [audio.md](audio.md)）                                                    |
 | `node --env-file=.env scripts/spike-tts.mjs`  | 聲線比較實驗；加 `--dry-run` 只列出計畫                                                                                                                                                                                          |
 | `node scripts/check-font-glyphs.mjs <字型檔>` | 檢查字型缺哪些字（見 [visual-style.md](visual-style.md)）                                                                                                                                                                        |
 | `npx knip`                                    | 找沒用到的檔案、export 和套件（設定在 `knip.json`：`scripts/*.mjs` 是入口，只在同一個檔案用到的 export 不算）；knip 沒裝進專案，npx 會臨時下載                                                                                   |
+| `node scripts/sprint-table.mjs`               | 產生 sprint.md 的 12 週表（實際是執行 `tests/sprintSchedule.test.ts`，設定 `SPRINT_TABLE=print`）；結果放在 sprint.md 的 `<!-- sprint-table:start -->` 和 `<!-- sprint-table:end -->` 之間（2026-11-24 已做）                    |
 | `node scripts/vocab-report.mjs`               | 依遊玩順序列出每個任務的用字、難度分數和違反平滑規則的地方；加 `--json` 輸出 JSON、`--starter=N` 把 NGSL 前 N 名當成玩家一開始就認得的字（預設 100）。只是報表，結束碼一律 0（見 [curriculum.md](curriculum.md) 的「用字分析」） |
 
 ## 環境變數
@@ -161,6 +198,11 @@ tests/              Vitest 測試
 - 小劇場由 `tests/stageArt.test.ts`、`tests/stageState.test.ts` 檢查每一個有舞台的單元（見 [scene-stage.md](scene-stage.md) 的「測試」）。
 - 2026-11-22 第一幕做完時：34 個測試檔、1,186 個測試，全部通過（`npm test`）。
 - 2026-11-23 第二幕做完時：1,588 個測試全部通過；型別檢查、ESLint、Prettier 和正式建置也都沒有錯誤。`knip` 沒有跑（專案沒有安裝，也下載不到）。
+- 2026-11-24（已做）新增的測試：結業考的題目檔和計分、最常錯、跟著說、文法快練、聽力加量的播放節奏。每一類的對應檔案：
+  - 結業考：`tests/validateExam.test.ts`（手寫題檔的格式、草稿、答案位置不超過 40%）、`tests/examContent.test.ts`（真的題目檔：只用教過的字、圖存在、不抄 5 字以上的句子）、`tests/exam.test.ts`、`tests/examRunner.test.ts`、`tests/examResult.test.ts`、`tests/examScore.test.ts`
+  - 詞庫和句子：`tests/validateLexicon.test.ts`、`tests/lexiconContent.test.ts`（`LEXICON_FILE` 只檢查一個檔，`LEXICON_ALLOW_EMPTY=1` 允許空檔，`LEXICON_STRICT=1` 嚴格檢查）、`tests/sentencePool.test.ts`、`tests/sentenceGen.test.ts`、`tests/examGen.test.ts`、`tests/examPool.test.ts`
+  - 其他：`tests/mistakes.test.ts`、`tests/saveMistakes.test.ts`、`tests/grammarDrill.test.ts`、`tests/grammar.test.ts`、`tests/spokenScore.test.ts`、`tests/listenLoop.test.ts`、`tests/zhMode.test.ts`、`tests/sprintSchedule.test.ts`
+  - 測試數這次沒有重新統計，以 `npm test` 的結果為準。
 
 ### 手機上測錄音
 
