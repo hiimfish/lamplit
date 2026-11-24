@@ -262,6 +262,8 @@ export function TownScreen() {
   const units = act ? actUnits(act) : [];
   /** The location whose tasks are listed; undefined while the act's locations are shown. */
   const place = units.find((unit) => unit.id === town?.unitId);
+  /** 選關 is open: the act tabs and the places (always, while a place's tasks show). */
+  const picking = !!place || town?.picking === true;
 
   // After a tile or the back key is gone, focus moves to the heading of the new view.
   useRefocus(headingRef, [actIndex, place?.id]);
@@ -322,9 +324,17 @@ export function TownScreen() {
       ? next.task
       : (sceneUnit.tasks[firstNewTask(save, sceneUnit)] ?? sceneUnit.tasks.at(-1)));
 
+  /** Opens an act (and a place) in 選關. */
   const show = (index: number, unitId?: string) => {
     playSfx('click');
-    appStore.set({ town: unitId ? { act: index, unitId } : { act: index } });
+    appStore.set({
+      town: unitId ? { act: index, unitId, picking: true } : { act: index, picking: true },
+    });
+  };
+  /** Folds 選關 away, back to the 下一關 card of this act. */
+  const fold = () => {
+    playSfx('click');
+    appStore.set({ town: { act: actIndex } });
   };
   const startTask = (unitId: string, taskId: string) => {
     playSfx('click');
@@ -346,7 +356,9 @@ export function TownScreen() {
       : idle && examDue
         ? startExam
         : undefined;
-  backRef.current = place && !settingsOpen && !howOpen ? () => show(actIndex) : undefined;
+  // Esc: from a place's tasks back to its act, then 選關 folds away.
+  backRef.current =
+    settingsOpen || howOpen ? undefined : place ? () => show(actIndex) : picking ? fold : undefined;
   // The act tabs are one radio group: ←/→ (or ↑/↓) move the choice and the focus.
   const onActKey = (e: KeyboardEvent) => {
     const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
@@ -360,9 +372,7 @@ export function TownScreen() {
     );
   };
 
-  // Only a place's tasks have a key above them (回第N幕). The act view has no 今日複習 or 下一關
-  // keys (2026-11-25, the user removed them): 今日複習 is in 每日目標, and the next task is the
-  // lit place tile, 點一下繼續 on the title screen and 下一關 after a task; Enter still opens it.
+  // The key above the list: 回第N幕 over a place's tasks, 收起 over the act tabs.
   const actions = place ? (
     <div class="town-actions">
       <button class="pixel-button back-key" onClick={() => show(actIndex)} data-testid="back">
@@ -370,7 +380,59 @@ export function TownScreen() {
         <KeyCap k="Back" />
       </button>
     </div>
-  ) : null;
+  ) : (
+    <div class="town-actions">
+      <button class="pixel-button back-key" onClick={fold} data-testid="pick-fold">
+        收起選關
+        <KeyCap k="Back" />
+      </button>
+    </div>
+  );
+
+  // The card while 選關 is folded away (2026-11-25, the user's call): the act, its stars, what
+  // 下一關 is, a big 開始 and 選關. The act tabs and places only show once 選關 is pressed.
+  const progress = progressOf(save, units);
+  const nextCard = (
+    <div class="town-next" data-testid="town-next">
+      <p class="town-next-act">
+        <span>
+          <span class="town-chip">第{act.no}幕</span>
+          {act.title}
+        </span>
+        {units.length > 0 && <StarCount progress={progress} />}
+      </p>
+      <p class="town-next-what" data-testid="town-next-what">
+        {units.length === 0
+          ? '即將開幕'
+          : before
+            ? `玩完第${before.no}幕或考過跳級考就會打開`
+            : next
+              ? `下一關：${next.unit.title}・${next.task.title}`
+              : examDue
+                ? `下一步：第${act.no}幕結業考`
+                : '這一幕全部完成了！'}
+      </p>
+      <div class="town-next-keys">
+        {(next || examDue) && (
+          <button
+            class="pixel-button primary town-go"
+            onClick={() => (next ? startTask(next.unit.id, next.task.id) : startExam())}
+            data-testid="town-go"
+          >
+            {next ? '開始' : '開始結業考'}
+            <KeyCap k="Enter" />
+          </button>
+        )}
+        <button
+          class="pixel-button town-pick"
+          onClick={() => show(actIndex)}
+          data-testid="town-pick"
+        >
+          選關
+        </button>
+      </div>
+    </div>
+  );
 
   const top = (
     <div
@@ -431,20 +493,6 @@ export function TownScreen() {
             </button>
           </span>
         </div>
-        {/* 開始: the scene shows where 下一關 is; the key in its corner goes in (Enter too). */}
-        {!place && (next || examDue) && (
-          <button
-            class="pixel-button primary town-go"
-            onClick={() => (next ? startTask(next.unit.id, next.task.id) : startExam())}
-            data-testid="town-go"
-            aria-label={
-              next ? `開始：${next.unit.title}・${next.task.title}` : `開始第${act.no}幕結業考`
-            }
-          >
-            開始
-            <KeyCap k="Enter" />
-          </button>
-        )}
       </div>
       <NamePlate
         act={act}
@@ -469,8 +517,11 @@ export function TownScreen() {
             {actions}
             <TaskList unit={place} save={save} openAll={openAll} onStart={startTask} />
           </>
+        ) : !picking ? (
+          nextCard
         ) : (
           <>
+            {actions}
             <div class="act-tabs" role="radiogroup" aria-label="選一幕" onKeyDown={onActKey}>
               {TOWN.map((item, index) => (
                 <button
@@ -488,7 +539,6 @@ export function TownScreen() {
                 </button>
               ))}
             </div>
-            {actions}
             {openAll && (
               <p class="flow-note" data-testid="dev-note">
                 開發模式：所有關卡都開放（在設定裡關掉）。

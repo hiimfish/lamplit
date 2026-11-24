@@ -37,15 +37,6 @@
   border-right: 0;
 }
 
-/* 開始 in the scene's bottom-right corner, just over the name plate that says 下一關. */
-.pixel-button.town-go {
-  position: absolute;
-  right: calc(3 * var(--px));
-  bottom: calc(3 * var(--px));
-  margin: 0;
-  padding: var(--px) calc(10 * var(--px));
-}
-
 /* Over the scene: coins and streak on a paper chip (information), 設定 as a key. */
 .town-hud {
   position: absolute;
@@ -357,4 +348,42 @@
   :root[data-orientation='portrait'] .task-list {
     gap: calc(2 * var(--px));
   }
+}
+
+/*
+ * The 下一關 card while 選關 is folded away: the act and its stars, what comes next, then a
+ * big 開始 beside 選關.
+ */
+.town-next {
+  display: flex;
+  flex-direction: column;
+  gap: calc(4 * var(--px));
+}
+
+.town-next-act {
+  display: flex;
+  justify-content: space-between;
+  gap: calc(6 * var(--px));
+  margin: 0;
+  color: var(--ink);
+}
+
+.town-next-what {
+  margin: 0;
+  color: var(--ink);
+}
+
+.town-next-keys {
+  display: flex;
+  gap: calc(4 * var(--px));
+}
+
+.pixel-button.town-go {
+  flex: 1 1 auto;
+  min-height: calc(var(--tap) + 8px);
+}
+
+/* Folded, the card is alone in the panel: it sits in the middle instead of at the top. */
+.flow-card:has(> .town-next) {
+  justify-content: center;
 }

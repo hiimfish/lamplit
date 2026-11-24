@@ -53,7 +53,7 @@ export interface AppState {
    * its unit. Unset until the player picks one; the town then opens on the act
    * with the task to continue.
    */
-  town?: { act: number; unitId?: string };
+  town?: { act: number; unitId?: string; picking?: boolean };
   result?: ResultData;
   /** The last write to localStorage failed; cleared by the next one that works. */
   saveError?: boolean;
