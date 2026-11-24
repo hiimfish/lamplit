@@ -83,12 +83,15 @@ export function ExamReview({
         <p class="exam-review-picked" data-testid="exam-review-picked">
           你上次選的：{pickedText(item.question, item.picked)}
         </p>
-        <QuestionView
-          key={item.qid}
-          question={item.question}
-          onAnswer={next}
-          responseMode={responseMode}
-        />
+        {/* .practice, as in a task: a passage box gives way to the feedback and 繼續, so the card does not jump. */}
+        <div class="practice">
+          <QuestionView
+            key={item.qid}
+            question={item.question}
+            onAnswer={next}
+            responseMode={responseMode}
+          />
+        </div>
       </div>
     </div>
   );
