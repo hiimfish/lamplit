@@ -1,1 +1,734 @@
-{}
+{
+  "social": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["event"]
+      }
+    ]
+  },
+  "activity": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "activities"
+    }
+  },
+  "leader": {
+    "pos": "n",
+    "cls": "role",
+    "forms": {
+      "pl": "leaders"
+    }
+  },
+  "surprise": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "surprises"
+    }
+  },
+  "organize": {
+    "pos": "v",
+    "forms": {
+      "s3": "organizes",
+      "past": "organized",
+      "pp": "organized",
+      "ing": "organizing"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["event"]
+      }
+    ]
+  },
+  "occasion": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "occasions"
+    }
+  },
+  "theme": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "themes"
+    }
+  },
+  "anniversary": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "anniversaries"
+    }
+  },
+  "celebration": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "celebrations"
+    }
+  },
+  "round": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["object"]
+      }
+    ]
+  },
+  "stage": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "stages"
+    }
+  },
+  "speech": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "speeches"
+    }
+  },
+  "outdoor": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["event", "place"]
+      }
+    ]
+  },
+  "perfect": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["event", "place", "food", "object"]
+      }
+    ]
+  },
+  "location": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "locations"
+    }
+  },
+  "banquet": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "banquets"
+    }
+  },
+  "hall": {
+    "pos": "n",
+    "cls": "room",
+    "forms": {
+      "pl": "halls"
+    }
+  },
+  "venue": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "venues"
+    }
+  },
+  "fancy": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["place", "food", "event"]
+      }
+    ]
+  },
+  "serve": {
+    "pos": "v",
+    "forms": {
+      "s3": "serves",
+      "past": "served",
+      "pp": "served",
+      "ing": "serving"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["food", "drink"]
+      }
+    ]
+  },
+  "chef": {
+    "pos": "n",
+    "cls": "role",
+    "forms": {
+      "pl": "chefs"
+    }
+  },
+  "traditional": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["food", "event", "clothing"]
+      }
+    ]
+  },
+  "taste": {
+    "pos": "v",
+    "forms": {
+      "s3": "tastes",
+      "past": "tasted",
+      "pp": "tasted",
+      "ing": "tasting"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["food", "drink"]
+      }
+    ]
+  },
+  "beverage": {
+    "pos": "n",
+    "cls": "drink",
+    "forms": {
+      "pl": "beverages"
+    }
+  },
+  "ingredient": {
+    "pos": "n",
+    "cls": "food",
+    "forms": {
+      "pl": "ingredients"
+    }
+  },
+  "dish": {
+    "pos": "n",
+    "cls": "food",
+    "forms": {
+      "pl": "dishes"
+    }
+  },
+  "buffet": {
+    "pos": "n",
+    "cls": "food",
+    "forms": {
+      "pl": "buffets"
+    }
+  },
+  "vegetarian": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["food", "person"]
+      }
+    ]
+  },
+  "caterer": {
+    "pos": "n",
+    "cls": "role",
+    "forms": {
+      "pl": "caterers"
+    }
+  },
+  "win": {
+    "pos": "v",
+    "forms": {
+      "s3": "wins",
+      "past": "won",
+      "pp": "won",
+      "ing": "winning"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["object"]
+      }
+    ]
+  },
+  "recognize": {
+    "pos": "v",
+    "forms": {
+      "s3": "recognizes",
+      "past": "recognized",
+      "pp": "recognized",
+      "ing": "recognizing"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["person", "role"]
+      }
+    ]
+  },
+  "band": {
+    "pos": "n",
+    "cls": "person",
+    "forms": {
+      "pl": "bands"
+    }
+  },
+  "host": {
+    "pos": "n",
+    "cls": "role",
+    "forms": {
+      "pl": "hosts"
+    }
+  },
+  "award": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "awards"
+    }
+  },
+  "lucky": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person"]
+      }
+    ]
+  },
+  "prize": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "prizes"
+    }
+  },
+  "entertainment": {
+    "pos": "n",
+    "cls": "event",
+    "countable": false
+  },
+  "invitation": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "invitations"
+    }
+  },
+  "ceremony": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "ceremonies"
+    }
+  },
+  "story": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "stories"
+    }
+  },
+  "memory": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "memories"
+    }
+  },
+  "excellent": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "food", "event", "place", "object"]
+      }
+    ]
+  },
+  "crowd": {
+    "pos": "n",
+    "cls": "person",
+    "forms": {
+      "pl": "crowds"
+    }
+  },
+  "speaker": {
+    "pos": "n",
+    "cls": "device",
+    "forms": {
+      "pl": "speakers"
+    }
+  },
+  "tonight": {
+    "pos": "adv"
+  },
+  "photographer": {
+    "pos": "n",
+    "cls": "role",
+    "forms": {
+      "pl": "photographers"
+    }
+  },
+  "bowl": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "bowls"
+    }
+  },
+  "decorate": {
+    "pos": "v",
+    "forms": {
+      "s3": "decorates",
+      "past": "decorated",
+      "pp": "decorated",
+      "ing": "decorating"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["room", "place"]
+      }
+    ]
+  },
+  "microphone": {
+    "pos": "n",
+    "cls": "device",
+    "forms": {
+      "pl": "microphones"
+    }
+  },
+  "laugh": {
+    "pos": "v",
+    "forms": {
+      "s3": "laughs",
+      "past": "laughed",
+      "pp": "laughed",
+      "ing": "laughing"
+    },
+    "frames": [
+      {
+        "subj": ["person"]
+      }
+    ]
+  },
+  "treat": {
+    "pos": "other",
+    "skip": true
+  },
+  "wonderful": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["event", "food", "place", "person", "object"]
+      }
+    ]
+  },
+  "funny": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "document", "event"]
+      }
+    ]
+  },
+  "pleasure": {
+    "pos": "n",
+    "cls": "quality",
+    "countable": false
+  },
+  "joke": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "jokes"
+    }
+  },
+  "pour": {
+    "pos": "v",
+    "forms": {
+      "s3": "pours",
+      "past": "poured",
+      "pp": "poured",
+      "ing": "pouring"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["drink"]
+      },
+      {
+        "subj": ["person", "role"],
+        "obj": ["drink"],
+        "prep": {
+          "word": "into",
+          "cls": ["object"]
+        }
+      }
+    ]
+  },
+  "musician": {
+    "pos": "n",
+    "cls": "role",
+    "forms": {
+      "pl": "musicians"
+    }
+  },
+  "generous": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      }
+    ]
+  },
+  "guitar": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "guitars"
+    }
+  },
+  "relationship": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "relationships"
+    }
+  },
+  "imagine": {
+    "pos": "v",
+    "forms": {
+      "s3": "imagines",
+      "past": "imagined",
+      "pp": "imagined",
+      "ing": "imagining"
+    },
+    "frames": [
+      {
+        "subj": ["person"],
+        "obj": ["place", "event"]
+      }
+    ]
+  },
+  "dream": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "dreams"
+    }
+  },
+  "contribution": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "contributions"
+    }
+  },
+  "succeed": {
+    "pos": "v",
+    "forms": {
+      "s3": "succeeds",
+      "past": "succeeded",
+      "pp": "succeeded",
+      "ing": "succeeding"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      }
+    ]
+  },
+  "honor": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "honors"
+    },
+    "an": true
+  },
+  "outstanding": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role", "event", "food"]
+      }
+    ]
+  },
+  "truly": {
+    "pos": "other",
+    "skip": true
+  },
+  "impressive": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "event", "place", "food", "object"]
+      }
+    ]
+  },
+  "dedicated": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      }
+    ]
+  },
+  "achieve": {
+    "pos": "v",
+    "forms": {
+      "s3": "achieves",
+      "past": "achieved",
+      "pp": "achieved",
+      "ing": "achieving"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["quality"]
+      }
+    ]
+  },
+  "throughout": {
+    "pos": "other",
+    "skip": true
+  },
+  "encourage": {
+    "pos": "v",
+    "forms": {
+      "s3": "encourages",
+      "past": "encouraged",
+      "pp": "encouraged",
+      "ing": "encouraging"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["person"]
+      }
+    ]
+  },
+  "deserve": {
+    "pos": "v",
+    "forms": {
+      "s3": "deserves",
+      "past": "deserved",
+      "pp": "deserved",
+      "ing": "deserving"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["object"]
+      }
+    ]
+  },
+  "winner": {
+    "pos": "n",
+    "cls": "person",
+    "forms": {
+      "pl": "winners"
+    }
+  },
+  "congratulations": {
+    "pos": "other",
+    "skip": true
+  },
+  "admire": {
+    "pos": "v",
+    "forms": {
+      "s3": "admires",
+      "past": "admired",
+      "pp": "admired",
+      "ing": "admiring"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["person", "role"]
+      }
+    ]
+  },
+  "embarrassed": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person"]
+      }
+    ]
+  },
+  "praise": {
+    "pos": "v",
+    "forms": {
+      "s3": "praises",
+      "past": "praised",
+      "pp": "praised",
+      "ing": "praising"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["person", "role"]
+      }
+    ]
+  },
+  "pride": {
+    "pos": "n",
+    "cls": "quality",
+    "countable": false
+  },
+  "lines": {
+    "t1_5": {
+      "side": "question",
+      "qtype": "how-many"
+    },
+    "t1_6": {
+      "side": "answer",
+      "atype": "quantity"
+    },
+    "t2_5": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t2_6": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t3_4": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t3_5": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t5_1": {
+      "side": "question",
+      "qtype": "request"
+    },
+    "t5_2": {
+      "side": "answer",
+      "atype": "universal"
+    },
+    "t9_6": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t9_7": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t9_10": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t9_11": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t9_12": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t9_13": {
+      "side": "answer",
+      "atype": "yes-no"
+    }
+  }
+}
