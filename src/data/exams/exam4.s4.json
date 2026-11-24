@@ -3,277 +3,298 @@
   "section": "s4",
   "passages": [
     {
-      "id": "s4_r1",
+      "id": "s4_p1",
       "form": "A",
-      "kind": "notice",
-      "title": "Memo: Next Year's Budget",
+      "kind": "email",
+      "title": "Subject: New way to claim travel costs",
       "lines": [
-        "To: All team leaders",
-        "From: Ms. Park, Finance",
-        "Our budget meeting will be held on Monday, October 6, in the main conference room. Please send me your budget plans by Thursday, October 2.",
-        "This year, the company will spend about 8 percent less on travel. Teams may still take business trips, but every trip needs approval from your manager first. We ask you to use video calls when a short meeting is enough.",
-        "On the other hand, the company will spend more on training. Each employee can take one training course next year, and the company will pay the full fee. Please choose a course that helps your work.",
-        "Office supplies are also changing. Instead of ordering paper and pens one by one, each team will order once a month from the purchasing office.",
-        "If you have questions about the new rules, please ask me before the meeting. I would like every plan to be correct and clear.",
-        "Thanks for your help, everyone."
+        "To: All staff",
+        "From: Grace Liu, Finance Department",
+        "Starting on July 1, we will change the way travel costs are paid back. Until now, employees have filled out a paper form and waited about three weeks for their money. Under the new system, you will enter each cost in our online expense tool and add a photo of the receipt. Most requests should then be paid within five working days.",
+        "Please note a few rules. Taxi fares are paid back only when no train or bus is available, or when you travel after 10 p.m. Hotel costs are covered up to $150 a night. Meals are covered up to $40 a day, but wine is not included. Any single cost over $500 must be approved by your manager before you pay it.",
+        "The finance team will hold two short training sessions on the new tool, on June 24 and June 26, both at 3 p.m. in Room 410. Each session will last about thirty minutes. If you cannot attend either one, a simple guide will be posted on the company website by June 20.",
+        "Paper forms will still be accepted for trips taken before July 1, as long as they reach us by July 15. After that date, all requests must go through the online tool.",
+        "If you have any questions, please call me at extension 2245."
       ],
       "questions": [
         {
-          "en": "Why did Ms. Park write this memo?",
-          "zh": "朴女士為什麼寫這份備忘錄？",
+          "en": "What is the purpose of the email?",
+          "zh": "這封電子郵件的目的是什麼？",
           "options": [
-            "To announce a new office for the finance team",
-            "To invite team leaders to a training course",
-            "To ask for budget plans and explain new rules",
-            "To report last year's sales to the managers"
+            "To explain a new way of getting travel costs paid back",
+            "To announce a new limit on business trips",
+            "To invite managers to approve large costs",
+            "To remind staff that a website will be updated"
+          ],
+          "answer": 0
+        },
+        {
+          "en": "Under the new rules, which of the following will NOT be paid back?",
+          "zh": "在新規定下，下列哪一項不會被報銷？",
+          "options": [
+            "A $120 hotel room for one night",
+            "A taxi ride back to the hotel at 11 p.m.",
+            "A glass of wine at a dinner with a client",
+            "A $35 lunch on a business trip"
           ],
           "answer": 2
         },
         {
-          "en": "What will the company spend less on next year?",
-          "zh": "公司明年在什麼方面會花得比較少？",
-          "options": ["Business trips", "Training courses", "Office supplies", "Meeting rooms"],
-          "answer": 0
-        },
-        {
-          "en": "What should team leaders do by Thursday, October 2?",
-          "zh": "團隊主管在十月二日星期四以前應該做什麼？",
+          "en": "What is suggested about an employee who returned from a trip on June 28?",
+          "zh": "關於一位六月二十八日出差回來的員工，文中暗示了什麼？",
           "options": [
-            "Ask a manager to approve a trip",
-            "Order paper and pens for the team",
-            "Choose a training course",
-            "Send their budget plans to Ms. Park"
+            "The employee must attend a session in Room 410.",
+            "The employee can still send in a paper form.",
+            "The employee will be paid within five working days.",
+            "The employee needs a manager to approve every cost."
           ],
-          "answer": 3
+          "answer": 1
         }
       ]
     },
     {
-      "id": "s4_r2",
+      "id": "s4_p2",
       "form": "A",
       "kind": "ad",
-      "title": "Now Hiring: Marketing Assistant",
+      "title": "Now Hiring: Marketing Coordinator",
       "lines": [
-        "Our food company is looking for a marketing assistant to join our team in the city center office.",
-        "The assistant will help plan advertising campaigns, write emails to customers, and make reports about our sales. He or she will work closely with the marketing manager, Mr. Evans.",
-        "Requirements: A degree in business or a related subject is preferred. At least two years of experience in marketing is required. Good writing skills and the ability to work with a team are important. Knowing a second language is a plus, but it is not required.",
-        "We offer a competitive salary, health insurance, and 15 days of paid vacation each year. New employees also receive training in their first month.",
-        "To apply, please send your resume and a short letter about yourself to the human resources office by November 15. Do not call the office. Only people chosen for an interview will be contacted."
+        "Our company, Norwood Lighting, makes desk and floor lamps. We are seeking a marketing coordinator for our headquarters in Taichung. This job is full time, Monday to Friday, 9 a.m. to 6 p.m.",
+        "The coordinator will plan our social media campaigns, prepare flyers for trade shows, and work closely with our design team. He or she will also manage a small budget for online ads and report the results to the marketing manager every month.",
+        "Applicants should have at least two years of experience in marketing and be fluent in both Chinese and English. Experience with survey tools is desirable but not required. Above all, we are looking for someone curious and energetic who enjoys sharing new ideas.",
+        "We offer a good salary, a yearly bonus based on performance, and fourteen days of paid leave. In their first year, new employees can also spend up to $500 on training courses, paid for by the company.",
+        "To apply, please email your résumé and a short cover letter to our HR department by Friday, May 9. Applicants who are selected will be invited to a first interview the following week. The second interview will include a short presentation on a product of your choice."
       ],
       "questions": [
         {
-          "en": "What will the new assistant do?",
-          "zh": "新的助理要做什麼？",
+          "en": "The word \"desirable\" in paragraph 3 is closest in meaning to",
+          "zh": "第三段的 \"desirable\" 意思最接近",
           "options": [
-            "Drive trucks to the stores",
-            "Help plan advertising campaigns",
-            "Cook food in the kitchen",
-            "Repair computers in the office"
-          ],
-          "answer": 1
-        },
-        {
-          "en": "Which of the following is NOT required for the job?",
-          "zh": "下列哪一項不是這份工作的必要條件？",
-          "options": [
-            "Two years of marketing experience",
-            "Good writing skills",
-            "The ability to work with a team",
-            "Knowing a second language"
+            "necessary",
+            "easy to learn",
+            "popular",
+            "helpful to have"
           ],
           "answer": 3
         },
         {
-          "en": "How can people apply for the job?",
-          "zh": "大家要怎麼應徵這份工作？",
+          "en": "What is NOT mentioned as a duty of the coordinator?",
+          "zh": "下列哪一項沒有被列為這個職位的工作內容？",
           "options": [
-            "By sending a resume and a letter by email",
-            "By calling the office on November 15",
-            "By visiting the marketing manager",
-            "By filling out a form in a store"
+            "Planning online campaigns",
+            "Interviewing new staff",
+            "Making materials for trade shows",
+            "Reporting on the results of ads"
+          ],
+          "answer": 1
+        },
+        {
+          "en": "What will applicants who reach the second interview probably need to do?",
+          "zh": "進入第二次面試的應徵者可能需要做什麼？",
+          "options": [
+            "Give a talk about a product",
+            "Bring a survey they designed",
+            "Send another cover letter",
+            "Take a Chinese language test"
           ],
           "answer": 0
         }
       ]
     },
     {
-      "id": "s4_r3",
+      "id": "s4_p3",
       "form": "A",
       "kind": "notice",
-      "title": "Notice: Customer Service Training",
+      "title": "Notice: Our Kaohsiung office is moving",
       "lines": [
-        "The human resources office will hold a customer service training in the main hall on Wednesday, March 12. The session will begin at 9:00 a.m. and end at 4:00 p.m.",
-        "Mr. Ruiz, a teacher from the training center, will lead the day. In the morning, he will talk about how to listen to customers and answer their complaints. In the afternoon, staff will practice in small groups.",
-        "Lunch will be provided at noon. If you cannot eat certain foods, please tell Ms. Kim by Friday, March 7.",
-        "All store staff must attend. Managers will make sure that someone is still available to help customers at each store, so please check your store schedule. If you cannot come on March 12, you may join the same training on Thursday, April 3, but you must sign up first.",
-        "After the training, every person will receive a certificate. Please bring paper and a pen."
+        "From Monday, October 6, our Kaohsiung branch will move from the Harbor Building to a larger office at 88 Zhongshan Road. The new office is only a short walk from Central Park subway station and has ample parking in the basement, so it will be much easier for clients to visit us.",
+        "The move will take place over the weekend of October 4 and 5. A moving company will pack all furniture and computers on Friday afternoon, so please clear your desk and put your personal items in the boxes provided by 3 p.m. that day. Each box should be marked with your name and team. Anything left in the old office after Friday will be thrown away.",
+        "Please note that the phone lines and the internet will be unavailable from Friday at 5 p.m. until Monday at 9 a.m. If you expect an urgent call from a client during this time, give the client your mobile number in advance.",
+        "On Monday morning, the office manager, Mr. Tsai, will be at the front desk from 8:30 to give everyone a new key card. A short welcome breakfast will be served in the kitchen on the fifth floor. Thank you for your patience during the move. We hope you enjoy the new space."
       ],
       "questions": [
         {
-          "en": "What will staff do in the afternoon?",
-          "zh": "員工下午要做什麼？",
+          "en": "What is mentioned about the new office?",
+          "zh": "文中提到新辦公室的什麼事？",
           "options": [
-            "Listen to a talk by Ms. Kim",
-            "Practice in small groups",
-            "Visit a store with the managers",
-            "Take a test for a certificate"
-          ],
-          "answer": 1
-        },
-        {
-          "en": "What should a person with a food problem do?",
-          "zh": "有食物限制的人應該怎麼做？",
-          "options": [
-            "Bring lunch from home on March 12",
-            "Sign up for the training on April 3",
-            "Tell Ms. Kim before March 7",
-            "Ask Mr. Ruiz after the morning talk"
+            "It is in the Harbor Building.",
+            "It has a kitchen on every floor.",
+            "It is close to public transportation.",
+            "It will first open on a Saturday."
           ],
           "answer": 2
         },
         {
-          "en": "What must people do to join the training on April 3?",
-          "zh": "想參加四月三日的訓練，必須做什麼？",
+          "en": "The word \"clear\" in paragraph 2 is closest in meaning to",
+          "zh": "第二段的 \"clear\" 意思最接近",
           "options": [
-            "Ask for a new certificate",
-            "Pay the full fee",
-            "Bring paper to the office",
-            "Sign up first"
+            "explain",
+            "check",
+            "mark",
+            "empty"
           ],
           "answer": 3
+        },
+        {
+          "en": "What is suggested about the weekend of October 4 and 5?",
+          "zh": "關於十月四日和五日那個週末，文中暗示了什麼？",
+          "options": [
+            "Clients may not be able to reach the office by phone.",
+            "Employees will have to work in the new office.",
+            "Mr. Tsai will give out new key cards.",
+            "A breakfast will be served in the old office."
+          ],
+          "answer": 0
         }
       ]
     },
     {
-      "id": "s4_r4",
+      "id": "s4_p4",
       "form": "B",
       "kind": "email",
-      "title": "Subject: Our Summer Campaign",
+      "title": "Subject: Results of our customer survey",
       "lines": [
-        "Dear team,",
-        "I am happy to tell you about our summer campaign for the new Cloud Lamp series. The campaign will start on April 1 and run for six weeks.",
-        "There are three parts. First, we will send an email to all our customers with a discount of 15 percent for the first two weeks. Second, we will put ads on local radio and on our website. Third, stores that sell our lamps will get a poster and a small display for the front of the store.",
-        "The total budget for the campaign is $20,000. About half will go to radio advertising. The rest will pay for the emails, the posters, and the new website pages.",
-        "To make this campaign a success, I need two things from you. Please send me your ideas for the poster by March 10. Also, the sales team should make a list of the stores that want a display by March 15.",
-        "Our first meeting about the campaign is on Tuesday at 3:00 p.m. in room 204. I hope to see you there.",
-        "Best regards,",
-        "Ms. Chen, Marketing Manager"
+        "To: Marketing team",
+        "From: Daniel Kao",
+        "Hi everyone,",
+        "The results of last month's online survey are in, and I want to share the main points before our meeting on Thursday. We received 1,240 responses, nearly twice as many as we expected, so thank you all for sharing the link so widely.",
+        "First, price is clearly the most important factor. About 60 percent of respondents said they would not pay more than $50 for a desk lamp. Design came second, and brand name was third. Also, people under 30 cared about design much more than older buyers did.",
+        "Second, most respondents said they learn about new products from short videos online, not from magazines. Only 8 percent had seen our magazine ads this year, even though those ads used about a third of our budget.",
+        "Based on these results, I suggest two changes for our next campaign. We should move most of the magazine budget to online videos, and we should consider a smaller, cheaper version of our desk lamp for younger buyers.",
+        "Please read the full report, which I have attached, and bring your ideas to Thursday's meeting. Ms. Ortiz from the finance team will join us to discuss the budget.",
+        "Best, Daniel"
       ],
       "questions": [
         {
-          "en": "Why did Ms. Chen send this email?",
-          "zh": "陳女士為什麼寄這封電子郵件？",
+          "en": "What is indicated about the survey?",
+          "zh": "文中提到這份調查的什麼事？",
           "options": [
-            "To thank customers for their orders",
-            "To explain a new campaign and ask for help",
-            "To offer a job in the marketing office",
-            "To report the cost of last summer"
+            "It was handed out to shoppers in stores.",
+            "More people answered it than the team had expected.",
+            "Most of the people who answered were under 30.",
+            "It will be sent out again before Thursday."
           ],
           "answer": 1
         },
         {
-          "en": "What will customers get during the first two weeks?",
-          "zh": "前兩週顧客可以得到什麼？",
-          "options": ["A free poster", "A small lamp", "A radio", "A discount"],
+          "en": "The word \"consider\" in paragraph 4 is closest in meaning to",
+          "zh": "第四段的 \"consider\" 意思最接近",
+          "options": [
+            "pay for",
+            "respect",
+            "remember",
+            "think about"
+          ],
           "answer": 3
         },
         {
-          "en": "What should the sales team do by March 15?",
-          "zh": "業務團隊在三月十五日以前應該做什麼？",
+          "en": "What is suggested about the company's magazine ads?",
+          "zh": "關於公司的雜誌廣告，文中暗示了什麼？",
           "options": [
-            "List the stores that want a display",
-            "Send ideas for the poster",
-            "Write emails to customers",
-            "Choose a room for the meeting"
+            "They were seen by most respondents.",
+            "They were designed for people under 30.",
+            "They cost a lot but reached few people.",
+            "They will be used again in the next campaign."
           ],
-          "answer": 0
+          "answer": 2
         }
       ]
     },
     {
-      "id": "s4_r5",
+      "id": "s4_p5",
       "form": "B",
       "kind": "notice",
-      "title": "Notice: Factory Visit for New Employees",
+      "title": "Notice: Visitor Rules for the Assembly Floor",
       "lines": [
-        "All new employees will visit our main factory on Friday, June 6. The bus will leave from the front of the head office at 8:30 a.m. and come back at about 3:00 p.m.",
-        "At the factory, Mr. Okafor, the production manager, will show you how our products are made. You will see the machines, the packing area, and the warehouse. You will also meet some of the workers who have been here for many years.",
-        "For your safety, please follow these rules. Wear strong shoes. The factory will give each visitor a hat at the door. Photos are not allowed inside the building.",
-        "There will be a short lunch in the factory restaurant. After lunch, you will have time to ask questions.",
-        "If you cannot join the visit, please tell Ms. Torres in the human resources office by Monday, June 2. A second visit will be held in July for people who cannot come."
+        "Starting next Monday, all visitors to the Riverside factory, including staff from our head office, must follow the rules below. These rules were updated after a safety inspection last month.",
+        "Before you enter the assembly floor, please sign in at the security desk and watch a short safety video. The video takes about ten minutes. You will then receive a visitor badge, which must be worn at all times.",
+        "Every visitor must wear a hard hat and safety glasses, which are provided at the entrance. Closed shoes are required, and visitors without them will not be allowed on the floor. Please stay inside the yellow lines and do not touch any machines or parts, even if they are not running.",
+        "Photos are not permitted on the assembly floor, because some of our products have not been launched yet. If you need pictures for a report or a presentation, please ask the communications office. It can provide approved photos within two working days.",
+        "Groups of more than six people must book their visit at least three days in advance by calling extension 310. Each group will be accompanied by a member of the safety team.",
+        "Thank you for helping us keep our factory safe."
       ],
       "questions": [
         {
-          "en": "What is NOT allowed inside the factory?",
-          "zh": "工廠裡面不可以做什麼？",
-          "options": ["Asking questions", "Meeting the workers", "Taking photos", "Wearing a hat"],
+          "en": "What is NOT required of every visitor?",
+          "zh": "下列哪一項不是每位訪客都必須做的？",
+          "options": [
+            "Booking the visit three days in advance",
+            "Watching a safety video",
+            "Wearing a visitor badge",
+            "Wearing safety glasses"
+          ],
+          "answer": 0
+        },
+        {
+          "en": "The word \"permitted\" in paragraph 4 is closest in meaning to",
+          "zh": "第四段的 \"permitted\" 意思最接近",
+          "options": [
+            "printed",
+            "needed",
+            "allowed",
+            "checked"
+          ],
           "answer": 2
         },
         {
-          "en": "Where will the bus leave from?",
-          "zh": "巴士要從哪裡出發？",
+          "en": "What would a manager who needs photos of the assembly floor for a presentation most likely do?",
+          "zh": "需要廠區照片做簡報的主管，最可能會怎麼做？",
           "options": [
-            "The door of the factory",
-            "The human resources office",
-            "The factory restaurant",
-            "The front of the head office"
-          ],
-          "answer": 3
-        },
-        {
-          "en": "What should an employee do if he or she cannot go on June 6?",
-          "zh": "員工如果六月六日不能去，應該怎麼做？",
-          "options": [
-            "Tell Ms. Torres by June 2",
-            "Go to the head office on Friday",
-            "Ask Mr. Okafor for a hat",
-            "Call the bus driver on Friday"
-          ],
-          "answer": 0
-        }
-      ]
-    },
-    {
-      "id": "s4_r6",
-      "form": "B",
-      "kind": "notice",
-      "title": "Announcement: Our New Branch Office",
-      "lines": [
-        "Our travel company will open a new branch office in Riverside on Monday, September 8. The office is on Maple Street, next to the post office.",
-        "The Riverside office will have six employees. Ms. Wong, who has worked at our head office for five years, will be the manager. She will lead a team of travel agents, who will help customers choose and book trips.",
-        "The office will be open from 9:00 a.m. to 6:00 p.m. on weekdays and from 10:00 a.m. to 2:00 p.m. on Saturdays. It will be closed on Sundays.",
-        "To celebrate the opening, we will hold a small party on Saturday, September 13, from 11:00 a.m. Visitors can meet the staff, enjoy free drinks, and enter a prize drawing for a free weekend trip. Everyone in the neighborhood is welcome.",
-        "Employees who want to work in the new office may talk to Ms. Wong or to the human resources office before August 22.",
-        "We thank all our customers for their support, and we look forward to serving you in Riverside."
-      ],
-      "questions": [
-        {
-          "en": "What will Ms. Wong most likely do at the new office?",
-          "zh": "王女士在新辦公室最可能做什麼？",
-          "options": [
-            "Drive customers to the party",
-            "Lead a team of travel agents",
-            "Clean the office on Sundays",
-            "Repair the computers"
+            "Take pictures from inside the yellow lines",
+            "Contact the communications office",
+            "Ask the safety team member during the tour",
+            "Call extension 310"
           ],
           "answer": 1
-        },
+        }
+      ]
+    },
+    {
+      "id": "s4_p6",
+      "form": "B",
+      "kind": "email",
+      "title": "Subject: Congratulations to Ms. Ramos",
+      "lines": [
+        "To: All staff",
+        "From: Henry Walsh, President",
+        "I am pleased to announce that Ms. Maria Ramos has been promoted to Director of Operations. She will start in her new role on March 3, when she replaces Paul Chen, who is retiring after 22 years with the company.",
+        "Ms. Ramos joined us nine years ago as a junior buyer. Since then, she has worked in purchasing, at the factory, and most recently as manager of our Osaka branch. Under her leadership, the Osaka branch became the office with the highest profit in just three years, and its sales grew by 40 percent last year alone.",
+        "In her new role, Ms. Ramos will oversee our two factories and our delivery network. One of her first tasks will be to streamline the way orders move from our stores to the factories, which currently takes too long.",
+        "Ms. Ramos will move back to headquarters at the end of February. Until a new branch manager is chosen, Ken Mori, the assistant manager in Osaka, will lead the branch.",
+        "There will be a farewell party for Paul on Friday, February 28, at 6 p.m. in the main cafeteria. Please join us to thank Paul for his many years of hard work and to welcome Ms. Ramos to her new position."
+      ],
+      "questions": [
         {
-          "en": "What can visitors win at the party?",
-          "zh": "訪客在派對上有機會贏得什麼？",
+          "en": "Why is Paul Chen leaving his position?",
+          "zh": "Paul Chen 為什麼要離開他的職位？",
           "options": [
-            "A new bus ticket",
-            "A job at the new office",
-            "Free drinks for a year",
-            "A free weekend trip"
+            "He was promoted to a new role.",
+            "He is moving to the Osaka branch.",
+            "He will run the delivery network.",
+            "He has decided to stop working."
           ],
           "answer": 3
         },
         {
-          "en": "What time will the office close on Saturdays?",
-          "zh": "星期六辦公室幾點關門？",
-          "options": ["11:00 a.m.", "6:00 p.m.", "2:00 p.m.", "10:00 a.m."],
-          "answer": 2
+          "en": "What is true about Ms. Ramos?",
+          "zh": "關於 Ramos 女士，下列何者正確？",
+          "options": [
+            "She has worked in more than one part of the company.",
+            "She joined the company 22 years ago.",
+            "She will lead the Osaka branch until a new manager is found.",
+            "She will plan the farewell party on February 28."
+          ],
+          "answer": 0
+        },
+        {
+          "en": "What is suggested about the way orders currently move from the stores to the factories?",
+          "zh": "關於目前訂單從門市送到工廠的流程，文中暗示了什麼？",
+          "options": [
+            "It was designed by Paul Chen.",
+            "It needs to be made faster.",
+            "It works best at the Osaka branch.",
+            "It will be handled by Ken Mori."
+          ],
+          "answer": 1
         }
       ]
     }

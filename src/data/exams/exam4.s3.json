@@ -1,185 +1,666 @@
 {
   "exam": "exam4",
   "section": "s3",
-  "textFills": [
+  "fills": [
     {
       "id": "s3_f1",
       "form": "A",
-      "kind": "notice",
-      "title": "Training announcement",
-      "lines": [
-        "Dear staff,",
-        "The new order system ___ on Monday.",
-        "___ the busy week, each training session will be short.",
-        "Please sign up on the sheet ___ you want to join.",
-        "I will have Dan ___ you how to log in."
+      "en": "Ms. Ortiz gave a very ___ presentation on the new lamp series.",
+      "zh": "Ortiz 女士針對新的檯燈系列做了一場很有內容的簡報。",
+      "options": [
+        "inform",
+        "information",
+        "informative",
+        "informs"
       ],
-      "zh": [
-        "各位同仁：",
-        "新的訂單系統星期一會被安裝好。",
-        "儘管這週很忙，每場訓練都會很短。",
-        "如果你想參加，請在名單上報名。",
-        "我會請 Dan 教你怎麼登入。"
-      ],
-      "blanks": [
-        {
-          "options": ["will install", "is installing", "will be installed", "has install"],
-          "answer": 2,
-          "note": "系統是被安裝的，用被動式。"
-        },
-        {
-          "options": ["Although", "Despite", "However", "Because"],
-          "answer": 1,
-          "note": "後面接名詞片語，用 despite。"
-        },
-        {
-          "options": ["if", "unless", "although", "despite"],
-          "answer": 0,
-          "note": "「如果你想參加就報名」用 if。"
-        },
-        {
-          "options": ["to show", "showing", "showed", "show"],
-          "answer": 3,
-          "note": "使役動詞 have 後面接原形動詞。"
-        }
-      ]
+      "answer": 2,
+      "note": "形容詞修飾名詞 presentation，用 informative。",
+      "grammar": true
     },
     {
       "id": "s3_f2",
       "form": "A",
-      "kind": "email",
-      "title": "Contract reminder",
-      "lines": [
-        "Hi Mr. Shaw,",
-        "The contract ___ by Friday.",
-        "Mr. Hughes told me he ___ the draft last week.",
-        "Please read the clause ___ explains the penalty.",
-        "___"
+      "en": "The accounting team ___ the quarterly budget since early March.",
+      "zh": "會計團隊從三月初就一直在審查這一季的預算。",
+      "options": [
+        "has been reviewing",
+        "reviews",
+        "will review",
+        "reviewed"
       ],
-      "zh": [
-        "Shaw 先生您好：",
-        "合約必須在星期五以前簽好。",
-        "Hughes 先生告訴我，他上星期已經寄出草稿。",
-        "請讀一下說明罰款的那一條。",
-        "如果您有任何問題，請打電話給我。"
-      ],
-      "blanks": [
-        {
-          "options": ["must sign", "must be signed", "must signing", "must signed"],
-          "answer": 1,
-          "note": "合約是被簽的，用 must be signed。"
-        },
-        {
-          "options": ["will send", "sends", "sending", "had sent"],
-          "answer": 3,
-          "note": "轉述過去的事，要用過去完成式 had sent。"
-        },
-        {
-          "options": ["which", "who", "whose", "where"],
-          "answer": 0,
-          "note": "先行詞 clause 是事物，關係代名詞用 which。"
-        },
-        {
-          "options": [
-            "The factory tour starts at nine.",
-            "Our yoga class is on Wednesday.",
-            "Please call me if you have any questions.",
-            "The lamps were shipped yesterday."
-          ],
-          "answer": 2,
-          "note": "這封信在談合約，只有這句接得上。"
-        }
-      ]
+      "answer": 0,
+      "note": "有 since early March，動作從過去持續到現在，用現在完成進行式。",
+      "grammar": true
     },
     {
       "id": "s3_f3",
+      "form": "A",
+      "en": "___ the sudden rise in material costs, the factory kept its prices the same.",
+      "zh": "儘管材料成本突然上漲，工廠還是維持原本的價格。",
+      "options": [
+        "Although",
+        "Because",
+        "However",
+        "Despite"
+      ],
+      "answer": 3,
+      "note": "後面是名詞片語，又是「儘管」的語意，用介系詞 despite；although 和 because 後面要接子句。",
+      "grammar": true
+    },
+    {
+      "id": "s3_f4",
+      "form": "A",
+      "en": "All visitors must wear protective ___ on the factory floor.",
+      "zh": "所有訪客在工廠廠區都必須穿戴防護裝備。",
+      "options": [
+        "cargo",
+        "gear",
+        "output",
+        "surface"
+      ],
+      "answer": 1,
+      "note": "protective gear 是「防護裝備」。"
+    },
+    {
+      "id": "s3_f5",
+      "form": "A",
+      "en": "Mr. Hughes asked Ms. Varga and ___ to read the contract before the meeting.",
+      "zh": "Hughes 先生請 Varga 女士和我在開會前讀過合約。",
+      "options": [
+        "I",
+        "me",
+        "my",
+        "mine"
+      ],
+      "answer": 1,
+      "note": "放在動詞 asked 後面當受詞，用受格 me。",
+      "grammar": true
+    },
+    {
+      "id": "s3_f6",
+      "form": "A",
+      "en": "The signed contract must be returned to our office ___ Friday, March 7.",
+      "zh": "簽好的合約必須在三月七日星期五之前寄回我們辦公室。",
+      "options": [
+        "until",
+        "since",
+        "by",
+        "during"
+      ],
+      "answer": 2,
+      "note": "「在某個期限之前完成」用 by；until 用在持續的動作。",
+      "grammar": true
+    },
+    {
+      "id": "s3_f7",
+      "form": "A",
+      "en": "Sales of the Lantern desk lamp have increased ___ over the past three quarters.",
+      "zh": "Lantern 檯燈的銷售在過去三季穩定成長。",
+      "options": [
+        "steadily",
+        "steady",
+        "steadied",
+        "steadiest"
+      ],
+      "answer": 0,
+      "note": "修飾動詞 increased，要用副詞 steadily。",
+      "grammar": true
+    },
+    {
+      "id": "s3_f8",
+      "form": "A",
+      "en": "Employees who travel for work can ask for ___ of their taxi and hotel costs.",
+      "zh": "出差的員工可以申請計程車和住宿費用的報銷。",
+      "options": [
+        "recruitment",
+        "enrollment",
+        "renovation",
+        "reimbursement"
+      ],
+      "answer": 3,
+      "note": "reimbursement 是「報銷、退款」。"
+    },
+    {
+      "id": "s3_f9",
+      "form": "A",
+      "en": "The board meeting was moved to Thursday ___ the president was not available on Wednesday.",
+      "zh": "董事會議改到星期四，因為總裁星期三沒空。",
+      "options": [
+        "because of",
+        "because",
+        "despite",
+        "although"
+      ],
+      "answer": 1,
+      "note": "後面是完整子句，表示原因，用連接詞 because。",
+      "grammar": true
+    },
+    {
+      "id": "s3_f10",
+      "form": "A",
+      "en": "The new branch office in London ___ by a local company before the staff moved in.",
+      "zh": "倫敦的新分公司在員工搬進去之前，由當地一家公司布置好家具。",
+      "options": [
+        "furnished",
+        "is furnishing",
+        "has furnished",
+        "was furnished"
+      ],
+      "answer": 3,
+      "note": "辦公室是「被」布置的，後面又有 by，用被動式。",
+      "grammar": true
+    },
+    {
+      "id": "s3_f11",
+      "form": "A",
+      "en": "Please read the ___ carefully before you sign, because it explains the penalty for late delivery.",
+      "zh": "簽名前請仔細讀這一條款，因為它說明了延遲交貨的罰則。",
+      "options": [
+        "clause",
+        "slogan",
+        "timetable",
+        "flyer"
+      ],
+      "answer": 0,
+      "note": "clause 是合約裡的「條款」。"
+    },
+    {
+      "id": "s3_f12",
+      "form": "A",
+      "en": "The applicant ___ cover letter impressed the panel will be interviewed on Monday.",
+      "zh": "那位求職信讓面試小組印象深刻的應徵者，星期一會來面試。",
+      "options": [
+        "who",
+        "which",
+        "whose",
+        "whom"
+      ],
+      "answer": 2,
+      "note": "「應徵者的」求職信，表示所有關係，用 whose。",
+      "grammar": true
+    },
+    {
+      "id": "s3_f13",
+      "form": "A",
+      "en": "The new heater is ___ efficient than the one we used last year.",
+      "zh": "新的暖氣機比我們去年用的那台更有效率。",
+      "options": [
+        "much",
+        "more",
+        "most",
+        "very"
+      ],
+      "answer": 1,
+      "note": "後面有 than，要用比較級 more。",
+      "grammar": true
+    },
+    {
+      "id": "s3_f14",
+      "form": "A",
+      "en": "Because factory output was ___, Mr. Ellis decided to add an evening shift.",
+      "zh": "因為工廠產量不足，Ellis 先生決定增加一個晚班。",
+      "options": [
+        "insufficient",
+        "excessive",
+        "durable",
+        "voluntary"
+      ],
+      "answer": 0,
+      "note": "產量「不夠」才需要加班，用 insufficient。"
+    },
+    {
+      "id": "s3_f15",
       "form": "B",
+      "en": "The marketing team conducted an ___ survey of 500 office workers.",
+      "zh": "行銷團隊對五百名上班族做了一份大規模的調查。",
+      "options": [
+        "extend",
+        "extensive",
+        "extension",
+        "extends"
+      ],
+      "answer": 1,
+      "note": "冠詞和名詞 survey 之間要放形容詞 extensive。",
+      "grammar": true
+    },
+    {
+      "id": "s3_f16",
+      "form": "B",
+      "en": "By the time the inspector arrived, the workers ___ the damaged lamps from the line.",
+      "zh": "檢查員抵達時，工人已經把損壞的燈從生產線上拿下來了。",
+      "options": [
+        "remove",
+        "are removing",
+        "will remove",
+        "had removed"
+      ],
+      "answer": 3,
+      "note": "By the time + 過去式，表示在那之前已完成，用過去完成式。",
+      "grammar": true
+    },
+    {
+      "id": "s3_f17",
+      "form": "B",
+      "en": "___ the training session ran long, every trainee stayed until the end.",
+      "zh": "雖然訓練課程拖得很長，每位受訓者都待到了最後。",
+      "options": [
+        "Although",
+        "Despite",
+        "Because of",
+        "Unless"
+      ],
+      "answer": 0,
+      "note": "後面是完整子句，語意是「雖然」，用連接詞 although；despite 和 because of 後面接名詞。",
+      "grammar": true
+    },
+    {
+      "id": "s3_f18",
+      "form": "B",
+      "en": "Our new branch in London is ___ located near a subway station.",
+      "zh": "我們倫敦的新分公司位置很方便，就在地鐵站附近。",
+      "options": [
+        "honestly",
+        "regularly",
+        "conveniently",
+        "gradually"
+      ],
+      "answer": 2,
+      "note": "conveniently located 是「位置便利」。"
+    },
+    {
+      "id": "s3_f19",
+      "form": "B",
+      "en": "Mr. Lin prepared all the slides ___, so nobody else needed to help.",
+      "zh": "林先生自己準備了所有投影片，所以不需要別人幫忙。",
+      "options": [
+        "him",
+        "his",
+        "he",
+        "himself"
+      ],
+      "answer": 3,
+      "note": "「他自己」做的，用反身代名詞 himself。",
+      "grammar": true
+    },
+    {
+      "id": "s3_f20",
+      "form": "B",
+      "en": "The English class for staff is held every Wednesday ___ 6 p.m. in Room 5A.",
+      "zh": "員工英文課每週三晚上六點在 5A 教室上課。",
+      "options": [
+        "at",
+        "on",
+        "in",
+        "for"
+      ],
+      "answer": 0,
+      "note": "幾點鐘用 at。",
+      "grammar": true
+    },
+    {
+      "id": "s3_f21",
+      "form": "B",
+      "en": "The committee thanked Mr. Park for his ___ to the company over twenty years.",
+      "zh": "委員會感謝朴先生二十年來對公司的付出。",
+      "options": [
+        "dedicate",
+        "dedicated",
+        "dedication",
+        "dedicating"
+      ],
+      "answer": 2,
+      "note": "所有格 his 後面要接名詞 dedication。",
+      "grammar": true
+    },
+    {
+      "id": "s3_f22",
+      "form": "B",
+      "en": "The dental plan is ___, so employees can decide whether to join it.",
+      "zh": "牙齒保險是自由參加的，員工可以自己決定要不要加入。",
+      "options": [
+        "mandatory",
+        "voluntary",
+        "exclusive",
+        "annual"
+      ],
+      "answer": 1,
+      "note": "可以自己決定，表示是自願的 voluntary；mandatory 是強制。"
+    },
+    {
+      "id": "s3_f23",
+      "form": "B",
+      "en": "Mr. Ellis approved the campaign ___ its budget was larger than planned.",
+      "zh": "雖然預算比原本計畫的高，Ellis 先生還是核准了這次的活動。",
+      "options": [
+        "despite",
+        "because of",
+        "so that",
+        "even though"
+      ],
+      "answer": 3,
+      "note": "後面是子句，語意是讓步，用 even though；despite 後面接名詞。",
+      "grammar": true
+    },
+    {
+      "id": "s3_f24",
+      "form": "B",
+      "en": "All new employees are required ___ a safety lesson before they start work.",
+      "zh": "所有新進員工開始上班前都必須上安全課程。",
+      "options": [
+        "to attend",
+        "attend",
+        "attending",
+        "attended"
+      ],
+      "answer": 0,
+      "note": "be required 後面接不定詞 to + 原形動詞。",
+      "grammar": true
+    },
+    {
+      "id": "s3_f25",
+      "form": "B",
+      "en": "A reporter asked the company ___ to comment on the rumor about layoffs.",
+      "zh": "一位記者請公司發言人針對裁員的傳言發表看法。",
+      "options": [
+        "cashier",
+        "landlord",
+        "spokesperson",
+        "trainee"
+      ],
+      "answer": 2,
+      "note": "代表公司對媒體說話的是 spokesperson（發言人）。"
+    },
+    {
+      "id": "s3_f26",
+      "form": "B",
+      "en": "If the shipment arrives on time, the store ___ the new lamp series on May 1.",
+      "zh": "如果貨準時到，店裡會在五月一日推出新的檯燈系列。",
+      "options": [
+        "launched",
+        "will launch",
+        "has launched",
+        "would have launched"
+      ],
+      "answer": 1,
+      "note": "If + 現在式，主要子句用未來式 will。",
+      "grammar": true
+    },
+    {
+      "id": "s3_f27",
+      "form": "B",
+      "en": "The new database is ___ easy to use, even for beginners.",
+      "zh": "新的資料庫出乎意料地好用，連新手也會用。",
+      "options": [
+        "surprisingly",
+        "surprise",
+        "surprising",
+        "surprised"
+      ],
+      "answer": 0,
+      "note": "修飾形容詞 easy，要用副詞 surprisingly。",
+      "grammar": true
+    },
+    {
+      "id": "s3_f28",
+      "form": "B",
+      "en": "Profits rose ___ last year, so every employee received a bonus.",
+      "zh": "去年獲利大幅成長，所以每位員工都拿到了獎金。",
+      "options": [
+        "formally",
+        "honestly",
+        "individually",
+        "considerably"
+      ],
+      "answer": 3,
+      "note": "rose considerably 是「大幅上升」。"
+    }
+  ],
+  "textFills": [
+    {
+      "id": "s3_t1",
+      "form": "A",
       "kind": "email",
-      "title": "Hiring a new assistant",
+      "title": "Friday's presentation",
       "lines": [
-        "Hi Ms. Reed,",
-        "I called Leo's former manager. She said Leo is a very ___ worker.",
-        "If we ___ one more assistant, we would finish orders faster.",
-        "Leo is the person ___ answered every customer call.",
-        "___"
+        "Hi Tom,",
+        "Thank you for agreeing to watch my rehearsal on Thursday. My presentation to Mr. Ellis ___ for Friday at 10 a.m.",
+        "I am still a little ___ about the charts in the middle section. ___",
+        "Please tell me honestly ___ any slide is hard to follow.",
+        "Thanks, Grace"
       ],
       "zh": [
-        "Reed 女士您好：",
-        "我打電話給 Leo 以前的主管。她說 Leo 是個非常可靠的員工。",
-        "如果我們多一個助理，訂單就能更快處理完。",
-        "Leo 就是接了每一通客戶電話的那個人。",
-        "我覺得我們應該給他這份工作。"
+        "Tom 你好：",
+        "謝謝你答應星期四來看我預演。我給 Ellis 先生的簡報排在星期五早上十點。",
+        "我對中間那段的圖表還是有點擔心。圖表裡的數字很多，所以我可能會在星期五前把它們簡化。",
+        "如果有哪張投影片不容易看懂，請老實告訴我。",
+        "謝謝，Grace"
       ],
       "blanks": [
         {
-          "options": ["rely", "relies", "reliable", "relied"],
-          "answer": 2,
-          "note": "worker 是名詞，前面要用形容詞 reliable。"
-        },
-        {
-          "options": ["had", "have", "will have", "having"],
-          "answer": 0,
-          "note": "第二條件句：if 後面用過去式 had，後面接 would。"
-        },
-        {
-          "options": ["which", "who", "whose", "where"],
-          "answer": 1,
-          "note": "先行詞 person 是人，用 who。"
+          "options": [
+            "schedules",
+            "scheduling",
+            "has scheduled",
+            "is scheduled"
+          ],
+          "answer": 3,
+          "note": "簡報是「被安排」的，用被動式。"
         },
         {
           "options": [
-            "The lamps were shipped yesterday.",
-            "Our gym is closed on Sunday.",
-            "The meeting room is upstairs.",
-            "I think we should offer him the job."
+            "worry",
+            "worrying",
+            "worried",
+            "worries"
           ],
-          "answer": 3,
-          "note": "整封信在談雇用 Leo，只有這句接得上。"
+          "answer": 2,
+          "note": "描述人的感受用 worried。"
+        },
+        {
+          "options": [
+            "They show a lot of numbers, so I may simplify them before Friday.",
+            "Thank you again for your kind remarks after my talk.",
+            "Mr. Ellis has worked at the company for over ten years.",
+            "Therefore, I have decided not to rehearse this week."
+          ],
+          "answer": 0,
+          "note": "They 指前一句的 charts，接得上。"
+        },
+        {
+          "options": [
+            "unless",
+            "if",
+            "although",
+            "because of"
+          ],
+          "answer": 1,
+          "note": "「是否」有投影片難懂，用 if。"
         }
       ]
     },
     {
-      "id": "s3_f4",
-      "form": "B",
+      "id": "s3_t2",
+      "form": "A",
       "kind": "notice",
-      "title": "Press statement",
+      "title": "Notice: Line 2 maintenance",
       "lines": [
-        "___ sales fell in June, we did not cut any jobs.",
-        "The new lamp ___ at the factory right now.",
-        "Our team worked very ___ this year.",
-        "___"
+        "Line 2 will be closed on Saturday ___ regular maintenance.",
+        "During the day, our inspectors will examine every machine ___.",
+        "___",
+        "Workers from Line 2 ___ to Line 1 for that day only.",
+        "Please ask your foreman if you have any questions."
       ],
       "zh": [
-        "雖然六月的銷售下滑，我們沒有裁任何人。",
-        "新的燈現在正在工廠接受測試。",
-        "我們的團隊今年非常努力。",
-        "如果您還有問題，請打電話給我們的辦公室。"
+        "第二生產線星期六會停工做定期保養。",
+        "當天檢查員會仔細檢查每一台機器。",
+        "這項檢查通常需要大約六小時。",
+        "第二線的員工只有那一天會被調到第一線。",
+        "有任何問題請問你的領班。"
       ],
       "blanks": [
         {
-          "options": ["Although", "Despite", "However", "Unless"],
-          "answer": 0,
-          "note": "後面接完整子句 sales fell，用 although。"
-        },
-        {
-          "options": ["is testing", "is being tested", "has tested", "tests"],
-          "answer": 1,
-          "note": "燈是被測試的，進行中的被動式。"
-        },
-        {
-          "options": ["hardly", "hardest", "hard", "harder"],
+          "options": [
+            "since",
+            "among",
+            "for",
+            "at"
+          ],
           "answer": 2,
-          "note": "worked very 後面用副詞 hard（努力地）。"
+          "note": "「為了」做保養而停工，用 for。"
         },
         {
           "options": [
-            "The lamps were shipped yesterday.",
-            "Our gym is open every day.",
-            "The meeting room is upstairs.",
-            "Please call our office if you have more questions."
+            "careful",
+            "care",
+            "cared",
+            "carefully"
           ],
           "answer": 3,
-          "note": "這是對外聲明的結尾，只有這句接得上。"
+          "note": "修飾動詞 examine，用副詞。"
+        },
+        {
+          "options": [
+            "Our new lamp has a natural wood base.",
+            "This check usually takes about six hours.",
+            "Visitors must stay inside the yellow lines.",
+            "The cafeteria will also be closed on Sunday."
+          ],
+          "answer": 1,
+          "note": "This check 指前一句的檢查。"
+        },
+        {
+          "options": [
+            "will be moved",
+            "moved",
+            "have moved",
+            "moving"
+          ],
+          "answer": 0,
+          "note": "未來的安排，員工被調派，用被動。"
+        }
+      ]
+    },
+    {
+      "id": "s3_t3",
+      "form": "B",
+      "kind": "email",
+      "title": "Your interview",
+      "lines": [
+        "Dear Ms. Cho,",
+        "Thank you for ___ for the junior designer position.",
+        "Our panel would like to invite you to an interview on Tuesday, April 2, at 2 p.m. ___",
+        "If this time does not work for you, please let me know ___ Friday.",
+        "We look forward to ___ you.",
+        "Best regards, Kevin Lee, Human Resources"
+      ],
+      "zh": [
+        "Cho 小姐您好：",
+        "謝謝您應徵初級設計師的職位。",
+        "我們的面試小組想邀請您在四月二日星期二下午兩點來面試。面試大約 45 分鐘，包含一個簡短的設計測驗。",
+        "如果這個時間您不方便，請在星期五之前告訴我。",
+        "期待與您見面。",
+        "敬祝順利，人資部 Kevin Lee"
+      ],
+      "blanks": [
+        {
+          "options": [
+            "applying",
+            "apply",
+            "applied",
+            "application"
+          ],
+          "answer": 0,
+          "note": "介系詞 for 後面接動名詞。"
+        },
+        {
+          "options": [
+            "Thank you for coming to the interview yesterday.",
+            "It will last about 45 minutes and include a short design test.",
+            "Unfortunately, the position has already been filled.",
+            "Your first day of work will be Monday, May 6."
+          ],
+          "answer": 1,
+          "note": "It 指前一句的面試，接得上。"
+        },
+        {
+          "options": [
+            "since",
+            "among",
+            "until",
+            "by"
+          ],
+          "answer": 3,
+          "note": "在期限之前告知，用 by。"
+        },
+        {
+          "options": [
+            "meet",
+            "met",
+            "meeting",
+            "be meeting"
+          ],
+          "answer": 2,
+          "note": "look forward to 後面接動名詞。"
+        }
+      ]
+    },
+    {
+      "id": "s3_t4",
+      "form": "B",
+      "kind": "notice",
+      "title": "Yoga at lunch",
+      "lines": [
+        "Starting next month, the company ___ free yoga classes for all staff.",
+        "The classes will be held in Room 3B every Tuesday and Thursday at 12:15 p.m. ___",
+        "Space is limited, ___ please sign up early with Human Resources.",
+        "Please wear comfortable clothes and bring some water with ___."
+      ],
+      "zh": [
+        "從下個月開始，公司會為全體員工開免費的瑜伽課。",
+        "課程每週二和週四中午十二點十五分在 3B 教室上課。每堂課三十分鐘，所以你還有時間吃午餐。",
+        "名額有限，請盡早向人資部報名。",
+        "請穿舒適的衣服，並自己帶點水。"
+      ],
+      "blanks": [
+        {
+          "options": [
+            "offered",
+            "will offer",
+            "has offered",
+            "was offering"
+          ],
+          "answer": 1,
+          "note": "下個月才開始，用未來式。"
+        },
+        {
+          "options": [
+            "Our dental plan covers two checkups a year.",
+            "Please return your locker key to the front desk.",
+            "Each one lasts thirty minutes, so you will still have time for lunch.",
+            "The walking group meets at the front entrance on Fridays."
+          ],
+          "answer": 2,
+          "note": "Each one 指前一句的課程。"
+        },
+        {
+          "options": [
+            "so",
+            "but",
+            "because",
+            "although"
+          ],
+          "answer": 0,
+          "note": "名額有限「所以」要早報名。"
+        },
+        {
+          "options": [
+            "your",
+            "yours",
+            "yourself",
+            "you"
+          ],
+          "answer": 3,
+          "note": "介系詞 with 後面用受格 you。"
         }
       ]
     }

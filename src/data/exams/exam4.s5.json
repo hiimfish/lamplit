@@ -7,67 +7,82 @@
       "form": "A",
       "texts": [
         {
-          "kind": "ad",
-          "title": "April Sale at Lantern Office Supply",
+          "kind": "flyer",
+          "title": "Speak with Confidence: A One-Day Presentation Seminar",
           "lines": [
-            "Lantern Office Supply is having a big sale from April 3 to April 9.",
-            "Desk chairs are $90 now. They were $120 before the sale.",
-            "Desk lamps are $20. Pens are two for $5.",
-            "Orders over $100 get free delivery to your office.",
-            "You can order online or visit our store on Main Street.",
-            "The store is open from 9 a.m. to 6 p.m. every day.",
-            "Please keep your receipt. We can fix any problem with your order.",
-            "Our team will help you pick the right chair for your office. Just ask at the front desk."
+            "Date: Saturday, June 14, 9 a.m. to 4 p.m.",
+            "Place: Hall B, Lin Business Center",
+            "Learn how to plan a clear, logical talk, design simple slides, and handle difficult questions from the audience. In the afternoon, each participant will give a talk of five minutes and get comments from our instructor, Ms. Grace Huang. Ms. Huang has trained sales teams at more than fifty companies. Seats are limited to thirty people.",
+            "Fee: $180 per person, lunch included. Companies that register five or more employees receive 20 percent off.",
+            "Register by June 6 on our website."
           ]
         },
         {
           "kind": "email",
-          "title": "My order from the April sale",
+          "title": "Subject: Seminar on June 14",
           "lines": [
-            "Dear Lantern Office Supply,",
-            "I ordered two desk chairs and one desk lamp on April 5. The chairs arrived on April 8, and I like them very much.",
-            "However, the lamp did not come. My receipt also shows a delivery fee of $10.",
-            "Please send the lamp soon, and please take the delivery fee off my bill.",
-            "The chairs are very good, and my team likes them too. I want to buy more chairs next month.",
-            "I am free to answer calls on weekdays after 3 p.m.",
-            "Thank you,",
-            "Ms. Wong"
+            "From: Alan Wu, Sales Manager",
+            "To: Mia Chen, Human Resources",
+            "Hi Mia,",
+            "I found a seminar that could help our sales team before the trade show in July. Please see the flyer below. I would like to send six people from our team, including me.",
+            "Could you register us this week? Our training budget for this quarter is $1,000, so the group discount is important.",
+            "Also, two of us, Mr. Kim and Ms. Ota, have a client visit that morning until 11 a.m. Could you ask the seminar office whether they can join after that?",
+            "Thanks, Alan"
           ]
         }
       ],
       "questions": [
         {
-          "en": "What has not arrived yet?",
-          "zh": "什麼東西還沒送到？",
-          "options": ["The lamp", "The chairs", "The receipt", "The pens"],
-          "answer": 0,
-          "needs": [1]
-        },
-        {
-          "en": "Why should the delivery fee be taken off the bill?",
-          "zh": "為什麼運費應該從帳單上拿掉？",
+          "en": "Why did Mr. Wu write to Ms. Chen?",
+          "zh": "Wu 先生為什麼寫信給 Chen 小姐？",
           "options": [
-            "The chairs came too late.",
-            "Her order was over $100.",
-            "The lamp is on sale.",
-            "She lives on Main Street."
+            "To ask her to sign his team up for a seminar",
+            "To invite her to speak at a trade show",
+            "To report on a visit to a client",
+            "To ask her to plan the team's budget"
           ],
-          "answer": 1,
-          "needs": [0, 1]
+          "answer": 0
         },
         {
-          "en": "How much should Ms. Wong pay for the two chairs?",
-          "zh": "王小姐的兩張椅子應該付多少錢？",
-          "options": ["$90", "$120", "$180", "$240"],
+          "en": "How much will the seminar cost Mr. Wu's team in total?",
+          "zh": "Wu 先生的團隊參加研討會總共要花多少錢？",
+          "options": [
+            "$1,080",
+            "$900",
+            "$864",
+            "$1,000"
+          ],
           "answer": 2,
-          "needs": [0, 1]
+          "needs": [
+            0,
+            1
+          ]
         },
         {
-          "en": "What time does the store close?",
-          "zh": "這家店幾點打烊？",
-          "options": ["At 3 p.m.", "At 5 p.m.", "At 9 a.m.", "At 6 p.m."],
+          "en": "What is suggested about Mr. Kim and Ms. Ota?",
+          "zh": "關於 Kim 先生和 Ota 小姐，文中暗示了什麼？",
+          "options": [
+            "They will speak at the trade show in July.",
+            "They will not give a talk in the afternoon.",
+            "They work in the Human Resources department.",
+            "They might miss the first part of the seminar."
+          ],
           "answer": 3,
-          "needs": [0]
+          "needs": [
+            0,
+            1
+          ]
+        },
+        {
+          "en": "In the flyer, the word \"handle\" is closest in meaning to",
+          "zh": "傳單中的 \"handle\" 意思最接近",
+          "options": [
+            "pick up",
+            "deal with",
+            "carry",
+            "repeat"
+          ],
+          "answer": 1
         }
       ]
     },
@@ -76,85 +91,116 @@
       "form": "A",
       "texts": [
         {
-          "kind": "email",
-          "title": "You are invited to our open house",
+          "kind": "notice",
+          "title": "Wellness Week, May 12-16",
           "lines": [
-            "Dear friends of Harbor Trading,",
-            "We will have an open house on Friday, May 16, at our head office on Pine Road.",
-            "Guests can see our new products and meet our team. The open house starts at 10 a.m. and ends at 3 p.m.",
-            "Lunch is free for everyone at 12:30.",
-            "Please park in the lot behind the building. Our team will be at the front door to help you.",
-            "Please tell me by May 9 if you can come. You can answer this email.",
-            "Best wishes,",
-            "Mr. Lee"
+            "All events are free for employees. Please sign up by May 8 with Lisa Park in Human Resources (extension 214).",
+            "Monday: Yoga for beginners, 12:15-12:45, Room 5A",
+            "Tuesday: Health checkup with a clinic nurse, 9:00-4:00, Room 2C (15 minutes each, by appointment)",
+            "Wednesday: Talk on healthy eating at work, 12:15-1:00, Cafeteria",
+            "Thursday: Neck and shoulder massage, 2:00-5:00, Room 2C (20 minutes each, by appointment)",
+            "Friday: Walking group, 5:30-6:30, meet at the front entrance"
           ]
         },
         {
           "kind": "email",
-          "title": "Re: You are invited to our open house",
+          "title": "Subject: Wellness Week",
           "lines": [
-            "Dear Mr. Lee,",
-            "Thank you for the invitation. I will come with my manager, Ms. Gray.",
-            "Unfortunately, we cannot be there at 10 a.m. because we have a meeting in the morning. We will arrive after lunch.",
-            "We want to learn about your new products, and we hope to talk with your sales team after lunch.",
-            "Could you tell us when the product talk begins?",
-            "Best wishes,",
-            "Ms. Ortiz"
+            "From: Tom Hsu",
+            "To: Lisa Park",
+            "Hi Lisa,",
+            "I'd like to sign up for the health checkup and the massage. I meet a client every Tuesday morning, so could I have a time after lunch for the checkup? For the massage, any time is fine.",
+            "I'd also like to hear the talk, but I'll be on a business trip in Tainan that day. Will it be recorded?",
+            "Thanks, Tom"
           ]
         },
         {
-          "kind": "form",
-          "title": "Open House Schedule",
+          "kind": "email",
+          "title": "Subject: Re: Wellness Week",
           "lines": [
-            "10:00 Welcome and office tour",
-            "11:00 Meet the team",
-            "12:30 Lunch for all guests",
-            "1:30 Product talk",
-            "2:30 Questions and answers",
-            "Please keep this schedule with you all day."
+            "From: Lisa Park",
+            "To: Tom Hsu",
+            "Hi Tom,",
+            "I've booked your checkup for 2:30 p.m. and your massage for 3:40 p.m. Please arrive five minutes early for both.",
+            "The talk will not be recorded, but the speaker has agreed to share her slides. I'll email them to everyone on May 15.",
+            "Also, because of a problem with the schedule, the walking group has moved from Friday to Thursday at the same time.",
+            "Best, Lisa"
           ]
         }
       ],
       "questions": [
         {
-          "en": "When is the open house?",
-          "zh": "開放參觀日是什麼時候？",
-          "options": ["On May 9", "On May 16", "On May 30", "On June 16"],
-          "answer": 1,
-          "needs": [0]
-        },
-        {
-          "en": "When will Ms. Ortiz arrive?",
-          "zh": "奧蒂茲小姐什麼時候會到？",
-          "options": ["At 10 a.m.", "At 11 a.m.", "In the afternoon", "In the evening"],
-          "answer": 2,
-          "needs": [0, 1]
-        },
-        {
-          "en": "What time does the talk Ms. Ortiz asked about begin?",
-          "zh": "奧蒂茲小姐問的那場演說幾點開始？",
-          "options": ["At 10:00", "At 11:00", "At 12:30", "At 1:30"],
-          "answer": 3,
-          "needs": [1, 2]
-        },
-        {
-          "en": "Who is Ms. Gray?",
-          "zh": "葛雷小姐是誰？",
+          "en": "Why does Mr. Hsu ask for an afternoon checkup?",
+          "zh": "Hsu 先生為什麼要求下午做健康檢查？",
           "options": [
-            "Ms. Ortiz's manager",
-            "The head of Harbor Trading",
-            "A guest from Pine Road",
-            "Mr. Lee's team member"
+            "He will be in Tainan that morning.",
+            "The nurse works only after lunch.",
+            "He is busy on Tuesday mornings.",
+            "His massage is in the morning."
+          ],
+          "answer": 2,
+          "needs": [
+            1
+          ]
+        },
+        {
+          "en": "On what day will Mr. Hsu be in Tainan?",
+          "zh": "Hsu 先生哪一天會在台南？",
+          "options": [
+            "Wednesday",
+            "Monday",
+            "Tuesday",
+            "Thursday"
           ],
           "answer": 0,
-          "needs": [1]
+          "needs": [
+            0,
+            1
+          ]
         },
         {
-          "en": "What will guests do at 11:00?",
-          "zh": "客人在十一點要做什麼？",
-          "options": ["Eat lunch", "Meet the team", "Ask questions", "Take a tour"],
+          "en": "Where should Mr. Hsu go at 3:35 p.m. on Thursday?",
+          "zh": "Hsu 先生星期四下午三點三十五分應該去哪裡？",
+          "options": [
+            "Room 5A",
+            "The cafeteria",
+            "The front entrance",
+            "Room 2C"
+          ],
+          "answer": 3,
+          "needs": [
+            0,
+            2
+          ]
+        },
+        {
+          "en": "What will Ms. Park send on May 15?",
+          "zh": "Park 小姐五月十五日會寄出什麼？",
+          "options": [
+            "A recording of the talk",
+            "The slides from the talk on healthy eating",
+            "A new schedule for Wellness Week",
+            "Mr. Hsu's appointment times"
+          ],
           "answer": 1,
-          "needs": [2]
+          "needs": [
+            2
+          ]
+        },
+        {
+          "en": "What is suggested about the walking group?",
+          "zh": "關於健走團，文中暗示了什麼？",
+          "options": [
+            "It will now meet on the same day as Mr. Hsu's massage.",
+            "It has been canceled because of the weather.",
+            "It will start earlier than planned.",
+            "It will meet in Room 2C."
+          ],
+          "answer": 0,
+          "needs": [
+            0,
+            2
+          ]
         }
       ]
     },
@@ -163,74 +209,88 @@
       "form": "B",
       "texts": [
         {
-          "kind": "notice",
-          "title": "Job Opening: Sales Assistant",
+          "kind": "ad",
+          "title": "Green Table Catering",
           "lines": [
-            "Blue Harbor Travel is looking for a sales assistant.",
-            "The job is full time, from Monday to Friday, 9 a.m. to 5 p.m.",
-            "You must speak English well and use a computer every day.",
-            "You will help our customers plan trips, answer their calls and keep our files in order.",
-            "Our office is near the train station, so it is easy to come to work. We also give you a free lunch on Mondays.",
-            "The pay is $18 an hour.",
-            "Send your resume and a short email to Ms. Chen by June 12.",
-            "We will meet people on June 18.",
-            "Come early and bring your resume with you."
+            "Planning a meeting, a training day, or a company party? Green Table Catering serves fresh, healthy food for groups of 10 to 200.",
+            "Lunch boxes: $12 per person (sandwich, salad, fruit)",
+            "Hot buffet: $20 per person (two main dishes, rice, soup, dessert)",
+            "Coffee and tea break: $5 per person",
+            "Free delivery within the city for orders over $300. Please order at least three working days before your event. Vegetarian choices are available for every menu at no extra cost."
           ]
         },
         {
           "kind": "email",
-          "title": "About the sales assistant job",
+          "title": "Subject: Lunch for our annual meeting",
           "lines": [
-            "Dear Ms. Chen,",
-            "I am writing about the sales assistant job. I worked at a hotel for two years, and I spoke English with guests every day.",
-            "My resume is with this email.",
-            "I like to help people, and I am never late for work.",
-            "I can work on weekdays, but I cannot stay late on Fridays because I take a class.",
-            "I am also good with computers, and I can learn new things fast. I want to work with a friendly team.",
-            "I hope to hear from you soon.",
-            "Best wishes,",
-            "Mr. Park"
+            "To: Green Table Catering",
+            "From: Joyce Lin, Office Manager",
+            "Hello,",
+            "Our company is holding its annual meeting on Friday, November 21, at the Grand Plaza Hotel downtown. Eighty employees will attend. We would like the hot buffet for lunch and one coffee and tea break in the afternoon.",
+            "About fifteen of our employees do not eat meat. Could you tell me how this would change the price?",
+            "Also, the hotel has asked us to finish lunch by 1:30 p.m., because another group is using the room after us. Please have the food ready by 12:00.",
+            "Best regards, Joyce Lin"
           ]
         }
       ],
       "questions": [
         {
-          "en": "How much does the job pay?",
-          "zh": "這份工作薪水多少？",
-          "options": ["$12 an hour", "$18 an hour", "$20 an hour", "$80 an hour"],
-          "answer": 1,
-          "needs": [0]
-        },
-        {
-          "en": "Where did Mr. Park work before?",
-          "zh": "朴先生以前在哪裡工作？",
-          "options": ["At a bank", "At a school", "At a hotel", "At a shop"],
-          "answer": 2,
-          "needs": [1]
-        },
-        {
-          "en": "What does Mr. Park do that the job needs?",
-          "zh": "朴先生做過哪件這份工作需要的事？",
+          "en": "Why did Ms. Lin write the email?",
+          "zh": "Lin 小姐為什麼寫這封電子郵件？",
           "options": [
-            "He speaks English with guests.",
-            "He sells tickets at a station.",
-            "He works on Saturdays.",
-            "He drives a bus."
+            "To book a room at a hotel",
+            "To order food for a company event",
+            "To change the date of a meeting",
+            "To ask about working at Green Table"
           ],
-          "answer": 0,
-          "needs": [0, 1]
+          "answer": 1,
+          "needs": [
+            1
+          ]
         },
         {
-          "en": "Why might Mr. Park have a problem with the job?",
-          "zh": "朴先生為什麼可能做不了這份工作？",
+          "en": "How much will Ms. Lin's company pay for the food and drinks?",
+          "zh": "Lin 小姐的公司餐點和飲料總共要付多少錢？",
           "options": [
-            "He cannot use a computer.",
-            "He wants to work part time.",
-            "He does not speak English.",
-            "He cannot work late on Fridays."
+            "$1,600",
+            "$1,360",
+            "$400",
+            "$2,000"
           ],
           "answer": 3,
-          "needs": [0, 1]
+          "needs": [
+            0,
+            1
+          ]
+        },
+        {
+          "en": "What will most likely happen with the employees who do not eat meat?",
+          "zh": "不吃肉的員工最可能會怎麼樣？",
+          "options": [
+            "They will get vegetarian food at no extra charge.",
+            "The company will pay an extra fee for them.",
+            "They will get lunch boxes instead.",
+            "They will eat lunch after 1:30 p.m."
+          ],
+          "answer": 0,
+          "needs": [
+            0,
+            1
+          ]
+        },
+        {
+          "en": "What does Ms. Lin say about the hotel room?",
+          "zh": "Lin 小姐提到飯店場地的什麼事？",
+          "options": [
+            "It can hold up to 200 people.",
+            "It is outside the city.",
+            "Another group will use it after lunch.",
+            "It will be ready at 12:00."
+          ],
+          "answer": 2,
+          "needs": [
+            1
+          ]
         }
       ]
     },
@@ -239,76 +299,110 @@
       "form": "B",
       "texts": [
         {
+          "kind": "ad",
+          "title": "Sales Assistant (Part Time), Harbor Lamps, Tamsui Store",
+          "lines": [
+            "Hours: Saturday and Sunday, 10 a.m. to 6 p.m.",
+            "Duties: help customers choose lamps, work the cash register, and keep the shelves tidy.",
+            "Requirements: at least one year of experience in a store and basic English. You must be able to work every weekend.",
+            "Email your résumé to Ms. Ivy Chou, Store Manager, by Friday, March 7. Interviews will be held the following week."
+          ]
+        },
+        {
           "kind": "email",
-          "title": "Staff meeting on Tuesday",
+          "title": "Subject: Sales assistant job",
           "lines": [
-            "To all staff,",
-            "We will have a meeting on Tuesday, March 11, at 2 p.m. in Room 4.",
-            "Ms. Reyes will talk about the new work schedule, and Mr. Tan will talk about the budget.",
-            "Please read the agenda and bring your ideas.",
-            "We need every person there, so please come on time. The meeting will last about one hour."
+            "Dear Ms. Chou,",
+            "I am writing to apply for the weekend sales assistant job at your Tamsui store. For the past two years, I have worked as a cashier at a supermarket near Tamsui Station, where I also help customers find products. I am studying English at night, and I can answer simple questions from foreign visitors.",
+            "I can work every weekend. I take classes in the mornings, so I am free for an interview on weekdays after 3 p.m.",
+            "My résumé is attached.",
+            "Sincerely, Ben Lai"
           ]
         },
         {
           "kind": "form",
-          "title": "Agenda",
+          "title": "Interview Schedule: Tamsui Store",
           "lines": [
-            "2:00 New work schedule (Ms. Reyes)",
-            "2:20 Budget for next year (Mr. Tan)",
-            "2:40 Office party (Ms. Diaz)",
-            "3:00 End of meeting",
-            "Please bring a pen and your ideas.",
-            "Questions from the staff will come at the end of each part."
-          ]
-        },
-        {
-          "kind": "form",
-          "title": "Notes from the meeting",
-          "lines": [
-            "We moved to Room 6 because Room 4 was not ready.",
-            "Mr. Tan was sick, so Ms. Reyes talked about the budget.",
-            "We started a little late, but everyone stayed until the end.",
-            "Ms. Diaz said the office party will be on April 4.",
-            "Most people liked the new schedule. The next meeting is on March 25.",
-            "Please tell Ms. Reyes if you have any more ideas. She will keep every idea in a file for the next meeting."
+            "Monday, March 10, 10:00 a.m.: Ms. Amy Lu",
+            "Monday, March 10, 3:30 p.m.: Mr. Ben Lai",
+            "Tuesday, March 11, 11:00 a.m.: Mr. Kevin Ho",
+            "Wednesday, March 12, 4:00 p.m.: Ms. Lily Chen",
+            "Ms. Ivy Chou will meet every applicant. Please bring a photo ID."
           ]
         }
       ],
       "questions": [
         {
-          "en": "Where did the meeting take place?",
-          "zh": "會議在哪裡舉行？",
-          "options": ["In Room 2", "In Room 4", "In Room 5", "In Room 6"],
+          "en": "What does the ad say is required for the job?",
+          "zh": "徵人廣告說這份工作需要什麼條件？",
+          "options": [
+            "Living near Tamsui Station",
+            "Speaking fluent English",
+            "Having worked in a supermarket",
+            "Being free to work on weekends"
+          ],
           "answer": 3,
-          "needs": [0, 2]
+          "needs": [
+            0
+          ]
         },
         {
-          "en": "Who talked about the budget?",
-          "zh": "誰報告了預算？",
-          "options": ["Mr. Tan", "Ms. Diaz", "Ms. Reyes", "Mr. Lee"],
-          "answer": 2,
-          "needs": [1, 2]
-        },
-        {
-          "en": "Who will talk about the office party?",
-          "zh": "誰要談公司聚會？",
-          "options": ["Ms. Diaz", "Ms. Reyes", "Mr. Tan", "Ms. Chen"],
-          "answer": 0,
-          "needs": [1]
-        },
-        {
-          "en": "When will the staff meet again?",
-          "zh": "員工下次什麼時候再開會？",
-          "options": ["On March 11", "On March 25", "On April 4", "On April 11"],
+          "en": "Which part of Mr. Lai's experience meets a requirement in the ad?",
+          "zh": "Lai 先生的哪一項經歷符合廣告裡的條件？",
+          "options": [
+            "He works near Tamsui Station.",
+            "He has worked in a store for two years.",
+            "He takes classes in the mornings.",
+            "He is free on weekday afternoons."
+          ],
           "answer": 1,
-          "needs": [2]
+          "needs": [
+            0,
+            1
+          ]
         },
         {
-          "en": "What did the staff need to bring to the meeting?",
-          "zh": "員工要帶什麼去開會？",
-          "options": ["A receipt", "A resume", "Their ideas", "Their lunch"],
+          "en": "What is true about Mr. Lai's interview?",
+          "zh": "關於 Lai 先生的面試，下列何者正確？",
+          "options": [
+            "It is the first interview of the week.",
+            "It will be held on a weekend.",
+            "It is at a time when he said he was free.",
+            "It will take place before March 7."
+          ],
           "answer": 2,
-          "needs": [0]
+          "needs": [
+            1,
+            2
+          ]
+        },
+        {
+          "en": "In the ad, the word \"tidy\" is closest in meaning to",
+          "zh": "廣告中的 \"tidy\" 意思最接近",
+          "options": [
+            "in good order",
+            "full",
+            "small",
+            "new"
+          ],
+          "answer": 0,
+          "needs": [
+            0
+          ]
+        },
+        {
+          "en": "What will Mr. Lai probably need to bring on March 10?",
+          "zh": "Lai 先生三月十日可能需要帶什麼？",
+          "options": [
+            "A copy of his class schedule",
+            "A card that shows his picture",
+            "A letter from the supermarket",
+            "A second copy of his résumé"
+          ],
+          "answer": 1,
+          "needs": [
+            2
+          ]
         }
       ]
     }
