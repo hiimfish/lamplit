@@ -312,7 +312,7 @@
 
 ### 第四幕的新題型和限制
 
-狀態：**部分做到**（2026-11-23）。資料格式、內容檢查、出題、音檔項目、用字檢查都做好了；五種畫面目前是能用的最小版本（能播、能選、對錯、繼續），之後會再做好。第四幕的內容還沒寫。型別在 `types.ts`：`PictureItem.listen`、`PassageText`、`SinglePassage`、`PassageSet`（`PassageSetQuestion.needs`）、`RespondItem`（`RespondResponse`）、`TalkItem.once`。下面的新題型都只能用在第四幕的單元（照 `acts.ts`），用在別的幕會被擋下來；只播一次另有自己的位置規則。
+狀態：**內容已做完**（2026-11-23，第四幕 12 個地點、108 個任務都寫好了，音檔也已產生）。資料格式、內容檢查、出題、音檔項目、用字檢查都做好了；五種畫面目前是能用的最小版本（能播、能選、對錯、繼續），之後會再做好。型別在 `types.ts`：`PictureItem.listen`、`PassageText`、`SinglePassage`、`PassageSet`（`PassageSetQuestion.needs`）、`RespondItem`（`RespondResponse`）、`TalkItem.once`。下面的新題型都只能用在第四幕的單元（照 `acts.ts`），用在別的幕會被擋下來；只播一次另有自己的位置規則。
 
 - **看圖選句聲音選項**（多益第 1 大題）：`pictures` 的一題加 `"listen": true`。**剛好 4 個句子**（`options`，各有 `en`、`zh`），答題前只聽不看：畫面有圖和 A 到 D 四個鍵，每個可以重聽；答完才顯示英文和中文。4 句都有自己的音檔 `<單元>.pictureopt.<題目 id>_<0 到 3>`（照內容裡的順序），用 `announcer` 的聲線；這種題目沒有 `<單元>.picture.<id>` 的音檔。`listen` 只能寫 `true` 或不寫。圖片 id 照舊要在 `src/art/pictures` 裡（第四幕的三張：`presenter_chart`、`meeting_table`、`speaker_microphone`）。
 - **兩篇／三篇一組閱讀**（多益第 7 大題）：`passages` 的一篇改寫成 `{ "id", "texts": [...], "questions": [...] }`。`texts` 是 2 或 3 篇文字，每篇有自己的 `kind`、`title`（選填，規則和單篇一樣：`message`、`email` 一定要有）、`lines`（至少 2 行，每篇至少 15 個字）。整組只有一份問題；問題可以加 `"needs": [0, 1]`，寫答案要看哪幾篇（從 0 算，不重複），兩篇以上就算「要看不只一篇」。
@@ -415,6 +415,78 @@
 - `tests/stageArt.test.ts`：每個有 `backdrop` 的任務（`main` 除外），寫的 key 都在那個單元小劇場的 `backdrops` 裡。
 - `tests/audioItems.test.ts`：`announcer` 說的聽獨白，每句一個音檔項目、id 合法、每個聲線家族都有 `announcer`。
 - 第四幕（2026-11-23）：`tests/listenPicture.test.ts`（看圖選句聲音選項）、`tests/passages.test.ts`（第四幕的單篇長度和一組閱讀）、`tests/responds.test.ts`（應答題）、`tests/talks.test.ts`（三人對話、第四幕的長度、只播一次）各測內容檢查、出題、音檔項目和用字；`tests/content.test.ts` 的「Act 4 units」測 9 個任務、詞塊長度和每個任務的新單字數；`tests/smoothness.test.ts` 測第四幕的平滑規則能通過 syllabus 的新項目曲線；`tests/stageState.test.ts` 測第四幕每個小劇場的任兩到四個 NPC 都站在不同的位置。
+
+## 結業考、詞庫與產生器的資料（2026-11-24）
+
+結業考的題目一部分手寫、一部分由產生器出（規則見 [curriculum.md](curriculum.md)）。這一節說明手寫的檔案、產生器用的資料，以及怎麼檢查。
+
+### 結業考的題目檔
+
+- 路徑：`src/data/exams/<考試>.<段>.json`，例如 `exam3.s2.json`。只有段裡有手寫題目才有檔；全部由產生器出的段（例如 `exam1.s1`）沒有檔。
+- 頂層欄位：`exam`、`section`，再加上有題目的種類陣列：`pictures`、`responds`、`talks`、`signs`、`fills`、`textFills`、`passages`（只寫用到的）。
+- `draft: true` 表示還沒寫完：一般檢查會跳過，`EXAM_REQUIRE_COMPLETE=1` 時草稿和缺少的檔都會失敗。
+- 每題有 `form`：`A` 或 `B`。第一次考用 A 卷，第二次考用 B 卷；**每一卷各自**要有 `EXAM_PLAN`（`src/content/exam.ts`）規定的題數。
+- 題目 id 以段 id 開頭（例如 `s2_p1`），整個段內不重複。
+- 選項：每題至少 3 個；第三、四幕剛好 4 個。答案位置：同一卷裡，任一個位置的答案不能超過 40%（答案不到 5 題時不檢查）。
+- 同一場考試裡，句子和題幹（5 個字以上）不能重複出現（`examCopyKeys`）。
+- 檢查：
+
+```bash
+EXAM_FILE=exam3.s2 npx vitest run tests/examContent.test.ts tests/validateExam.test.ts
+EXAM_REQUIRE_COMPLETE=1 npx vitest run tests/examContent.test.ts
+```
+
+`EXAM_FILE` 只檢查一個檔（不加 `.json`）。
+
+### 詞庫（`src/data/lexicon/<地點 id>.json`）
+
+- 42 個地點各一個檔，都已填好（2026-11-24）：2,558 個條目，其中 880 個是 `skip`。
+- 每個條目的 key 是單字 id。欄位（`src/content/lexicon.ts`）：
+  - `pos`：詞性（n、v、adj、adv、prep、other）；`en`：寫出來的字，和 id 不同時才寫；`cls`：類別（person、role、place、room、food、drink、object、document、device、money、time、day、event、vehicle、clothing、body、quality、number）。
+  - `forms`：變化形，`pl`（複數）、`s3`、`past`、`pp`、`ing`、`comp`（比較級）。
+  - `countable`（名詞能不能數）；`pluralOnly`（只有複數的名詞，例如 clothes、pants、people）；`an`（用 an，例如 hour）。
+  - `frames`（動詞）：誰做（`subj`）、做什麼（`obj`）、介系詞（`prep`，`fixed` 表示一定接這個介系詞）、`prepRequired`。動詞沒有 `frames` 就不會用在句子裡。
+  - `skip`：不拿來造句（片語或怪字）。有 `skip` 的條目不能有其他欄位。
+- 保留的 key `lines`：標好的故事台詞，`{ "<台詞 id>": { "side": "question" 或 "answer", "qtype"?, "atype"? } }`，給應答題用。
+- 檢查（只看一個地點）：
+
+```bash
+LEXICON_FILE=<地點 id> LEXICON_STRICT=1 npx vitest run tests/lexiconContent.test.ts
+```
+
+`LEXICON_STRICT=1` 要求地點裡每個字都有條目或 `skip`，不能是空檔。`LEXICON_ALLOW_EMPTY=1` 允許還沒填的檔（內容剛好是 `{}` 的檔一律允許）。
+
+### 句型（`src/data/patterns/act<N>.json`）
+
+- 每個句型是一個「食譜」：`id`、`grammarId`（`src/content/grammar.ts` 的文法點）、`shape`（句型形狀：`svo`、`svo-prep`、`svo-time`、`be-adj`、`there-be`、`passive`、`wh-question`、`yes-no-question`、`comparative`）、`tense`、`cues`（提示字，例如 yesterday）、`blanks`（可以挖的空格種類）。
+- 可選的清單：`verbs`、`subjects`、`objects`、`pobjects`、`adjectives`、`preps`、`pronoun`。有寫的話，引擎只從清單裡選，再和玩家學過的字取交集。
+- 通過條件：每個句型至少能造出 6 句不同的句子。
+- 審閱：`SENTENCE_SAMPLE=print npx vitest run tests/sentencePool.test.ts` 印出樣本，人看過後再改食譜。
+- 目前 4 個檔都是空的（`[]`，2026-11-24）。
+
+### 句子池（`src/data/sentences/act<N>.json`）
+
+- 每句：`id`、`kind`（`statement` 陳述句，或 `qa` 問答）、`en`、`grammarId`。陳述句有 `blankWord`（聽力填空挖掉的字）；問答有 `responses`（正確和錯的回答放在同一個清單）和 `answer`（正確的是第幾個，從 0 算）。
+- 草稿：`SENTENCE_POOL=write npx vitest run tests/sentencePool.test.ts` 寫出草稿（每幕 60 句陳述、15 句問答）。草稿要人看過，才是正式的句子池。
+- 目前 4 個檔都是空的（`[]`，2026-11-24）。
+
+### 驗證過的應答題題庫（`src/data/responds/act<N>.json`）
+
+- 每題：`id`、`question`（`en`、`zh`（選填）、`qtype`、`role`）、`answer`（`en`、`zh`、`atype`）、`wrong`（至少 2 個錯的回答，各有 `en`、`zh`、`atype`）、`verified`。
+- `verified` 是盲測的人數：**2 表示兩位盲測者都答對，而且每個錯的選項都答錯**。`atype` 不能是 `universal`；錯的選項類型必須和問題的題型不相容（`COMPATIBLE`）。
+- 流程：`RESPOND_BANK=write npx vitest run tests/examPool.test.ts` 把候選寫到 `.tmp/respond-candidates/act<N>.json`（不是正式檔）；`EXAM_POOL=print` 印出候選和樣本段給人看；盲測通過的題目才寫進 `src/data/responds/act<N>.json`，並加上 `verified: 2`。
+- 目前 4 個檔都是空的（`[]`，2026-11-24）。所以依賴這些資料的產生題還出不出來，資料不夠的那一段會顯示「準備中」。
+
+### 不出成題的句子（`src/data/examExclude.json`）
+
+- `{ "respond": [], "cloze": [] }`：列出句子 id，這些句子不會變成應答題（`respond`）或聽力填空題（`cloze`）。目前都是空的。
+
+### 最小對比詞（2026-11-24 新增 14 組）
+
+- 原本只有搬家第一天的 6 組；現在共 20 組。新增的 14 組分在 13 個地點：`airport`、`annual_meeting`、`community_center`、`company_event`、`day_before`、`factory`、`hotel`、`library`、`market`、`park`（2 組）、`store`、`warehouse`、`wellness`。
+- 每組的格式見上方「單元格式」的 `pairs[]`，`focus` 寫出發音的對比（例如 f／v），兩個字各有 `id`、`en`、`zh`。對比詞也算新項目，第四幕的任務仍然最多 14 個。
+- id 規則：同一單元內，對比詞 id 和兩個字的 id 不能重複（`validateUnit`）。跨單元：`pair:<id>` 和 `side:<字 id>` 在所有單元之間都不能重複（`tests/content.test.ts` 的「never reuses a chunk, word, pair or pair-side id in two units」）。音檔 id 是 `<單元>.pair.<字 id>`，所以字 id 只要在單元內不重複。
+- 相關測試：`tests/pairs.test.ts`（內容檢查、音檔、聽辨題出題）。
 
 ## 現有單元
 
@@ -613,11 +685,11 @@
 
 - 用 NGSL 高頻字表自動檢查用字：部分做到。`node scripts/vocab-report.mjs` 會列出每個任務的用字和難度，平滑規則 3、4、6 由 `tests/smoothness.test.ts` 擋下（見 [curriculum.md](curriculum.md) 的「用字分析」）；「用字有沒有超出這一幕的頻率範圍」還沒檢查。
 - KK 音標：計畫用開源發音字典 CMUdict 轉換。像素字型缺大部分音標符號，見 [visual-style.md](visual-style.md) 的「字型」。
-- 第四幕的內容：還沒做。首頁的第四幕顯示「即將開幕」（`TownScreen.tsx`：一幕裡沒有任何單元檔時才顯示，第三幕有單元了所以不會再出現）。
+- 第四幕的內容：2026-11-23 已做完（12 個地點、108 個任務），首頁不再顯示「即將開幕」。
 - 2026-11-22 新做的 7 個地點：英文句子還沒請人審閱；台詞、發音、小劇場和看圖選句的圖都還沒請使用者看過。
 - 第二幕的 8 個地點（2026-11-23）：英文句子沒有真人或英文流利的人看過；台詞、發音（包含新角色的聲線和圖書館員的英式口音）、小劇場和看圖選句的圖都還沒請使用者看過或聽過；也沒有人在真的手機上玩過。
 - 第三幕的 12 個地點（2026-11-23）：英文句子沒有真人或英文流利的人看過，台詞只有 AI 寫和 AI 審稿；沒有人試玩過；音檔已產生（6,249 個）；台詞、發音（包含新角色的聲線和英式、澳洲口音）、小劇場都還沒請使用者看過或聽過。
 - 聽力填空、讀招牌、看圖選句、打字拼字，以及第二、三幕的句子填空、讀短文、聽對話答題、聽獨白答題、段落填空，都只在任務練習出題，還沒進今日複習（見 [vocab-quiz.md](vocab-quiz.md)）。
 - 有空白的單字（trash can）還不能考打字拼字。
-- 看圖選句的選項只有文字；多益第 1 大題的聲音選項還沒做。
+- 看圖選句的聲音選項只在第四幕（`listen`，2026-11-23 做好）；第一到三幕的看圖選句選項還是只有文字。
 - 聽力填空挖的字如果是不規則複數、過去式或 -ing，對不到教過的單字，那一題不會排複習（加 -s／-es 的複數對得到）。第一幕 21 題都對得到。
