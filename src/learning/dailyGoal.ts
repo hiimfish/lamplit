@@ -3,6 +3,7 @@
  * in a row missed on the sprint → offer to extend). Pure, per docs/specs/sprint.md.
  */
 import { dailyFor, dateKey, HISTORY_DAYS, type SaveData } from '../core/save';
+import { listenGoal, pickListenTask } from './listen';
 import { buildDailyReview, taskKey } from './sessionPlan';
 import { reviewLimit, sprintPlan, sprintWeek, sprintWeeks, taskGoal } from './sprint';
 import { actUnits, type TownAct } from './townPlan';
@@ -13,6 +14,7 @@ export const MISS_LIMIT = 3;
 interface GoalTask {
   id: string;
   newWordIds: readonly string[];
+  scene: readonly unknown[];
 }
 
 interface GoalUnit {
@@ -27,6 +29,8 @@ export interface GoalStatus {
   sprint: boolean;
   /** 今日複習: nothing due. */
   review: boolean;
+  /** 聽力加量: today's scenes heard, or no story played yet to hear again. */
+  listen: boolean;
   /** Blocks met and blocks in all. */
   met: number;
   total: number;
@@ -52,9 +56,10 @@ export function goalStatus<U extends GoalUnit>(
   const status = sprintPlan(town, save, now, due).status;
   const sprint = status === 'goal-met' || status === 'caught-up';
   const review = due === 0;
-  const flags = [tasks, sprint, review];
+  const listen = daily.listened >= listenGoal(save.route) || !pickListenTask(town, save);
+  const flags = [tasks, sprint, review, listen];
   const met = flags.filter(Boolean).length;
-  return { tasks, sprint, review, met, total: flags.length, all: met === flags.length };
+  return { tasks, sprint, review, listen, met, total: flags.length, all: met === flags.length };
 }
 
 /** The local date `offset` days from `key`, as YYYY-MM-DD. */

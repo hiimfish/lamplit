@@ -1,0 +1,39 @@
+/*
+ * 聽力加量 (ListenScreen.tsx): the story's chat log (flow.css .story) with one row of
+ * small switches under it, 中文, 自動 and 跟著說, each saying 開 or 關 in words.
+ */
+.listen-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(2 * var(--px));
+}
+
+.listen-options > .pixel-button {
+  flex: 1 1 0;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.listen-done {
+  display: flex;
+  flex-direction: column;
+  gap: calc(3 * var(--px));
+}
+
+.listen-done > p {
+  margin: 0;
+}
+
+/* Phone upright, under the scene: 再聽一段 and 回每日目標 sit wide along the bottom, like 下一句. */
+:root[data-orientation='portrait'] .flow.has-stage .flow-card > .listen-done {
+  flex-grow: 1;
+}
+
+:root[data-orientation='portrait'] .flow.has-stage .listen-done > .flow-actions {
+  margin-top: auto;
+  flex-wrap: nowrap;
+}
+
+:root[data-orientation='portrait'] .flow.has-stage .listen-done > .flow-actions > .pixel-button {
+  flex: 1;
+}

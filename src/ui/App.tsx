@@ -8,6 +8,7 @@ import { focusStatic } from './focus';
 import { GoalScreen } from './GoalScreen';
 import { useKeys } from './keys';
 import { KeyCap } from './KeyCap';
+import { ListenScreen } from './ListenScreen';
 import { ResultScreen } from './ResultScreen';
 import { ReviewScreen } from './ReviewScreen';
 import { SprintScreen } from './SprintScreen';
@@ -70,6 +71,7 @@ export function App() {
       {screen === 'review' && <ReviewScreen />}
       {screen === 'sprint' && <SprintScreen />}
       {screen === 'goal' && <GoalScreen />}
+      {screen === 'listen' && <ListenScreen />}
       {screen === 'result' && <ResultScreen />}
       {showDebug && (
         <div class="debug" data-testid="debug">

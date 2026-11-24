@@ -13,6 +13,8 @@ interface TaskRecord {
   /** Best stars so far, 1 to 3. */
   stars: number;
   plays: number;
+  /** Times its story was heard to the end in 聽力加量; unset means never. */
+  heard?: number;
 }
 
 export interface DailyCounters {
@@ -288,6 +290,8 @@ export function sanitizeSave(raw: unknown, now: Date): SaveData {
       if (!isObject(record)) continue;
       const stars = Math.min(3, Math.max(1, Math.floor(num(record.stars, 1))));
       save.tasks[id] = { stars, plays: Math.max(1, whole(record.plays)) };
+      const heard = whole(record.heard);
+      if (heard > 0) save.tasks[id].heard = heard;
     }
   }
   save.coins = whole(raw.coins);
@@ -398,9 +402,17 @@ export function mergeSaves(ours: SaveData, theirs: SaveData): SaveData {
   const tasks: Record<string, TaskRecord> = { ...theirs.tasks };
   for (const [id, record] of Object.entries(ours.tasks)) {
     const other = tasks[id];
-    tasks[id] = other
-      ? { stars: Math.max(record.stars, other.stars), plays: Math.max(record.plays, other.plays) }
-      : record;
+    if (!other) {
+      tasks[id] = record;
+      continue;
+    }
+    const merged: TaskRecord = {
+      stars: Math.max(record.stars, other.stars),
+      plays: Math.max(record.plays, other.plays),
+    };
+    const heard = Math.max(record.heard ?? 0, other.heard ?? 0);
+    if (heard > 0) merged.heard = heard;
+    tasks[id] = merged;
   }
   const streakLast = laterDate(ours.streak.lastDate, theirs.streak.lastDate);
   const streak =

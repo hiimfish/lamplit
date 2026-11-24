@@ -14,6 +14,8 @@ interface Props {
   onPlay: (index: number, slow: boolean) => void;
   /** Key caps on the newest line (the story maps Space / Shift+Space to it). */
   keyHints?: boolean;
+  /** Show the Chinese or not, in place of the saved 中文 setting (聽力加量 hides it). */
+  zh?: boolean;
 }
 
 /** The 中文 key: shows or hides the Chinese under every line (a saved setting). */
@@ -36,8 +38,9 @@ export function ZhToggle({ hint = false }: { hint?: boolean }) {
  * A chat log of boxed scene lines: each line is a key that plays it again, with a
  * 慢速 key beside it. Scrolls to the newest line whenever one is added.
  */
-export function ChatLines({ lines, current, onPlay, keyHints = false }: Props) {
-  const { showZh } = useStore(settingsStore);
+export function ChatLines({ lines, current, onPlay, keyHints = false, zh }: Props) {
+  const saved = useStore(settingsStore).showZh;
+  const showZh = zh ?? saved;
   const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

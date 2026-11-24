@@ -184,7 +184,10 @@ export function finishTask(
   const next: SaveData = {
     ...played,
     coins: played.coins + coins,
-    tasks: { ...played.tasks, [taskId]: { stars: best, plays: (previous?.plays ?? 0) + 1 } },
+    tasks: {
+      ...played.tasks,
+      [taskId]: { ...previous, stars: best, plays: (previous?.plays ?? 0) + 1 },
+    },
     daily: { ...daily, tasksDone: daily.tasksDone + 1 },
   };
   return {

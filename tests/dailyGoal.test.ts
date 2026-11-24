@@ -11,6 +11,7 @@ import {
   type SaveData,
 } from '../src/core/save';
 import { goalStatus, missedDays, shouldOfferExtend } from '../src/learning/dailyGoal';
+import { finishListen } from '../src/learning/listen';
 import { newStoredCard } from '../src/learning/scheduler';
 import { finishTask, taskKey } from '../src/learning/sessionPlan';
 import { chooseRoute, declineExtend, finishSprint, sprintCandidates } from '../src/learning/sprint';
@@ -26,6 +27,7 @@ const unit = (id: string, tasks = 2) => ({
   tasks: Array.from({ length: tasks }, (_, i) => ({
     id: `t${i + 1}`,
     newWordIds: [`${id}${i + 1}a`, `${id}${i + 1}b`],
+    scene: [{ id: 'l1' }],
   })),
 });
 
@@ -117,15 +119,24 @@ describe('history in the save', () => {
 describe('goalStatus', () => {
   it('counts met blocks on a new save', () => {
     const status = goalStatus(town, createEmptySave(now), now, 0);
-    expect(status).toMatchObject({ tasks: false, sprint: false, review: true, met: 1, total: 3 });
+    expect(status).toMatchObject({
+      tasks: false,
+      sprint: false,
+      review: true,
+      listen: true,
+      met: 2,
+      total: 4,
+    });
     expect(status.all).toBe(false);
     expect(goalStatus(town, createEmptySave(now), now, 4).review).toBe(false);
   });
 
-  it("is all met after a task, the day's new words and no reviews", () => {
+  it("is all met after a task, the day's new words, no reviews and a scene heard", () => {
     const played = finishTask(createEmptySave(now), taskKey('a', 't1'), [], now).save;
     const taught = finishSprint(played, 10, now);
-    expect(goalStatus(town, taught, now, 0)).toMatchObject({ met: 3, all: true });
+    expect(goalStatus(town, taught, now, 0)).toMatchObject({ listen: false, met: 3, all: false });
+    const heard = finishListen(taught, taskKey('a', 't1'), now);
+    expect(goalStatus(town, heard, now, 0)).toMatchObject({ met: 4, all: true });
   });
 
   it('counts 快練 met once every word in reach is taught', () => {
