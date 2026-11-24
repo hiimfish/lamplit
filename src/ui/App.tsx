@@ -47,8 +47,8 @@ function TitleScreen() {
   const { save } = useStore(appStore);
   const settings = useStore(settingsStore);
   const played = Object.keys(save.tasks).length > 0;
-  // 繼續 goes straight into the next new task; a new player (怎麼玩 not seen, nothing
-  // played) and one with every task played go to the town instead.
+  // 繼續 opens the town on the act of the next new task (its place tile lit); the label under
+  // the key names that task. It no longer goes straight into it (2026-11-25, the user's call).
   const target = continueTarget(TOWN, save, undefined, devUnlockAll(settings));
   const resume = played || (save.skipTo ?? 0) > 0;
   const into = target && (played || settings.seenIntro) ? target : undefined;
@@ -57,16 +57,7 @@ function TitleScreen() {
     // Must run inside the tap handler so the browser allows sound afterwards.
     unlockAudio();
     playChime();
-    if (into && task) {
-      appStore.set({
-        screen: 'task',
-        town: { act: into.act },
-        activeTask: { unitId: into.unit.id, taskId: task.id },
-        result: undefined,
-      });
-    } else {
-      appStore.set({ screen: 'town' });
-    }
+    appStore.set({ screen: 'town', ...(into ? { town: { act: into.act } } : {}) });
   };
   // A key press is a user gesture too, so Enter or Space can unlock sound and start.
   useKeys({ Enter: start, Space: start });
