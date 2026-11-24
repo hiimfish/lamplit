@@ -33,9 +33,9 @@ describe('computeLayout', () => {
   });
 
   it('snaps an odd leftover pixel instead of centring on a half pixel', () => {
-    const l = computeLayout(1366, 768, 1);
-    expect(l.cssW).toBe(1365);
-    expect(l.offsetX).toBe(0);
+    const l = computeLayout(1283, 720, 1);
+    expect(l.cssW).toBe(1280);
+    expect(l.offsetX).toBe(1);
     expect(l.offsetY).toBe(0);
   });
 
@@ -43,22 +43,35 @@ describe('computeLayout', () => {
     expect(computeLayout(390, 844, 3).offsetY).toBe(0);
   });
 
-  it('uses the design resolution on a full HD desktop', () => {
+  it('gives a computer the large view: full HD at 3x', () => {
     expect(computeLayout(1920, 1080, 1)).toMatchObject({
       orientation: 'landscape',
-      zoom: 4,
-      sceneW: 480,
-      sceneH: 270,
+      zoom: 3,
+      sceneW: 640,
+      sceneH: 360,
       cssW: 1920,
       cssH: 1080,
     });
   });
 
-  it('fills a smaller laptop screen instead of leaving wide margins', () => {
-    const l = computeLayout(1366, 768, 1);
-    expect(l.zoom).toBe(3);
-    expect(l.sceneW).toBe(455);
-    expect(l.sceneH).toBe(256);
+  it('zooms a laptop or a 1280 x 720 window 2x, not 3x, so it shows as much as a phone', () => {
+    for (const [w, h] of [
+      [1366, 768],
+      [1280, 720],
+      [1280, 650],
+    ] as const) {
+      const l = computeLayout(w, h, 1);
+      expect(l.zoom).toBe(2);
+      expect(l.sceneW).toBe(640);
+      expect(l.sceneH).toBeGreaterThanOrEqual(300);
+    }
+  });
+
+  it('keeps the phone view for a phone held sideways', () => {
+    const l = computeLayout(844, 390, 3);
+    expect(l.zoom).toBe(5);
+    expect(l.sceneW).toBe(506);
+    expect(l.sceneH).toBe(234);
   });
 
   it('keeps at least the minimum landscape view on normal screens', () => {
@@ -80,8 +93,8 @@ describe('computeLayout', () => {
 
   it('caps the view on very large or very wide screens', () => {
     const wide = computeLayout(3440, 1440, 1);
-    expect(wide.sceneW).toBeLessThanOrEqual(560);
-    expect(wide.sceneH).toBeLessThanOrEqual(315);
+    expect(wide.sceneW).toBeLessThanOrEqual(640);
+    expect(wide.sceneH).toBeLessThanOrEqual(360);
   });
 
   it('treats a bad devicePixelRatio as 1', () => {

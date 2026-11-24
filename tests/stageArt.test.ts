@@ -277,7 +277,9 @@ describe('stageArea', () => {
     const desk = computeLayout(1366, 768, 1);
     const a = area(1366, 768, 1);
     expect(a.h).toBe(desk.sceneH);
-    expect(a.w).toBe(desk.sceneW - LANDSCAPE_CARD_W);
+    // The stage stops at its widest (256); the card gets the rest of the larger computer view.
+    expect(a.w).toBe(Math.min(256, desk.sceneW - LANDSCAPE_CARD_W));
+    expect(desk.sceneW - a.w).toBeGreaterThanOrEqual(LANDSCAPE_CARD_W);
     expect(a.scale).toBe(2);
   });
 

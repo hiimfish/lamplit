@@ -9,8 +9,17 @@
 
 const LANDSCAPE_MIN_W = 400;
 const LANDSCAPE_MIN_H = 225;
-const LANDSCAPE_MAX_W = 560;
-const LANDSCAPE_MAX_H = 315;
+const LANDSCAPE_MAX_W = 640;
+const LANDSCAPE_MAX_H = 360;
+/**
+ * A computer or tablet (landscape, at least this many CSS pixels tall; a phone held sideways
+ * is about 390): a larger logical view, so a lower zoom step. With the phone's 400 x 225 a
+ * 1280 x 720 window was zoomed 3x and showed half the text a phone held upright shows
+ * (2026-11-25, the user chose this over smaller text).
+ */
+const DESKTOP_MIN_CSS_H = 500;
+const DESKTOP_MIN_W = 530;
+const DESKTOP_MIN_H = 300;
 
 const PORTRAIT_MIN_W = 240;
 const PORTRAIT_MAX_W = 400;
@@ -52,7 +61,10 @@ export function computeLayout(viewportW: number, viewportH: number, dpr: number)
   let sceneH: number;
 
   if (orientation === 'landscape') {
-    zoom = Math.max(1, Math.floor(Math.min(physW / LANDSCAPE_MIN_W, physH / LANDSCAPE_MIN_H)));
+    const desktop = viewportH >= DESKTOP_MIN_CSS_H;
+    const minW = desktop ? DESKTOP_MIN_W : LANDSCAPE_MIN_W;
+    const minH = desktop ? DESKTOP_MIN_H : LANDSCAPE_MIN_H;
+    zoom = Math.max(1, Math.floor(Math.min(physW / minW, physH / minH)));
     sceneW = Math.min(LANDSCAPE_MAX_W, Math.floor(physW / zoom));
     sceneH = Math.min(LANDSCAPE_MAX_H, Math.floor(physH / zoom));
   } else {
