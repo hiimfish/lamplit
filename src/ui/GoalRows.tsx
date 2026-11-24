@@ -81,7 +81,7 @@ export interface StoryStep {
  * Today's blocks of 每日目標, each with the key that starts it: on the 每日目標 screen and in
  * the town (2026-11-25), where `story` gives the story row the town's own next step.
  */
-export function GoalRows({ story }: { story?: StoryStep }) {
+export function GoalRows({ story, from }: { story?: StoryStep; from: 'town' | 'goal' }) {
   const { save, activeTask } = useStore(appStore);
   const openAll = devUnlockAll(useStore(settingsStore));
   const now = currentNow();
@@ -104,7 +104,7 @@ export function GoalRows({ story }: { story?: StoryStep }) {
   const listenNext = pickListenTask(TOWN, save);
   const go = (screen: 'sprint' | 'review' | 'listen' | 'grammar') => {
     playSfx('click');
-    appStore.set({ screen, result: undefined });
+    appStore.set({ screen, result: undefined, backTo: from });
   };
   const grammarLeft = drillRemaining(save, save.route, now);
   const storyStep: StoryStep = story ?? {

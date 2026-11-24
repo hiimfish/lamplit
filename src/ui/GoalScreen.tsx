@@ -194,7 +194,7 @@ export function GoalScreen() {
           </p>
         )}
 
-        <GoalRows />
+        <GoalRows from="goal" />
         <p class="flow-note" data-testid="goal-later">
           結業考在小鎮：每一幕地點的最後一格。
         </p>

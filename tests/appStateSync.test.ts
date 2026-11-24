@@ -96,3 +96,17 @@ describe('appState and other tabs', () => {
     expect(JSON.parse(data.get(SAVE_KEY)!).coins).toBe(5);
   });
 });
+
+describe('goalBack (where a block of 今天的目標 returns)', () => {
+  it('goes back to the town when the block was started there', () => {
+    app.appStore.set({ backTo: 'town' });
+    expect(app.goalBack()).toEqual({ screen: 'town', label: '回小鎮' });
+  });
+
+  it('goes back to 每日目標 when started there, or when nothing was recorded', () => {
+    app.appStore.set({ backTo: 'goal' });
+    expect(app.goalBack()).toEqual({ screen: 'goal', label: '回每日目標' });
+    app.appStore.set({ backTo: undefined });
+    expect(app.goalBack()).toEqual({ screen: 'goal', label: '回每日目標' });
+  });
+});

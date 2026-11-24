@@ -73,10 +73,6 @@
   gap: calc(3 * var(--px));
 }
 
-.goal-keys > .pixel-button {
-  margin: 0;
-}
-
 /* The name and its count never wrap; the note below may. */
 .goal-name {
   white-space: nowrap;

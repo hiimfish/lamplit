@@ -3,7 +3,7 @@ import { playMusic } from '../audio/music';
 import { playSfx } from '../audio/sfx';
 import type { Unit, Word } from '../content/types';
 import { UNITS } from '../content/units';
-import { appStore, commitSave, currentNow } from '../core/appState';
+import { appStore, commitSave, currentNow, goalBack } from '../core/appState';
 import { buildSprintQuestions, makeRng } from '../learning/questionGen';
 import type { AnswerResult } from '../learning/questions';
 import { addCoins, buildDailyReview, reviewCoins, starsForAccuracy } from '../learning/sessionPlan';
@@ -85,9 +85,9 @@ export function SprintScreen() {
           <QuestionRunner questions={round.questions} showHearts={false} onFinish={finish} />
         )}
         <QuitKey
-          label={ready ? '先回小鎮' : '回每日目標'}
+          label={ready ? '先回小鎮' : goalBack().label}
           confirm={ready}
-          onLeave={() => appStore.set({ screen: ready ? 'town' : 'goal' })}
+          onLeave={() => appStore.set({ screen: ready ? 'town' : goalBack().screen })}
         />
       </div>
     </div>

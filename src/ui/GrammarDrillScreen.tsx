@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'preact/hooks';
 import { playMusic } from '../audio/music';
 import { playSfx } from '../audio/sfx';
 import { GRAMMAR_BANK } from '../content/grammarBank';
-import { appStore, commitSave, currentNow } from '../core/appState';
+import { appStore, commitSave, currentNow, goalBack } from '../core/appState';
 import { dateKey, type SaveData } from '../core/save';
 import { buildDrill, finishDrill, grammarGoal } from '../learning/grammarDrill';
 import { drillPointsToday } from '../learning/grammarOn';
@@ -38,7 +38,7 @@ function buildRound(): Question[] {
 }
 
 function EmptyCard() {
-  const back = () => appStore.set({ screen: 'goal' });
+  const back = () => appStore.set({ screen: goalBack().screen });
   useKeys({ Enter: back, Back: back });
   return (
     <div class="flow" data-testid="grammar-screen">
@@ -46,7 +46,7 @@ function EmptyCard() {
         <div class="flow-title">文法快練</div>
         <p data-testid="grammar-empty">文法快練還沒有可以出的題目。多玩幾個任務再來。</p>
         <button type="button" class="pixel-button primary" onClick={back}>
-          回每日目標
+          {goalBack().label}
           <KeyCap k="Enter" />
         </button>
       </div>
@@ -104,7 +104,7 @@ export function GrammarDrillScreen() {
   const leave = () => {
     const n = answered.current;
     if (n <= 0) {
-      appStore.set({ screen: 'goal' });
+      appStore.set({ screen: goalBack().screen });
       return;
     }
     const wrong = Math.min(n, Math.max(0, grammarMisses(appStore.get().save) - missesAtStart));

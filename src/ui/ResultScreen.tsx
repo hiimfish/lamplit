@@ -3,7 +3,7 @@ import { playMusic } from '../audio/music';
 import { playSfx } from '../audio/sfx';
 import { playAudio, stopAudio } from '../audio/pronounce';
 import { getItem, type ItemInfo } from '../content/units';
-import { appStore } from '../core/appState';
+import { appStore, goalBack } from '../core/appState';
 import { devUnlockAll, settingsStore } from '../core/settings';
 import { useStore } from '../core/store';
 import { nextStop, playOrder } from '../learning/townPlan';
@@ -149,7 +149,7 @@ export function ResultScreen() {
               再玩一次
             </button>
           )}
-          {(isSprint || result.kind === 'review') && (
+          {(isSprint || result.kind === 'review') && goalBack().screen === 'goal' && (
             <button
               class="pixel-button"
               onClick={() => appStore.set({ screen: 'goal', result: undefined })}

@@ -421,7 +421,7 @@ export function TownScreen() {
         今天的目標
         <span class="goal-tally">{goal.all ? '✓ 都完成了' : `${goal.met}/${goal.total}`}</span>
       </h2>
-      <GoalRows story={storyStep} />
+      <GoalRows story={storyStep} from="town" />
     </section>
   );
 
