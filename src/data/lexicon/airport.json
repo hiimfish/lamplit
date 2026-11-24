@@ -1,1 +1,733 @@
-{}
+{
+  "train": {
+    "pos": "n",
+    "cls": "vehicle",
+    "forms": {
+      "pl": "trains"
+    }
+  },
+  "airport": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "airports"
+    }
+  },
+  "trip": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "trips"
+    }
+  },
+  "flight": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "flights"
+    }
+  },
+  "terminal": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "terminals"
+    }
+  },
+  "boarding_pass": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "boarding passes"
+    },
+    "en": "boarding pass"
+  },
+  "luggage": {
+    "pos": "n",
+    "cls": "object",
+    "countable": false
+  },
+  "agent": {
+    "pos": "n",
+    "cls": "role",
+    "forms": {
+      "pl": "agents"
+    }
+  },
+  "suitcase": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "suitcases"
+    }
+  },
+  "destination": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "destinations"
+    }
+  },
+  "aisle": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "aisles"
+    }
+  },
+  "tourist": {
+    "pos": "n",
+    "cls": "person",
+    "forms": {
+      "pl": "tourists"
+    }
+  },
+  "guard": {
+    "pos": "n",
+    "cls": "role",
+    "forms": {
+      "pl": "guards"
+    }
+  },
+  "pocket": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "pockets"
+    }
+  },
+  "crew": {
+    "pos": "n",
+    "cls": "person",
+    "forms": {
+      "pl": "crews"
+    }
+  },
+  "wallet": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "wallets"
+    }
+  },
+  "belt": {
+    "pos": "n",
+    "cls": "clothing",
+    "forms": {
+      "pl": "belts"
+    }
+  },
+  "possibility": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "possibilities"
+    }
+  },
+  "version": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "versions"
+    }
+  },
+  "departure": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "departures"
+    }
+  },
+  "itinerary": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "itineraries"
+    }
+  },
+  "shuttle": {
+    "pos": "n",
+    "cls": "vehicle",
+    "forms": {
+      "pl": "shuttles"
+    }
+  },
+  "storm": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "storms"
+    }
+  },
+  "arrival": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "arrivals"
+    }
+  },
+  "airline": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "airlines"
+    }
+  },
+  "weather": {
+    "pos": "n",
+    "cls": "quality",
+    "countable": false
+  },
+  "plane": {
+    "pos": "n",
+    "cls": "vehicle",
+    "forms": {
+      "pl": "planes"
+    }
+  },
+  "passenger": {
+    "pos": "n",
+    "cls": "person",
+    "forms": {
+      "pl": "passengers"
+    }
+  },
+  "lounge": {
+    "pos": "n",
+    "cls": "room",
+    "forms": {
+      "pl": "lounges"
+    }
+  },
+  "gate": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "gates"
+    }
+  },
+  "attendant": {
+    "pos": "n",
+    "cls": "role",
+    "forms": {
+      "pl": "attendants"
+    }
+  },
+  "baggage": {
+    "pos": "n",
+    "cls": "object",
+    "countable": false
+  },
+  "cabin": {
+    "pos": "n",
+    "cls": "room",
+    "forms": {
+      "pl": "cabins"
+    }
+  },
+  "announcement": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "announcements"
+    }
+  },
+  "cooperation": {
+    "pos": "n",
+    "cls": "quality",
+    "countable": false
+  },
+  "distance": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "distances"
+    }
+  },
+  "exit": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "exits"
+    }
+  },
+  "row": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "rows"
+    }
+  },
+  "pilot": {
+    "pos": "n",
+    "cls": "role",
+    "forms": {
+      "pl": "pilots"
+    }
+  },
+  "travel": {
+    "pos": "v",
+    "forms": {
+      "s3": "travels",
+      "past": "traveled",
+      "pp": "traveled",
+      "ing": "traveling"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      },
+      {
+        "subj": ["person", "role"],
+        "prep": {
+          "word": "to",
+          "cls": ["place"]
+        }
+      }
+    ]
+  },
+  "fly": {
+    "pos": "v",
+    "forms": {
+      "s3": "flies",
+      "past": "flew",
+      "pp": "flown",
+      "ing": "flying"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "prep": {
+          "word": "to",
+          "cls": ["place"]
+        },
+        "prepRequired": true
+      }
+    ]
+  },
+  "expire": {
+    "pos": "v",
+    "forms": {
+      "s3": "expires",
+      "past": "expired",
+      "pp": "expired",
+      "ing": "expiring"
+    },
+    "frames": [
+      {
+        "subj": ["document"]
+      }
+    ]
+  },
+  "catch": {
+    "pos": "v",
+    "forms": {
+      "s3": "catches",
+      "past": "caught",
+      "pp": "caught",
+      "ing": "catching"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["vehicle"]
+      }
+    ]
+  },
+  "depart": {
+    "pos": "v",
+    "forms": {
+      "s3": "departs",
+      "past": "departed",
+      "pp": "departed",
+      "ing": "departing"
+    },
+    "frames": [
+      {
+        "subj": ["vehicle"],
+        "prep": {
+          "word": "from",
+          "cls": ["place"]
+        }
+      },
+      {
+        "subj": ["person"],
+        "prep": {
+          "word": "from",
+          "cls": ["place"]
+        }
+      }
+    ]
+  },
+  "post": {
+    "pos": "v",
+    "forms": {
+      "s3": "posts",
+      "past": "posted",
+      "pp": "posted",
+      "ing": "posting"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["document"]
+      }
+    ]
+  },
+  "announce": {
+    "pos": "v",
+    "forms": {
+      "s3": "announces",
+      "past": "announced",
+      "pp": "announced",
+      "ing": "announcing"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["event", "document"]
+      }
+    ]
+  },
+  "stretch": {
+    "pos": "v",
+    "forms": {
+      "s3": "stretches",
+      "past": "stretched",
+      "pp": "stretched",
+      "ing": "stretching"
+    },
+    "frames": [
+      {
+        "subj": ["person"],
+        "obj": ["body"]
+      }
+    ]
+  },
+  "prohibit": {
+    "pos": "v",
+    "forms": {
+      "s3": "prohibits",
+      "past": "prohibited",
+      "pp": "prohibited",
+      "ing": "prohibiting"
+    },
+    "frames": [
+      {
+        "subj": ["role", "place"],
+        "obj": ["object"]
+      }
+    ]
+  },
+  "land": {
+    "pos": "v",
+    "forms": {
+      "s3": "lands",
+      "past": "landed",
+      "pp": "landed",
+      "ing": "landing"
+    },
+    "frames": [
+      {
+        "subj": ["vehicle"]
+      },
+      {
+        "subj": ["vehicle"],
+        "prep": {
+          "word": "at",
+          "cls": ["place"]
+        }
+      }
+    ]
+  },
+  "hurry": {
+    "pos": "v",
+    "forms": {
+      "s3": "hurries",
+      "past": "hurried",
+      "pp": "hurried",
+      "ing": "hurrying"
+    },
+    "frames": [
+      {
+        "subj": ["person"]
+      },
+      {
+        "subj": ["person"],
+        "prep": {
+          "word": "to",
+          "cls": ["place"]
+        }
+      }
+    ]
+  },
+  "valid": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["document"]
+      }
+    ]
+  },
+  "unexpected": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["event", "quality"]
+      }
+    ]
+  },
+  "unclear": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["quality", "document", "event"]
+      }
+    ]
+  },
+  "cloudy": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["day"]
+      }
+    ]
+  },
+  "valuable": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["object", "document", "device"]
+      }
+    ]
+  },
+  "unattended": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["object", "device"]
+      }
+    ]
+  },
+  "smooth": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["event"]
+      }
+    ]
+  },
+  "easily": {
+    "pos": "adv",
+    "skip": true
+  },
+  "straight": {
+    "pos": "adv",
+    "skip": true
+  },
+  "anywhere": {
+    "pos": "adv",
+    "skip": true
+  },
+  "security": {
+    "pos": "other",
+    "skip": true
+  },
+  "rental": {
+    "pos": "other",
+    "skip": true
+  },
+  "domestic": {
+    "pos": "other",
+    "skip": true
+  },
+  "mile": {
+    "pos": "other",
+    "skip": true
+  },
+  "except": {
+    "pos": "other",
+    "skip": true
+  },
+  "suddenly": {
+    "pos": "adv",
+    "skip": true
+  },
+  "abroad": {
+    "pos": "adv",
+    "skip": true
+  },
+  "frequent": {
+    "pos": "other",
+    "skip": true
+  },
+  "opposite": {
+    "pos": "other",
+    "skip": true
+  },
+  "safely": {
+    "pos": "adv",
+    "skip": true
+  },
+  "onto": {
+    "pos": "other",
+    "skip": true
+  },
+  "overhead": {
+    "pos": "other",
+    "skip": true
+  },
+  "ground": {
+    "pos": "other",
+    "skip": true
+  },
+  "near": {
+    "pos": "prep",
+    "frames": [
+      {
+        "subj": ["object", "document", "device", "person"],
+        "obj": ["place", "room"]
+      }
+    ]
+  },
+  "behind": {
+    "pos": "prep",
+    "frames": [
+      {
+        "subj": ["object", "document", "device", "person"],
+        "obj": ["object", "place"]
+      }
+    ]
+  },
+  "in": {
+    "pos": "prep",
+    "frames": [
+      {
+        "subj": ["person", "object", "device", "document"],
+        "obj": ["room", "place"]
+      }
+    ]
+  },
+  "lines": {
+    "t1_2": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t1_3": {
+      "side": "answer",
+      "atype": "statement"
+    },
+    "t1_5": {
+      "side": "question",
+      "qtype": "which"
+    },
+    "t1_6": {
+      "side": "answer",
+      "atype": "thing"
+    },
+    "t2_4": {
+      "side": "question",
+      "qtype": "request"
+    },
+    "t2_5": {
+      "side": "answer",
+      "atype": "agree"
+    },
+    "t2_7": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t2_8": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t4_2": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t4_3": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t5_2": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t5_3": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t5_6": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t5_7": {
+      "side": "answer",
+      "atype": "statement"
+    },
+    "t6_2": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t6_3": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t7_2": {
+      "side": "question",
+      "qtype": "choice"
+    },
+    "t7_3": {
+      "side": "answer",
+      "atype": "choice"
+    },
+    "t8_2": {
+      "side": "question",
+      "qtype": "choice"
+    },
+    "t8_3": {
+      "side": "answer",
+      "atype": "choice"
+    },
+    "t9_2": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t9_3": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t9_5": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t9_6": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t9_7": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t9_8": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t9_9": {
+      "side": "question",
+      "qtype": "request"
+    },
+    "t9_10": {
+      "side": "answer",
+      "atype": "decline"
+    },
+    "t9_16": {
+      "side": "question",
+      "qtype": "choice"
+    },
+    "t9_17": {
+      "side": "answer",
+      "atype": "choice"
+    }
+  }
+}
