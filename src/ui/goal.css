@@ -60,6 +60,18 @@
   grid-row: 1 / span 2;
 }
 
+/* The story row's keys: 下一關, and in the town 選關 beside it. */
+.goal-row > .goal-keys {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: flex;
+  gap: calc(3 * var(--px));
+}
+
+.goal-keys > .pixel-button {
+  margin: 0;
+}
+
 /* The name and its count never wrap; the note below may. */
 .goal-name {
   white-space: nowrap;

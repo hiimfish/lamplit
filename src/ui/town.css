@@ -350,18 +350,11 @@
   }
 }
 
-/* Folded 選關: 今天的目標 with 選關 beside its heading, then every block of the day. */
+/* Folded 選關: 今天的目標, every block of the day (選關 sits in the story row). */
 .town-goals {
   display: flex;
   flex-direction: column;
   gap: calc(3 * var(--px));
-}
-
-.town-goals-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: calc(4 * var(--px));
 }
 
 .town-goals-title {

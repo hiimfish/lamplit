@@ -73,6 +73,8 @@ export interface StoryStep {
   note: string;
   /** Unset: nothing to start (the key is disabled). */
   onStart?: () => void;
+  /** Another key beside it (the town's 選關). */
+  extra?: ComponentChildren;
 }
 
 /**
@@ -122,14 +124,17 @@ export function GoalRows({ story }: { story?: StoryStep }) {
         note={storyStep.note}
         testId="goal-tasks"
       >
-        <button
-          class="pixel-button primary"
-          disabled={!storyStep.onStart}
-          onClick={storyStep.onStart}
-          data-testid="goal-story"
-        >
-          {storyStep.label}
-        </button>
+        <span class="goal-keys">
+          <button
+            class="pixel-button primary"
+            disabled={!storyStep.onStart}
+            onClick={storyStep.onStart}
+            data-testid="goal-story"
+          >
+            {storyStep.label}
+          </button>
+          {storyStep.extra}
+        </span>
       </GoalRow>
       <GoalRow
         name="單字快練"

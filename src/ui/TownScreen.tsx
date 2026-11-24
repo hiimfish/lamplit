@@ -393,33 +393,34 @@ export function TownScreen() {
     </div>
   );
 
-  // Folded (2026-11-25, the user's calls): 今天的目標 with 選關 beside its heading, the story
-  // row first and opening this act's next step (its 結業考 once every task is done); the name
-  // plate under the scene names the act and task. Enter still opens that step.
+  // Folded (2026-11-25, the user's calls): 今天的目標, the story row first with 下一關 (this
+  // act's next step, its 結業考 once every task is done) and 選關 beside it; the name plate
+  // under the scene names the act and task. Enter still opens that step.
+  const pickKey = (
+    <button class="pixel-button town-pick" onClick={() => show(actIndex)} data-testid="town-pick">
+      選關
+    </button>
+  );
   const storyStep: StoryStep = next
     ? {
         label: played > 0 || (save.skipTo ?? 0) > 0 ? '下一關' : '開始第一關',
         note: `下一關：${next.unit.title}・${next.task.title}`,
         onStart: () => startTask(next.unit.id, next.task.id),
+        extra: pickKey,
       }
     : examDue
-      ? { label: '結業考', note: `下一步：第${act.no}幕結業考`, onStart: startExam }
-      : { label: '下一關', note: before ? `玩完第${before.no}幕才會打開` : '這一幕全部完成了！' };
+      ? { label: '結業考', note: `下一步：第${act.no}幕結業考`, onStart: startExam, extra: pickKey }
+      : {
+          label: '下一關',
+          note: before ? `玩完第${before.no}幕才會打開` : '這一幕全部完成了！',
+          extra: pickKey,
+        };
   const nextCard = (
     <section class="town-goals" aria-labelledby="town-goals-title" data-testid="town-goals">
-      <div class="town-goals-head">
-        <h2 class="town-goals-title" id="town-goals-title">
-          今天的目標
-          <span class="goal-tally">{goal.all ? '✓ 都完成了' : `${goal.met}/${goal.total}`}</span>
-        </h2>
-        <button
-          class="pixel-button small town-pick"
-          onClick={() => show(actIndex)}
-          data-testid="town-pick"
-        >
-          選關
-        </button>
-      </div>
+      <h2 class="town-goals-title" id="town-goals-title">
+        今天的目標
+        <span class="goal-tally">{goal.all ? '✓ 都完成了' : `${goal.met}/${goal.total}`}</span>
+      </h2>
       <GoalRows story={storyStep} />
     </section>
   );
