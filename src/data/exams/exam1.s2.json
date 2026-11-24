@@ -1,5 +1,326 @@
 {
   "exam": "exam1",
   "section": "s2",
-  "draft": true
+  "pictures": [
+    {
+      "id": "s2_p1",
+      "form": "A",
+      "pictureId": "reading_book",
+      "options": [
+        {
+          "en": "She is sleeping at home.",
+          "zh": "她正在家裡睡覺。"
+        },
+        {
+          "en": "She is reading at home.",
+          "zh": "她正在家裡看書。"
+        },
+        {
+          "en": "She is cooking at home.",
+          "zh": "她正在家裡煮菜。"
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "s2_p2",
+      "form": "A",
+      "pictureId": "drinking_coffee",
+      "options": [
+        {
+          "en": "He is drinking from a cup.",
+          "zh": "他正用杯子喝東西。"
+        },
+        {
+          "en": "He is eating a sandwich.",
+          "zh": "他正在吃三明治。"
+        },
+        {
+          "en": "He is on the phone.",
+          "zh": "他正在講電話。"
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "s2_p3",
+      "form": "A",
+      "pictureId": "waiting_bus",
+      "options": [
+        {
+          "en": "She is sitting at home.",
+          "zh": "她正坐在家裡。"
+        },
+        {
+          "en": "She is running in the park.",
+          "zh": "她正在公園裡跑步。"
+        },
+        {
+          "en": "She is standing at a bus stop.",
+          "zh": "她站在公車站。"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "s2_p4",
+      "form": "A",
+      "pictureId": "wearing_hat",
+      "options": [
+        {
+          "en": "He has a cup in his hand.",
+          "zh": "他手裡拿著一個杯子。"
+        },
+        {
+          "en": "He has a big hat on his head.",
+          "zh": "他頭上戴著一頂大帽子。"
+        },
+        {
+          "en": "He has a bag on his back.",
+          "zh": "他背著一個包包。"
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "s2_p5",
+      "form": "A",
+      "pictureId": "eating_pizza",
+      "options": [
+        {
+          "en": "She is cooking dinner.",
+          "zh": "她正在煮晚餐。"
+        },
+        {
+          "en": "She is eating on the bus.",
+          "zh": "她正在公車上吃東西。"
+        },
+        {
+          "en": "She is eating at a table.",
+          "zh": "她正坐在桌邊吃東西。"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "s2_p6",
+      "form": "A",
+      "pictureId": "buying_apples",
+      "options": [
+        {
+          "en": "He is buying fruit.",
+          "zh": "他正在買水果。"
+        },
+        {
+          "en": "He is buying a bag.",
+          "zh": "他正在買包包。"
+        },
+        {
+          "en": "He is buying a book.",
+          "zh": "他正在買書。"
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "s2_p7",
+      "form": "A",
+      "pictureId": "writing_letter",
+      "options": [
+        {
+          "en": "She is eating at a desk.",
+          "zh": "她正在書桌前吃東西。"
+        },
+        {
+          "en": "She is sleeping at a desk.",
+          "zh": "她正在書桌前睡覺。"
+        },
+        {
+          "en": "She is writing at a desk.",
+          "zh": "她正在書桌前寫字。"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "s2_p8",
+      "form": "A",
+      "pictureId": "playing_ball",
+      "options": [
+        {
+          "en": "The kids are sleeping on a sofa.",
+          "zh": "孩子們正睡在沙發上。"
+        },
+        {
+          "en": "The kids are playing in a park.",
+          "zh": "孩子們正在公園裡玩。"
+        },
+        {
+          "en": "The kids are working in an office.",
+          "zh": "孩子們正在辦公室工作。"
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "s2_p9",
+      "form": "B",
+      "pictureId": "singing",
+      "options": [
+        {
+          "en": "He is sleeping in a bed.",
+          "zh": "他正睡在床上。"
+        },
+        {
+          "en": "He is cooking for people.",
+          "zh": "他正在為大家煮菜。"
+        },
+        {
+          "en": "He is singing for people.",
+          "zh": "他正在唱歌給大家聽。"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "s2_p10",
+      "form": "B",
+      "pictureId": "sleeping_sofa",
+      "options": [
+        {
+          "en": "At night, he is sleeping on a sofa.",
+          "zh": "晚上，他正睡在沙發上。"
+        },
+        {
+          "en": "At night, he is eating at a table.",
+          "zh": "晚上，他正在桌邊吃東西。"
+        },
+        {
+          "en": "At night, he is singing in a park.",
+          "zh": "晚上，他正在唱歌給大家聽。"
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "s2_p11",
+      "form": "B",
+      "pictureId": "drinking_coffee",
+      "options": [
+        {
+          "en": "He is sitting in a bus.",
+          "zh": "他正坐在公車裡。"
+        },
+        {
+          "en": "He is sitting at a small table.",
+          "zh": "他正坐在小桌子旁。"
+        },
+        {
+          "en": "He is sitting on a sofa.",
+          "zh": "他正坐在沙發上。"
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "s2_p12",
+      "form": "B",
+      "pictureId": "waiting_bus",
+      "options": [
+        {
+          "en": "She is wearing a hat.",
+          "zh": "她戴著帽子。"
+        },
+        {
+          "en": "She is holding a book.",
+          "zh": "她手裡拿著一本書。"
+        },
+        {
+          "en": "She is wearing a coat.",
+          "zh": "她穿著外套。"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "s2_p13",
+      "form": "B",
+      "pictureId": "wearing_hat",
+      "options": [
+        {
+          "en": "There is a bus next to him.",
+          "zh": "他旁邊有一輛公車。"
+        },
+        {
+          "en": "There is a lamp next to him.",
+          "zh": "他旁邊有一盞路燈。"
+        },
+        {
+          "en": "There is a dog next to him.",
+          "zh": "他旁邊有一隻狗。"
+        }
+      ],
+      "answer": 1
+    },
+    {
+      "id": "s2_p14",
+      "form": "B",
+      "pictureId": "eating_pizza",
+      "options": [
+        {
+          "en": "There is pizza on the table.",
+          "zh": "桌上有披薩。"
+        },
+        {
+          "en": "There are apples on the table.",
+          "zh": "桌上有蘋果。"
+        },
+        {
+          "en": "There is a book on the table.",
+          "zh": "桌上有一本書。"
+        }
+      ],
+      "answer": 0
+    },
+    {
+      "id": "s2_p15",
+      "form": "B",
+      "pictureId": "buying_apples",
+      "options": [
+        {
+          "en": "She has a bag of books.",
+          "zh": "她拿著一袋書。"
+        },
+        {
+          "en": "She has a cup of coffee.",
+          "zh": "她拿著一杯咖啡。"
+        },
+        {
+          "en": "She has a bag of apples.",
+          "zh": "她拿著一袋蘋果。"
+        }
+      ],
+      "answer": 2
+    },
+    {
+      "id": "s2_p16",
+      "form": "B",
+      "pictureId": "playing_ball",
+      "options": [
+        {
+          "en": "She has her hands up.",
+          "zh": "她把雙手舉起來。"
+        },
+        {
+          "en": "She has a book in her hands.",
+          "zh": "她手裡拿著一本書。"
+        },
+        {
+          "en": "She is sitting on the grass.",
+          "zh": "她正坐在草地上。"
+        }
+      ],
+      "answer": 0
+    }
+  ]
 }
