@@ -1,5 +1,187 @@
 {
   "exam": "exam4",
   "section": "s3",
-  "draft": true
+  "textFills": [
+    {
+      "id": "s3_f1",
+      "form": "A",
+      "kind": "notice",
+      "title": "Training announcement",
+      "lines": [
+        "Dear staff,",
+        "The new order system ___ on Monday.",
+        "___ the busy week, each training session will be short.",
+        "Please sign up on the sheet ___ you want to join.",
+        "I will have Dan ___ you how to log in."
+      ],
+      "zh": [
+        "各位同仁：",
+        "新的訂單系統星期一會被安裝好。",
+        "儘管這週很忙，每場訓練都會很短。",
+        "如果你想參加，請在名單上報名。",
+        "我會請 Dan 教你怎麼登入。"
+      ],
+      "blanks": [
+        {
+          "options": ["will install", "is installing", "will be installed", "has install"],
+          "answer": 2,
+          "note": "系統是被安裝的，用被動式。"
+        },
+        {
+          "options": ["Although", "Despite", "However", "Because"],
+          "answer": 1,
+          "note": "後面接名詞片語，用 despite。"
+        },
+        {
+          "options": ["if", "unless", "although", "despite"],
+          "answer": 0,
+          "note": "「如果你想參加就報名」用 if。"
+        },
+        {
+          "options": ["to show", "showing", "showed", "show"],
+          "answer": 3,
+          "note": "使役動詞 have 後面接原形動詞。"
+        }
+      ]
+    },
+    {
+      "id": "s3_f2",
+      "form": "A",
+      "kind": "email",
+      "title": "Contract reminder",
+      "lines": [
+        "Hi Mr. Shaw,",
+        "The contract ___ by Friday.",
+        "Mr. Hughes told me he ___ the draft last week.",
+        "Please read the clause ___ explains the penalty.",
+        "___"
+      ],
+      "zh": [
+        "Shaw 先生您好：",
+        "合約必須在星期五以前簽好。",
+        "Hughes 先生告訴我，他上星期已經寄出草稿。",
+        "請讀一下說明罰款的那一條。",
+        "如果您有任何問題，請打電話給我。"
+      ],
+      "blanks": [
+        {
+          "options": ["must sign", "must be signed", "must signing", "must signed"],
+          "answer": 1,
+          "note": "合約是被簽的，用 must be signed。"
+        },
+        {
+          "options": ["will send", "sends", "sending", "had sent"],
+          "answer": 3,
+          "note": "轉述過去的事，要用過去完成式 had sent。"
+        },
+        {
+          "options": ["which", "who", "whose", "where"],
+          "answer": 0,
+          "note": "先行詞 clause 是事物，關係代名詞用 which。"
+        },
+        {
+          "options": [
+            "The factory tour starts at nine.",
+            "Our yoga class is on Wednesday.",
+            "Please call me if you have any questions.",
+            "The lamps were shipped yesterday."
+          ],
+          "answer": 2,
+          "note": "這封信在談合約，只有這句接得上。"
+        }
+      ]
+    },
+    {
+      "id": "s3_f3",
+      "form": "B",
+      "kind": "email",
+      "title": "Hiring a new assistant",
+      "lines": [
+        "Hi Ms. Reed,",
+        "I called Leo's former manager. She said Leo is a very ___ worker.",
+        "If we ___ one more assistant, we would finish orders faster.",
+        "Leo is the person ___ answered every customer call.",
+        "___"
+      ],
+      "zh": [
+        "Reed 女士您好：",
+        "我打電話給 Leo 以前的主管。她說 Leo 是個非常可靠的員工。",
+        "如果我們多一個助理，訂單就能更快處理完。",
+        "Leo 就是接了每一通客戶電話的那個人。",
+        "我覺得我們應該給他這份工作。"
+      ],
+      "blanks": [
+        {
+          "options": ["rely", "relies", "reliable", "relied"],
+          "answer": 2,
+          "note": "worker 是名詞，前面要用形容詞 reliable。"
+        },
+        {
+          "options": ["had", "have", "will have", "having"],
+          "answer": 0,
+          "note": "第二條件句：if 後面用過去式 had，後面接 would。"
+        },
+        {
+          "options": ["which", "who", "whose", "where"],
+          "answer": 1,
+          "note": "先行詞 person 是人，用 who。"
+        },
+        {
+          "options": [
+            "The lamps were shipped yesterday.",
+            "Our gym is closed on Sunday.",
+            "The meeting room is upstairs.",
+            "I think we should offer him the job."
+          ],
+          "answer": 3,
+          "note": "整封信在談雇用 Leo，只有這句接得上。"
+        }
+      ]
+    },
+    {
+      "id": "s3_f4",
+      "form": "B",
+      "kind": "notice",
+      "title": "Press statement",
+      "lines": [
+        "___ sales fell in June, we did not cut any jobs.",
+        "The new lamp ___ at the factory right now.",
+        "Our team worked very ___ this year.",
+        "___"
+      ],
+      "zh": [
+        "雖然六月的銷售下滑，我們沒有裁任何人。",
+        "新的燈現在正在工廠接受測試。",
+        "我們的團隊今年非常努力。",
+        "如果您還有問題，請打電話給我們的辦公室。"
+      ],
+      "blanks": [
+        {
+          "options": ["Although", "Despite", "However", "Unless"],
+          "answer": 0,
+          "note": "後面接完整子句 sales fell，用 although。"
+        },
+        {
+          "options": ["is testing", "is being tested", "has tested", "tests"],
+          "answer": 1,
+          "note": "燈是被測試的，進行中的被動式。"
+        },
+        {
+          "options": ["hardly", "hardest", "hard", "harder"],
+          "answer": 2,
+          "note": "worked very 後面用副詞 hard（努力地）。"
+        },
+        {
+          "options": [
+            "The lamps were shipped yesterday.",
+            "Our gym is open every day.",
+            "The meeting room is upstairs.",
+            "Please call our office if you have more questions."
+          ],
+          "answer": 3,
+          "note": "這是對外聲明的結尾，只有這句接得上。"
+        }
+      ]
+    }
+  ]
 }
