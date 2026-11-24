@@ -6,10 +6,9 @@ import { appStore, commitSave, currentNow } from '../core/appState';
 import { dailyFor, type Route } from '../core/save';
 import { devUnlockAll, settingsStore } from '../core/settings';
 import { useStore } from '../core/store';
-import { GRAMMAR_POINTS } from '../content/grammar';
-import { PATTERNS } from '../content/lexicons';
 import { goalStatus, MISS_LIMIT, shouldOfferExtend } from '../learning/dailyGoal';
-import { drillAvailable, drillRemaining, grammarGoal } from '../learning/grammarDrill';
+import { drillRemaining, grammarGoal } from '../learning/grammarDrill';
+import { grammarOn } from '../learning/grammarOn';
 import { listenGoal, pickListenTask } from '../learning/listen';
 import { buildDailyReview } from '../learning/sessionPlan';
 import {
@@ -94,8 +93,8 @@ export function GoalScreen() {
   const plan = sprintPlan(TOWN, save, now, due);
   const week = sprintWeek(save.route, now);
   const weeks = sprintWeeks(save.route);
-  const grammarOn = drillAvailable(save, TOWN, GRAMMAR_POINTS, Object.values(PATTERNS).flat());
-  const status = goalStatus(TOWN, save, now, due, grammarOn);
+  const grammarOnToday = grammarOn(save, TOWN);
+  const status = goalStatus(TOWN, save, now, due, grammarOnToday);
   const offerExtend = shouldOfferExtend(save, now);
   const answerExtend = (extend: boolean) => {
     playSfx('click');

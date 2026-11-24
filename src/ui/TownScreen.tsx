@@ -10,6 +10,7 @@ import { currentStreak, type SaveData } from '../core/save';
 import { devUnlockAll, settingsStore } from '../core/settings';
 import { useStore } from '../core/store';
 import { goalStatus } from '../learning/dailyGoal';
+import { grammarOn } from '../learning/grammarOn';
 import { buildDailyReview, isTaskUnlocked, taskKey } from '../learning/sessionPlan';
 import { reviewLimit } from '../learning/sprint';
 import {
@@ -274,7 +275,7 @@ export function TownScreen() {
   const now = currentNow();
   const dueCount = buildDailyReview(save, now, reviewLimit(save.route)).length;
   const streak = currentStreak(save, now);
-  const goal = goalStatus(TOWN, save, now, dueCount);
+  const goal = goalStatus(TOWN, save, now, dueCount, grammarOn(save, TOWN));
 
   // What 下一關 opens: the next new task of this act (the name plate names it); none while
   // the act is locked.

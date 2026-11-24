@@ -4,6 +4,7 @@ import { appStore, setDayStamp } from '../core/appState';
 import { recordToday } from '../core/save';
 import { useStore } from '../core/store';
 import { goalStatus } from '../learning/dailyGoal';
+import { grammarOn } from '../learning/grammarOn';
 import { ExamScreen } from './exam/ExamScreen';
 import { focusStatic } from './focus';
 import { GoalScreen } from './GoalScreen';
@@ -21,7 +22,9 @@ import { TOWN, TownScreen } from './TownScreen';
 const showDebug = new URLSearchParams(window.location.search).has('debug');
 
 // Every save records today's counters and whether all of 每日目標 is met.
-setDayStamp((save, now) => recordToday(save, now, goalStatus(TOWN, save, now).all));
+setDayStamp((save, now) =>
+  recordToday(save, now, goalStatus(TOWN, save, now, undefined, grammarOn(save, TOWN)).all),
+);
 
 function TitleScreen() {
   const start = () => {
