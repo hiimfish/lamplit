@@ -791,6 +791,15 @@
       "abstract": true
     }
   ],
+  "pairs": [
+    {
+      "id": "sea_she",
+      "focus": "s／sh",
+      "note": "sea 嘴角往兩邊拉，舌尖在牙齒後面；she 嘴唇往前噘成圓形，聲音比較低沉。",
+      "a": { "id": "sea", "en": "sea", "zh": "海" },
+      "b": { "id": "she", "en": "she", "zh": "她" }
+    }
+  ],
   "tasks": [
     {
       "id": "t1",
@@ -1057,6 +1066,7 @@
         "airline",
         "unexpected"
       ],
+      "newPairIds": ["sea_she"],
       "passages": [
         {
           "id": "new_itinerary_email",

@@ -343,6 +343,15 @@
     { "id": "automate", "en": "automate", "zh": "自動化", "emoji": "🤖", "abstract": true },
     { "id": "bulk", "en": "bulk", "zh": "大量", "emoji": "📦", "abstract": true }
   ],
+  "pairs": [
+    {
+      "id": "thin_thing",
+      "focus": "字尾 n／ng",
+      "note": "thin 的最後舌尖頂上排牙齒後面；thing 的最後舌尖放下來，舌根往上頂，聲音從鼻子出來。",
+      "a": { "id": "thin", "en": "thin", "zh": "薄的；瘦的" },
+      "b": { "id": "thing", "en": "thing", "zh": "東西" }
+    }
+  ],
   "tasks": [
     {
       "id": "t1",
@@ -1107,6 +1116,7 @@
         "raw",
         "storeroom"
       ],
+      "newPairIds": ["thin_thing"],
       "talks": [
         {
           "id": "storeroom_tour",

@@ -203,6 +203,15 @@
     { "id": "morning", "en": "morning", "zh": "早上", "emoji": "🌅", "abstract": true },
     { "id": "night", "en": "night", "zh": "晚上", "emoji": "🌙", "abstract": true }
   ],
+  "pairs": [
+    {
+      "id": "night_light",
+      "focus": "n／l",
+      "note": "n 舌尖頂上排牙齒後面，氣從鼻子出來；l 舌尖頂住同一個位置，但氣從舌頭兩側出來，嘴巴不要閉上。",
+      "a": { "id": "night", "en": "night", "zh": "晚上" },
+      "b": { "id": "light2", "en": "light", "zh": "燈" }
+    }
+  ],
   "tasks": [
     {
       "id": "t1",
@@ -483,6 +492,7 @@
       "title": "明天見",
       "newChunkIds": ["nothing_else", "see_you_tomorrow"],
       "newWordIds": ["today", "tomorrow", "morning", "night"],
+      "newPairIds": ["night_light"],
       "spellWordIds": ["key", "box", "door", "tea", "cake"],
       "scene": [
         {

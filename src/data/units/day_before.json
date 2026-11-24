@@ -348,6 +348,15 @@
     { "id": "clock", "en": "clock", "zh": "時鐘；鬧鐘", "emoji": "⏰" },
     { "id": "colleague", "en": "colleague", "zh": "同事", "emoji": "🧑‍🤝‍🧑", "abstract": true }
   ],
+  "pairs": [
+    {
+      "id": "late_let",
+      "focus": "ei／e",
+      "note": "late 從「欸」滑到「一」，嘴角往兩邊拉；let 只有短短的「欸」，不滑動。",
+      "a": { "id": "late", "en": "late", "zh": "遲到；晚的" },
+      "b": { "id": "let", "en": "let", "zh": "讓" }
+    }
+  ],
   "tasks": [
     {
       "id": "t1",
@@ -491,6 +500,7 @@
       "title": "答應會準時",
       "newChunkIds": ["ill_be_there_by_eight_thirty", "dont_worry_i_wont_be_late"],
       "newWordIds": ["early", "soon", "receive", "ready", "promise", "confirm", "schedule"],
+      "newPairIds": ["late_let"],
       "scene": [
         {
           "id": "t3_1",

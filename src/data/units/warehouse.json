@@ -796,6 +796,15 @@
       "abstract": true
     }
   ],
+  "pairs": [
+    {
+      "id": "vest_west",
+      "focus": "v／w",
+      "note": "vest 上排牙齒輕碰下唇再發聲；west 兩片嘴唇圓起來，牙齒不碰嘴唇。",
+      "a": { "id": "vest", "en": "vest", "zh": "背心" },
+      "b": { "id": "west", "en": "west", "zh": "西邊" }
+    }
+  ],
   "tasks": [
     {
       "id": "t1",
@@ -1059,6 +1068,7 @@
         "alarm",
         "glove"
       ],
+      "newPairIds": ["vest_west"],
       "passages": [
         {
           "id": "safety_rules",

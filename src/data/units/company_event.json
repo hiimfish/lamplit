@@ -328,6 +328,15 @@
     { "id": "praise", "en": "praise", "zh": "稱讚", "emoji": "💐", "abstract": true },
     { "id": "pride", "en": "pride", "zh": "驕傲；自豪", "emoji": "🦁", "abstract": true }
   ],
+  "pairs": [
+    {
+      "id": "price_prize",
+      "focus": "字尾 s／z",
+      "note": "price 字尾只吹氣，母音比較短；prize 字尾喉嚨要震動，母音拉長。",
+      "a": { "id": "price", "en": "price", "zh": "價格" },
+      "b": { "id": "prize", "en": "prize", "zh": "獎品" }
+    }
+  ],
   "tasks": [
     {
       "id": "t1",
@@ -582,6 +591,7 @@
         "invitation",
         "ceremony"
       ],
+      "newPairIds": ["price_prize"],
       "passages": [
         {
           "id": "party_invitation",

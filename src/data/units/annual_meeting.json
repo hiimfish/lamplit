@@ -525,6 +525,15 @@
     },
     { "id": "cheer", "en": "cheer", "zh": "歡呼", "emoji": "🙌", "abstract": true }
   ],
+  "pairs": [
+    {
+      "id": "chair_share",
+      "focus": "ch／sh",
+      "note": "chair 開頭舌頭先頂住再爆開，像「七」；share 開頭只吹氣不爆開，嘴唇噘起。",
+      "a": { "id": "chair", "en": "chair", "zh": "椅子" },
+      "b": { "id": "share", "en": "share", "zh": "分享" }
+    }
+  ],
   "tasks": [
     {
       "id": "t1",
@@ -544,6 +553,7 @@
         "previously",
         "cater"
       ],
+      "newPairIds": ["chair_share"],
       "scene": [
         {
           "id": "t1_1",

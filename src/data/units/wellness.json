@@ -911,6 +911,15 @@
       "abstract": true
     }
   ],
+  "pairs": [
+    {
+      "id": "back_bag",
+      "focus": "字尾 k／g",
+      "note": "back 的字尾只吹氣、母音短；bag 字尾喉嚨要震動，母音稍微拉長。",
+      "a": { "id": "back", "en": "back", "zh": "背；後面" },
+      "b": { "id": "bag", "en": "bag", "zh": "袋子" }
+    }
+  ],
   "tasks": [
     {
       "id": "t1",
@@ -928,6 +937,7 @@
         "shoulder",
         "neck"
       ],
+      "newPairIds": ["back_bag"],
       "scene": [
         {
           "id": "t1_1",

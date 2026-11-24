@@ -570,6 +570,15 @@
       "abstract": true
     }
   ],
+  "pairs": [
+    {
+      "id": "they_day",
+      "focus": "th／d",
+      "note": "they 的舌尖要放在上下牙齒中間再發聲；day 的舌尖頂在上排牙齒後面的牙齦。",
+      "a": { "id": "they", "en": "they", "zh": "他們" },
+      "b": { "id": "day", "en": "day", "zh": "天" }
+    }
+  ],
   "tasks": [
     {
       "id": "t1",
@@ -761,6 +770,7 @@
       "title": "看布告欄",
       "newChunkIds": ["what_word_mean", "is_job_fair_free"],
       "newWordIds": ["january", "february", "march", "april", "may", "june"],
+      "newPairIds": ["they_day"],
       "passages": [
         {
           "id": "library_notices",

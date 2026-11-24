@@ -205,6 +205,22 @@
     { "id": "email", "en": "email", "zh": "電子郵件", "emoji": "📧", "abstract": true },
     { "id": "camera", "en": "camera", "zh": "相機", "emoji": "📷" }
   ],
+  "pairs": [
+    {
+      "id": "some_sun",
+      "focus": "字尾 m／n",
+      "note": "some 的最後要把兩片嘴唇閉起來；sun 的最後嘴唇保持張開，舌尖頂上排牙齒後面。",
+      "a": { "id": "some", "en": "some", "zh": "一些" },
+      "b": { "id": "sun", "en": "sun", "zh": "太陽" }
+    },
+    {
+      "id": "walk_work",
+      "focus": "walk／work",
+      "note": "walk 的 a 是圓嘴唇的「喔」，l 不發音；work 嘴形放鬆，舌頭往後捲，像「兒」。",
+      "a": { "id": "walk", "en": "walk", "zh": "走路" },
+      "b": { "id": "work", "en": "work", "zh": "工作" }
+    }
+  ],
   "tasks": [
     {
       "id": "t1",
@@ -306,6 +322,7 @@
       "title": "上次的活動",
       "newChunkIds": ["saw_poster", "great_time"],
       "newWordIds": ["sun", "sky", "wind", "cloud", "grass"],
+      "newPairIds": ["some_sun"],
       "scene": [
         {
           "id": "t3_1",
@@ -427,6 +444,7 @@
       "title": "野餐",
       "newChunkIds": ["something_to_drink", "help_yourself"],
       "newWordIds": ["play", "hold", "kid", "ball", "picnic"],
+      "newPairIds": ["walk_work"],
       "pictures": [
         {
           "id": "pic1",

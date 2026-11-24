@@ -206,6 +206,15 @@
     { "id": "pizza", "en": "pizza", "zh": "披薩", "emoji": "🍕" },
     { "id": "juice", "en": "juice", "zh": "果汁", "emoji": "🧃" }
   ],
+  "pairs": [
+    {
+      "id": "thirteen_thirty",
+      "focus": "-teen／-ty",
+      "note": "-teen 的重音在後面，ee 要拉長（thirTEEN）；-ty 的重音在前面，字尾短而輕（THIRty）。",
+      "a": { "id": "thirteen", "en": "thirteen", "zh": "十三" },
+      "b": { "id": "thirty", "en": "thirty", "zh": "三十" }
+    }
+  ],
   "tasks": [
     {
       "id": "t1",
@@ -397,6 +406,7 @@
       "title": "排隊結帳",
       "newChunkIds": ["in_line", "own_bag"],
       "newWordIds": ["thirteen", "thirty", "fifteen", "forty", "hundred"],
+      "newPairIds": ["thirteen_thirty"],
       "scene": [
         {
           "id": "t5_1",

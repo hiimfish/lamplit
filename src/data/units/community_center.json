@@ -207,6 +207,15 @@
     { "id": "exercise", "en": "exercise", "zh": "練習題", "emoji": "✏️" },
     { "id": "test", "en": "test", "zh": "測驗", "emoji": "💯" }
   ],
+  "pairs": [
+    {
+      "id": "can_cant",
+      "focus": "can／can't",
+      "note": "can 很短很輕，像「肯」；can't 的母音嘴巴張大、拉長，接近「艾」，字尾舌尖頂上排牙齒後面。",
+      "a": { "id": "can", "en": "can", "zh": "可以；能" },
+      "b": { "id": "cant", "en": "can't", "zh": "不能" }
+    }
+  ],
   "tasks": [
     {
       "id": "t1",
@@ -586,6 +595,7 @@
       "title": "在家練習",
       "newChunkIds": ["hard_but_learning_a_lot", "maybe_practice_together"],
       "newWordIds": ["talk", "teach", "idea", "homework", "exercise", "test"],
+      "newPairIds": ["can_cant"],
       "spellWordIds": ["passport", "save", "credit", "fee", "amount"],
       "scene": [
         {

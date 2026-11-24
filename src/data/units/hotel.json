@@ -810,6 +810,15 @@
       "abstract": true
     }
   ],
+  "pairs": [
+    {
+      "id": "pool_pull",
+      "focus": "長 u／短 u",
+      "note": "pool 嘴唇縮成小圓、聲音拉長；pull 嘴唇放鬆、聲音又短又快。",
+      "a": { "id": "pool", "en": "pool", "zh": "游泳池" },
+      "b": { "id": "pull", "en": "pull", "zh": "拉" }
+    }
+  ],
   "tasks": [
     {
       "id": "t1",
@@ -1085,6 +1094,7 @@
         "downstairs",
         "upstairs"
       ],
+      "newPairIds": ["pool_pull"],
       "passages": [
         {
           "id": "guest_card",
