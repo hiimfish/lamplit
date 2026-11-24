@@ -212,3 +212,28 @@
   box-shadow: 0 var(--px) 0 var(--ink);
   background: var(--paper);
 }
+
+/* 存檔: the code boxes (paste, or select by hand when the clipboard is refused). */
+.settings-code {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: var(--tap);
+  padding: calc(2 * var(--px)) calc(3 * var(--px));
+  font: inherit;
+  font-size: calc(11 * var(--px));
+  color: var(--ink);
+  background: var(--paper);
+  border: var(--px) solid var(--ink);
+  border-radius: 0;
+  resize: vertical;
+  word-break: break-all;
+}
+
+.settings-code:focus-visible {
+  outline: var(--line) dotted var(--ink);
+  outline-offset: var(--px);
+}
+
+.settings-save .settings-note:empty {
+  display: none;
+}

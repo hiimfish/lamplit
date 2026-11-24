@@ -3,6 +3,8 @@ import { playMusic } from '../audio/music';
 import { playSfx } from '../audio/sfx';
 import { appStore, currentNow } from '../core/appState';
 import { dateKey, type DayRecord } from '../core/save';
+import { backupReminder, daysSinceExport } from '../core/saveCode';
+import { browserStorage } from '../core/storageKeys';
 import { useStore } from '../core/store';
 import {
   accuracy,
@@ -76,11 +78,17 @@ export function ProgressScreen() {
   const days = recentDays(save, now, CHART_DAYS);
   const top = Math.max(1, ...days.map((d) => d.record.tasks));
   const shown = days.find((d) => d.date === picked) ?? days[days.length - 1];
+  const reminder = backupReminder(save, daysSinceExport(browserStorage(), now));
 
   return (
     <div class="flow" data-testid="progress">
       <div class="flow-card progress-card">
         <h1 class="flow-title">進度</h1>
+        {reminder && (
+          <p class="flow-note" data-testid="backup-reminder">
+            {reminder}
+          </p>
+        )}
 
         {delta ? (
           <div class="progress-hero" data-testid="progress-plan">

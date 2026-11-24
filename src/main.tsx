@@ -1,3 +1,5 @@
+// First: moves the old storage keys before any module reads the save or settings.
+import './core/boot';
 import { render } from 'preact';
 import { remeasureLayout } from './core/appState';
 import { applyGameLayout, createGame } from './game/createGame';

@@ -4,14 +4,14 @@ import {
   MISTAKE_TAG,
   MISTAKE_TAGS_PER_DAY,
   createEmptySave,
-  exportSave,
-  importSave,
   mergeSaves,
   sanitizeSave,
   shiftDay,
   type MistakeCount,
   type MistakeDay,
 } from '../src/core/save';
+import { decodeSaveCode, encodeSaveCode } from '../src/core/saveCode';
+import { DEFAULT_SETTINGS } from '../src/core/settings';
 
 const today = new Date('2026-11-24T10:00:00');
 const TODAY = '2026-11-24';
@@ -249,22 +249,24 @@ describe('mistakes: mergeSaves', () => {
 });
 
 describe('mistakes: export and import', () => {
-  it('keeps the log through a round trip', () => {
+  it('keeps the log through a round trip', async () => {
     const save = withMistakes({
       [TODAY]: { 'p:f-v': pair(2, 5), 'e:article': pair(0, 3) },
       '2026-11-01': { 'g:to_be': pair(1, 1) },
     });
-    const result = importSave(exportSave(save), today);
+    const code = await encodeSaveCode(save, DEFAULT_SETTINGS, today);
+    const result = await decodeSaveCode(code, today);
     expect(result.ok).toBe(true);
     if (result.ok) expect(result.save.mistakes).toEqual(save.mistakes);
   });
 
-  it('cleans a hand-edited code on import', () => {
+  it('cleans a hand-edited code on import', async () => {
     const save = {
       ...createEmptySave(today),
       mistakes: { [TODAY]: { 'k:a': [1, 1], 'bad tag': [1, 1], 'k:b': [0, 0] }, nope: {} },
     };
-    const result = importSave(exportSave(save as never), today);
+    const code = await encodeSaveCode(save as never, DEFAULT_SETTINGS, today);
+    const result = await decodeSaveCode(code, today);
     expect(result.ok).toBe(true);
     if (result.ok) expect(result.save.mistakes).toEqual({ [TODAY]: { 'k:a': [1, 1] } });
   });

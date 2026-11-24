@@ -1,14 +1,16 @@
 import { EXAM_IDS, isExamId, type ExamId } from '../content/exam';
 import { newStoredCard, type StoredCard } from '../learning/scheduler';
+import { STORAGE_KEYS } from './storageKeys';
 
 /**
  * Versioned progress save. Every function is pure and takes `now`, so tests
  * (and ?debugDate) can simulate any day. Loading never throws.
  */
-export const SAVE_KEY = 'pixel-english-town.save.v1';
+export const SAVE_KEY = STORAGE_KEYS.save;
 /** Used while `?debugDate` is set, so time-travel testing never touches the real save. */
-export const DEBUG_SAVE_KEY = `${SAVE_KEY}.debug`;
-const SAVE_VERSION = 1;
+export const DEBUG_SAVE_KEY = STORAGE_KEYS.debugSave;
+/** The save format version; a save code from a later version is refused. */
+export const SAVE_VERSION = 1;
 
 /** The best 跟著說 round of a task's story in 聽力加量: score 0-100 over `lines` scored lines. */
 export interface SpokenRecord {
@@ -457,13 +459,35 @@ export function saveKeyFor(search: string): string {
  * (read only), so ?debugDate can show tomorrow's real review.
  */
 export function loadSave(storage: StorageLike, now: Date, key: string = SAVE_KEY): SaveData {
+  let text: string | null;
   try {
-    let text = storage.getItem(key);
+    text = storage.getItem(key);
     if (!text && key === DEBUG_SAVE_KEY) text = storage.getItem(SAVE_KEY);
-    if (!text) return createEmptySave(now);
-    return sanitizeSave(JSON.parse(text), now);
   } catch {
     return createEmptySave(now);
+  }
+  if (!text) return createEmptySave(now);
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(text);
+  } catch {
+    if (key === SAVE_KEY) keepCorrupt(storage, text);
+    return createEmptySave(now);
+  }
+  return sanitizeSave(parsed, now);
+}
+
+/**
+ * The real save could not be read: keep its text under STORAGE_KEYS.corruptSave before the
+ * next write replaces it. An earlier copy there is never overwritten.
+ */
+function keepCorrupt(storage: StorageLike, text: string): void {
+  try {
+    if (storage.getItem(STORAGE_KEYS.corruptSave) === null) {
+      storage.setItem(STORAGE_KEYS.corruptSave, text);
+    }
+  } catch {
+    // storage refused: nothing more we can do
   }
 }
 
@@ -560,7 +584,7 @@ export function mergeSaves(ours: SaveData, theirs: SaveData): SaveData {
         }
       : record;
   }
-  return {
+  const merged: SaveData = {
     ...ours,
     cards,
     tasks,
@@ -573,8 +597,11 @@ export function mergeSaves(ours: SaveData, theirs: SaveData): SaveData {
     route: mergeRoute(ours.route, theirs.route),
     mistakes: mergeMistakes(ours.mistakes, theirs.mistakes),
     exams: mergeExams(ours.exams, theirs.exams),
-    ...mergeExamRun(ours.examRun, theirs.examRun),
   };
+  const examRun = mergeExamRun(ours, theirs);
+  if (examRun) merged.examRun = examRun;
+  else delete merged.examRun;
+  return merged;
 }
 
 /** A score part as ETS reports it: 5 to 495 in steps of 5. */
@@ -767,15 +794,24 @@ function sanitizeExamRun(raw: unknown, today: string): ExamRun | undefined {
   return { exam: raw.exam, seed: raw.seed, startedOn: raw.startedOn, done, answers };
 }
 
-/** The same sitting seen from two tabs: the one with more sections done wins; else ours. */
-function mergeExamRun(
-  ours: ExamRun | undefined,
-  theirs: ExamRun | undefined,
-): { examRun?: ExamRun } {
-  if (!ours || !theirs) return {};
-  const same =
-    ours.exam === theirs.exam && ours.seed === theirs.seed && ours.startedOn === theirs.startedOn;
-  return same && theirs.done.length > ours.done.length ? { examRun: theirs } : {};
+/**
+ * The same sitting seen from two tabs: the one with more sections done wins; else ours.
+ * When only one side has a run it is kept, unless the other side has more sittings of
+ * that exam (it finished the run, which is why it has none).
+ */
+function mergeExamRun(ours: SaveData, theirs: SaveData): ExamRun | undefined {
+  const a = ours.examRun;
+  const b = theirs.examRun;
+  if (!a || !b) {
+    const only = a ?? b;
+    if (!only) return undefined;
+    const [owner, other] = a ? [ours, theirs] : [theirs, ours];
+    const finished =
+      (other.exams[only.exam]?.attempts ?? 0) > (owner.exams[only.exam]?.attempts ?? 0);
+    return finished ? undefined : only;
+  }
+  const same = a.exam === b.exam && a.seed === b.seed && a.startedOn === b.startedOn;
+  return same && b.done.length > a.done.length ? b : a;
 }
 
 /** Per exam the larger `attempts`; the scores of the later sitting; the larger counts of `seen`. */
@@ -805,39 +841,4 @@ function mergeExams(ours: ExamsSave, theirs: ExamsSave): ExamsSave {
   const calibration = a && b ? (b.pairs > a.pairs ? b : a) : (a ?? b);
   if (calibration) merged.calibration = calibration;
   return merged;
-}
-
-/* ---------- export / import ---------- */
-
-function toBase64(text: string): string {
-  const bytes = new TextEncoder().encode(text);
-  let binary = '';
-  bytes.forEach((b) => (binary += String.fromCharCode(b)));
-  return btoa(binary);
-}
-
-function fromBase64(code: string): string {
-  const binary = atob(code);
-  const bytes = Uint8Array.from(binary, (c) => c.charCodeAt(0));
-  return new TextDecoder('utf-8', { fatal: true }).decode(bytes);
-}
-
-export function exportSave(save: SaveData): string {
-  return toBase64(JSON.stringify(save));
-}
-
-export type ImportResult = { ok: true; save: SaveData } | { ok: false; error: string };
-
-const BAD_CODE = '這不是有效的存檔代碼。';
-
-export function importSave(code: string, now: Date): ImportResult {
-  try {
-    const parsed: unknown = JSON.parse(fromBase64(code.replace(/\s+/g, '')));
-    if (!isObject(parsed) || typeof parsed.version !== 'number' || !isObject(parsed.cards)) {
-      return { ok: false, error: BAD_CODE };
-    }
-    return { ok: true, save: sanitizeSave(parsed, now) };
-  } catch {
-    return { ok: false, error: BAD_CODE };
-  }
 }

@@ -6,8 +6,6 @@ import {
   createEmptySave,
   currentStreak,
   dateKey,
-  exportSave,
-  importSave,
   loadSave,
   mergeSaves,
   resolveNow,
@@ -113,20 +111,23 @@ describe('streak', () => {
   });
 });
 
-describe('export / import', () => {
-  it('round-trips a save', () => {
+describe('corrupt save', () => {
+  it('keeps the unreadable text once before starting over', () => {
     const now = day('2026-11-22');
-    const save = { ...createEmptySave(now), coins: 77 };
-    save.cards['chunk:to_go'] = newStoredCard(now);
-    const result = importSave(exportSave(save), now);
-    expect(result).toEqual({ ok: true, save });
+    const storage = fakeStorage({ [SAVE_KEY]: '{not json' });
+    expect(loadSave(storage, now).coins).toBe(0);
+    expect(storage.data['lamplit.save.v1.corrupt']).toBe('{not json');
+    storage.data[SAVE_KEY] = '{also bad';
+    loadSave(storage, now);
+    expect(storage.data['lamplit.save.v1.corrupt']).toBe('{not json');
   });
 
-  it('rejects garbage', () => {
+  it('keeps no copy of a readable save or of the debug save', () => {
     const now = day('2026-11-22');
-    expect(importSave('hello world', now).ok).toBe(false);
-    expect(importSave(btoa('{"a":1}'), now).ok).toBe(false);
-    expect(importSave('', now).ok).toBe(false);
+    const storage = fakeStorage({ [SAVE_KEY]: '[1,2]', [DEBUG_SAVE_KEY]: '{bad' });
+    loadSave(storage, now);
+    loadSave(storage, now, DEBUG_SAVE_KEY);
+    expect(storage.data['lamplit.save.v1.corrupt']).toBeUndefined();
   });
 });
 
@@ -450,7 +451,20 @@ describe('exams in the save', () => {
       expect(mergeSaves(more, mine).examRun?.done).toEqual(['s1', 's2']);
       const other = sanitizeSave({ examRun: run('2026-11-21', ['s1', 's2']) }, today);
       expect(mergeSaves(mine, other).examRun?.startedOn).toBe('2026-11-20');
-      expect(mergeSaves(base, more).examRun).toBeUndefined();
+      // Only one side has a run: it is kept, both ways round.
+      expect(mergeSaves(base, more).examRun?.done).toEqual(['s1', 's2']);
+      expect(mergeSaves(more, base).examRun?.done).toEqual(['s1', 's2']);
+      expect(mergeSaves(base, base).examRun).toBeUndefined();
+    });
+
+    it('drops a lone run whose exam the other side has sat more often (it was finished)', () => {
+      const withRun = sanitizeSave({ examRun: run('2026-11-20', ['s1']) }, today);
+      const finished = sanitizeSave(
+        { exams: { exam2: { attempts: 1, lastDate: '2026-11-21', listening: 200, reading: 200 } } },
+        today,
+      );
+      expect(mergeSaves(finished, withRun).examRun).toBeUndefined();
+      expect(mergeSaves(withRun, finished).examRun).toBeUndefined();
     });
   });
 });

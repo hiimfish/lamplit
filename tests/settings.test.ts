@@ -94,7 +94,7 @@ describe('loadSettings / saveSettings', () => {
   });
 
   it('uses the documented key', () => {
-    expect(SETTINGS_KEY).toBe('pixel-english-town.settings.v1');
+    expect(SETTINGS_KEY).toBe('lamplit.settings.v1');
   });
 });
 

@@ -1,0 +1,15 @@
+/* The save-error banner: stays at the top of the screen until a save works again. */
+.save-error {
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 0px) + 4 * var(--px));
+  left: 50%;
+  z-index: 100;
+  transform: translateX(-50%);
+  max-width: calc(100% - 8 * var(--px));
+  padding: calc(2 * var(--px)) calc(6 * var(--px));
+  font-size: calc(11 * var(--px));
+  color: var(--paper);
+  background: var(--ink);
+  border: var(--px) solid var(--lamp);
+  pointer-events: none;
+}

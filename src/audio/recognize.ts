@@ -2,6 +2,7 @@
  * Optional speech recognition feedback. Feature-detected (Chrome/Edge/Safari expose it,
  * Firefox does not). Chrome sends the audio to Google for recognition.
  */
+import { STORAGE_KEYS } from '../core/storageKeys';
 import { normalize } from '../learning/grading';
 
 export interface SpokenComparison {
@@ -199,7 +200,7 @@ export function recognitionMessage(error: unknown): string {
   }
 }
 
-const NOTE_KEY = 'english-learn.recognitionNoteSeen';
+const NOTE_KEY = STORAGE_KEYS.recognitionNoteSeen;
 
 /** True once the learner has confirmed the privacy note in this browser. */
 export function hasSeenRecognitionNote(): boolean {

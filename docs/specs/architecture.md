@@ -98,12 +98,24 @@ tests/              Vitest 測試
 
 ## 瀏覽器儲存
 
-| localStorage 鍵                     | 內容                                                   |
-| ----------------------------------- | ------------------------------------------------------ |
-| `pixel-english-town.save.v1`        | 進度存檔                                               |
-| `pixel-english-town.save.v1.debug`  | 使用 `?debugDate` 時的除錯存檔（第一次會複製正式存檔） |
-| `pixel-english-town.settings.v1`    | 設定                                                   |
-| `english-learn.recognitionNoteSeen` | 已同意語音辨識的隱私說明                               |
+所有鍵都集中在 `src/core/storageKeys.ts`，前綴一律是 `lamplit.`。
+
+| localStorage 鍵               | 內容                                                   |
+| ----------------------------- | ------------------------------------------------------ |
+| `lamplit.save.v1`             | 進度存檔                                               |
+| `lamplit.save.v1.debug`       | 使用 `?debugDate` 時的除錯存檔（第一次會複製正式存檔） |
+| `lamplit.settings.v1`         | 設定                                                   |
+| `lamplit.recognitionNoteSeen` | 已同意語音辨識的隱私說明                               |
+| `lamplit.save.v1.corrupt`     | 讀不懂的存檔原文（只留第一份，不會覆蓋）               |
+| `lamplit.save.v1.pre-import`  | 匯入存檔代碼之前的存檔原文                             |
+| `lamplit.lastExport`          | 上次複製或下載存檔代碼的時間（ISO）                    |
+| `lamplit.migrated`            | 舊鍵都搬完了                                           |
+
+**舊鍵搬家**：`src/core/boot.ts` 是 `main.tsx` 第一個載入的模組，在讀存檔和設定之前執行 `migrateStorageKeys`。舊鍵（`pixel-english-town.save.v1`、`.debug`、`pixel-english-town.settings.v1`、`english-learn.recognitionNoteSeen`）如果新鍵還沒有，就複製過去、讀回比對一樣才刪舊鍵；新鍵已經有就保留新鍵、刪舊鍵。任何一步失敗就留著舊鍵，下次啟動再試；全部搬完才寫 `lamplit.migrated`。
+
+**存檔代碼**（`src/core/saveCode.ts`，設定裡的「存檔」）：格式是 `header.payload.check`，三段都是不補 `=` 的 base64url。header 是 `{"typ":"lamplit-save","v":1,"z":"deflate-raw"}`（瀏覽器沒有 `CompressionStream` 時 `z` 是 `"none"`）；payload 是壓縮過的 UTF-8 JSON `{ saveVersion, exportedAt, save, settings }`；check 是 `header.payload` 的 FNV-1a 32 位元雜湊。check 只用來發現代碼沒複製完整，不是簽章，擋不了修改（區網 http 沒有 `crypto.subtle`）。匯入時會去掉 `__proto__`、`constructor`、`prototype` 鍵，把未來的日期拉回今天（未來的 `history`、`mistakes` 日子直接丟掉），再交給 `sanitizeSave`；比目前 `SAVE_VERSION` 新的存檔會拒收。匯入有「合併」（預設，`mergeSaves`，保留這台的設定）和「完全取代」（連設定一起換）兩種，寫入前先把原本的存檔存到 `lamplit.save.v1.pre-import`。
+
+**保護**：存檔寫不進去時 `appStore.saveError` 會亮起，畫面上方出現提示，直到下一次寫入成功；啟動時會呼叫一次 `navigator.storage.persist()`。另一個分頁存檔時，兩邊用 `mergeSaves` 合併而不是互相覆蓋；整個 localStorage 被清掉時保留記憶體裡的進度並寫回去。
 
 ### 存檔格式（版本 1）
 

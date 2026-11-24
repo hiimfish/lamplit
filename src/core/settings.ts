@@ -1,4 +1,5 @@
 import type { VoiceMode } from '../audio/voices';
+import { STORAGE_KEYS } from './storageKeys';
 import { createStore, type Store } from './store';
 
 export interface Settings {
@@ -22,7 +23,7 @@ export const DEFAULT_SETTINGS: Settings = {
   unlockAll: false,
 };
 
-export const SETTINGS_KEY = 'pixel-english-town.settings.v1';
+export const SETTINGS_KEY = STORAGE_KEYS.settings;
 
 /** The slice of the Storage API we use, so tests can pass a fake. */
 export interface SettingsStorage {

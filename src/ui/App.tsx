@@ -14,6 +14,7 @@ import { KeyCap } from './KeyCap';
 import { ListenScreen } from './ListenScreen';
 import { ProgressScreen } from './ProgressScreen';
 import { ResultScreen } from './ResultScreen';
+import { SaveErrorBanner } from './SaveErrorBanner';
 import { ReviewScreen } from './ReviewScreen';
 import { SprintScreen } from './SprintScreen';
 import { TaskScreen } from './TaskScreen';
@@ -89,6 +90,7 @@ export function App() {
       {screen === 'exam' && <ExamScreen />}
       {screen === 'grammar' && <GrammarDrillScreen />}
       {screen === 'result' && <ResultScreen />}
+      <SaveErrorBanner />
       {showDebug && (
         <div class="debug" data-testid="debug">
           {layout.orientation} · zoom {layout.zoom} · {layout.sceneW}×{layout.sceneH} · px{' '}

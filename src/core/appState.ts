@@ -9,6 +9,9 @@ import {
   writeSave,
   type SaveData,
 } from './save';
+import { importedSave, type ImportMode } from './saveCode';
+import { settingsStore, type Settings } from './settings';
+import { STORAGE_KEYS } from './storageKeys';
 import { createStore } from './store';
 
 type Screen =
@@ -49,6 +52,8 @@ export interface AppState {
    */
   town?: { act: number; unitId?: string };
   result?: ResultData;
+  /** The last write to localStorage failed; cleared by the next one that works. */
+  saveError?: boolean;
 }
 
 /**
@@ -130,16 +135,59 @@ export function commitSave(save: SaveData): void {
   }
   next = stampDay(next, now);
   appStore.set({ save: next });
-  if (storage && writeSave(storage, next, saveKey)) lastSynced = readStored(storage);
+  persist(storage, next);
 }
 
-/** Another tab saved: pick up its progress so our next write does not undo it. */
+/** Writes the save; a failure (or no storage at all) raises `saveError` until a write works. */
+function persist(storage: Storage | null, save: SaveData): void {
+  const ok = storage !== null && writeSave(storage, save, saveKey);
+  if (ok) lastSynced = readStored(storage);
+  if (ok === !!appStore.get().saveError) appStore.set({ saveError: !ok });
+}
+
+/**
+ * Another tab saved: merge its progress into ours so neither undoes the other.
+ * The other tab is the one just played, so its save leads (its route, its exam run).
+ * A cleared storage (key null, or our key gone) keeps what we have and writes it back.
+ */
 function onStorage(event: StorageEvent): void {
   if (event.key !== saveKey && event.key !== null) return;
   const storage = readStorage();
   if (!storage) return;
-  lastSynced = readStored(storage);
-  appStore.set({ save: loadSave(storage, currentNow(), saveKey) });
+  const stored = readStored(storage);
+  const memory = appStore.get().save;
+  if (event.key === null || stored === null) {
+    persist(storage, memory);
+    return;
+  }
+  lastSynced = stored;
+  appStore.set({ save: mergeSaves(loadSave(storage, currentNow(), saveKey), memory) });
+}
+
+/**
+ * Writes a save read from a save code. 合併 merges it into the current progress;
+ * 完全取代 replaces it, and only then are the code's settings applied too. The raw
+ * save as it was is kept under STORAGE_KEYS.preImportSave first. Returns the new save.
+ */
+export function applyImport(
+  imported: SaveData,
+  settings: Settings | undefined,
+  mode: ImportMode,
+): SaveData {
+  const storage = readStorage();
+  if (storage) {
+    const before = readStored(storage);
+    try {
+      if (before !== null) storage.setItem(STORAGE_KEYS.preImportSave, before);
+    } catch {
+      // no room for the backup; the import still goes ahead
+    }
+    // 完全取代 must not be merged with what another tab wrote meanwhile.
+    if (mode === 'replace') lastSynced = before;
+  }
+  commitSave(importedSave(appStore.get().save, imported, mode));
+  if (mode === 'replace' && settings) settingsStore.set(settings);
+  return appStore.get().save;
 }
 
 window.addEventListener('storage', onStorage);
