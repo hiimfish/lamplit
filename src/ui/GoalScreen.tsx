@@ -1,5 +1,5 @@
 import type { ComponentChildren } from 'preact';
-import { useEffect } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import { playMusic } from '../audio/music';
 import { playSfx } from '../audio/sfx';
 import { appStore, commitSave, currentNow } from '../core/appState';
@@ -20,7 +20,9 @@ import {
   sprintEndDate,
   sprintPlan,
   sprintWeek,
+  SPRINT_WEEKS,
   sprintWeeks,
+  TASK_GOAL,
   taskGoal,
   type SprintStatus,
 } from '../learning/sprint';
@@ -33,7 +35,7 @@ import { TOWN } from './TownScreen';
 
 /** Why 單字快練 cannot start, or '' when it can. */
 export const SPRINT_NOTE: Record<SprintStatus, string> = {
-  'review-first': '先做完今日複習，再學新字。',
+  'review-first': '今天還沒複習：先做一輪今日複習，再學新字。',
   'goal-met': '今天的新字學完了，明天再來。',
   'caught-up': '目前和下一個地點的字都學過了，先玩劇情任務往前走。',
   ready: '',
@@ -44,10 +46,24 @@ const ROUTES: { kind: Route['kind']; label: string }[] = [
   { kind: 'sprint', label: '衝刺 3 個月' },
 ];
 
+/**
+ * Roughly how long a day of each route takes when every block is done, from the
+ * estimates in docs/specs/sprint.md (a story task is about 15 minutes). 一般:
+ * TASK_GOAL.normal (1) task, 10 new words (about 5 minutes), up to 20 reviews (about 3)
+ * and one scene heard again: 20–30 minutes. 衝刺: TASK_GOAL.sprint (5) tasks alone are
+ * about 75 minutes, plus 15–50 new words, up to 200 reviews, 3 scenes and 15 grammar
+ * questions: 2–3 hours.
+ */
+export const ROUTE_TIME: Record<Route['kind'], string> = {
+  normal: '約 20–30 分鐘',
+  sprint: '約 2–3 小時',
+};
+
 /** One block of the day: name, how far, a done mark (shape, not colour) and its key. */
 function GoalRow({
   name,
   met,
+  skip = false,
   done,
   total,
   note,
@@ -56,6 +72,8 @@ function GoalRow({
 }: {
   name: string;
   met: boolean;
+  /** Nothing to do in this block today: 今天不用, and it is not counted. */
+  skip?: boolean;
   done?: number;
   total?: number;
   note?: string;
@@ -63,14 +81,21 @@ function GoalRow({
   testId: string;
 }) {
   return (
-    <div class={`goal-row${met ? ' met' : ''}`} data-testid={testId}>
+    <div class={`goal-row${met ? ' met' : ''}`} data-testid={testId} data-skip={skip || undefined}>
       <span class="goal-name">
-        {met && <span class="goal-mark">✓</span>}
+        {met && !skip && <span class="goal-mark">✓</span>}
         {name}
-        {done !== undefined && total !== undefined && (
-          <span class="goal-count">
-            {done} / {total}
+        {skip ? (
+          <span class="goal-count" data-testid={`${testId}-skip`}>
+            今天不用
           </span>
+        ) : (
+          done !== undefined &&
+          total !== undefined && (
+            <span class="goal-count">
+              {done} / {total}
+            </span>
+          )
         )}
       </span>
       {note && <p class="flow-note goal-note">{note}</p>}
@@ -86,6 +111,21 @@ export function GoalScreen() {
   useEffect(() => playMusic('town'), []);
   const toTown = () => appStore.set({ screen: 'town' });
   useKeys({ Enter: toTown, Back: toTown });
+  // Switching to 衝刺 asks once first: it is a much longer day.
+  const [confirmSprint, setConfirmSprint] = useState(false);
+  const confirmRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (confirmSprint) confirmRef.current?.focus();
+  }, [confirmSprint]);
+  const cancelSprint = () => {
+    playSfx('click');
+    setConfirmSprint(false);
+    requestAnimationFrame(() =>
+      document.querySelector<HTMLElement>('[data-testid="route-normal"]')?.focus(),
+    );
+  };
+  // While asking, 返回 (Esc) says no instead of leaving the screen.
+  useKeys({ Back: cancelSprint }, confirmSprint);
 
   const now = currentNow();
   const daily = dailyFor(save, now);
@@ -120,7 +160,20 @@ export function GoalScreen() {
   };
   const pick = (kind: Route['kind']) => {
     playSfx('click');
+    if (kind === 'sprint' && appStore.get().save.route.kind !== 'sprint') {
+      setConfirmSprint(true);
+      return;
+    }
+    setConfirmSprint(false);
     commitSave(chooseRoute(appStore.get().save, kind, currentNow()));
+  };
+  const startSprint = () => {
+    playSfx('click');
+    setConfirmSprint(false);
+    commitSave(chooseRoute(appStore.get().save, 'sprint', currentNow()));
+    requestAnimationFrame(() =>
+      document.querySelector<HTMLElement>('[data-testid="route-sprint"]')?.focus(),
+    );
   };
   const onRouteKey = (e: KeyboardEvent) => {
     const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
@@ -130,6 +183,8 @@ export function GoalScreen() {
     const to = ROUTES[(at + step + ROUTES.length) % ROUTES.length];
     if (!to) return;
     pick(to.kind);
+    // Asking before 衝刺: the focus goes to the question instead.
+    if (to.kind === 'sprint' && save.route.kind !== 'sprint') return;
     const group = e.currentTarget instanceof HTMLElement ? e.currentTarget : null;
     requestAnimationFrame(() =>
       group?.querySelector<HTMLElement>(`[data-testid="route-${to.kind}"]`)?.focus(),
@@ -166,6 +221,30 @@ export function GoalScreen() {
               : `衝刺第 ${week}／${weeks} 週，預計 ${sprintEndDate(save.route.start, weeks)} 結束。`
             : '照自己的步調玩，每天一點點。'}
         </p>
+        <p class="flow-note" data-testid="route-time">
+          做完每天的目標：一般{ROUTE_TIME.normal}（{TASK_GOAL.normal} 關劇情）；衝刺
+          {ROUTE_TIME.sprint}（{TASK_GOAL.sprint} 關劇情，加上更多新字和複習）。可以分好幾次玩。
+        </p>
+        {confirmSprint && (
+          <div class="goal-extend" role="group" aria-label="改成衝刺" data-testid="sprint-confirm">
+            <p class="flow-note">
+              衝刺從今天開始算 {SPRINT_WEEKS} 週，每天{ROUTE_TIME.sprint}。確定要改成衝刺嗎？
+            </p>
+            <div class="goal-extend-keys">
+              <button
+                ref={confirmRef}
+                class="pixel-button primary"
+                onClick={startSprint}
+                data-testid="sprint-confirm-yes"
+              >
+                改成衝刺
+              </button>
+              <button class="pixel-button" onClick={cancelSprint} data-testid="sprint-confirm-no">
+                先不要
+              </button>
+            </div>
+          </div>
+        )}
         {offerExtend && (
           <div class="goal-extend" role="group" aria-label="延長衝刺" data-testid="goal-extend">
             <p class="flow-note">
@@ -199,6 +278,7 @@ export function GoalScreen() {
           <GoalRow
             name="劇情任務"
             met={status.tasks}
+            skip={!status.applies.tasks}
             done={daily.tasksDone}
             total={taskGoal(save.route)}
             note={
@@ -218,6 +298,7 @@ export function GoalScreen() {
           <GoalRow
             name="單字快練"
             met={status.sprint}
+            skip={!status.applies.sprint}
             done={plan.today}
             total={plan.goal}
             note={SPRINT_NOTE[plan.status]}
@@ -235,10 +316,15 @@ export function GoalScreen() {
           <GoalRow
             name="今日複習"
             met={status.review}
+            skip={!status.applies.review}
             note={
-              due > 0
-                ? `今天已答 ${daily.reviewed} 題，還有 ${due} 題到期。`
-                : `今天已答 ${daily.reviewed} 題。`
+              due === 0
+                ? daily.reviewed > 0
+                  ? `今天已答 ${daily.reviewed} 題，都複習完了。`
+                  : '今天沒有到期的字。'
+                : status.review
+                  ? `今天已答 ${daily.reviewed} 題，目標達成；還有 ${due} 題可以多練。`
+                  : `今天已答 ${daily.reviewed} 題，還有 ${due} 題到期（答滿 ${reviewLimit(save.route)} 題就算完成）。`
             }
             testId="goal-review"
           >
@@ -254,6 +340,7 @@ export function GoalScreen() {
           <GoalRow
             name="聽力加量"
             met={status.listen}
+            skip={!status.applies.listen}
             done={daily.listened}
             total={listenGoal(save.route)}
             note={
@@ -276,6 +363,7 @@ export function GoalScreen() {
             <GoalRow
               name="文法快練"
               met={status.grammar}
+              skip={!status.applies.grammar}
               done={daily.grammar}
               total={grammarGoal(save.route)}
               note={

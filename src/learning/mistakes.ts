@@ -17,7 +17,8 @@ import type { AnswerResult, Question } from './questions';
  * - `e:*` (except `e:other`), `k:arrange`, `k:spell`, `k:choose-reply`, `k:fill-grammar`,
  *   `k:text-fill` -> 'writing' (文法和拼字)
  * - `g:` -> 'grammar' (文法點)
- * Everything else (`e:other`, `k:fill`, `k:read-sign`...) is stored but not shown.
+ * Everything else (`e:other`, `k:fill`, `k:read-sign`, `k:read-meaning`...) is stored but
+ * not shown.
  */
 export type MistakeBlock = 'sound' | 'writing' | 'listening' | 'grammar';
 
@@ -37,6 +38,8 @@ export const MISTAKE_LABELS: Record<string, string> = {
   'e:extra-word': '多了字',
   'k:listen-pair': '聽音選字',
   'k:listen-pick': '聽音選字',
+  'k:listen-meaning': '聽音選意思',
+  'k:read-meaning': '看字選意思',
   'k:cloze': '聽力填空',
   'k:talk': '聽對話答題',
   'k:respond': '應答題',

@@ -241,6 +241,13 @@ describe('sprintCandidates and sprintPlan', () => {
     });
   });
 
+  it('opens new words once a review round is done today, even with more due', () => {
+    const reviewed = finishReview(createEmptySave(now), 20, now);
+    expect(sprintPlan(town, reviewed, now, 3).status).toBe('ready');
+    // A review round yesterday does not count today.
+    expect(sprintPlan(town, reviewed, day(1), 3).status).toBe('review-first');
+  });
+
   it('gives at most 10 words and no more than the goal leaves', () => {
     const big = buildTown(acts, [unit('a', 8), unit('b', 8), unit('c')]);
     const fresh = createEmptySave(now);
@@ -262,15 +269,27 @@ describe('buildSprintQuestions', () => {
   const store = UNITS.find((u) => u.id === 'store');
   if (!cafe || !store) throw new Error('missing units');
 
-  it('makes one listen-pick per word with its own audio and options from the pool', () => {
+  it('makes a listen-pick, then a meaning question, per word with its own audio', () => {
     const entries = [
       { unit: cafe, word: cafe.words[0]! },
       { unit: store, word: store.words[0]! },
     ];
     const questions = buildSprintQuestions(entries, [...cafe.words, ...store.words], makeRng(1));
-    expect(questions).toHaveLength(2);
+    expect(questions).toHaveLength(4);
+    expect(questions.slice(0, 2).every((q) => q.kind === 'listen-pick')).toBe(true);
+    const meanings = questions.slice(2);
+    expect(meanings.every((q) => q.kind === 'read-meaning' || q.kind === 'listen-meaning')).toBe(
+      true,
+    );
+    expect(meanings.map((q) => q.itemId).sort()).toEqual(
+      questions
+        .slice(0, 2)
+        .map((q) => q.itemId)
+        .sort(),
+    );
     for (const q of questions) {
-      if (q.kind !== 'listen-pick') throw new Error('not listen-pick');
+      if (q.kind !== 'listen-pick' && q.kind !== 'read-meaning' && q.kind !== 'listen-meaning')
+        throw new Error('not a word question');
       expect(q.options).toHaveLength(4);
       expect(q.options.map((o) => o.id)).toContain(q.correctId);
       expect(q.itemId).toBe(`word:${q.correctId}`);

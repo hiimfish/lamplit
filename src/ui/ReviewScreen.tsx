@@ -11,7 +11,12 @@ import './flow.css';
 import { QuestionRunner } from './TaskScreen';
 import { QuitKey } from './QuitKey';
 
-function buildQuestions(ids: string[], seed: number): Question[] {
+/** `reviews(id)`: how often the item was reviewed, so a word is asked a different way each time. */
+function buildQuestions(
+  ids: string[],
+  seed: number,
+  reviews: (itemId: string) => number,
+): Question[] {
   const rng = makeRng(seed);
   const byUnit = new Map<string, string[]>();
   for (const id of ids) {
@@ -21,7 +26,7 @@ function buildQuestions(ids: string[], seed: number): Question[] {
   const questions: Question[] = [];
   for (const [unitId, unitIds] of byUnit) {
     const unit = getUnit(unitId);
-    if (unit) questions.push(...buildReviewQuestions(unit, unitIds, rng));
+    if (unit) questions.push(...buildReviewQuestions(unit, unitIds, rng, reviews));
   }
   return questions;
 }
@@ -32,7 +37,11 @@ export function ReviewScreen() {
   const questions = useMemo(() => {
     const now = currentNow();
     const save = appStore.get().save;
-    return buildQuestions(buildDailyReview(save, now, reviewLimit(save.route)), now.getTime());
+    return buildQuestions(
+      buildDailyReview(save, now, reviewLimit(save.route)),
+      now.getTime(),
+      (id) => save.cards[id]?.reps ?? 0,
+    );
   }, []);
 
   const finish = (results: AnswerResult[]) => {

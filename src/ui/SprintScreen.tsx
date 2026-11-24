@@ -24,7 +24,7 @@ function wordHome(): Map<string, { unit: Unit; word: Word }> {
   return home;
 }
 
-/** 單字快練: up to 10 new words, first as cards, then one listen-pick each. */
+/** 單字快練: up to 10 new words, first as cards, then a listen-pick and a meaning question each. */
 export function SprintScreen() {
   useEffect(() => playMusic('cafe'), []);
   const [phase, setPhase] = useState<'intro' | 'practice'>('intro');

@@ -23,20 +23,29 @@ interface GoalUnit {
   tasks: readonly GoalTask[];
 }
 
+export type GoalBlock = 'tasks' | 'sprint' | 'review' | 'listen' | 'grammar';
+
 export interface GoalStatus {
   /** 劇情任務: today's goal reached, or no story left to play. */
   tasks: boolean;
-  /** 單字快練: today's new words taught, or every word up to one place ahead is. */
+  /** 單字快練: today's new words taught. */
   sprint: boolean;
-  /** 今日複習: nothing due. */
+  /** 今日複習: nothing due today, or today's review limit (20／200) answered. */
   review: boolean;
-  /** 聽力加量: today's scenes heard, or no story played yet to hear again. */
+  /** 聽力加量: today's scenes heard. */
   listen: boolean;
-  /** 文法快練: today's questions answered. False, and not counted, while `hasGrammar` is false. */
+  /** 文法快練: today's questions answered. */
   grammar: boolean;
-  /** Whether 文法快練 is a block today (the drill has sentences to ask). */
+  /** Whether 文法快練 is offered today (the drill has sentences to ask). */
   hasGrammar: boolean;
-  /** Blocks met and blocks in all. */
+  /**
+   * Whether each block counts today. A block with nothing to do (no story left, no
+   * new words to teach, nothing due and no review done, nothing to hear again yet,
+   * no grammar drill) is 今天不用: neither met nor in the total. A block that starts
+   * to count mid-day does so unmet, so `met` never goes down as the day goes on.
+   */
+  applies: Record<GoalBlock, boolean>;
+  /** Blocks met and blocks that count today. */
   met: number;
   total: number;
   all: boolean;
@@ -62,25 +71,34 @@ export function goalStatus<U extends GoalUnit>(
     actUnits(act).some((unit) => unit.tasks.some((t) => !(taskKey(unit.id, t.id) in save.tasks))),
   );
   const tasks = daily.tasksDone >= taskGoal(save.route) || !storyLeft;
-  const status = sprintPlan(town, save, now, due).status;
-  const sprint = status === 'goal-met' || status === 'caught-up';
-  const review = due === 0;
-  const listen = daily.listened >= listenGoal(save.route) || !pickListenTask(town, save);
-  const grammar = grammarAvailable && daily.grammar >= grammarGoal(save.route);
-  const flags = grammarAvailable
-    ? [tasks, sprint, review, listen, grammar]
-    : [tasks, sprint, review, listen];
-  const met = flags.filter(Boolean).length;
+  const plan = sprintPlan(town, save, now, due);
+  const sprint = plan.status === 'goal-met' && plan.today > 0;
+  const review = due === 0 || daily.reviewed >= reviewLimit(save.route);
+  const listen = daily.listened >= listenGoal(save.route);
+  const grammar = daily.grammar >= grammarGoal(save.route);
+  const applies: Record<GoalBlock, boolean> = {
+    tasks: storyLeft || daily.tasksDone > 0,
+    // 'caught-up' (nothing to teach until the story moves on) never counts, met or
+    // not: it may turn 'ready' after a task, and a met block must not turn unmet.
+    sprint: plan.status === 'ready' || plan.status === 'review-first' || sprint,
+    review: due > 0 || daily.reviewed > 0,
+    listen: listen || pickListenTask(town, save) !== undefined,
+    grammar: grammarAvailable || (grammar && daily.grammar > 0),
+  };
+  const flags: Record<GoalBlock, boolean> = { tasks, sprint, review, listen, grammar };
+  const counted = (Object.keys(applies) as GoalBlock[]).filter((block) => applies[block]);
+  const met = counted.filter((block) => flags[block]).length;
   return {
-    tasks,
-    sprint,
-    review,
-    listen,
-    grammar,
+    tasks: applies.tasks && tasks,
+    sprint: applies.sprint && sprint,
+    review: applies.review && review,
+    listen: applies.listen && listen,
+    grammar: applies.grammar && grammar,
     hasGrammar: grammarAvailable,
+    applies,
     met,
-    total: flags.length,
-    all: met === flags.length,
+    total: counted.length,
+    all: met === counted.length,
   };
 }
 

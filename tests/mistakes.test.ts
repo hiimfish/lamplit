@@ -33,8 +33,17 @@ describe('mistakeTags: one test per row of the tag table', () => {
     expect(mistakeTags(q, result(true))).toEqual(['p:f-v', 'k:listen-pair']);
   });
 
-  it.each(['listen-pick', 'cloze', 'talk', 'respond'])('%s counts k:%s', (kind) => {
-    expect(mistakeTags(question({ kind }), result(false))).toEqual([`k:${kind}`]);
+  it.each(['listen-pick', 'listen-meaning', 'read-meaning', 'cloze', 'talk', 'respond'])(
+    '%s counts k:%s',
+    (kind) => {
+      expect(mistakeTags(question({ kind }), result(false))).toEqual([`k:${kind}`]);
+    },
+  );
+
+  it('shows a heard meaning under listening and keeps a read one out of the dashboard', () => {
+    expect(blockOf('k:listen-meaning')).toBe('listening');
+    expect(blockOf('k:read-meaning')).toBeUndefined();
+    expect(labelOf('k:listen-meaning')).toBe('聽音選意思');
   });
 
   it('a picture to listen to is k:picture-listen, a text picture is k:picture', () => {

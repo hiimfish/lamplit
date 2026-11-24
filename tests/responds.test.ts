@@ -222,8 +222,11 @@ describe('respondQuestions', () => {
     const ms = FAST_MS_LISTEN_CHOOSE + 1000;
     expect(ms).toBeLessThan(FAST_MS_ARRANGE);
     const answer = { itemId: 'a', correct: true, usedHelp: false, ms };
-    const pick = applyAnswer(createEmptySave(now), answer, now, 'listen-pick');
-    const respond = applyAnswer(createEmptySave(now), answer, now, 'respond');
+    // A card seen once before: the first answer about a card is never rated Easy.
+    const seen = applyAnswer(createEmptySave(now), { ...answer, ms: 60_000 }, now);
+    const later = new Date(seen.cards.a?.due ?? 0);
+    const pick = applyAnswer(seen, answer, later, 'listen-pick');
+    const respond = applyAnswer(seen, answer, later, 'respond');
     // Easy (fast) schedules the next review later than Good.
     expect(new Date(respond.cards.a?.due ?? 0).getTime()).toBeGreaterThan(
       new Date(pick.cards.a?.due ?? 0).getTime(),

@@ -30,7 +30,13 @@ export interface AnswerInfo {
   fast: boolean;
 }
 
-const scheduler = fsrs({ enable_fuzz: false });
+/**
+ * Short-term (minute) steps are off: every interval is at least one day, so a card
+ * learned or missed today is next due tomorrow, never again later today. A card
+ * saved mid-step (learning or relearning, due in minutes) moves to whole days on its
+ * next review.
+ */
+const scheduler = fsrs({ enable_fuzz: false, enable_short_term: false });
 
 const RATINGS: Record<Outcome, Grade> = {
   again: Rating.Again,
@@ -81,7 +87,10 @@ export function worseOutcome(a: Outcome, b: Outcome): Outcome {
  * a card FSRS cannot handle is replaced by a fresh card reviewed now.
  */
 export function reviewCard(stored: StoredCard, outcome: Outcome, now: Date): StoredCard {
-  const rating = RATINGS[outcome];
+  // One quick right answer right after the intro card says little: a card never
+  // reviewed before gets at most Good (3 days), not Easy (8 days).
+  const firstTime = stored.state === 0 || !(stored.reps > 0);
+  const rating = RATINGS[firstTime && outcome === 'easy' ? 'good' : outcome];
   try {
     const last = stored.last_review ? new Date(stored.last_review).getTime() : Number.NaN;
     const at = Number.isFinite(last) && last > now.getTime() ? new Date(last) : now;
@@ -95,8 +104,21 @@ export function reviewCard(stored: StoredCard, outcome: Outcome, now: Date): Sto
   }
 }
 
+/** Local calendar day as YYYY-MM-DD (same as dateKey in core/save, which imports this file). */
+function localDay(date: Date): string {
+  const pad = (n: number) => String(n).padStart(2, '0');
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+}
+
+/**
+ * Due by calendar day: a card due at any time today (local date) is due now, so a
+ * card reviewed at 20:00 and due the next 20:00 shows up that morning. A card with
+ * a bad date is never due (loading the save repairs it).
+ */
 export function isDue(stored: StoredCard, now: Date): boolean {
-  return new Date(stored.due).getTime() <= now.getTime();
+  const due = new Date(stored.due);
+  if (!Number.isFinite(due.getTime())) return false;
+  return localDay(due) <= localDay(now);
 }
 
 export interface DueItem {

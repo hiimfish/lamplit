@@ -8,10 +8,13 @@ import {
   buildReviewQuestions,
   buildRolePlayTurns,
   buildTaskPractice,
+  listenPickMeaning,
   makeRng,
+  readPickMeaning,
   rolePlayShown,
   rolePlaySteps,
   spellMarks,
+  wordQuestionKind,
 } from '../src/learning/questionGen';
 import type {
   ClozeQuestion,
@@ -128,7 +131,64 @@ describe('buildReviewQuestions', () => {
     );
     expect(qs).toHaveLength(2);
     expect(qs.map((q) => q.itemId)).toEqual(['chunk:to_go', 'word:tea']);
-    expect(qs.every((q) => q.kind === 'listen-pick' || q.kind === 'arrange')).toBe(true);
+    expect(qs[0]?.kind === 'listen-pick' || qs[0]?.kind === 'arrange').toBe(true);
+  });
+
+  it('asks a word a different way as its reviews go up, the same way for the same count', () => {
+    const kinds = [0, 1, 2].map((reps) => wordQuestionKind('word:tea', reps));
+    expect(new Set(kinds).size).toBe(3);
+    expect(wordQuestionKind('word:tea', 1)).toBe(kinds[1]);
+    const asked = [0, 1, 2].map(
+      (reps) => buildReviewQuestions(unit, ['word:tea'], makeRng(3), () => reps)[0]?.kind,
+    );
+    expect(asked).toEqual(kinds);
+  });
+});
+
+describe('meaning questions', () => {
+  const words = unit.words;
+  const tea = words.find((w) => w.id === 'tea')!;
+
+  it.each([
+    ['read-meaning', readPickMeaning],
+    ['listen-meaning', listenPickMeaning],
+  ] as const)('%s has four different meanings, the answer among them', (kind, make) => {
+    for (let seed = 1; seed <= 30; seed++) {
+      const q = make(unit, tea, makeRng(seed));
+      if (!q) throw new Error('no question');
+      expect(q.kind).toBe(kind);
+      expect(q.en).toBe(tea.en);
+      expect(q.itemId).toBe('word:tea');
+      expect(q.audioId).toBe('cafe.word.tea');
+      expect(q.options).toHaveLength(4);
+      expect(new Set(q.options.map((o) => o.label)).size).toBe(4);
+      expect(new Set(q.options.map((o) => o.id)).size).toBe(4);
+      expect(q.options.find((o) => o.id === q.correctId)?.label).toBe(tea.zh);
+      expect(q.correctId).toBe('tea');
+    }
+  });
+
+  it('is deterministic for a seed', () => {
+    expect(readPickMeaning(unit, tea, makeRng(5))).toEqual(readPickMeaning(unit, tea, makeRng(5)));
+  });
+
+  it('never offers another word with the same meaning, and gives up below four meanings', () => {
+    const twin = { ...tea, id: 'tea2', en: 'tea leaves' };
+    const pool = [tea, twin, ...words.filter((w) => w.id !== 'tea')];
+    for (let seed = 1; seed <= 30; seed++) {
+      const q = readPickMeaning(unit, tea, makeRng(seed), pool);
+      expect(q?.options.map((o) => o.id)).not.toContain('tea2');
+    }
+    const few = [tea, twin, ...words.filter((w) => w.zh !== tea.zh).slice(0, 2)];
+    expect(listenPickMeaning(unit, tea, makeRng(1), few)).toBeNull();
+    // A review then falls back to the listen-pick.
+    const fallback = buildReviewQuestions(
+      { ...unit, words: few },
+      ['word:tea'],
+      makeRng(1),
+      () => [0, 1, 2].find((r) => wordQuestionKind('word:tea', r) === 'read-meaning') ?? 0,
+    );
+    expect(fallback[0]?.kind).toBe('listen-pick');
   });
 });
 

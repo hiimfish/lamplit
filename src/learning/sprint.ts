@@ -5,7 +5,7 @@
  * 快練 teaches words a little ahead of the story: the new words of the place the
  * player is in and of the next place in the same act, in play order. Words with a
  * card are never drilled here (their reviews belong to 今日複習), and new words wait
- * while any review is due.
+ * while reviews are due today and no review round has been done today.
  */
 import { dateKey, dailyFor, type Route, type SaveData } from '../core/save';
 import { actUnits, isActUnlocked, type TownAct } from './townPlan';
@@ -143,7 +143,7 @@ export function sprintCandidates<U extends WordUnit>(
 }
 
 export type SprintStatus =
-  /** Reviews are due: 今日複習 first. */
+  /** Reviews are due and none done today: 今日複習 first. */
   | 'review-first'
   /** Today's new-word goal is met. */
   | 'goal-met'
@@ -174,7 +174,10 @@ export function sprintPlan<U extends WordUnit>(
   const base = { today, goal, words: [] };
   const left = goal - today;
   if (left <= 0) return { ...base, status: 'goal-met' };
-  if (dueCount > 0) return { ...base, status: 'review-first' };
+  // Reviews come first only until the player has done a review round today: after
+  // that, new words are open even if more cards are due.
+  if (dueCount > 0 && dailyFor(save, now).reviewed === 0)
+    return { ...base, status: 'review-first' };
   const candidates = sprintCandidates(town, save);
   if (candidates.length === 0) return { ...base, status: 'caught-up' };
   return { ...base, status: 'ready', words: candidates.slice(0, Math.min(SPRINT_SIZE, left)) };

@@ -16,6 +16,7 @@ import { Fill } from './Fill';
 import { ListenPair } from './ListenPair';
 import { ListenPick } from './ListenPick';
 import { ListenPicture } from './ListenPicture';
+import { MeaningPick } from './MeaningPick';
 import { PictureChoose } from './PictureChoose';
 import { ReadPassage } from './ReadPassage';
 import { ReadSign } from './ReadSign';
@@ -70,6 +71,10 @@ function Body({ question, onAnswer }: QuestionViewProps) {
   switch (question.kind) {
     case 'listen-pick':
       view = <ListenPick question={question} onAnswered={onAnswered} />;
+      break;
+    case 'read-meaning':
+    case 'listen-meaning':
+      view = <MeaningPick question={question} onAnswered={onAnswered} />;
       break;
     case 'listen-pair':
       view = <ListenPair question={question} onAnswered={onAnswered} />;

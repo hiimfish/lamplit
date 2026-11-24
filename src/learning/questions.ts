@@ -30,6 +30,23 @@ export interface ListenPickQuestion {
   itemId: string;
 }
 
+/**
+ * A word's meaning: see the word (`read-meaning`) or hear it (`listen-meaning`, the
+ * English shows only after answering) and pick its Chinese meaning among up to four.
+ */
+export interface MeaningQuestion {
+  kind: 'read-meaning' | 'listen-meaning';
+  /** The word's own clip: heard first in listen-meaning, after answering in read-meaning. */
+  audioId: string;
+  /** The word in English. */
+  en: string;
+  /** Options are Chinese meanings; ids are word ids. */
+  options: { id: string; label: string }[];
+  correctId: string;
+  /** `word:<id>`. */
+  itemId: string;
+}
+
 /** Put shuffled word blocks in order to build a sentence. */
 export interface ArrangeQuestion {
   kind: 'arrange';
@@ -148,6 +165,7 @@ export interface SignQuestion {
 
 export type Question =
   | ListenPickQuestion
+  | MeaningQuestion
   | ListenPairQuestion
   | ArrangeQuestion
   | ChooseReplyQuestion

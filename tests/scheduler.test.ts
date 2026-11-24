@@ -34,7 +34,7 @@ describe('reviewCard', () => {
     const fresh = newStoredCard(day0);
     const learned = reviewCard(fresh, 'good', day0);
     expect(isDue(learned, day0)).toBe(false);
-    expect(isDue(learned, addDays(day0, 2))).toBe(true);
+    expect(isDue(learned, addDays(day0, 3))).toBe(true);
   });
 
   it('spaces repeated correct answers further and further apart', () => {
@@ -69,6 +69,63 @@ describe('reviewCard', () => {
     const snapshot = JSON.stringify(card);
     reviewCard(card, 'good', day0);
     expect(JSON.stringify(card)).toBe(snapshot);
+  });
+});
+
+describe('day-sized intervals', () => {
+  // Local times, so the calendar day is the same in every time zone.
+  const evening = new Date(2026, 10, 24, 20, 0);
+  const daysOut = (card: { due: string }, from: Date) =>
+    (new Date(card.due).getTime() - from.getTime()) / 86_400_000;
+
+  it('schedules a new card 1, 2, 3 days out, and caps Easy at Good the first time', () => {
+    const fresh = newStoredCard(evening);
+    expect(daysOut(reviewCard(fresh, 'again', evening), evening)).toBe(1);
+    expect(daysOut(reviewCard(fresh, 'hard', evening), evening)).toBe(2);
+    expect(daysOut(reviewCard(fresh, 'good', evening), evening)).toBe(3);
+    expect(reviewCard(fresh, 'easy', evening)).toEqual(reviewCard(fresh, 'good', evening));
+  });
+
+  it('lets Easy count once the card has been reviewed before', () => {
+    const learned = reviewCard(newStoredCard(evening), 'good', evening);
+    const at = new Date(learned.due);
+    expect(daysOut(reviewCard(learned, 'easy', at), at)).toBeGreaterThan(
+      daysOut(reviewCard(learned, 'good', at), at),
+    );
+  });
+
+  it('moves a card saved mid-step (learning or relearning, due in minutes) to whole days', () => {
+    const minutes = (state: number) => ({
+      ...newStoredCard(evening),
+      state,
+      reps: 2,
+      stability: 2.3,
+      difficulty: 5,
+      scheduled_days: 0,
+      learning_steps: 1,
+      lapses: state === 3 ? 1 : 0,
+      last_review: new Date(evening.getTime() - 10 * 60_000).toISOString(),
+      due: evening.toISOString(),
+    });
+    for (const state of [1, 3]) {
+      for (const outcome of ['again', 'hard', 'good', 'easy'] as const) {
+        const next = reviewCard(minutes(state), outcome, evening);
+        const days = daysOut(next, evening);
+        expect(Number.isFinite(days)).toBe(true);
+        expect(days).toBeGreaterThanOrEqual(1);
+        expect(Number.isFinite(next.stability)).toBe(true);
+      }
+    }
+  });
+
+  it('counts a card as due from the start of its calendar day', () => {
+    const card = reviewCard(newStoredCard(evening), 'again', evening);
+    // Due at 20:00 tomorrow: not yet at 23:59 tonight, but due from 00:00 tomorrow on.
+    expect(isDue(card, new Date(2026, 10, 24, 23, 59))).toBe(false);
+    expect(isDue(card, new Date(2026, 10, 25, 0, 0))).toBe(true);
+    expect(isDue(card, new Date(2026, 10, 25, 8, 0))).toBe(true);
+    const morning = new Date(2026, 10, 25, 8, 0);
+    expect(dueToday([{ id: 'w', card }], morning, 20).map((i) => i.id)).toEqual(['w']);
   });
 });
 

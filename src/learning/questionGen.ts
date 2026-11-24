@@ -14,6 +14,7 @@ import {
   type ClozeQuestion,
   type ListenPairQuestion,
   type ListenPickQuestion,
+  type MeaningQuestion,
   type Question,
   type SignQuestion,
   type SpeakQuestion,
@@ -61,6 +62,95 @@ function listenPickWord(
     correctId: word.id,
     itemId: wordItemId(word.id),
   };
+}
+
+/** Chinese glosses compared without spaces, so 「 茶 」 and 「茶」 count as the same meaning. */
+const sameZh = (a: string, b: string): boolean => a.replace(/\s+/g, '') === b.replace(/\s+/g, '');
+
+/**
+ * See or hear a word, pick its Chinese meaning among four. Wrong meanings are the
+ * `zh` of other words in `pool`, each meaning once and never the answer's own (two
+ * words may share a gloss). Null when the pool has fewer than three other meanings.
+ */
+function pickMeaning(
+  unit: Unit,
+  word: Word,
+  rng: Rng,
+  kind: MeaningQuestion['kind'],
+  pool: readonly Word[] = unit.words,
+): MeaningQuestion | null {
+  const others: Word[] = [];
+  for (const w of shuffle(
+    pool.filter((w) => w.id !== word.id && !sameText(w.en, word.en)),
+    rng,
+  )) {
+    if (others.length >= MAX_OPTIONS - 1) break;
+    if (sameZh(w.zh, word.zh) || others.some((o) => sameZh(o.zh, w.zh))) continue;
+    others.push(w);
+  }
+  if (others.length < MAX_OPTIONS - 1) return null;
+  return {
+    kind,
+    audioId: `${unit.id}.word.${word.id}`,
+    en: word.en,
+    options: shuffle(
+      [word, ...others].map((w) => ({ id: w.id, label: w.zh })),
+      rng,
+    ),
+    correctId: word.id,
+    itemId: wordItemId(word.id),
+  };
+}
+
+/** Read a word, pick its meaning (see pickMeaning). */
+export function readPickMeaning(
+  unit: Unit,
+  word: Word,
+  rng: Rng,
+  pool?: readonly Word[],
+): MeaningQuestion | null {
+  return pickMeaning(unit, word, rng, 'read-meaning', pool);
+}
+
+/** Hear a word, pick its meaning; the English shows after answering (see pickMeaning). */
+export function listenPickMeaning(
+  unit: Unit,
+  word: Word,
+  rng: Rng,
+  pool?: readonly Word[],
+): MeaningQuestion | null {
+  return pickMeaning(unit, word, rng, 'listen-meaning', pool);
+}
+
+export type WordQuestionKind = 'listen-pick' | 'read-meaning' | 'listen-meaning';
+const WORD_KINDS: readonly WordQuestionKind[] = ['listen-pick', 'read-meaning', 'listen-meaning'];
+
+/**
+ * The question a word gets: a start fixed by its item id, moved on by one with each
+ * review (`reviews`, the card's reps), so a word is asked a different way each day.
+ */
+export function wordQuestionKind(itemId: string, reviews: number): WordQuestionKind {
+  const turn = Number.isFinite(reviews) ? Math.max(0, Math.floor(reviews)) : 0;
+  return WORD_KINDS[(idHash(itemId) + turn) % WORD_KINDS.length] ?? 'listen-pick';
+}
+
+/** A small fixed number per id (not random), so the same word starts the same way. */
+function idHash(itemId: string): number {
+  let hash = 0;
+  for (const ch of itemId) hash = (hash * 31 + ch.charCodeAt(0)) >>> 0;
+  return hash;
+}
+
+/** A word question of `kind`; a listen-pick when the pool has too few meanings. */
+function wordQuestion(
+  unit: Unit,
+  word: Word,
+  rng: Rng,
+  kind: WordQuestionKind,
+  pool: readonly Word[] = unit.words,
+): Question | null {
+  const meaning = kind === 'listen-pick' ? null : pickMeaning(unit, word, rng, kind, pool);
+  return meaning ?? listenPickWord(unit, word, rng, pool);
 }
 
 function listenPickChunk(unit: Unit, chunk: Chunk, rng: Rng): ListenPickQuestion | null {
@@ -445,14 +535,26 @@ export function rolePlaySteps(
   });
 }
 
-/** Mixed listen-pick / arrange questions for due review items. Unknown ids are ignored. */
-export function buildReviewQuestions(unit: Unit, itemIds: string[], rng: Rng): Question[] {
+/**
+ * Questions for due review items. Unknown ids are ignored. A word is asked one of three
+ * ways (hear it and pick the spelling, read it or hear it and pick the meaning), turning
+ * with `reviews(itemId)` (the card's reps) so it varies from one review to the next; a
+ * chunk is arranged or picked by ear; a pair is heard.
+ */
+export function buildReviewQuestions(
+  unit: Unit,
+  itemIds: string[],
+  rng: Rng,
+  reviews: (itemId: string) => number = () => 0,
+): Question[] {
   const questions: Question[] = [];
   for (const itemId of itemIds) {
     const [kind, id] = itemId.split(':');
     if (kind === 'word') {
       const word = unit.words.find((w) => w.id === id);
-      const q = word ? listenPickWord(unit, word, rng) : null;
+      const q = word
+        ? wordQuestion(unit, word, rng, wordQuestionKind(itemId, reviews(itemId)))
+        : null;
       if (q) questions.push(q);
     } else if (kind === 'chunk') {
       const chunk = unit.chunks.find((c) => c.id === id);
@@ -471,9 +573,10 @@ export function buildReviewQuestions(unit: Unit, itemIds: string[], rng: Rng): Q
 }
 
 /**
- * 單字快練: one listen-pick per word, in a shuffled order. Wrong options come from
- * `pool` (words of the places being taught and words already learned), so a round
- * that mixes two places still has four options.
+ * 單字快練: one listen-pick per word in a shuffled order, then one meaning question per
+ * word (read or heard, fixed by the item id) in another shuffled order. Wrong options
+ * come from `pool` (words of the places being taught and words already learned), so a
+ * round that mixes two places still has four options.
  */
 export function buildSprintQuestions(
   entries: readonly { unit: Unit; word: Word }[],
@@ -481,10 +584,18 @@ export function buildSprintQuestions(
   rng: Rng,
 ): Question[] {
   const unique = [...new Map(pool.map((w) => [w.id, w])).values()];
-  return shuffle(
+  const picks = shuffle(
     entries.flatMap(({ unit, word }) => listenPickWord(unit, word, rng, unique) ?? []),
     rng,
   );
+  const meanings = shuffle(
+    entries.flatMap(({ unit, word }) => {
+      const kind = idHash(wordItemId(word.id)) % 2 === 0 ? 'read-meaning' : 'listen-meaning';
+      return pickMeaning(unit, word, rng, kind, unique) ?? [];
+    }),
+    rng,
+  );
+  return [...picks, ...meanings];
 }
 
 /** Joins the chosen blocks (indices into `blocks`) into a sentence. */

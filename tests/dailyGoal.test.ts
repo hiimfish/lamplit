@@ -14,7 +14,13 @@ import { goalStatus, missedDays, shouldOfferExtend } from '../src/learning/daily
 import { finishListen } from '../src/learning/listen';
 import { newStoredCard } from '../src/learning/scheduler';
 import { finishTask, taskKey } from '../src/learning/sessionPlan';
-import { chooseRoute, declineExtend, finishSprint, sprintCandidates } from '../src/learning/sprint';
+import {
+  chooseRoute,
+  declineExtend,
+  finishReview,
+  finishSprint,
+  sprintCandidates,
+} from '../src/learning/sprint';
 import { buildTown } from '../src/learning/townPlan';
 
 const now = new Date(2026, 10, 24, 10, 0, 0);
@@ -118,39 +124,88 @@ describe('history in the save', () => {
 });
 
 describe('goalStatus', () => {
-  it('counts met blocks on a new save', () => {
+  it('counts only the blocks that have something to do on a new save', () => {
     const status = goalStatus(town, createEmptySave(now), now, 0);
+    // Story and 快練 count; nothing is due and no story has been played to hear again.
     expect(status).toMatchObject({
       tasks: false,
       sprint: false,
-      review: true,
-      listen: true,
-      met: 2,
-      total: 4,
+      review: false,
+      listen: false,
+      applies: { tasks: true, sprint: true, review: false, listen: false, grammar: false },
+      met: 0,
+      total: 2,
     });
     expect(status.all).toBe(false);
-    expect(goalStatus(town, createEmptySave(now), now, 4).review).toBe(false);
+    const due = goalStatus(town, createEmptySave(now), now, 4);
+    expect(due).toMatchObject({ review: false, applies: { review: true }, met: 0, total: 3 });
   });
 
-  it("is all met after a task, the day's new words, no reviews and a scene heard", () => {
+  it("is all met after a task, the day's new words and a scene heard", () => {
     const played = finishTask(createEmptySave(now), taskKey('a', 't1'), [], now).save;
     const taught = finishSprint(played, 10, now);
-    expect(goalStatus(town, taught, now, 0)).toMatchObject({ listen: false, met: 3, all: false });
+    expect(goalStatus(town, taught, now, 0)).toMatchObject({ listen: false, met: 2, total: 3 });
     const heard = finishListen(taught, taskKey('a', 't1'), now);
-    expect(goalStatus(town, heard, now, 0)).toMatchObject({ met: 4, all: true });
+    expect(goalStatus(town, heard, now, 0)).toMatchObject({ met: 3, total: 3, all: true });
   });
 
-  it('counts 快練 met once every word in reach is taught', () => {
+  it('never counts fewer blocks met as the day goes on', () => {
+    let save = createEmptySave(now);
+    const met: number[] = [];
+    const check = () => met.push(goalStatus(town, save, now).met);
+    const learn = (ids: string[]) => {
+      for (const id of ids) save.cards[`word:${id}`] = newStoredCard(now);
+    };
+    check();
+    save = finishTask(save, taskKey('a', 't1'), [], now).save;
+    learn(['a1a', 'a1b']);
+    check();
+    const words = sprintCandidates(town, save);
+    for (const id of words) save.cards[id] = newStoredCard(now);
+    save = finishSprint(save, words.length, now);
+    check();
+    save = finishTask(save, taskKey('a', 't2'), [], now).save;
+    check();
+    save = finishTask(save, taskKey('b', 't1'), [], now).save;
+    learn(['b1a', 'b1b']);
+    check();
+    save = finishListen(save, taskKey('a', 't1'), now);
+    check();
+    for (let i = 1; i < met.length; i++) expect(met[i]).toBeGreaterThanOrEqual(met[i - 1] ?? 0);
+    expect(met[met.length - 1]).toBeGreaterThan(0);
+  });
+
+  it('meets 今日複習 once nothing is due, or once the day limit is answered', () => {
+    const save = finishReview(createEmptySave(now), 5, now);
+    expect(goalStatus(town, save, now, 0)).toMatchObject({
+      review: true,
+      applies: { review: true },
+    });
+    expect(goalStatus(town, save, now, 30).review).toBe(false);
+    const enough = finishReview(save, 15, now);
+    expect(goalStatus(town, enough, now, 30).review).toBe(true);
+    const sprint = chooseRoute(enough, 'sprint', now);
+    expect(goalStatus(town, sprint, now, 30).review).toBe(false);
+  });
+
+  it('leaves 快練 out (今天不用) while every word in reach is taught', () => {
     const save = createEmptySave(now);
     for (const id of sprintCandidates(town, save)) save.cards[id] = newStoredCard(now);
-    expect(goalStatus(town, save, now, 0).sprint).toBe(true);
+    expect(goalStatus(town, save, now, 0)).toMatchObject({
+      sprint: false,
+      applies: { sprint: false },
+    });
   });
 
-  it('counts 劇情任務 met once the whole story is played', () => {
-    const save = createEmptySave(now);
+  it('counts 劇情任務 met once the whole story is played, and leaves it out the next day', () => {
+    let save = createEmptySave(now);
     for (const u of ['a', 'b'])
-      for (const t of ['t1', 't2']) save.tasks[taskKey(u, t)] = { stars: 3, plays: 1 };
-    expect(goalStatus(town, save, day(1), 0).tasks).toBe(true);
+      for (const t of ['t1', 't2']) save = finishTask(save, taskKey(u, t), [], now).save;
+    expect(goalStatus(town, save, now, 0)).toMatchObject({
+      tasks: true,
+      applies: { tasks: true },
+    });
+    expect(goalStatus(town, save, day(1), 0)).toMatchObject({ applies: { tasks: false } });
   });
 });
 
@@ -162,19 +217,19 @@ describe('goalStatus 文法快練', () => {
 
   it('is no block by default', () => {
     const status = goalStatus(town, createEmptySave(now), now, 0);
-    expect(status).toMatchObject({ hasGrammar: false, grammar: false, total: 4 });
+    expect(status).toMatchObject({ hasGrammar: false, grammar: false, total: 2 });
   });
 
-  it('is a fifth block when available, met at the route goal', () => {
+  it('is one more block when available, met at the route goal', () => {
     const save = allFour();
     const open = goalStatus(town, save, now, 0, true);
-    expect(open).toMatchObject({ hasGrammar: true, grammar: false, met: 4, total: 5, all: false });
+    expect(open).toMatchObject({ hasGrammar: true, grammar: false, met: 3, total: 4, all: false });
     save.daily.grammar = 9;
     expect(goalStatus(town, save, now, 0, true).grammar).toBe(false);
     save.daily.grammar = 10;
     expect(goalStatus(town, save, now, 0, true)).toMatchObject({
       grammar: true,
-      met: 5,
+      met: 4,
       all: true,
     });
   });

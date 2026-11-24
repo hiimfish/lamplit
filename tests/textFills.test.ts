@@ -241,8 +241,11 @@ describe('textFillQuestions', () => {
   it('uses the slow fast-answer threshold', () => {
     const now = new Date('2026-11-23T10:00:00');
     const result = { itemId: 'chunk:x', correct: true, usedHelp: false, ms: FAST_MS_ARRANGE - 1 };
-    const slow = applyAnswer(createEmptySave(now), { ...result, ms: 6000 }, now, 'text-fill');
-    const listen = applyAnswer(createEmptySave(now), { ...result, ms: 6000 }, now, 'listen-pick');
+    // A card seen once before: the first answer about a card is never rated Easy.
+    const seen = applyAnswer(createEmptySave(now), { ...result, ms: 60_000 }, now);
+    const later = new Date(seen.cards['chunk:x']?.due ?? 0);
+    const slow = applyAnswer(seen, { ...result, ms: 6000 }, later, 'text-fill');
+    const listen = applyAnswer(seen, { ...result, ms: 6000 }, later, 'listen-pick');
     // 6 s is fast for a text fill (under 12 s) but not for a listen-pick (4 s).
     expect(slow.cards['chunk:x']).not.toEqual(listen.cards['chunk:x']);
   });

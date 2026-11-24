@@ -402,8 +402,11 @@ export function TownScreen() {
                 appStore.set({ screen: 'goal' });
               }}
               data-testid="goal"
-              aria-label={`每日目標，完成 ${goal.met}／${goal.total}`}
+              aria-label={
+                goal.all ? '每日目標，今天都完成了' : `每日目標，完成 ${goal.met}／${goal.total}`
+              }
             >
+              {/* Only the blocks that count today (今天不用 ones are left out of both numbers). */}
               每日目標
               <span class="goal-tally" data-testid="goal-tally">
                 {goal.all ? '✓' : `${goal.met}/${goal.total}`}

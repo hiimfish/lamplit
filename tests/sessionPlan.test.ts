@@ -50,8 +50,12 @@ describe('applyAnswer', () => {
   it('uses a higher fast threshold for arrange questions', () => {
     const ms = FAST_MS_LISTEN_CHOOSE + 1000;
     expect(ms).toBeLessThan(FAST_MS_ARRANGE);
-    const slow = applyAnswer(createEmptySave(day0), answer('a', { ms }), day0, 'listen-pick');
-    const fast = applyAnswer(createEmptySave(day0), answer('a', { ms }), day0, 'arrange');
+    // A card seen before: the first answer about a card is never rated Easy.
+    const seen = reviewCard(newStoredCard(day0), 'good', day0);
+    const at = new Date(seen.due);
+    const base: SaveData = { ...createEmptySave(day0), cards: { a: seen } };
+    const slow = applyAnswer(base, answer('a', { ms }), at, 'listen-pick');
+    const fast = applyAnswer(base, answer('a', { ms }), at, 'arrange');
     // Easy schedules the next review later than Good.
     expect(new Date(fast.cards.a?.due ?? 0).getTime()).toBeGreaterThan(
       new Date(slow.cards.a?.due ?? 0).getTime(),
