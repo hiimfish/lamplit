@@ -16,7 +16,12 @@ const END = '<!-- sprint-table:end -->';
 
 const run = spawnSync(
   process.execPath,
-  [join(ROOT, 'node_modules', 'vitest', 'vitest.mjs'), 'run', 'tests/sprintSchedule.test.ts'],
+  [
+    join(ROOT, 'node_modules', 'vitest', 'vitest.mjs'),
+    'run',
+    'tests/sprintSchedule.test.ts',
+    '--reporter=verbose',
+  ],
   { cwd: ROOT, env: { ...process.env, SPRINT_TABLE: 'print' }, encoding: 'utf8' },
 );
 const output = `${run.stdout ?? ''}${run.stderr ?? ''}`;
