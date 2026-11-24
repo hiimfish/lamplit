@@ -900,8 +900,8 @@
     {
       "id": "g_passive-past_05",
       "grammarId": "passive-past",
-      "en": "The email ___ sent, so please check the address.",
-      "zh": "那封 email 沒寄出去，請檢查一下地址。",
+      "en": "The email ___ delivered, so please check the address.",
+      "zh": "那封 email 沒有送達，請檢查一下地址。",
       "options": [
         "wasn't",
         "weren't",
@@ -909,7 +909,7 @@
         "doesn't"
       ],
       "answer": 0,
-      "note": "過去被動的否定是 wasn't + 過去分詞；email 單數不用 weren't，didn't 不能接 sent。"
+      "note": "過去被動的否定是 wasn't + 過去分詞；email 單數不用 weren't，didn't 不能接 delivered。"
     },
     {
       "id": "g_passive-past_06",
@@ -1390,8 +1390,8 @@
     {
       "id": "g_relative-that_10",
       "grammarId": "relative-that",
-      "en": "Any item that ___ on the agenda will be discussed next week.",
-      "zh": "不在議程上的項目會在下週討論。",
+      "en": "Any item that ___ on today's agenda will be discussed next week.",
+      "zh": "不在今天議程上的項目會在下週討論。",
       "options": [
         "aren't",
         "don't",

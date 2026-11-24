@@ -706,8 +706,8 @@
     {
       "id": "g_while-past-continuous_09",
       "grammarId": "while-past-continuous",
-      "en": "I didn't hear the bell while I ___ to music.",
-      "zh": "我在聽音樂的時候沒聽到門鈴。",
+      "en": "My phone rang while I ___ to music.",
+      "zh": "我在聽音樂的時候，手機響了。",
       "options": ["listen", "listening", "were listening", "was listening"],
       "answer": 3,
       "note": "主句是過去式，while 子句用過去進行式，主詞 I 配 was listening；listen 是現在式，listening 少了 be 動詞，were 不配 I。"

@@ -693,13 +693,13 @@
       "en": "If we ___ the launch, we would miss the trade fair.",
       "zh": "如果我們延後上市，就會錯過商展。",
       "options": [
-        "delay",
+        "delaying",
         "will delay",
         "have delayed",
         "delayed"
       ],
       "answer": 3,
-      "note": "主要子句用 would，If 子句用過去式 delayed；delay、will delay、have delayed 都不能和 would 搭配成第二條件句。"
+      "note": "主要子句用 would，If 子句用過去式 delayed；delaying、will delay、have delayed 都不能和 would 搭配成第二條件句。"
     },
     {
       "id": "g_although-even-though_01",
