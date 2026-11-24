@@ -391,8 +391,8 @@
     {
       "id": "g_past-continuous_04",
       "grammarId": "past-continuous",
-      "en": "She was ___ her boarding pass when the guard called her name.",
-      "zh": "警衛叫她名字的時候，她正在看她的登機證。",
+      "en": "She was ___ her boarding pass when the airline agent called her name.",
+      "zh": "航空公司人員叫她名字的時候，她正在看她的登機證。",
       "options": ["check", "checking", "checks", "checked"],
       "answer": 1,
       "note": "was 加 -ing 是過去進行式：was checking；was checked 是被動，後面不能再接 her boarding pass，check / checks 不能接在 was 後面。"

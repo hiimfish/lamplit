@@ -942,8 +942,8 @@
     {
       "id": "g_should_08",
       "grammarId": "should",
-      "en": "Should she ___ home all afternoon?",
-      "zh": "她應該整個下午都待在家嗎？",
+      "en": "Should she ___ home by six?",
+      "zh": "她應該六點前到家嗎？",
       "options": [
         "is",
         "being",

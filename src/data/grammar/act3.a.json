@@ -774,8 +774,8 @@
     {
       "id": "g_time-clause-as-soon-as_06",
       "grammarId": "time-clause-as-soon-as",
-      "en": "We ___ you as soon as the director signs it.",
-      "zh": "主任一簽好，我們就傳訊息給你。",
+      "en": "We ___ you as soon as the director signs the form.",
+      "zh": "主任一簽好表格，我們就傳訊息給你。",
       "options": [
         "texting",
         "will text",
@@ -1278,16 +1278,16 @@
     {
       "id": "g_relative-that_02",
       "grammarId": "relative-that",
-      "en": "I prefer the plan that ___ less money.",
-      "zh": "我比較喜歡花費比較少的那個方案。",
+      "en": "I prefer plans that ___ less money.",
+      "zh": "我比較喜歡花費比較少的方案。",
       "options": [
-        "cost",
+        "costs",
         "costing",
         "to cost",
-        "costs"
+        "cost"
       ],
       "answer": 3,
-      "note": "that 指的是 the plan（單數），後面動詞用 costs。"
+      "note": "that 指的是 plans（複數），後面動詞用 cost，不加 s；costing、to cost 不能當子句的動詞。"
     },
     {
       "id": "g_relative-that_03",

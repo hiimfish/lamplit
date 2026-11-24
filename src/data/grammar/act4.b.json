@@ -186,8 +186,8 @@
     {
       "id": "g_despite_04",
       "grammarId": "despite",
-      "en": "Despite ___ the meeting late, Ms. Chen answered every question.",
-      "zh": "雖然會議開始得晚，Chen 小姐還是回答了每一個問題。",
+      "en": "Despite ___ late, the meeting ended on time.",
+      "zh": "雖然開始得晚，會議還是準時結束。",
       "options": [
         "start",
         "started",

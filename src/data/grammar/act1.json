@@ -1082,8 +1082,8 @@
     {
       "id": "g_some-any_08",
       "grammarId": "some-any",
-      "en": "There isn't ___ time.",
-      "zh": "沒有時間了。",
+      "en": "Sorry, I don't have ___ time today.",
+      "zh": "抱歉，我今天沒有時間。",
       "options": [
         "some",
         "any",
@@ -1091,7 +1091,7 @@
         "an"
       ],
       "answer": 1,
-      "note": "否定句用 any；time 在這裡不可數，不能用 many、an。"
+      "note": "否定句用 any；some 用在肯定句，time 不可數，不能用 many、an。"
     },
     {
       "id": "g_some-any_09",
