@@ -41,32 +41,6 @@ import { ExamRunner } from './ExamRunner';
 import { EXAM_TOWN, examIdOf, examMinutes, tasksLeft } from './ExamTile';
 import type { ExamAnswer, ExamSectionRun } from './types';
 import './exam.css';
-
-/*
- * The runner, the result and the review are written against these shapes; the scaffold
- * stubs on the base still declare older props. TODO(after merge): drop the three casts below
- * and import the components as they are.
- */
-interface RunnerProps {
-  section: ExamSectionRun;
-  onFinish: (answers: ExamAnswer[]) => void;
-  onQuit: () => void;
-}
-interface ResultProps {
-  exam: ExamId;
-  summary: ExamSummary;
-  outcomes: ExamOutcome[];
-  onReview: () => void;
-  onDone: () => void;
-}
-interface ReviewProps {
-  items: ReturnType<typeof reviewQuestions>;
-  onDone: () => void;
-}
-const Runner = ExamRunner as unknown as (p: RunnerProps) => preact.JSX.Element | null;
-const Result = ExamResult as unknown as (p: ResultProps) => preact.JSX.Element | null;
-const Review = ExamReview as unknown as (p: ReviewProps) => preact.JSX.Element | null;
-
 type Phase =
   | { kind: 'hub' }
   | { kind: 'run'; section: ExamSectionRun }
@@ -298,11 +272,11 @@ export function ExamScreen() {
       const done = finishAll(exam);
       setPhase(done ? { kind: 'result', ...done } : { kind: 'hub' });
     };
-    return <Runner key={section.id} section={section} onFinish={onFinish} onQuit={hub} />;
+    return <ExamRunner key={section.id} section={section} onFinish={onFinish} onQuit={hub} />;
   }
   if (phase.kind === 'result') {
     return (
-      <Result
+      <ExamResult
         exam={exam}
         summary={phase.summary}
         outcomes={phase.outcomes}
@@ -316,7 +290,7 @@ export function ExamScreen() {
   }
   if (phase.kind === 'review') {
     return (
-      <Review
+      <ExamReview
         items={reviewQuestions(phase.outcomes)}
         onDone={() => setPhase({ ...phase, kind: 'result' })}
       />
