@@ -9,61 +9,66 @@
       "lines": [
         {
           "id": "s2_t1_l1",
-          "role": "manager",
-          "en": "Good morning, everyone. Thank you for coming to the meeting.",
-          "zh": "大家早安，謝謝大家來開會。"
+          "role": "hr",
+          "en": "Good morning, and welcome to Harbor Trading. I'm Linda from human resources.",
+          "zh": "早安，歡迎加入 Harbor Trading。我是人資部的 Linda。"
         },
         {
           "id": "s2_t1_l2",
-          "role": "manager",
-          "en": "First, the sales report is ready, and the numbers are very good.",
-          "zh": "首先，銷售報告做好了，數字非常好。"
+          "role": "hr",
+          "en": "This morning, you'll get your badges and fill out your payroll forms.",
+          "zh": "今天上午，各位會拿到識別證，並填寫薪資表格。"
         },
         {
           "id": "s2_t1_l3",
-          "role": "manager",
-          "en": "Second, a new customer will visit our office on Friday.",
-          "zh": "第二，有一位新客戶星期五會來我們辦公室。"
+          "role": "hr",
+          "en": "After lunch, our technician, Mr. Wu, will help you set up your computers.",
+          "zh": "午餐後，我們的技術人員吳先生會協助各位設定電腦。"
         },
         {
           "id": "s2_t1_l4",
-          "role": "manager",
-          "en": "Please bring your samples to the meeting room before lunch.",
-          "zh": "請在午餐前把你們的樣品帶到會議室。"
+          "role": "hr",
+          "en": "Please note that the cafeteria is closed today, so lunch will be served in the meeting room on the second floor.",
+          "zh": "請注意，員工餐廳今天沒開，所以午餐會在二樓的會議室供應。"
         },
         {
           "id": "s2_t1_l5",
-          "role": "manager",
-          "en": "After this meeting, I will send everyone the new schedule.",
-          "zh": "開完會後，我會把新的時間表寄給大家。"
+          "role": "hr",
+          "en": "Tomorrow at nine, each of you will meet your supervisor.",
+          "zh": "明天九點，各位會和自己的主管見面。"
         }
       ],
       "questions": [
         {
-          "en": "What good news does the speaker give?",
-          "zh": "說話的人宣布了什麼好消息？",
+          "en": "Who is the speaker most likely talking to?",
+          "zh": "說話者最有可能是在對誰說話？",
           "options": [
-            "The office will move.",
-            "The sales numbers are good.",
-            "A new worker will start.",
-            "The price is lower."
+            "Visiting customers",
+            "New employees",
+            "Computer technicians",
+            "Cafeteria workers"
           ],
           "answer": 1
         },
         {
-          "en": "When will the customer visit?",
-          "zh": "客戶什麼時候會來？",
-          "options": ["On Monday.", "On Wednesday.", "On Thursday.", "On Friday."],
+          "en": "Why will lunch be in a meeting room today?",
+          "zh": "今天的午餐為什麼在會議室？",
+          "options": [
+            "A client is visiting the second floor.",
+            "The meeting will go through lunch.",
+            "The computers are set up there.",
+            "The place they normally eat is closed."
+          ],
           "answer": 3
         },
         {
-          "en": "What will the speaker send after the meeting?",
-          "zh": "說話的人開完會後會寄什麼？",
+          "en": "What is planned for nine o'clock tomorrow?",
+          "zh": "明天九點安排了什麼？",
           "options": [
-            "The new schedule.",
-            "The sales report.",
-            "The samples.",
-            "A list of customers."
+            "Meetings with supervisors",
+            "Getting badges",
+            "Setting up computers",
+            "Filling out payroll forms"
           ],
           "answer": 0
         }
@@ -72,65 +77,80 @@
     {
       "id": "s2_t2",
       "form": "A",
-      "kind": "monologue",
+      "table": {
+        "title": "Departures to Osaka",
+        "rows": [
+          ["Flight", "Time"],
+          ["103", "8:30"],
+          ["201", "10:40"],
+          ["305", "13:15"],
+          ["417", "16:50"]
+        ]
+      },
       "lines": [
         {
           "id": "s2_t2_l1",
-          "role": "announcer",
-          "en": "Attention, passengers. Flight 208 to Seattle is late because of the weather.",
-          "zh": "各位旅客請注意，往西雅圖的 208 班機因為天氣而延誤。"
+          "role": "coworker",
+          "en": "Hi. Our flight to Osaka was canceled. Can you put us on another one today?",
+          "zh": "你好，我們飛大阪的班機取消了。可以幫我們改搭今天的其他班次嗎？"
         },
         {
           "id": "s2_t2_l2",
-          "role": "announcer",
-          "en": "The new leaving time is six forty, from gate twelve.",
-          "zh": "新的起飛時間是六點四十分，從 12 號登機門出發。"
+          "role": "airline_agent",
+          "en": "Let me check. The afternoon flight at one fifteen is full, I'm afraid. But there are two seats on the last one of the day.",
+          "zh": "我查一下。下午一點十五分那班恐怕已經客滿了，不過今天最後一班還有兩個位子。"
         },
         {
           "id": "s2_t2_l3",
-          "role": "announcer",
-          "en": "Please do not leave your bags alone at the gate.",
-          "zh": "請不要把行李單獨放在登機門。"
+          "role": "coworker",
+          "en": "That's fine. We have a meeting early tomorrow morning, so we just need to get there tonight.",
+          "zh": "那樣可以。我們明天一早有會議，只要今晚能到就好。"
         },
         {
           "id": "s2_t2_l4",
-          "role": "announcer",
-          "en": "If you need a hotel, please go to the service desk near gate ten.",
-          "zh": "如果您需要旅館，請到 10 號登機門附近的服務櫃檯。"
+          "role": "airline_agent",
+          "en": "All right. Here are your new boarding passes. You can wait in the lounge near gate eight.",
+          "zh": "好的，這是兩位新的登機證。可以在八號登機門附近的貴賓室等候。"
         },
         {
           "id": "s2_t2_l5",
-          "role": "announcer",
-          "en": "We are sorry for the trouble.",
-          "zh": "造成不便，我們深感抱歉。"
+          "role": "coworker",
+          "en": "Thanks. Can we check our suitcases with you now?",
+          "zh": "謝謝。我們現在可以在你這裡托運行李箱嗎？"
+        },
+        {
+          "id": "s2_t2_l6",
+          "role": "airline_agent",
+          "en": "Yes. Please put them up here, one at a time.",
+          "zh": "可以，請一次一件放上來。"
         }
       ],
       "questions": [
         {
-          "en": "Why is the flight late?",
-          "zh": "班機為什麼延誤？",
+          "en": "Look at the table. Which flight will the man take?",
+          "zh": "請看表格。男子會搭哪一班飛機？",
+          "options": ["Flight 103", "Flight 201", "Flight 305", "Flight 417"],
+          "answer": 3
+        },
+        {
+          "en": "Why does the man need to arrive in Osaka tonight?",
+          "zh": "男子為什麼今晚就要到大阪？",
           "options": [
-            "A worker is sick.",
-            "The gate is closed.",
-            "The weather is bad.",
-            "A bag is missing."
+            "His hotel closes at midnight.",
+            "He wants to rest in the lounge.",
+            "He has a meeting early the next day.",
+            "His meeting starts this evening."
           ],
           "answer": 2
         },
         {
-          "en": "What is the new leaving time?",
-          "zh": "新的起飛時間是什麼時候？",
-          "options": ["At 4:40.", "At 6:40.", "At 7:40.", "At 6:00."],
-          "answer": 1
-        },
-        {
-          "en": "What can passengers do near gate ten?",
-          "zh": "旅客可以在 10 號登機門附近做什麼？",
+          "en": "What will the man most likely do next?",
+          "zh": "男子接下來最有可能做什麼？",
           "options": [
-            "Buy a ticket.",
-            "Ask about a hotel.",
-            "Wait for a bag.",
-            "Check the weather."
+            "Buy a new ticket",
+            "Hand over his bags",
+            "Call his hotel in Osaka",
+            "Look for gate thirteen"
           ],
           "answer": 1
         }
@@ -143,96 +163,111 @@
       "lines": [
         {
           "id": "s2_t3_l1",
-          "role": "hotel_clerk",
-          "en": "Hello, this is the front desk at the City Hotel. I am calling about your reservation for next week.",
-          "zh": "您好，這裡是市區飯店的櫃檯。我打來是要談您下週的訂房。"
+          "role": "director",
+          "en": "Good evening, everyone, and thank you for coming to our tenth anniversary party.",
+          "zh": "大家晚安，謝謝各位來參加我們的十週年慶祝派對。"
         },
         {
           "id": "s2_t3_l2",
-          "role": "hotel_clerk",
-          "en": "Our pool will be closed on Tuesday, but the restaurant will stay open.",
-          "zh": "我們的游泳池星期二會關閉，但餐廳照常營業。"
+          "role": "director",
+          "en": "Ten years ago, we had only five workers in one small office. Tonight, there are more than eighty of us in this hall.",
+          "zh": "十年前，我們只有五個員工，擠在一間小辦公室。今晚，這個大廳裡有超過八十位同仁。"
         },
         {
           "id": "s2_t3_l3",
-          "role": "hotel_clerk",
-          "en": "If you want to change your room, please call us before Monday.",
-          "zh": "如果您想換房間，請在星期一以前打電話給我們。"
+          "role": "director",
+          "en": "Before dinner is served, I'd like to give an award to someone special.",
+          "zh": "在晚餐上菜之前，我想頒一個獎給一位特別的人。"
         },
         {
           "id": "s2_t3_l4",
-          "role": "hotel_clerk",
-          "en": "Thank you, and have a good day.",
-          "zh": "謝謝您，祝您有美好的一天。"
+          "role": "director",
+          "en": "This year, Emma Lin from customer service helped us win three large new clients. Please come up to the stage, Emma.",
+          "zh": "今年，客服部的林艾瑪幫我們拿下了三個大客戶。請上台吧，艾瑪。"
         }
       ],
       "questions": [
         {
-          "en": "Why is the speaker calling?",
-          "zh": "說話的人為什麼打電話？",
+          "en": "What is being celebrated?",
+          "zh": "這是在慶祝什麼？",
           "options": [
-            "To sell a room.",
-            "To talk about a reservation.",
-            "To close the hotel.",
-            "To ask for money."
+            "A company's ten years in business",
+            "The opening of a larger office",
+            "The arrival of three new workers",
+            "A new partner from another country"
           ],
-          "answer": 1
+          "answer": 0
         },
         {
-          "en": "What will be closed on Tuesday?",
-          "zh": "星期二什麼會關閉？",
-          "options": ["The pool.", "The restaurant.", "The front desk.", "The parking lot."],
-          "answer": 0
+          "en": "What is suggested about Emma Lin?",
+          "zh": "關於林艾瑪，談話中暗示了什麼？",
+          "options": [
+            "She started the company ten years ago.",
+            "She organized tonight's dinner.",
+            "She brought in a lot of new business.",
+            "She will give a speech after dinner."
+          ],
+          "answer": 2
         }
       ]
     },
     {
       "id": "s2_t4",
       "form": "A",
-      "kind": "monologue",
       "lines": [
         {
           "id": "s2_t4_l1",
-          "role": "hr",
-          "en": "Welcome to the first day of training. Please sit down and open the folder on your desk.",
-          "zh": "歡迎來到訓練的第一天。請坐下，打開你桌上的資料夾。"
+          "role": "manager",
+          "en": "I have to move tomorrow's team meeting. A client is coming to see me at ten.",
+          "zh": "我得把明天的團隊會議改時間。十點有客戶要來找我。"
         },
         {
           "id": "s2_t4_l2",
-          "role": "hr",
-          "en": "Inside, you will find a map of the building and a list of rules.",
-          "zh": "裡面有大樓的地圖和一份規則清單。"
+          "role": "coworker",
+          "en": "No problem. Would the afternoon work? The conference room is free after two.",
+          "zh": "沒問題。下午可以嗎？會議室兩點以後是空的。"
         },
         {
           "id": "s2_t4_l3",
-          "role": "hr",
-          "en": "At ten o'clock, we will have a short break, and coffee will be in the hall.",
-          "zh": "十點我們會休息一下，咖啡會放在大廳。"
+          "role": "manager",
+          "en": "Two is fine. Could you tell the team and change the time on the calendar?",
+          "zh": "兩點可以。你可以通知大家，並把行事曆上的時間改掉嗎？"
         },
         {
           "id": "s2_t4_l4",
-          "role": "hr",
-          "en": "After the break, each person will learn how to use the new computer system.",
-          "zh": "休息之後，每個人會學習怎麼使用新的電腦系統。"
+          "role": "coworker",
+          "en": "Sure. Should I print the sales report for everyone, too?",
+          "zh": "好。我也要幫大家印銷售報告嗎？"
+        },
+        {
+          "id": "s2_t4_l5",
+          "role": "manager",
+          "en": "No, just send it to them by email. That will save paper.",
+          "zh": "不用，直接用電子郵件寄給大家就好，可以省紙。"
         }
       ],
       "questions": [
         {
-          "en": "What should the new workers do first?",
-          "zh": "新進員工一開始應該做什麼？",
-          "options": ["Take a break.", "Use the system.", "Open the folder.", "Have some coffee."],
-          "answer": 2
-        },
-        {
-          "en": "What will happen after the break?",
-          "zh": "休息之後會發生什麼事？",
+          "en": "Why does the team meeting need to change?",
+          "zh": "團隊會議為什麼要改時間？",
           "options": [
-            "Everyone will go home.",
-            "A map will be given out.",
-            "The rules will change.",
-            "People will learn a computer system."
+            "The conference room is busy.",
+            "The sales report is not ready.",
+            "The man will be out of the office.",
+            "The woman has another appointment."
           ],
           "answer": 3
+        },
+        {
+          "en": "How will the sales report be shared?",
+          "zh": "銷售報告會用什麼方式分享？",
+          "options": [
+            "It will be printed for everyone.",
+            "Everyone will get it by email.",
+            "It will be shown on a screen at two.",
+            "It will be put on the calendar."
+          ],
+          "answer": 1
         }
       ]
     },
@@ -243,107 +278,133 @@
       "lines": [
         {
           "id": "s2_t5_l1",
-          "role": "warehouse_lead",
-          "en": "Good afternoon, and welcome to our warehouse. Today you will see how we send our products.",
-          "zh": "午安，歡迎來到我們的倉庫。今天各位會看到我們怎麼出貨。"
+          "role": "client",
+          "en": "Hello, this is David Brown from Northway Retail.",
+          "zh": "您好，我是 Northway Retail 的 David Brown。"
         },
         {
           "id": "s2_t5_l2",
-          "role": "warehouse_lead",
-          "en": "Please wear the safety glasses and stay with the group at all times.",
-          "zh": "請戴上安全眼鏡，並且隨時跟著團體。"
+          "role": "client",
+          "en": "I visited your booth at the trade fair last week, and I really liked your new bags.",
+          "zh": "我上星期在商展參觀過你們的攤位，很喜歡你們的新款包包。"
         },
         {
           "id": "s2_t5_l3",
-          "role": "warehouse_lead",
-          "en": "We will walk through three rooms, and the tour will end in the front office.",
-          "zh": "我們會走過三個房間，參觀會在前面的辦公室結束。"
+          "role": "client",
+          "en": "I'd like to order three hundred, but first I need to see a sample of the black one.",
+          "zh": "我想訂三百個，但我得先看一下黑色那款的樣品。"
         },
         {
           "id": "s2_t5_l4",
-          "role": "warehouse_lead",
-          "en": "If you have a question, please ask me at any time.",
-          "zh": "如果有問題，隨時都可以問我。"
+          "role": "client",
+          "en": "Could you send one to my office by Friday? Our team will decide next Monday.",
+          "zh": "可以在星期五前寄一個到我辦公室嗎？我們團隊下星期一會做決定。"
+        },
+        {
+          "id": "s2_t5_l5",
+          "role": "client",
+          "en": "My email address is on the business card I gave you. Thanks.",
+          "zh": "我的電子郵件地址在我給您的名片上。謝謝。"
         }
       ],
       "questions": [
         {
-          "en": "What must the visitors wear?",
-          "zh": "參觀的人必須戴什麼？",
-          "options": ["Safety glasses.", "Hats.", "Gloves.", "Name cards."],
-          "answer": 0
-        },
-        {
-          "en": "Where will the tour end?",
-          "zh": "參觀會在哪裡結束？",
+          "en": "Where did the speaker learn about the bags?",
+          "zh": "說話者是在哪裡知道這些包包的？",
           "options": [
-            "In the lunch room.",
-            "At the gate.",
-            "In the front office.",
-            "In the parking lot."
+            "From a business card",
+            "At his own office",
+            "At an exhibition",
+            "In an email"
           ],
           "answer": 2
+        },
+        {
+          "en": "What must happen before the speaker places an order?",
+          "zh": "說話者下訂單之前，必須先發生什麼事？",
+          "options": [
+            "He must look at a sample.",
+            "He must visit the booth again.",
+            "His team must meet on Friday.",
+            "He must get a new business card."
+          ],
+          "answer": 0
         }
       ]
     },
     {
       "id": "s2_t6",
       "form": "B",
-      "kind": "monologue",
+      "table": {
+        "title": "Price per box",
+        "rows": [
+          ["Order size", "Price"],
+          ["1-99 boxes", "$12"],
+          ["100-199 boxes", "$10"],
+          ["200-299 boxes", "$9"],
+          ["300 or more", "$8"]
+        ]
+      },
       "lines": [
         {
           "id": "s2_t6_l1",
-          "role": "announcer",
-          "en": "Attention, customers. Our big sale starts today and ends on Sunday.",
-          "zh": "各位顧客請注意，我們的大特賣今天開始，到星期日結束。"
+          "role": "manager",
+          "en": "Hi, I'm looking at the price list you sent. We need about two hundred and fifty boxes of gloves.",
+          "zh": "你好，我正在看你寄來的價目表。我們需要大約兩百五十箱手套。"
         },
         {
           "id": "s2_t6_l2",
-          "role": "announcer",
-          "en": "All shirts and shoes are half price on the second floor.",
-          "zh": "二樓所有的襯衫和鞋子都是半價。"
+          "role": "supplier",
+          "en": "Sure. But if you order fifty more, you'll get our lowest price.",
+          "zh": "沒問題。不過如果您再多訂五十箱，就能拿到我們最低的價格。"
         },
         {
           "id": "s2_t6_l3",
-          "role": "announcer",
-          "en": "Customers who spend over one hundred dollars will get a free bag.",
-          "zh": "消費超過一百美元的顧客可以得到一個免費的袋子。"
+          "role": "manager",
+          "en": "Well, we don't have enough storage space for that many.",
+          "zh": "嗯，我們沒有足夠的空間放那麼多。"
         },
         {
           "id": "s2_t6_l4",
-          "role": "announcer",
-          "en": "Please pay at any desk near the door.",
-          "zh": "請在門口附近任何一個櫃檯付款。"
+          "role": "supplier",
+          "en": "I understand. Then I can deliver them in two parts, one this month and one next month.",
+          "zh": "我了解。那我可以分兩次送，這個月一次，下個月一次。"
+        },
+        {
+          "id": "s2_t6_l5",
+          "role": "manager",
+          "en": "That would work. Let me get approval from my director first.",
+          "zh": "那樣可以。我先請我們總經理核准。"
         }
       ],
       "questions": [
         {
-          "en": "When does the sale end?",
-          "zh": "特賣什麼時候結束？",
-          "options": ["On Friday.", "On Saturday.", "On Sunday.", "On Monday."],
+          "en": "Look at the table. What price per box does the man say the woman could get?",
+          "zh": "請看表格。男子說女子可以拿到每箱多少錢的價格？",
+          "options": ["$10", "$9", "$8", "$12"],
           "answer": 2
         },
         {
-          "en": "What is half price?",
-          "zh": "什麼東西是半價？",
+          "en": "Why is the woman worried about a larger order?",
+          "zh": "女子為什麼擔心訂更多？",
           "options": [
-            "Shirts and shoes.",
-            "Bags and hats.",
-            "Coats and desks.",
-            "Everything in the store."
+            "Her company has no room to keep it.",
+            "The price per box is too high.",
+            "The delivery would take two months.",
+            "Her director is away this month."
           ],
           "answer": 0
         },
         {
-          "en": "How can a customer get a free bag?",
-          "zh": "顧客要怎樣才能得到免費的袋子？",
+          "en": "What does the man offer to do?",
+          "zh": "男子提議做什麼？",
           "options": [
-            "By coming on Sunday.",
-            "By spending over $100.",
-            "By buying two shirts.",
-            "By paying with a card."
+            "Lower the price of every box",
+            "Send a new price list",
+            "Speak with the woman's director",
+            "Split the delivery into two"
           ],
-          "answer": 1
+          "answer": 3
         }
       ]
     },
@@ -354,107 +415,118 @@
       "lines": [
         {
           "id": "s2_t7_l1",
-          "role": "supplier",
-          "en": "Hello, this is the supplier calling about your order of fifty boxes.",
-          "zh": "您好，我是供應商，打來是要談您訂的五十個箱子。"
+          "role": "warehouse_lead",
+          "en": "Good morning, everyone. Before we start, I have three quick notes.",
+          "zh": "大家早安。開始之前，我有三件事要很快說一下。"
         },
         {
           "id": "s2_t7_l2",
-          "role": "supplier",
-          "en": "Our truck has a problem, so the delivery will come on Wednesday, not Tuesday.",
-          "zh": "我們的卡車出了問題，所以送貨會在星期三到，不是星期二。"
+          "role": "warehouse_lead",
+          "en": "First, a large shipment from the port will arrive at ten, so I need four people at dock two.",
+          "zh": "第一，有一批從港口來的大貨十點會到，所以我需要四個人到二號碼頭。"
         },
         {
           "id": "s2_t7_l3",
-          "role": "supplier",
-          "en": "The price will not change, and we will not charge you for shipping.",
-          "zh": "價格不會改變，運費我們也不會跟您收。"
+          "role": "warehouse_lead",
+          "en": "Second, the electrical team is checking the alarm system today. If you hear the alarm before noon, you don't need to leave the building.",
+          "zh": "第二，電工團隊今天在檢查警報系統。中午前如果聽到警報，不用離開大樓。"
         },
         {
           "id": "s2_t7_l4",
-          "role": "supplier",
-          "en": "Please call me back before noon if Wednesday is a problem.",
-          "zh": "如果星期三不方便，請在中午前回電給我。"
+          "role": "warehouse_lead",
+          "en": "Finally, please wear your gloves when you lift heavy boxes. Last week, two workers hurt their hands.",
+          "zh": "最後，搬重的箱子時請戴手套。上星期有兩位同仁手受傷了。"
+        },
+        {
+          "id": "s2_t7_l5",
+          "role": "warehouse_lead",
+          "en": "Thanks, and have a safe day.",
+          "zh": "謝謝，祝大家今天平安。"
         }
       ],
       "questions": [
         {
-          "en": "What is the speaker calling about?",
-          "zh": "說話的人打電話是為了什麼？",
-          "options": ["A late delivery.", "A new price.", "A broken box.", "A job offer."],
-          "answer": 0
+          "en": "Where does the speaker most likely work?",
+          "zh": "說話者最有可能在哪裡工作？",
+          "options": ["At a port", "At a warehouse", "At an airport", "At a hotel"],
+          "answer": 1
         },
         {
-          "en": "Why is the delivery late?",
-          "zh": "送貨為什麼會晚？",
-          "options": [
-            "The order is wrong.",
-            "The weather is bad.",
-            "The boxes are lost.",
-            "The truck has a problem."
-          ],
+          "en": "How many people are needed at dock two?",
+          "zh": "二號碼頭需要幾個人？",
+          "options": ["Two", "Three", "Ten", "Four"],
           "answer": 3
         },
         {
-          "en": "What should the customer do before noon?",
-          "zh": "客戶在中午前應該做什麼？",
+          "en": "Why does the speaker mention what happened last week?",
+          "zh": "說話者為什麼提到上星期發生的事？",
           "options": [
-            "Pay the bill.",
-            "Send fifty boxes.",
-            "Call back if there is a problem.",
-            "Wait at the warehouse."
+            "To show why gloves are important",
+            "To explain why a shipment is late",
+            "To thank two workers for their help",
+            "To describe a problem with the alarm"
           ],
-          "answer": 2
+          "answer": 0
         }
       ]
     },
     {
       "id": "s2_t8",
       "form": "B",
-      "kind": "monologue",
       "lines": [
         {
           "id": "s2_t8_l1",
-          "role": "announcer",
-          "en": "Welcome to the trade fair. The main hall opens at nine o'clock.",
-          "zh": "歡迎來到商展。主展廳九點開放。"
+          "role": "director",
+          "en": "Hi, I'm checking out. Could I keep my bags here until three? My flight isn't until six.",
+          "zh": "你好，我要退房。我的行李可以放在這裡到三點嗎？我的班機六點才飛。"
         },
         {
           "id": "s2_t8_l2",
-          "role": "announcer",
-          "en": "Please take your name card at the front desk and wear it at all times.",
-          "zh": "請在服務台領取您的名牌，並且隨時配戴。"
+          "role": "hotel_clerk",
+          "en": "Sure, I'll put them in our storage room. Do you need a taxi to the airport?",
+          "zh": "當然，我會放到我們的行李間。您需要叫計程車去機場嗎？"
         },
         {
           "id": "s2_t8_l3",
-          "role": "announcer",
-          "en": "Lunch is in room six from twelve to one.",
-          "zh": "午餐在六號房間，從十二點到一點。"
+          "role": "director",
+          "en": "Yes, please. Can you book one for three thirty?",
+          "zh": "好，麻煩你。可以幫我叫三點半的車嗎？"
         },
         {
           "id": "s2_t8_l4",
-          "role": "announcer",
-          "en": "At three o'clock, there will be a talk about new computers in room five.",
-          "zh": "三點在五號房間有一場關於新電腦的演講。"
+          "role": "hotel_clerk",
+          "en": "No problem. But there's also a free shuttle bus at three, if you'd like.",
+          "zh": "沒問題。不過三點也有免費的接駁車，如果您想搭的話。"
+        },
+        {
+          "id": "s2_t8_l5",
+          "role": "director",
+          "en": "The bus sounds good. I'll take that instead.",
+          "zh": "接駁車不錯，那我改搭那個。"
         }
       ],
       "questions": [
         {
-          "en": "Where can visitors get a name card?",
-          "zh": "參觀者可以在哪裡拿到名牌？",
-          "options": ["At the front desk.", "In room six.", "In the main hall.", "At the gate."],
-          "answer": 0
-        },
-        {
-          "en": "What will happen at three o'clock?",
-          "zh": "三點會發生什麼事？",
+          "en": "Why does the man want to leave his bags at the hotel?",
+          "zh": "男子為什麼想把行李留在飯店？",
           "options": [
-            "Lunch will start.",
-            "The hall will open.",
-            "A talk will begin.",
-            "The fair will end."
+            "His room is not ready yet.",
+            "The shuttle bus is full.",
+            "His flight leaves later in the day.",
+            "He has a meeting at three thirty."
           ],
           "answer": 2
+        },
+        {
+          "en": "How will the man most likely get to the airport?",
+          "zh": "男子最有可能怎麼去機場？",
+          "options": [
+            "By taxi",
+            "By a free bus",
+            "By train",
+            "In a coworker's car"
+          ],
+          "answer": 1
         }
       ]
     },
@@ -466,54 +538,48 @@
         {
           "id": "s2_t9_l1",
           "role": "manager",
-          "en": "Welcome to the company, everyone. I want to explain a few rules about the office.",
-          "zh": "歡迎大家加入公司。我想說明幾項辦公室的規則。"
+          "en": "Hi, this is Ms. Carter. I just read the report you sent this morning.",
+          "zh": "嗨，我是 Carter。我剛看完你今天早上寄來的報告。"
         },
         {
           "id": "s2_t9_l2",
           "role": "manager",
-          "en": "Parking is free, but you must use the lot behind the building.",
-          "zh": "停車是免費的，但你們必須停在大樓後面的停車場。"
+          "en": "It's very clear, but the sales figures for March look wrong. They're exactly the same as February's.",
+          "zh": "報告寫得很清楚，可是三月的銷售數字看起來不對，跟二月的一模一樣。"
         },
         {
           "id": "s2_t9_l3",
           "role": "manager",
-          "en": "Please turn off your computer and the lights when you leave.",
-          "zh": "離開時請關掉你的電腦和電燈。"
+          "en": "Could you check them and send me a revised version before the meeting on Thursday?",
+          "zh": "你可以檢查一下，在星期四開會前寄修改過的版本給我嗎？"
         },
         {
           "id": "s2_t9_l4",
           "role": "manager",
-          "en": "If you are sick, call me before eight o'clock in the morning.",
-          "zh": "如果你生病了，請在早上八點前打電話給我。"
-        },
-        {
-          "id": "s2_t9_l5",
-          "role": "manager",
-          "en": "I hope you enjoy your first week.",
-          "zh": "希望你們喜歡第一個星期。"
+          "en": "Also, please add a slide about our new customers in Taichung. Call me if you have any questions.",
+          "zh": "另外，請加一張關於我們台中新客戶的投影片。有任何問題就打給我。"
         }
       ],
       "questions": [
         {
-          "en": "Where should people park?",
-          "zh": "大家應該把車停在哪裡？",
+          "en": "What problem does the speaker mention?",
+          "zh": "說話者提到什麼問題？",
           "options": [
-            "In front of the building.",
-            "Behind the building.",
-            "On the street.",
-            "Next to the warehouse."
+            "Some numbers seem to be copied from another month.",
+            "The report was sent too late.",
+            "The meeting was moved to Thursday.",
+            "The report is hard to understand."
           ],
-          "answer": 1
+          "answer": 0
         },
         {
-          "en": "What should a sick worker do?",
-          "zh": "生病的員工應該怎麼做？",
+          "en": "What does the speaker want added to the report?",
+          "zh": "說話者希望報告裡加上什麼？",
           "options": [
-            "Send an email at night.",
-            "Ask a coworker to call.",
-            "Come to the office early.",
-            "Call the speaker before eight."
+            "The sales figures for February",
+            "An agenda for the meeting",
+            "Her phone number",
+            "Information about recent customers"
           ],
           "answer": 3
         }
@@ -522,56 +588,60 @@
     {
       "id": "s2_t10",
       "form": "B",
-      "kind": "monologue",
       "lines": [
         {
           "id": "s2_t10_l1",
-          "role": "director",
-          "en": "Good evening, everyone, and thank you for joining our company dinner.",
-          "zh": "各位晚安，謝謝大家參加我們的公司晚宴。"
+          "role": "manager",
+          "en": "Welcome to our booth. Can I help you find something?",
+          "zh": "歡迎來到我們的攤位。需要幫您找什麼嗎？"
         },
         {
           "id": "s2_t10_l2",
-          "role": "director",
-          "en": "This year, our company made more products and found many new customers.",
-          "zh": "今年我們公司生產了更多產品，也找到許多新客戶。"
+          "role": "client",
+          "en": "Yes. I have three gift shops in London, and I need small, light bags for tourists.",
+          "zh": "是的。我在倫敦有三家禮品店，我需要給觀光客用的小而輕的包包。"
         },
         {
           "id": "s2_t10_l3",
-          "role": "director",
-          "en": "I want to thank the sales team, who worked very hard.",
-          "zh": "我要感謝業務團隊，他們非常努力。"
+          "role": "manager",
+          "en": "Then you'll like this new model. It's small enough to go in a pocket, and it comes in six colors.",
+          "zh": "那您會喜歡這個新款。它小到可以放進口袋，而且有六種顏色。"
         },
         {
           "id": "s2_t10_l4",
-          "role": "director",
-          "en": "Before we eat, we will give a prize to the best worker of the year.",
-          "zh": "用餐之前，我們要頒獎給今年最優秀的員工。"
+          "role": "client",
+          "en": "Nice. Do you have a catalog I can take with me? I need to show my partner.",
+          "zh": "不錯。有目錄可以讓我帶走嗎？我要給我的合夥人看。"
         },
         {
           "id": "s2_t10_l5",
-          "role": "director",
-          "en": "Please enjoy the food, and stay for the music later.",
-          "zh": "請好好享用餐點，也請留下來聽稍後的音樂。"
+          "role": "manager",
+          "en": "Here you go. And all orders made during the fair get ten percent off.",
+          "zh": "這給您。另外，在展期間下的訂單都打九折。"
         }
       ],
       "questions": [
         {
-          "en": "What is the event?",
-          "zh": "這是什麼活動？",
-          "options": ["A company dinner.", "A job interview.", "A trade fair.", "A training day."],
-          "answer": 0
-        },
-        {
-          "en": "What will happen before the meal?",
-          "zh": "用餐之前會發生什麼事？",
+          "en": "Who most likely is the man?",
+          "zh": "男子最有可能是什麼人？",
           "options": [
-            "Music will start.",
-            "A prize will be given.",
-            "The sales team will leave.",
-            "A new product will be shown."
+            "A tourist",
+            "Someone who sells gifts",
+            "A bag designer",
+            "A warehouse worker"
           ],
           "answer": 1
+        },
+        {
+          "en": "What does the woman say about orders placed during the fair?",
+          "zh": "關於在展期間下的訂單，女子說了什麼？",
+          "options": [
+            "They arrive within six days.",
+            "They come with a free catalog.",
+            "They get a lower price.",
+            "They must be for ten bags or more."
+          ],
+          "answer": 2
         }
       ]
     }
