@@ -11,7 +11,7 @@
       "note": "just + 過去式 = 剛剛才做了某件事。",
       "distractors": [
         { "text": "Yes, I just move in.", "error": "other" },
-        { "text": "Yes, I just moved.", "error": "missing-word" }
+        { "text": "Yes, I just in moved.", "error": "word-order" }
       ]
     },
     {
@@ -255,8 +255,8 @@
           "id": "t1_3",
           "role": "landlord",
           "speaker": "npc",
-          "en": "Welcome! I'm Mr. Bell.",
-          "zh": "歡迎！我是 Bell 先生。"
+          "en": "I'm Mr. Bell.",
+          "zh": "我是 Bell 先生。"
         },
         {
           "id": "t1_4",
@@ -270,8 +270,8 @@
           "id": "t1_5",
           "role": "landlord",
           "speaker": "npc",
-          "en": "Nice to meet you. Here's your key.",
-          "zh": "很高興認識你。這是你的鑰匙。",
+          "en": "Nice to meet you, too. Here's your key.",
+          "zh": "我也很高興認識你。這是你的鑰匙。",
           "stage": { "act": "give", "item": "key" }
         }
       ]

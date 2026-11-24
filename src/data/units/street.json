@@ -65,14 +65,14 @@
     },
     {
       "id": "any_change",
-      "en": "Do you have any change?",
-      "zh": "你有零錢嗎？",
-      "accept": ["Do you have change?"],
-      "note": "any 用在問句和否定句（肯定句用 some）。change 當「零錢」時不加 s。",
+      "en": "Any change for a five?",
+      "zh": "有零錢可以換五塊嗎？",
+      "accept": ["Do you have any change for a five?", "Do you have change for a five?"],
+      "note": "完整說法是 Do you have any change for a five?，口語常只說後半句。any 用在問句和否定句（肯定句用 some）。change 當「零錢」時不加 s；a five 是一張五塊錢的鈔票。",
       "distractors": [
-        { "text": "Do you have any changes?", "error": "plural" },
-        { "text": "Do you have a change?", "error": "article" },
-        { "text": "Does you have any change?", "error": "other" }
+        { "text": "Any changes for a five?", "error": "plural" },
+        { "text": "A change for a five?", "error": "article" },
+        { "text": "Any change a five for?", "error": "word-order" }
       ]
     },
     {
@@ -330,8 +330,8 @@
           "id": "t3_4",
           "role": "guide",
           "speaker": "player",
-          "en": "Do you have any change?",
-          "zh": "你有零錢嗎？",
+          "en": "Any change for a five?",
+          "zh": "有零錢可以換五塊嗎？",
           "chunkId": "any_change",
           "stage": { "act": "ask" }
         },
@@ -340,7 +340,7 @@
           "role": "passerby",
           "speaker": "npc",
           "en": "Sure, here.",
-          "zh": "有啊，給你。",
+          "zh": "有啊，換給你。",
           "stage": { "act": "give", "item": "coin" }
         }
       ]
@@ -603,8 +603,8 @@
           "id": "t8_9",
           "role": "guide",
           "speaker": "player",
-          "en": "Do you have any change?",
-          "zh": "你有零錢嗎？",
+          "en": "Any change for a five?",
+          "zh": "有零錢可以換五塊嗎？",
           "chunkId": "any_change"
         },
         {
@@ -612,7 +612,7 @@
           "role": "passerby",
           "speaker": "npc",
           "en": "Sure, here. The bus comes at nine.",
-          "zh": "有，給你。公車九點來。",
+          "zh": "有，換給你。公車九點來。",
           "stage": { "act": "give", "item": "coin" }
         },
         {

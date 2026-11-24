@@ -65,7 +65,7 @@
       "accept": ["A small one."],
       "note": "one 代替前面說過的東西（這裡是飲料），不用再說一次 latte。",
       "distractors": [
-        { "text": "Small one, please.", "error": "article" },
+        { "text": "An small one, please.", "error": "article" },
         { "text": "A one small, please.", "error": "word-order" },
         { "text": "A small ones, please.", "error": "plural" }
       ]
@@ -221,8 +221,8 @@
           "id": "t3_2",
           "role": "barista",
           "speaker": "npc",
-          "en": "That's six fifty.",
-          "zh": "六塊五。"
+          "en": "That's six dollars.",
+          "zh": "六塊錢。"
         },
         {
           "id": "t3_3",
@@ -237,8 +237,8 @@
           "id": "t3_4",
           "role": "barista",
           "speaker": "npc",
-          "en": "Six fifty. Here you go.",
-          "zh": "六塊五。這是你的。",
+          "en": "Six dollars. Here you go.",
+          "zh": "六塊錢。這是你的。",
           "stage": { "act": "give", "item": "sandwich" }
         }
       ]
@@ -512,8 +512,8 @@
           "id": "t8_11",
           "role": "barista",
           "speaker": "npc",
-          "en": "That's six fifty.",
-          "zh": "六塊五。"
+          "en": "That's six dollars.",
+          "zh": "六塊錢。"
         },
         {
           "id": "t8_12",

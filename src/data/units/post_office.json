@@ -324,8 +324,8 @@
           "id": "t3_3",
           "role": "postal_clerk",
           "speaker": "npc",
-          "en": "From yesterday? Here you go. An online order?",
-          "zh": "昨天的啊？來，給你。是網購的東西嗎？",
+          "en": "From yesterday? Here you go. Hmm, this isn't an online order.",
+          "zh": "昨天的啊？來，給你。嗯，這不是網購的東西耶。",
           "stage": { "act": "give", "item": "package" }
         },
         {
@@ -340,8 +340,8 @@
           "id": "t3_5",
           "role": "postal_clerk",
           "speaker": "npc",
-          "en": "Oh! It came back. It needs more stamps.",
-          "zh": "喔！被退回來了。郵票貼不夠。"
+          "en": "I see. It came back. It needs more stamps.",
+          "zh": "原來如此，是被退回來了。郵票貼不夠。"
         }
       ]
     },

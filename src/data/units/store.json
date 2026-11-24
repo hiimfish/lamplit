@@ -264,8 +264,8 @@
           "id": "t2_1",
           "role": "clerk",
           "speaker": "npc",
-          "en": "Hi! Is it just the drink today?",
-          "zh": "嗨！今天只買飲料嗎？"
+          "en": "Hi! What are you getting today?",
+          "zh": "嗨！今天要買什麼？"
         },
         {
           "id": "t2_2",
@@ -499,8 +499,8 @@
           "id": "t7_1",
           "role": "clerk",
           "speaker": "npc",
-          "en": "Good morning! Anything else today?",
-          "zh": "早安！今天還要別的嗎？"
+          "en": "Good morning! Just the drink, or anything else today?",
+          "zh": "早安！只買飲料，還是還要別的？"
         },
         {
           "id": "t7_2",

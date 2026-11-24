@@ -328,8 +328,8 @@
           "id": "t3_1",
           "role": "volunteer",
           "speaker": "npc",
-          "en": "Hi! How did you know about our event?",
-          "zh": "嗨！你怎麼知道我們的活動的？",
+          "en": "Hi! How did you hear about our event?",
+          "zh": "嗨！你是怎麼知道我們的活動的？",
           "stage": { "act": "ask" }
         },
         {

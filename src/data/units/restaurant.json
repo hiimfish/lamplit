@@ -608,7 +608,7 @@
           "role": "server",
           "speaker": "npc",
           "en": "Good evening! How many people?",
-          "zh": "晚安！請問幾位？",
+          "zh": "晚上好，歡迎光臨！請問幾位？",
           "stage": { "act": "ask" }
         },
         {
@@ -662,8 +662,8 @@
           "id": "t8_8",
           "role": "friend",
           "speaker": "npc",
-          "en": "Nice! Come to my birthday party on Friday. I'm cooking!",
-          "zh": "真好！星期五來參加我的生日派對吧，我要下廚！"
+          "en": "Nice! Come to dinner at my place on Friday. I'm cooking!",
+          "zh": "真好！星期五來我家吃飯吧，我下廚！"
         },
         {
           "id": "t8_9",

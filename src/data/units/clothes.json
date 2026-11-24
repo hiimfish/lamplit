@@ -18,7 +18,7 @@
     {
       "id": "where_jackets",
       "en": "Where are the jackets?",
-      "zh": "外套在哪裡？",
+      "zh": "夾克在哪裡？",
       "accept": ["Excuse me, where are the jackets?"],
       "note": "jackets 是複數，所以用 are；只問一件才說 Where is the jacket?",
       "distractors": [
@@ -54,7 +54,7 @@
     {
       "id": "looking_for_coat",
       "en": "I'm looking for a warm coat.",
-      "zh": "我在找一件保暖的外套。",
+      "zh": "我在找一件保暖的大衣。",
       "accept": ["I am looking for a warm coat."],
       "note": "現在進行式：am／is／are + 動詞-ing，表示現在正在做。I'm looking for… = 我在找…",
       "distractors": [
@@ -176,7 +176,7 @@
     { "id": "clothes", "en": "clothes", "zh": "衣服", "emoji": "👚" },
     { "id": "shirt", "en": "shirt", "zh": "襯衫", "emoji": "👔" },
     { "id": "dress", "en": "dress", "zh": "洋裝", "emoji": "👗" },
-    { "id": "jacket", "en": "jacket", "zh": "夾克；外套", "emoji": "🧥" },
+    { "id": "jacket", "en": "jacket", "zh": "夾克", "emoji": "🧥" },
     { "id": "color", "en": "color", "zh": "顏色", "emoji": "🎨", "abstract": true },
     { "id": "black", "en": "black", "zh": "黑色", "emoji": "⚫", "abstract": true },
     { "id": "white", "en": "white", "zh": "白色", "emoji": "⚪", "abstract": true },
@@ -242,7 +242,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "Where are the jackets?",
-          "zh": "外套在哪裡？",
+          "zh": "夾克在哪裡？",
           "chunkId": "where_jackets",
           "stage": { "act": "want", "item": "jacket" }
         },
@@ -305,7 +305,7 @@
     },
     {
       "id": "t3",
-      "title": "在找一件外套",
+      "title": "在找一件大衣",
       "newChunkIds": ["looking_for_coat", "someone_helping"],
       "newWordIds": ["wear", "warm", "coat", "hat", "shoe"],
       "scene": [
@@ -314,7 +314,7 @@
           "role": "assistant",
           "speaker": "npc",
           "en": "Hi! Is someone helping you?",
-          "zh": "嗨！有人在幫你服務了嗎？",
+          "zh": "嗨！已經有人在招呼你了嗎？",
           "stage": { "act": "ask" }
         },
         {
@@ -337,7 +337,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "I'm looking for a warm coat.",
-          "zh": "我在找一件保暖的外套。",
+          "zh": "我在找一件保暖的大衣。",
           "chunkId": "looking_for_coat",
           "stage": { "act": "want", "item": "coat" }
         },
@@ -346,7 +346,7 @@
           "role": "assistant",
           "speaker": "npc",
           "en": "Sure. They're by the hats and shoes.",
-          "zh": "好的。外套在帽子和鞋子那邊。",
+          "zh": "好的。大衣在帽子和鞋子那邊。",
           "stage": { "act": "want", "item": "hat" }
         }
       ]
@@ -617,7 +617,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "Where are the jackets?",
-          "zh": "外套在哪裡？",
+          "zh": "夾克在哪裡？",
           "chunkId": "where_jackets",
           "stage": { "act": "want", "item": "jacket" }
         },
@@ -633,7 +633,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "I'm looking for a warm coat.",
-          "zh": "我在找一件保暖的外套。",
+          "zh": "我在找一件保暖的大衣。",
           "chunkId": "looking_for_coat",
           "stage": { "act": "want", "item": "coat" }
         },

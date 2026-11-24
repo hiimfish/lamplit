@@ -339,8 +339,8 @@
           "id": "t3_4",
           "role": "doctor",
           "speaker": "npc",
-          "en": "A little. Now put your hand on your leg.",
-          "zh": "有一點。來，手放在腿上。"
+          "en": "A little. Don't move your arm.",
+          "zh": "有一點。手臂不要動喔。"
         }
       ]
     },
@@ -572,9 +572,9 @@
           "id": "t7_1",
           "role": "pharmacist",
           "speaker": "npc",
-          "en": "Take two pills a day.",
-          "zh": "一天吃兩顆。",
-          "stage": { "act": "give", "item": "pill" }
+          "en": "Take this medicine two times a day.",
+          "zh": "這個藥一天吃兩次。",
+          "stage": { "act": "give", "item": "medicine" }
         },
         {
           "id": "t7_2",
