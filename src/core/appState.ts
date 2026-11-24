@@ -38,8 +38,16 @@ export interface AppState {
   result?: ResultData;
 }
 
+/**
+ * The stage box (the window less the notch and rounded sides, styles.css), else the window.
+ * Until styles.css is in, #stage is a plain block inside the body's margin: use the window.
+ */
 function measure(): Layout {
-  return computeLayout(window.innerWidth, window.innerHeight, window.devicePixelRatio || 1);
+  const stage = typeof document === 'undefined' ? null : document.getElementById('stage');
+  const placed = stage !== null && getComputedStyle(stage).position === 'fixed';
+  const w = placed ? stage.clientWidth : window.innerWidth;
+  const h = placed ? stage.clientHeight : window.innerHeight;
+  return computeLayout(w, h, window.devicePixelRatio || 1);
 }
 
 /** The app's clock. `?debugDate=YYYY-MM-DD` shifts the date for testing reviews. */

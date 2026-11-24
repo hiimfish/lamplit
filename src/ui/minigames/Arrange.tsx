@@ -157,10 +157,10 @@ function CheckRow({
   onReset: () => void;
 }) {
   return (
-    <div class="mg-row">
+    <div class="mg-row mg-check-row">
       <button
         type="button"
-        class="pixel-button primary"
+        class="pixel-button primary mg-check"
         data-testid="check"
         disabled={empty}
         onClick={onCheck}

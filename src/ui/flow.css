@@ -647,6 +647,40 @@
   margin-top: auto;
 }
 
+/*
+ * 繼續 runs the full width along the bottom and is there from the start, grey until the
+ * answer is in (QuestionView). Questions with their own confirm key (排句子's 檢查, which
+ * also runs wide, 拼字's 檢查, 說說看's 我說完了) keep that instead of a grey 繼續 under it.
+ * Everywhere else (sideways, desktop, screens without a scene) 繼續 only comes after the answer.
+ */
+.mg-continue.waiting {
+  display: none;
+}
+
+:root[data-orientation='portrait'] .flow.has-stage .practice .mg-continue {
+  align-self: stretch;
+}
+
+:root[data-orientation='portrait'] .flow.has-stage .practice .mg-continue.waiting {
+  display: flex;
+}
+
+:root[data-orientation='portrait']
+  .flow.has-stage
+  .practice
+  .mg-root:is(
+    [data-testid='question-arrange'],
+    [data-testid='question-spell'],
+    [data-testid='question-speak']
+  )
+  > .mg-continue.waiting {
+  display: none;
+}
+
+:root[data-orientation='portrait'] .flow.has-stage .practice .mg-check-row > .mg-check {
+  flex: 1;
+}
+
 /* Result: a small ♪ key after each learned item says it once. */
 .result-new li {
   display: flex;

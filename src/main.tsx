@@ -1,5 +1,5 @@
 import { render } from 'preact';
-import { appStore, remeasureLayout } from './core/appState';
+import { remeasureLayout } from './core/appState';
 import { applyGameLayout, createGame } from './game/createGame';
 import { sameLayout, type Layout } from './layout';
 import './styles.css';
@@ -20,7 +20,9 @@ const gameElement = document.getElementById('game');
 const uiElement = document.getElementById('ui');
 if (!gameElement || !uiElement) throw new Error('index.html is missing #game or #ui');
 
-let currentLayout = appStore.get().layout;
+// The store's first layout was measured before styles.css placed #stage clear of the notch
+// and home bar; measure again now that it is, before the game takes its size.
+let currentLayout = remeasureLayout();
 applyCssLayout(currentLayout);
 const game = createGame(gameElement, currentLayout);
 render(<App />, uiElement);

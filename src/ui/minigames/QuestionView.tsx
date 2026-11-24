@@ -125,6 +125,16 @@ function Body({ question, onAnswer }: QuestionViewProps) {
   return (
     <div class="mg-root" data-testid={`question-${question.kind}`} ref={rootRef}>
       {view}
+      {/*
+        Before the answer, a grey 繼續 holds its place. CSS shows it only on an upright phone
+        under a scene, where 繼續 is the full-width key along the bottom (flow.css).
+      */}
+      {!result && (
+        <button type="button" class="pixel-button primary mg-continue waiting" disabled>
+          繼續
+          <KeyCap k="Enter" />
+        </button>
+      )}
       {result && (
         <button
           ref={continueRef}
