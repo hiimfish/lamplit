@@ -51,6 +51,8 @@ export interface ExamSectionResult {
 
 /** What the runner passes to the listening and reading views. */
 export interface ExamViewProps {
+  /** The exam being sat: its RESPONSE_MODE decides how a 應答題 shows its options. */
+  exam: ExamId;
   item: ExamItem;
   /** The option id picked so far, or null. */
   choice: string | null;
