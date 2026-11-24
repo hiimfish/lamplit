@@ -33,12 +33,24 @@ const hasText = (value: unknown): value is string =>
 const unknownKeys = (value: Record<string, unknown>, known: string[]) =>
   Object.keys(value).filter((key) => !known.includes(key));
 
-/** Problems with the task's `responds`, or none when it has no such field. */
-export function checkResponds(task: Record<string, unknown>, ctx: TaskCheckContext): string[] {
+/**
+ * Problems with the task's `responds`, or none when it has no such field. `exam`: an
+ * exam file (src/content/validateExam.ts), which has 應答題 in every Act and plans its
+ * own counts, so the Act 4 and per-task limits do not apply.
+ */
+export function checkResponds(
+  task: Record<string, unknown>,
+  ctx: TaskCheckContext,
+  exam = false,
+): string[] {
   if (task.responds === undefined) return [];
-  if (!isAct4(ctx)) return ['has responds (應答題), which are for Act 4 units only'];
+  if (!exam && !isAct4(ctx)) return ['has responds (應答題), which are for Act 4 units only'];
   const items = task.responds;
-  if (!Array.isArray(items) || items.length < RESPONDS_MIN || items.length > RESPONDS_MAX) {
+  if (exam && !Array.isArray(items)) return ['responds must be a list'];
+  if (
+    !Array.isArray(items) ||
+    (!exam && (items.length < RESPONDS_MIN || items.length > RESPONDS_MAX))
+  ) {
     return [`responds must be a list of ${RESPONDS_MIN} to ${RESPONDS_MAX} items`];
   }
   const problems: string[] = [];

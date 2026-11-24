@@ -29,7 +29,7 @@
       "form": "A",
       "prompt": { "role": "passerby", "en": "Excuse me, is the station far from here?", "zh": "不好意思，車站離這裡遠嗎？" },
       "responses": [
-        { "en": "It's a train station.", "zh": "那是火車站。" },
+        { "en": "It's a big station.", "zh": "那是一個大車站。" },
         { "en": "It leaves every ten minutes.", "zh": "每十分鐘發一班。" },
         { "en": "Sorry, I'm new here, too.", "zh": "抱歉，我也是剛來這裡的。" }
       ],
@@ -51,7 +51,7 @@
       "form": "A",
       "prompt": { "role": "doctor", "en": "When did your fever start?", "zh": "你什麼時候開始發燒的？" },
       "responses": [
-        { "en": "Two days ago.", "zh": "兩天前。" },
+        { "en": "On Monday.", "zh": "星期一。" },
         { "en": "Yes, and I have a cough, too.", "zh": "對，而且我也在咳嗽。" },
         { "en": "I start work at nine.", "zh": "我九點開始上班。" }
       ],
@@ -64,7 +64,7 @@
       "responses": [
         { "en": "It's on the table.", "zh": "在桌上。" },
         { "en": "I'd like a table for two.", "zh": "我要一張兩人桌。" },
-        { "en": "I'm full, but thank you.", "zh": "我吃飽了，不過謝謝。" }
+        { "en": "No, thanks. Just the check, please.", "zh": "不用了，謝謝。麻煩買單就好。" }
       ],
       "answer": 2
     },
@@ -74,7 +74,7 @@
       "prompt": { "role": "postal_clerk", "en": "How would you like to send this?", "zh": "這個您想怎麼寄？" },
       "responses": [
         { "en": "By air, please.", "zh": "麻煩寄航空。" },
-        { "en": "To my mother in Taiwan.", "zh": "寄給我在台灣的媽媽。" },
+        { "en": "To my friend in Taiwan.", "zh": "寄給我在台灣的朋友。" },
         { "en": "It's about two kilograms.", "zh": "大約兩公斤。" }
       ],
       "answer": 0
@@ -97,14 +97,14 @@
       "responses": [
         { "en": "I'm wearing a blue shirt.", "zh": "我穿著一件藍色襯衫。" },
         { "en": "Yes, it fits well.", "zh": "對，很合身。" },
-        { "en": "Usually a medium.", "zh": "通常是 M 號。" }
+        { "en": "I wear a medium.", "zh": "我穿 M 號。" }
       ],
       "answer": 2
     },
     {
       "id": "s1_r10",
       "form": "A",
-      "prompt": { "role": "friend", "en": "Why don't we meet at the station?", "zh": "我們要不要在車站碰面？" },
+      "prompt": { "role": "friend", "en": "Can we meet at the station?", "zh": "我們可以在車站碰面嗎？" },
       "responses": [
         { "en": "Because the bus was late.", "zh": "因為公車遲到了。" },
         { "en": "Sure. What time?", "zh": "好啊，幾點？" },
@@ -129,7 +129,7 @@
       "prompt": { "role": "landlord", "en": "Do you need help with those boxes?", "zh": "那些箱子需要幫忙嗎？" },
       "responses": [
         { "en": "Thanks, but they're not heavy.", "zh": "謝謝，不過它們不重。" },
-        { "en": "I need a box and some tape.", "zh": "我需要一個箱子和一些膠帶。" },
+        { "en": "I need some tape, too.", "zh": "我也需要一些膠帶。" },
         { "en": "They're from Taiwan.", "zh": "它們是從台灣來的。" }
       ],
       "answer": 0
@@ -137,7 +137,7 @@
     {
       "id": "s1_r13",
       "form": "B",
-      "prompt": { "role": "cashier", "en": "Will that be cash or card?", "zh": "要付現還是刷卡？" },
+      "prompt": { "role": "cashier", "en": "How would you like to pay?", "zh": "您要怎麼付款？" },
       "responses": [
         { "en": "Yes, I have a car.", "zh": "對，我有車。" },
         { "en": "Just this, please.", "zh": "就這個，謝謝。" },
@@ -170,7 +170,7 @@
     {
       "id": "s1_r16",
       "form": "B",
-      "prompt": { "role": "server", "en": "How was everything?", "zh": "餐點都還可以嗎？" },
+      "prompt": { "role": "server", "en": "How was the food?", "zh": "餐點還好嗎？" },
       "responses": [
         { "en": "By bus.", "zh": "搭公車。" },
         { "en": "The steak was delicious.", "zh": "牛排很好吃。" },
@@ -184,7 +184,7 @@
       "prompt": { "role": "postal_clerk", "en": "Is there anything heavy inside?", "zh": "裡面有很重的東西嗎？" },
       "responses": [
         { "en": "I'll carry it inside.", "zh": "我會把它搬進去。" },
-        { "en": "No, only a few clothes.", "zh": "沒有，只有幾件衣服。" },
+        { "en": "No, only some clothes.", "zh": "沒有，只有一些衣服。" },
         { "en": "It's going to Taiwan.", "zh": "要寄到台灣。" }
       ],
       "answer": 1
@@ -214,7 +214,7 @@
     {
       "id": "s1_r20",
       "form": "B",
-      "prompt": { "role": "volunteer", "en": "Would you like to join our garden team?", "zh": "你想加入我們的園藝小組嗎？" },
+      "prompt": { "role": "volunteer", "en": "Would you like to help in our garden?", "zh": "你想來我們的花園幫忙嗎？" },
       "responses": [
         { "en": "My team won the game.", "zh": "我的隊伍贏了比賽。" },
         { "en": "Sure. Where do I sign up?", "zh": "好啊，要在哪裡報名？" },
@@ -231,7 +231,7 @@
         { "id": "s1_t1_l1", "role": "barista", "en": "Hi! What can I get you?", "zh": "嗨！要點什麼？" },
         { "id": "s1_t1_l2", "role": "driver", "en": "A large iced coffee, please. No sugar.", "zh": "一杯大杯冰咖啡，謝謝。不要加糖。" },
         { "id": "s1_t1_l3", "role": "barista", "en": "Sorry, iced coffee only comes in small and medium.", "zh": "抱歉，冰咖啡只有小杯和中杯。" },
-        { "id": "s1_t1_l4", "role": "driver", "en": "Then a medium is fine. And a chocolate muffin, too.", "zh": "那中杯就好。再一個巧克力瑪芬。" },
+        { "id": "s1_t1_l4", "role": "driver", "en": "Then a medium, please. And a chocolate muffin, too.", "zh": "那就中杯，謝謝。再一個巧克力瑪芬。" },
         { "id": "s1_t1_l5", "role": "barista", "en": "Sure. That's seven dollars. For here or to go?", "zh": "好的，一共七塊。內用還是外帶？" },
         { "id": "s1_t1_l6", "role": "driver", "en": "For here, please.", "zh": "內用，謝謝。" }
       ],
@@ -245,7 +245,7 @@
         {
           "en": "What does the man say about his drink?",
           "zh": "男子對他的飲料有什麼要求？",
-          "options": ["He wants it hot.", "He wants it to go.", "He doesn't want it sweet."],
+          "options": ["He wants it hot.", "He wants it to go.", "He doesn't want sugar in it."],
           "answer": 2
         }
       ]
@@ -257,8 +257,8 @@
         { "id": "s1_t2_l1", "role": "pharmacist", "en": "Hi. How can I help you?", "zh": "你好，有什麼需要嗎？" },
         { "id": "s1_t2_l2", "role": "clerk", "en": "I have a bad cold. My nose and throat hurt.", "zh": "我感冒得很嚴重，鼻子和喉嚨都很痛。" },
         { "id": "s1_t2_l3", "role": "pharmacist", "en": "Try these pills. Take one after breakfast and one after dinner.", "zh": "試試這個藥。早餐後吃一顆，晚餐後吃一顆。" },
-        { "id": "s1_t2_l4", "role": "clerk", "en": "Will they make me sleepy? I drive to work.", "zh": "吃了會想睡嗎？我開車上班。" },
-        { "id": "s1_t2_l5", "role": "pharmacist", "en": "No, they won't. But drink a lot of water and get some rest.", "zh": "不會。不過要多喝水，好好休息。" }
+        { "id": "s1_t2_l4", "role": "clerk", "en": "Will they make me sleepy? I go to work by car.", "zh": "吃了會想睡嗎？我開車上班。" },
+        { "id": "s1_t2_l5", "role": "pharmacist", "en": "No, they won't. But drink more water and get some rest.", "zh": "不會。不過要多喝水，好好休息。" }
       ],
       "questions": [
         {
@@ -270,7 +270,7 @@
         {
           "en": "What does the woman tell the man to do?",
           "zh": "女子叫男子做什麼？",
-          "options": ["Drink a lot of water.", "Take the pills before breakfast.", "Stop driving to work."],
+          "options": ["Drink more water.", "Take three pills a day.", "Stop going to work."],
           "answer": 0
         }
       ]
@@ -280,7 +280,7 @@
       "form": "A",
       "kind": "monologue",
       "lines": [
-        { "id": "s1_t3_l1", "role": "postal_clerk", "en": "Hello, this is the post office on Bridge Street.", "zh": "您好，這裡是橋街郵局。" },
+        { "id": "s1_t3_l1", "role": "postal_clerk", "en": "Hi, this is the Bridge Street Post Office.", "zh": "你好，這裡是橋街郵局。" },
         { "id": "s1_t3_l2", "role": "postal_clerk", "en": "We have a package for you. We tried to bring it to you yesterday, but no one was home.", "zh": "我們有一件您的包裹。昨天我們試著送過去，但沒有人在家。" },
         { "id": "s1_t3_l3", "role": "postal_clerk", "en": "You can pick it up at our front counter.", "zh": "您可以到我們的前面櫃檯領取。" },
         { "id": "s1_t3_l4", "role": "postal_clerk", "en": "We're open from nine to five, Monday to Friday.", "zh": "我們的營業時間是星期一到星期五，九點到五點。" },
@@ -291,9 +291,9 @@
           "en": "Why is the speaker calling?",
           "zh": "說話者為什麼打這通電話？",
           "options": [
-            "To say a package is ready to pick up",
-            "To ask the listener to be home tomorrow",
-            "To say the post office is closed on Friday"
+            "To say there is a package for the listener",
+            "To say the listener needs to be home tomorrow",
+            "To say they are closed on Friday"
           ],
           "answer": 0
         },
@@ -310,10 +310,10 @@
       "form": "B",
       "lines": [
         { "id": "s1_t4_l1", "role": "landlord", "en": "Excuse me. Do you have this jacket in blue?", "zh": "不好意思，這件夾克有藍色的嗎？" },
-        { "id": "s1_t4_l2", "role": "assistant", "en": "Sorry, only in black and green. But they're thirty percent off today.", "zh": "抱歉，只有黑色和綠色。不過今天打七折。" },
+        { "id": "s1_t4_l2", "role": "assistant", "en": "Sorry, only in black and green. But they're on sale today.", "zh": "抱歉，只有黑色和綠色。不過今天在特價。" },
         { "id": "s1_t4_l3", "role": "landlord", "en": "Okay. Can I try the black one in a large?", "zh": "好。我可以試穿黑色的 L 號嗎？" },
         { "id": "s1_t4_l4", "role": "assistant", "en": "Sure. The fitting room is over there, next to the mirror.", "zh": "當然。試衣間在那邊，鏡子旁邊。" },
-        { "id": "s1_t4_l5", "role": "landlord", "en": "Thanks. Oh, it fits well. I'll take it.", "zh": "謝謝。噢，很合身。我買這件。" }
+        { "id": "s1_t4_l5", "role": "landlord", "en": "Thanks. Great, it fits well. I'll take it.", "zh": "謝謝。太好了，很合身。我買這件。" }
       ],
       "questions": [
         {
@@ -336,22 +336,22 @@
       "lines": [
         { "id": "s1_t5_l1", "role": "clerk", "en": "Excuse me, does this bus go to the hospital?", "zh": "不好意思，這班公車有到醫院嗎？" },
         { "id": "s1_t5_l2", "role": "passerby", "en": "No, it doesn't. You need the number seven bus.", "zh": "沒有喔。你要搭七號公車。" },
-        { "id": "s1_t5_l3", "role": "clerk", "en": "Oh. Where does that one stop?", "zh": "喔，那班在哪裡停？" },
-        { "id": "s1_t5_l4", "role": "passerby", "en": "On the other side of the road, in front of the bank.", "zh": "在馬路對面，銀行前面。" },
-        { "id": "s1_t5_l5", "role": "clerk", "en": "Thanks. How often does it come?", "zh": "謝謝。多久來一班？" },
+        { "id": "s1_t5_l3", "role": "clerk", "en": "Okay. Where does that one stop?", "zh": "好。那班在哪裡停？" },
+        { "id": "s1_t5_l4", "role": "passerby", "en": "Over there, in front of the bank.", "zh": "在那邊，銀行前面。" },
+        { "id": "s1_t5_l5", "role": "clerk", "en": "Thanks. When does it come?", "zh": "謝謝。什麼時候會來？" },
         { "id": "s1_t5_l6", "role": "passerby", "en": "Every twenty minutes, I think.", "zh": "我想是每二十分鐘一班。" }
       ],
       "questions": [
         {
           "en": "Where should the man wait for his bus?",
           "zh": "男子應該在哪裡等他要搭的公車？",
-          "options": ["In front of the bank", "Next to the hospital", "On this side of the road"],
+          "options": ["In front of the bank", "Next to the hospital", "At this bus stop"],
           "answer": 0
         },
         {
-          "en": "How often does the number seven bus come?",
+          "en": "When does the number seven bus come?",
           "zh": "七號公車多久來一班？",
-          "options": ["Every seven minutes", "Three times an hour", "Once an hour"],
+          "options": ["Every seven minutes", "Three times an hour", "Every hour"],
           "answer": 1
         }
       ]
@@ -361,10 +361,10 @@
       "form": "B",
       "kind": "monologue",
       "lines": [
-        { "id": "s1_t6_l1", "role": "volunteer", "en": "Good morning, everyone, and welcome to Green Lake Park.", "zh": "大家早安，歡迎來到綠湖公園。" },
-        { "id": "s1_t6_l2", "role": "volunteer", "en": "Our clean-up event starts at ten. Please meet in front of the center.", "zh": "我們的清潔活動十點開始。請在活動中心前面集合。" },
-        { "id": "s1_t6_l3", "role": "volunteer", "en": "We have bags for everyone.", "zh": "每個人都有袋子可以用。" },
-        { "id": "s1_t6_l4", "role": "volunteer", "en": "After lunch, there is a free picnic by the lake.", "zh": "午餐後在湖邊有免費的野餐。" },
+        { "id": "s1_t6_l1", "role": "volunteer", "en": "Good morning, and welcome to Green Lake Park.", "zh": "早安，歡迎來到綠湖公園。" },
+        { "id": "s1_t6_l2", "role": "volunteer", "en": "Our park cleaning starts at ten. Please meet in front of the center.", "zh": "我們的公園打掃十點開始。請在中心前面集合。" },
+        { "id": "s1_t6_l3", "role": "volunteer", "en": "We have bags for all of you.", "zh": "我們幫大家都準備了袋子。" },
+        { "id": "s1_t6_l4", "role": "volunteer", "en": "After the cleaning, there is a free picnic lunch by the lake.", "zh": "打掃完以後，湖邊有免費的野餐午餐。" },
         { "id": "s1_t6_l5", "role": "volunteer", "en": "If it rains, we will have the picnic in the center. Thanks for coming!", "zh": "如果下雨，野餐就改在活動中心裡舉行。謝謝大家來參加！" }
       ],
       "questions": [
@@ -378,7 +378,7 @@
           "en": "What will happen if it rains?",
           "zh": "如果下雨會怎樣？",
           "options": [
-            "The clean-up will start after lunch.",
+            "The cleaning will start after lunch.",
             "The picnic will be by the lake.",
             "The picnic will move inside."
           ],

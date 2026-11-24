@@ -422,12 +422,15 @@
 
 ### 結業考的題目檔
 
-- 路徑：`src/data/exams/<考試>.<段>.json`，例如 `exam3.s2.json`。還沒有檔的段，畫面顯示「準備中」。
+- 路徑：`src/data/exams/<考試>.<段>.json`，例如 `exam3.s2.json`。每段都有檔（13 個），整段的題目都寫在裡面（2026-11-24 起全部手寫）。
 - 頂層欄位：`exam`、`section`，再加上有題目的種類陣列：`pictures`、`responds`、`talks`、`signs`、`fills`、`textFills`、`passages`（只寫用到的）。
 - `draft: true` 表示還沒寫完：一般檢查會跳過，`EXAM_REQUIRE_COMPLETE=1` 時草稿和缺少的檔都會失敗。
-- 每題有 `form`：`A` 或 `B`。第一次考用 A 卷，第二次考用 B 卷；**每一卷各自**要有 `EXAM_PLAN`（`src/content/exam.ts`）規定的題數。
+- 每題有 `form`：`A` 或 `B`。第一次考用 A 卷，第二次考用 B 卷；**每一卷各自**要有 `EXAM_PLAN`（`src/content/exam.ts`）規定的題數：`pictures`、`responds`、`signs`、`fills` 數題數，`talks`、`passages` 數每段的題數，`textFills` 數每篇的空格。
+- 每種題目的欄位和單元裡的一樣（見上方各題型），另外：應答題在每一幕都可以用，剛好 3 個回答；句子填空在結業考可以到 20 個字、選項 24 個字元、說明 60 個字（任務裡是 14、18、30）；告示最多 15 個字。
+- 改了題目（不是只修錯字）時，把 `EXAM_CONTENT_VERSION` 加 1：舊存檔會從 A 卷重新開始。
 - 題目 id 以段 id 開頭（例如 `s2_p1`），整個段內不重複。
-- 選項：每題至少 3 個；第三、四幕剛好 4 個。答案位置：同一卷裡，任一個位置的答案不能超過 40%（答案不到 5 題時不檢查）。
+- 選項：應答題剛好 3 個；其他題第一幕 3～4 個，第二幕起剛好 4 個；文法填空（`grammar: true`）剛好 4 個。答案位置：同一卷裡，任一個位置的答案不能超過 40%（答案不到 5 題時不檢查）。
+- 用字：只能用這一幕結束前教過的字（`tests/examContent.test.ts`）。多益題目常用的人稱 man、woman、speaker、listener、reader 到處都可以用；題幹裡的 ask、tell、why、happen、true、mention、suggest 只有在題幹裡可以用。
 - 同一場考試裡，句子和題幹（5 個字以上）不能重複出現（`examCopyKeys`）。
 - 檢查：
 

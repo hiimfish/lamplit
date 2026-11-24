@@ -4,6 +4,7 @@ import {
   EXAM_PLAN,
   examAct,
   sectionHasFile,
+  writtenQuestionCount,
   type ExamForm,
   type ExamId,
   type SectionPlan,
@@ -16,7 +17,7 @@ type Obj = Record<string, any>; // eslint-disable-line @typescript-eslint/no-exp
 function goodFile(exam: ExamId, plan: SectionPlan): Obj {
   const act = examAct(exam);
   const sec = plan.id;
-  const optionCount = act >= 3 ? 4 : 3;
+  const optionCount = act >= 2 ? 4 : 3;
   let uid = 0;
   let turn = 0;
   const next = () => ++uid;
@@ -48,6 +49,43 @@ function goodFile(exam: ExamId, plan: SectionPlan): Obj {
         zh: `句子${n}${i}`,
       })),
       answer: turn++ % count,
+    };
+  };
+  const respond = (form: ExamForm) => {
+    const n = next();
+    return {
+      id: `${sec}_q${n}`,
+      form,
+      prompt: { role: 'clerk', en: `Can I ask thing ${n}?`, zh: `我可以問${n}嗎？` },
+      responses: Array.from({ length: 3 }, (_, i) => ({
+        en: `Reply ${n} ${i}.`,
+        zh: `回答${n}${i}`,
+      })),
+      answer: turn++ % 3,
+    };
+  };
+  const sign = (form: ExamForm) => {
+    const n = next();
+    return {
+      id: `${sec}_s${n}`,
+      form,
+      heading: `Sign ${n}`,
+      rows: [{ label: 'Open', value: `${n} a.m.` }],
+      question: { en: `When does place ${n} open?`, zh: `${n} 幾點開？` },
+      options: Array.from({ length: optionCount }, (_, i) => `At ${n}:${i}0`),
+      answer: turn++ % optionCount,
+    };
+  };
+  const fill = (form: ExamForm) => {
+    const n = next();
+    return {
+      id: `${sec}_x${n}`,
+      form,
+      grammar: true,
+      en: `Please ___ thing ${n} now.`,
+      zh: `請現在做${n}。`,
+      options: Array.from({ length: 4 }, (_, i) => `do${n}x${i}`),
+      answer: turn++ % 4,
     };
   };
   const talk = (form: ExamForm, count: number) => {
@@ -116,9 +154,21 @@ function goodFile(exam: ExamId, plan: SectionPlan): Obj {
       file.pictures ??= [];
       for (let i = 0; i < w.pictures; i++) file.pictures.push(picture(form));
     }
+    if (w.responds) {
+      file.responds ??= [];
+      for (let i = 0; i < w.responds; i++) file.responds.push(respond(form));
+    }
     if (w.talks) {
       file.talks ??= [];
       for (const q of w.talks) file.talks.push(talk(form, q));
+    }
+    if (w.signs) {
+      file.signs ??= [];
+      for (let i = 0; i < w.signs; i++) file.signs.push(sign(form));
+    }
+    if (w.fills) {
+      file.fills ??= [];
+      for (let i = 0; i < w.fills; i++) file.fills.push(fill(form));
     }
     if (w.passages) {
       file.passages ??= [];
@@ -140,9 +190,10 @@ const find = (exam: ExamId, id: string) => {
   return goodFile(exam, plan);
 };
 
-describe('a good file for every section with hand-written questions', () => {
-  it('finds the 12 sections', () => {
-    expect(sections).toHaveLength(12);
+describe('a good file for every section', () => {
+  it('finds the 13 sections, each with a file and its total in the plan', () => {
+    expect(sections).toHaveLength(13);
+    for (const { plan } of sections) expect(writtenQuestionCount(plan.written)).toBe(plan.total);
   });
   it.each(sections.map(({ exam, plan }) => [`${exam}.${plan.id}`, exam, plan] as const))(
     '%s has no problems',
@@ -178,7 +229,7 @@ describe('who and what is checked', () => {
     ['an unknown exam', { exam: 'exam9', section: 's1' }, 'unknown exam'],
     ['no exam', { section: 's1' }, 'unknown exam'],
     ['an unknown section', { exam: 'exam1', section: 's9' }, 'unknown section'],
-    ['a section with no hand-written part', { exam: 'exam1', section: 's1' }, 'no hand-written'],
+    ['a section file with nothing in it', { exam: 'exam1', section: 's1' }, 'needs responds'],
   ];
   it.each(cases)('rejects %s', (_name, file, message) => {
     expect(validateExam(file).join('\n')).toContain(message);
@@ -195,10 +246,10 @@ type Bad = [
 
 const bad: Bad[] = [
   ['an unknown top-level key', 'exam2', 's1', (f) => (f.extra = 1), 'unknown field "extra"'],
-  ['responds in a written file', 'exam2', 's1', (f) => (f.responds = []), 'generated'],
-  ['fills in a written file', 'exam2', 's2', (f) => (f.fills = [{}]), 'generated'],
-  ['signs in a written file', 'exam1', 's2', (f) => (f.signs = [{}]), 'generated'],
-  ['passages in a talk section', 'exam2', 's1', (f) => (f.passages = [{}]), 'does not hand-write'],
+  ['responds in a reading section', 'exam2', 's2', (f) => (f.responds = []), 'does not have'],
+  ['fills in a listening section', 'exam2', 's1', (f) => (f.fills = [{}]), 'does not have'],
+  ['signs in Act 3', 'exam3', 's3', (f) => (f.signs = [{}]), 'does not have'],
+  ['passages in a talk section', 'exam2', 's1', (f) => (f.passages = [{}]), 'does not have'],
   ['talks that are not a list', 'exam2', 's1', (f) => (f.talks = {}), 'talks must be a list'],
   ['a missing kind', 'exam2', 's1', (f) => delete f.talks, 'needs talks'],
   ['an item that is not an object', 'exam2', 's1', (f) => f.talks.push(5), 'must be an object'],
@@ -208,14 +259,14 @@ const bad: Bad[] = [
     'exam1',
     's2',
     (f) => f.pictures.splice(-1, 1),
-    'form B has 7 pictures',
+    'form B has 5 pictures',
   ],
   [
     'a picture too many in form A',
     'exam1',
     's2',
     (f) => f.pictures.push({ ...f.pictures[0], id: 's2_extra', form: 'A' }),
-    'form A has 9 pictures',
+    'form A has 7 pictures',
   ],
   ['a talk too few', 'exam2', 's1', (f) => f.talks.splice(0, 1), 'form A talks have questions'],
   [
@@ -223,7 +274,7 @@ const bad: Bad[] = [
     'exam2',
     's1',
     (f) => f.talks[1].questions.pop(),
-    'the plan wants [2,2,2,2]',
+    'the plan wants [2,2,2,2,2]',
   ],
   [
     'talk questions in another order',
@@ -250,6 +301,15 @@ const bad: Bad[] = [
     (f) => f.pictures.forEach((p: Obj) => (p.form = 'A')),
     'form B has 0 pictures',
   ],
+  ['a respond too few', 'exam1', 's1', (f) => f.responds.splice(0, 1), 'form A has 9 responds'],
+  [
+    'a fill too many',
+    'exam3',
+    's3',
+    (f) => f.fills.push({ ...f.fills[0], id: 's3_extra' }),
+    'form A has 13 fills',
+  ],
+  ['a sign too few', 'exam2', 's2', (f) => f.signs.pop(), 'form B has 1 signs'],
   // forms
   ['no form', 'exam1', 's2', (f) => delete f.pictures[0].form, 'needs form "A" or "B"'],
   ['a form C', 'exam1', 's2', (f) => (f.pictures[0].form = 'C'), 'needs form "A" or "B"'],
@@ -326,16 +386,58 @@ const bad: Bad[] = [
     (f) => {
       f.talks[0].questions[0].options.pop();
     },
-    'exactly 4 in Acts 3 and 4',
+    'exactly 4 from Act 2 on',
   ],
   [
-    'two options in Act 2',
+    'three options in Act 2',
+    'exam2',
+    's2',
+    (f) => f.signs[0].options.pop(),
+    'exactly 4 from Act 2 on',
+  ],
+  [
+    'five options in Act 1',
+    'exam1',
+    's1',
+    (f) => f.talks[0].questions[0].options.push('Extra', 'More'),
+    'options',
+  ],
+  [
+    'four responses to a respond',
+    'exam1',
+    's1',
+    (f) => f.responds[0].responses.push({ en: 'More.', zh: '更多' }),
+    'exactly 3',
+  ],
+  [
+    'a grammar fill with 3 options in Act 1',
+    'exam1',
+    's2',
+    (f) => f.fills[0].options.pop(),
+    'exactly 4 options',
+  ],
+  [
+    'a sign of more than 15 words',
+    'exam1',
+    's2',
+    (f) =>
+      (f.signs[0].heading =
+        'one two three four five six seven eight nine ten eleven twelve thirteen'),
+    'max 15',
+  ],
+  [
+    'a respond prompt said by the guide',
+    'exam3',
+    's1',
+    (f) => (f.responds[0].prompt.role = 'guide'),
+    'pick the role who asks',
+  ],
+  [
+    'the same respond prompt twice',
     'exam2',
     's1',
-    (f) => {
-      f.talks[0].questions[0].options.pop();
-    },
-    '(at least 3)',
+    (f) => (f.responds[1].prompt.en = f.responds[0].prompt.en),
+    'repeats',
   ],
   [
     'three options in Act 4 text fill',
@@ -431,7 +533,7 @@ describe('rejects broken content', () => {
 describe('answer positions', () => {
   it('allows exactly 40 percent', () => {
     const file = find('exam1', 's2');
-    // 8 pictures per form: three in one place is 37.5 percent, still fine.
+    // The pictures spread over three places: no place gets over 40 percent.
     file.pictures.forEach((p: Obj, i: number) => (p.answer = i % 3));
     expect(validateExam(file)).toEqual([]);
   });

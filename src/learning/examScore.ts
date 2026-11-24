@@ -147,8 +147,10 @@ const dayNumber = (key: string): number => {
  * The offset to add to an exam estimate of `kind`: each exam entry is paired with the
  * nearest ETS entry (`checkpoints` without `source`) within PAIR_DAYS; the offset is half
  * the mean of (ETS - estimate), rounded to 5 and within +-50. Entries after `now` are
- * ignored. The exam entries should hold the estimate without any offset, or the
- * correction is counted twice.
+ * ignored, and so are retakes (`retake`: questions seen before, so the estimate reads
+ * high); addExamCheckpoint keeps only the first sitting of a day per Act. The exam
+ * entries should hold the estimate without any offset, or the correction is counted
+ * twice.
  */
 export function calibrationOffset(
   checkpoints: readonly Checkpoint[],
@@ -162,7 +164,7 @@ export function calibrationOffset(
     .map((c) => ({ day: dayNumber(c.date), score: c[kind] }));
   const gaps: number[] = [];
   for (const exam of exams) {
-    if (exam.source !== 'exam' || dayNumber(exam.date) > today) continue;
+    if (exam.source !== 'exam' || exam.retake || dayNumber(exam.date) > today) continue;
     const day = dayNumber(exam.date);
     let best: { distance: number; score: number } | undefined;
     for (const entry of ets) {

@@ -8,7 +8,7 @@
       "pictureId": "reading_book",
       "options": [
         { "en": "A woman is closing a window.", "zh": "一位女子正在關窗戶。" },
-        { "en": "A woman is turning off a lamp.", "zh": "一位女子正在關燈。" },
+        { "en": "A woman is holding a lamp.", "zh": "一位女子拿著一盞燈。" },
         { "en": "A woman is sitting and reading.", "zh": "一位女子坐著看書。" }
       ],
       "answer": 2
@@ -20,7 +20,7 @@
       "options": [
         { "en": "A man is holding a hot drink.", "zh": "一位男子拿著一杯熱飲。" },
         { "en": "A man is standing by the window.", "zh": "一位男子站在窗邊。" },
-        { "en": "A man is putting a cup on the table.", "zh": "一位男子正把杯子放到桌上。" }
+        { "en": "A man is making a cup of coffee.", "zh": "一位男子正在泡一杯咖啡。" }
       ],
       "answer": 0
     },
@@ -53,7 +53,7 @@
       "options": [
         { "en": "There is an envelope on the desk.", "zh": "書桌上有一個信封。" },
         { "en": "A woman is opening an envelope.", "zh": "一位女子正在拆信封。" },
-        { "en": "The lamp is on the floor.", "zh": "檯燈在地上。" }
+        { "en": "The lamp is on the chair.", "zh": "檯燈在椅子上。" }
       ],
       "answer": 0
     },
@@ -62,7 +62,7 @@
       "form": "A",
       "pictureId": "playing_ball",
       "options": [
-        { "en": "The boy is holding the ball.", "zh": "男孩手裡拿著球。" },
+        { "en": "The kids are sitting at a table.", "zh": "孩子們坐在桌邊。" },
         { "en": "The kids are sitting on the grass.", "zh": "孩子們坐在草地上。" },
         { "en": "Two kids are playing outside.", "zh": "兩個孩子在外面玩。" }
       ],
@@ -73,9 +73,9 @@
       "form": "B",
       "pictureId": "wearing_hat",
       "options": [
-        { "en": "A man is putting on his hat.", "zh": "一位男子正在戴上帽子。" },
-        { "en": "A man in a hat is standing near a lamp.", "zh": "一位戴帽子的男子站在路燈旁。" },
-        { "en": "A man is sitting under a lamp.", "zh": "一位男子坐在路燈下。" }
+        { "en": "A man is buying a hat.", "zh": "一位男子正在買帽子。" },
+        { "en": "A man in a hat is standing by a lamp.", "zh": "一位戴帽子的男子站在路燈旁。" },
+        { "en": "A man is sitting in a car.", "zh": "一位男子坐在車裡。" }
       ],
       "answer": 1
     },
@@ -85,7 +85,7 @@
       "pictureId": "buying_apples",
       "options": [
         { "en": "A man is paying for some fruit.", "zh": "一位男子正在付錢買水果。" },
-        { "en": "The woman is putting apples in a box.", "zh": "女子正把蘋果放進箱子裡。" },
+        { "en": "The woman is eating an apple.", "zh": "女子正在吃蘋果。" },
         { "en": "The man is carrying a bag of apples.", "zh": "男子提著一袋蘋果。" }
       ],
       "answer": 0
@@ -117,9 +117,9 @@
       "form": "B",
       "pictureId": "writing_letter",
       "options": [
-        { "en": "A woman is holding a pen.", "zh": "一位女子拿著一支筆。" },
+        { "en": "A woman is writing a letter.", "zh": "一位女子正在寫信。" },
         { "en": "A woman is reading a letter.", "zh": "一位女子正在看信。" },
-        { "en": "A woman is putting a stamp on an envelope.", "zh": "一位女子正在信封上貼郵票。" }
+        { "en": "A woman is buying a stamp.", "zh": "一位女子正在買郵票。" }
       ],
       "answer": 0
     },
@@ -129,7 +129,7 @@
       "pictureId": "drinking_coffee",
       "options": [
         { "en": "A man is buying a coffee at the counter.", "zh": "一位男子在櫃檯買咖啡。" },
-        { "en": "A man is cleaning the table.", "zh": "一位男子正在擦桌子。" },
+        { "en": "A man is cleaning the window.", "zh": "一位男子正在擦窗戶。" },
         { "en": "A man is sitting and drinking.", "zh": "一位男子坐著喝東西。" }
       ],
       "answer": 2
@@ -178,8 +178,8 @@
       "id": "s2_f5",
       "form": "A",
       "grammar": true,
-      "en": "I ___ a package to my mother last week.",
-      "zh": "我上星期寄了一個包裹給我媽媽。",
+      "en": "I ___ a package to my friend last week.",
+      "zh": "我上星期寄了一個包裹給我朋友。",
       "options": ["send", "sent", "sends", "sending"],
       "answer": 1,
       "note": "last week 是過去的時間，用過去式 sent。"
@@ -255,14 +255,14 @@
     {
       "id": "s2_s1",
       "form": "A",
-      "heading": "Cafe Menu",
+      "heading": "Menu",
       "rows": [
-        { "label": "Latte", "value": "$4" },
+        { "label": "Latte", "value": "$5" },
         { "label": "Iced Tea", "value": "$3" },
         { "label": "Muffin", "value": "$2" },
         { "label": "Sandwich", "value": "$6" }
       ],
-      "question": { "en": "How much are two muffins?", "zh": "兩個瑪芬多少錢？" },
+      "question": { "en": "How much are a muffin and an iced tea?", "zh": "一個瑪芬加一杯冰紅茶多少錢？" },
       "options": ["$4", "$2", "$6"],
       "answer": 0
     },
@@ -274,7 +274,7 @@
         { "label": "Tuesday to Sunday", "value": "10 a.m. to 6 p.m." },
         { "label": "Monday", "value": "Closed" }
       ],
-      "question": { "en": "When can you visit the museum?", "zh": "什麼時候可以去參觀博物館？" },
+      "question": { "en": "When is the museum open?", "zh": "博物館什麼時候有開？" },
       "options": ["On Monday morning", "On Sunday afternoon", "On Tuesday at 7 p.m."],
       "answer": 1
     },
@@ -299,12 +299,12 @@
       "form": "A",
       "heading": "Big Sale",
       "rows": [
-        { "label": "Shirts", "value": "20% off" },
-        { "label": "Jackets", "value": "30% off" },
+        { "label": "Shirts", "value": "Now $15" },
+        { "label": "Jackets", "value": "Now $30" },
         { "label": "Shoes", "value": "Buy one, get one free" }
       ],
       "question": { "en": "What is true about the shoes?", "zh": "關於鞋子，哪一項正確？" },
-      "options": ["They are 20% off.", "They are 30% off.", "You can get two pairs for the price of one."],
+      "options": ["They are $15.", "They are $30.", "You can get two pairs for the price of one."],
       "answer": 2
     },
     {
@@ -368,17 +368,17 @@
       "id": "s2_r1",
       "form": "A",
       "kind": "message",
-      "title": "Amy (Room 302)",
+      "title": "Room 302",
       "lines": [
         "Hi, it's Amy from Room 302!",
-        "Saturday is my birthday, so I'm having a small party at my place.",
-        "Please come at seven. Dinner will be ready an hour later, and the party ends at about ten.",
+        "Saturday is my birthday, so I'm having a small party at home.",
+        "Please come at seven. We will have dinner an hour later, and the party will be over at about ten.",
         "You don't need to bring a gift. If you want, bring something to drink.",
         "See you on Saturday!"
       ],
       "questions": [
         {
-          "en": "What time will dinner be ready?",
+          "en": "What time is dinner?",
           "zh": "晚餐幾點會準備好？",
           "options": ["At seven", "At eight", "At ten"],
           "answer": 1
@@ -399,9 +399,9 @@
       "lines": [
         "Window cleaning: Tuesday and Wednesday, 9 a.m. to 3 p.m.",
         "Please close all your windows on these days.",
-        "Move tables and lamps away from the windows.",
-        "This week, please put your trash in the cans at the back door, not the front door.",
-        "Questions? Call me at 555-0142.",
+        "Do not leave tables or lamps by the windows.",
+        "This week, please leave your trash in the cans at the back door, not the front door.",
+        "Need help? Call me at 555-0142.",
         "Mr. Brown, Landlord"
       ],
       "questions": [
@@ -412,7 +412,7 @@
           "answer": 1
         },
         {
-          "en": "Where should people put their trash this week?",
+          "en": "Where should people leave their trash this week?",
           "zh": "這星期垃圾要放在哪裡？",
           "options": ["At the back door", "At the front door", "Next to the windows"],
           "answer": 0
@@ -425,15 +425,15 @@
       "kind": "email",
       "title": "Green Street Clinic",
       "lines": [
-        "Dear Ms. Lin,",
+        "To Ms. Lin,",
         "You have an appointment with Dr. Park on Thursday at 10:30 a.m.",
-        "Please come fifteen minutes early to fill out a form, and bring your insurance card.",
-        "If you can't come, please call us before 5 p.m. on Wednesday.",
+        "Please come fifteen minutes ahead of time to sign in, and bring your insurance card.",
+        "If you can't come, please call us by 5 p.m. on Wednesday.",
         "Thank you."
       ],
       "questions": [
         {
-          "en": "What time should Ms. Lin get to the clinic?",
+          "en": "What time should Ms. Lin get there?",
           "zh": "林小姐應該幾點到診所？",
           "options": ["At 10:15 a.m.", "At 10:30 a.m.", "At 10:45 a.m."],
           "answer": 0
@@ -441,7 +441,7 @@
         {
           "en": "What should Ms. Lin do if she can't come?",
           "zh": "如果林小姐不能來，她應該怎麼做？",
-          "options": ["Bring her insurance card", "Call the clinic by Wednesday", "Fill out a form on Thursday"],
+          "options": ["Bring her insurance card", "Call the doctor's office by Wednesday", "Come in on Wednesday"],
           "answer": 1
         }
       ]
@@ -459,13 +459,13 @@
       ],
       "questions": [
         {
-          "en": "How can shoppers get something for free?",
+          "en": "How can people get something for free?",
           "zh": "顧客要怎樣才能拿到免費的東西？",
           "options": ["By buying fresh fruit", "By coming at 8 a.m.", "By using their own bag"],
           "answer": 2
         },
         {
-          "en": "What does the flyer ask shoppers not to do?",
+          "en": "What are people asked not to do?",
           "zh": "傳單請顧客不要做什麼？",
           "options": ["Bring a bag", "Bring a dog", "Buy bread"],
           "answer": 1

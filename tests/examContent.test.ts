@@ -16,7 +16,7 @@ import {
   sectionHasFile,
   type ExamSectionFile,
 } from '../src/content/exam';
-import type { Unit } from '../src/content/types';
+import type { Task, Unit } from '../src/content/types';
 import { UNIT_ORDER } from '../src/content/unitOrder';
 import { validateExam, examCopyKeys } from '../src/content/validateExam';
 import { parseWordLists, profileUnits, questionTexts } from '../src/content/vocab';
@@ -90,6 +90,34 @@ function longTexts(value: unknown, into = new Set<string>()): Set<string> {
   return into;
 }
 
+/**
+ * TOEIC frames its questions with the people in them ("What does the man want?", "A
+ * woman is ...", "Why is the speaker calling?"), so these may appear anywhere in an exam
+ * though no unit teaches them in Act 1.
+ */
+const EXAM_FRAME_WORDS = new Set(['man', 'woman', 'speaker', 'listener', 'reader']);
+
+/** Words of a TOEIC question stem ("What does the man ask?", "What is true about ..."), allowed in stems only. */
+const EXAM_STEM_WORDS = new Set(['ask', 'tell', 'why', 'happen', 'true', 'mention', 'suggest']);
+
+/** The task with every question stem (talk, passage and sign questions) left empty. */
+function withoutStems(task: Task): Task {
+  const blank = <Q extends { en: string }>(qs: readonly Q[]): Q[] =>
+    qs.map((q) => ({ ...q, en: '' }));
+  return {
+    ...task,
+    ...(task.talks
+      ? { talks: task.talks.map((t) => ({ ...t, questions: blank(t.questions) })) }
+      : {}),
+    ...(task.passages
+      ? { passages: task.passages.map((p) => ({ ...p, questions: blank(p.questions) })) }
+      : {}),
+    ...(task.signs
+      ? { signs: task.signs.map((s) => ({ ...s, question: { ...s.question, en: '' } })) }
+      : {}),
+  } as Task;
+}
+
 /** The act whose picture file holds a picture (Act 3 has none), or 0 for an unknown id. */
 const pictureAct = (id: string) =>
   id in ACT1_PICTURES ? 1 : id in ACT2_PICTURES ? 2 : id in ACT4_PICTURES ? 4 : 0;
@@ -106,17 +134,26 @@ for (const { name, file } of ready) {
       const last = ACTS[act - 1]!.places.at(-1)!.unitId!;
       const upTo = units().filter((u) => UNIT_ORDER.indexOf(u.id) <= UNIT_ORDER.indexOf(last));
       const task = sectionAsUnit(file).tasks[0]!;
-      const probe: Unit = {
-        id: '__exam',
-        title: '__exam',
-        titleEn: '__exam',
-        chunks: [],
-        words: [],
-        tasks: [{ ...task, scene: questionTexts(task) }],
+      const unplanned = (t: Task): string[] => {
+        const probe: Unit = {
+          id: '__exam',
+          title: '__exam',
+          titleEn: '__exam',
+          chunks: [],
+          words: [],
+          tasks: [{ ...t, scene: questionTexts(t) }],
+        };
+        const profile = profileUnits([...upTo, probe], lists).at(-1);
+        expect(profile?.unitId).toBe('__exam');
+        return profile?.unplanned ?? [];
       };
-      const profile = profileUnits([...upTo, probe], lists).at(-1);
-      expect(profile?.unitId).toBe('__exam');
-      expect(profile?.unplanned).toEqual([]);
+      // The same task with the question stems blanked: a stem word is only let through
+      // when nothing but a stem uses it.
+      const stemless = new Set(unplanned(withoutStems(task)));
+      const left = unplanned(task).filter(
+        (w) => !EXAM_FRAME_WORDS.has(w) && !(EXAM_STEM_WORDS.has(w) && !stemless.has(w)),
+      );
+      expect(left).toEqual([]);
     });
 
     it('uses pictures that exist and belong to this act or an earlier one', () => {

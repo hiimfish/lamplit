@@ -229,6 +229,15 @@ describe('calibrationOffset', () => {
     expect(calibrationOffset(list, exams, 'listening', now)).toEqual({ offset: 40, pairs: 2 });
   });
 
+  it('leaves out retakes: their estimate read questions seen before', () => {
+    const list = [ets('2026-11-20', 200, 200)];
+    const retake: Checkpoint = { ...exam('2026-11-21', 190, 190), retake: true };
+    expect(calibrationOffset(list, [retake], 'listening', now)).toEqual({ offset: 0, pairs: 0 });
+    expect(
+      calibrationOffset(list, [exam('2026-11-20', 100, 100), retake], 'listening', now),
+    ).toEqual({ offset: 50, pairs: 1 });
+  });
+
   it('ignores entries dated after today', () => {
     expect(
       calibrationOffset(

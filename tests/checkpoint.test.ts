@@ -195,16 +195,17 @@ describe('addExamCheckpoint', () => {
     expect(saved.checkpoints[0]).toMatchObject({ source: 'exam', act: 1, retake: true });
   });
 
-  it('replaces the same Act on the same day, and keeps other Acts, days and ETS scores', () => {
+  it('keeps the first sitting of an Act on a day, and other Acts, days and ETS scores', () => {
     let save = addCheckpoint(base, now, 300, 300);
     save = addExamCheckpoint(save, now, 1, 100, 100, false);
     save = addExamCheckpoint(save, now, 2, 150, 150, false);
     save = addExamCheckpoint(save, day(-1), 1, 90, 90, false);
-    save = addExamCheckpoint(save, now, 1, 120, 125, true);
+    const later = addExamCheckpoint(save, now, 1, 120, 125, true);
+    expect(later).toBe(save);
     expect(save.checkpoints).toHaveLength(4);
     const today = exams(save).filter((c) => c.date === '2026-11-24' && c.act === 1);
     expect(today).toEqual([
-      { date: '2026-11-24', listening: 120, reading: 125, source: 'exam', act: 1, retake: true },
+      { date: '2026-11-24', listening: 100, reading: 100, source: 'exam', act: 1 },
     ]);
     expect(exams(save).find((c) => c.act === 2)?.listening).toBe(150);
     expect(save.checkpoints.some((c) => c.source === undefined && c.listening === 300)).toBe(true);

@@ -1,4 +1,4 @@
-import { EXAM_IDS, isExamId, type ExamId } from '../content/exam';
+import { EXAM_CONTENT_VERSION, EXAM_IDS, isExamId, type ExamId } from '../content/exam';
 import { newStoredCard, type StoredCard } from '../learning/scheduler';
 import { STORAGE_KEYS } from './storageKeys';
 
@@ -95,6 +95,10 @@ export interface ExamRecord {
   reading: number;
   /** Hand-written question id to the times it was shown (decides the next form). */
   seen: Record<string, number>;
+  /** EXAM_CONTENT_VERSION of the questions that `seen` and `sittings` count. */
+  version: number;
+  /** Sittings on this version of the questions: 0 sits form A next, 1 form B, then mixed. */
+  sittings: number;
 }
 
 /** Offsets that bring the exam estimate toward the player's ETS scores. */
@@ -756,11 +760,21 @@ const ITEM_ID = /^[a-z0-9_.-]{1,80}$/;
 /** At most this many question ids are remembered per exam in `seen`. */
 const SEEN_KEPT = 1000;
 
+/**
+ * A record: kept whole when its questions are the current version; one from an older
+ * version (or none: saves before versions) keeps its sittings and scores but forgets
+ * what it saw, so the next sitting is form A of the new questions.
+ */
 function sanitizeExamRecord(raw: unknown): ExamRecord | undefined {
   if (!isObject(raw)) return undefined;
   const { attempts, lastDate, listening, reading } = raw;
   if (!isCount(attempts) || attempts < 1 || !isDateKey(lastDate)) return undefined;
   if (!isEtsScore(listening) || !isEtsScore(reading)) return undefined;
+  const version = EXAM_CONTENT_VERSION;
+  if (raw.version !== version) {
+    return { attempts, lastDate, listening, reading, seen: {}, version, sittings: 0 };
+  }
+  const sittings = isCount(raw.sittings) ? Math.min(raw.sittings, attempts) : 0;
   const seen: Record<string, number> = {};
   if (isObject(raw.seen)) {
     for (const [id, times] of Object.entries(raw.seen)) {
@@ -768,7 +782,7 @@ function sanitizeExamRecord(raw: unknown): ExamRecord | undefined {
       if (ITEM_ID.test(id) && isCount(times) && times > 0) seen[id] = times;
     }
   }
-  return { attempts, lastDate, listening, reading, seen };
+  return { attempts, lastDate, listening, reading, seen, version, sittings };
 }
 
 const CALIBRATION_LIMIT = 50;
@@ -830,7 +844,10 @@ function mergeExamRun(ours: SaveData, theirs: SaveData): ExamRun | undefined {
   return same && b.done.length > a.done.length ? b : a;
 }
 
-/** Per exam the larger `attempts`; the scores of the later sitting; the larger counts of `seen`. */
+/**
+ * Per exam the larger `attempts`; the scores of the later sitting; the newer question
+ * version, and on the same version the larger `sittings` and counts of `seen`.
+ */
 function mergeExams(ours: ExamsSave, theirs: ExamsSave): ExamsSave {
   const merged: ExamsSave = {};
   for (const id of EXAM_IDS) {
@@ -842,14 +859,23 @@ function mergeExams(ours: ExamsSave, theirs: ExamsSave): ExamsSave {
       continue;
     }
     const later = b.lastDate > a.lastDate ? b : a;
-    const seen: Record<string, number> = { ...b.seen };
-    for (const [qid, times] of Object.entries(a.seen)) seen[qid] = Math.max(times, seen[qid] ?? 0);
+    const version = Math.max(a.version, b.version);
+    // Only a side on the newer version says what was seen of those questions.
+    const sides = [a, b].filter((r) => r.version === version);
+    const seen: Record<string, number> = {};
+    for (const side of sides) {
+      for (const [qid, times] of Object.entries(side.seen)) {
+        seen[qid] = Math.max(times, seen[qid] ?? 0);
+      }
+    }
     merged[id] = {
       attempts: Math.max(a.attempts, b.attempts),
       lastDate: later.lastDate,
       listening: later.listening,
       reading: later.reading,
       seen,
+      version,
+      sittings: Math.max(...sides.map((r) => r.sittings)),
     };
   }
   const a = ours.calibration;

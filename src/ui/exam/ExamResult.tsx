@@ -31,9 +31,17 @@ const VERDICT_WORDS: Record<Verdict, string> = {
   behind: '落後',
 };
 
-/** 「估計 205（180～230）」. */
-export const rangeText = (est: ExamEstimate): string =>
-  `估計 ${est.score}（${est.low}～${est.high}）`;
+/** 「答對 12／16（75%）」. */
+export const correctText = (correct: number, total: number): string =>
+  `答對 ${correct}／${total}（${total > 0 ? Math.round((correct / total) * 100) : 0}%）`;
+
+/** 「估計約 205 分（180～230），只能參考」. */
+export const estimateText = (est: ExamEstimate): string =>
+  `估計約 ${est.score} 分（${est.low}～${est.high}），只能參考`;
+
+/** 「聽力約 105、閱讀約 100」. */
+export const partsText = (listening: ExamEstimate, reading: ExamEstimate): string =>
+  `聽力約 ${listening.score}、閱讀約 ${reading.score}`;
 
 /** 「和第 5 週的目標 375 比：差不多」. */
 export const verdictText = (verdict: Verdict, target: number, week: number): string =>
@@ -52,10 +60,6 @@ export const calibrationText = (pairs: number): string =>
 /** 「有 3 題你看過，分數可能偏高。」 */
 export const retakeText = (reused: number): string => `有 ${reused} 題你看過，分數可能偏高。`;
 
-/** 「聽力一 12／16」 */
-export const sectionLine = (title: string, correct: number, total: number): string =>
-  `${title} ${correct}／${total}`;
-
 interface Props {
   exam: ExamId;
   summary: ExamSummary;
@@ -64,7 +68,10 @@ interface Props {
   onDone: () => void;
 }
 
-/** The score screen: estimates with their range, the wrong answers, the checkpoint comparison. */
+/**
+ * The score screen: 答對 per section and in total (big), the estimated TOEIC score with
+ * its range (small, only a guide), the wrong answers, the checkpoint comparison.
+ */
 export function ExamResult({ exam, summary, outcomes, onReview, onDone }: Props) {
   const { save } = useStore(appStore);
   const [extended, setExtended] = useState(false);
@@ -109,22 +116,24 @@ export function ExamResult({ exam, summary, outcomes, onReview, onDone }: Props)
         <div class="progress-hero">
           <p class="flow-heading">{plan.title}成績</p>
           <p class="progress-big" data-testid="exam-total">
-            總分{rangeText({ score: total, low, high })}
+            總共{correctText(summary.correct, summary.total)}
           </p>
-          <p class="flow-note">估計分數（題數少，只能當參考）</p>
         </div>
 
-        <dl class="progress-stats exam-stats">
-          <div>
-            <dt>聽力</dt>
-            <dd data-testid="exam-listening">{rangeText(listening)}</dd>
-          </div>
-          <div>
-            <dt>閱讀</dt>
-            <dd data-testid="exam-reading">{rangeText(reading)}</dd>
-          </div>
+        <dl class="progress-stats exam-stats" data-testid="exam-sections">
+          {outcomes.map((o) => (
+            <div key={o.id}>
+              <dt>{titleOf(o.id)}</dt>
+              <dd data-testid={`exam-section-score-${o.id}`}>{correctText(o.correct, o.total)}</dd>
+            </div>
+          ))}
         </dl>
 
+        <p class="flow-note exam-fine" data-testid="exam-estimate">
+          {estimateText({ score: total, low, high })}
+          <br />
+          {partsText(listening, reading)}
+        </p>
         <p class="flow-note">{calibrationText(pairs)}</p>
         <p class="flow-note" data-testid="exam-cap">
           {capText(act)}
@@ -167,15 +176,6 @@ export function ExamResult({ exam, summary, outcomes, onReview, onDone }: Props)
             第一次完成，獲得 {summary.coins} 金幣
           </p>
         )}
-
-        <p class="flow-note">
-          答對 {summary.correct}／{summary.total}
-        </p>
-        <ul class="exam-sections" data-testid="exam-sections">
-          {outcomes.map((o) => (
-            <li key={o.id}>{sectionLine(titleOf(o.id), o.correct, o.total)}</li>
-          ))}
-        </ul>
 
         <p class="flow-note exam-fine">遊戲不能保證官方分數；請用 ETS 官方練習題確認。</p>
 

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { ExamSectionFile } from '../src/content/exam';
+import { EXAM_CONTENT_VERSION, type ExamSectionFile } from '../src/content/exam';
 import { createEmptySave, EXAM_RUN_DAYS, type SaveData } from '../src/core/save';
 import {
   abandonRun,
@@ -63,7 +63,8 @@ const FILE: ExamSectionFile = {
   talks: [talk('s1_t1', 'A'), talk('s1_t2', 'A', 3), talk('s1_t3', 'B'), talk('s1_t4', 'B', 3)],
 };
 
-const generated = (n: number): Question[] =>
+/** Cloze questions, to measure difficulty with. */
+const clozes = (n: number): Question[] =>
   Array.from({ length: n }, (_, i) => ({
     kind: 'cloze',
     audioId: `x.line.${i}`,
@@ -81,19 +82,32 @@ const generated = (n: number): Question[] =>
   }));
 
 const questions = (form: 'A' | 'B' | 'mixed', seed: number, seen = {}) =>
-  sectionQuestions(FILE, seed, { section: 's1', form, seen, generated: generated(2) });
+  sectionQuestions(FILE, seed, { section: 's1', form, seen });
 
 describe('chooseForm', () => {
   it('A first, B second, mixed from the third', () => {
-    const at = (attempts: number): SaveData => ({
+    const at = (sittings: number, version = EXAM_CONTENT_VERSION): SaveData => ({
       ...createEmptySave(NOW),
-      exams: { exam2: { attempts, lastDate: '2026-11-01', listening: 1, reading: 1, seen: {} } },
+      exams: {
+        exam2: {
+          attempts: Math.max(1, sittings),
+          lastDate: '2026-11-01',
+          listening: 1,
+          reading: 1,
+          seen: {},
+          version,
+          sittings,
+        },
+      },
     });
     expect(chooseForm(createEmptySave(NOW), 'exam2')).toBe('A');
     expect(chooseForm(at(1), 'exam2')).toBe('B');
     expect(chooseForm(at(2), 'exam2')).toBe('mixed');
     expect(chooseForm(at(9), 'exam2')).toBe('mixed');
     expect(chooseForm(at(2), 'exam1')).toBe('A');
+    // New questions start again at A, whatever the attempts.
+    expect(chooseForm(at(0), 'exam2')).toBe('A');
+    expect(chooseForm(at(5, EXAM_CONTENT_VERSION - 1), 'exam2')).toBe('A');
   });
 });
 
@@ -176,22 +190,20 @@ describe('sectionQuestions', () => {
     const b = questions('B', 1);
     expect(a.filter((i) => i.seenId).map((i) => i.seenId)).not.toContain('s1_p3');
     expect(b.filter((i) => i.seenId).map((i) => i.seenId)).not.toContain('s1_p1');
-    expect(a).toHaveLength(2 + 2 + 2 + 3);
-    expect(b).toHaveLength(2 + 2 + 2 + 3);
+    expect(a).toHaveLength(2 + 2 + 3);
+    expect(b).toHaveLength(2 + 2 + 3);
   });
   it('builds stable qids section/kind/itemId/index and unique ones', () => {
     const items = questions('A', 1);
     const qids = items.map((i) => i.qid);
     expect(new Set(qids).size).toBe(qids.length);
-    expect(qids).toContain('s1/cloze/g0/0');
     expect(qids).toContain('s1/picture/s1_p1/0');
     expect(qids).toContain('s1/talk/s1_t2/2');
   });
-  it('generated questions come first and carry no seenId; written ones do', () => {
+  it('gives every question the seenId of its item', () => {
     const items = questions('A', 1);
-    expect(items.slice(0, 2).every((i) => i.seenId === undefined)).toBe(true);
-    expect(items[0]?.question.kind).toBe('cloze');
-    expect(items.slice(2).every((i) => i.seenId !== undefined)).toBe(true);
+    expect(items.every((i) => i.seenId !== undefined)).toBe(true);
+    expect(items[0]?.question.kind).toBe('picture');
   });
   it('keeps the questions of a talk together, in order, in a shared group', () => {
     const items = questions('A', 4);
@@ -217,13 +229,7 @@ describe('sectionQuestions', () => {
     }
     expect(orders.size).toBeGreaterThan(1);
   });
-  it('a section without a file holds just the generated questions', () => {
-    const items = sectionQuestions(undefined, 3, {
-      section: 's2',
-      form: 'A',
-      generated: generated(3),
-    });
-    expect(items.map((i) => i.qid)).toEqual(['s2/cloze/g0/0', 's2/cloze/g1/0', 's2/cloze/g2/0']);
+  it('a section without a file (not loaded) has no questions', () => {
     expect(sectionQuestions(undefined, 3, { section: 's2', form: 'A' })).toEqual([]);
   });
   it('gives each question a difficulty between 0 and 1, harder when longer', () => {
@@ -232,7 +238,7 @@ describe('sectionQuestions', () => {
       expect(item.difficulty).toBeGreaterThanOrEqual(0);
       expect(item.difficulty).toBeLessThanOrEqual(1);
     }
-    const long = generated(1)[0] as Question;
+    const long = clozes(1)[0] as Question;
     const harder = {
       ...long,
       before: Array(60).fill('word').join(' '),
@@ -362,9 +368,9 @@ describe('finishRun', () => {
     };
     const { summary } = finishRun(save, 'exam2', sections('A', 1, right), NOW, deps(calls));
     expect(calls.offsets).toEqual([0, 0, 15, -5]);
-    expect(calls.n).toEqual([9, 2, 9, 2]);
-    expect(summary.listening.score).toBe(100 + 9 * 5);
-    expect(summary.shown.listening.score).toBe(100 + 9 * 5);
+    expect(calls.n).toEqual([7, 2, 7, 2]);
+    expect(summary.listening.score).toBe(100 + 7 * 5);
+    expect(summary.shown.listening.score).toBe(100 + 7 * 5);
     expect(summary.reading.score).toBe(200 + 0 * 5);
   });
 
@@ -387,20 +393,46 @@ describe('finishRun', () => {
     expect(first.save.exams.exam2).toMatchObject({
       attempts: 1,
       lastDate: '2026-11-24',
-      listening: 145,
+      listening: 135,
       reading: 200,
     });
     expect(first.save.checkpoints).toHaveLength(1);
     expect(first.save.checkpoints[0]).toMatchObject({
       source: 'exam',
       act: 2,
-      listening: 145,
+      listening: 135,
       reading: 200,
     });
 
     const second = finishRun(first.save, 'exam2', sections('B', 2, right), NOW, deps());
     expect(second.summary).toMatchObject({ first: false, coins: 0, attempts: 2, retake: false });
     expect(second.save.coins).toBe(EXAM_COINS);
+    expect(first.save.exams.exam2).toMatchObject({ version: EXAM_CONTENT_VERSION, sittings: 1 });
+    expect(second.save.exams.exam2).toMatchObject({ sittings: 2 });
+  });
+
+  it('on new questions forgets the old seen items and counts sittings from one', () => {
+    const old = {
+      ...createEmptySave(NOW),
+      exams: {
+        exam2: {
+          attempts: 4,
+          lastDate: '2026-11-01',
+          listening: 150,
+          reading: 150,
+          seen: { s1_p1: 3 },
+          version: EXAM_CONTENT_VERSION - 1,
+          sittings: 4,
+        },
+      },
+    };
+    const done = finishRun(old, 'exam2', sections('A', 1, right), NOW, deps());
+    expect(done.summary).toMatchObject({ first: false, attempts: 5, retake: false, reused: 0 });
+    expect(done.save.exams.exam2).toMatchObject({
+      version: EXAM_CONTENT_VERSION,
+      sittings: 1,
+      seen: { s1_p1: 1 },
+    });
   });
 
   it('counts the seen written items once per sitting', () => {
@@ -420,7 +452,8 @@ describe('finishRun', () => {
     const one = finishRun(createEmptySave(NOW), 'exam2', sections('A', 1, right), NOW, deps());
     const again = finishRun(one.save, 'exam2', sections('A', 3, right), NOW, deps(calls));
     expect(again.summary.retake).toBe(true);
-    expect(again.summary.reused).toBe(7);
+    // 7 listening questions plus the 2 the test's reading section repeats.
+    expect(again.summary.reused).toBe(9);
     expect(calls.retake).toBe(true);
     expect(again.save.checkpoints.at(-1)).toMatchObject({ retake: true });
     expect(again.save.exams.exam2?.seen.s1_p1).toBe(2);

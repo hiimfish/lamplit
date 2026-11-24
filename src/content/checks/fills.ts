@@ -30,6 +30,26 @@ export const MAX_NOTE_CHARS = 30;
 /** A grammar fill (文法填空, `grammar: true`) offers exactly this many forms. */
 export const GRAMMAR_OPTIONS = 4;
 
+/** The size limits a fill is checked against. */
+interface FillLimits {
+  sentenceWords: number;
+  optionChars: number;
+  noteChars: number;
+}
+
+const UNIT_LIMITS: FillLimits = {
+  sentenceWords: MAX_SENTENCE_WORDS,
+  optionChars: MAX_OPTION_CHARS,
+  noteChars: MAX_NOTE_CHARS,
+};
+
+/**
+ * An exam fill (TOEIC Part 5) is shown on the exam reading screen, which wraps the
+ * sentence and lists the options one per row, and its note only shows in 重做錯題; a
+ * Part 5 sentence is often 15 to 20 words, so the exam allows more.
+ */
+export const EXAM_FILL_LIMITS: FillLimits = { sentenceWords: 20, optionChars: 24, noteChars: 60 };
+
 /** Letters, digits and apostrophes: the blank must not touch one, or it splits a word. */
 const WORD_CHAR = /[\p{L}\p{N}'’]/u;
 
@@ -79,6 +99,7 @@ function optionProblems(
   value: unknown,
   label: string,
   blankFirst: boolean,
+  maxChars: number,
 ): { options: string[] | null; problems: string[] } {
   if (!Array.isArray(value) || value.length < 3 || value.length > 4) {
     return { options: null, problems: [`${label} needs 3 or 4 options`] };
@@ -97,8 +118,8 @@ function optionProblems(
     if (wordCount(option) > MAX_OPTION_WORDS) {
       problems.push(`${which} "${option}" is longer than ${MAX_OPTION_WORDS} words`);
     }
-    if (option.length > MAX_OPTION_CHARS) {
-      problems.push(`${which} "${option}" is longer than ${MAX_OPTION_CHARS} characters`);
+    if (option.length > maxChars) {
+      problems.push(`${which} "${option}" is longer than ${maxChars} characters`);
     }
     // At the start of the sentence the right one must be capitalised, so all of them are
     // (a single capital letter would give the answer away).
@@ -113,13 +134,21 @@ function optionProblems(
   return { options: problems.length === 0 ? (value as string[]) : null, problems };
 }
 
-/** Problems with the task's `fills`, or none when it has no such field. */
-export function checkFills(task: Record<string, unknown>, ctx: TaskCheckContext): string[] {
+/**
+ * Problems with the task's `fills`, or none when it has no such field. `exam`: an exam
+ * file, with EXAM_FILL_LIMITS and no per-task count.
+ */
+export function checkFills(
+  task: Record<string, unknown>,
+  ctx: TaskCheckContext,
+  exam = false,
+): string[] {
   if (task.fills === undefined) return [];
+  const limits = exam ? EXAM_FILL_LIMITS : UNIT_LIMITS;
   const fills = list(task.fills);
   if (!fills || fills.length === 0) return ['fills must be a non-empty list'];
   const problems: string[] = [];
-  if (fills.length > MAX_FILLS) {
+  if (!exam && fills.length > MAX_FILLS) {
     problems.push(`has ${fills.length} fills; at most ${MAX_FILLS} in one task`);
   }
   const seen = ctx.seen('fill');
@@ -144,6 +173,7 @@ export function checkFills(task: Record<string, unknown>, ctx: TaskCheckContext)
       fill.options,
       label,
       en.startsWith(BLANK),
+      limits.optionChars,
     );
     problems.push(...optProblems);
     if (fill.grammar !== undefined && fill.grammar !== true) {
@@ -163,8 +193,8 @@ export function checkFills(task: Record<string, unknown>, ctx: TaskCheckContext)
     if (fill.note !== undefined) {
       if (!isText(fill.note) || fill.note.trim() === '') {
         problems.push(`${label} note must be a non-empty text (or left out)`);
-      } else if ([...fill.note].length > MAX_NOTE_CHARS) {
-        problems.push(`${label} note is longer than ${MAX_NOTE_CHARS} characters`);
+      } else if ([...fill.note].length > limits.noteChars) {
+        problems.push(`${label} note is longer than ${limits.noteChars} characters`);
       }
     }
     if (fill.chunkId !== undefined) {
@@ -180,9 +210,9 @@ export function checkFills(task: Record<string, unknown>, ctx: TaskCheckContext)
         : null;
     if (enProblems.length === 0 && answer) {
       const full = filledSentence(en, answer);
-      if (wordCount(full) > MAX_SENTENCE_WORDS) {
+      if (wordCount(full) > limits.sentenceWords) {
         problems.push(
-          `${label} sentence "${full}" is longer than ${MAX_SENTENCE_WORDS} words with the answer in`,
+          `${label} sentence "${full}" is longer than ${limits.sentenceWords} words with the answer in`,
         );
       }
     }

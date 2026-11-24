@@ -5,6 +5,7 @@
  * the same questions; the scoring and the checkpoint come in through `ExamDeps`.
  */
 import {
+  EXAM_CONTENT_VERSION,
   examAct,
   sectionAsUnit,
   type ExamForm,
@@ -59,10 +60,20 @@ export function isExamUnlocked<U extends UnitLike>(
   return total > 0 && done === total;
 }
 
-/** The form of the next sitting: A first, B second, from the third on both forms mixed. */
+/** The record's sittings and seen questions if they are of the current questions. */
+function currentOf(record: ExamRecord | undefined): { sittings: number; seen: Seen } {
+  return record?.version === EXAM_CONTENT_VERSION
+    ? { sittings: record.sittings, seen: record.seen }
+    : { sittings: 0, seen: {} };
+}
+
+/**
+ * The form of the next sitting on the current questions (EXAM_CONTENT_VERSION): A
+ * first, B second, from the third on both forms mixed.
+ */
 export function chooseForm(save: SaveData, exam: ExamId): ExamForm | 'mixed' {
-  const attempts = save.exams[exam]?.attempts ?? 0;
-  return attempts <= 0 ? 'A' : attempts === 1 ? 'B' : 'mixed';
+  const { sittings } = currentOf(save.exams[exam]);
+  return sittings <= 0 ? 'A' : sittings === 1 ? 'B' : 'mixed';
 }
 
 /* ---------- picking the written items ---------- */
@@ -212,14 +223,12 @@ export function questionDifficulty(q: Question): number {
 /* ---------- the questions of a section ---------- */
 
 export interface SectionOptions {
-  /** `s1`, `s2`, ...: prefixes the qids; needed when the section has no file. */
+  /** `s1`, `s2`, ...: prefixes the qids. */
   section: string;
   /** Which hand-written form to sit (see chooseForm). */
   form: ExamForm | 'mixed';
   /** Times each written item was seen (`save.exams[exam].seen`); decides `mixed`. */
   seen?: Seen;
-  /** The questions examGen built for this section, in the order wanted. */
-  generated?: readonly Question[];
 }
 
 /** Questions that stay together, with the group id the UI keeps them under. */
@@ -277,15 +286,14 @@ function writtenBlocks(
 }
 
 /**
- * The questions of one section: the generated ones first (as given), then the written
- * ones of the chosen form, part by part (pictures, responds, talks, signs, fills, text
- * fills, passages). Inside a part the items (a whole talk, passage or text fill counts as
+ * The questions of one section (every one hand-written): those of the chosen form, part
+ * by part (pictures, responds, talks, signs, fills, text fills, passages). Inside a part the items (a whole talk, passage or text fill counts as
  * one) come in an order shuffled by the seed; the questions of one item keep their order
  * and share `group`. Options are shuffled by the seed (the gen helpers do it) and keep
  * their content ids, so an answer `oN` names the content option whatever its place.
  *
- * qid: `section/kind/itemId/index` (generated ones: itemId `g<n>`, their place in
- * `generated`). Written items carry `seenId` (their item id); generated ones do not.
+ * qid: `section/kind/itemId/index`; every question carries `seenId` (its item id), so
+ * the form choice and the seen count cover the whole section. No file: no questions.
  * Deterministic for a seed.
  */
 export function sectionQuestions(
@@ -295,9 +303,7 @@ export function sectionQuestions(
 ): ExamItem[] {
   const section = opts.section;
   const rng = sectionRng(seed, section);
-  const items: ExamItem[] = (opts.generated ?? []).map((q, i) =>
-    makeItem(section, q, `g${i}`, 0, {}),
-  );
+  const items: ExamItem[] = [];
   if (!file) return items;
   const picked = pickWritten(file, opts.form, opts.seen ?? {}, seed);
   const blocks = writtenBlocks(section, picked, rng);
@@ -448,7 +454,7 @@ export function finishRun(
 ): { save: SaveData; summary: ExamSummary } {
   const act = examAct(exam);
   const before: ExamRecord | undefined = save.exams[exam];
-  const priorSeen = before?.seen ?? {};
+  const { sittings: priorSittings, seen: priorSeen } = currentOf(before);
   const offsets = save.exams.calibration;
   const estimate = (kind: SectionKind, offset: number): ExamEstimate =>
     deps.score(act, kind, outcomes.filter((o) => o.kind === kind).flatMap(scored), offset);
@@ -498,6 +504,8 @@ export function finishRun(
     listening: listening.score,
     reading: reading.score,
     seen,
+    version: EXAM_CONTENT_VERSION,
+    sittings: priorSittings + 1,
   };
   next = { ...next, exams: { ...next.exams, [exam]: record } };
   next = abandonRun(next);

@@ -10,8 +10,19 @@ beforeAll(async () => {
 });
 
 describe('exam result wording', () => {
-  it('writes the estimate with its range', () => {
-    expect(words.rangeText({ score: 205, low: 180, high: 230 })).toBe('估計 205（180～230）');
+  it('says how many were right, with the share', () => {
+    expect(words.correctText(12, 16)).toBe('答對 12／16（75%）');
+    expect(words.correctText(2, 3)).toBe('答對 2／3（67%）');
+    expect(words.correctText(0, 0)).toBe('答對 0／0（0%）');
+  });
+
+  it('writes the estimate as a guide, with its range and parts', () => {
+    expect(words.estimateText({ score: 205, low: 180, high: 230 })).toBe(
+      '估計約 205 分（180～230），只能參考',
+    );
+    expect(
+      words.partsText({ score: 105, low: 90, high: 120 }, { score: 100, low: 85, high: 115 }),
+    ).toBe('聽力約 105、閱讀約 100');
   });
 
   it('says how the estimates were calibrated', () => {
@@ -24,10 +35,9 @@ describe('exam result wording', () => {
     expect(words.capText(4)).toBe('第四幕結業考最高只能估到 700 分');
   });
 
-  it('words the verdict, the retake and the section lines', () => {
+  it('words the verdict and the retake', () => {
     expect(words.verdictText('behind', 375, 5)).toBe('和第 5 週的目標 375 比：落後');
     expect(words.verdictText('ahead', 225, 3)).toContain('領先');
     expect(words.retakeText(7)).toBe('有 7 題你看過，分數可能偏高。');
-    expect(words.sectionLine('聽力一', 12, 16)).toBe('聽力一 12／16');
   });
 });

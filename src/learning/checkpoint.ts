@@ -63,8 +63,9 @@ export function addCheckpoint(
 }
 
 /**
- * Records the estimate of a 幕結業考 for today (replacing the same Act's entry of the
- * same day when it is sat again). `retake` marks a sitting that reused questions.
+ * Records the estimate of a 幕結業考 for today. The first sitting of the day counts:
+ * when the same Act already has an entry today, a later sitting changes nothing (it
+ * has just seen the questions). `retake` marks a sitting that reused questions.
  */
 export function addExamCheckpoint(
   save: SaveData,
@@ -83,10 +84,11 @@ export function addExamCheckpoint(
     act,
   };
   if (retake) entry.retake = true;
-  const others = save.checkpoints.filter(
-    (c) => !(c.source === 'exam' && c.act === act && c.date === date),
+  const already = save.checkpoints.some(
+    (c) => c.source === 'exam' && c.act === act && c.date === date,
   );
-  return { ...save, checkpoints: sortCheckpoints([...others, entry]) };
+  if (already) return save;
+  return { ...save, checkpoints: sortCheckpoints([...save.checkpoints, entry]) };
 }
 
 /** The most total score an exam of each Act can estimate (the caps of both parts added). */

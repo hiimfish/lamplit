@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { EXAM_CONTENT_VERSION } from '../src/content/exam';
 import {
   DEBUG_SAVE_KEY,
   GRAMMAR_SEEN_KEPT,
@@ -338,12 +339,15 @@ describe('grammar counters in the save', () => {
 
 describe('exams in the save', () => {
   const today = day('2026-11-24');
+  const V = EXAM_CONTENT_VERSION;
   const record = (attempts: number, lastDate: string, listening = 200, reading = 180) => ({
     attempts,
     lastDate,
     listening,
     reading,
     seen: {},
+    version: V,
+    sittings: attempts,
   });
 
   it('starts empty and loads an old save without the fields', () => {
@@ -362,10 +366,12 @@ describe('exams in the save', () => {
           listening: 200,
           reading: 180,
           seen: { s1_a: 2, 'BAD ID': 1, s1_b: 0 },
+          version: V,
+          sittings: 2,
         },
         exam2: { attempts: 0, lastDate: '2026-11-20', listening: 200, reading: 180 },
         exam3: { attempts: 1, lastDate: 'soon', listening: 200, reading: 180 },
-        exam4: { attempts: 1, lastDate: '2026-11-20', listening: 203, reading: 180 },
+        exam4: { attempts: 1, lastDate: '2026-11-20', listening: 203, reading: 180, version: V },
         exam9: { attempts: 1, lastDate: '2026-11-20', listening: 200, reading: 180 },
         calibration: { listening: 80, reading: -12.4, pairs: 2 },
       },
@@ -375,6 +381,22 @@ describe('exams in the save', () => {
       calibration: { listening: 50, reading: -12, pairs: 2 },
     });
     expect(sanitizeSave({ exams: { calibration: { pairs: 0 } } }, today).exams).toEqual({});
+  });
+
+  it('keeps the scores of a record on old questions but forgets what it saw', () => {
+    const old = { attempts: 3, lastDate: '2026-11-20', listening: 200, reading: 180 };
+    const raw = {
+      exams: {
+        exam1: { ...old, seen: { s1_a: 2 } },
+        exam2: { ...old, seen: { s1_a: 2 }, version: V - 1, sittings: 3 },
+        exam3: { ...old, seen: { s1_a: 2 }, version: V, sittings: 9 },
+      },
+    };
+    expect(sanitizeSave(raw, today).exams).toEqual({
+      exam1: { ...old, seen: {}, version: V, sittings: 0 },
+      exam2: { ...old, seen: {}, version: V, sittings: 0 },
+      exam3: { ...old, seen: { s1_a: 2 }, version: V, sittings: 3 },
+    });
   });
 
   it('merges two tabs: more attempts, the later sitting scores, larger seen counts', () => {
@@ -398,9 +420,30 @@ describe('exams in the save', () => {
       listening: 230,
       reading: 200,
       seen: { s1_a: 2, s1_b: 3 },
+      version: V,
+      sittings: 2,
     });
     expect(merged.exam2).toEqual(record(1, '2026-11-21'));
     expect(merged.calibration).toEqual({ listening: 9, reading: 9, pairs: 3 });
+  });
+
+  it('merges a record on old questions under one on new ones: the new side says what was seen', () => {
+    const base = createEmptySave(today);
+    const old = { ...record(3, '2026-11-22'), seen: { s1_a: 5 }, version: V - 1, sittings: 3 };
+    const fresh = { ...record(1, '2026-11-21'), seen: { s1_b: 1 }, sittings: 1 };
+    const merged = mergeSaves(
+      { ...base, exams: { exam1: old } },
+      { ...base, exams: { exam1: fresh } },
+    ).exams.exam1;
+    expect(merged).toEqual({
+      attempts: 3,
+      lastDate: '2026-11-22',
+      listening: 200,
+      reading: 180,
+      seen: { s1_b: 1 },
+      version: V,
+      sittings: 1,
+    });
   });
 
   describe('examRun', () => {

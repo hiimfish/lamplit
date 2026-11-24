@@ -31,19 +31,16 @@ export type ExamForm = 'A' | 'B';
 
 export type SectionKind = 'listening' | 'reading';
 
-/** Questions the generators build (src/learning/examGen.ts), counted per section. */
+/**
+ * Left from the generated questions: every count is now empty (all questions are
+ * hand-written). Kept only while src/learning/examGen.ts still reads it; goes with it.
+ */
 export interface GeneratedCounts {
-  /** 應答題 from the story lines and the verified bank (src/data/responds). */
   respond?: number;
-  /** 聽力填空 on a story line or a sentence of the pool. */
   listenCloze?: number;
-  /** 文法選句: which sentence is correct. */
   grammarPick?: number;
-  /** 價目表 (Act 1 only). */
   priceList?: number;
-  /** 句子填空 built by the sentence generator. */
   sentenceFill?: number;
-  /** 文法填空 built by the sentence generator. */
   grammarFill?: number;
 }
 
@@ -54,7 +51,13 @@ export interface GeneratedCounts {
 export interface WrittenCounts {
   /** 看圖 questions (one per picture). */
   pictures?: number;
+  /** 應答題 (one question each). */
+  responds?: number;
   talks?: number[];
+  /** 看告示 questions (one per sign). */
+  signs?: number;
+  /** 句子填空 and 文法填空 (one blank each). */
+  fills?: number;
   passages?: number[];
   /** 段落填空: blanks in each text. */
   textFills?: number[];
@@ -65,9 +68,10 @@ export interface SectionPlan {
   id: string;
   kind: SectionKind;
   title: string;
+  /** Always empty (see GeneratedCounts). */
   generated: GeneratedCounts;
   written: WrittenCounts;
-  /** Questions in the section, generated plus written (one form). */
+  /** Questions in the section (one form). */
   total: number;
 }
 
@@ -82,75 +86,64 @@ const section = (
   kind: SectionKind,
   title: string,
   total: number,
-  generated: GeneratedCounts,
-  written: WrittenCounts = {},
-): SectionPlan => ({ id, kind, title, generated, written, total });
+  written: WrittenCounts,
+): SectionPlan => ({ id, kind, title, generated: {}, written, total });
+
+/**
+ * Every question is hand-written (src/data/exams/<exam>.<section>.json). Bump
+ * EXAM_CONTENT_VERSION when the questions are rewritten: an old save then forgets
+ * which questions it saw and starts again at form A (its scores stay).
+ */
+export const EXAM_CONTENT_VERSION = 2;
 
 export const EXAM_PLAN: Record<ExamId, ExamPlan> = {
   exam1: {
     act: 1,
     title: '第一幕結業考',
     sections: [
-      section('s1', 'listening', '聽力', 16, { respond: 10, listenCloze: 6 }),
-      section('s2', 'reading', '閱讀', 20, { priceList: 6, grammarPick: 6 }, { pictures: 8 }),
+      section('s1', 'listening', '聽力', 16, { responds: 10, talks: [2, 2, 2] }),
+      section('s2', 'reading', '閱讀', 20, {
+        pictures: 6,
+        fills: 6,
+        signs: 4,
+        passages: [2, 2],
+      }),
     ],
   },
   exam2: {
     act: 2,
     title: '第二幕結業考',
     sections: [
-      section(
-        's1',
-        'listening',
-        '聽力',
-        18,
-        { respond: 6, listenCloze: 4 },
-        { talks: [2, 2, 2, 2] },
-      ),
-      section(
-        's2',
-        'reading',
-        '閱讀',
-        20,
-        { grammarPick: 4, sentenceFill: 4 },
-        { pictures: 4, passages: [2, 2, 2, 2] },
-      ),
+      section('s1', 'listening', '聽力', 18, { responds: 8, talks: [2, 2, 2, 2, 2] }),
+      section('s2', 'reading', '閱讀', 20, {
+        pictures: 2,
+        fills: 8,
+        signs: 2,
+        passages: [2, 2, 2, 2],
+      }),
     ],
   },
   exam3: {
     act: 3,
     title: '第三幕結業考',
     sections: [
-      section('s1', 'listening', '聽力一', 16, { respond: 6 }, { talks: [3, 3, 2, 2] }),
-      section('s2', 'listening', '聽力二', 12, {}, { talks: [3, 3, 2, 2, 2] }),
-      section(
-        's3',
-        'reading',
-        '閱讀一',
-        18,
-        { grammarPick: 6, grammarFill: 6 },
-        { textFills: [3, 3] },
-      ),
-      section('s4', 'reading', '閱讀二', 10, {}, { passages: [3, 3, 2, 2] }),
+      section('s1', 'listening', '聽力一', 16, { responds: 8, talks: [2, 2, 2, 2] }),
+      section('s2', 'listening', '聽力二', 12, { talks: [3, 3, 2, 2, 2] }),
+      section('s3', 'reading', '閱讀一', 18, { fills: 12, textFills: [3, 3] }),
+      section('s4', 'reading', '閱讀二', 10, { passages: [3, 3, 2, 2] }),
     ],
   },
   exam4: {
     act: 4,
     title: '第四幕結業考',
     sections: [
-      section('s1', 'listening', '聽力一', 19, { respond: 9 }, { pictures: 4, talks: [3, 3] }),
-      section('s2', 'listening', '聽力二', 21, {}, { talks: [3, 3, 3, 3, 3, 3, 3] }),
-      section(
-        's3',
-        'reading',
-        '閱讀一',
-        22,
-        { grammarPick: 7, grammarFill: 7 },
-        { textFills: [4, 4] },
-      ),
-      section('s4', 'reading', '閱讀二', 9, {}, { passages: [3, 3, 3] }),
+      // The pictures of Act 4 are heard (`listen: true`), as in TOEIC Part 1.
+      section('s1', 'listening', '聽力一', 19, { pictures: 4, responds: 9, talks: [3, 3] }),
+      section('s2', 'listening', '聽力二', 21, { talks: [3, 3, 3, 3, 3, 3, 3] }),
+      section('s3', 'reading', '閱讀一', 22, { fills: 14, textFills: [4, 4] }),
+      section('s4', 'reading', '閱讀二', 9, { passages: [3, 3, 3] }),
       // One double-passage set (4 questions) and one triple-passage set (5).
-      section('s5', 'reading', '閱讀三', 9, {}, { passages: [4, 5] }),
+      section('s5', 'reading', '閱讀三', 9, { passages: [4, 5] }),
     ],
   },
 };
@@ -162,11 +155,17 @@ const sum = (list: readonly number[] | undefined): number =>
 /** Hand-written questions in one form of a section (what validateExam checks). */
 export function writtenQuestionCount(written: WrittenCounts): number {
   return (
-    (written.pictures ?? 0) + sum(written.talks) + sum(written.passages) + sum(written.textFills)
+    (written.pictures ?? 0) +
+    (written.responds ?? 0) +
+    (written.signs ?? 0) +
+    (written.fills ?? 0) +
+    sum(written.talks) +
+    sum(written.passages) +
+    sum(written.textFills)
   );
 }
 
-/** Whether a section has a data file: only a section with hand-written questions does. */
+/** Whether a section has a data file: every section does now (all its questions are written). */
 export const sectionHasFile = (plan: SectionPlan): boolean =>
   writtenQuestionCount(plan.written) > 0;
 

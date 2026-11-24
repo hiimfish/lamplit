@@ -1,17 +1,19 @@
 /**
  * Checks one exam section file (docs/specs/content.md): counts equal EXAM_PLAN, ids,
- * option counts and positions, plus the existing per-task checks. Generated questions
- * are not in the file, so only the hand-written part is counted. Returns problems; an
- * empty list means the file is good.
+ * option counts and positions, plus the existing per-task checks. Every question of an
+ * exam is hand-written, so the file holds the whole section. Returns problems; an empty
+ * list means the file is good.
  *
  * Every hand-written item carries `form: 'A' | 'B'`; each form must have the planned
  * counts on its own (the first sitting uses A, the second B).
  */
+import { checkFills } from './checks/fills';
 import { checkPassages } from './checks/passages';
 import { checkPictures } from './checks/pictures';
+import { checkResponds } from './checks/responds';
 import { checkTalks } from './checks/talks';
 import { checkTextFills } from './checks/textFills';
-import { ID_PATTERN, isObject, isLateAct, wordCount, type TaskCheckContext } from './checks/common';
+import { ID_PATTERN, isObject, wordCount, type TaskCheckContext } from './checks/common';
 import {
   EXAM_PLAN,
   examAct,
@@ -21,15 +23,16 @@ import {
   type WrittenCounts,
 } from './exam';
 import { ROLE_LABEL } from './roles';
+import { checkSigns } from './validate';
 
 /** Item kinds a section file may hold, with the field of WrittenCounts that plans each. */
-const KINDS = ['pictures', 'talks', 'passages', 'textFills'] as const;
+const KINDS = ['pictures', 'responds', 'talks', 'signs', 'fills', 'textFills', 'passages'] as const;
 type Kind = (typeof KINDS)[number];
 
-/** Fields of a task that the exam files never hold: those questions are generated. */
-const GENERATED_KINDS = ['responds', 'signs', 'fills'] as const;
+/** Kinds where one item is one question (the plan counts items). */
+const SINGLE_KINDS: readonly Kind[] = ['pictures', 'responds', 'signs', 'fills'];
 
-const TOP_KEYS: readonly string[] = ['exam', 'section', 'draft', ...KINDS, ...GENERATED_KINDS];
+const TOP_KEYS: readonly string[] = ['exam', 'section', 'draft', ...KINDS];
 const FORMS: readonly ExamForm[] = ['A', 'B'];
 
 /** An option's position may hold at most this share of a section-form's answers. */
@@ -38,15 +41,28 @@ export const MAX_ANSWER_SHARE = 0.4;
 const MIN_ANSWERS_FOR_SHARE = 5;
 /** A line or sentence of this many words that appears twice is a copy. */
 const MIN_COPY_WORDS = 5;
-/** Options per question: at least this many everywhere, exactly 4 in Acts 3 and 4. */
+/**
+ * Options per question: 3 or 4 in Act 1, exactly 4 from Act 2 on. A 應答題 always has
+ * exactly 3 (checkResponds), as in TOEIC Part 2.
+ */
 const MIN_OPTIONS = 3;
-const LATE_OPTIONS = 4;
+const FULL_OPTIONS = 4;
+
+/** 看告示 through the unit check (validate.ts), as a per-task check. */
+function checkSignItems(task: Record<string, unknown>, ctx: TaskCheckContext): string[] {
+  const problems: string[] = [];
+  checkSigns(task.signs, ctx.seen('sign'), (problem) => problems.push(problem));
+  return problems;
+}
 
 const CHECKS: Record<Kind, (task: Record<string, unknown>, ctx: TaskCheckContext) => string[]> = {
   pictures: checkPictures,
+  responds: (task, ctx) => checkResponds(task, ctx, true),
   talks: checkTalks,
-  passages: checkPassages,
+  signs: checkSignItems,
+  fills: (task, ctx) => checkFills(task, ctx, true),
   textFills: checkTextFills,
+  passages: checkPassages,
 };
 
 const isRole = (value: unknown): boolean =>
@@ -60,7 +76,7 @@ const questionsOf = (item: Record<string, unknown>): Record<string, unknown>[] =
 
 /** The questions an item counts for: a picture is one, a text fill has one per blank. */
 function questionCount(kind: Kind, item: Record<string, unknown>): number {
-  if (kind === 'pictures') return 1;
+  if (SINGLE_KINDS.includes(kind)) return 1;
   if (kind === 'textFills') return Array.isArray(item.blanks) ? item.blanks.length : 0;
   return Array.isArray(item.questions) ? item.questions.length : 0;
 }
@@ -71,7 +87,8 @@ function choiceParts(
   item: Record<string, unknown>,
   label: string,
 ): { label: string; options: unknown; answer: unknown }[] {
-  if (kind === 'pictures') return [{ label, options: item.options, answer: item.answer }];
+  if (kind === 'responds') return [{ label, options: item.responses, answer: item.answer }];
+  if (SINGLE_KINDS.includes(kind)) return [{ label, options: item.options, answer: item.answer }];
   const parts = kind === 'textFills' ? item.blanks : item.questions;
   if (!Array.isArray(parts)) return [];
   return parts.filter(isObject).map((part, i) => ({
@@ -91,6 +108,22 @@ function copyTexts(kind: Kind, item: Record<string, unknown>): string[] {
     const options = Array.isArray(item.options) ? item.options : [];
     const right: unknown = typeof item.answer === 'number' ? options[item.answer] : undefined;
     if (isObject(right) && typeof right.en === 'string') texts.push(right.en);
+    return texts;
+  }
+  if (kind === 'responds') {
+    if (isObject(item.prompt) && typeof item.prompt.en === 'string') texts.push(item.prompt.en);
+    return texts;
+  }
+  if (kind === 'fills') {
+    if (typeof item.en === 'string') texts.push(item.en);
+    return texts;
+  }
+  if (kind === 'signs') {
+    const rows = Array.isArray(item.rows) ? item.rows.filter(isObject) : [];
+    const sign = [item.heading, ...rows.flatMap((r) => [r.label, r.value])]
+      .filter((t): t is string => typeof t === 'string')
+      .join(' ');
+    longLine(sign);
     return texts;
   }
   if (kind === 'textFills') {
@@ -133,10 +166,11 @@ export function examCopyKeys(file: unknown): string[] {
 /** Which kinds the plan hand-writes for a section, with the counts. */
 function plannedKinds(written: WrittenCounts): Map<Kind, number | number[]> {
   const planned = new Map<Kind, number | number[]>();
-  if (written.pictures) planned.set('pictures', written.pictures);
-  if (written.talks) planned.set('talks', written.talks);
-  if (written.passages) planned.set('passages', written.passages);
-  if (written.textFills) planned.set('textFills', written.textFills);
+  for (const kind of KINDS) {
+    const count = written[kind];
+    if (count === undefined) continue;
+    if (Array.isArray(count) ? count.length > 0 : count > 0) planned.set(kind, count);
+  }
   return planned;
 }
 
@@ -161,17 +195,12 @@ export function validateExam(file: unknown): string[] {
   if (planned.size === 0) {
     report('this section has no hand-written questions, so it has no file');
   }
-  for (const key of [...GENERATED_KINDS, ...KINDS]) {
+  for (const key of KINDS) {
     if (file[key] === undefined) continue;
     if (!Array.isArray(file[key])) report(`${key} must be a list`);
-    else if (!(KINDS as readonly string[]).includes(key) || !planned.has(key as Kind)) {
-      const generated = (GENERATED_KINDS as readonly string[]).includes(key);
+    else if (!planned.has(key)) {
       if (file.draft === true && file[key].length === 0) continue;
-      report(
-        generated
-          ? `has ${key}: those questions are generated, not written in the file`
-          : `has ${key}, which the plan does not hand-write for this section`,
-      );
+      report(`has ${key}, which the plan does not have in this section`);
     }
   }
 
@@ -252,10 +281,13 @@ export function validateExam(file: unknown): string[] {
       for (const part of choiceParts(kind, value, label)) {
         const n = Array.isArray(part.options) ? part.options.length : undefined;
         if (n === undefined) continue;
+        if (kind === 'responds') continue;
         if (n < MIN_OPTIONS) {
           report(`${part.label} has ${n} options (at least ${MIN_OPTIONS})`);
-        } else if (isLateAct({ act }) && n !== LATE_OPTIONS) {
-          report(`${part.label} has ${n} options (exactly ${LATE_OPTIONS} in Acts 3 and 4)`);
+        } else if (act >= 2 && n !== FULL_OPTIONS) {
+          report(`${part.label} has ${n} options (exactly ${FULL_OPTIONS} from Act 2 on)`);
+        } else if (n > FULL_OPTIONS) {
+          report(`${part.label} has ${n} options (at most ${FULL_OPTIONS})`);
         }
       }
 
@@ -276,11 +308,12 @@ export function validateExam(file: unknown): string[] {
 
     for (const form of FORMS) {
       const wanted = Array.isArray(expected) ? expected : [expected];
-      const have = kind === 'pictures' ? [counts[form].length] : counts[form];
+      const single = SINGLE_KINDS.includes(kind);
+      const have = single ? [counts[form].length] : counts[form];
       if (JSON.stringify(have) !== JSON.stringify(wanted)) {
         report(
-          kind === 'pictures'
-            ? `form ${form} has ${have[0]} pictures; the plan wants ${wanted[0]}`
+          single
+            ? `form ${form} has ${have[0]} ${kind}; the plan wants ${wanted[0]}`
             : `form ${form} ${kind} have questions ${JSON.stringify(have)}; the plan wants ${JSON.stringify(wanted)}`,
         );
       }
