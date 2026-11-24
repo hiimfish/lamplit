@@ -1,5 +1,316 @@
 {
   "exam": "exam4",
   "section": "s5",
-  "draft": true
+  "passages": [
+    {
+      "id": "s5_r1",
+      "form": "A",
+      "texts": [
+        {
+          "kind": "ad",
+          "title": "April Sale at Lantern Office Supply",
+          "lines": [
+            "Lantern Office Supply is having a big sale from April 3 to April 9.",
+            "Desk chairs are $90 now. They were $120 before the sale.",
+            "Desk lamps are $20. Pens are two for $5.",
+            "Orders over $100 get free delivery to your office.",
+            "You can order online or visit our store on Main Street.",
+            "The store is open from 9 a.m. to 6 p.m. every day.",
+            "Please keep your receipt. We can fix any problem with your order.",
+            "Our team will help you pick the right chair for your office. Just ask at the front desk."
+          ]
+        },
+        {
+          "kind": "email",
+          "title": "My order from the April sale",
+          "lines": [
+            "Dear Lantern Office Supply,",
+            "I ordered two desk chairs and one desk lamp on April 5. The chairs arrived on April 8, and I like them very much.",
+            "However, the lamp did not come. My receipt also shows a delivery fee of $10.",
+            "Please send the lamp soon, and please take the delivery fee off my bill.",
+            "The chairs are very good, and my team likes them too. I want to buy more chairs next month.",
+            "I am free to answer calls on weekdays after 3 p.m.",
+            "Thank you,",
+            "Ms. Wong"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "en": "What has not arrived yet?",
+          "zh": "什麼東西還沒送到？",
+          "options": ["The lamp", "The chairs", "The receipt", "The pens"],
+          "answer": 0,
+          "needs": [1]
+        },
+        {
+          "en": "Why should the delivery fee be taken off the bill?",
+          "zh": "為什麼運費應該從帳單上拿掉？",
+          "options": [
+            "The chairs came too late.",
+            "Her order was over $100.",
+            "The lamp is on sale.",
+            "She lives on Main Street."
+          ],
+          "answer": 1,
+          "needs": [0, 1]
+        },
+        {
+          "en": "How much should Ms. Wong pay for the two chairs?",
+          "zh": "王小姐的兩張椅子應該付多少錢？",
+          "options": ["$90", "$120", "$180", "$240"],
+          "answer": 2,
+          "needs": [0, 1]
+        },
+        {
+          "en": "What time does the store close?",
+          "zh": "這家店幾點打烊？",
+          "options": ["At 3 p.m.", "At 5 p.m.", "At 9 a.m.", "At 6 p.m."],
+          "answer": 3,
+          "needs": [0]
+        }
+      ]
+    },
+    {
+      "id": "s5_r2",
+      "form": "A",
+      "texts": [
+        {
+          "kind": "email",
+          "title": "You are invited to our open house",
+          "lines": [
+            "Dear friends of Harbor Trading,",
+            "We will have an open house on Friday, May 16, at our head office on Pine Road.",
+            "Guests can see our new products and meet our team. The open house starts at 10 a.m. and ends at 3 p.m.",
+            "Lunch is free for everyone at 12:30.",
+            "Please park in the lot behind the building. Our team will be at the front door to help you.",
+            "Please tell me by May 9 if you can come. You can answer this email.",
+            "Best wishes,",
+            "Mr. Lee"
+          ]
+        },
+        {
+          "kind": "email",
+          "title": "Re: You are invited to our open house",
+          "lines": [
+            "Dear Mr. Lee,",
+            "Thank you for the invitation. I will come with my manager, Ms. Gray.",
+            "Unfortunately, we cannot be there at 10 a.m. because we have a meeting in the morning. We will arrive after lunch.",
+            "We want to learn about your new products, and we hope to talk with your sales team after lunch.",
+            "Could you tell us when the product talk begins?",
+            "Best wishes,",
+            "Ms. Ortiz"
+          ]
+        },
+        {
+          "kind": "form",
+          "title": "Open House Schedule",
+          "lines": [
+            "10:00 Welcome and office tour",
+            "11:00 Meet the team",
+            "12:30 Lunch for all guests",
+            "1:30 Product talk",
+            "2:30 Questions and answers",
+            "Please keep this schedule with you all day."
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "en": "When is the open house?",
+          "zh": "開放參觀日是什麼時候？",
+          "options": ["On May 9", "On May 16", "On May 30", "On June 16"],
+          "answer": 1,
+          "needs": [0]
+        },
+        {
+          "en": "When will Ms. Ortiz arrive?",
+          "zh": "奧蒂茲小姐什麼時候會到？",
+          "options": ["At 10 a.m.", "At 11 a.m.", "In the afternoon", "In the evening"],
+          "answer": 2,
+          "needs": [0, 1]
+        },
+        {
+          "en": "What time does the talk Ms. Ortiz asked about begin?",
+          "zh": "奧蒂茲小姐問的那場演說幾點開始？",
+          "options": ["At 10:00", "At 11:00", "At 12:30", "At 1:30"],
+          "answer": 3,
+          "needs": [1, 2]
+        },
+        {
+          "en": "Who is Ms. Gray?",
+          "zh": "葛雷小姐是誰？",
+          "options": [
+            "Ms. Ortiz's manager",
+            "The head of Harbor Trading",
+            "A guest from Pine Road",
+            "Mr. Lee's team member"
+          ],
+          "answer": 0,
+          "needs": [1]
+        },
+        {
+          "en": "What will guests do at 11:00?",
+          "zh": "客人在十一點要做什麼？",
+          "options": ["Eat lunch", "Meet the team", "Ask questions", "Take a tour"],
+          "answer": 1,
+          "needs": [2]
+        }
+      ]
+    },
+    {
+      "id": "s5_r3",
+      "form": "B",
+      "texts": [
+        {
+          "kind": "notice",
+          "title": "Job Opening: Sales Assistant",
+          "lines": [
+            "Blue Harbor Travel is looking for a sales assistant.",
+            "The job is full time, from Monday to Friday, 9 a.m. to 5 p.m.",
+            "You must speak English well and use a computer every day.",
+            "You will help our customers plan trips, answer their calls and keep our files in order.",
+            "Our office is near the train station, so it is easy to come to work. We also give you a free lunch on Mondays.",
+            "The pay is $18 an hour.",
+            "Send your resume and a short email to Ms. Chen by June 12.",
+            "We will meet people on June 18.",
+            "Come early and bring your resume with you."
+          ]
+        },
+        {
+          "kind": "email",
+          "title": "About the sales assistant job",
+          "lines": [
+            "Dear Ms. Chen,",
+            "I am writing about the sales assistant job. I worked at a hotel for two years, and I spoke English with guests every day.",
+            "My resume is with this email.",
+            "I like to help people, and I am never late for work.",
+            "I can work on weekdays, but I cannot stay late on Fridays because I take a class.",
+            "I am also good with computers, and I can learn new things fast. I want to work with a friendly team.",
+            "I hope to hear from you soon.",
+            "Best wishes,",
+            "Mr. Park"
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "en": "How much does the job pay?",
+          "zh": "這份工作薪水多少？",
+          "options": ["$12 an hour", "$18 an hour", "$20 an hour", "$80 an hour"],
+          "answer": 1,
+          "needs": [0]
+        },
+        {
+          "en": "Where did Mr. Park work before?",
+          "zh": "朴先生以前在哪裡工作？",
+          "options": ["At a bank", "At a school", "At a hotel", "At a shop"],
+          "answer": 2,
+          "needs": [1]
+        },
+        {
+          "en": "What does Mr. Park do that the job needs?",
+          "zh": "朴先生做過哪件這份工作需要的事？",
+          "options": [
+            "He speaks English with guests.",
+            "He sells tickets at a station.",
+            "He works on Saturdays.",
+            "He drives a bus."
+          ],
+          "answer": 0,
+          "needs": [0, 1]
+        },
+        {
+          "en": "Why might Mr. Park have a problem with the job?",
+          "zh": "朴先生為什麼可能做不了這份工作？",
+          "options": [
+            "He cannot use a computer.",
+            "He wants to work part time.",
+            "He does not speak English.",
+            "He cannot work late on Fridays."
+          ],
+          "answer": 3,
+          "needs": [0, 1]
+        }
+      ]
+    },
+    {
+      "id": "s5_r4",
+      "form": "B",
+      "texts": [
+        {
+          "kind": "email",
+          "title": "Staff meeting on Tuesday",
+          "lines": [
+            "To all staff,",
+            "We will have a meeting on Tuesday, March 11, at 2 p.m. in Room 4.",
+            "Ms. Reyes will talk about the new work schedule, and Mr. Tan will talk about the budget.",
+            "Please read the agenda and bring your ideas.",
+            "We need every person there, so please come on time. The meeting will last about one hour."
+          ]
+        },
+        {
+          "kind": "form",
+          "title": "Agenda",
+          "lines": [
+            "2:00 New work schedule (Ms. Reyes)",
+            "2:20 Budget for next year (Mr. Tan)",
+            "2:40 Office party (Ms. Diaz)",
+            "3:00 End of meeting",
+            "Please bring a pen and your ideas.",
+            "Questions from the staff will come at the end of each part."
+          ]
+        },
+        {
+          "kind": "form",
+          "title": "Notes from the meeting",
+          "lines": [
+            "We moved to Room 6 because Room 4 was not ready.",
+            "Mr. Tan was sick, so Ms. Reyes talked about the budget.",
+            "We started a little late, but everyone stayed until the end.",
+            "Ms. Diaz said the office party will be on April 4.",
+            "Most people liked the new schedule. The next meeting is on March 25.",
+            "Please tell Ms. Reyes if you have any more ideas. She will keep every idea in a file for the next meeting."
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "en": "Where did the meeting take place?",
+          "zh": "會議在哪裡舉行？",
+          "options": ["In Room 2", "In Room 4", "In Room 5", "In Room 6"],
+          "answer": 3,
+          "needs": [0, 2]
+        },
+        {
+          "en": "Who talked about the budget?",
+          "zh": "誰報告了預算？",
+          "options": ["Mr. Tan", "Ms. Diaz", "Ms. Reyes", "Mr. Lee"],
+          "answer": 2,
+          "needs": [1, 2]
+        },
+        {
+          "en": "Who will talk about the office party?",
+          "zh": "誰要談公司聚會？",
+          "options": ["Ms. Diaz", "Ms. Reyes", "Mr. Tan", "Ms. Chen"],
+          "answer": 0,
+          "needs": [1]
+        },
+        {
+          "en": "When will the staff meet again?",
+          "zh": "員工下次什麼時候再開會？",
+          "options": ["On March 11", "On March 25", "On April 4", "On April 11"],
+          "answer": 1,
+          "needs": [2]
+        },
+        {
+          "en": "What did the staff need to bring to the meeting?",
+          "zh": "員工要帶什麼去開會？",
+          "options": ["A receipt", "A resume", "Their ideas", "Their lunch"],
+          "answer": 2,
+          "needs": [0]
+        }
+      ]
+    }
+  ]
 }
