@@ -45,6 +45,23 @@
   overflow-y: auto;
 }
 
+/*
+ * A passage or a text fill: the body becomes a flex column so the paper box gives way and
+ * scrolls inside itself (ReadPassage.css), the way it does in practice; the question and
+ * keys stay in view.
+ */
+.exam-runner-body:has(> .rp),
+.exam-runner-body:has(> .tf) {
+  display: flex;
+  flex-direction: column;
+}
+
+.exam-runner-body > .rp,
+.exam-runner-body > .tf {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
 .exam-runner-actions {
   margin-top: auto;
 }

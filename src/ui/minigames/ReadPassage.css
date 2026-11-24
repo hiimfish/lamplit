@@ -88,7 +88,6 @@
   flex: 0 1 auto;
   min-height: var(--rp-floor, calc(82 * var(--px)));
   overflow-y: auto;
-  overscroll-behavior: contain;
   padding: calc(5 * var(--px)) calc(7 * var(--px));
   font-size: calc(11 * var(--fpx));
   line-height: 1.5;
