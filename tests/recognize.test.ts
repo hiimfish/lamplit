@@ -2,6 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   compareSpoken,
   hasSeenRecognitionNote,
+  listenAlternatives,
   listenOnce,
   markRecognitionNoteSeen,
   RecognitionError,
@@ -39,7 +40,8 @@ class FakeRecognition {
   lang = '';
   interimResults = true;
   maxAlternatives = 0;
-  onresult: ((e: { results: ArrayLike<{ 0: { transcript: string } }> }) => void) | null = null;
+  onresult: ((e: { results: ArrayLike<Record<number, { transcript: string }>> }) => void) | null =
+    null;
   onerror: ((e: { error?: string }) => void) | null = null;
   onend: (() => void) | null = null;
   start = vi.fn();
@@ -50,6 +52,13 @@ class FakeRecognition {
   }
   say(text: string) {
     this.onresult?.({ results: [{ 0: { transcript: text } }] });
+  }
+  /** One result segment per argument; each lists that segment's alternatives. */
+  sayAlternatives(...segments: string[][]) {
+    const results = segments.map((alts) =>
+      Object.fromEntries(alts.map((transcript, k) => [k, { transcript }])),
+    );
+    this.onresult?.({ results });
   }
 }
 
@@ -142,6 +151,150 @@ describe('listenOnce', () => {
   it("rejects with 'insecure' on plain http, without creating a recognizer", async () => {
     vi.stubGlobal('isSecureContext', false);
     await expect(listenOnce().promise).rejects.toMatchObject({ code: 'insecure' });
+    expect(FakeRecognition.last).toBeNull();
+  });
+});
+
+describe('listenAlternatives', () => {
+  beforeEach(() => {
+    FakeRecognition.last = null;
+    vi.useFakeTimers();
+    vi.stubGlobal('window', { SpeechRecognition: FakeRecognition });
+  });
+  afterEach(() => {
+    vi.useRealTimers();
+    vi.unstubAllGlobals();
+  });
+
+  it('asks for 3 alternatives by default and returns them all', async () => {
+    const listening = listenAlternatives({ lang: 'en-US' });
+    const r = lastRecognition();
+    expect(r.maxAlternatives).toBe(3);
+    expect(r.lang).toBe('en-US');
+    r.sayAlternatives(['to go please', 'two go please', 'to go police']);
+    r.onend?.();
+    await expect(listening.promise).resolves.toEqual([
+      'to go please',
+      'two go please',
+      'to go police',
+    ]);
+  });
+
+  it('passes maxAlternatives through', () => {
+    listenAlternatives({ maxAlternatives: 5 });
+    expect(lastRecognition().maxAlternatives).toBe(5);
+  });
+
+  it('joins segments per alternative, falling back to the first when fewer exist', async () => {
+    const listening = listenAlternatives();
+    const r = lastRecognition();
+    r.sayAlternatives(['a latte', 'a later'], ['to go']);
+    r.onend?.();
+    await expect(listening.promise).resolves.toEqual(['a latte to go', 'a later to go']);
+  });
+
+  it('returns [] when nothing was heard', async () => {
+    const listening = listenAlternatives();
+    lastRecognition().onend?.();
+    await expect(listening.promise).resolves.toEqual([]);
+  });
+
+  it("treats 'no-speech' as silence", async () => {
+    const listening = listenAlternatives();
+    lastRecognition().onerror?.({ error: 'no-speech' });
+    await expect(listening.promise).resolves.toEqual([]);
+  });
+
+  it.each(['not-allowed', 'service-not-allowed', 'audio-capture', 'network'])(
+    'rejects with the browser error code %s',
+    async (code) => {
+      const listening = listenAlternatives();
+      lastRecognition().onerror?.({ error: code });
+      await expect(listening.promise).rejects.toMatchObject({ code });
+      await expect(listening.promise).rejects.toBeInstanceOf(RecognitionError);
+    },
+  );
+
+  it('stop() asks the recognizer to deliver now and keeps the result', async () => {
+    const listening = listenAlternatives();
+    const r = lastRecognition();
+    r.sayAlternatives(['hello there', 'hello their']);
+    listening.stop();
+    expect(r.stop).toHaveBeenCalledOnce();
+    expect(r.abort).not.toHaveBeenCalled();
+    r.onend?.();
+    await expect(listening.promise).resolves.toEqual(['hello there', 'hello their']);
+  });
+
+  it('abort() stops the microphone, drops the result and settles with []', async () => {
+    const listening = listenAlternatives();
+    const r = lastRecognition();
+    r.sayAlternatives(['hello']);
+    listening.abort();
+    expect(r.abort).toHaveBeenCalledOnce();
+    await expect(listening.promise).resolves.toEqual([]);
+    expect(r.onend).toBeNull();
+  });
+
+  it('stop() and abort() after settling do nothing', async () => {
+    const listening = listenAlternatives();
+    const r = lastRecognition();
+    r.onend?.();
+    await listening.promise;
+    listening.stop();
+    listening.abort();
+    expect(r.stop).not.toHaveBeenCalled();
+    expect(r.abort).not.toHaveBeenCalled();
+  });
+
+  it('times out by resolving with what was heard so far', async () => {
+    const listening = listenAlternatives({ timeoutMs: 5000 });
+    const r = lastRecognition();
+    r.sayAlternatives(['half a sentence', 'half a sentenced']);
+    vi.advanceTimersByTime(5000);
+    await expect(listening.promise).resolves.toEqual(['half a sentence', 'half a sentenced']);
+    expect(r.abort).toHaveBeenCalledOnce();
+  });
+
+  it('times out with [] when nothing was heard', async () => {
+    const listening = listenAlternatives({ timeoutMs: 5000 });
+    vi.advanceTimersByTime(5000);
+    await expect(listening.promise).resolves.toEqual([]);
+  });
+
+  it('clears the timeout once it ends', async () => {
+    const listening = listenAlternatives({ timeoutMs: 5000 });
+    const r = lastRecognition();
+    r.onend?.();
+    await listening.promise;
+    vi.advanceTimersByTime(10000);
+    expect(r.abort).not.toHaveBeenCalled();
+  });
+
+  it('rejects when start() throws', async () => {
+    vi.stubGlobal('window', {
+      SpeechRecognition: class extends FakeRecognition {
+        start = vi.fn(() => {
+          throw new Error('busy');
+        });
+      },
+    });
+    await expect(listenAlternatives().promise).rejects.toBeInstanceOf(RecognitionError);
+  });
+
+  it("rejects with 'unsupported' without SpeechRecognition", async () => {
+    vi.stubGlobal('window', {});
+    const listening = listenAlternatives();
+    await expect(listening.promise).rejects.toMatchObject({ code: 'unsupported' });
+    expect(() => {
+      listening.stop();
+      listening.abort();
+    }).not.toThrow();
+  });
+
+  it("rejects with 'insecure' on plain http, without creating a recognizer", async () => {
+    vi.stubGlobal('isSecureContext', false);
+    await expect(listenAlternatives().promise).rejects.toMatchObject({ code: 'insecure' });
     expect(FakeRecognition.last).toBeNull();
   });
 });

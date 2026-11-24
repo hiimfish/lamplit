@@ -177,7 +177,7 @@ export function listenOnce(options: ListenOptions = {}): Listening {
   };
 }
 
-/** Friendly zh-TW message for a failed listen. Recognition is practice only, never graded. */
+/** Friendly zh-TW message for a failed listen. listenOnce feedback is practice only; scored listening (listenAlternatives) is graded by its callers. */
 export function recognitionMessage(error: unknown): string {
   const code = error instanceof RecognitionError ? error.code : 'failed';
   switch (code) {
@@ -241,9 +241,113 @@ export interface ListenAlternativesOptions extends ListenOptions {
 
 /**
  * Like listenOnce, but returns every alternative of the result (for scoring a spoken
- * line) and can be stopped early. Not built yet: it hears nothing.
+ * line) and can be stopped early. Alternative k joins, over the result segments, each
+ * segment's k-th transcript (or its first when it has fewer).
+ *
+ * Settles exactly once. Resolves with [] for silence ('no-speech') and after abort();
+ * resolves with whatever was heard on timeout. Rejects with a RecognitionError whose
+ * `code` is the same vocabulary as listenOnce: 'not-allowed', 'service-not-allowed',
+ * 'audio-capture', 'network' (browser error names), 'insecure' (plain http),
+ * 'unsupported' (no SpeechRecognition), or the exception name / 'failed' when start()
+ * throws or the browser names no error. 'timeout' and 'aborted' are never thrown here.
  */
 export function listenAlternatives(options: ListenAlternativesOptions = {}): ScoredListening {
-  void options;
-  return { promise: Promise.resolve([]), abort: () => undefined, stop: () => undefined };
+  const lang = options.lang ?? 'en-US';
+  const timeoutMs = options.timeoutMs ?? LISTEN_TIMEOUT_MS;
+  const maxAlternatives = options.maxAlternatives ?? 3;
+  const failed = (code: string): ScoredListening => ({
+    promise: Promise.reject(new RecognitionError(code)),
+    abort: () => undefined,
+    stop: () => undefined,
+  });
+  if ((globalThis as { isSecureContext?: boolean }).isSecureContext === false) {
+    return failed('insecure');
+  }
+  const Ctor = getCtor();
+  if (!Ctor) return failed('unsupported');
+
+  const recognition = new Ctor();
+  let settled = false;
+  let heard: SpokenAlternative[] = [];
+  let timer: ReturnType<typeof setTimeout> | null = null;
+  let resolveFn: (alternatives: SpokenAlternative[]) => void = () => undefined;
+  let rejectFn: (error: RecognitionError) => void = () => undefined;
+  const promise = new Promise<SpokenAlternative[]>((resolve, reject) => {
+    resolveFn = resolve;
+    rejectFn = reject;
+  });
+
+  const settle = (outcome: { alternatives: SpokenAlternative[] } | { error: RecognitionError }) => {
+    if (settled) return;
+    settled = true;
+    if (timer !== null) clearTimeout(timer);
+    timer = null;
+    recognition.onresult = null;
+    recognition.onerror = null;
+    recognition.onend = null;
+    if ('alternatives' in outcome) resolveFn(outcome.alternatives);
+    else rejectFn(outcome.error);
+  };
+  const stopMic = () => {
+    try {
+      recognition.abort();
+    } catch {
+      // already stopped
+    }
+  };
+
+  recognition.lang = lang;
+  recognition.interimResults = false;
+  recognition.maxAlternatives = maxAlternatives;
+  recognition.onresult = (e) => {
+    const segments = Array.from(e.results) as unknown as Array<
+      Record<number, { transcript: string } | undefined>
+    >;
+    const joined: SpokenAlternative[] = [];
+    for (let k = 0; k < maxAlternatives; k++) {
+      // Stop at the first alternative no segment offers.
+      if (k > 0 && !segments.some((segment) => segment[k] !== undefined)) break;
+      joined.push(
+        segments
+          .map((segment) => (segment[k] ?? segment[0])?.transcript ?? '')
+          .join(' ')
+          .trim(),
+      );
+    }
+    heard = joined.filter((text) => text !== '');
+  };
+  recognition.onerror = (e) => {
+    if (e.error === 'no-speech') settle({ alternatives: [] });
+    else settle({ error: new RecognitionError(e.error ?? 'failed') });
+  };
+  recognition.onend = () => settle({ alternatives: heard });
+
+  try {
+    recognition.start();
+  } catch (error) {
+    settle({ error: new RecognitionError(error instanceof Error ? error.name : 'failed') });
+    return { promise, abort: () => undefined, stop: () => undefined };
+  }
+  timer = setTimeout(() => {
+    if (settled) return;
+    settle({ alternatives: heard });
+    stopMic();
+  }, timeoutMs);
+
+  return {
+    promise,
+    abort() {
+      if (settled) return;
+      settle({ alternatives: [] });
+      stopMic();
+    },
+    stop() {
+      if (settled) return;
+      try {
+        recognition.stop();
+      } catch {
+        // already stopped: onend or the timeout settles it
+      }
+    },
+  };
 }
