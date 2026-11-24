@@ -67,11 +67,19 @@ function GoalRow({
   );
 }
 
+/** The story row's key and note when the screen knows better (the town: its act's 結業考). */
+export interface StoryStep {
+  label: string;
+  note: string;
+  /** Unset: nothing to start (the key is disabled). */
+  onStart?: () => void;
+}
+
 /**
- * Today's blocks of 每日目標, each with the key that starts it: on the 每日目標 screen, and in
- * the town under 開始 and 選關 without the story row (`story` false; 開始 is that block).
+ * Today's blocks of 每日目標, each with the key that starts it: on the 每日目標 screen and in
+ * the town (2026-11-25), where `story` gives the story row the town's own next step.
  */
-export function GoalRows({ story = true }: { story?: boolean }) {
+export function GoalRows({ story }: { story?: StoryStep }) {
   const { save, activeTask } = useStore(appStore);
   const openAll = devUnlockAll(useStore(settingsStore));
   const now = currentNow();
@@ -97,31 +105,32 @@ export function GoalRows({ story = true }: { story?: boolean }) {
     appStore.set({ screen, result: undefined });
   };
   const grammarLeft = drillRemaining(save, save.route, now);
+  const storyStep: StoryStep = story ?? {
+    label: Object.keys(save.tasks).length > 0 || (save.skipTo ?? 0) > 0 ? '下一關' : '開始第一關',
+    note: stop && stopTask ? `下一關：${stop.unit.title}・${stopTask.title}` : '劇情都玩過了。',
+    ...(stopTask ? { onStart: playStory } : {}),
+  };
 
   return (
     <div class="goal-rows">
-      {story && (
-        <GoalRow
-          name="劇情任務"
-          met={status.tasks}
-          skip={!status.applies.tasks}
-          done={daily.tasksDone}
-          total={taskGoal(save.route)}
-          note={
-            stop && stopTask ? `下一關：${stop.unit.title}・${stopTask.title}` : '劇情都玩過了。'
-          }
-          testId="goal-tasks"
+      <GoalRow
+        name="劇情任務"
+        met={status.tasks}
+        skip={!status.applies.tasks}
+        done={daily.tasksDone}
+        total={taskGoal(save.route)}
+        note={storyStep.note}
+        testId="goal-tasks"
+      >
+        <button
+          class="pixel-button primary"
+          disabled={!storyStep.onStart}
+          onClick={storyStep.onStart}
+          data-testid="goal-story"
         >
-          <button
-            class="pixel-button primary"
-            disabled={!stopTask}
-            onClick={playStory}
-            data-testid="goal-story"
-          >
-            {Object.keys(save.tasks).length > 0 || (save.skipTo ?? 0) > 0 ? '下一關' : '開始第一關'}
-          </button>
-        </GoalRow>
-      )}
+          {storyStep.label}
+        </button>
+      </GoalRow>
       <GoalRow
         name="單字快練"
         met={status.sprint}

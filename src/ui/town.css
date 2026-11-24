@@ -350,29 +350,23 @@
   }
 }
 
-/* Folded 選關: a big 開始 beside 選關 at the top, then the rest of 今天的目標. */
-.town-next-keys {
-  display: flex;
-  gap: calc(4 * var(--px));
-}
-
-.pixel-button.town-go {
-  flex: 1 1 auto;
-  min-height: calc(var(--tap) + 8px);
-}
-
+/* Folded 選關: 今天的目標 with 選關 beside its heading, then every block of the day. */
 .town-goals {
   display: flex;
   flex-direction: column;
   gap: calc(3 * var(--px));
-  margin-top: calc(2 * var(--px));
-  padding-top: calc(4 * var(--px));
-  border-top: var(--px) dotted var(--ink);
+}
+
+.town-goals-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(4 * var(--px));
 }
 
 .town-goals-title {
   display: flex;
-  justify-content: space-between;
+  gap: calc(6 * var(--px));
   margin: 0;
   font-size: inherit;
   font-weight: normal;

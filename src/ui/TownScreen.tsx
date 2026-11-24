@@ -28,7 +28,7 @@ import {
   type TownAct,
 } from '../learning/townPlan';
 import { examIdOf, ExamTile } from './exam/ExamTile';
-import { GoalRows } from './GoalRows';
+import { GoalRows, type StoryStep } from './GoalRows';
 import './flow.css';
 import { useRefocus } from './focus';
 import { useKeys } from './keys';
@@ -393,40 +393,35 @@ export function TownScreen() {
     </div>
   );
 
-  // Folded (2026-11-25, the user's call): 開始 and 選關 at the top (the name plate under the
-  // scene says which act and task), then the rest of 每日目標 with their keys.
+  // Folded (2026-11-25, the user's calls): 今天的目標 with 選關 beside its heading, the story
+  // row first and opening this act's next step (its 結業考 once every task is done); the name
+  // plate under the scene names the act and task. Enter still opens that step.
+  const storyStep: StoryStep = next
+    ? {
+        label: played > 0 || (save.skipTo ?? 0) > 0 ? '下一關' : '開始第一關',
+        note: `下一關：${next.unit.title}・${next.task.title}`,
+        onStart: () => startTask(next.unit.id, next.task.id),
+      }
+    : examDue
+      ? { label: '結業考', note: `下一步：第${act.no}幕結業考`, onStart: startExam }
+      : { label: '下一關', note: before ? `玩完第${before.no}幕才會打開` : '這一幕全部完成了！' };
   const nextCard = (
-    <>
-      <div class="town-next-keys" data-testid="town-next">
-        {(next || examDue) && (
-          <button
-            class="pixel-button primary town-go"
-            onClick={() => (next ? startTask(next.unit.id, next.task.id) : startExam())}
-            data-testid="town-go"
-            aria-label={
-              next ? `開始：${next.unit.title}・${next.task.title}` : `開始第${act.no}幕結業考`
-            }
-          >
-            {next ? '開始' : '開始結業考'}
-            <KeyCap k="Enter" />
-          </button>
-        )}
+    <section class="town-goals" aria-labelledby="town-goals-title" data-testid="town-goals">
+      <div class="town-goals-head">
+        <h2 class="town-goals-title" id="town-goals-title">
+          今天的目標
+          <span class="goal-tally">{goal.all ? '✓ 都完成了' : `${goal.met}/${goal.total}`}</span>
+        </h2>
         <button
-          class="pixel-button town-pick"
+          class="pixel-button small town-pick"
           onClick={() => show(actIndex)}
           data-testid="town-pick"
         >
           選關
         </button>
       </div>
-      <section class="town-goals" aria-labelledby="town-goals-title" data-testid="town-goals">
-        <h2 class="town-goals-title" id="town-goals-title">
-          今天的目標
-          <span class="goal-tally">{goal.all ? '✓ 都完成了' : `${goal.met}/${goal.total}`}</span>
-        </h2>
-        <GoalRows story={false} />
-      </section>
-    </>
+      <GoalRows story={storyStep} />
+    </section>
   );
 
   const top = (
