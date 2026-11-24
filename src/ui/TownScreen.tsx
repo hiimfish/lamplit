@@ -420,7 +420,7 @@ export function TownScreen() {
               class="pixel-button small"
               onClick={() => {
                 playSfx('click');
-                appStore.set({ screen: 'progress', progressFrom: 'town' });
+                appStore.set({ screen: 'progress' });
               }}
               data-testid="town-progress"
             >

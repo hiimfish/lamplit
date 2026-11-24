@@ -154,13 +154,9 @@ export function GoalScreen() {
     });
   };
   const listenNext = pickListenTask(TOWN, save);
-  const go = (screen: 'sprint' | 'review' | 'listen' | 'grammar' | 'progress') => {
+  const go = (screen: 'sprint' | 'review' | 'listen' | 'grammar') => {
     playSfx('click');
-    appStore.set({
-      screen,
-      result: undefined,
-      ...(screen === 'progress' ? { progressFrom: 'goal' as const } : {}),
-    });
+    appStore.set({ screen, result: undefined });
   };
   const pick = (kind: Route['kind']) => {
     playSfx('click');
@@ -394,9 +390,6 @@ export function GoalScreen() {
         </p>
 
         <div class="flow-actions">
-          <button class="pixel-button" onClick={() => go('progress')} data-testid="goal-progress">
-            進度
-          </button>
           <button class="pixel-button" onClick={toTown} data-testid="goal-back">
             回小鎮
             <KeyCap k="Enter" />

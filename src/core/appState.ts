@@ -46,8 +46,6 @@ export interface AppState {
   activeTask?: { unitId: string; taskId: string };
   /** The Act (1 to 4) whose 結業考 is open on the exam screen. */
   activeExam?: number;
-  /** Where 進度 was opened from, so its back key returns there (每日目標 when unset). */
-  progressFrom?: 'town' | 'goal';
   /** The Act (1 to 3) whose 跳級考 is open on the skip screen. */
   activeSkip?: number;
   /**
