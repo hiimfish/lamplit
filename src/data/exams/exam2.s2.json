@@ -5,308 +5,468 @@
     {
       "id": "s2_p1",
       "form": "A",
-      "pictureId": "reading_book",
+      "pictureId": "using_computer",
       "options": [
-        { "en": "She is playing a game now.", "zh": "她現在在玩遊戲。" },
-        { "en": "She is reading a book now.", "zh": "她現在在看書。" },
-        { "en": "She is writing a letter now.", "zh": "她現在在寫信。" }
+        { "en": "He is carrying a computer.", "zh": "他正在搬一台電腦。" },
+        { "en": "He is standing next to a desk.", "zh": "他站在桌子旁邊。" },
+        { "en": "He is sitting in front of a screen.", "zh": "他坐在螢幕前面。" },
+        { "en": "The screen is turned off.", "zh": "螢幕是關著的。" }
       ],
-      "answer": 1
+      "answer": 2
     },
     {
       "id": "s2_p2",
       "form": "A",
-      "pictureId": "drinking_coffee",
+      "pictureId": "borrowing_books",
       "options": [
-        { "en": "He is listening to music.", "zh": "他在聽音樂。" },
-        { "en": "He is reading the newspaper.", "zh": "他在看報紙。" },
-        { "en": "He is drinking his coffee.", "zh": "他在喝他的咖啡。" }
+        { "en": "He is holding two books.", "zh": "他拿著兩本書。" },
+        { "en": "He is reading a book.", "zh": "他正在看書。" },
+        { "en": "He is sitting behind a desk.", "zh": "他坐在桌子後面。" },
+        { "en": "The librarian is writing on a card.", "zh": "圖書館員正在一張卡片上寫字。" }
       ],
-      "answer": 2
+      "answer": 0
     },
     {
       "id": "s2_p3",
-      "form": "A",
-      "pictureId": "using_computer",
+      "form": "B",
+      "pictureId": "listening_teacher",
       "options": [
-        { "en": "He is using the computer.", "zh": "他在用電腦。" },
-        { "en": "He is sleeping on a sofa.", "zh": "他睡在沙發上。" },
-        { "en": "He is eating his lunch.", "zh": "他在吃他的午餐。" }
+        { "en": "The teacher is sitting with the students.", "zh": "老師和學生坐在一起。" },
+        { "en": "The students are standing by the window.", "zh": "學生們站在窗邊。" },
+        { "en": "The students are writing on the board.", "zh": "學生們正在黑板上寫字。" },
+        { "en": "The teacher is standing in front of the class.", "zh": "老師站在全班前面。" }
       ],
-      "answer": 0
+      "answer": 3
     },
     {
       "id": "s2_p4",
-      "form": "A",
-      "pictureId": "writing_letter",
-      "options": [
-        { "en": "She is writing her letter.", "zh": "她在寫她的信。" },
-        { "en": "She is buying some apples.", "zh": "她在買蘋果。" },
-        { "en": "She is singing in the park.", "zh": "她在公園裡唱歌。" }
-      ],
-      "answer": 0
-    },
-    {
-      "id": "s2_p5",
-      "form": "B",
-      "pictureId": "waiting_bus",
-      "options": [
-        { "en": "She is on the bus.", "zh": "她在公車上。" },
-        { "en": "She is walking to work.", "zh": "她正走路去上班。" },
-        { "en": "She is waiting for a bus.", "zh": "她在等公車。" }
-      ],
-      "answer": 2
-    },
-    {
-      "id": "s2_p6",
-      "form": "B",
-      "pictureId": "eating_pizza",
-      "options": [
-        { "en": "She is eating some pizza.", "zh": "她在吃一些披薩。" },
-        { "en": "She is eating some soup.", "zh": "她在喝一些湯。" },
-        { "en": "She is drinking some tea.", "zh": "她在喝茶。" }
-      ],
-      "answer": 0
-    },
-    {
-      "id": "s2_p7",
-      "form": "B",
-      "pictureId": "borrowing_books",
-      "options": [
-        { "en": "He is buying some apples.", "zh": "他在買蘋果。" },
-        { "en": "He is borrowing some books.", "zh": "他在借書。" },
-        { "en": "He is playing with a ball.", "zh": "他在玩球。" }
-      ],
-      "answer": 1
-    },
-    {
-      "id": "s2_p8",
       "form": "B",
       "pictureId": "reading_magazine",
       "options": [
-        { "en": "She is reading a magazine now.", "zh": "她現在在看雜誌。" },
-        { "en": "She is cooking dinner now.", "zh": "她現在在做晚餐。" },
-        { "en": "She is listening to a teacher.", "zh": "她在聽老師說話。" }
+        { "en": "She is carrying a chair.", "zh": "她正在搬一張椅子。" },
+        { "en": "She is sitting in a chair with a magazine.", "zh": "她拿著雜誌坐在椅子上。" },
+        { "en": "She is standing under a lamp.", "zh": "她站在燈下。" },
+        { "en": "She is buying a magazine.", "zh": "她正在買雜誌。" }
       ],
+      "answer": 1
+    }
+  ],
+  "fills": [
+    {
+      "id": "s2_f1",
+      "form": "A",
+      "en": "I have ___ in this town since August.",
+      "zh": "我從八月起就住在這個小鎮。",
+      "options": ["live", "lives", "lived", "living"],
+      "answer": 2,
+      "grammar": true,
+      "note": "have 加過去分詞 lived，是現在完成式，和 since 一起用。"
+    },
+    {
+      "id": "s2_f2",
+      "form": "A",
+      "en": "Please write your ___ on the last page of the form.",
+      "zh": "請在表格的最後一頁簽名。",
+      "options": ["salary", "signature", "balance", "estimate"],
+      "answer": 1,
+      "note": "signature 是簽名；其他是薪水、餘額、估價。"
+    },
+    {
+      "id": "s2_f3",
+      "form": "A",
+      "en": "You can ___ a library book if no one else is waiting for it.",
+      "zh": "如果沒有別人在等，你可以續借圖書館的書。",
+      "options": ["renew", "repair", "replace", "remember"],
+      "answer": 0,
+      "note": "renew 是續借；repair 是修理，replace 是更換，remember 是記得。"
+    },
+    {
+      "id": "s2_f4",
+      "form": "A",
+      "en": "My interview is ___ ten o'clock on Tuesday.",
+      "zh": "我的面試在星期二十點。",
+      "options": ["in", "on", "for", "at"],
+      "answer": 3,
+      "grammar": true,
+      "note": "幾點幾分用 at；星期幾用 on。"
+    },
+    {
+      "id": "s2_f5",
+      "form": "A",
+      "en": "The bank charges a small ___ for each transfer.",
+      "zh": "銀行每次轉帳都會收一筆小額手續費。",
+      "options": ["wage", "fee", "skill", "degree"],
+      "answer": 1,
+      "note": "fee 是手續費；wage 是工資，skill 是技能，degree 是學位。"
+    },
+    {
+      "id": "s2_f6",
+      "form": "A",
+      "en": "If you need help with your resume, the counselor will be happy ___ you.",
+      "zh": "如果你的履歷需要幫忙，輔導員會很樂意幫你。",
+      "options": ["to help", "helping", "helps", "helped"],
+      "answer": 0,
+      "grammar": true,
+      "note": "be happy to 加原形動詞：很樂意做某事。"
+    },
+    {
+      "id": "s2_f7",
+      "form": "A",
+      "en": "The mechanic said my old tires were ___, so I bought new ones.",
+      "zh": "技師說我的舊輪胎很危險，所以我買了新的。",
+      "options": ["patient", "formal", "quiet", "dangerous"],
+      "answer": 3,
+      "note": "dangerous 是危險的；patient 有耐心的，formal 正式的，quiet 安靜的。"
+    },
+    {
+      "id": "s2_f8",
+      "form": "A",
+      "en": "She ___ her first draft yet, so she can't send it.",
+      "zh": "她還沒寫完初稿，所以還不能寄出去。",
+      "options": ["doesn't finished", "isn't finish", "hasn't finished", "hasn't finish"],
+      "answer": 2,
+      "grammar": true,
+      "note": "yet 常和現在完成式 hasn't 加過去分詞 finished 一起用。"
+    },
+    {
+      "id": "s2_f9",
+      "form": "B",
+      "en": "Classes at the community center ___ in September.",
+      "zh": "社區中心的課九月開始。",
+      "options": ["begin", "begins", "beginning", "to begin"],
+      "answer": 0,
+      "grammar": true,
+      "note": "主詞 Classes 是複數，動詞用 begin。"
+    },
+    {
+      "id": "s2_f10",
+      "form": "B",
+      "en": "I'd like to ___ some cash into my account.",
+      "zh": "我想把一些現金存進我的帳戶。",
+      "options": ["borrow", "deposit", "spend", "charge"],
+      "answer": 1,
+      "note": "deposit 是存款；borrow 借，spend 花，charge 收費。"
+    },
+    {
+      "id": "s2_f11",
+      "form": "B",
+      "en": "The manager asked me ___ a little early for the interview.",
+      "zh": "經理請我面試時早一點到。",
+      "options": ["come", "coming", "came", "to come"],
+      "answer": 3,
+      "grammar": true,
+      "note": "ask 某人 to 加原形動詞：請某人做某事。"
+    },
+    {
+      "id": "s2_f12",
+      "form": "B",
+      "en": "Please be ___ in the library. People are studying.",
+      "zh": "在圖書館裡請保持安靜，大家正在讀書。",
+      "options": ["casual", "proud", "quiet", "available"],
+      "answer": 2,
+      "note": "quiet 是安靜的；casual 隨性的，proud 驕傲的，available 有空的。"
+    },
+    {
+      "id": "s2_f13",
+      "form": "B",
+      "en": "My car makes a strange ___ when I drive fast.",
+      "zh": "我開快車時，車子會發出奇怪的聲音。",
+      "options": ["speed", "tire", "safety", "sound"],
+      "answer": 3,
+      "note": "make a sound 是發出聲音；speed 速度，tire 輪胎，safety 安全。"
+    },
+    {
+      "id": "s2_f14",
+      "form": "B",
+      "en": "He works ___ than the other employees, but he is more careful.",
+      "zh": "他做事比其他員工慢，但他比較細心。",
+      "options": ["slow", "slower", "slowest", "more slow"],
+      "answer": 1,
+      "grammar": true,
+      "note": "有 than 要用比較級；slow 的比較級是 slower。"
+    },
+    {
+      "id": "s2_f15",
+      "form": "B",
+      "en": "This job requires two years of ___ in an office.",
+      "zh": "這份工作需要兩年的辦公室經驗。",
+      "options": ["opinion", "attention", "experience", "impression"],
+      "answer": 2,
+      "note": "experience 是經驗；opinion 意見，attention 注意力，impression 印象。"
+    },
+    {
+      "id": "s2_f16",
+      "form": "B",
+      "en": "I ___ my resume to three companies last week.",
+      "zh": "我上星期把履歷寄給了三家公司。",
+      "options": ["sent", "send", "sending", "have sent"],
+      "answer": 0,
+      "grammar": true,
+      "note": "last week 是過去的時間，用過去式 sent；have sent 不和 last week 一起用。"
+    }
+  ],
+  "signs": [
+    {
+      "id": "s2_s1",
+      "form": "A",
+      "heading": "Computer Room",
+      "rows": [
+        { "label": "Black and white", "value": "10¢ a page" },
+        { "label": "Color", "value": "50¢ a page" },
+        { "label": "Limit", "value": "1 hour" }
+      ],
+      "question": { "en": "How much does it cost to print four pages in color?", "zh": "彩色列印四頁要多少錢？" },
+      "options": ["40¢", "50¢", "$2.00", "$4.00"],
+      "answer": 2
+    },
+    {
+      "id": "s2_s2",
+      "form": "A",
+      "heading": "Help Wanted: Office Assistant",
+      "rows": [
+        { "label": "Monday to Friday", "value": "9:00-5:00" },
+        { "label": "Pay", "value": "$18 an hour" },
+        { "label": "Apply", "value": "Front desk" }
+      ],
+      "question": { "en": "What is true about the job?", "zh": "關於這份工作，何者正確？" },
+      "options": ["The pay is $18 a day.", "Work starts at 5:00.", "You apply by email.", "Weekends are off."],
+      "answer": 3
+    },
+    {
+      "id": "s2_s3",
+      "form": "B",
+      "heading": "ATM Fees",
+      "rows": [
+        { "label": "Our bank's cards", "value": "Free" },
+        { "label": "Other banks' cards", "value": "$3" },
+        { "label": "Limit", "value": "$500 a day" }
+      ],
+      "question": { "en": "What is true for people with this bank's card?", "zh": "持有這家銀行卡片的人，何者正確？" },
+      "options": ["They pay $3 each time.", "They pay nothing to use the ATM.", "They can take out only $3.", "They can't use this ATM."],
+      "answer": 1
+    },
+    {
+      "id": "s2_s4",
+      "form": "B",
+      "heading": "September Classes",
+      "rows": [
+        { "label": "Basic Computer", "value": "Tuesday 7-9 p.m." },
+        { "label": "English Writing", "value": "Saturday 10-12" },
+        { "label": "Register by", "value": "August 30" }
+      ],
+      "question": { "en": "When does the computer class meet?", "zh": "電腦課什麼時候上課？" },
+      "options": ["On Tuesday evenings", "On Saturday mornings", "On August 30", "On Tuesday mornings"],
       "answer": 0
     }
   ],
   "passages": [
     {
-      "id": "s2_r1",
+      "id": "s2_d1",
       "form": "A",
       "kind": "notice",
-      "title": "Computer Room Notice",
+      "title": "Free Resume Workshop",
       "lines": [
-        "The computer room will be closed on Friday.",
-        "Mr. Chen will fix the old computers.",
-        "You can use the computers again on Saturday morning.",
-        "Please ask at the front desk if you need help."
+        "Do you need help writing a resume in English?",
+        "Join our free workshop at the Oak Street Community Center on Saturday, July 12, from 1:00 to 3:00 p.m.",
+        "A job counselor will explain how to describe your skills and experience.",
+        "Please bring a copy of your resume if you have one. Only 15 people can join, so register at the front desk by July 10."
       ],
       "questions": [
         {
-          "en": "Why will the room be closed on Friday?",
-          "zh": "為什麼星期五這間教室會關閉？",
-          "options": [
-            "Mr. Chen will fix the computers.",
-            "The teacher is sick.",
-            "There is a big class."
-          ],
-          "answer": 0
+          "en": "What will people learn at the workshop?",
+          "zh": "參加研習的人會學到什麼？",
+          "options": ["How to become a job counselor", "How to talk about what they can do", "How to make a copy of a resume", "How to register for classes"],
+          "answer": 1
         },
         {
-          "en": "When can people use the computers again?",
-          "zh": "大家什麼時候可以再用電腦？",
-          "options": ["On Friday morning", "On Saturday morning", "On Sunday evening"],
-          "answer": 1
+          "en": "What should people do by July 10?",
+          "zh": "大家要在七月十日前做什麼？",
+          "options": ["Send their resume by email", "Go to the workshop", "Call the job counselor", "Sign up at the front desk"],
+          "answer": 3
         }
       ]
     },
     {
-      "id": "s2_r2",
+      "id": "s2_d2",
       "form": "A",
       "kind": "email",
-      "title": "Repair Shop (Tuesday)",
+      "title": "From: Daniel Grant",
       "lines": [
-        "Hi Ms. Lee,",
-        "Mr. Chen will come to your home on Tuesday at 2:00.",
-        "He will fix your door. It takes one hour.",
-        "Please call us if you cannot be at home.",
-        "Thank you!"
+        "Hi Ms. Ortiz,",
+        "A plumber will do some repairs in all the apartments on Wednesday, March 5. The water will be off from 9:00 a.m. to 1:00 p.m.",
+        "Please fill some bottles with water the night before.",
+        "If you see any water on your floor after 1:00, call me right away at 555-0148. Thank you."
       ],
       "questions": [
         {
-          "en": "What will Mr. Chen do on Tuesday?",
-          "zh": "陳先生星期二要做什麼？",
-          "options": ["Open a new shop", "Bring a table", "Fix a door"],
+          "en": "What will happen on Wednesday morning?",
+          "zh": "星期三早上會發生什麼事？",
+          "options": ["The water will be turned off.", "Mr. Grant will come to every apartment.", "The water will be off all day.", "Ms. Ortiz will get a new floor."],
+          "answer": 0
+        },
+        {
+          "en": "What should Ms. Ortiz do on Tuesday night?",
+          "zh": "Ortiz 女士星期二晚上應該做什麼？",
+          "options": ["Call Mr. Grant", "Check her floor for water", "Fill some bottles with water", "Repair her sink"],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "id": "s2_d3",
+      "form": "A",
+      "kind": "ad",
+      "title": "Weekend Job at Green Valley Coffee Shop",
+      "lines": [
+        "We are looking for a friendly person to work at the counter on weekends.",
+        "Hours: Saturday and Sunday, 7:00 a.m. to 1:00 p.m.",
+        "Pay: $16 an hour. No experience is needed. We will teach you everything.",
+        "To apply, email your resume to Amy Fox before June 20."
+      ],
+      "questions": [
+        {
+          "en": "What is true about the job?",
+          "zh": "關於這份工作，何者正確？",
+          "options": ["You work five days a week.", "Work starts at 1:00 p.m.", "You don't need to have done this work before.", "It pays $16 a day."],
           "answer": 2
         },
         {
-          "en": "What should Ms. Lee do if she cannot be at home?",
-          "zh": "如果李女士那天不在家，她該怎麼做？",
-          "options": ["Call the shop", "Come to the shop on Tuesday", "Send a letter to Mr. Chen"],
+          "en": "How should people apply?",
+          "zh": "要怎麼應徵？",
+          "options": ["By calling Amy Fox", "By sending an email", "By coming in on Saturday", "By coming to the shop at 7:00"],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "s2_d4",
+      "form": "A",
+      "kind": "message",
+      "title": "From: Kevin Shaw",
+      "lines": [
+        "Hi Mei, this is Kevin from the office. Welcome to the team!",
+        "Tomorrow, please come up to Room 702. Don't wait in the lobby.",
+        "Our manager, Ms. Hill, has a meeting at 9:00, so I'll show you around first.",
+        "Lunch is at 12:30. We usually eat together at the coffee shop across the street.",
+        "See you at 8:45!"
+      ],
+      "questions": [
+        {
+          "en": "Where should Mei go tomorrow?",
+          "zh": "Mei 明天應該去哪裡？",
+          "options": ["To the lobby", "To the coffee shop", "To Room 702", "To Ms. Hill's meeting"],
+          "answer": 2
+        },
+        {
+          "en": "Why won't Ms. Hill meet Mei first?",
+          "zh": "Hill 女士為什麼不會先和 Mei 見面？",
+          "options": ["She will be busy at a meeting.", "She will be at lunch.", "She works in the lobby.", "She starts work at 12:30."],
           "answer": 0
         }
       ]
     },
     {
-      "id": "s2_r3",
-      "form": "A",
-      "kind": "message",
-      "title": "Ms. Lee (new job)",
-      "lines": [
-        "Hi Ms. Park! Today is my first day at the new office.",
-        "I start at 8:30. My manager is very kind.",
-        "We have lunch with the team at 12:00.",
-        "Can you call me this evening?"
-      ],
-      "questions": [
-        {
-          "en": "What will Ms. Lee do at 12:00?",
-          "zh": "李女士十二點會做什麼？",
-          "options": ["Start work", "Call Ms. Park", "Have lunch with the team"],
-          "answer": 2
-        },
-        {
-          "en": "What does Ms. Lee want Ms. Park to do?",
-          "zh": "李女士希望朴女士做什麼？",
-          "options": ["Come to the office", "Call her this evening", "Meet her manager"],
-          "answer": 1
-        }
-      ]
-    },
-    {
-      "id": "s2_r4",
-      "form": "A",
-      "kind": "ad",
-      "title": "Job at Sun Cafe",
-      "lines": [
-        "Sun Cafe needs help in the morning.",
-        "Work three days a week, starting at 7:00.",
-        "You do not need any experience.",
-        "Call Ms. Park if you want to work with us."
-      ],
-      "questions": [
-        {
-          "en": "How many days a week is the job?",
-          "zh": "這份工作一週做幾天？",
-          "options": ["Two", "Three", "Five"],
-          "answer": 1
-        },
-        {
-          "en": "Who should a person call about the job?",
-          "zh": "想應徵這份工作要打給誰？",
-          "options": ["Ms. Lee", "Mr. Chen", "Ms. Park"],
-          "answer": 2
-        }
-      ]
-    },
-    {
-      "id": "s2_r5",
+      "id": "s2_d5",
       "form": "B",
       "kind": "notice",
-      "title": "Library Rules",
+      "title": "New Hours at Riverside Library",
       "lines": [
-        "You can borrow five books at one time.",
-        "You can keep each book for two weeks.",
-        "Please bring the books back on time.",
-        "Do not eat in the library."
+        "Starting May 1, the library will open one hour earlier, at 9:00 a.m., Monday to Saturday. It will still close at 8:00 p.m.",
+        "On Sundays, it will be open from 12:00 to 5:00 p.m.",
+        "The computer room will be closed on Monday mornings for cleaning.",
+        "You can return books 24 hours a day in the box by the front door."
       ],
       "questions": [
         {
-          "en": "How long can you keep a book?",
-          "zh": "一本書可以借多久？",
-          "options": ["One day", "Two weeks", "Five weeks"],
-          "answer": 1
+          "en": "What time did the library open on Mondays before May 1?",
+          "zh": "五月一日以前，圖書館星期一幾點開門？",
+          "options": ["8:00 a.m.", "9:00 a.m.", "10:00 a.m.", "12:00 p.m."],
+          "answer": 2
         },
         {
-          "en": "What is not allowed in the library?",
-          "zh": "圖書館裡不可以做什麼？",
-          "options": ["Reading", "Borrowing books", "Eating"],
-          "answer": 2
+          "en": "What is true about the computer room?",
+          "zh": "關於電腦室，何者正確？",
+          "options": ["It is open 24 hours a day.", "People can't use it on Monday mornings.", "It closes at 5:00 p.m. every day.", "It is next to the front door."],
+          "answer": 1
         }
       ]
     },
     {
-      "id": "s2_r6",
+      "id": "s2_d6",
       "form": "B",
       "kind": "email",
-      "title": "English class has a new room",
+      "title": "From: Lakeside Bank",
       "lines": [
-        "Hi students,",
-        "This week our English class is in Room 3, not Room 2.",
-        "The class still begins at 6:30 on Thursday.",
-        "Please bring a book. See you there!",
-        "Ms. Park"
+        "Hi Mr. Lin,",
+        "Thank you for opening an account with us. Your new bank card will arrive by mail in five to seven days.",
+        "When it arrives, please call 555-0172 to choose a password.",
+        "Until then, you can take out cash at the counter with your passport.",
+        "There is no fee each month if you keep at least $500 in your account."
       ],
       "questions": [
         {
-          "en": "Why is Ms. Park writing this email?",
-          "zh": "朴老師為什麼寫這封電子郵件？",
-          "options": [
-            "To change the day of the class",
-            "To say the class has a new room",
-            "To ask students for help"
-          ],
-          "answer": 1
+          "en": "What should Mr. Lin do when the card arrives?",
+          "zh": "卡片寄到時，林先生應該做什麼？",
+          "options": ["Go to the counter", "Show his passport", "Phone the bank", "Pay a fee"],
+          "answer": 2
         },
         {
-          "en": "What should the students bring?",
-          "zh": "學生要帶什麼？",
-          "options": ["A hat", "A bag", "A book"],
-          "answer": 2
+          "en": "When does Mr. Lin not have to pay a fee each month?",
+          "zh": "林先生在什麼情況下不用付月費？",
+          "options": ["When he pays $500 to the bank", "When he keeps $500 or more in his account", "When he opens another account", "When he takes out cash at the counter"],
+          "answer": 1
         }
       ]
     },
     {
-      "id": "s2_r7",
+      "id": "s2_d7",
+      "form": "B",
+      "kind": "flyer",
+      "title": "English Practice Night",
+      "lines": [
+        "Want to practice your English? Join our English Practice Night at the Pine Hill Community Center!",
+        "We meet every Thursday from 6:30 to 8:00 p.m. in Room 204.",
+        "Each week, our volunteer teacher, Mr. Ruiz, chooses something new to talk about, like shopping or job interviews.",
+        "Members pay $10 a month. Your first night is free."
+      ],
+      "questions": [
+        {
+          "en": "What happens each week?",
+          "zh": "每週會做什麼？",
+          "options": ["Members go shopping together.", "Members have job interviews.", "People talk about something different.", "Mr. Ruiz teaches a computer class."],
+          "answer": 2
+        },
+        {
+          "en": "How much does it cost to come the first time?",
+          "zh": "第一次參加要多少錢？",
+          "options": ["Nothing", "$10 a week", "$10 a month", "$20 a month"],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "s2_d8",
       "form": "B",
       "kind": "message",
-      "title": "Mr. Chen (work)",
+      "title": "From: Grace Kim (job counselor)",
       "lines": [
-        "Hi Ms. Lee, the meeting is now at 3:00, not 2:00.",
-        "We will meet in the small room.",
-        "Please bring your computer with you.",
-        "See you then!"
+        "Hi Tomas, I have good news. The people at Bayview Trading want to interview you for the front desk job.",
+        "The interview is on Friday at 2:00 p.m. with the manager, Mr. Evans.",
+        "Please bring two copies of your resume. You don't need to wear a suit, but please look nice.",
+        "Let me know if Friday doesn't work for you."
       ],
       "questions": [
         {
-          "en": "When is the meeting now?",
-          "zh": "會議現在改到幾點？",
-          "options": ["At 2:00", "At 3:00", "At 4:00"],
-          "answer": 1
-        },
-        {
-          "en": "What should Ms. Lee bring to the meeting?",
-          "zh": "李女士要帶什麼去開會？",
-          "options": ["Her computer", "Her lunch", "A hat"],
-          "answer": 0
-        }
-      ]
-    },
-    {
-      "id": "s2_r8",
-      "form": "B",
-      "kind": "ad",
-      "title": "Clothes Sale",
-      "lines": [
-        "Good clothes for sale at Green Street Shop.",
-        "Hats are $10. Shirts are $20.",
-        "We are open every day from 10:00 to 6:00.",
-        "Buy two shirts and get a hat for free!"
-      ],
-      "questions": [
-        {
-          "en": "How much is a shirt?",
-          "zh": "一件襯衫多少錢？",
-          "options": ["$10", "$30", "$20"],
+          "en": "What job did Tomas apply for?",
+          "zh": "Tomas 應徵的是什麼工作？",
+          "options": ["Manager", "Job counselor", "Front desk clerk", "Sales clerk"],
           "answer": 2
         },
         {
-          "en": "What do you get if you buy two shirts?",
-          "zh": "買兩件襯衫可以得到什麼？",
-          "options": ["A free hat", "A free book", "A free lunch"],
-          "answer": 0
+          "en": "What should Tomas bring to the interview?",
+          "zh": "Tomas 面試時應該帶什麼？",
+          "options": ["A suit", "Two copies of his resume", "A letter from Mr. Evans", "A list of jobs"],
+          "answer": 1
         }
       ]
     }
