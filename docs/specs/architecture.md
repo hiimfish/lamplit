@@ -201,7 +201,7 @@ tests/              Vitest 測試
 - 句子填空、讀短文、聽對話答題各有自己的測試檔（`tests/fills.test.ts`、`passages.test.ts`、`talks.test.ts`），測內容檢查和出題；聽對話的播放節奏（`playConversation`）用假的播放和時鐘測，不需要瀏覽器。
 - 小劇場由 `tests/stageArt.test.ts`、`tests/stageState.test.ts` 檢查每一個有舞台的單元（見 [scene-stage.md](scene-stage.md) 的「測試」）。
 - 2026-11-22 第一幕做完時：34 個測試檔、1,186 個測試，全部通過（`npm test`）。
-- 2026-11-23 第二幕做完時：1,588 個測試全部通過；型別檢查、ESLint、Prettier 和正式建置也都沒有錯誤。`knip` 沒有跑（專案沒有安裝，也下載不到）。
+- 2026-11-23 第二幕做完時：1,588 個測試全部通過；型別檢查、ESLint、Prettier 和正式建置也都沒有錯誤。當時 `knip` 沒有跑（下載不到）；2026-11-25 起可以用 `npx knip` 跑。
 - 2026-11-24（已做）新增的測試：結業考的題目檔和計分、最常錯、跟著說、文法快練、聽力加量的播放節奏。每一類的對應檔案：
   - 結業考：`tests/validateExam.test.ts`（手寫題檔的格式、草稿、答案位置不超過 40%）、`tests/examContent.test.ts`（真的題目檔：只用教過的字、圖存在、不抄 5 字以上的句子）、`tests/exam.test.ts`、`tests/examRunner.test.ts`、`tests/examResult.test.ts`、`tests/examScore.test.ts`
   - 文法快練的題庫：`tests/grammarBank.test.ts`、`tests/grammarOn.test.ts`

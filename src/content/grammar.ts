@@ -90,7 +90,7 @@ export const GRAMMAR_POINTS: readonly GrammarPoint[] = [
     'quantifier',
     'street',
     't3',
-    'some 用在肯定句，any 用在否定句和疑問句：I need some coins. / Do you have any change?',
+    'some 用在肯定句，也用在邀請和請求（Would you like some coffee?）；any 用在否定句和一般疑問句：I need some coins. / Do you have any change?',
   ),
   p(
     'countable-uncountable',
@@ -179,7 +179,7 @@ export const GRAMMAR_POINTS: readonly GrammarPoint[] = [
     'modal',
     'bank',
     't6',
-    "have to 和 must 都表示必須；問句用 Do I have to…?，否定 don't have to 是「不必」。",
+    "have to 和 must 都表示必須；問句用 Do I have to…?。否定時意思不同：don't have to 是「不必」，mustn't 是「不可以」。",
   ),
   p(
     'going-to',
@@ -235,7 +235,7 @@ export const GRAMMAR_POINTS: readonly GrammarPoint[] = [
     'comparison',
     'job_center',
     't3',
-    '比較級：短形容詞加 -er，長形容詞用 more，比較對象前面用 than。',
+    '比較級：短形容詞加 -er（字尾 y 改成 -ier，busy → busier），長形容詞用 more，比較對象前面用 than。',
   ),
   p(
     'gerund-infinitive',
@@ -259,7 +259,7 @@ export const GRAMMAR_POINTS: readonly GrammarPoint[] = [
     'present-perfect',
     'resume',
     't6',
-    'just 是剛剛，already 是已經，yet 用在否定句和問句句尾，表示「還沒」。',
+    "just 是剛剛，already 是已經；yet 放句尾：否定句是「還沒」（I haven't sent it yet），問句是「…了嗎」（Have you sent it yet?）。",
   ),
   p(
     'present-perfect-for-since',
@@ -308,7 +308,7 @@ export const GRAMMAR_POINTS: readonly GrammarPoint[] = [
     'relative-clause',
     'office',
     't3',
-    'who 用來說明「人」：someone who can fix my monitor，who 後面接動詞。',
+    'who 用來說明「人」：someone who can fix my monitor；who 當主詞時，後面直接接動詞。',
   ),
   p(
     'verb-object-to',
