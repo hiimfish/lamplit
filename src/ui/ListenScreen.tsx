@@ -1,6 +1,13 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { playMusic } from '../audio/music';
 import { nowPlaying, playAudio, stopAudio } from '../audio/pronounce';
+import {
+  hasSeenRecognitionNote,
+  isRecognitionSupported,
+  listenAlternatives,
+  markRecognitionNoteSeen,
+  RECOGNITION_NOTE,
+} from '../audio/recognize';
 import { playSfx } from '../audio/sfx';
 import type { Task, Unit } from '../content/types';
 import { lineAudioId, speakerOf } from '../content/units';
@@ -9,9 +16,13 @@ import { dailyFor } from '../core/save';
 import { useStore } from '../core/store';
 import { finishListen, listenGoal, pickListenTask } from '../learning/listen';
 import { taskKey } from '../learning/sessionPlan';
+import { SPOKEN_LEVEL_LABEL, scoreSpoken } from '../learning/spokenScore';
+import type { SpokenMark, SpokenScore } from '../learning/spokenScore';
 import { ChatLines } from './ChatLines';
 import { useKeys } from './keys';
 import { KeyCap } from './KeyCap';
+import { ListenLoop } from './listenLoop';
+import type { ListenLoopSnapshot, ListenSummary } from './listenLoop';
 import { QuitKey } from './QuitKey';
 import { stageFrame, TaskStage } from './stage/SceneStage';
 import { stageAt } from './stage/stageState';
@@ -19,19 +30,49 @@ import { TOWN } from './TownScreen';
 import './flow.css';
 import './listen.css';
 
-/** Pause after a line before the next one plays by itself. */
-const GAP_MS = 900;
-/** 跟著說: after a line, wait as long as it took plus this, to say it aloud. */
-const SHADOW_EXTRA_MS = 1200;
-/** Browser speech resolves at once; give each word this long so auto-play does not rush. */
-const MS_PER_WORD = 320;
-
 type Pick = { unit: Unit; task: Task };
 
+const START: ListenLoopSnapshot = {
+  phase: 'idle',
+  index: -1,
+  auto: true,
+  shadow: false,
+  micOn: false,
+  tapToSpeak: false,
+  note: undefined,
+  score: null,
+  scoredLines: 0,
+};
+
+/** Shown with the first score of a visit. */
+const SCORE_DISCLAIMER = '分數是瀏覽器聽出幾個字，不是發音評分。';
+
 /**
- * 聽力加量: a story already played, heard again in English only. Lines play one
- * after another by themselves (自動); 跟著說 leaves room after each line to say it
- * aloud. 中文 is off here unless turned on for this screen.
+ * 辨識到 N／M 個字: N counts the target's words heard exactly or nearly (a near word is
+ * drawn with a thin underline); M counts all words except names that were missed, which
+ * the score leaves out as well.
+ */
+export function heardCount(marks: readonly SpokenMark[]): { heard: number; total: number } {
+  let heard = 0;
+  let total = 0;
+  for (const mark of marks) {
+    if (mark.status === 'missed' && mark.free) continue;
+    total += 1;
+    if (mark.status !== 'missed') heard += 1;
+  }
+  return { heard, total };
+}
+
+function scoreText(score: SpokenScore): string {
+  const { heard, total } = heardCount(score.marks);
+  return `辨識到 ${heard}／${total} 個字・${score.score} 分・${SPOKEN_LEVEL_LABEL[score.level]}`;
+}
+
+/**
+ * 聽力加量: a story already played, heard again in English only. ListenLoop plays the
+ * lines one after another by itself (自動); 跟著說 asks you to say each line after it and
+ * scores what the browser recognised. 中文 is off here unless turned on for this screen
+ * (all lines) or opened with 「中」 for one line.
  */
 export function ListenScreen() {
   const [pick, setPick] = useState<Pick | undefined>(() =>
@@ -40,81 +81,119 @@ export function ListenScreen() {
   const [shown, setShown] = useState(1);
   const [done, setDone] = useState(false);
   const [zh, setZh] = useState(false);
-  const [auto, setAuto] = useState(true);
-  const [shadow, setShadow] = useState(false);
+  const [peeked, setPeeked] = useState<ReadonlySet<string>>(() => new Set());
+  const [marks, setMarks] = useState<Record<string, SpokenMark[]>>({});
+  const [firstScored, setFirstScored] = useState<number | undefined>(undefined);
+  const [spoken, setSpoken] = useState<ListenSummary | undefined>(undefined);
+  const [snap, setSnap] = useState<ListenLoopSnapshot>(START);
   const { save } = useStore(appStore);
   const { audioId: heard } = useStore(nowPlaying);
-  useEffect(() => playMusic('cafe'), []);
-
-  // Settings and the newest play, read by timers that outlive a render.
-  const autoRef = useRef(auto);
-  autoRef.current = auto;
-  const shadowRef = useRef(shadow);
-  shadowRef.current = shadow;
-  const token = useRef(0);
-  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
-
-  const cancel = () => {
-    token.current += 1;
-    clearTimeout(timer.current);
-  };
-  useEffect(
-    () => () => {
-      cancel();
-      stopAudio();
-    },
-    [],
-  );
 
   const lines = pick?.task.scene ?? [];
   const last = shown >= lines.length;
 
+  // What the loop's callbacks read when they run, long after the render that made them.
+  const advanceFrom = useRef<(index: number) => void>(() => undefined);
+  const loopRef = useRef<ListenLoop | undefined>(undefined);
+  if (!loopRef.current) {
+    loopRef.current = new ListenLoop(setSnap, {
+      play: (audioId, options) => playAudio(audioId, options),
+      stopAudio,
+      listen: ({ timeoutMs }) => listenAlternatives({ timeoutMs }),
+      scoreSpoken,
+      now: () => performance.now(),
+      noteSeen: hasSeenRecognitionNote,
+      markNoteSeen: markRecognitionNoteSeen,
+      onAdvance: (index) => advanceFrom.current(index),
+    });
+  }
+  const loop = loopRef.current;
+
+  useEffect(
+    () => () => {
+      loop.dispose();
+      stopAudio();
+    },
+    [],
+  );
+  useEffect(() => {
+    const onHide = () => {
+      if (document.hidden) loop.halt();
+    };
+    document.addEventListener('visibilitychange', onHide);
+    return () => document.removeEventListener('visibilitychange', onHide);
+  }, []);
+
+  // The cafe music stops while 跟著說 has the microphone, so it is not picked up.
+  useEffect(() => playMusic(snap.micOn ? null : 'cafe'), [snap.micOn]);
+
+  // A new scene: the loop's lines, and no peeks, marks or scores left over.
+  useEffect(() => {
+    loop.setLines(
+      lines.map((line) => ({
+        audioId: lineAudioId(pick?.unit.id ?? '', line.id),
+        text: line.en,
+      })),
+    );
+    setPeeked(new Set());
+    setMarks({});
+    setFirstScored(undefined);
+    setSpoken(undefined);
+  }, [pick]);
+
+  // A score arrives: keep its marks for the line it belongs to.
+  useEffect(() => {
+    const line = lines[snap.index];
+    if (snap.phase !== 'scored' || !snap.score || !line) return;
+    const wordMarks = snap.score.marks;
+    setMarks((all) => ({ ...all, [line.id]: wordMarks }));
+    setFirstScored((first) => first ?? snap.index);
+  }, [snap.phase, snap.score]);
+
   const finish = () => {
     if (!pick || done) return;
-    cancel();
+    loop.halt();
+    const summary = loop.summary();
     commitSave(
-      finishListen(appStore.get().save, taskKey(pick.unit.id, pick.task.id), currentNow()),
+      finishListen(
+        appStore.get().save,
+        taskKey(pick.unit.id, pick.task.id),
+        currentNow(),
+        summary && { ...summary, sceneLines: lines.length },
+      ),
     );
     playSfx('complete');
+    setSpoken(summary);
     setDone(true);
   };
 
+  /** The loop asks for the line after `index` (its newest played line). */
+  advanceFrom.current = (index) => {
+    if (index + 1 >= lines.length) finish();
+    else setShown(index + 2);
+  };
+
   const advance = () => {
-    cancel();
+    loop.halt();
     if (last) finish();
     else setShown(shown + 1);
   };
-  const advanceRef = useRef(advance);
-  advanceRef.current = advance;
-
-  /** Plays a line; when it ends and 自動 is on, the next one follows after a gap. */
-  const play = async (index: number, slow = false) => {
-    const line = lines[index];
-    if (!pick || !line) return;
-    cancel();
-    const mine = token.current;
-    const started = performance.now();
-    await playAudio(lineAudioId(pick.unit.id, line.id), {
-      speed: slow ? 'slow' : 'normal',
-      text: line.en,
-    });
-    if (mine !== token.current) return;
-    const took = Math.max(performance.now() - started, line.en.split(/\s+/).length * MS_PER_WORD);
-    const wait = shadowRef.current ? took + SHADOW_EXTRA_MS : GAP_MS;
-    timer.current = setTimeout(() => {
-      if (mine === token.current && autoRef.current) advanceRef.current();
-    }, wait);
-  };
 
   useEffect(() => {
-    if (!done) void play(shown - 1);
+    if (!done && pick) loop.play(shown - 1);
   }, [shown, pick, done]);
 
-  const toggleAuto = () => {
-    const next = !auto;
-    setAuto(next);
-    // Turning it back on goes on from the line on screen.
-    if (next && !done) void play(shown - 1);
+  const toggleAuto = () => loop.setAuto(!snap.auto);
+  const toggleShadow = () => loop.setShadow(!snap.shadow);
+  const peek = (lineId: string) =>
+    setPeeked((open) => {
+      const next = new Set(open);
+      if (!next.delete(lineId)) next.add(lineId);
+      return next;
+    });
+  const peekCurrent = () => {
+    const line = lines[shown - 1];
+    if (line && !zh) peek(line.id);
   };
 
   const again = () => {
@@ -128,16 +207,23 @@ export function ListenScreen() {
     appStore.set({ screen: 'goal' });
   };
 
+  const confirming = snap.phase === 'confirm';
   useKeys(
-    done
+    !pick || done
       ? { Enter: toGoal }
-      : {
-          Enter: advance,
-          ArrowRight: advance,
-          Space: () => void play(shown - 1),
-          'Shift+Space': () => void play(shown - 1, true),
-          '0': () => setZh(!zh),
-        },
+      : confirming
+        ? { Enter: () => loop.confirm(), Escape: () => loop.decline() }
+        : {
+            Enter: advance,
+            ArrowRight: advance,
+            Space: () => loop.play(shown - 1),
+            'Shift+Space': () => loop.play(shown - 1, true),
+            '0': () => setZh(!zh),
+            g: peekCurrent,
+            a: toggleAuto,
+            s: toggleShadow,
+            r: () => loop.speak(),
+          },
   );
 
   if (!pick) {
@@ -152,6 +238,12 @@ export function ListenScreen() {
               <KeyCap k="Enter" />
             </button>
           </div>
+          <QuitKey
+            label="先回小鎮"
+            confirm={false}
+            onLeave={() => appStore.set({ screen: 'town' })}
+            testId="quit"
+          />
         </div>
       </div>
     );
@@ -162,6 +254,20 @@ export function ListenScreen() {
   const beat = done ? lines.length : shown;
   const today = dailyFor(save, currentNow()).listened;
   const goal = listenGoal(save.route);
+
+  const canSpeak = snap.micOn && isRecognitionSupported();
+  const speakLabel =
+    snap.phase === 'listening' ? '說完了' : snap.phase === 'scored' ? '再說一次' : '● 說';
+  const speakIdle = snap.phase === 'playing' || snap.phase === 'idle';
+  let status = '';
+  if (snap.phase === 'listening') status = '● 換你說…';
+  else if (snap.phase === 'ready') status = '按「說」再唸這一句。';
+  else if (snap.phase === 'scored' && snap.score) {
+    status = scoreText(snap.score);
+    if (snap.index === firstScored) status += ` ${SCORE_DISCLAIMER}`;
+  }
+  if (snap.note) status = status ? `${status} ${snap.note}` : snap.note;
+
   return (
     <div class={`flow${frame ? ' has-stage' : ''}`} data-testid="listen">
       {frame && (
@@ -183,6 +289,11 @@ export function ListenScreen() {
             <p class="flow-note">
               {unit.title}・{task.title}。今天聽了 {today}／{goal} 段。
             </p>
+            {spoken && (
+              <p class="flow-note" data-testid="listen-spoken">
+                跟著說 {spoken.lines} 句，平均 {spoken.score} 分（辨識到的字）。
+              </p>
+            )}
             <div class="flow-actions">
               <button class="pixel-button" onClick={again} data-testid="listen-again">
                 再聽一段
@@ -194,18 +305,26 @@ export function ListenScreen() {
             </div>
           </div>
         ) : (
-          <div class={`story${last ? '' : ' more'}`}>
+          <div class={`story listen-story${last ? '' : ' more'}`}>
             <p class="flow-heading">
               {unit.title}・{task.title}
             </p>
             <ChatLines
               lines={lines.slice(0, shown)}
               current={shown - 1}
-              onPlay={(index, slow) => void play(index, slow)}
+              onPlay={(index, slow) => loop.play(index, slow)}
               keyHints
               zh={zh}
+              peeked={peeked}
+              onPeek={peek}
+              marks={marks}
             />
-            <div class="listen-options" role="group" aria-label="聽的方式">
+            {!confirming && (
+              <p class="listen-status" aria-live="polite" data-testid="listen-status">
+                {status}
+              </p>
+            )}
+            <div class="listen-options" role="group" aria-label="聽的方式" hidden={confirming}>
               <button
                 class="pixel-button small"
                 aria-pressed={zh}
@@ -217,27 +336,64 @@ export function ListenScreen() {
               </button>
               <button
                 class="pixel-button small"
-                aria-pressed={auto}
+                aria-pressed={snap.auto}
                 onClick={toggleAuto}
                 data-testid="listen-auto"
               >
-                自動：{auto ? '開' : '關'}
+                自動：{snap.auto ? '開' : '關'}
+                <KeyCap k="a" />
               </button>
               <button
                 class="pixel-button small"
-                aria-pressed={shadow}
-                onClick={() => setShadow(!shadow)}
+                aria-pressed={snap.shadow}
+                onClick={toggleShadow}
                 data-testid="listen-shadow"
               >
-                跟著說：{shadow ? '開' : '關'}
+                跟著說：{snap.shadow ? '開' : '關'}
+                <KeyCap k="s" />
               </button>
             </div>
-            <div class="flow-actions">
-              <button class="pixel-button primary" onClick={advance} data-testid="listen-next">
-                {last ? '聽完了' : '下一句'}
-                <KeyCap k="Enter" />
-              </button>
-            </div>
+            {confirming ? (
+              <div class="listen-confirm" data-testid="recognize-note">
+                <p class="flow-note">{RECOGNITION_NOTE}</p>
+                <div class="flow-actions">
+                  <button
+                    class="pixel-button primary"
+                    onClick={() => loop.confirm()}
+                    data-testid="recognize-confirm"
+                  >
+                    繼續辨識
+                    <KeyCap k="Enter" />
+                  </button>
+                  <button
+                    class="pixel-button"
+                    onClick={() => loop.decline()}
+                    data-testid="recognize-cancel"
+                  >
+                    不用辨識
+                    <KeyCap k="Escape" />
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div class="flow-actions">
+                {canSpeak && (
+                  <button
+                    class="pixel-button"
+                    disabled={speakIdle}
+                    onClick={() => loop.speak()}
+                    data-testid="listen-speak"
+                  >
+                    {speakLabel}
+                    <KeyCap k="r" />
+                  </button>
+                )}
+                <button class="pixel-button primary" onClick={advance} data-testid="listen-next">
+                  {last ? '聽完了' : '下一句'}
+                  <KeyCap k="Enter" />
+                </button>
+              </div>
+            )}
           </div>
         )}
         <QuitKey
