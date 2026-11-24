@@ -1,1 +1,670 @@
-{}
+{
+  "model": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "models"
+    }
+  },
+  "trade": {
+    "pos": "other",
+    "skip": true
+  },
+  "aim": {
+    "pos": "other",
+    "skip": true
+  },
+  "brochure": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "brochures"
+    }
+  },
+  "display": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "displays"
+    }
+  },
+  "merchandise": {
+    "pos": "n",
+    "cls": "object",
+    "countable": false
+  },
+  "logo": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "logos"
+    }
+  },
+  "booth": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "booths"
+    }
+  },
+  "greet": {
+    "pos": "v",
+    "forms": {
+      "s3": "greets",
+      "past": "greeted",
+      "pp": "greeted",
+      "ing": "greeting"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["person", "role"]
+      }
+    ]
+  },
+  "market": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "markets"
+    }
+  },
+  "represent": {
+    "pos": "other",
+    "skip": true
+  },
+  "image": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "images"
+    }
+  },
+  "visitor": {
+    "pos": "n",
+    "cls": "person",
+    "forms": {
+      "pl": "visitors"
+    }
+  },
+  "representative": {
+    "pos": "n",
+    "cls": "role",
+    "forms": {
+      "pl": "representatives"
+    }
+  },
+  "shake": {
+    "pos": "other",
+    "skip": true
+  },
+  "brand": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "brands"
+    }
+  },
+  "retail": {
+    "pos": "other",
+    "skip": true
+  },
+  "nervous": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      }
+    ]
+  },
+  "confident": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      }
+    ]
+  },
+  "difference": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "differences"
+    }
+  },
+  "quality": {
+    "pos": "n",
+    "cls": "quality",
+    "countable": false
+  },
+  "feature": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "features"
+    }
+  },
+  "popular": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["object", "device", "food", "place", "event", "clothing"]
+      }
+    ]
+  },
+  "modern": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["object", "device", "place", "room", "vehicle"]
+      }
+    ]
+  },
+  "successful": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role", "event"]
+      }
+    ]
+  },
+  "competition": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "competitions"
+    }
+  },
+  "outdated": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["object", "device", "document"]
+      }
+    ]
+  },
+  "competitive": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["object", "device"]
+      }
+    ]
+  },
+  "competitor": {
+    "pos": "n",
+    "cls": "person",
+    "forms": {
+      "pl": "competitors"
+    }
+  },
+  "world": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "worlds"
+    }
+  },
+  "industry": {
+    "pos": "other",
+    "skip": true
+  },
+  "international": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["event", "place"]
+      }
+    ]
+  },
+  "region": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "regions"
+    }
+  },
+  "wide": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["place", "room"]
+      }
+    ]
+  },
+  "variety": {
+    "pos": "other",
+    "skip": true
+  },
+  "million": {
+    "pos": "other",
+    "skip": true
+  },
+  "guide": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "guides"
+    }
+  },
+  "attract": {
+    "pos": "v",
+    "forms": {
+      "s3": "attracts",
+      "past": "attracted",
+      "pp": "attracted",
+      "ing": "attracting"
+    },
+    "frames": [
+      {
+        "subj": ["event", "place"],
+        "obj": ["person"]
+      }
+    ]
+  },
+  "exhibition": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "exhibitions"
+    }
+  },
+  "design": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "designs"
+    }
+  },
+  "draw": {
+    "pos": "other",
+    "skip": true
+  },
+  "range": {
+    "pos": "other",
+    "skip": true
+  },
+  "release": {
+    "pos": "v",
+    "forms": {
+      "s3": "releases",
+      "past": "released",
+      "pp": "released",
+      "ing": "releasing"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["device", "object"]
+      }
+    ]
+  },
+  "style": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "styles"
+    }
+  },
+  "pattern": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "patterns"
+    }
+  },
+  "shape": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "shapes"
+    }
+  },
+  "designer": {
+    "pos": "n",
+    "cls": "role",
+    "forms": {
+      "pl": "designers"
+    }
+  },
+  "catalog": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "catalogs"
+    }
+  },
+  "accessory": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "accessories"
+    }
+  },
+  "develop": {
+    "pos": "v",
+    "forms": {
+      "s3": "develops",
+      "past": "developed",
+      "pp": "developed",
+      "ing": "developing"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["device", "object"]
+      }
+    ]
+  },
+  "preview": {
+    "pos": "other",
+    "skip": true
+  },
+  "video": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "videos"
+    }
+  },
+  "powerful": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["device", "object", "vehicle"]
+      }
+    ]
+  },
+  "engineer": {
+    "pos": "n",
+    "cls": "role",
+    "forms": {
+      "pl": "engineers"
+    }
+  },
+  "unique": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["object", "device", "place"]
+      }
+    ]
+  },
+  "demonstration": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "demonstrations"
+    }
+  },
+  "digital": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["device", "object", "document"]
+      }
+    ]
+  },
+  "translate": {
+    "pos": "v",
+    "forms": {
+      "s3": "translates",
+      "past": "translated",
+      "pp": "translated",
+      "ing": "translating"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["document"]
+      }
+    ]
+  },
+  "efficiently": {
+    "pos": "other",
+    "skip": true
+  },
+  "photograph": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "photographs"
+    }
+  },
+  "participant": {
+    "pos": "n",
+    "cls": "person",
+    "forms": {
+      "pl": "participants"
+    }
+  },
+  "enormous": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["object", "place", "room", "vehicle", "event"]
+      }
+    ]
+  },
+  "worldwide": {
+    "pos": "other",
+    "skip": true
+  },
+  "convention": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "conventions"
+    }
+  },
+  "creative": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role", "document"]
+      }
+    ]
+  },
+  "impress": {
+    "pos": "v",
+    "forms": {
+      "s3": "impresses",
+      "past": "impressed",
+      "pp": "impressed",
+      "ing": "impressing"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role", "object", "device"],
+        "obj": ["person", "role"]
+      }
+    ]
+  },
+  "yearly": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["event"]
+      }
+    ]
+  },
+  "excitement": {
+    "pos": "other",
+    "skip": true
+  },
+  "enthusiastic": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      }
+    ]
+  },
+  "advantage": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "advantages"
+    }
+  },
+  "target": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "targets"
+    }
+  },
+  "potential": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      }
+    ]
+  },
+  "partner": {
+    "pos": "n",
+    "cls": "person",
+    "forms": {
+      "pl": "partners"
+    }
+  },
+  "typical": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["event", "day", "document"]
+      }
+    ]
+  },
+  "ideal": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["place", "room", "object", "device"]
+      }
+    ]
+  },
+  "persuade": {
+    "pos": "v",
+    "forms": {
+      "s3": "persuades",
+      "past": "persuaded",
+      "pp": "persuaded",
+      "ing": "persuading"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["person", "role"]
+      }
+    ]
+  },
+  "showroom": {
+    "pos": "n",
+    "cls": "room",
+    "forms": {
+      "pl": "showrooms"
+    }
+  },
+  "reliable": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role", "device", "vehicle"]
+      }
+    ]
+  },
+  "costly": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["device", "vehicle", "object", "event"]
+      }
+    ]
+  },
+  "in": {
+    "pos": "prep",
+    "frames": [
+      {
+        "subj": ["person", "object", "device", "document"],
+        "obj": ["room", "place"]
+      }
+    ]
+  },
+  "beside": {
+    "pos": "prep",
+    "frames": [
+      {
+        "subj": ["object", "document", "device"],
+        "obj": ["object"]
+      }
+    ]
+  },
+  "lines": {
+    "t1_2": {
+      "side": "question",
+      "qtype": "where"
+    },
+    "t1_3": {
+      "side": "answer",
+      "atype": "place"
+    },
+    "t1_5": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t1_6": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t2_1": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t2_2": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t3_4": {
+      "side": "question",
+      "qtype": "what"
+    },
+    "t3_5": {
+      "side": "answer",
+      "atype": "thing"
+    },
+    "t8_3": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t8_4": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t8_5": {
+      "side": "question",
+      "qtype": "request"
+    },
+    "t8_6": {
+      "side": "answer",
+      "atype": "agree"
+    },
+    "t9_10": {
+      "side": "question",
+      "qtype": "what"
+    },
+    "t9_11": {
+      "side": "answer",
+      "atype": "thing"
+    },
+    "t9_18": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t9_19": {
+      "side": "answer",
+      "atype": "yes-no"
+    }
+  }
+}
