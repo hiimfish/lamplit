@@ -1,1 +1,520 @@
-{}
+{
+  "supplier": {
+    "pos": "n",
+    "cls": "role",
+    "forms": {
+      "pl": "suppliers"
+    }
+  },
+  "visit": {
+    "pos": "v",
+    "forms": {
+      "s3": "visits",
+      "past": "visited",
+      "pp": "visited",
+      "ing": "visiting"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["place", "role"]
+      }
+    ]
+  },
+  "sample": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "samples"
+    }
+  },
+  "quote": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "quotes"
+    }
+  },
+  "purchase": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "purchases"
+    }
+  },
+  "firm": {
+    "pos": "other",
+    "skip": true
+  },
+  "particular": {
+    "pos": "other",
+    "skip": true
+  },
+  "unit": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "units"
+    }
+  },
+  "per": {
+    "pos": "other",
+    "skip": true
+  },
+  "minimum": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["money", "number"]
+      }
+    ]
+  },
+  "discount": {
+    "pos": "n",
+    "cls": "money",
+    "forms": {
+      "pl": "discounts"
+    }
+  },
+  "average": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["money", "number", "time"]
+      }
+    ]
+  },
+  "standard": {
+    "pos": "other",
+    "skip": true
+  },
+  "sixteen": {
+    "pos": "other",
+    "skip": true
+  },
+  "nineteen": {
+    "pos": "other",
+    "skip": true
+  },
+  "within": {
+    "pos": "other",
+    "skip": true
+  },
+  "fourteen": {
+    "pos": "other",
+    "skip": true
+  },
+  "eighteen": {
+    "pos": "other",
+    "skip": true
+  },
+  "period": {
+    "pos": "other",
+    "skip": true
+  },
+  "likely": {
+    "pos": "other",
+    "skip": true
+  },
+  "process": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "processes"
+    }
+  },
+  "exact": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["money", "number", "time"]
+      }
+    ]
+  },
+  "availability": {
+    "pos": "other",
+    "skip": true
+  },
+  "quantity": {
+    "pos": "n",
+    "cls": "number",
+    "forms": {
+      "pl": "quantities"
+    }
+  },
+  "term": {
+    "pos": "other",
+    "skip": true
+  },
+  "condition": {
+    "pos": "other",
+    "skip": true
+  },
+  "additional": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["object", "money", "document", "time"]
+      }
+    ]
+  },
+  "approximately": {
+    "pos": "other",
+    "skip": true
+  },
+  "value": {
+    "pos": "n",
+    "cls": "money",
+    "countable": false
+  },
+  "specific": {
+    "pos": "other",
+    "skip": true
+  },
+  "material": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "materials"
+    }
+  },
+  "guarantee": {
+    "pos": "other",
+    "skip": true
+  },
+  "deal": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "deals"
+    }
+  },
+  "reasonable": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["money"]
+      }
+    ]
+  },
+  "seventeen": {
+    "pos": "other",
+    "skip": true
+  },
+  "cut": {
+    "pos": "v",
+    "forms": {
+      "s3": "cuts",
+      "past": "cut",
+      "pp": "cut",
+      "ing": "cutting"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["money"]
+      }
+    ]
+  },
+  "rise": {
+    "pos": "v",
+    "forms": {
+      "s3": "rises",
+      "past": "rose",
+      "pp": "risen",
+      "ing": "rising"
+    },
+    "frames": [
+      {
+        "subj": ["money", "number"]
+      }
+    ]
+  },
+  "afford": {
+    "pos": "v",
+    "forms": {
+      "s3": "affords",
+      "past": "afforded",
+      "pp": "afforded",
+      "ing": "affording"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["object", "device", "vehicle"]
+      }
+    ]
+  },
+  "negotiate": {
+    "pos": "v",
+    "forms": {
+      "s3": "negotiates",
+      "past": "negotiated",
+      "pp": "negotiated",
+      "ing": "negotiating"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["money", "document"]
+      }
+    ]
+  },
+  "worth": {
+    "pos": "other",
+    "skip": true
+  },
+  "deliver": {
+    "pos": "v",
+    "forms": {
+      "s3": "delivers",
+      "past": "delivered",
+      "pp": "delivered",
+      "ing": "delivering"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["object", "food", "document"],
+        "prep": {
+          "word": "to",
+          "cls": ["place", "person"]
+        }
+      }
+    ]
+  },
+  "confirmation": {
+    "pos": "n",
+    "cls": "document",
+    "countable": false
+  },
+  "agreement": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "agreements"
+    }
+  },
+  "reduce": {
+    "pos": "v",
+    "forms": {
+      "s3": "reduces",
+      "past": "reduced",
+      "pp": "reduced",
+      "ing": "reducing"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["money", "number"]
+      }
+    ]
+  },
+  "reduction": {
+    "pos": "other",
+    "skip": true
+  },
+  "produce": {
+    "pos": "v",
+    "forms": {
+      "s3": "produces",
+      "past": "produced",
+      "pp": "produced",
+      "ing": "producing"
+    },
+    "frames": [
+      {
+        "subj": ["role"],
+        "obj": ["object", "device", "food"]
+      }
+    ]
+  },
+  "production": {
+    "pos": "other",
+    "skip": true
+  },
+  "manufacturer": {
+    "pos": "n",
+    "cls": "role",
+    "forms": {
+      "pl": "manufacturers"
+    }
+  },
+  "select": {
+    "pos": "v",
+    "forms": {
+      "s3": "selects",
+      "past": "selected",
+      "pp": "selected",
+      "ing": "selecting"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["object", "device", "document"]
+      }
+    ]
+  },
+  "delay": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "delays"
+    }
+  },
+  "demand": {
+    "pos": "other",
+    "skip": true
+  },
+  "increase": {
+    "pos": "v",
+    "forms": {
+      "s3": "increases",
+      "past": "increased",
+      "pp": "increased",
+      "ing": "increasing"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["money", "number"]
+      },
+      {
+        "subj": ["money", "number"]
+      }
+    ]
+  },
+  "significantly": {
+    "pos": "other",
+    "skip": true
+  },
+  "import": {
+    "pos": "v",
+    "forms": {
+      "s3": "imports",
+      "past": "imported",
+      "pp": "imported",
+      "ing": "importing"
+    },
+    "frames": [
+      {
+        "subj": ["role"],
+        "obj": ["object", "device", "food"]
+      }
+    ]
+  },
+  "export": {
+    "pos": "v",
+    "forms": {
+      "s3": "exports",
+      "past": "exported",
+      "pp": "exported",
+      "ing": "exporting"
+    },
+    "frames": [
+      {
+        "subj": ["role"],
+        "obj": ["object", "device", "food"]
+      }
+    ]
+  },
+  "alternative": {
+    "pos": "other",
+    "skip": true
+  },
+  "source": {
+    "pos": "other",
+    "skip": true
+  },
+  "partly": {
+    "pos": "other",
+    "skip": true
+  },
+  "volume": {
+    "pos": "other",
+    "skip": true
+  },
+  "invoice": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "invoices"
+    }
+  },
+  "method": {
+    "pos": "other",
+    "skip": true
+  },
+  "owe": {
+    "pos": "v",
+    "forms": {
+      "s3": "owes",
+      "past": "owed",
+      "pp": "owed",
+      "ing": "owing"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["money"],
+        "prep": {
+          "word": "to",
+          "cls": ["person", "role"]
+        }
+      }
+    ]
+  },
+  "overdue": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["document", "money"]
+      }
+    ]
+  },
+  "transaction": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "transactions"
+    }
+  },
+  "proof": {
+    "pos": "other",
+    "skip": true
+  },
+  "calculate": {
+    "pos": "v",
+    "forms": {
+      "s3": "calculates",
+      "past": "calculated",
+      "pp": "calculated",
+      "ing": "calculating"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["money", "number"]
+      }
+    ]
+  },
+  "authorize": {
+    "pos": "v",
+    "forms": {
+      "s3": "authorizes",
+      "past": "authorized",
+      "pp": "authorized",
+      "ing": "authorizing"
+    },
+    "frames": [
+      {
+        "subj": ["role"],
+        "obj": ["money", "document"]
+      }
+    ]
+  },
+  "directly": {
+    "pos": "other",
+    "skip": true
+  }
+}
