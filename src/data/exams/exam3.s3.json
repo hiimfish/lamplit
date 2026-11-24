@@ -1,149 +1,400 @@
 {
   "exam": "exam3",
   "section": "s3",
+  "fills": [
+    {
+      "id": "s3_a1",
+      "form": "A",
+      "grammar": true,
+      "en": "Mr. Hughes ___ a voicemail for Ms. Carter about an hour ago.",
+      "zh": "大約一個小時前，Hughes 先生留了一則語音留言給 Carter 小姐。",
+      "options": ["leaves", "left", "leaving", "has left"],
+      "answer": 1,
+      "note": "有 an hour ago，用過去式；完成式不能接 ago。"
+    },
+    {
+      "id": "s3_a2",
+      "form": "A",
+      "grammar": true,
+      "en": "All warehouse workers ___ to wear gloves near the machinery.",
+      "zh": "所有倉庫員工在機器附近都必須戴手套。",
+      "options": ["require", "requires", "are required", "are requiring"],
+      "answer": 2,
+      "note": "員工是「被要求」，用被動式 are required to。"
+    },
+    {
+      "id": "s3_a3",
+      "form": "A",
+      "grammar": true,
+      "en": "Would you mind ___ the agenda to everyone before the meeting?",
+      "zh": "可以麻煩你在開會前把議程寄給大家嗎？",
+      "options": ["send", "to send", "sent", "sending"],
+      "answer": 3,
+      "note": "mind 後面接動名詞 V-ing。"
+    },
+    {
+      "id": "s3_a4",
+      "form": "A",
+      "grammar": true,
+      "en": "Ms. Lin ___ in the purchasing department since 2023.",
+      "zh": "林小姐從 2023 年起就一直在採購部工作。",
+      "options": ["works", "worked", "has worked", "is working"],
+      "answer": 2,
+      "note": "since 表示一直到現在，用現在完成式。"
+    },
+    {
+      "id": "s3_a5",
+      "form": "A",
+      "grammar": true,
+      "en": "Ms. Carter asked me to send ___ the final version of the report.",
+      "zh": "Carter 小姐請我把報告的最終版寄給她。",
+      "options": ["she", "hers", "she's", "her"],
+      "answer": 3,
+      "note": "send 後面接受格 her。"
+    },
+    {
+      "id": "s3_a6",
+      "form": "A",
+      "grammar": true,
+      "en": "This hotel is ___ than the one we stayed at last year.",
+      "zh": "這家飯店比我們去年住的那家方便。",
+      "options": ["convenient", "more convenient", "most convenient", "as convenient"],
+      "answer": 1,
+      "note": "後面有 than，用比較級。"
+    },
+    {
+      "id": "s3_a7",
+      "form": "A",
+      "en": "Warehouse staff must count the boxes ___ before each shipment leaves.",
+      "zh": "每批貨出發前，倉庫人員都必須準確清點箱子。",
+      "options": ["accurate", "more accurate", "most accurate", "accurately"],
+      "answer": 3,
+      "note": "修飾動詞 count，要用副詞。"
+    },
+    {
+      "id": "s3_a8",
+      "form": "A",
+      "en": "We need Ms. Carter's ___ before we can order the new printers.",
+      "zh": "我們要先得到 Carter 小姐的核准，才能訂購新的印表機。",
+      "options": ["approve", "approved", "approval", "approves"],
+      "answer": 2,
+      "note": "所有格後面接名詞 approval（核准）。"
+    },
+    {
+      "id": "s3_a9",
+      "form": "A",
+      "en": "Because of the storm, the airline changed the ___ time of our flight.",
+      "zh": "因為暴風雨，航空公司更改了我們班機的起飛時間。",
+      "options": ["departure", "luggage", "aisle", "destination"],
+      "answer": 0,
+      "note": "departure time 是「起飛時間」。"
+    },
+    {
+      "id": "s3_a10",
+      "form": "A",
+      "en": "Please ___ your expense report to the accounting department by Friday.",
+      "zh": "請在星期五以前把你的費用報告交給會計部。",
+      "options": ["submit", "attend", "reserve", "locate"],
+      "answer": 0,
+      "note": "submit ... to 是「把⋯⋯交給」。"
+    },
+    {
+      "id": "s3_a11",
+      "form": "A",
+      "en": "The conference room is free ___ two and four this afternoon.",
+      "zh": "會議室今天下午兩點到四點之間是空的。",
+      "options": ["between", "from", "during", "until"],
+      "answer": 0,
+      "note": "between A and B：在 A 和 B 之間。"
+    },
+    {
+      "id": "s3_a12",
+      "form": "A",
+      "en": "The shipment arrived two days late, ___ the customer was still satisfied.",
+      "zh": "貨晚了兩天才到，但客戶還是很滿意。",
+      "options": ["because", "but", "unless", "so"],
+      "answer": 1,
+      "note": "前後意思相反（晚到，卻滿意），用 but。"
+    },
+    {
+      "id": "s3_b1",
+      "form": "B",
+      "grammar": true,
+      "en": "A technician ___ the printer on the third floor yesterday afternoon.",
+      "zh": "昨天下午有一位技術人員修好了三樓的印表機。",
+      "options": ["fix", "fixes", "fixed", "has fixed"],
+      "answer": 2,
+      "note": "有 yesterday，用過去式 fixed。"
+    },
+    {
+      "id": "s3_b2",
+      "form": "B",
+      "grammar": true,
+      "en": "Refreshments for tomorrow's meeting ___ by a caterer.",
+      "zh": "明天會議的茶點會由外燴業者提供。",
+      "options": ["will provide", "will be provided", "are providing", "provide"],
+      "answer": 1,
+      "note": "茶點是「被提供」，用未來被動式。"
+    },
+    {
+      "id": "s3_b3",
+      "form": "B",
+      "grammar": true,
+      "en": "Ms. Carter has decided ___ the team meeting until next Tuesday.",
+      "zh": "Carter 小姐決定把團隊會議延到下星期二。",
+      "options": ["postpone", "postponing", "to postpone", "postponed"],
+      "answer": 2,
+      "note": "decide 後面接 to + 原形動詞。"
+    },
+    {
+      "id": "s3_b4",
+      "form": "B",
+      "grammar": true,
+      "en": "We ___ a reply from the supplier since Monday.",
+      "zh": "從星期一到現在，我們都還沒收到廠商的回覆。",
+      "options": ["haven't received", "didn't receive", "don't receive", "aren't receiving"],
+      "answer": 0,
+      "note": "since 表示一直到現在，用現在完成式。"
+    },
+    {
+      "id": "s3_b5",
+      "form": "B",
+      "grammar": true,
+      "en": "Mr. Grant called to say the replacement lamp finally reached ___ this morning.",
+      "zh": "Grant 先生打電話來說，換貨的檯燈今天早上終於送到他那裡了。",
+      "options": ["he", "his", "he's", "him"],
+      "answer": 3,
+      "note": "reach 後面接受格 him。"
+    },
+    {
+      "id": "s3_b6",
+      "form": "B",
+      "grammar": true,
+      "en": "Our booth was one of the ___ booths at the trade fair.",
+      "zh": "我們的攤位是商展上最受歡迎的攤位之一。",
+      "options": ["popular", "more popular", "most popular", "as popular"],
+      "answer": 2,
+      "note": "one of the 後面接最高級。"
+    },
+    {
+      "id": "s3_b7",
+      "form": "B",
+      "en": "The receptionist explained the hotel rules very ___.",
+      "zh": "櫃檯人員把飯店規定解釋得很清楚。",
+      "options": ["clear", "clearly", "clearer", "clearest"],
+      "answer": 1,
+      "note": "修飾動詞 explained，要用副詞。"
+    },
+    {
+      "id": "s3_b8",
+      "form": "B",
+      "en": "Please send us written ___ of your order before we start production.",
+      "zh": "在我們開始生產之前，請寄給我們訂單的書面確認。",
+      "options": ["confirm", "confirming", "confirmed", "confirmation"],
+      "answer": 3,
+      "note": "形容詞 written 後面接名詞。"
+    },
+    {
+      "id": "s3_b9",
+      "form": "B",
+      "en": "Guests can leave their ___ at the front desk after checkout.",
+      "zh": "房客退房後可以把行李寄放在櫃檯。",
+      "options": ["vacancy", "luggage", "departure", "reception"],
+      "answer": 1,
+      "note": "退房後寄放在櫃檯的是行李。"
+    },
+    {
+      "id": "s3_b10",
+      "form": "B",
+      "en": "Before you sign the agreement, please ___ that all the prices are correct.",
+      "zh": "在簽合約之前，請確認所有價格都正確。",
+      "options": ["attend", "reserve", "verify", "postpone"],
+      "answer": 2,
+      "note": "verify that ... 是「確認⋯⋯」。"
+    },
+    {
+      "id": "s3_b11",
+      "form": "B",
+      "en": "The supplier agreed to deliver the goods ___ ten days of our order.",
+      "zh": "廠商同意在我們下單後十天內交貨。",
+      "options": ["within", "during", "since", "between"],
+      "answer": 0,
+      "note": "within ten days of：⋯⋯後十天內。"
+    },
+    {
+      "id": "s3_b12",
+      "form": "B",
+      "en": "We will send your refund ___ we receive the item you returned.",
+      "zh": "我們收到您退回的商品之後，就會把退款寄給您。",
+      "options": ["after", "unless", "or", "so"],
+      "answer": 0,
+      "note": "先收到退貨再退款，用 after。"
+    }
+  ],
   "textFills": [
     {
-      "id": "s3_f1",
+      "id": "s3_ta1",
       "form": "A",
-      "kind": "notice",
-      "title": "Schedule change",
+      "kind": "email",
+      "title": "Change to Thursday's meeting",
       "lines": [
-        "To all staff,",
-        "The Tuesday meeting ___ to Thursday.",
-        "Everyone ___ planned to come should still come.",
-        "Please send your questions to Ms. Reed ___ Wednesday."
+        "Dear team,",
+        "Thursday's sales meeting has been ___ to Friday at 10 a.m., because Ms. Carter will be at the trade fair on Thursday.",
+        "We will meet in Room 3 instead of the conference room. ___",
+        "Because of this, please print your slides and bring ten copies of ___.",
+        "Thanks, Nina"
       ],
       "zh": [
         "各位同仁：",
-        "星期二的會議已經改到星期四。",
-        "原本打算參加的人還是請來。",
-        "請在星期三以前把問題寄給 Ms. Reed。"
+        "星期四的業務會議已經延到星期五上午十點，因為 Carter 小姐星期四會在商展。",
+        "我們會在三號會議室開會，不在大會議室。可惜三號會議室沒有投影機。",
+        "因此，請把你的投影片印出來，帶十份來。",
+        "謝謝，Nina"
       ],
       "blanks": [
         {
-          "options": ["has been moved", "have been moved", "has been moving", "has move"],
+          "options": ["postponed", "canceled", "attended", "reserved"],
           "answer": 0,
-          "note": "會議是被改期，要用被動式，主詞 meeting 是單數。"
-        },
-        {
-          "options": ["which", "who", "whose", "where"],
-          "answer": 1,
-          "note": "指人的關係子句用 who。"
-        },
-        {
-          "options": ["during", "since", "by", "within"],
-          "answer": 2,
-          "note": "「在星期三以前」用 by。"
-        }
-      ]
-    },
-    {
-      "id": "s3_f2",
-      "form": "A",
-      "kind": "email",
-      "title": "Your order",
-      "lines": [
-        "Dear Mr. Hughes,",
-        "Thank you for your order. We ___ your payment yesterday.",
-        "Your boxes will arrive ___ three days.",
-        "___",
-        "Sincerely, Ms. Carter"
-      ],
-      "zh": [
-        "Hughes 先生您好：",
-        "謝謝您的訂購。我們昨天收到了您的款項。",
-        "您的箱子會在三天內送到。",
-        "如果您的訂單有任何問題，請打電話給我。",
-        "誠摯地，Ms. Carter"
-      ],
-      "blanks": [
-        {
-          "options": ["receive", "receives", "receiving", "received"],
-          "answer": 3,
-          "note": "有 yesterday，要用過去式。"
-        },
-        {
-          "options": ["within", "since", "until", "at"],
-          "answer": 0,
-          "note": "「三天內」用 within。"
+          "note": "改到星期五，是「延期」。"
         },
         {
           "options": [
-            "The hotel room I booked was very small.",
-            "Please call me if there is a problem with your order.",
-            "Most of the staff were at the trade fair.",
-            "Our lunch is provided every Friday."
+            "The trade fair opens at nine on Thursday morning.",
+            "The conference room has a new projector.",
+            "Unfortunately, it does not have a projector.",
+            "Lunch will be provided after the meeting."
           ],
+          "answer": 2,
+          "note": "it 指 Room 3；沒投影機，所以要印出來。"
+        },
+        {
+          "options": ["they", "them", "their", "theirs"],
           "answer": 1,
-          "note": "這封信在講訂單，只有這句接得上。"
+          "note": "介系詞 of 後面接受格 them。"
         }
       ]
     },
     {
-      "id": "s3_f3",
+      "id": "s3_ta2",
+      "form": "A",
+      "kind": "notice",
+      "title": "New rule for fragile goods",
+      "lines": [
+        "To all warehouse staff:",
+        "From Monday, March 3, all fragile goods must be wrapped in plastic and ___ with a red label.",
+        "___",
+        "If you cannot find them, please ask Mr. Lopez ___ you start packing.",
+        "Thank you for helping us prevent damage."
+      ],
+      "zh": [
+        "倉庫全體同仁：",
+        "從三月三日星期一起，所有易碎品都必須用塑膠包好，並貼上紅色標籤。",
+        "標籤放在二號碼頭旁邊的架子上。",
+        "如果找不到，請在開始打包前先問 Lopez 先生。",
+        "謝謝大家一起幫忙避免貨物損壞。"
+      ],
+      "blanks": [
+        {
+          "options": ["mark", "marks", "marking", "marked"],
+          "answer": 3,
+          "note": "be wrapped and marked，兩個都是被動。"
+        },
+        {
+          "options": [
+            "The labels are kept on the shelf next to Dock 2.",
+            "Last month, two boxes of glass arrived broken.",
+            "The truck for Mr. Hughes's order leaves at three.",
+            "Our warehouse is closed on Sundays."
+          ],
+          "answer": 0,
+          "note": "下一句的 them 指標籤放的地方。"
+        },
+        {
+          "options": ["because", "unless", "before", "since"],
+          "answer": 2,
+          "note": "「開始打包之前」先問，用 before。"
+        }
+      ]
+    },
+    {
+      "id": "s3_tb1",
       "form": "B",
       "kind": "email",
-      "title": "Your booking",
+      "title": "Re: Your coffee machine",
       "lines": [
-        "Dear Ms. Lin,",
-        "We tried to call you while you ___ the booking form.",
-        "Please call us ___ you arrive at the hotel.",
-        "Please read our hotel rules ___."
+        "Dear Mr. Grant,",
+        "I am very sorry that the coffee machine you ordered from us arrived ___.",
+        "We will send you a new one on Thursday. ___",
+        "Please give him the broken machine so that he can return it to us.",
+        "Again, we apologize for the ___.",
+        "Sincerely, Ms. Wong, Customer Service"
       ],
       "zh": [
-        "Lin 女士您好：",
-        "您填寫訂房表格的時候，我們試著打電話給您。",
-        "您一到飯店，請打電話給我們。",
-        "請仔細閱讀我們的飯店規定。"
+        "Grant 先生您好：",
+        "很抱歉，您向我們訂購的咖啡機送到時已經損壞。",
+        "我們星期四會寄一台新的給您。我們的司機會在早上送到您的辦公室。",
+        "請把壞掉的咖啡機交給他，讓他帶回來給我們。",
+        "造成您的不便，再次向您致歉。",
+        "客服部 Wong 小姐 敬上"
       ],
       "blanks": [
         {
-          "options": ["was filling", "are filled", "filling", "were filling"],
+          "options": ["damage", "damaged", "damaging", "to damage"],
+          "answer": 1,
+          "note": "arrived damaged：送到時已損壞。"
+        },
+        {
+          "options": [
+            "The machine comes with a guarantee.",
+            "You will also receive a coupon for your next order.",
+            "I ordered it from our supplier this morning.",
+            "Our driver will bring it to your office in the morning."
+          ],
           "answer": 3,
-          "note": "while 加過去進行式，主詞 you 用 were。"
+          "note": "下一句的 him、he 指司機。"
         },
         {
-          "options": ["during", "until", "as soon as", "unless"],
-          "answer": 2,
-          "note": "「一到就打電話」用 as soon as。"
-        },
-        {
-          "options": ["carefully", "careful", "care", "caring"],
+          "options": ["inconvenience", "satisfaction", "guarantee", "agenda"],
           "answer": 0,
-          "note": "修飾動詞 read 要用副詞 carefully。"
+          "note": "為造成的不便道歉。"
         }
       ]
     },
     {
-      "id": "s3_f4",
+      "id": "s3_tb2",
       "form": "B",
       "kind": "notice",
-      "title": "Trade fair information",
+      "title": "Holiday party",
       "lines": [
-        "The fair is open ___ the weekend, from ten to six.",
-        "If you ___ early, you will get a free bag.",
-        "Many companies show their new ___ at the fair."
+        "Our holiday party will be held at the Grand Hall on Friday, December 12, ___ 6:30 p.m.",
+        "There will be a buffet dinner, live music and a short award ceremony. ___",
+        "If you would like to bring someone, please ___ Ms. Carter know by Monday."
       ],
       "zh": [
-        "展覽在週末期間開放，從十點到六點。",
-        "如果您早點來，就能拿到一個免費的袋子。",
-        "很多公司在展覽上展示他們的新產品。"
+        "我們的年末派對將在十二月十二日星期五晚上六點半，於 Grand Hall 舉行。",
+        "現場有自助餐、現場音樂和簡短的頒獎典禮。今年每位員工也可以帶一位來賓。",
+        "如果你想帶人來，請在星期一以前告訴 Carter 小姐。"
       ],
       "blanks": [
         {
-          "options": ["by", "within", "during", "since"],
+          "options": ["in", "on", "at", "by"],
           "answer": 2,
-          "note": "「在週末期間」用 during。"
+          "note": "幾點幾分前面用 at。"
         },
         {
-          "options": ["came", "will come", "coming", "come"],
-          "answer": 3,
-          "note": "if 子句用現在式，不加 will。"
+          "options": [
+            "This year, each member of staff may also bring one guest.",
+            "Please do not bring any food or drinks.",
+            "The winners will receive their prizes on stage.",
+            "The Grand Hall is a short walk from our office."
+          ],
+          "answer": 0,
+          "note": "先說可以帶來賓，才接「想帶人來」。"
         },
         {
-          "options": ["produce", "products", "produced", "producing"],
-          "answer": 1,
-          "note": "their new 後面接名詞，複數 products。"
+          "options": ["to let", "letting", "let", "lets"],
+          "answer": 2,
+          "note": "please 後接原形：let someone know。"
         }
       ]
     }

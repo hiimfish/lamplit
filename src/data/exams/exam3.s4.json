@@ -3,283 +3,327 @@
   "section": "s4",
   "passages": [
     {
-      "id": "s4_r1",
+      "id": "s4_a1",
       "form": "A",
       "kind": "email",
-      "title": "Late chairs",
+      "title": "Quote for office chairs",
       "lines": [
-        "Dear Ms. Reed,",
-        "Thank you for your order of forty chairs for the new office. I am sorry to tell you that the chairs will arrive on Friday, not on Tuesday. The company that makes them needs two more days.",
-        "We can send the tables on Tuesday as planned. If you want, we can also send ten chairs early by truck. Please call me before noon on Monday and tell me your choice.",
-        "Best wishes,",
-        "Mr. Hughes"
+        "Dear Ms. Carter,",
+        "Thank you for visiting our showroom last Tuesday. As you requested, here is our price for the Model 7 office chair.",
+        "The standard price is $120 per chair. For orders of fifty chairs or more, we can offer a 10% discount, so the price would be $108 per chair. This price is good until the end of May.",
+        "We have sixty chairs in stock right now, and we can deliver them within ten days. If you need more than sixty, the additional chairs will take about four weeks, because they are made by our manufacturer in Vietnam.",
+        "I have also enclosed a brochure for our new desks. Please let me know if you would like any samples.",
+        "Best regards, Luis Park (Nova Office Supply)"
       ],
       "questions": [
         {
-          "en": "Why did Mr. Hughes write this email?",
-          "zh": "Mr. Hughes 為什麼寫這封信？",
+          "en": "Why did Mr. Park write to Ms. Carter?",
+          "zh": "Park 先生為什麼寫信給 Carter 小姐？",
           "options": [
-            "To tell about a late delivery",
-            "To ask for a payment",
-            "To offer a new job",
-            "To change a meeting time"
+            "To give her the information she asked for",
+            "To invite her to visit a showroom",
+            "To announce a new line of desks",
+            "To confirm the date of a delivery"
           ],
           "answer": 0
         },
         {
-          "en": "What will arrive on Tuesday?",
-          "zh": "星期二會送到什麼？",
-          "options": ["The chairs", "The tables", "The truck", "The office"],
+          "en": "How much would each chair cost in an order of fifty?",
+          "zh": "如果訂五十張，每張椅子多少錢？",
+          "options": ["$120", "$108", "$100", "$96"],
           "answer": 1
         },
         {
-          "en": "What should Ms. Reed do before noon on Monday?",
-          "zh": "Ms. Reed 星期一中午以前該做什麼？",
-          "options": ["Send the payment", "Visit the shop", "Call Mr. Hughes", "Order more tables"],
-          "answer": 2
+          "en": "What is suggested about an order of eighty chairs?",
+          "zh": "關於訂八十張椅子，文中暗示了什麼？",
+          "options": [
+            "It would not get a discount.",
+            "All of the chairs would come from Vietnam.",
+            "It would have to be paid for by the end of May.",
+            "Some of the chairs would arrive later than the others."
+          ],
+          "answer": 3
         }
       ]
     },
     {
-      "id": "s4_r2",
+      "id": "s4_a2",
       "form": "A",
       "kind": "notice",
-      "title": "Rose Hotel: Guest information",
+      "title": "Harbor View Hotel: Pool closed",
       "lines": [
-        "The pool is closed on Monday for cleaning. It will open again on Tuesday at 7 a.m.",
-        "The gym is open every day from 6 a.m. to 10 p.m.",
-        "Breakfast is served in the restaurant from 7 a.m. to 10 a.m. Please show your room card at the door.",
-        "If you need a taxi to the airport, please ask at the front desk."
+        "Dear Guests,",
+        "From June 3 to June 14, the swimming pool on the second floor will be closed while we install new lights and air conditioners. We apologize for any inconvenience.",
+        "During this period, the gym will be open from 6 a.m. to 11 p.m., as it normally is. Guests may also use the pool at our other hotel nearby, the Lakeside Inn, at no charge. A free shuttle leaves our front entrance every hour from 8 a.m. to 8 p.m. Please show your room key to the driver.",
+        "Breakfast hours will not change. If you have any questions, please speak to a member of staff at the reception desk."
       ],
       "questions": [
         {
-          "en": "What is closed on Monday?",
-          "zh": "星期一什麼地方關閉？",
-          "options": ["The restaurant", "The gym", "The front desk", "The pool"],
-          "answer": 3
+          "en": "Why will the pool be closed?",
+          "zh": "游泳池為什麼會關閉？",
+          "options": [
+            "It is being moved to the second floor.",
+            "A shuttle service is starting.",
+            "New equipment is being put in.",
+            "The Lakeside Inn is using it."
+          ],
+          "answer": 2
         },
         {
-          "en": "What should guests show at the restaurant door?",
-          "zh": "客人要在餐廳門口出示什麼？",
-          "options": ["A room card", "A passport", "A taxi ticket", "A breakfast menu"],
+          "en": "What is most likely true about people who ride the shuttle?",
+          "zh": "關於搭接駁車的人，下列何者最可能正確？",
+          "options": [
+            "They must be staying at the Harbor View Hotel.",
+            "They must pay the driver in cash.",
+            "They must book a seat at the reception desk.",
+            "They must leave before 8 a.m."
+          ],
           "answer": 0
         },
         {
-          "en": "Where can a guest get a taxi to the airport?",
-          "zh": "客人要去哪裡叫到機場的計程車？",
-          "options": ["At the pool", "At the restaurant", "At the front desk", "At the gym"],
+          "en": "Who should guests talk to if they have a question?",
+          "zh": "房客有問題時應該找誰？",
+          "options": [
+            "The shuttle driver",
+            "An employee at the front desk",
+            "The manager of the Lakeside Inn",
+            "A worker at the gym"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "s4_a3",
+      "form": "A",
+      "kind": "message",
+      "title": "Ms. Carter (11:40 a.m.)",
+      "lines": [
+        "Hi Nina, I'm still at the airport. My flight to Osaka has been delayed until 3 p.m. because of the storm, so I won't make it to the two o'clock meeting with Mr. Hughes.",
+        "Could you call him and ask if we can move it to Thursday morning? His number is in the client directory.",
+        "Also, please print the slides I sent you yesterday and leave them on my desk. I'll look at them when I get back on Wednesday. Thanks!"
+      ],
+      "questions": [
+        {
+          "en": "What is probably true about the meeting with Mr. Hughes?",
+          "zh": "關於和 Hughes 先生的會議，下列何者可能正確？",
+          "options": [
+            "It will take place at the airport.",
+            "It has been moved to 3 p.m.",
+            "It is going to be held in Osaka.",
+            "It was planned for the same day as the message."
+          ],
+          "answer": 3
+        },
+        {
+          "en": "What does Ms. Carter want Nina to do with the slides?",
+          "zh": "Carter 小姐要 Nina 怎麼處理投影片？",
+          "options": [
+            "Send them to Mr. Hughes",
+            "Bring them to the airport",
+            "Make paper copies of them",
+            "Change them before Thursday"
+          ],
           "answer": 2
         }
       ]
     },
     {
-      "id": "s4_r3",
+      "id": "s4_a4",
       "form": "A",
       "kind": "ad",
-      "title": "Help wanted: Office assistant",
+      "title": "Help wanted: Warehouse assistant",
       "lines": [
-        "Blue Sky Travel needs an office assistant. You will answer the phone, write emails and help our customers.",
-        "You should speak English well. The job is Monday to Friday, from 9 a.m. to 5 p.m.",
-        "To apply, send a message to Ms. Carter by March 20."
+        "Harbor Trading is looking for a warehouse assistant to join our team in Keelung.",
+        "The job includes packing and labeling orders, counting stock and loading trucks. You must be able to lift boxes of up to 20 kilograms. Experience with inventory software is helpful but not necessary, because we will provide training.",
+        "Hours: Monday to Friday, 8 a.m. to 5 p.m. Some Saturdays may be required during busy periods.",
+        "To apply, email your resume to Ms. Reed in Human Resources by October 31. No phone calls, please."
       ],
       "questions": [
         {
-          "en": "What will the assistant do?",
-          "zh": "這位助理要做什麼？",
-          "options": ["Drive a bus", "Clean the office", "Answer the phone", "Cook lunch"],
-          "answer": 2
-        },
-        {
-          "en": "How can a person apply for the job?",
-          "zh": "要怎麼應徵這份工作？",
+          "en": "What is said about inventory software?",
+          "zh": "關於庫存軟體，廣告說了什麼？",
           "options": [
-            "Call the customers",
-            "Send a message to Ms. Carter",
-            "Visit on Saturday",
-            "Write to the airline"
-          ],
-          "answer": 1
-        }
-      ]
-    },
-    {
-      "id": "s4_r4",
-      "form": "A",
-      "kind": "message",
-      "title": "Mr. Lopez (Purchasing)",
-      "lines": [
-        "Hi team, the printer on the second floor is broken again. The repair shop says a new one is cheaper than a repair.",
-        "I found a good printer for $300. I need your manager to say yes before Thursday. Please send me your short request today."
-      ],
-      "questions": [
-        {
-          "en": "What is wrong on the second floor?",
-          "zh": "二樓出了什麼問題？",
-          "options": [
-            "The office is too small",
-            "A printer is broken",
-            "The shop is closed",
-            "A manager is late"
+            "It is used to load the trucks.",
+            "People who apply do not need to know how to use it.",
+            "Training on it takes place on Saturdays.",
+            "The new assistant must install it."
           ],
           "answer": 1
         },
         {
-          "en": "What does Mr. Lopez want the team to do?",
-          "zh": "Mr. Lopez 要大家做什麼？",
+          "en": "How should people apply for the job?",
+          "zh": "應徵者應該怎麼應徵這份工作？",
           "options": [
-            "Buy a printer today",
-            "Go to the repair shop",
-            "Send a request today",
-            "Call the second floor"
+            "By sending an email",
+            "By calling the warehouse",
+            "By visiting the office in Keelung",
+            "By coming in on a Saturday"
           ],
-          "answer": 2
-        }
-      ]
-    },
-    {
-      "id": "s4_r5",
-      "form": "B",
-      "kind": "message",
-      "title": "Schedule for next week",
-      "lines": [
-        "Hello everyone,",
-        "The new schedule starts on Monday. Mr. Lopez will work in the morning, from 8 a.m. to noon. Ms. Reed will work in the afternoon, from 1 p.m. to 5 p.m.",
-        "Our team meeting will be on Wednesday at 10 a.m. in Room 4. If you cannot come, please tell me by Tuesday.",
-        "Thanks,",
-        "Ms. Carter"
-      ],
-      "questions": [
-        {
-          "en": "When does Mr. Lopez work next week?",
-          "zh": "Mr. Lopez 下星期什麼時段上班？",
-          "options": ["In the evening", "At noon only", "In the morning", "In the afternoon"],
-          "answer": 2
-        },
-        {
-          "en": "Where will the team meeting be?",
-          "zh": "團隊會議在哪裡開？",
-          "options": ["In Room 4", "In the lobby", "In Ms. Carter's office", "In the restaurant"],
           "answer": 0
-        },
-        {
-          "en": "What should a person do if he cannot come to the meeting?",
-          "zh": "如果無法來開會該怎麼辦？",
-          "options": [
-            "Come on Thursday",
-            "Tell Ms. Carter by Tuesday",
-            "Call Mr. Lopez at noon",
-            "Wait for a new schedule"
-          ],
-          "answer": 1
         }
       ]
     },
     {
-      "id": "s4_r6",
+      "id": "s4_b1",
       "form": "B",
       "kind": "email",
-      "title": "Re: Your broken lamp",
+      "title": "Change to your itinerary",
       "lines": [
-        "Dear Mr. Lee,",
-        "Thank you for writing to us. I am sorry that the lamp you bought last week does not work.",
-        "We will send you a new lamp. It should arrive in three days. You do not need to pay again. Please put the old lamp in the same box and send it back to us. The box has our address on it.",
-        "If you have any more questions, please call me.",
-        "Sincerely,",
-        "Ms. Wong, Customer Service"
+        "Dear Mr. Chen,",
+        "We are writing about your trip to Singapore for the Asia Home Products Fair. Because the airline has changed its schedule, your flight on Monday, April 7, will now depart at 2:15 p.m. instead of 9:40 a.m. It will arrive in Singapore at 7:05 p.m. local time.",
+        "We have informed your hotel, and your room will be held for you even if you check in late. The airport shuttle to the hotel runs until midnight.",
+        "Your return flight on Friday has not changed. An updated itinerary is attached. If the new time is not convenient, please reply by Thursday, and we will try to find you another flight at no extra cost.",
+        "Sincerely, Nina Wu (Sky Travel Agency)"
       ],
       "questions": [
         {
-          "en": "What will the store do for Mr. Lee?",
-          "zh": "這家店會為 Mr. Lee 做什麼？",
+          "en": "What is the main purpose of the email?",
+          "zh": "這封信的主要目的是什麼？",
           "options": [
-            "Repair the old lamp",
-            "Send a new lamp",
-            "Give him a gift card",
-            "Visit his house"
+            "To invite Mr. Chen to a trade fair",
+            "To tell a passenger about a new flight time",
+            "To confirm a hotel reservation",
+            "To offer a cheaper return flight"
           ],
           "answer": 1
         },
         {
-          "en": "What does Mr. Lee need to do with the old lamp?",
-          "zh": "Mr. Lee 要怎麼處理舊的燈？",
+          "en": "What will most likely happen to Mr. Chen on April 7?",
+          "zh": "四月七日陳先生最可能會發生什麼事？",
           "options": [
-            "Put it in a new box",
-            "Take it to the store",
-            "Keep it at home",
-            "Send it back in the box"
+            "He will miss the trade fair.",
+            "He must pay for a new ticket.",
+            "He has to come back on Thursday.",
+            "He will reach his hotel later than he first planned."
           ],
           "answer": 3
         },
         {
-          "en": "How much must Mr. Lee pay for the new lamp?",
-          "zh": "Mr. Lee 要付多少錢買新燈？",
-          "options": ["Nothing", "The old price", "Half the price", "Only the delivery"],
+          "en": "What should Mr. Chen do if the 2:15 flight does not work for him?",
+          "zh": "如果兩點十五分的班機不適合，陳先生應該怎麼做？",
+          "options": [
+            "Write back to the travel agency by Thursday",
+            "Call the hotel before he leaves",
+            "Take the airport shuttle instead",
+            "Change his return flight on Friday"
+          ],
           "answer": 0
         }
       ]
     },
     {
-      "id": "s4_r7",
+      "id": "s4_b2",
+      "form": "B",
+      "kind": "form",
+      "title": "Delivery Problem Report",
+      "lines": [
+        "Date: November 18",
+        "Customer: Lee's Kitchen Supply (order no. 4512)",
+        "Reported by: Leo Park, Warehouse",
+        "Items ordered: 12 boxes of glass bowls",
+        "Items received: 12 boxes; 3 boxes had broken bowls inside",
+        "Details: The customer called on the morning of November 18 to say that three boxes were wet and the bowls inside were broken. These boxes had been loaded onto the truck in the rain and were not wrapped in plastic. They were also not marked \"fragile.\"",
+        "Action: Replacement bowls will be sent on November 20. From now on, all fragile goods will be wrapped and labeled before loading."
+      ],
+      "questions": [
+        {
+          "en": "How many boxes arrived in good condition?",
+          "zh": "有幾箱送到時完好無損？",
+          "options": ["3", "12", "9", "20"],
+          "answer": 2
+        },
+        {
+          "en": "What most likely caused the problem?",
+          "zh": "問題最可能是什麼原因造成的？",
+          "options": [
+            "The customer ordered the wrong bowls.",
+            "The goods were not protected from the weather.",
+            "The truck arrived on November 20.",
+            "The wrong number of boxes was sent."
+          ],
+          "answer": 1
+        },
+        {
+          "en": "What will the warehouse do from now on?",
+          "zh": "倉庫今後會怎麼做？",
+          "options": [
+            "Send all orders on November 20",
+            "Stop selling glass bowls",
+            "Call customers every morning",
+            "Pack glass and other fragile items with more care"
+          ],
+          "answer": 3
+        }
+      ]
+    },
+    {
+      "id": "s4_b3",
       "form": "B",
       "kind": "notice",
-      "title": "Invitation: Company dinner",
+      "title": "New system for booking meeting rooms",
       "lines": [
-        "You are invited to our company dinner on Friday, June 12.",
-        "The dinner is at the Green Garden Restaurant. It starts at 6:30 p.m. Please bring one guest.",
-        "The company will pay for the food and drinks. A bus will leave from the office at 6 p.m.",
-        "Please tell Ms. Reed by June 5 if you will come."
+        "Starting Monday, March 2, all meeting rooms must be booked on the online calendar. We will no longer use paper booking sheets, so please do not write on the sheet outside Room 5.",
+        "You can book a room up to two weeks in advance. If your meeting is canceled, please delete your booking so that other teams can use the room.",
+        "Rooms 2 and 3 have projectors. Room 5 is the largest and can hold up to 30 people. For help with the new system, contact Luis in the IT department at extension 214."
       ],
       "questions": [
         {
-          "en": "Who can come to the dinner?",
-          "zh": "誰可以來參加晚餐？",
+          "en": "What is suggested about the sheet outside Room 5?",
+          "zh": "關於五號會議室外面的那張表，文中暗示了什麼？",
           "options": [
-            "Only managers",
-            "Only new workers",
-            "Customers only",
-            "Workers and one guest"
+            "Staff used it to book rooms in the past.",
+            "It shows which rooms have projectors.",
+            "It has space for up to 30 names.",
+            "It is updated by Luis every week."
           ],
-          "answer": 3
+          "answer": 0
         },
         {
-          "en": "How will people go from the office to the restaurant?",
-          "zh": "大家怎麼從公司到餐廳？",
-          "options": ["By bus", "By train", "By taxi", "By car"],
-          "answer": 0
+          "en": "What are employees asked to do if a meeting will not take place?",
+          "zh": "如果會議不開了，員工被要求做什麼？",
+          "options": [
+            "Call extension 214",
+            "Book Room 5 instead",
+            "Take it off the calendar",
+            "Tell the IT department two weeks before"
+          ],
+          "answer": 2
         }
       ]
     },
     {
-      "id": "s4_r8",
+      "id": "s4_b4",
       "form": "B",
-      "kind": "message",
-      "title": "Ms. Wong (Sales)",
+      "kind": "flyer",
+      "title": "Harbor Trading Family Day",
       "lines": [
-        "Hi Mr. Hughes, our team needs ten new boxes of paper and two new phones for the sales office. The old phones are too slow.",
-        "The total is about $450. Can you tell me by Friday if we can buy them? We will order the things next week if you say yes."
+        "Saturday, September 20, 10 a.m. to 4 p.m., City Park",
+        "Bring your family and enjoy a day of outdoor games, music and food! Lunch is served from 12 to 2, and there are vegetarian dishes. The award ceremony for our Employees of the Year starts at 3 p.m. on the main stage.",
+        "Please sign up with Ms. Carter by September 12 and tell her how many people are coming. If it rains, the event will move to the banquet hall on the tenth floor of our office building."
       ],
       "questions": [
         {
-          "en": "What is the purpose of this message?",
-          "zh": "這則訊息的目的是什麼？",
+          "en": "What happens at 3 p.m.?",
+          "zh": "下午三點會有什麼活動？",
           "options": [
-            "To ask for a repair",
-            "To book a meeting room",
-            "To thank a customer",
-            "To ask for new things"
+            "Lunch is served.",
+            "The outdoor games begin.",
+            "The event moves to the banquet hall.",
+            "Some staff members are honored."
           ],
           "answer": 3
         },
         {
-          "en": "What does Ms. Wong want Mr. Hughes to do?",
-          "zh": "Ms. Wong 想要 Mr. Hughes 做什麼？",
+          "en": "What is suggested about Family Day?",
+          "zh": "關於家庭日，文中暗示了什麼？",
           "options": [
-            "Answer by Friday",
-            "Visit the sales office",
-            "Order the phones",
-            "Call the old team"
+            "It is open to employees only.",
+            "It may be held inside a building.",
+            "It starts with an award ceremony.",
+            "It must be paid for by September 12."
           ],
-          "answer": 0
+          "answer": 1
         }
       ]
     }
