@@ -87,7 +87,7 @@ tests/              Vitest 測試
 | `src/data/examExclude.json`    | `learning/examGen.ts`（不能變成題目的句子 id）                               | 沒有專門的測試                                                                                |
 
 - 結業考的段落定義在 `content/exam.ts`（`EXAM_PLAN`：每幕 2 到 5 段，四幕共 210 題；手寫題和產生題的數量分開記）。`examGen.ts` 產生的題型有應答題、聽力填空、文法選句、價目表、拼句填空，每次重考換一組題（用 seed）。
-- 資料不夠的題型沒有題目可出，會報告為缺少（`generatedShortfall`），那一段畫面顯示「準備中」。2026-11-24 時 patterns、sentences、responds 都還是空的，沒有句型、句子和應答題可以用，依賴它們的題型目前出不了題。
+- 資料不夠的題型沒有題目可出，會報告為缺少（`generatedShortfall`），那一段畫面顯示「準備中」。2026-11-24：patterns 四幕共 119 個句型已寫好；sentences（拼句聽力題庫）和 responds（驗證過的應答題庫）還在整理，依賴它們的題型（應答題、聽力填空的一部分）在整理完成前出不了題。
 - `tests/examContent.test.ts` 檢查真的題目檔（環境變數 `EXAM_FILE` 只檢查一個檔，`EXAM_REQUIRE_COMPLETE=1` 要求每一段都完成）；`tests/examGen.test.ts` 和 `tests/examPool.test.ts` 檢查產生器（同一個 seed 得到同一組題、應答題的錯選項一定和題型不相容）；`tests/sentencePool.test.ts` 檢查句型（每個句型至少 6 句不同的句子、問答配對）；`tests/sprintSchedule.test.ts` 檢查 12 週表的數字（`scripts/sprint-table.mjs` 會執行它）。
 - 寫出草稿的開關：`SENTENCE_POOL=write`（寫進 `src/data/sentences/`）、`RESPOND_BANK=write`（寫候選到 `.tmp/respond-candidates/`）。`SENTENCE_SAMPLE=print`、`EXAM_POOL=print`、`SPRINT_TABLE=print` 只印出來。
 
