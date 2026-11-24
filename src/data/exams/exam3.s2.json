@@ -379,8 +379,8 @@
       ],
       "questions": [
         {
-          "en": "Look at the table. What price per box does the man say the woman could get?",
-          "zh": "請看表格。男子說女子可以拿到每箱多少錢的價格？",
+          "en": "Look at the table. What price per box can the woman get if she orders fifty more boxes?",
+          "zh": "請看表格。如果這位女士多訂五十箱，每箱可以拿到什麼價錢？",
           "options": ["$10", "$9", "$8", "$12"],
           "answer": 2
         },

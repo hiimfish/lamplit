@@ -263,7 +263,7 @@
         { "label": "Sandwich", "value": "$6" }
       ],
       "question": { "en": "How much are a muffin and an iced tea?", "zh": "一個瑪芬加一杯冰紅茶多少錢？" },
-      "options": ["$4", "$2", "$6"],
+      "options": ["$5", "$2", "$6"],
       "answer": 0
     },
     {
