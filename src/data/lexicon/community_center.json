@@ -1,1 +1,88 @@
-{}
+{
+  "community": { "pos": "other", "skip": true },
+  "plan": { "pos": "other", "skip": true },
+  "july": { "pos": "other", "skip": true },
+  "august": { "pos": "other", "skip": true },
+  "september": { "pos": "other", "skip": true },
+  "october": { "pos": "other", "skip": true },
+  "november": { "pos": "other", "skip": true },
+  "december": { "pos": "other", "skip": true },
+  "summer": { "pos": "other", "skip": true },
+  "always": { "pos": "other", "skip": true },
+  "sometimes": { "pos": "other", "skip": true },
+  "never": { "pos": "other", "skip": true },
+  "both": { "pos": "other", "skip": true },
+  "interest": { "pos": "other", "skip": true },
+  "idea": { "pos": "other", "skip": true },
+  "register": { "pos": "other", "skip": true },
+  "course": { "pos": "n", "cls": "event", "forms": { "pl": "courses" } },
+  "workshop": { "pos": "n", "cls": "event", "forms": { "pl": "workshops" } },
+  "test": { "pos": "n", "cls": "event", "forms": { "pl": "tests" } },
+  "student": { "pos": "n", "cls": "person", "forms": { "pl": "students" } },
+  "classmate": { "pos": "n", "cls": "person", "forms": { "pl": "classmates" } },
+  "member": { "pos": "n", "cls": "person", "forms": { "pl": "members" } },
+  "adult": { "pos": "n", "cls": "person", "forms": { "pl": "adults" } },
+  "teacher": { "pos": "n", "cls": "role", "forms": { "pl": "teachers" } },
+  "computer": { "pos": "n", "cls": "device", "forms": { "pl": "computers" } },
+  "screen": { "pos": "n", "cls": "device", "forms": { "pl": "screens" } },
+  "keyboard": { "pos": "n", "cls": "device", "forms": { "pl": "keyboards" } },
+  "mouse": { "pos": "n", "cls": "device", "forms": { "pl": "mice" } },
+  "homework": { "pos": "n", "cls": "document", "countable": false },
+  "exercise": { "pos": "n", "cls": "document", "forms": { "pl": "exercises" } },
+  "instruction": { "pos": "n", "cls": "document", "forms": { "pl": "instructions" } },
+  "learn": {
+    "pos": "v",
+    "forms": { "s3": "learns", "past": "learned", "pp": "learned", "ing": "learning" },
+    "frames": [{ "subj": ["person"] }]
+  },
+  "listen": {
+    "pos": "v",
+    "forms": { "s3": "listens", "past": "listened", "pp": "listened", "ing": "listening" },
+    "frames": [
+      {
+        "subj": ["person"],
+        "prep": { "word": "to", "cls": ["person", "role"], "fixed": true },
+        "prepRequired": true
+      }
+    ]
+  },
+  "join": {
+    "pos": "v",
+    "forms": { "s3": "joins", "past": "joined", "pp": "joined", "ing": "joining" },
+    "frames": [{ "subj": ["person"], "obj": ["event"] }]
+  },
+  "talk": {
+    "pos": "v",
+    "forms": { "s3": "talks", "past": "talked", "pp": "talked", "ing": "talking" },
+    "frames": [{ "subj": ["person"], "prep": { "word": "to", "cls": ["person", "role"] } }]
+  },
+  "teach": {
+    "pos": "v",
+    "forms": { "s3": "teaches", "past": "taught", "pp": "taught", "ing": "teaching" },
+    "frames": [{ "subj": ["role"], "obj": ["person"] }]
+  },
+  "basic": { "pos": "adj", "frames": [{ "subj": ["event"] }] },
+  "available": { "pos": "adj", "frames": [{ "subj": ["event", "object"] }] },
+  "lines": {
+    "t1_2": { "side": "question", "qtype": "what" },
+    "t1_3": { "side": "answer", "atype": "thing" },
+    "t2_2": { "side": "question", "qtype": "yes-no" },
+    "t2_3": { "side": "answer", "atype": "yes-no" },
+    "t2_4": { "side": "question", "qtype": "request" },
+    "t2_5": { "side": "answer", "atype": "agree" },
+    "t3_5": { "side": "question", "qtype": "when" },
+    "t3_6": { "side": "answer", "atype": "time" },
+    "t4_2": { "side": "question", "qtype": "yes-no" },
+    "t4_3": { "side": "answer", "atype": "yes-no" },
+    "t4_4": { "side": "question", "qtype": "yes-no" },
+    "t4_5": { "side": "answer", "atype": "yes-no" },
+    "t6_4": { "side": "question", "qtype": "how" },
+    "t6_5": { "side": "answer", "atype": "manner" },
+    "t8_11": { "side": "question", "qtype": "when" },
+    "t8_12": { "side": "answer", "atype": "time" },
+    "t8_13": { "side": "question", "qtype": "yes-no" },
+    "t8_14": { "side": "answer", "atype": "yes-no" },
+    "t8_15": { "side": "question", "qtype": "request" },
+    "t8_16": { "side": "answer", "atype": "agree" }
+  }
+}
