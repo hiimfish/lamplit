@@ -162,3 +162,54 @@ describe('spoken in the save', () => {
     expect(mergeSaves(none, ours).tasks['a/t1']?.spoken).toEqual({ score: 60, lines: 4 });
   });
 });
+
+describe('finishListen with a spoken summary', () => {
+  const summary = (score: number, lines: number, sceneLines = 6) => ({ score, lines, sceneLines });
+  const finish = (save: SaveData, spoken?: ReturnType<typeof summary>) =>
+    finishListen(save, 'a/t1', now, spoken).tasks['a/t1']?.spoken;
+
+  it('stores a score when enough lines were scored', () => {
+    const save = finishListen(played(['a/t1']), 'a/t1', now, summary(82, 4));
+    expect(save.tasks['a/t1']?.spoken).toEqual({ score: 82, lines: 4 });
+    expect(save.tasks['a/t1']?.heard).toBe(1);
+  });
+
+  it('stores nothing without a summary', () => {
+    expect(finish(played(['a/t1']))).toBeUndefined();
+  });
+
+  it('needs at least 3 scored lines', () => {
+    expect(finish(played(['a/t1']), summary(90, 2, 2))).toBeUndefined();
+    expect(finish(played(['a/t1']), summary(90, 3, 2))).toEqual({ score: 90, lines: 3 });
+  });
+
+  it('needs half of a long scene', () => {
+    expect(finish(played(['a/t1']), summary(90, 4, 10))).toBeUndefined();
+    expect(finish(played(['a/t1']), summary(90, 5, 10))).toEqual({ score: 90, lines: 5 });
+    expect(finish(played(['a/t1']), summary(90, 5, 9))).toEqual({ score: 90, lines: 5 });
+  });
+
+  it('keeps the better of the old and new', () => {
+    const first = finishListen(played(['a/t1']), 'a/t1', now, summary(80, 5));
+    expect(finish(first, summary(60, 6))).toEqual({ score: 80, lines: 5 });
+    expect(finish(first, summary(85, 3))).toEqual({ score: 85, lines: 3 });
+    expect(finish(first, summary(80, 7))).toEqual({ score: 80, lines: 7 });
+    expect(finish(first, summary(80, 4))).toEqual({ score: 80, lines: 5 });
+  });
+
+  it('still counts the listen when the score is dropped', () => {
+    const save = finishListen(played(['a/t1']), 'a/t1', now, summary(90, 1));
+    expect(save.tasks['a/t1']?.heard).toBe(1);
+    expect(save.tasks['a/t1']?.spoken).toBeUndefined();
+  });
+
+  it('ignores a malformed summary', () => {
+    for (const bad of [summary(101, 5), summary(-1, 5), summary(Number.NaN, 5)]) {
+      expect(finish(played(['a/t1']), bad)).toBeUndefined();
+    }
+  });
+
+  it('rounds a fractional score', () => {
+    expect(finish(played(['a/t1']), summary(82.4, 4))?.score).toBe(82);
+  });
+});
