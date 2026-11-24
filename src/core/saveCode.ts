@@ -29,7 +29,7 @@ export const MAX_CODE_CHARS = 8 * 1024 * 1024;
 export const MAX_PAYLOAD_BYTES = 16 * 1024 * 1024;
 
 export const CODE_ERRORS = {
-  notCode: '這不是點燈英語的存檔代碼，請確認複製的是整段代碼。',
+  notCode: '這不是 Lamplit 的存檔代碼，請確認複製的是整段代碼。',
   damaged: '存檔代碼不完整或被改過，請重新複製整段代碼再試一次。',
   tooNew: '這個存檔來自較新的版本，請先更新遊戲。',
   tooLarge: '存檔代碼太大，無法匯入。',

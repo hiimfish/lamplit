@@ -43,10 +43,10 @@ function TitleScreen() {
   return (
     <div class="screen title-screen">
       <div class="title-block">
-        <h1 class="title">點燈英語</h1>
-        <p class="subtitle" lang="en">
+        <h1 class="title" lang="en">
           Lamplit
-        </p>
+        </h1>
+        <p class="subtitle">英語學習</p>
       </div>
       <button class="pixel-button primary blink" onClick={start} data-testid="start">
         點一下開始

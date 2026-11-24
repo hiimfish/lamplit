@@ -18,7 +18,7 @@ export const STORAGE_KEYS = {
   migrated: 'lamplit.migrated',
 } as const;
 
-/** Old key to new key, for the move from the names used before 點燈英語. */
+/** Old key to new key, for the move from the names used before Lamplit. */
 export const LEGACY_KEYS: readonly (readonly [oldKey: string, newKey: string])[] = [
   ['pixel-english-town.save.v1', STORAGE_KEYS.save],
   ['pixel-english-town.save.v1.debug', STORAGE_KEYS.debugSave],
