@@ -1,1 +1,38 @@
-/* 幕結業考: examResult. */
+/* 幕結業考: examResult. Reuses progress-hero / progress-stats; only what they lack. */
+.exam-result {
+  overflow-y: auto;
+  min-width: 0;
+}
+
+.exam-stats {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.exam-stats dd {
+  font-size: calc(12 * var(--px));
+  overflow-wrap: anywhere;
+}
+
+.exam-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(1 * var(--px)) calc(5 * var(--px));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.exam-fine {
+  opacity: 0.8;
+}
+
+/* Upright the keys sit at the bottom, full width. */
+:root[data-orientation='portrait'] .exam-result > .flow-actions:last-child {
+  margin-top: auto;
+  flex-wrap: nowrap;
+}
+
+:root[data-orientation='portrait'] .exam-result > .flow-actions:last-child > .pixel-button {
+  flex: 1;
+  min-width: 0;
+}
