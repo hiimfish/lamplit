@@ -1,1 +1,486 @@
-{}
+{
+  "education": {
+    "pos": "other",
+    "skip": true
+  },
+  "detail": {
+    "pos": "other",
+    "skip": true
+  },
+  "history": {
+    "pos": "other",
+    "skip": true
+  },
+  "background": {
+    "pos": "other",
+    "skip": true
+  },
+  "degree": {
+    "pos": "other",
+    "skip": true
+  },
+  "continue": {
+    "pos": "other",
+    "skip": true
+  },
+  "ever": {
+    "pos": "other",
+    "skip": true
+  },
+  "once": {
+    "pos": "other",
+    "skip": true
+  },
+  "past": {
+    "pos": "other",
+    "skip": true
+  },
+  "while": {
+    "pos": "other",
+    "skip": true
+  },
+  "resume": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "resumes"
+    }
+  },
+  "mother": {
+    "pos": "n",
+    "cls": "person",
+    "forms": {
+      "pl": "mothers"
+    }
+  },
+  "father": {
+    "pos": "n",
+    "cls": "person",
+    "forms": {
+      "pl": "fathers"
+    }
+  },
+  "child": {
+    "pos": "n",
+    "cls": "person",
+    "forms": {
+      "pl": "children"
+    }
+  },
+  "date": {
+    "pos": "n",
+    "cls": "day",
+    "forms": {
+      "pl": "dates"
+    }
+  },
+  "college": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "colleges"
+    }
+  },
+  "university": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "universities"
+    }
+  },
+  "certificate": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "certificates"
+    }
+  },
+  "description": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "descriptions"
+    }
+  },
+  "document": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "documents"
+    }
+  },
+  "sentence": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "sentences"
+    }
+  },
+  "language": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "languages"
+    }
+  },
+  "skill": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "skills"
+    }
+  },
+  "mistake": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "mistakes"
+    }
+  },
+  "option": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "options"
+    }
+  },
+  "signature": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "signatures"
+    }
+  },
+  "cover_letter": {
+    "pos": "n",
+    "cls": "document",
+    "en": "cover letter",
+    "forms": {
+      "pl": "cover letters"
+    }
+  },
+  "add": {
+    "pos": "v",
+    "forms": {
+      "s3": "adds",
+      "past": "added",
+      "pp": "added",
+      "ing": "adding"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["document", "quality", "day"]
+      }
+    ]
+  },
+  "graduate": {
+    "pos": "v",
+    "forms": {
+      "s3": "graduates",
+      "past": "graduated",
+      "pp": "graduated",
+      "ing": "graduating"
+    },
+    "frames": [
+      {
+        "subj": ["person"],
+        "prep": {
+          "word": "from",
+          "cls": ["place"],
+          "fixed": true
+        }
+      }
+    ]
+  },
+  "mention": {
+    "pos": "v",
+    "forms": {
+      "s3": "mentions",
+      "past": "mentioned",
+      "pp": "mentioned",
+      "ing": "mentioning"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["quality", "document"]
+      }
+    ]
+  },
+  "describe": {
+    "pos": "v",
+    "forms": {
+      "s3": "describes",
+      "past": "described",
+      "pp": "described",
+      "ing": "describing"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["object", "place", "document"]
+      }
+    ]
+  },
+  "type": {
+    "pos": "v",
+    "forms": {
+      "s3": "types",
+      "past": "typed",
+      "pp": "typed",
+      "ing": "typing"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["document"]
+      }
+    ]
+  },
+  "explain": {
+    "pos": "v",
+    "forms": {
+      "s3": "explains",
+      "past": "explained",
+      "pp": "explained",
+      "ing": "explaining"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["quality", "document"]
+      }
+    ]
+  },
+  "stay": {
+    "pos": "v",
+    "forms": {
+      "s3": "stays",
+      "past": "stayed",
+      "pp": "stayed",
+      "ing": "staying"
+    },
+    "frames": [
+      {
+        "subj": ["person"],
+        "prep": {
+          "word": "in",
+          "cls": ["place", "room"]
+        }
+      }
+    ]
+  },
+  "prepare": {
+    "pos": "v",
+    "forms": {
+      "s3": "prepares",
+      "past": "prepared",
+      "pp": "prepared",
+      "ing": "preparing"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["document", "food", "event"]
+      }
+    ]
+  },
+  "review": {
+    "pos": "v",
+    "forms": {
+      "s3": "reviews",
+      "past": "reviewed",
+      "pp": "reviewed",
+      "ing": "reviewing"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["document"]
+      }
+    ]
+  },
+  "rewrite": {
+    "pos": "v",
+    "forms": {
+      "s3": "rewrites",
+      "past": "rewrote",
+      "pp": "rewritten",
+      "ing": "rewriting"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["document"]
+      }
+    ]
+  },
+  "attach": {
+    "pos": "v",
+    "forms": {
+      "s3": "attaches",
+      "past": "attached",
+      "pp": "attached",
+      "ing": "attaching"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["document"]
+      }
+    ]
+  },
+  "main": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["place", "room", "quality"]
+      }
+    ]
+  },
+  "true": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["document", "quality"]
+      }
+    ]
+  },
+  "relevant": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["document", "quality"]
+      }
+    ]
+  },
+  "special": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["event", "food", "day", "object"]
+      }
+    ]
+  },
+  "foreign": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "quality"]
+      }
+    ]
+  },
+  "complete": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["document"]
+      }
+    ]
+  },
+  "separate": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["document", "object"]
+      }
+    ]
+  },
+  "previous": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["day", "event", "document"]
+      }
+    ]
+  },
+  "recently": {
+    "pos": "adv"
+  },
+  "already": {
+    "pos": "adv"
+  },
+  "lines": {
+    "t2_2": {
+      "side": "question",
+      "qtype": "where"
+    },
+    "t2_3": {
+      "side": "answer",
+      "atype": "place"
+    },
+    "t3_1": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t3_2": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t4_2": {
+      "side": "question",
+      "qtype": "request"
+    },
+    "t4_3": {
+      "side": "answer",
+      "atype": "agree"
+    },
+    "t5_1": {
+      "side": "question",
+      "qtype": "what"
+    },
+    "t5_2": {
+      "side": "answer",
+      "atype": "thing"
+    },
+    "t5_4": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t5_5": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t6_3": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t6_4": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t7_2": {
+      "side": "question",
+      "qtype": "what"
+    },
+    "t7_3": {
+      "side": "answer",
+      "atype": "thing"
+    },
+    "t8_3": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t8_4": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t8_6": {
+      "side": "question",
+      "qtype": "request"
+    },
+    "t8_7": {
+      "side": "answer",
+      "atype": "agree"
+    },
+    "t8_16": {
+      "side": "question",
+      "qtype": "what"
+    },
+    "t8_17": {
+      "side": "answer",
+      "atype": "thing"
+    }
+  }
+}
