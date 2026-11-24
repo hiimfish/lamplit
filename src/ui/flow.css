@@ -623,6 +623,30 @@
   gap: calc(3 * var(--px));
 }
 
+/*
+ * Phone upright, under a scene: the question stays at the top and its answer keys (with the
+ * feedback and 繼續 after them) sit at the bottom, where the thumb is. The practice column
+ * fills the card down to the bottom, and the first answer block takes the spare room above it.
+ */
+:root[data-orientation='portrait'] .flow.has-stage .practice,
+:root[data-orientation='portrait'] .flow.has-stage .practice > .mg-root,
+:root[data-orientation='portrait'] .flow.has-stage .mg-root > .mg {
+  flex-grow: 1;
+}
+
+:root[data-orientation='portrait'] .flow.has-stage .mg > .mg-options,
+:root[data-orientation='portrait'] .flow.has-stage .mg > .mg-line,
+:root[data-orientation='portrait'] .flow.has-stage .mg > .mg-spell-slots,
+:root[data-orientation='portrait'] .flow.has-stage .mg > .mg-sentences,
+:root[data-orientation='portrait'] .flow.has-stage .mg > .lp-keys,
+:root[data-orientation='portrait'] .flow.has-stage .mg > .rs-stage,
+:root[data-orientation='portrait'] .flow.has-stage .mg > .talk-stage,
+:root[data-orientation='portrait'] .flow.has-stage .tf-layout > .tf-ask,
+:root[data-orientation='portrait'] .flow.has-stage .rp-ask,
+:root[data-orientation='portrait'] .flow.has-stage .mg > .mg-npc-row + .mg-row {
+  margin-top: auto;
+}
+
 /* Result: a small ♪ key after each learned item says it once. */
 .result-new li {
   display: flex;
