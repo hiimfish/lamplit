@@ -1,21 +1,18 @@
 /**
- * 文法快練 (docs/specs/sprint.md): a short daily drill of generated grammar questions.
- * Which points to drill, the questions, and finishing a round. Pure; no FSRS cards.
- * Nothing here imports the units: the town, points, lexicons and patterns come in as
- * arguments, and the sentence generator can be swapped for a fake in tests.
+ * 文法快練 (docs/specs/sprint.md): a short daily drill from the hand-written grammar bank
+ * (src/data/grammar). Which points to drill, the questions, remembering the items
+ * answered, and finishing a round. Pure; no FSRS cards. Nothing here imports the units
+ * or the bank: the town, points and items come in as arguments.
  */
 import type { GrammarPoint } from '../content/grammar';
-import type { BlankKind, Lexicon, Pattern } from '../content/lexicon';
-import { dailyFor, touchPlayed } from '../core/save';
-import type { Route, SaveData } from '../core/save';
-import { makeRng } from './gen/common';
-import type { Rng } from './gen/common';
+import type { GrammarItem } from '../content/grammarBank';
+import { dailyFor, keepNewestSeen, touchPlayed } from '../core/save';
+import type { GrammarSeen, Route, SaveData } from '../core/save';
+import { makeRng, shuffle, shuffledOptions } from './gen/common';
 import { mistakeTotals } from './mistakes';
+import { NO_ITEM } from './questions';
 import type { AnswerResult, FillQuestion, Question } from './questions';
 import { addCoins, reviewCoins, taskKey } from './sessionPlan';
-import { buildSentence, sentenceFill } from './sentenceGen';
-import { grammarPointOf } from '../content/grammar';
-import type { Sentence, Taught } from './sentenceGen';
 import { actUnits } from './townPlan';
 import type { TownAct } from './townPlan';
 
@@ -25,26 +22,13 @@ const MISTAKE_DAYS = 30;
 /** Points a round practises at most. */
 export const DRILL_POINTS = 6;
 
-/** Tries per question before a point is given up for the round. */
-const TRIES = 8;
+const BLANK = '___';
 
 /** The part of a unit the drill needs: its tasks and the words each teaches. */
 export interface DrillUnit {
   id: string;
   tasks: readonly { id: string; newWordIds: readonly string[] }[];
 }
-
-/** The two generator functions, injectable so tests can use fakes. */
-export interface DrillDeps {
-  buildSentence: (pattern: Pattern, lexicon: Lexicon, taught: Taught, rng: Rng) => Sentence | null;
-  sentenceFill: (sentence: Sentence, blank: BlankKind, rng: Rng) => FillQuestion | null;
-}
-
-const realDeps: DrillDeps = {
-  buildSentence,
-  sentenceFill: (sentence, blank, rng) =>
-    sentenceFill(sentence, blank, rng, (id) => grammarPointOf(id)?.note),
-};
 
 /** Questions in one round: 10 on the normal route, 15 on the sprint. */
 export function grammarGoal(route: Route): number {
@@ -104,17 +88,6 @@ export function pickDrillPoints<U extends DrillUnit>(
   return [...wrong, ...rest].slice(0, Math.max(0, limit));
 }
 
-/** True when there is something to drill: a played point that has a pattern. */
-export function drillAvailable<U extends DrillUnit>(
-  save: SaveData,
-  town: readonly TownAct<U>[],
-  points: readonly GrammarPoint[],
-  patterns: readonly Pattern[],
-): boolean {
-  const ids = new Set(patterns.map((pattern) => pattern.grammarId));
-  return playedPoints(save, town, points).some((point) => ids.has(point.id));
-}
-
 /**
  * The word ids taught up to the furthest task the player has played, in town order
  * (every earlier task counts, played or not). Empty when nothing was played.
@@ -136,53 +109,88 @@ export function taughtUpTo<U extends DrillUnit>(
 }
 
 /**
- * A round of `count` new questions over the points, one point after another in turn.
- * A sentence is used once per round; patterns that cannot be built are skipped.
- * The same seed gives the same round.
+ * One point's items in the order to ask them: never answered first (in a shuffled
+ * order), then the ones last answered wrong, then the rest; both by oldest answer first.
+ */
+function itemOrder(
+  items: readonly GrammarItem[],
+  seen: Record<string, GrammarSeen>,
+  rng: () => number,
+): GrammarItem[] {
+  const fresh = shuffle(
+    items.filter((item) => !seen[item.id]),
+    rng,
+  );
+  const oldest = (a: GrammarItem, b: GrammarItem) => (seen[a.id]?.at ?? 0) - (seen[b.id]?.at ?? 0);
+  const wrong = items.filter((item) => seen[item.id]?.wrong).sort(oldest);
+  const right = items.filter((item) => seen[item.id] && !seen[item.id]?.wrong).sort(oldest);
+  return [...fresh, ...wrong, ...right];
+}
+
+/** The 填空 question of one bank item, options shuffled. Null when the item is broken. */
+function itemQuestion(item: GrammarItem, rng: () => number): FillQuestion | null {
+  const at = item.en.indexOf(BLANK);
+  const answer = item.options[item.answer];
+  if (at < 0 || answer === undefined) return null;
+  return {
+    kind: 'fill',
+    before: item.en.slice(0, at),
+    after: item.en.slice(at + BLANK.length),
+    answer,
+    zh: item.zh,
+    note: item.note,
+    options: shuffledOptions(item.options, rng),
+    correctId: `o${item.answer}`,
+    itemId: NO_ITEM,
+    grammar: true,
+    grammarIds: [item.grammarId],
+    bankId: item.id,
+  };
+}
+
+/**
+ * A round of up to `count` questions over the points, one point after another in turn,
+ * each from the point's bank items in `itemOrder`. An item is asked once per round.
+ * The same seed (and save) gives the same round.
  */
 export function buildDrill(
   points: readonly GrammarPoint[],
-  lexicons: Record<string, Lexicon>,
-  patterns: readonly Pattern[],
-  taughtFor: (point: GrammarPoint) => Taught,
+  bank: Readonly<Record<string, readonly GrammarItem[]>>,
+  seen: Record<string, GrammarSeen> | undefined,
   seed: number,
   count: number,
-  deps: DrillDeps = realDeps,
 ): Question[] {
   const rng = makeRng(seed);
-  const lexicon: Lexicon = Object.assign({}, ...Object.values(lexicons));
   const queues = points
-    .map((point) => ({
-      point,
-      patterns: patterns.filter((pattern) => pattern.grammarId === point.id),
-      next: 0,
-      dead: false,
-    }))
-    .filter((queue) => queue.patterns.length > 0);
-  const seen = new Set<string>();
+    .map((point) => itemOrder(bank[point.id] ?? [], seen ?? {}, rng))
+    .filter((queue) => queue.length > 0);
+  const used = new Set<string>();
   const questions: Question[] = [];
-  while (questions.length < count && queues.some((queue) => !queue.dead)) {
+  while (questions.length < count && queues.some((queue) => queue.length > 0)) {
     for (const queue of queues) {
-      if (queue.dead || questions.length >= count) continue;
-      const taught = taughtFor(queue.point);
-      let made: FillQuestion | undefined;
-      for (let t = 0; t < TRIES && !made; t++) {
-        const pattern = queue.patterns[queue.next % queue.patterns.length];
-        queue.next += 1;
-        const blank = pattern?.blanks[Math.floor(rng() * (pattern.blanks.length || 1))];
-        if (!pattern || !blank) continue;
-        const sentence = deps.buildSentence(pattern, lexicon, taught, rng);
-        if (!sentence || seen.has(sentence.en)) continue;
-        const question = deps.sentenceFill(sentence, blank, rng);
-        if (!question) continue;
-        seen.add(sentence.en);
-        made = question;
-      }
-      if (made) questions.push(made);
-      else queue.dead = true;
+      if (questions.length >= count) break;
+      const item = queue.shift();
+      if (!item || used.has(item.id)) continue;
+      used.add(item.id);
+      const question = itemQuestion(item, rng);
+      if (question) questions.push(question);
     }
   }
   return questions;
+}
+
+/** Remembers a 文法快練 answer in `grammarSeen`; other questions leave the save as it is. */
+export function markGrammarItem(
+  save: SaveData,
+  question: Question,
+  result: AnswerResult,
+  now: Date,
+): SaveData {
+  if (question.kind !== 'fill' || !question.bankId) return save;
+  const entry: GrammarSeen = { at: now.getTime() };
+  if (!result.correct) entry.wrong = true;
+  const grammarSeen = keepNewestSeen({ ...save.grammarSeen, [question.bankId]: entry });
+  return grammarSeen ? { ...save, grammarSeen } : save;
 }
 
 /**

@@ -1,19 +1,19 @@
 import { describe, expect, it } from 'vitest';
 import type { GrammarPoint } from '../src/content/grammar';
-import type { Lexicon, Pattern } from '../src/content/lexicon';
+import type { GrammarItem } from '../src/content/grammarBank';
 import { createEmptySave, dateKey } from '../src/core/save';
-import type { SaveData } from '../src/core/save';
+import type { GrammarSeen, SaveData } from '../src/core/save';
 import {
   buildDrill,
-  drillAvailable,
   drillRemaining,
   finishDrill,
   grammarGoal,
+  markGrammarItem,
   pickDrillPoints,
   taughtUpTo,
 } from '../src/learning/grammarDrill';
-import type { DrillDeps } from '../src/learning/grammarDrill';
-import type { FillQuestion } from '../src/learning/questions';
+import { NO_ITEM } from '../src/learning/questions';
+import type { AnswerResult, FillQuestion, Question } from '../src/learning/questions';
 import { taskKey } from '../src/learning/sessionPlan';
 import { buildTown } from '../src/learning/townPlan';
 
@@ -162,109 +162,133 @@ describe('taughtUpTo', () => {
   });
 });
 
-const patterns: Pattern[] = [
-  { id: 'pa1', grammarId: 'p1', shape: 'svo', tense: 'present', blanks: ['verb-form'] },
-  { id: 'pa2', grammarId: 'p1', shape: 'svo', tense: 'past', blanks: ['article'] },
-  { id: 'pb1', grammarId: 'p2', shape: 'svo', tense: 'present', blanks: ['prep'] },
-  { id: 'none', grammarId: 'p3', shape: 'svo', tense: 'present', blanks: ['prep'] },
-];
+/** A small bank: `n` items for a point, the right answer at `answer`. */
+const itemsFor = (grammarId: string, n: number, answer = 0): GrammarItem[] =>
+  Array.from({ length: n }, (_, i) => ({
+    id: `${grammarId}_${i + 1}`,
+    grammarId,
+    en: `Sentence ${i + 1} of ${grammarId} ___ here.`,
+    zh: `${grammarId} 第 ${i + 1} 句`,
+    options: ['right', 'wrong1', 'wrong2', 'wrong3'].map((o) => `${o}${i}`),
+    answer,
+    note: `${grammarId} 的說明 ${i + 1}`,
+  }));
+const bank: Record<string, GrammarItem[]> = { p1: itemsFor('p1', 4), p2: itemsFor('p2', 3) };
 
-const lexicons: Record<string, Lexicon> = { a: { x: { pos: 'n' } }, b: { y: { pos: 'v' } } };
-
-/** A fake generator: sentence text comes from the rng, so seeds decide the round. */
-const fakes: DrillDeps = {
-  buildSentence: (pattern, _lexicon, _taught, rng) =>
-    pattern.id === 'none'
-      ? null
-      : { en: `${pattern.id} ${Math.floor(rng() * 6)}`, pattern, slots: {}, parts: [] },
-  sentenceFill: (sentence, blank): FillQuestion => ({
-    kind: 'fill',
-    before: sentence.en,
-    after: blank,
-    answer: 'x',
-    zh: '',
-    options: [{ id: 'o1', label: 'x' }],
-    correctId: 'o1',
-    itemId: '',
-    grammarIds: [sentence.pattern.grammarId],
-  }),
-};
-
-const taughtFor = () => new Set(['x']);
-const ids = (questions: ReturnType<typeof buildDrill>) =>
-  questions.map((q) => (q.kind === 'fill' ? q.grammarIds?.[0] : undefined));
+const fills = (questions: Question[]): FillQuestion[] =>
+  questions.flatMap((q) => (q.kind === 'fill' ? [q] : []));
+const pointsOf = (questions: Question[]) => fills(questions).map((q) => q.grammarIds?.[0]);
+const bankIds = (questions: Question[]) => fills(questions).map((q) => q.bankId);
 
 describe('buildDrill', () => {
   const p1 = points[0] as GrammarPoint;
   const p2 = points[1] as GrammarPoint;
   const p3 = points[2] as GrammarPoint;
 
-  it('distributes questions round-robin over the points', () => {
-    const questions = buildDrill([p1, p2], lexicons, patterns, taughtFor, 1, 4, fakes);
-    expect(ids(questions)).toEqual(['p1', 'p2', 'p1', 'p2']);
+  it('takes the points in turn', () => {
+    expect(pointsOf(buildDrill([p1, p2], bank, undefined, 1, 4))).toEqual(['p1', 'p2', 'p1', 'p2']);
   });
 
-  it('skips points whose patterns yield nothing', () => {
-    const questions = buildDrill([p3, p1], lexicons, patterns, taughtFor, 1, 3, fakes);
-    expect(ids(questions)).toEqual(['p1', 'p1', 'p1']);
+  it('skips points with no items', () => {
+    expect(pointsOf(buildDrill([p3, p1], bank, undefined, 1, 3))).toEqual(['p1', 'p1', 'p1']);
+  });
+
+  it('asks each item once a round and stops when the items run out', () => {
+    const questions = buildDrill([p1, p2], bank, undefined, 3, 20);
+    expect(questions).toHaveLength(7);
+    expect(new Set(bankIds(questions)).size).toBe(7);
+  });
+
+  it('returns nothing for no points, an empty bank or count 0', () => {
+    expect(buildDrill([], bank, undefined, 1, 5)).toEqual([]);
+    expect(buildDrill([p1], {}, undefined, 1, 5)).toEqual([]);
+    expect(buildDrill([p1], bank, undefined, 1, 0)).toEqual([]);
   });
 
   it('is deterministic per seed', () => {
-    const a = buildDrill([p1, p2], lexicons, patterns, taughtFor, 7, 6, fakes);
-    const b = buildDrill([p1, p2], lexicons, patterns, taughtFor, 7, 6, fakes);
-    expect(a).toEqual(b);
+    expect(buildDrill([p1, p2], bank, undefined, 7, 6)).toEqual(
+      buildDrill([p1, p2], bank, undefined, 7, 6),
+    );
   });
 
-  it('uses each sentence once in a run', () => {
-    const questions = buildDrill([p1, p2], lexicons, patterns, taughtFor, 3, 8, fakes);
-    const texts = questions.map((q) => (q.kind === 'fill' ? q.before : ''));
-    expect(new Set(texts).size).toBe(texts.length);
-  });
-
-  it('returns fewer when the generator runs out of new sentences', () => {
-    const few: DrillDeps = {
-      ...fakes,
-      buildSentence: (p) => ({ en: p.id, pattern: p, slots: {}, parts: [] }),
+  it('asks unseen items first, then the ones answered wrong, then the oldest', () => {
+    const seen: Record<string, GrammarSeen> = {
+      p1_1: { at: 300 },
+      p1_2: { at: 100 },
+      p1_3: { at: 500, wrong: true },
     };
-    const questions = buildDrill([p1, p2], lexicons, patterns, taughtFor, 1, 10, few);
-    expect(questions).toHaveLength(3);
+    expect(bankIds(buildDrill([p1], bank, seen, 1, 4))).toEqual(['p1_4', 'p1_3', 'p1_2', 'p1_1']);
   });
 
-  it('returns nothing for no points, no patterns or count 0', () => {
-    expect(buildDrill([], lexicons, patterns, taughtFor, 1, 5, fakes)).toEqual([]);
-    expect(buildDrill([p1], lexicons, [], taughtFor, 1, 5, fakes)).toEqual([]);
-    expect(buildDrill([p1], lexicons, patterns, taughtFor, 1, 0, fakes)).toEqual([]);
-  });
-
-  it('passes the merged lexicon and the taught set of the point', () => {
-    const seen: { size: number; taught: string[] }[] = [];
-    const spy: DrillDeps = {
-      ...fakes,
-      buildSentence: (pattern, lexicon, taught, rng) => {
-        seen.push({ size: Object.keys(lexicon).length, taught: [...taught] });
-        return fakes.buildSentence(pattern, lexicon, taught, rng);
-      },
+  it('orders the wrong ones by oldest answer too', () => {
+    const seen: Record<string, GrammarSeen> = {
+      p1_1: { at: 900, wrong: true },
+      p1_2: { at: 200, wrong: true },
+      p1_3: { at: 100 },
+      p1_4: { at: 50 },
     };
-    buildDrill([p1], lexicons, patterns, (p) => new Set([p.id]), 1, 1, spy);
-    expect(seen[0]).toEqual({ size: 2, taught: ['p1'] });
+    expect(bankIds(buildDrill([p1], bank, seen, 1, 4))).toEqual(['p1_2', 'p1_1', 'p1_4', 'p1_3']);
+  });
+
+  it('moves the right answer around', () => {
+    const big = { p1: itemsFor('p1', 40) };
+    const places = fills(buildDrill([p1], big, undefined, 5, 40)).map((q) =>
+      q.options.findIndex((o) => o.id === q.correctId),
+    );
+    expect(new Set(places).size).toBeGreaterThan(2);
+  });
+
+  it('builds the question from the item: sentence parts, answer, zh and note', () => {
+    const [q] = fills(buildDrill([p2], { p2: itemsFor('p2', 1, 2) }, undefined, 1, 1));
+    expect(q).toMatchObject({
+      kind: 'fill',
+      before: 'Sentence 1 of p2 ',
+      after: ' here.',
+      answer: 'wrong20',
+      correctId: 'o2',
+      zh: 'p2 第 1 句',
+      note: 'p2 的說明 1',
+      itemId: NO_ITEM,
+      grammar: true,
+      grammarIds: ['p2'],
+      bankId: 'p2_1',
+    });
+    expect(q?.options.find((o) => o.id === q.correctId)?.label).toBe('wrong20');
+    expect(q?.options).toHaveLength(4);
   });
 });
 
-describe('drillAvailable', () => {
-  it('is false when no home task was played', () => {
-    expect(drillAvailable(createEmptySave(now), town, points, patterns)).toBe(false);
+describe('markGrammarItem', () => {
+  const [question] = buildDrill([points[0] as GrammarPoint], bank, undefined, 1, 1);
+  const result = (correct: boolean): AnswerResult => ({
+    itemId: NO_ITEM,
+    correct,
+    usedHelp: false,
+    ms: 0,
   });
 
-  it('is false when the played points have no pattern', () => {
-    expect(drillAvailable(played(taskKey('b', 't2')), town, points, patterns)).toBe(false);
+  it('remembers when the item was answered and whether it was wrong', () => {
+    if (!question || question.kind !== 'fill') throw new Error('no question');
+    const wrong = markGrammarItem(createEmptySave(now), question, result(false), now);
+    expect(wrong.grammarSeen?.[question.bankId ?? '']).toEqual({ at: now.getTime(), wrong: true });
+    const later = new Date(now.getTime() + 1000);
+    const right = markGrammarItem(wrong, question, result(true), later);
+    expect(right.grammarSeen?.[question.bankId ?? '']).toEqual({ at: later.getTime() });
   });
 
-  it('is false when there are no patterns at all', () => {
-    expect(drillAvailable(played(taskKey('a', 't1')), town, points, [])).toBe(false);
-  });
-
-  it('is true when a played point has a pattern', () => {
-    expect(drillAvailable(played(taskKey('a', 't1')), town, points, patterns)).toBe(true);
+  it('leaves other questions alone', () => {
+    const save = createEmptySave(now);
+    const other: FillQuestion = {
+      kind: 'fill',
+      before: 'a ',
+      after: '.',
+      answer: 'b',
+      zh: '',
+      options: [],
+      correctId: 'o0',
+      itemId: NO_ITEM,
+    };
+    expect(markGrammarItem(save, other, result(false), now)).toBe(save);
   });
 });
 

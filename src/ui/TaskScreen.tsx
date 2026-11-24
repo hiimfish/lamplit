@@ -5,6 +5,7 @@ import { playSfx } from '../audio/sfx';
 import { UNITS, getUnit, speakerOf, taskItemIds } from '../content/units';
 import { appStore, commitSave, currentNow } from '../core/appState';
 import { useStore } from '../core/store';
+import { markGrammarItem } from '../learning/grammarDrill';
 import { logAnswer } from '../learning/mistakes';
 import { makeRng, buildTaskPractice } from '../learning/questionGen';
 import { isHeard } from '../learning/heardQuestion';
@@ -66,7 +67,8 @@ export function QuestionRunner({ questions, showHearts, onFinish, onProgress }: 
         question.kind,
       );
       session.current = applied.session;
-      commitSave(logAnswer(applied.save, question, result, currentNow()));
+      const logged = logAnswer(applied.save, question, result, currentNow());
+      commitSave(markGrammarItem(logged, question, result, currentNow()));
       nextResults = [...results, result];
       setResults(nextResults);
       if (result.correct) {

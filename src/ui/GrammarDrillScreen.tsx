@@ -1,18 +1,11 @@
 import { useEffect, useRef } from 'preact/hooks';
 import { playMusic } from '../audio/music';
 import { playSfx } from '../audio/sfx';
-import { GRAMMAR_POINTS } from '../content/grammar';
-import { LEXICONS, PATTERNS } from '../content/lexicons';
+import { GRAMMAR_BANK } from '../content/grammarBank';
 import { appStore, commitSave, currentNow } from '../core/appState';
 import { dateKey, type SaveData } from '../core/save';
-import {
-  buildDrill,
-  drillAvailable,
-  finishDrill,
-  grammarGoal,
-  pickDrillPoints,
-  taughtUpTo,
-} from '../learning/grammarDrill';
+import { buildDrill, finishDrill, grammarGoal } from '../learning/grammarDrill';
+import { drillPointsToday } from '../learning/grammarOn';
 import type { AnswerResult, Question } from '../learning/questions';
 import { reviewCoins, starsForAccuracy } from '../learning/sessionPlan';
 import './flow.css';
@@ -35,20 +28,10 @@ function grammarMisses(save: SaveData): number {
 function buildRound(): Question[] {
   const now = currentNow();
   const save = appStore.get().save;
-  const patterns = Object.values(PATTERNS).flat();
-  if (!drillAvailable(save, TOWN, GRAMMAR_POINTS, patterns)) return [];
-  const withPattern = new Set(patterns.map((pattern) => pattern.grammarId));
-  const points = pickDrillPoints(
-    save,
-    now,
-    TOWN,
-    GRAMMAR_POINTS.filter((point) => withPattern.has(point.id)),
-  );
   return buildDrill(
-    points,
-    LEXICONS,
-    patterns,
-    () => taughtUpTo(TOWN, appStore.get().save),
+    drillPointsToday(save, now, TOWN),
+    GRAMMAR_BANK,
+    save.grammarSeen,
     now.getTime(),
     grammarGoal(save.route),
   );
@@ -71,7 +54,7 @@ function EmptyCard() {
   );
 }
 
-/** 文法快練: a round of new sentences, answered with feedback, paying coins at the end. */
+/** 文法快練: a round of grammar bank questions, answered with feedback, paying coins at the end. */
 export function GrammarDrillScreen() {
   useEffect(() => playMusic('cafe'), []);
   const round = useRef<{ questions: Question[]; missesAtStart: number } | null>(null);

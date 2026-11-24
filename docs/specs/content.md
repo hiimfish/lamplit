@@ -416,13 +416,13 @@
 - `tests/audioItems.test.ts`：`announcer` 說的聽獨白，每句一個音檔項目、id 合法、每個聲線家族都有 `announcer`。
 - 第四幕（2026-11-23）：`tests/listenPicture.test.ts`（看圖選句聲音選項）、`tests/passages.test.ts`（第四幕的單篇長度和一組閱讀）、`tests/responds.test.ts`（應答題）、`tests/talks.test.ts`（三人對話、第四幕的長度、只播一次）各測內容檢查、出題、音檔項目和用字；`tests/content.test.ts` 的「Act 4 units」測 9 個任務、詞塊長度和每個任務的新單字數；`tests/smoothness.test.ts` 測第四幕的平滑規則能通過 syllabus 的新項目曲線；`tests/stageState.test.ts` 測第四幕每個小劇場的任兩到四個 NPC 都站在不同的位置。
 
-## 結業考、詞庫與產生器的資料（2026-11-24）
+## 結業考與文法快練的資料（2026-11-24）
 
-結業考的題目一部分手寫、一部分由產生器出（規則見 [curriculum.md](curriculum.md)）。這一節說明手寫的檔案、產生器用的資料，以及怎麼檢查。
+結業考和文法快練的題目都是手寫的（結業考的規則見 [curriculum.md](curriculum.md)）。原本的句子產生器（詞庫、句型、句子池、應答題庫）在 2026-11-24 拿掉了：自動造的句子不夠自然。這一節說明兩種題目檔，以及怎麼檢查。
 
 ### 結業考的題目檔
 
-- 路徑：`src/data/exams/<考試>.<段>.json`，例如 `exam3.s2.json`。只有段裡有手寫題目才有檔；全部由產生器出的段（例如 `exam1.s1`）沒有檔。
+- 路徑：`src/data/exams/<考試>.<段>.json`，例如 `exam3.s2.json`。還沒有檔的段，畫面顯示「準備中」。
 - 頂層欄位：`exam`、`section`，再加上有題目的種類陣列：`pictures`、`responds`、`talks`、`signs`、`fills`、`textFills`、`passages`（只寫用到的）。
 - `draft: true` 表示還沒寫完：一般檢查會跳過，`EXAM_REQUIRE_COMPLETE=1` 時草稿和缺少的檔都會失敗。
 - 每題有 `form`：`A` 或 `B`。第一次考用 A 卷，第二次考用 B 卷；**每一卷各自**要有 `EXAM_PLAN`（`src/content/exam.ts`）規定的題數。
@@ -438,48 +438,13 @@ EXAM_REQUIRE_COMPLETE=1 npx vitest run tests/examContent.test.ts
 
 `EXAM_FILE` 只檢查一個檔（不加 `.json`）。
 
-### 詞庫（`src/data/lexicon/<地點 id>.json`）
+### 文法快練的題庫（`src/data/grammar/*.json`）
 
-- 42 個地點各一個檔，都已填好（2026-11-24）：2,558 個條目，其中 880 個是 `skip`。
-- 每個條目的 key 是單字 id。欄位（`src/content/lexicon.ts`）：
-  - `pos`：詞性（n、v、adj、adv、prep、other）；`en`：寫出來的字，和 id 不同時才寫；`cls`：類別（person、role、place、room、food、drink、object、document、device、money、time、day、event、vehicle、clothing、body、quality、number）。
-  - `forms`：變化形，`pl`（複數）、`s3`、`past`、`pp`、`ing`、`comp`（比較級）。
-  - `countable`（名詞能不能數）；`pluralOnly`（只有複數的名詞，例如 clothes、pants、people）；`an`（用 an，例如 hour）。
-  - `frames`（動詞）：誰做（`subj`）、做什麼（`obj`）、介系詞（`prep`，`fixed` 表示一定接這個介系詞）、`prepRequired`。動詞沒有 `frames` 就不會用在句子裡。
-  - `skip`：不拿來造句（片語或怪字）。有 `skip` 的條目不能有其他欄位。
-- 保留的 key `lines`：標好的故事台詞，`{ "<台詞 id>": { "side": "question" 或 "answer", "qtype"?, "atype"? } }`，給應答題用。
-- 檢查（只看一個地點）：
-
-```bash
-LEXICON_FILE=<地點 id> LEXICON_STRICT=1 npx vitest run tests/lexiconContent.test.ts
-```
-
-`LEXICON_STRICT=1` 要求地點裡每個字都有條目或 `skip`，不能是空檔。`LEXICON_ALLOW_EMPTY=1` 允許還沒填的檔（內容剛好是 `{}` 的檔一律允許）。
-
-### 句型（`src/data/patterns/act<N>.json`）
-
-- 每個句型是一個「食譜」：`id`、`grammarId`（`src/content/grammar.ts` 的文法點）、`shape`（句型形狀：`svo`、`svo-prep`、`svo-time`、`be-adj`、`there-be`、`passive`、`wh-question`、`yes-no-question`、`comparative`）、`tense`、`cues`（提示字，例如 yesterday）、`blanks`（可以挖的空格種類）。
-- 可選的清單：`verbs`、`subjects`、`objects`、`pobjects`、`adjectives`、`preps`、`pronoun`。有寫的話，引擎只從清單裡選，再和玩家學過的字取交集。
-- 通過條件：每個句型至少能造出 6 句不同的句子。
-- 審閱：`SENTENCE_SAMPLE=print npx vitest run tests/sentencePool.test.ts` 印出樣本，人看過後再改食譜。
-- 目前 4 個檔都是空的（`[]`，2026-11-24）。
-
-### 句子池（`src/data/sentences/act<N>.json`）
-
-- 每句：`id`、`kind`（`statement` 陳述句，或 `qa` 問答）、`en`、`grammarId`。陳述句有 `blankWord`（聽力填空挖掉的字）；問答有 `responses`（正確和錯的回答放在同一個清單）和 `answer`（正確的是第幾個，從 0 算）。
-- 草稿：`SENTENCE_POOL=write npx vitest run tests/sentencePool.test.ts` 寫出草稿（每幕 60 句陳述、15 句問答）。草稿要人看過，才是正式的句子池。
-- 目前 4 個檔都是空的（`[]`，2026-11-24）。
-
-### 驗證過的應答題題庫（`src/data/responds/act<N>.json`）
-
-- 每題：`id`、`question`（`en`、`zh`（選填）、`qtype`、`role`）、`answer`（`en`、`zh`、`atype`）、`wrong`（至少 2 個錯的回答，各有 `en`、`zh`、`atype`）、`verified`。
-- `verified` 是盲測的人數：**2 表示兩位盲測者都答對，而且每個錯的選項都答錯**。`atype` 不能是 `universal`；錯的選項類型必須和問題的題型不相容（`COMPATIBLE`）。
-- 流程：`RESPOND_BANK=write npx vitest run tests/examPool.test.ts` 把候選寫到 `.tmp/respond-candidates/act<N>.json`（不是正式檔）；`EXAM_POOL=print` 印出候選和樣本段給人看；盲測通過的題目才寫進 `src/data/responds/act<N>.json`，並加上 `verified: 2`。
-- 目前 4 個檔都是空的（`[]`，2026-11-24）。所以依賴這些資料的產生題還出不出來，資料不夠的那一段會顯示「準備中」。
-
-### 不出成題的句子（`src/data/examExclude.json`）
-
-- `{ "respond": [], "cloze": [] }`：列出句子 id，這些句子不會變成應答題（`respond`）或聽力填空題（`cloze`）。目前都是空的。
+- 檔案：`act1.json`、`act2.json`、`act3.a.json`、`act3.b.json`、`act4.a.json`、`act4.b.json`，每個是 `{ "act": N, "items": [...] }`。程式把所有檔合在一起，依文法點分組（`src/content/grammarBank.ts` 的 `GRAMMAR_BANK`）。
+- 每題：`id`（整個題庫不重複，例如 `g_be-verb_01`）、`grammarId`（`src/content/grammar.ts` 的文法點）、`en`（剛好一個 `___`）、`zh`（整句中文，答完才顯示）、`options`（剛好 4 個、不重複）、`answer`（正確的是第幾個，從 0 算）、`note`（這一題為什麼選這個，答完顯示）。
+- 每個文法點大約 10 題；有地點教到的文法點至少要 5 題。
+- 出題時選項會打亂，正確答案的位置每題不同。
+- 檢查：`npx vitest run tests/grammarBank.test.ts`（`validateGrammarBank`：不認得的文法點、id 重複、空格不是剛好一個、選項不是 4 個或重複、答案超出範圍、中文或說明是空的）。
 
 ### 最小對比詞（2026-11-24 新增 14 組）
 

@@ -30,7 +30,6 @@ import {
   type ExamOutcome,
   type ExamSummary,
 } from '../../learning/exam';
-import { generatedForSection } from '../../learning/examGen';
 import { examScore, updateCalibration } from '../../learning/examScore';
 import '../flow.css';
 import { useKeys } from '../keys';
@@ -61,7 +60,6 @@ function buildSection(
         section: plan.id,
         form: chooseForm(save, exam),
         seen: save.exams[exam]?.seen,
-        generated: generatedForSection(exam, plan.id, seed),
       })
     : [];
   return {

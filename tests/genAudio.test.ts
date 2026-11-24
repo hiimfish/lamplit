@@ -438,54 +438,23 @@ describe('gen-audio incremental manifest', () => {
 });
 
 describe('loadItems', () => {
-  it('lists the clips of the sentence pool and the respond bank by act', () => {
+  it('lists the units and the exams only (no sentence pool or respond bank)', () => {
     const root = mkdtempSync(join(tmpdir(), 'gen-audio-'));
     const write = (dir: string, name: string, data: unknown) => {
       mkdirSync(join(root, dir), { recursive: true });
       writeFileSync(join(root, dir, name), JSON.stringify(data));
     };
-    write('units', 'empty.json', {
-      id: 'empty',
-      title: 'e',
-      titleEn: 'e',
-      chunks: [],
+    write('units', 'cafe.json', {
+      id: 'cafe',
+      title: 'c',
+      titleEn: 'c',
+      chunks: [{ id: 'hi', en: 'Hi there.', zh: '嗨' }],
       words: [],
       tasks: [],
     });
-    write('sentences', 'act2.json', [
-      {
-        id: 'a2_s01',
-        kind: 'statement',
-        en: 'She prints a letter.',
-        grammarId: 'x',
-        blankWord: 'letter',
-      },
-      {
-        id: 'a2_q01',
-        kind: 'qa',
-        en: 'Where is it?',
-        grammarId: 'x',
-        responses: ['At home.', 'Today.'],
-        answer: 0,
-      },
-    ]);
-    write('responds', 'act3.json', [
-      {
-        id: 'a3_r01',
-        question: { en: 'Is it ready?', qtype: 'yes-no', role: 'manager' },
-        answer: { en: 'Yes, it is.', atype: 'yes-no' },
-        wrong: [
-          { en: 'At six.', atype: 'time' },
-          { en: 'In the hall.', atype: 'place' },
-        ],
-        verified: 2,
-      },
-    ]);
+    write('sentences', 'act2.json', [{ id: 'a2_s01', kind: 'statement', en: 'Old pool line.' }]);
     write('exams', 'ignored.txt', {});
     const ids = loadItems(join(root, 'units')).map((item: { id: string }) => item.id);
-    expect(ids).toContain('pool2.respond.a2_s01');
-    expect(ids).toContain('pool2.response.a2_q01_1');
-    expect(ids).toContain('bank3.respond.a3_r01');
-    expect(ids).toContain('bank3.response.a3_r01_2');
+    expect(ids).toEqual(['cafe.chunk.hi']);
   });
 });

@@ -84,58 +84,15 @@ function readJsonFiles(dir) {
     .map((f) => ({ name: f, data: JSON.parse(readFileSync(join(dir, f), 'utf8')) }));
 }
 
-/** `act2.json` gives 2 (0 for any other name). */
-const actOfFile = (name) => Number(/^act(\d)\.json$/.exec(name)?.[1] ?? 0);
-
-/**
- * A pool of lines as a fake location `<prefix><act>` (pool1, bank2), so unitToAudioItems
- * gives `pool1.respond.<id>` for the prompt and `pool1.response.<id>_<i>` for each reply.
- */
-function poolUnit(id, items) {
-  const task = {
-    id: 'pool',
-    title: 'pool',
-    newChunkIds: [],
-    newWordIds: [],
-    scene: [],
-    responds: items,
-  };
-  return { id, title: id, titleEn: id, chunks: [], words: [], tasks: [task] };
-}
-
 /**
  * Every unit's items, then the exams' (src/data/exams, drafts skipped, through
- * sectionAsUnit), the reviewed sentence pool (src/data/sentences: statements and
- * questions in the announcer's voice, replies in the guide's) and the verified 應答題
- * bank (src/data/responds: reply 0 is the right one, then the wrong ones).
+ * sectionAsUnit).
  */
 export function loadItems(unitsDir = UNITS_DIR) {
   const dataDir = join(unitsDir, '..');
   const items = readJsonFiles(unitsDir).flatMap(({ data }) => unitToAudioItems(data));
   for (const { data } of readJsonFiles(join(dataDir, 'exams'))) {
     if (!data.draft) items.push(...unitToAudioItems(sectionAsUnit(data)));
-  }
-  for (const { name, data } of readJsonFiles(join(dataDir, 'sentences'))) {
-    const act = actOfFile(name);
-    if (act === 0) continue;
-    const lines = data.map((s) => ({
-      id: s.id,
-      prompt: { role: 'announcer', en: s.en, zh: '' },
-      responses: s.kind === 'qa' ? (s.responses ?? []).map((en) => ({ en, zh: '' })) : [],
-      answer: s.answer ?? 0,
-    }));
-    items.push(...unitToAudioItems(poolUnit(`pool${act}`, lines)));
-  }
-  for (const { name, data } of readJsonFiles(join(dataDir, 'responds'))) {
-    const act = actOfFile(name);
-    if (act === 0) continue;
-    const lines = data.map((b) => ({
-      id: b.id,
-      prompt: { role: b.question.role, en: b.question.en, zh: '' },
-      responses: [b.answer, ...b.wrong].map((r) => ({ en: r.en, zh: '' })),
-      answer: 0,
-    }));
-    items.push(...unitToAudioItems(poolUnit(`bank${act}`, lines)));
   }
   return items;
 }

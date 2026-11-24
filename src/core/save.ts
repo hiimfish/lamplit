@@ -158,7 +158,18 @@ export interface SaveData {
   exams: ExamsSave;
   /** The exam sitting in progress, if any. */
   examRun?: ExamRun;
+  /** 文法快練: each bank item answered, by item id (unset until the first answer). */
+  grammarSeen?: Record<string, GrammarSeen>;
 }
+
+/** One 文法快練 item: when it was last answered (ms) and whether that answer was wrong. */
+export interface GrammarSeen {
+  at: number;
+  wrong?: true;
+}
+
+/** At most this many items are remembered in `grammarSeen` (the newest are kept). */
+export const GRAMMAR_SEEN_KEPT = 2000;
 
 /** The tiny part of localStorage we use, so tests can pass a fake. */
 export interface StorageLike {
@@ -431,6 +442,8 @@ export function sanitizeSave(raw: unknown, now: Date): SaveData {
   save.exams = sanitizeExams(raw.exams);
   const examRun = sanitizeExamRun(raw.examRun, dateKey(now));
   if (examRun) save.examRun = examRun;
+  const grammarSeen = sanitizeGrammarSeen(raw.grammarSeen, now);
+  if (grammarSeen) save.grammarSeen = grammarSeen;
   if (Array.isArray(raw.checkpoints)) {
     save.checkpoints = sortCheckpoints(raw.checkpoints.filter(isCheckpoint));
   }
@@ -601,6 +614,9 @@ export function mergeSaves(ours: SaveData, theirs: SaveData): SaveData {
   const examRun = mergeExamRun(ours, theirs);
   if (examRun) merged.examRun = examRun;
   else delete merged.examRun;
+  const grammarSeen = mergeGrammarSeen(ours.grammarSeen, theirs.grammarSeen);
+  if (grammarSeen) merged.grammarSeen = grammarSeen;
+  else delete merged.grammarSeen;
   return merged;
 }
 
@@ -841,4 +857,39 @@ function mergeExams(ours: ExamsSave, theirs: ExamsSave): ExamsSave {
   const calibration = a && b ? (b.pairs > a.pairs ? b : a) : (a ?? b);
   if (calibration) merged.calibration = calibration;
   return merged;
+}
+
+/** The newest GRAMMAR_SEEN_KEPT entries, or undefined when there are none. */
+export function keepNewestSeen(
+  seen: Record<string, GrammarSeen>,
+): Record<string, GrammarSeen> | undefined {
+  const entries = Object.entries(seen);
+  if (entries.length === 0) return undefined;
+  if (entries.length <= GRAMMAR_SEEN_KEPT) return seen;
+  return Object.fromEntries(entries.sort((x, y) => y[1].at - x[1].at).slice(0, GRAMMAR_SEEN_KEPT));
+}
+
+/** `grammarSeen` from anything: item ids with a time (a future one becomes now). */
+function sanitizeGrammarSeen(raw: unknown, now: Date): Record<string, GrammarSeen> | undefined {
+  if (!isObject(raw)) return undefined;
+  const seen: Record<string, GrammarSeen> = {};
+  for (const [id, entry] of Object.entries(raw)) {
+    if (!ITEM_ID.test(id) || !isObject(entry) || !isCount(entry.at)) continue;
+    seen[id] = { at: Math.min(entry.at, now.getTime()) };
+    if (entry.wrong === true) seen[id].wrong = true;
+  }
+  return keepNewestSeen(seen);
+}
+
+/** Per item the later answer wins (ours on a tie). */
+function mergeGrammarSeen(
+  ours: Record<string, GrammarSeen> | undefined,
+  theirs: Record<string, GrammarSeen> | undefined,
+): Record<string, GrammarSeen> | undefined {
+  const merged: Record<string, GrammarSeen> = { ...theirs };
+  for (const [id, entry] of Object.entries(ours ?? {})) {
+    const other = merged[id];
+    if (!other || entry.at >= other.at) merged[id] = entry;
+  }
+  return keepNewestSeen(merged);
 }

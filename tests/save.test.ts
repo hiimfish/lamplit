@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   DEBUG_SAVE_KEY,
+  GRAMMAR_SEEN_KEPT,
   SAVE_KEY,
   MISTAKE_TAGS_PER_DAY,
   createEmptySave,
@@ -466,5 +467,55 @@ describe('exams in the save', () => {
       expect(mergeSaves(finished, withRun).examRun).toBeUndefined();
       expect(mergeSaves(withRun, finished).examRun).toBeUndefined();
     });
+  });
+});
+
+describe('grammarSeen in the save', () => {
+  const now = day('2026-11-24');
+
+  it('is unset on a new save and on one that never had it', () => {
+    expect(createEmptySave(now).grammarSeen).toBeUndefined();
+    expect(sanitizeSave({}, now).grammarSeen).toBeUndefined();
+    expect(sanitizeSave({ grammarSeen: {} }, now).grammarSeen).toBeUndefined();
+  });
+
+  it('keeps good entries, drops bad ones and pulls a future time back to now', () => {
+    const raw = {
+      grammarSeen: {
+        'g_be-verb_01': { at: 1000, wrong: true },
+        'g_be-verb_02': { at: 2000, wrong: 'yes' },
+        'BAD ID': { at: 1000 },
+        g_x: { at: -5 },
+        g_y: 'nope',
+        g_z: { at: now.getTime() + 99_999 },
+      },
+    };
+    expect(sanitizeSave(raw, now).grammarSeen).toEqual({
+      'g_be-verb_01': { at: 1000, wrong: true },
+      'g_be-verb_02': { at: 2000 },
+      g_z: { at: now.getTime() },
+    });
+  });
+
+  it('keeps only the newest entries', () => {
+    const many: Record<string, { at: number }> = {};
+    for (let i = 0; i < GRAMMAR_SEEN_KEPT + 5; i++) many[`g_${i}`] = { at: i };
+    const kept = sanitizeSave({ grammarSeen: many }, now).grammarSeen ?? {};
+    expect(Object.keys(kept)).toHaveLength(GRAMMAR_SEEN_KEPT);
+    expect(kept.g_0).toBeUndefined();
+    expect(kept[`g_${GRAMMAR_SEEN_KEPT + 4}`]).toEqual({ at: GRAMMAR_SEEN_KEPT + 4 });
+  });
+
+  it('merges per item: the later answer wins', () => {
+    const base = createEmptySave(now);
+    const ours = { ...base, grammarSeen: { a: { at: 5 }, b: { at: 1, wrong: true as const } } };
+    const theirs = { ...base, grammarSeen: { b: { at: 3 }, c: { at: 2, wrong: true as const } } };
+    expect(mergeSaves(ours, theirs).grammarSeen).toEqual({
+      a: { at: 5 },
+      b: { at: 3 },
+      c: { at: 2, wrong: true },
+    });
+    expect(mergeSaves(base, theirs).grammarSeen).toEqual(theirs.grammarSeen);
+    expect(mergeSaves(base, base).grammarSeen).toBeUndefined();
   });
 });

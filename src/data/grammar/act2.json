@@ -422,6 +422,146 @@
       "note": "be going to 的否定是 am not going to；don't 不能配 going to，isn't 不配 I。"
     },
     {
+      "id": "g_will-wont_01",
+      "grammarId": "will-wont",
+      "en": "Don't worry, I ___ be late.",
+      "zh": "別擔心，我不會遲到。",
+      "options": [
+        "don't",
+        "won't",
+        "am not",
+        "isn't"
+      ],
+      "answer": 1,
+      "note": "保證以後不會發生，用 won't + 原形動詞 be；don't、am not、isn't 後面都不能直接接 be。"
+    },
+    {
+      "id": "g_will-wont_02",
+      "grammarId": "will-wont",
+      "en": "Sure, I ___ be there by eight thirty.",
+      "zh": "好，我八點半前會到。",
+      "options": [
+        "will",
+        "am",
+        "going",
+        "was"
+      ],
+      "answer": 0,
+      "note": "答應別人的事用 will + 原形動詞；am be、going be、was be 都不成句。"
+    },
+    {
+      "id": "g_will-wont_03",
+      "grammarId": "will-wont",
+      "en": "My family in Taiwan will ___ so happy.",
+      "zh": "我在台灣的家人會很開心。",
+      "options": [
+        "is",
+        "are",
+        "be",
+        "being"
+      ],
+      "answer": 2,
+      "note": "will 後面一定接原形動詞，所以是 will be；is、are、being 都不是原形。"
+    },
+    {
+      "id": "g_will-wont_04",
+      "grammarId": "will-wont",
+      "en": "Take an umbrella. I think it ___ rain tomorrow.",
+      "zh": "帶把傘。我想明天會下雨。",
+      "options": [
+        "is",
+        "does",
+        "was",
+        "will"
+      ],
+      "answer": 3,
+      "note": "預測明天的事用 will + 原形 rain；is rain、does rain、was rain 都不對。"
+    },
+    {
+      "id": "g_will-wont_05",
+      "grammarId": "will-wont",
+      "en": "The phone is ringing. I ___ get it.",
+      "zh": "電話在響，我來接。",
+      "options": [
+        "will",
+        "am",
+        "was",
+        "being"
+      ],
+      "answer": 0,
+      "note": "當下臨時決定要做的事用 will（常說 I'll get it）；am、was、being 後面不能接原形 get。"
+    },
+    {
+      "id": "g_will-wont_06",
+      "grammarId": "will-wont",
+      "en": "Will you ___ me with my tie tomorrow morning?",
+      "zh": "你明天早上可以幫我打領帶嗎？",
+      "options": [
+        "helps",
+        "helping",
+        "helped",
+        "help"
+      ],
+      "answer": 3,
+      "note": "Will you 開頭的問句，後面還是接原形動詞 help。"
+    },
+    {
+      "id": "g_will-wont_07",
+      "grammarId": "will-wont",
+      "en": "She ___ call you after the meeting.",
+      "zh": "她開完會會打給你。",
+      "options": [
+        "wills",
+        "will",
+        "is",
+        "are"
+      ],
+      "answer": 1,
+      "note": "will 不管主詞是誰都不加 s，she will call；is call、are call 不成句。"
+    },
+    {
+      "id": "g_will-wont_08",
+      "grammarId": "will-wont",
+      "en": "I'm tired, so I ___ stay up late tonight.",
+      "zh": "我很累，所以今晚不會熬夜。",
+      "options": [
+        "not",
+        "am not",
+        "won't",
+        "isn't"
+      ],
+      "answer": 2,
+      "note": "說今晚不會做的事用 won't + 原形 stay；not 不能單獨放動詞前，am not、isn't 也不能接原形動詞。"
+    },
+    {
+      "id": "g_will-wont_09",
+      "grammarId": "will-wont",
+      "en": "___ the bus be on time tomorrow?",
+      "zh": "明天公車會準時嗎？",
+      "options": [
+        "Does",
+        "Will",
+        "Is",
+        "Do"
+      ],
+      "answer": 1,
+      "note": "問未來會不會發生，把 will 放到句首：Will the bus be...？Does、Is、Do 後面不能再接 be。"
+    },
+    {
+      "id": "g_will-wont_10",
+      "grammarId": "will-wont",
+      "en": "Thank you so much. I ___ forget your help.",
+      "zh": "非常謝謝你，我不會忘記你的幫忙。",
+      "options": [
+        "won't",
+        "not",
+        "isn't",
+        "wasn't"
+      ],
+      "answer": 0,
+      "note": "表示決心、保證不會做，用 won't + 原形 forget；not、isn't、wasn't 都不能直接接原形動詞。"
+    },
+    {
       "id": "g_frequency-adverbs_01",
       "grammarId": "frequency-adverbs",
       "en": "I ___ the bus to class.",

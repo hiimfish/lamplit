@@ -1,44 +1,35 @@
-import { GRAMMAR_POINTS } from '../content/grammar';
-import { LEXICONS, PATTERNS } from '../content/lexicons';
+import { GRAMMAR_POINTS, type GrammarPoint } from '../content/grammar';
+import { GRAMMAR_BANK } from '../content/grammarBank';
 import type { SaveData } from '../core/save';
-import {
-  buildDrill,
-  drillAvailable,
-  grammarGoal,
-  pickDrillPoints,
-  taughtUpTo,
-} from './grammarDrill';
+import { grammarGoal, pickDrillPoints, type DrillUnit } from './grammarDrill';
+import type { TownAct } from './townPlan';
 
-/** How many sentences the drill must be able to build before 每日目標 offers it. */
+/** How many bank items the drill must have before 每日目標 offers it. */
 export const MIN_DRILL_QUESTIONS = 5;
 
-let cached: { key: number; value: boolean } | undefined;
+/** Today's points: the played ones that have items in the grammar bank. */
+export function drillPointsToday<U extends DrillUnit>(
+  save: SaveData,
+  now: Date,
+  town: readonly TownAct<U>[],
+): GrammarPoint[] {
+  const withItems = GRAMMAR_POINTS.filter((point) => (GRAMMAR_BANK[point.id]?.length ?? 0) > 0);
+  return pickDrillPoints(save, now, town, withItems);
+}
 
 /**
- * Whether 文法快練 has enough to ask yet, for 每日目標 and its tally. It needs a played
- * task that teaches a grammar point with a pattern AND the words learned so far must let
- * the patterns build at least a few sentences; otherwise the drill would open on an empty
- * screen. Re-worked only when the number of plays changes (building sentences is not free).
+ * Whether 文法快練 has enough to ask yet, for 每日目標 and its tally: the points already
+ * played must hold at least a few bank items; otherwise the drill would open on an
+ * empty screen.
  */
-export function grammarOn(save: SaveData, town: Parameters<typeof drillAvailable>[1]): boolean {
-  const key =
-    Object.values(save.tasks).reduce((total, task) => total + task.plays, 0) * 10000 +
-    Object.keys(save.tasks).length;
-  if (cached?.key === key) return cached.value;
-  const patterns = Object.values(PATTERNS).flat();
-  let value = false;
-  if (drillAvailable(save, town, GRAMMAR_POINTS, patterns)) {
-    const withPattern = new Set(patterns.map((pattern) => pattern.grammarId));
-    const points = pickDrillPoints(
-      save,
-      new Date(),
-      town,
-      GRAMMAR_POINTS.filter((point) => withPattern.has(point.id)),
-    );
-    const need = Math.min(MIN_DRILL_QUESTIONS, grammarGoal(save.route));
-    value =
-      buildDrill(points, LEXICONS, patterns, () => taughtUpTo(town, save), 1, need).length >= need;
-  }
-  cached = { key, value };
-  return value;
+export function grammarOn<U extends DrillUnit>(
+  save: SaveData,
+  town: readonly TownAct<U>[],
+): boolean {
+  const need = Math.min(MIN_DRILL_QUESTIONS, grammarGoal(save.route));
+  const items = drillPointsToday(save, new Date(), town).reduce(
+    (total, point) => total + (GRAMMAR_BANK[point.id]?.length ?? 0),
+    0,
+  );
+  return items >= need;
 }
