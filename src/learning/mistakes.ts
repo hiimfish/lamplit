@@ -44,7 +44,7 @@ export const MISTAKE_LABELS: Record<string, string> = {
   'k:fill-grammar': '文法填空',
   'k:text-fill': '段落填空',
   'k:arrange': '排句子',
-  'k:spell': '拼字',
+  'k:spell': '打字拼單字',
   'k:choose-reply': '選回答',
 };
 
