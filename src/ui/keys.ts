@@ -20,8 +20,10 @@
  * into the actions it may stand for, tried in order; one document listener hands the key to
  * the most recently registered map that has one of them. Keys are ignored while Ctrl, Alt or
  * Meta is held, while typing in a field, inside a dialog, and while an IME is composing. Space
- * and Enter are left to the browser when a button, link or tab has focus, so a focused key
- * still does what it says. A dialog closes itself on Esc (useModal).
+ * and Enter are left to the browser when the player moved to a button, link or tab with the
+ * keyboard, so a key they chose still does what it says; a key that only kept the focus after
+ * a click or tap does not take them (2026-11-25: Space pressed 慢速 again after a click instead
+ * of going on), so they stay the screen's next step. A dialog closes itself on Esc (useModal).
  */
 import { useEffect, useRef } from 'preact/hooks';
 
@@ -106,11 +108,39 @@ export function ignoreKey(e: KeyboardEvent): boolean {
   );
 }
 
-/** True when Enter or Space should reach the focused control instead of the screen. */
-function controlHasFocus(e: KeyboardEvent): boolean {
-  return !!targetOf(e)?.closest(
-    'button, a[href], [role="button"], [role="tab"], [role="radio"], summary',
-  );
+const CONTROLS = 'button, a[href], [role="button"], [role="tab"], [role="radio"], summary';
+
+/** Elements that got the focus from a click or tap (or from code run right after one). */
+const pointerFocused = new WeakSet<Element>();
+/** When the last pointer press was (ms, performance.now()). */
+let pointerAt = -Infinity;
+/** Focus that follows a press this soon counts as the pointer's (a 繼續 focused on answering). */
+const POINTER_FOCUS_MS = 1000;
+
+/** Remembers, for each newly focused element, whether a click or tap brought the focus. */
+export function noteFocus(target: EventTarget | null, now: number): void {
+  if (typeof Element === 'undefined' || !(target instanceof Element)) return;
+  if (now - pointerAt < POINTER_FOCUS_MS) pointerFocused.add(target);
+  else pointerFocused.delete(target);
+}
+
+export function notePointer(now: number): void {
+  pointerAt = now;
+}
+
+/**
+ * The control that should take Enter or Space instead of the screen: one the player moved to
+ * with the keyboard. Undefined when nothing is focused or the focus came from a click.
+ */
+function keyboardControl(e: KeyboardEvent): Element | undefined {
+  const control = targetOf(e)?.closest(CONTROLS);
+  return control && !pointerFocused.has(control) ? control : undefined;
+}
+
+/** A control that only kept the focus after a click or tap. */
+function clickedControl(e: KeyboardEvent): boolean {
+  const control = targetOf(e)?.closest(CONTROLS);
+  return !!control && pointerFocused.has(control);
 }
 
 /** The number key's answer index (1 = the first key shown), or null. */
@@ -139,9 +169,11 @@ export function handleKey(e: KeyboardEvent): void {
   if (e.defaultPrevented || ignoreKey(e)) return;
   const name = keyName(e);
   if (!name) return;
-  if ((name === 'Enter' || name === 'Space' || name === 'Shift+Space') && controlHasFocus(e))
-    return;
-  if (!runFirst(actionsFor(name), e)) runFirst(fallbackFor(name), e);
+  const step = name === 'Enter' || name === 'Space' || name === 'Shift+Space';
+  if (step && keyboardControl(e)) return;
+  if (runFirst(actionsFor(name), e) || runFirst(fallbackFor(name), e)) return;
+  // No next step here: still do not press again the key that was just clicked.
+  if (step && clickedControl(e)) e.preventDefault();
 }
 
 /** Runs the newest layer's handler for the first of `actions` it has; false if none has one. */
@@ -169,6 +201,8 @@ export function useKeys(map: KeyMap, enabled = true): void {
     layers.push(layer);
     if (!listening) {
       document.addEventListener('keydown', handleKey);
+      document.addEventListener('pointerdown', () => notePointer(performance.now()), true);
+      document.addEventListener('focusin', (e) => noteFocus(e.target, performance.now()), true);
       listening = true;
     }
     return () => {
