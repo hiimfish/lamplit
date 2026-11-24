@@ -1,1 +1,315 @@
-{}
+{
+  "before": {
+    "pos": "other",
+    "skip": true
+  },
+  "another": {
+    "pos": "other",
+    "skip": true
+  },
+  "question": {
+    "pos": "other",
+    "skip": true
+  },
+  "information": {
+    "pos": "other",
+    "skip": true
+  },
+  "why": {
+    "pos": "other",
+    "skip": true
+  },
+  "important": {
+    "pos": "other",
+    "skip": true
+  },
+  "answer": {
+    "pos": "other",
+    "skip": true
+  },
+  "easy": {
+    "pos": "other",
+    "skip": true
+  },
+  "income": {
+    "pos": "other",
+    "skip": true
+  },
+  "put": {
+    "pos": "other",
+    "skip": true
+  },
+  "without": {
+    "pos": "other",
+    "skip": true
+  },
+  "eighty": {
+    "pos": "other",
+    "skip": true
+  },
+  "thousand": {
+    "pos": "other",
+    "skip": true
+  },
+  "seventy": {
+    "pos": "other",
+    "skip": true
+  },
+  "ninety": {
+    "pos": "other",
+    "skip": true
+  },
+  "amount": {
+    "pos": "other",
+    "skip": true
+  },
+  "must": {
+    "pos": "other",
+    "skip": true
+  },
+  "balance": {
+    "pos": "other",
+    "skip": true
+  },
+  "rate": {
+    "pos": "other",
+    "skip": true
+  },
+  "credit": {
+    "pos": "other",
+    "skip": true
+  },
+  "transfer": {
+    "pos": "other",
+    "skip": true
+  },
+  "payment": {
+    "pos": "other",
+    "skip": true
+  },
+  "same": {
+    "pos": "other",
+    "skip": true
+  },
+  "different": {
+    "pos": "other",
+    "skip": true
+  },
+  "ask": {
+    "pos": "v",
+    "forms": {
+      "s3": "asks",
+      "past": "asked",
+      "pp": "asked",
+      "ing": "asking"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["person", "role"]
+      }
+    ]
+  },
+  "tell": {
+    "pos": "v",
+    "forms": {
+      "s3": "tells",
+      "past": "told",
+      "pp": "told",
+      "ing": "telling"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["person", "role"]
+      }
+    ]
+  },
+  "save": {
+    "pos": "v",
+    "forms": {
+      "s3": "saves",
+      "past": "saved",
+      "pp": "saved",
+      "ing": "saving"
+    },
+    "frames": [
+      {
+        "subj": ["person"],
+        "obj": ["money"]
+      }
+    ]
+  },
+  "spend": {
+    "pos": "v",
+    "forms": {
+      "s3": "spends",
+      "past": "spent",
+      "pp": "spent",
+      "ing": "spending"
+    },
+    "frames": [
+      {
+        "subj": ["person"],
+        "obj": ["money"]
+      }
+    ]
+  },
+  "charge": {
+    "pos": "v",
+    "forms": {
+      "s3": "charges",
+      "past": "charged",
+      "pp": "charged",
+      "ing": "charging"
+    },
+    "frames": [
+      {
+        "subj": ["place", "role"],
+        "obj": ["money"]
+      }
+    ]
+  },
+  "passport": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "passports"
+    }
+  },
+  "atm": {
+    "pos": "n",
+    "en": "ATM",
+    "cls": "device",
+    "forms": {
+      "pl": "ATMs"
+    }
+  },
+  "cent": {
+    "pos": "n",
+    "cls": "money",
+    "forms": {
+      "pl": "cents"
+    }
+  },
+  "fee": {
+    "pos": "n",
+    "cls": "money",
+    "forms": {
+      "pl": "fees"
+    }
+  },
+  "statement": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "statements"
+    }
+  },
+  "lines": {
+    "t1_4": {
+      "side": "question",
+      "qtype": "where"
+    },
+    "t1_5": {
+      "side": "answer",
+      "atype": "place"
+    },
+    "t2_2": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t2_3": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t4_2": {
+      "side": "question",
+      "qtype": "how"
+    },
+    "t4_3": {
+      "side": "answer",
+      "atype": "manner"
+    },
+    "t4_4": {
+      "side": "question",
+      "qtype": "request"
+    },
+    "t4_5": {
+      "side": "answer",
+      "atype": "agree"
+    },
+    "t5_4": {
+      "side": "question",
+      "qtype": "when"
+    },
+    "t5_5": {
+      "side": "answer",
+      "atype": "time"
+    },
+    "t6_2": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t6_3": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t6_4": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t6_5": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t7_2": {
+      "side": "question",
+      "qtype": "request"
+    },
+    "t7_3": {
+      "side": "answer",
+      "atype": "agree"
+    },
+    "t7_4": {
+      "side": "question",
+      "qtype": "how"
+    },
+    "t7_5": {
+      "side": "answer",
+      "atype": "manner"
+    },
+    "t8_4": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t8_5": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t8_8": {
+      "side": "question",
+      "qtype": "how"
+    },
+    "t8_9": {
+      "side": "answer",
+      "atype": "manner"
+    },
+    "t8_12": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t8_13": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t8_14": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t8_15": {
+      "side": "answer",
+      "atype": "yes-no"
+    }
+  }
+}
