@@ -56,10 +56,10 @@ const SHAPES: readonly PatternShape[] = [
   'yes-no-question',
   'comparative',
 ];
-const ENTRY_KEYS = ['pos', 'cls', 'forms', 'countable', 'an', 'frames', 'skip'];
-const FORM_KEYS = ['pl', 's3', 'past', 'pp', 'ing'];
+const ENTRY_KEYS = ['pos', 'en', 'cls', 'forms', 'countable', 'an', 'frames', 'skip'];
+const FORM_KEYS = ['pl', 's3', 'past', 'pp', 'ing', 'comp'];
 const VERB_FORMS = ['s3', 'past', 'pp', 'ing'];
-const FRAME_KEYS = ['subj', 'obj', 'prep'];
+const FRAME_KEYS = ['subj', 'obj', 'prep', 'prepRequired'];
 const LOWER_WORD = /^[a-z]+(?:['-][a-z]+)*$/;
 const sameText = (text: string): string =>
   text
@@ -98,13 +98,18 @@ function checkFrame(frame: unknown, label: string, problems: string[]): void {
   problems.push(...unknownKeys(frame, FRAME_KEYS, label));
   checkClassList(frame.subj, `${label}.subj`, problems);
   if (frame.obj !== undefined) checkClassList(frame.obj, `${label}.obj`, problems);
+  if (frame.prepRequired !== undefined && frame.prepRequired !== true) {
+    problems.push(`${label}.prepRequired must be true`);
+  }
   if (frame.prep === undefined) return;
   const prep = frame.prep;
   if (!isObject(prep)) {
     problems.push(`${label}.prep is not an object`);
     return;
   }
-  problems.push(...unknownKeys(prep, ['word', 'cls'], `${label}.prep`));
+  problems.push(...unknownKeys(prep, ['word', 'cls', 'fixed'], `${label}.prep`));
+  if (prep.fixed !== undefined && prep.fixed !== true)
+    problems.push(`${label}.prep.fixed must be true`);
   if (typeof prep.word !== 'string' || !LOWER_WORD.test(prep.word)) {
     problems.push(`${label}.prep.word must be a lowercase word`);
   }
@@ -138,6 +143,9 @@ function checkEntry(id: string, entry: unknown, problems: string[]): void {
     return;
   }
   problems.push(...unknownKeys(entry, ENTRY_KEYS, label));
+  if (entry.en !== undefined && (typeof entry.en !== 'string' || entry.en.trim() === '')) {
+    problems.push(`${label}: en must be a non-empty string`);
+  }
   if (entry.skip !== undefined) checkSkip(entry, label, problems);
   if (!POS.includes(entry.pos as Pos)) {
     problems.push(`${label} has bad pos "${String(entry.pos)}"`);

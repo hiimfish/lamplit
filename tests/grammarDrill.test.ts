@@ -176,7 +176,7 @@ const fakes: DrillDeps = {
   buildSentence: (pattern, _lexicon, _taught, rng) =>
     pattern.id === 'none'
       ? null
-      : { en: `${pattern.id} ${Math.floor(rng() * 6)}`, pattern, slots: {} },
+      : { en: `${pattern.id} ${Math.floor(rng() * 6)}`, pattern, slots: {}, parts: [] },
   sentenceFill: (sentence, blank): FillQuestion => ({
     kind: 'fill',
     before: sentence.en,
@@ -224,7 +224,7 @@ describe('buildDrill', () => {
   it('returns fewer when the generator runs out of new sentences', () => {
     const few: DrillDeps = {
       ...fakes,
-      buildSentence: (p) => ({ en: p.id, pattern: p, slots: {} }),
+      buildSentence: (p) => ({ en: p.id, pattern: p, slots: {}, parts: [] }),
     };
     const questions = buildDrill([p1, p2], lexicons, patterns, taughtFor, 1, 10, few);
     expect(questions).toHaveLength(3);

@@ -39,7 +39,14 @@ export type LexClass = (typeof LEX_CLASSES)[number];
 export interface VerbFrame {
   subj: LexClass[];
   obj?: LexClass[];
-  prep?: { word: string; cls: LexClass[] };
+  /**
+   * An optional preposition phrase. `fixed`: the verb always takes this preposition
+   * (listen to, wait for), so a sentence may blank it; leave it out when other prepositions
+   * could also be right.
+   */
+  prep?: { word: string; cls: LexClass[]; fixed?: true };
+  /** The phrase is needed for the sentence to make sense (put it on the desk). */
+  prepRequired?: true;
 }
 
 /** The inflected forms, written out (the engine never guesses irregular ones). */
@@ -52,10 +59,14 @@ export interface LexForms {
   /** Past participle. */
   pp?: string;
   ing?: string;
+  /** Adjectives: the comparative, when the regular rules (-er, -ier, more) get it wrong. */
+  comp?: string;
 }
 
 export interface LexEntry {
   pos: Pos;
+  /** The written form when it is not the word id with `_` turned into spaces. */
+  en?: string;
   cls?: LexClass;
   forms?: LexForms;
   /** Nouns: can be counted (a report) or not (some water). */
