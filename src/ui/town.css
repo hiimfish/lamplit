@@ -37,6 +37,15 @@
   border-right: 0;
 }
 
+/* 開始 in the scene's bottom-right corner, just over the name plate that says 下一關. */
+.pixel-button.town-go {
+  position: absolute;
+  right: calc(3 * var(--px));
+  bottom: calc(3 * var(--px));
+  margin: 0;
+  padding: var(--px) calc(10 * var(--px));
+}
+
 /* Over the scene: coins and streak on a paper chip (information), 設定 as a key. */
 .town-hud {
   position: absolute;

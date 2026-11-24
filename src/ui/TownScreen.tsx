@@ -431,6 +431,20 @@ export function TownScreen() {
             </button>
           </span>
         </div>
+        {/* 開始: the scene shows where 下一關 is; the key in its corner goes in (Enter too). */}
+        {!place && (next || examDue) && (
+          <button
+            class="pixel-button primary town-go"
+            onClick={() => (next ? startTask(next.unit.id, next.task.id) : startExam())}
+            data-testid="town-go"
+            aria-label={
+              next ? `開始：${next.unit.title}・${next.task.title}` : `開始第${act.no}幕結業考`
+            }
+          >
+            開始
+            <KeyCap k="Enter" />
+          </button>
+        )}
       </div>
       <NamePlate
         act={act}
