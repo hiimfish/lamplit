@@ -6,13 +6,13 @@
   visibility: hidden;
 }
 
-/* 「也可以按字塊上的鍵」 only where there is likely a keyboard. */
+/* 「也可以按字塊上的鍵」 only while the key caps it points to show (KeyCap, styles.css). */
 .mg-type-tip {
   display: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .mg-type-tip {
+  :root[data-input='keys'] .mg-type-tip {
     display: inline;
   }
 }

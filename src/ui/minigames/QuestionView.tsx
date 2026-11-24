@@ -30,6 +30,8 @@ import './minigames.css';
 export interface QuestionViewProps {
   question: Question;
   onAnswer: (result: AnswerResult) => void;
+  /** Told the result as soon as the learner answers, while its feedback is on screen. */
+  onGraded?: (result: AnswerResult) => void;
 }
 
 const ids = new WeakMap<Question, number>();
@@ -44,7 +46,7 @@ function keyFor(question: Question): number {
   return id;
 }
 
-function Body({ question, onAnswer }: QuestionViewProps) {
+function Body({ question, onAnswer, onGraded }: QuestionViewProps) {
   const [result, setResult] = useState<AnswerResult | null>(null);
   const [sent, setSent] = useState(false);
   const onAnswered = (r: AnswerResult) => setResult((current) => current ?? r);
@@ -62,7 +64,9 @@ function Body({ question, onAnswer }: QuestionViewProps) {
   // The answered keys are disabled, so focus 繼續. On short screens the feedback
   // pushes it out of view, so bring it back into view too.
   useEffect(() => {
-    if (result) focusAndReveal(continueRef.current);
+    if (!result) return;
+    focusAndReveal(continueRef.current);
+    onGraded?.(result);
   }, [result]);
   // Enter presses 繼續 even when focus wandered off it (a focused 繼續 takes Enter itself).
   useKeys({ Enter: () => continueRef.current?.click() }, result !== null);

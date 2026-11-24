@@ -116,6 +116,24 @@ export function nextStop<U extends UnitLike>(
   return undefined;
 }
 
+/** Where an act's 下一關 key leads: a new task, or the act's 幕結業考 once every task is done. */
+export type TownStep<U> = { kind: 'task'; unit: U; index: number } | { kind: 'exam' };
+
+/**
+ * The act's next step: its next new task (nextStop) while there is one; then its exam, when
+ * the exam is open and was never sat (`exam.taken`); undefined after that.
+ */
+export function nextStep<U extends UnitLike>(
+  save: SaveData,
+  units: readonly U[],
+  exam: { open: boolean; taken: boolean },
+  lastUnitId?: string,
+): TownStep<U> | undefined {
+  const stop = nextStop(save, units, lastUnitId);
+  if (stop) return { kind: 'task', ...stop };
+  return exam.open && !exam.taken ? { kind: 'exam' } : undefined;
+}
+
 /**
  * Whether an act's locations can be played: the first act always; a later one once
  * every task of the act before it was played at least once (any score). An act the

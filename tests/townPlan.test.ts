@@ -11,6 +11,7 @@ import {
   firstNewTask,
   isActUnlocked,
   isPlaceUnlocked,
+  nextStep,
   nextStop,
   openUnits,
   progressOf,
@@ -139,6 +140,27 @@ describe('nextStop', () => {
   it('is undefined when everything was played', () => {
     const save = played({ 'a/t1': 1, 'a/t2': 1, 'a/t3': 1 });
     expect(nextStop(save, [unit('a')])).toBeUndefined();
+  });
+});
+
+describe('nextStep', () => {
+  const units = [unit('a', 2)];
+  const open = { open: true, taken: false };
+
+  it('is the next new task while there is one, even with the exam open', () => {
+    const save = played({ 'a/t1': 1 });
+    expect(nextStep(save, units, open)).toEqual({ kind: 'task', unit: units[0], index: 1 });
+  });
+
+  it("leads to the act's exam once every task is done and the exam was never sat", () => {
+    const save = played({ 'a/t1': 1, 'a/t2': 3 });
+    expect(nextStep(save, units, open)).toEqual({ kind: 'exam' });
+  });
+
+  it('is undefined once the exam was sat, or while it is closed', () => {
+    const save = played({ 'a/t1': 1, 'a/t2': 3 });
+    expect(nextStep(save, units, { open: true, taken: true })).toBeUndefined();
+    expect(nextStep(save, units, { open: false, taken: false })).toBeUndefined();
   });
 });
 

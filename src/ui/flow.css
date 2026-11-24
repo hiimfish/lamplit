@@ -285,7 +285,8 @@
  * its own height at the bottom.
  */
 .flow-card > .roleplay {
-  flex: 1 0 auto;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 :root[data-orientation] .roleplay > .chat {
@@ -300,6 +301,82 @@
 
 :root[data-orientation] .flow.has-stage .roleplay > .practice {
   flex-grow: 0;
+}
+
+/*
+ * Sideways and on a computer the card is short for a log plus a whole 排句子 question, so the
+ * turn packs into two columns: the answer line with 看中文 beside it, then the word pool with
+ * 檢查 / 重排 stacked beside it. Everything after the check (feedback, 再聽一次, 繼續) runs full
+ * width as usual.
+ */
+:root[data-orientation='landscape'] .roleplay [data-testid='question-arrange'] > .mg {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-auto-flow: row dense;
+  align-items: start;
+}
+
+:root[data-orientation='landscape'] .roleplay [data-testid='question-arrange'] > .mg > * {
+  grid-column: 1 / -1;
+}
+
+:root[data-orientation='landscape']
+  .roleplay
+  [data-testid='question-arrange']
+  > .mg
+  > [data-testid='show-zh'] {
+  grid-column: 2;
+}
+
+:root[data-orientation='landscape']
+  .roleplay
+  [data-testid='question-arrange']
+  > .mg
+  > [data-testid='show-zh']
+  + .mg-line {
+  grid-column: 1;
+}
+
+:root[data-orientation='landscape']
+  .roleplay
+  [data-testid='question-arrange']
+  > .mg
+  > .mg-pool:has(+ .mg-check-row) {
+  grid-column: 1;
+}
+
+:root[data-orientation='landscape']
+  .roleplay
+  [data-testid='question-arrange']
+  > .mg
+  > .mg-check-row {
+  grid-column: 2;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/*
+ * A phone held sideways: the newest line in the log is the cue and the answer line says
+ * where the words go, so the prompt (kept for screen readers) and the progress bar (the
+ * count 1 / 8 stays) give their rows to the log.
+ */
+@media (max-height: 560px) {
+  :root[data-orientation='landscape'] .roleplay .practice > .progress {
+    display: none;
+  }
+
+  :root[data-orientation='landscape']
+    .roleplay
+    [data-testid='question-arrange']
+    > .mg
+    > .mg-prompt {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
 }
 
 /* Landscape is short: the log takes what the title, heading and keys leave. */

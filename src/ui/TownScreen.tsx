@@ -10,6 +10,7 @@ import { currentStreak, type SaveData } from '../core/save';
 import { devUnlockAll, settingsStore } from '../core/settings';
 import { useStore } from '../core/store';
 import { goalStatus } from '../learning/dailyGoal';
+import { isExamUnlocked } from '../learning/exam';
 import { grammarOn } from '../learning/grammarOn';
 import { buildDailyReview, isTaskUnlocked, taskKey } from '../learning/sessionPlan';
 import { reviewLimit } from '../learning/sprint';
@@ -20,12 +21,12 @@ import {
   firstNewTask,
   isActUnlocked,
   isPlaceUnlocked,
-  nextStop,
+  nextStep,
   progressOf,
   type Progress,
   type TownAct,
 } from '../learning/townPlan';
-import { ExamTile } from './exam/ExamTile';
+import { examIdOf, ExamTile } from './exam/ExamTile';
 import './flow.css';
 import { useRefocus } from './focus';
 import { useKeys } from './keys';
@@ -75,12 +76,15 @@ function NamePlate({
   act,
   place,
   next,
+  examDue,
   locked,
   save,
 }: {
   act: TownAct<Unit>;
   place: Unit | undefined;
   next: { unit: Unit; task: Task } | undefined;
+  /** Every task is done and the act's 幕結業考 is the next step. */
+  examDue: boolean;
   /** The act before this one, while this one is locked. */
   locked: TownAct<Unit> | undefined;
   save: SaveData;
@@ -123,7 +127,9 @@ function NamePlate({
               ? `玩完第${locked.no}幕就會打開`
               : next
                 ? `下一關：${next.unit.title}・${next.task.title}`
-                : '這一幕全部完成了！'}
+                : examDue
+                  ? `下一步：第${act.no}幕結業考`
+                  : '這一幕全部完成了！'}
         </span>
       </div>
     </div>
@@ -290,9 +296,17 @@ export function TownScreen() {
   const streak = currentStreak(save, now);
   const goal = goalStatus(TOWN, save, now, dueCount, grammarOn(save, TOWN));
 
-  // What 下一關 opens: the next new task of this act (the name plate names it); none while
-  // the act is locked.
-  const stop = actOpen ? nextStop(save, units, lastUnitId) : undefined;
+  // What 下一關 opens: the next new task of this act (the name plate names it), then the act's
+  // 幕結業考 until it is first sat; none while the act is locked.
+  const actNo = actIndex + 1;
+  const hasExam = actNo >= 1 && actNo <= 4;
+  const exam = {
+    open: hasExam && isExamUnlocked(save, TOWN, actNo as 1 | 2 | 3 | 4, openAll),
+    taken: hasExam && (save.exams[examIdOf(actNo)]?.attempts ?? 0) > 0,
+  };
+  const step = actOpen ? nextStep(save, units, exam, lastUnitId) : undefined;
+  const stop = step?.kind === 'task' ? step : undefined;
+  const examDue = step?.kind === 'exam';
   // How far the act before a locked one is, for the note above the tiles.
   const before = actOpen ? undefined : TOWN[actIndex - 1];
   const beforeProgress = before && progressOf(save, actUnits(before));
@@ -316,15 +330,22 @@ export function TownScreen() {
     playSfx('click');
     appStore.set({ screen: 'task', activeTask: { unitId, taskId }, result: undefined });
   };
+  const startExam = () => {
+    playSfx('click');
+    appStore.set({ screen: 'exam', activeExam: actNo, result: undefined });
+  };
   const startReview = () => {
     playSfx('click');
     appStore.set({ screen: 'review', result: undefined });
   };
 
+  const idle = !place && !settingsOpen && !howOpen;
   enterRef.current =
-    !place && !settingsOpen && !howOpen && next
+    idle && next
       ? () => startTask(next.unit.id, next.task.id)
-      : undefined;
+      : idle && examDue
+        ? startExam
+        : undefined;
   backRef.current = place && !settingsOpen && !howOpen ? () => show(actIndex) : undefined;
   // The act tabs are one radio group: ←/→ (or ↑/↓) move the choice and the focus.
   const onActKey = (e: KeyboardEvent) => {
@@ -358,11 +379,16 @@ export function TownScreen() {
       </button>
       <button
         class="pixel-button primary"
-        disabled={!next}
-        onClick={() => next && startTask(next.unit.id, next.task.id)}
+        disabled={!next && !examDue}
+        onClick={() => (next ? startTask(next.unit.id, next.task.id) : examDue && startExam())}
         data-testid="continue"
       >
-        {Object.keys(save.tasks).length > 0 ? '下一關' : '開始第一關'}
+        {/* The plate says 下一步; the key keeps to one line beside 今日複習. */}
+        {examDue
+          ? `第${act.no}幕結業考`
+          : Object.keys(save.tasks).length > 0
+            ? '下一關'
+            : '開始第一關'}
         <KeyCap k="Enter" />
       </button>
     </div>
@@ -418,7 +444,14 @@ export function TownScreen() {
           </span>
         </div>
       </div>
-      <NamePlate act={act} place={place} next={next} locked={before} save={save} />
+      <NamePlate
+        act={act}
+        place={place}
+        next={next}
+        examDue={examDue}
+        locked={before}
+        save={save}
+      />
     </div>
   );
 

@@ -47,11 +47,19 @@ export function QuestionRunner({ questions, showHearts, onFinish, onProgress }: 
   const [results, setResults] = useState<AnswerResult[]>([]);
   const [combo, setCombo] = useState(0);
   const [heartsLeft, setHeartsLeft] = useState(MAX_HEARTS);
-  /** The gentle note after the hearts refill, or undefined. */
+  /** The gentle note on the miss that refills the hearts (until 繼續), or undefined. */
   const [refilled, setRefilled] = useState<string | undefined>(undefined);
   const session = useRef<PracticeSession>(createSession());
 
   const question = questions[index];
+
+  // The note goes with the miss that empties the hearts, beside its feedback; 繼續 clears it
+  // (onAnswer), so it never sits over the next question.
+  const onGraded = (result: AnswerResult) => {
+    if (!question || question.kind === 'speak' || result.correct || heartsLeft > 1) return;
+    // A question read on screen (文法快練, signs, passages) has nothing to hear again.
+    setRefilled(isHeard(question) ? '沒關係，再聽一次' : '沒關係，再想一次');
+  };
 
   const onAnswer = (result: AnswerResult) => {
     if (!question) return;
@@ -79,8 +87,6 @@ export function QuestionRunner({ questions, showHearts, onFinish, onProgress }: 
         setCombo(0);
         if (heartsLeft <= 1) {
           setHeartsLeft(MAX_HEARTS);
-          // A question read on screen (文法快練, signs, passages) has nothing to hear again.
-          setRefilled(isHeard(question) ? '沒關係，再聽一次' : '沒關係，再想一次');
         } else {
           setHeartsLeft(heartsLeft - 1);
         }
@@ -118,7 +124,7 @@ export function QuestionRunner({ questions, showHearts, onFinish, onProgress }: 
       <div class="progress" aria-hidden="true">
         <div class="progress-fill" style={{ width: `${(index / questions.length) * 100}%` }} />
       </div>
-      <QuestionView question={question} onAnswer={onAnswer} />
+      <QuestionView question={question} onAnswer={onAnswer} onGraded={onGraded} />
     </div>
   );
 }
