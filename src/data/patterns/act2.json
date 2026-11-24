@@ -1,1 +1,263 @@
-[]
+[
+  {
+    "id": "a2_could_docs",
+    "grammarId": "could-would-request",
+    "shape": "yes-no-question",
+    "tense": "could",
+    "blanks": ["verb-form", "object"],
+    "pronoun": ["you"],
+    "verbs": ["print", "review", "rewrite"],
+    "objects": ["letter", "email", "resume", "cover_letter", "application"]
+  },
+  {
+    "id": "a2_could_files",
+    "grammarId": "could-would-request",
+    "shape": "yes-no-question",
+    "tense": "could",
+    "blanks": ["verb-form", "object"],
+    "pronoun": ["you"],
+    "verbs": ["download", "print"],
+    "objects": ["file", "form", "application", "schedule", "picture"]
+  },
+  {
+    "id": "a2_would_fix",
+    "grammarId": "could-would-request",
+    "shape": "yes-no-question",
+    "tense": "would",
+    "blanks": ["verb-form", "object"],
+    "pronoun": ["you"],
+    "verbs": ["fix", "repair", "replace"],
+    "objects": ["lamp", "clock", "computer", "keyboard", "screen"]
+  },
+  {
+    "id": "a2_would_carry",
+    "grammarId": "could-would-request",
+    "shape": "yes-no-question",
+    "tense": "would",
+    "blanks": ["verb-form", "object"],
+    "pronoun": ["you"],
+    "verbs": ["carry", "hold"],
+    "objects": ["box", "bag", "umbrella"]
+  },
+  {
+    "id": "a2_must_docs",
+    "grammarId": "have-to-must",
+    "shape": "svo",
+    "tense": "must",
+    "blanks": ["verb-form", "object"],
+    "pronoun": ["i", "we", "you", "they", "he", "she"],
+    "verbs": ["print", "review", "finish"],
+    "objects": ["form", "application", "letter", "email", "resume", "schedule"]
+  },
+  {
+    "id": "a2_must_renew",
+    "grammarId": "have-to-must",
+    "shape": "svo",
+    "tense": "must",
+    "blanks": ["verb-form", "object"],
+    "pronoun": ["i", "we", "you", "they", "he", "she"],
+    "verbs": ["renew"],
+    "objects": ["passport", "ticket", "book", "certificate"]
+  },
+  {
+    "id": "a2_freq_meals",
+    "grammarId": "frequency-adverbs",
+    "shape": "svo",
+    "tense": "present",
+    "cues": ["always", "usually", "often", "sometimes", "never"],
+    "blanks": ["verb-form", "object"],
+    "pronoun": ["i", "we", "they", "he", "she"],
+    "verbs": ["eat", "cook"],
+    "objects": ["soup", "fish", "rice", "chicken", "meat"]
+  },
+  {
+    "id": "a2_freq_reading",
+    "grammarId": "frequency-adverbs",
+    "shape": "svo",
+    "tense": "present",
+    "cues": ["always", "usually", "often", "sometimes", "never"],
+    "blanks": ["verb-form", "object"],
+    "pronoun": ["i", "we", "they", "he", "she"],
+    "verbs": ["read"],
+    "objects": ["newspaper", "book", "magazine"]
+  },
+  {
+    "id": "a2_freq_write",
+    "grammarId": "frequency-adverbs",
+    "shape": "svo",
+    "tense": "present",
+    "cues": ["always", "usually", "often", "sometimes", "never"],
+    "blanks": ["verb-form", "object"],
+    "pronoun": ["i", "we", "they", "he", "she"],
+    "verbs": ["write", "print"],
+    "objects": ["letter", "email", "message", "postcard"]
+  },
+  {
+    "id": "a2_freq_listen",
+    "grammarId": "frequency-adverbs",
+    "shape": "svo-prep",
+    "tense": "present",
+    "cues": ["always", "usually", "often", "sometimes", "never"],
+    "blanks": ["verb-form", "prep"],
+    "pronoun": ["i", "we", "they", "he", "she"],
+    "verbs": ["listen", "wait"],
+    "pobjects": ["teacher", "doctor", "nurse", "counselor", "manager", "bus", "taxi"]
+  },
+  {
+    "id": "a2_past_clean",
+    "grammarId": "past-did-didnt",
+    "shape": "svo-time",
+    "tense": "past",
+    "cues": ["yesterday", "last week"],
+    "blanks": ["verb-form", "object"],
+    "pronoun": ["i", "we", "they", "he", "she"],
+    "verbs": ["clean"],
+    "objects": ["room", "office", "garden", "house", "apartment"]
+  },
+  {
+    "id": "a2_past_write",
+    "grammarId": "past-did-didnt",
+    "shape": "svo-time",
+    "tense": "past",
+    "cues": ["yesterday", "last week"],
+    "blanks": ["verb-form", "object"],
+    "pronoun": ["i", "we", "they", "he", "she"],
+    "verbs": ["write", "print"],
+    "objects": ["letter", "email", "message", "postcard"]
+  },
+  {
+    "id": "a2_did_question",
+    "grammarId": "past-did-didnt",
+    "shape": "yes-no-question",
+    "tense": "past",
+    "cues": ["yesterday", "last week"],
+    "blanks": ["verb-form", "object"],
+    "pronoun": ["you", "they", "he", "she"],
+    "verbs": ["finish", "review", "print", "prepare"],
+    "objects": ["form", "application", "resume", "schedule", "email"]
+  },
+  {
+    "id": "a2_should_docs",
+    "grammarId": "should",
+    "shape": "svo",
+    "tense": "should",
+    "blanks": ["verb-form", "object"],
+    "pronoun": ["i", "we", "you", "they", "he", "she"],
+    "verbs": ["review", "rewrite", "print"],
+    "objects": ["resume", "letter", "cover_letter", "email", "application"]
+  },
+  {
+    "id": "a2_should_question",
+    "grammarId": "should",
+    "shape": "yes-no-question",
+    "tense": "should",
+    "blanks": ["verb-form", "object"],
+    "pronoun": ["i", "we", "they"],
+    "verbs": ["fix", "replace", "repair"],
+    "objects": ["lamp", "clock", "computer", "keyboard", "screen"]
+  },
+  {
+    "id": "a2_perfect_ever",
+    "grammarId": "present-perfect-ever-never",
+    "shape": "yes-no-question",
+    "tense": "perfect",
+    "cues": ["ever"],
+    "blanks": ["verb-form", "object"],
+    "pronoun": ["you", "they", "he", "she"],
+    "verbs": ["eat", "cook"],
+    "objects": ["soup", "fish", "chicken", "pizza", "steak", "salad"]
+  },
+  {
+    "id": "a2_perfect_for",
+    "grammarId": "present-perfect-for-since",
+    "shape": "svo-prep",
+    "tense": "perfect",
+    "cues": ["for two weeks", "since last week"],
+    "blanks": ["verb-form"],
+    "pronoun": ["i", "we", "they", "he", "she"],
+    "verbs": ["stay"],
+    "pobjects": ["apartment", "house", "room"]
+  },
+  {
+    "id": "a2_perfect_just",
+    "grammarId": "present-perfect-just-already-yet",
+    "shape": "svo",
+    "tense": "perfect",
+    "cues": ["already", "just"],
+    "blanks": ["verb-form", "object"],
+    "pronoun": ["i", "we", "they", "he", "she"],
+    "verbs": ["finish", "print", "review", "prepare"],
+    "objects": ["form", "application", "resume", "schedule", "email"]
+  },
+  {
+    "id": "a2_perfect_just_write",
+    "grammarId": "present-perfect-just-already-yet",
+    "shape": "svo",
+    "tense": "perfect",
+    "cues": ["already", "just"],
+    "blanks": ["verb-form", "object"],
+    "pronoun": ["i", "we", "they", "he", "she"],
+    "verbs": ["write", "receive"],
+    "objects": ["letter", "email", "message", "postcard"]
+  },
+  {
+    "id": "a2_will_clean",
+    "grammarId": "will-wont",
+    "shape": "svo-time",
+    "tense": "will",
+    "cues": ["tomorrow", "next week"],
+    "blanks": ["verb-form", "object"],
+    "pronoun": ["i", "we", "they", "he", "she"],
+    "verbs": ["clean", "cook"],
+    "objects": ["room", "office", "garden", "apartment", "soup", "fish", "rice", "chicken"]
+  },
+  {
+    "id": "a2_will_write",
+    "grammarId": "will-wont",
+    "shape": "svo-time",
+    "tense": "will",
+    "cues": ["tomorrow", "next week"],
+    "blanks": ["verb-form", "object"],
+    "pronoun": ["i", "we", "they", "he", "she"],
+    "verbs": ["write", "print", "review"],
+    "objects": ["letter", "email", "message"]
+  },
+  {
+    "id": "a2_will_wh",
+    "grammarId": "will-wont",
+    "shape": "wh-question",
+    "tense": "will",
+    "cues": ["tomorrow", "next week"],
+    "blanks": ["verb-form"],
+    "pronoun": ["you", "they", "he", "she"],
+    "verbs": ["write", "print", "review"],
+    "objects": ["letter", "email", "message"]
+  },
+  {
+    "id": "a2_comp_vehicle",
+    "grammarId": "comparative",
+    "shape": "comparative",
+    "tense": "present",
+    "blanks": ["subject", "object"],
+    "adjectives": ["fast", "slow", "cheap", "old"],
+    "subjects": ["car", "bus", "taxi"]
+  },
+  {
+    "id": "a2_comp_things",
+    "grammarId": "comparative",
+    "shape": "comparative",
+    "tense": "present",
+    "blanks": ["subject", "object"],
+    "adjectives": ["heavy", "cheap", "old"],
+    "subjects": ["box", "bag", "umbrella"]
+  },
+  {
+    "id": "a2_comp_people",
+    "grammarId": "comparative",
+    "shape": "comparative",
+    "tense": "present",
+    "blanks": ["subject", "object"],
+    "adjectives": ["busy", "happy", "strong"],
+    "subjects": ["doctor", "nurse", "teacher", "manager", "driver"]
+  }
+]
