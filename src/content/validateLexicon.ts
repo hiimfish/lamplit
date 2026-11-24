@@ -8,9 +8,13 @@ import { ID_PATTERN } from './checks/common';
 import {
   COMPATIBLE,
   LEX_CLASSES,
+  PRONOUN_KEYS,
   type AnswerType,
   type BlankKind,
+  type Lexicon,
+  type Pattern,
   type PatternShape,
+  type PronounKey,
   type Pos,
   type QuestionType,
 } from './lexicon';
@@ -56,7 +60,7 @@ const SHAPES: readonly PatternShape[] = [
   'yes-no-question',
   'comparative',
 ];
-const ENTRY_KEYS = ['pos', 'en', 'cls', 'forms', 'countable', 'an', 'frames', 'skip'];
+const ENTRY_KEYS = ['pos', 'en', 'cls', 'forms', 'countable', 'an', 'pluralOnly', 'frames', 'skip'];
 const FORM_KEYS = ['pl', 's3', 'past', 'pp', 'ing', 'comp'];
 const VERB_FORMS = ['s3', 'past', 'pp', 'ing'];
 const FRAME_KEYS = ['subj', 'obj', 'prep', 'prepRequired'];
@@ -159,6 +163,13 @@ function checkEntry(id: string, entry: unknown, problems: string[]): void {
     problems.push(`${label}: countable must be a boolean`);
   }
   if (entry.an !== undefined && entry.an !== true) problems.push(`${label}: an must be true`);
+  if (entry.pluralOnly !== undefined) {
+    if (entry.pluralOnly !== true) problems.push(`${label}: pluralOnly must be true`);
+    else if (entry.pos !== 'n') problems.push(`${label}: pluralOnly is for nouns`);
+    else if (!isText((isObject(entry.forms) ? entry.forms : {}).pl)) {
+      problems.push(`${label}: a pluralOnly noun needs forms.pl`);
+    }
+  }
   const forms: Record<string, unknown> = checkForms(entry, label, problems);
   if (entry.frames !== undefined) {
     if (!Array.isArray(entry.frames)) problems.push(`${label}: frames must be a list`);
@@ -263,6 +274,31 @@ export function missingLexiconWords(file: unknown, unit: Unit): string[] {
   return (unit.words ?? []).filter((w) => !(w.id in have)).map((w) => w.id);
 }
 
+const WORD_LISTS = ['verbs', 'subjects', 'objects', 'pobjects', 'adjectives', 'preps'] as const;
+
+/**
+ * Word ids a pattern names that are not in the lexicon union (all locations up to its Act).
+ * `preps` may also hold a verb frame's preposition word, so only ids that look like
+ * lexicon words and are missing are reported for the other lists.
+ */
+export function patternWordProblems(patterns: readonly Pattern[], lexiconUnion: Lexicon): string[] {
+  const problems: string[] = [];
+  for (const pattern of patterns) {
+    for (const key of WORD_LISTS) {
+      for (const word of pattern[key] ?? []) {
+        if (key === 'preps' && lexiconUnion[word] === undefined) continue;
+        const entry = lexiconUnion[word];
+        if (entry === undefined || entry.skip) {
+          problems.push(
+            `pattern "${pattern.id}": ${key} names "${word}", which is not in the lexicon`,
+          );
+        }
+      }
+    }
+  }
+  return problems;
+}
+
 /** Checks `src/data/patterns/act<N>.json`. */
 export function validatePatterns(
   file: unknown,
@@ -278,7 +314,7 @@ export function validatePatterns(
       problems.push(`${label} is not an object`);
       return;
     }
-    const keys = ['id', 'grammarId', 'shape', 'tense', 'cues', 'blanks'];
+    const keys = ['id', 'grammarId', 'shape', 'tense', 'cues', 'blanks', ...WORD_LISTS, 'pronoun'];
     problems.push(...unknownKeys(raw, keys, label));
     if (typeof raw.id !== 'string' || !ID_PATTERN.test(raw.id))
       problems.push(`${label} has a bad id`);
@@ -300,6 +336,28 @@ export function validatePatterns(
             problems.push(`${label} has a bad cue "${String(cue)}" (lowercase words only)`);
           }
         }
+      }
+    }
+    for (const key of WORD_LISTS) {
+      const list = raw[key];
+      if (list === undefined) continue;
+      if (!Array.isArray(list) || list.length === 0) {
+        problems.push(`${label}: ${key} must be a non-empty list`);
+      } else if (!list.every((w) => typeof w === 'string' && ID_PATTERN.test(w))) {
+        problems.push(`${label}: ${key} holds a bad word id`);
+      } else if (new Set(list).size !== list.length) {
+        problems.push(`${label}: ${key} repeats a word`);
+      }
+    }
+    if (raw.pronoun !== undefined) {
+      const list = raw.pronoun;
+      if (!Array.isArray(list) || list.length === 0) {
+        problems.push(`${label}: pronoun must be a non-empty list`);
+      } else {
+        if (!list.every((w) => PRONOUN_KEYS.includes(w as PronounKey))) {
+          problems.push(`${label}: pronoun must be from ${PRONOUN_KEYS.join('/')}`);
+        }
+        if (new Set(list).size !== list.length) problems.push(`${label}: pronoun repeats a value`);
       }
     }
     if (!Array.isArray(raw.blanks) || raw.blanks.length === 0) {

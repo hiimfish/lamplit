@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest';
+import type { Lexicon, Pattern } from '../src/content/lexicon';
 import type { Unit } from '../src/content/types';
 import {
   missingLexiconWords,
+  patternWordProblems,
   validateLexicon,
   validatePatterns,
   validatePool,
@@ -28,6 +30,7 @@ const GOOD: [string, Record<string, unknown>][] = [
   ['uncountable noun without pl', { water: { pos: 'n', cls: 'drink', countable: false } }],
   ['adjective with nothing else', { big: { pos: 'adj' } }],
   ['noun with an', { report: { ...noun, an: true } }],
+  ['plural-only noun', { report: { ...noun, pluralOnly: true } }],
   [
     'tagged lines',
     {
@@ -42,6 +45,13 @@ const GOOD: [string, Record<string, unknown>][] = [
 
 const BAD: [string, Record<string, unknown>, RegExp][] = [
   ['word not in the unit', { nope: noun }, /not a word of office/],
+  ['pluralOnly false', { report: { ...noun, pluralOnly: false } }, /pluralOnly must be true/],
+  ['pluralOnly on a verb', { send: { ...verb, pluralOnly: true } }, /pluralOnly is for nouns/],
+  [
+    'pluralOnly without pl',
+    { report: { pos: 'n', cls: 'document', pluralOnly: true, countable: false } },
+    /needs forms\.pl/,
+  ],
   ['bad pos', { big: { pos: 'x' } }, /bad pos/],
   ['class outside the list', { report: { ...noun, cls: 'thing' } }, /outside LEX_CLASSES/],
   ['noun without cls', { report: { pos: 'n', forms: { pl: 'reports' } } }, /needs cls/],
@@ -156,8 +166,29 @@ describe('validatePatterns', () => {
     ['no blanks', (p) => (p.blanks = [])],
     ['bad id', (p) => (p.id = 'P-1')],
     ['unknown key', (p) => (p.extra = 1)],
+    ['empty verbs list', (p) => (p.verbs = [])],
+    ['verbs not a list', (p) => (p.verbs = 'send')],
+    ['capital word id', (p) => (p.subjects = ['Manager'])],
+    ['repeated word id', (p) => (p.objects = ['report', 'report'])],
+    ['non-string word id', (p) => (p.pobjects = [3])],
+    ['bad pronoun', (p) => (p.pronoun = ['me'])],
+    ['empty pronoun list', (p) => (p.pronoun = [])],
+    ['repeated pronoun', (p) => (p.pronoun = ['i', 'i'])],
   ])('rejects %s', (_name, change) => {
     expect(validatePatterns(edit(change), 1, grammar)).not.toEqual([]);
+  });
+
+  it('accepts the word lists and the pronoun list', () => {
+    const fields = {
+      verbs: ['send', 'open'],
+      subjects: ['manager'],
+      objects: ['report'],
+      pobjects: ['office'],
+      adjectives: ['big'],
+      preps: ['to', 'on'],
+      pronoun: ['i', 'you', 'we', 'they', 'he', 'she', 'it'],
+    };
+    expect(validatePatterns([{ ...pattern, ...fields }], 1, grammar)).toEqual([]);
   });
 
   it('rejects duplicate ids and non-lists', () => {
@@ -290,5 +321,34 @@ describe('validateLexicon: a preposition taught in a chunk', () => {
   it('only prepositions may leave the word list', () => {
     const noun = { pos: 'n', cls: 'place', forms: { pl: 'banks' } };
     expect(validateLexicon({ next_to: noun }, streetUnit).join()).toMatch(/not a word of street/);
+  });
+});
+
+describe('patternWordProblems', () => {
+  const union: Lexicon = {
+    send: { pos: 'v' },
+    report: { pos: 'n' },
+    on: { pos: 'prep' },
+    old: { pos: 'adj', skip: true },
+  };
+  const base: Pattern = { id: 'p', grammarId: 'g', shape: 'svo', tense: 'past', blanks: [] };
+
+  it('reports ids that are not in the lexicon, or are skipped', () => {
+    const problems = patternWordProblems(
+      [
+        { ...base, verbs: ['send', 'fly'], objects: ['report', 'cake'], adjectives: ['old'] },
+        { ...base, id: 'q', subjects: ['report'], preps: ['on', 'to'] },
+      ],
+      union,
+    );
+    expect(problems).toHaveLength(3);
+    expect(problems.join('\n')).toMatch(/verbs names "fly"/);
+    expect(problems.join('\n')).toMatch(/objects names "cake"/);
+    expect(problems.join('\n')).toMatch(/adjectives names "old"/);
+  });
+
+  it('reports nothing for no patterns or no lists', () => {
+    expect(patternWordProblems([], union)).toEqual([]);
+    expect(patternWordProblems([base], union)).toEqual([]);
   });
 });

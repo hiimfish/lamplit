@@ -1,10 +1,14 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { ACTS } from '../src/content/acts';
 import { GRAMMAR_POINTS } from '../src/content/grammar';
 import { getUnit } from '../src/content/units';
+import type { Lexicon, LexiconFile, Pattern } from '../src/content/lexicon';
+import { splitLexiconFile } from '../src/content/lexicon';
 import {
   missingLexiconWords,
+  patternWordProblems,
   validateLexicon,
   validatePatterns,
   validatePool,
@@ -74,6 +78,20 @@ describe('pattern files', () => {
     const file = readJson(join(DATA, 'patterns', name));
     expect(validatePatterns(file, act, grammarIds)).toEqual([]);
     if (strict) expect((file as unknown[]).length).toBeGreaterThan(0);
+  });
+
+  it.each(actFiles('patterns'))('$name names only words of its lexicon', ({ name, act }) => {
+    const file = readJson(join(DATA, 'patterns', name));
+    if (!Array.isArray(file) || file.length === 0) return;
+    // The words of every location of this act and the earlier ones.
+    const union: Lexicon = {};
+    for (const unitId of ACTS.slice(0, act).flatMap((a) => a.places.map((p) => p.unitId))) {
+      const path = join(DATA, 'lexicon', `${unitId ?? ''}.json`);
+      if (unitId && existsSync(path)) {
+        Object.assign(union, splitLexiconFile(readJson(path) as LexiconFile).entries);
+      }
+    }
+    expect(patternWordProblems(file as Pattern[], union)).toEqual([]);
   });
 });
 

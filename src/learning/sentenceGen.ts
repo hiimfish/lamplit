@@ -7,7 +7,7 @@
  * Data the engine reads beyond the types of content/lexicon.ts (all optional):
  * - `LexEntry.en`: the written form when it differs from the word id (id `ice_cream` is
  *   "ice cream" by default).
- * - `LexForms.comp`: the comparative of an adjective (the engine knows the regular rule
+ * - `LexForms.comp`: the comparative of an adjective (without it only clearly regular ones are compared; the engine knows the regular rule
  *   and a few irregular ones).
  * - `VerbFrame.prepRequired`: the preposition phrase is not optional (put it on the desk).
  * - Adjectives (`pos: 'adj'`) use `frames[].subj` for what they can describe; prepositions
@@ -23,6 +23,7 @@ import {
   type Lexicon,
   type Pattern,
   type PoolSentence,
+  type PronounKey,
   type QuestionType,
   type VerbFrame,
 } from '../content/lexicon';
@@ -47,6 +48,7 @@ interface NpSpec {
   det: string;
   mass: boolean;
   an: boolean;
+  pluralOnly?: boolean;
 }
 
 interface NpInfo {
@@ -228,6 +230,7 @@ interface Noun {
   mass: boolean;
   cls: LexClass;
   an: boolean;
+  pluralOnly?: boolean;
 }
 
 interface VerbWord {
@@ -243,7 +246,8 @@ interface VerbWord {
 interface AdjWord {
   id: string;
   text: string;
-  comp: string;
+  /** The comparative, or null when it is neither written nor clearly regular. */
+  comp: string | null;
   frames: VerbFrame[];
 }
 
@@ -260,6 +264,8 @@ interface Env {
   preps: PrepWord[];
   /** Cardinal numbers above one, as written. */
   numbers: string[];
+  /** Word ids a pattern allows for a noun role (absent: any noun of the frame's class). */
+  allow: { subj?: Set<string>; obj?: Set<string>; pobj?: Set<string> };
 }
 
 const IRREGULAR_COMP: Record<string, string> = {
@@ -276,29 +282,33 @@ function syllables(word: string): number {
   return Math.max(1, (w.match(/[aeiouy]+/g) ?? []).length);
 }
 
-/** The comparative: written in `forms.comp`, else the regular rule, else "more ...". */
-function comparative(word: string, entry: LexEntry): string {
+/**
+ * The comparative: written in `forms.comp`, else a short irregular one, else a clearly
+ * regular one (one syllable: cheaper, bigger, nicer; two syllables in -y: busier). Anything
+ * else is null: the adjective is not used in a comparison.
+ */
+function comparative(word: string, entry: LexEntry): string | null {
   const given = (entry.forms as { comp?: string } | undefined)?.comp;
   if (given) return given;
   const irregular = IRREGULAR_COMP[word];
   if (irregular) return irregular;
-  if (/(ed|ing|ful|less|ous|ive|al|ic)$/.test(word) || /\s/.test(word)) return `more ${word}`;
+  if (/\s/.test(word) || /(ed|ing|ful|less|ous|ive|al|ic)$/.test(word)) return null;
   const n = syllables(word);
   if (n === 1) {
-    if (word.endsWith('e')) return `${word}r`;
+    if (/^[^aeiou]+[aeiou][^aeiou]e$/.test(word)) return `${word}r`;
+    if (!/^[^aeiou]*[aeiou]{1,2}[^aeiou]+$/.test(word)) return null;
     if (/[^aeiou][aeiou][^aeiouwxy]$/.test(word)) return `${word}${word.slice(-1)}er`;
     return `${word}er`;
   }
-  if (n === 2 && word.endsWith('y')) return `${word.slice(0, -1)}ier`;
-  if (n === 2 && /[^aeiou]le$/.test(word)) return `${word}r`;
-  return `more ${word}`;
+  if (n === 2 && /[^aeiou]y$/.test(word)) return `${word.slice(0, -1)}ier`;
+  return null;
 }
 
 const CARDINALS =
   /^(two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)$/;
 
 function sortLexicon(lexicon: Lexicon, taught: Taught): Env {
-  const env: Env = { nouns: [], verbs: [], adjs: [], preps: [], numbers: [] };
+  const env: Env = { nouns: [], verbs: [], adjs: [], preps: [], numbers: [], allow: {} };
   for (const id of Object.keys(lexicon).sort()) {
     const entry = lexicon[id];
     if (!entry || entry.skip || !taught.has(id)) continue;
@@ -309,16 +319,21 @@ function sortLexicon(lexicon: Lexicon, taught: Taught): Env {
         continue;
       }
       const mass = entry.countable === false;
+      const pluralOnly = entry.pluralOnly === true && !!entry.forms?.pl;
+      const plural = entry.forms?.pl
+        ? /^[A-Z]/.test(text)
+          ? cap(entry.forms.pl)
+          : entry.forms.pl
+        : undefined;
       const noun: Noun = {
         id,
-        text,
+        text: pluralOnly && plural ? plural : text,
         mass,
         cls: entry.cls,
         an: vowelSound(text, entry),
       };
-      if (!mass && entry.forms?.pl) {
-        noun.plural = /^[A-Z]/.test(text) ? cap(entry.forms.pl) : entry.forms.pl;
-      }
+      if (!mass && plural) noun.plural = plural;
+      if (pluralOnly) noun.pluralOnly = true;
       env.nouns.push(noun);
     } else if (entry.pos === 'n' && !entry.cls) {
       continue;
@@ -346,6 +361,44 @@ function sortLexicon(lexicon: Lexicon, taught: Taught): Env {
   return env;
 }
 
+type NounRole = 'subj' | 'obj' | 'pobj' | 'cmp';
+
+/** The nouns a role may use: the pattern's list when it has one. */
+function rolePool(env: Env, role: NounRole): Noun[] {
+  const allow = role === 'cmp' ? (env.allow.obj ?? env.allow.subj) : env.allow[role];
+  return allow ? env.nouns.filter((n) => allow.has(n.id)) : env.nouns;
+}
+
+/**
+ * The words of the lexicon a pattern may use. Null when a list it names leaves nothing,
+ * or names a taught word that cannot be used (a verb with no frame or forms).
+ */
+function envFor(pattern: Pattern, lexicon: Lexicon, taught: Taught): Env | null {
+  const env = sortLexicon(lexicon, taught);
+  const only = <T extends { id: string }>(list: T[], ids: string[] | undefined): T[] =>
+    ids ? list.filter((x) => ids.includes(x.id)) : list;
+  for (const id of pattern.verbs ?? []) {
+    if (taught.has(id) && lexicon[id] && !env.verbs.some((v) => v.id === id)) return null;
+  }
+  env.verbs = only(env.verbs, pattern.verbs);
+  env.adjs = only(env.adjs, pattern.adjectives);
+  env.preps = only(env.preps, pattern.preps);
+  if (pattern.verbs && env.verbs.length === 0) return null;
+  if (pattern.adjectives && env.adjs.length === 0) return null;
+  const lists: ['subj' | 'obj' | 'pobj', string[] | undefined][] = [
+    ['subj', pattern.subjects],
+    ['obj', pattern.objects],
+    ['pobj', pattern.pobjects],
+  ];
+  for (const [role, ids] of lists) {
+    if (!ids) continue;
+    const set = new Set(ids);
+    if (!env.nouns.some((n) => set.has(n.id))) return null;
+    env.allow[role] = set;
+  }
+  return env;
+}
+
 // ---------------------------------------------------------------- noun phrases
 
 function npText(spec: NpSpec): string {
@@ -367,7 +420,8 @@ function makeSpec(
   const canPlural = !noun.mass && noun.plural !== undefined;
   if (how.plural && !canPlural) return null;
   // A landmark ("to the office") is singular unless asked for.
-  const plural = how.plural ?? (role !== 'pobj' && canPlural && rng() < 0.4);
+  const plural =
+    noun.pluralOnly === true || (how.plural ?? (role !== 'pobj' && canPlural && rng() < 0.4));
   const possessive = () => pick(POSSESSIVES, rng) ?? 'my';
   const r = rng();
   let det: string;
@@ -378,8 +432,10 @@ function makeSpec(
   } else if (plural) {
     if (r < 0.2) det = '';
     else if (r < 0.45) det = 'the';
-    else if (r < 0.9) det = pick([...env.numbers, 'some', 'many'], rng) ?? 'some';
-    else det = possessive();
+    else if (r < 0.9) {
+      const quantities = noun.pluralOnly ? ['some', 'many'] : [...env.numbers, 'some', 'many'];
+      det = pick(quantities, rng) ?? 'some';
+    } else det = possessive();
   } else if (role === 'subj') {
     det = r < 0.6 ? 'the' : r < 0.8 ? 'a' : possessive();
   } else if (role === 'obj') {
@@ -411,6 +467,11 @@ function bannedClasses(accepted: readonly LexClass[]): Set<LexClass> {
 
 /** A noun phrase of the noun in the style (number, determiner) of the right answer. */
 function renderLike(noun: Noun, like: { plural: boolean; det: string }): string | null {
+  if (noun.pluralOnly) {
+    if (!like.plural || noun.plural === undefined) return null;
+    const det = like.det === 'a' || CARDINALS.test(like.det) ? 'the' : like.det;
+    return det === '' ? noun.plural : `${det} ${noun.plural}`;
+  }
   if (like.plural) {
     if (noun.mass || noun.plural === undefined) return null;
     return like.det === '' ? noun.plural : `${like.det} ${noun.plural}`;
@@ -451,8 +512,9 @@ function nounOf(
   classes: readonly LexClass[],
   taken: ReadonlySet<string>,
   rng: Rng,
+  role: NounRole,
 ): Noun | null {
-  const options = env.nouns.filter((n) => classes.includes(n.cls) && !taken.has(n.id));
+  const options = rolePool(env, role).filter((n) => classes.includes(n.cls) && !taken.has(n.id));
   return pick(options, rng) ?? null;
 }
 
@@ -489,6 +551,7 @@ const PRONOUNS: { text: string; object: string; agr: Agr }[] = [
   { text: 'we', object: 'us', agr: { person: 1, plural: true } },
   { text: 'they', object: 'them', agr: { person: 3, plural: true } },
 ];
+const IT = { text: 'it', object: 'it', agr: { person: 3 as const, plural: false } };
 
 const isSg3 = (a: Agr): boolean => a.person === 3 && !a.plural;
 const bePresent = (a: Agr): string =>
@@ -514,14 +577,26 @@ function pickSubject(
     noFirstPerson?: boolean;
     wrongFrom?: readonly LexClass[];
     definite?: boolean;
+    /** The pattern's pronoun list: the subject is one of these, never a noun. */
+    pronouns?: readonly PronounKey[];
   } = {},
 ): SubjPick | null {
   const wrongFrom = opts.wrongFrom ?? accepted;
   const persons = accepted.includes('person') || accepted.includes('role');
-  const nouns = env.nouns.filter((n) => accepted.includes(n.cls) && !taken.has(n.id));
-  const usePronoun = !opts.nounOnly && persons && (nouns.length === 0 || rng() < 0.35);
+  const nouns = rolePool(env, 'subj').filter((n) => accepted.includes(n.cls) && !taken.has(n.id));
+  const wanted = opts.pronouns;
+  const usePronoun =
+    wanted !== undefined ||
+    (!opts.nounOnly && !env.allow.subj && persons && (nouns.length === 0 || rng() < 0.35));
   if (usePronoun) {
-    const list = PRONOUNS.filter((p) => !(opts.noFirstPerson && p.text === 'I'));
+    const everyone = [...PRONOUNS, IT];
+    const list = wanted
+      ? everyone.filter(
+          (p) =>
+            wanted.includes(p.text.toLowerCase() as PronounKey) &&
+            (persons || /^(it|they)$/.test(p.text)),
+        )
+      : PRONOUNS.filter((p) => !(opts.noFirstPerson && p.text === 'I'));
     const p = pick(list, rng);
     if (!p) return null;
     const like = { plural: !isSg3(p.agr), det: 'the' };
@@ -782,6 +857,18 @@ const needsPrep = (frame: VerbFrame): boolean =>
   !!frame.prep &&
   (frame.obj === undefined || (frame as { prepRequired?: boolean }).prepRequired === true);
 
+/**
+ * The frame as the pattern may use it: a `preps` list drops the frame's preposition when it
+ * is not on the list (null when the frame cannot do without it).
+ */
+function withAllowedPrep(frame: VerbFrame, pattern: Pattern): VerbFrame | null {
+  if (!frame.prep || !pattern.preps || pattern.preps.includes(frame.prep.word)) return frame;
+  if (needsPrep(frame) || pattern.shape === 'svo-prep') return null;
+  const { prep: dropped, ...rest } = frame;
+  void dropped;
+  return rest;
+}
+
 const PLACE_CLASSES: LexClass[] = ['place', 'room'];
 const PERSON_CLASSES: LexClass[] = ['person', 'role'];
 
@@ -870,18 +957,23 @@ function tryLex(
   allowed?: ReadonlySet<WhTarget>,
 ): Built | null {
   const shape = pattern.shape;
+  const allowedFrame = withAllowedPrep(frame, pattern);
+  if (!allowedFrame) return null;
+  frame = allowedFrame;
   if (shape === 'svo-prep' && !frame.prep) return null;
   const taken = new Set<string>();
   const subj = pickSubject(frame.subj, env, rng, taken, {
     wrongFrom: unionOf(verb.frames, (f) => f.subj),
-    noFirstPerson: tense.family === 'progressive' || tense.family === 'past-progressive',
+    noFirstPerson:
+      !pattern.pronoun && (tense.family === 'progressive' || tense.family === 'past-progressive'),
+    pronouns: pattern.pronoun,
   });
   if (!subj) return null;
   subj.ids.forEach((id) => taken.add(id));
-  const objNoun = frame.obj ? nounOf(env, frame.obj, taken, rng) : null;
+  const objNoun = frame.obj ? nounOf(env, frame.obj, taken, rng, 'obj') : null;
   if (frame.obj && !objNoun) return null;
   if (objNoun) taken.add(objNoun.id);
-  const pobjNoun = frame.prep ? nounOf(env, frame.prep.cls, taken, rng) : null;
+  const pobjNoun = frame.prep ? nounOf(env, frame.prep.cls, taken, rng, 'pobj') : null;
   if (needsPrep(frame) && !pobjNoun) return null;
   if (shape === 'svo-prep' && !pobjNoun) return null;
 
@@ -890,7 +982,8 @@ function tryLex(
   if (mode === 'wh') {
     if (objNoun) {
       targets.push('obj');
-      if (!objNoun.mass && objNoun.plural && env.numbers.length > 0) targets.push('howmany');
+      if (!objNoun.mass && !objNoun.pluralOnly && objNoun.plural && env.numbers.length > 0)
+        targets.push('howmany');
     }
     if (frame.prep && pobjNoun) {
       if (PLACE_CLASSES.includes(pobjNoun.cls)) targets.push('place');
@@ -1021,11 +1114,12 @@ function tryLex(
 
 function indefiniteSpec(noun: Noun, env: Env, rng: Rng): NpSpec | null {
   const canPlural = !noun.mass && noun.plural !== undefined;
-  const plural = canPlural && rng() < 0.4;
+  const plural = noun.pluralOnly === true || (canPlural && rng() < 0.4);
   let det: string;
   if (noun.mass) det = rng() < 0.5 ? '' : 'some';
-  else if (plural) det = pick(['', 'some', 'many', ...env.numbers], rng) ?? 'some';
-  else det = 'a';
+  else if (plural) {
+    det = pick(['', 'some', 'many', ...(noun.pluralOnly ? [] : env.numbers)], rng) ?? 'some';
+  } else det = 'a';
   return specOf(noun, plural, det);
 }
 
@@ -1040,6 +1134,7 @@ function specOf(noun: Noun, plural: boolean, det: string): NpSpec {
     an: noun.an,
   };
   if (noun.plural) spec.pluralForm = noun.plural;
+  if (noun.pluralOnly) spec.pluralOnly = true;
   return spec;
 }
 
@@ -1059,7 +1154,11 @@ function buildBeAdj(pattern: Pattern, env: Env, rng: Rng): Built | null {
   for (const adj of shuffle(env.adjs, rng)) {
     for (const frame of shuffle(adj.frames, rng)) {
       const wrongFrom = unionOf(adj.frames, (f) => f.subj);
-      const subj = pickSubject(frame.subj, env, rng, new Set(), { noFirstPerson: true, wrongFrom });
+      const subj = pickSubject(frame.subj, env, rng, new Set(), {
+        noFirstPerson: !pattern.pronoun,
+        wrongFrom,
+        pronouns: pattern.pronoun,
+      });
       if (!subj) continue;
       const group = beGroup(t.tense, subj.agr, cue);
       if (!group) return null;
@@ -1085,15 +1184,17 @@ function buildComparative(pattern: Pattern, env: Env, rng: Rng): Built | null {
   if (!t) return null;
   const cue = pick(t.cues, rng);
   for (const adj of shuffle(env.adjs, rng)) {
+    if (adj.comp === null) continue;
     for (const frame of shuffle(adj.frames, rng)) {
       const wrongFrom = unionOf(adj.frames, (f) => f.subj);
       const subj = pickSubject(frame.subj, env, rng, new Set(), {
-        nounOnly: true,
+        nounOnly: !pattern.pronoun,
+        pronouns: pattern.pronoun,
         wrongFrom,
         definite: true,
       });
       if (!subj) continue;
-      const other = nounOf(env, frame.subj, new Set(subj.ids), rng);
+      const other = nounOf(env, frame.subj, new Set(subj.ids), rng, 'cmp');
       const spec = other
         ? makeSpec(other, 'obj', env, rng, { definite: true, plural: subj.agr.plural })
         : null;
@@ -1127,8 +1228,14 @@ function buildThereBe(pattern: Pattern, env: Env, rng: Rng): Built | null {
     const subjAccepted = unionOf(prep.frames, (f) => f.subj);
     const objAccepted = unionOf(prep.frames, (f) => f.obj ?? []);
     for (const frame of shuffle(prep.frames, rng)) {
-      const located = nounOf(env, frame.subj, new Set(), rng);
-      const ground = nounOf(env, frame.obj ?? [], new Set(located ? [located.id] : []), rng);
+      const located = nounOf(env, frame.subj, new Set(), rng, 'subj');
+      const ground = nounOf(
+        env,
+        frame.obj ?? [],
+        new Set(located ? [located.id] : []),
+        rng,
+        'pobj',
+      );
       if (!located || !ground) continue;
       const spec = indefiniteSpec(located, env, rng);
       const groundSpec = makeSpec(ground, 'pobj', env, rng);
@@ -1156,19 +1263,23 @@ function buildPassive(pattern: Pattern, env: Env, rng: Rng): Built | null {
   if (!t) return null;
   const cue = pick(t.cues, rng);
   for (const verb of shuffle(env.verbs, rng)) {
-    for (const frame of shuffle(verb.frames, rng)) {
-      if (!frame.obj) continue;
-      const patient = nounOf(env, frame.obj, new Set(), rng);
+    for (const rawFrame of shuffle(verb.frames, rng)) {
+      const frame = withAllowedPrep(rawFrame, pattern);
+      if (!frame?.obj) continue;
+      const patient = nounOf(env, frame.obj, new Set(), rng, 'obj');
       const spec = patient ? makeSpec(patient, 'subj', env, rng) : null;
       if (!patient || !spec) continue;
       const taken = new Set([patient.id]);
       const wrongFrom = unionOf(verb.frames, (f) => f.subj);
-      const agent = pickSubject(frame.subj, env, rng, taken, { wrongFrom });
+      const agent = pickSubject(frame.subj, env, rng, taken, {
+        wrongFrom,
+        pronouns: pattern.pronoun,
+      });
       if (!agent) continue;
       agent.ids.forEach((id) => taken.add(id));
       const group = passiveGroup(t.tense, { person: 3, plural: spec.plural }, verb);
       if (!group) return null;
-      const pobj = frame.prep ? nounOf(env, frame.prep.cls, taken, rng) : null;
+      const pobj = frame.prep ? nounOf(env, frame.prep.cls, taken, rng, 'pobj') : null;
       if (needsPrep(frame) && !pobj) continue;
       const objAccepted = unionOf(verb.frames, (f) => f.obj ?? []);
       const prepAccepted = unionOf(verb.frames, (f) => f.prep?.cls ?? []);
@@ -1267,7 +1378,8 @@ export function buildSentence(
   taught: Taught,
   rng: Rng,
 ): Sentence | null {
-  const built = buildParts(pattern, sortLexicon(lexicon, taught), rng);
+  const env = envFor(pattern, lexicon, taught);
+  const built = env ? buildParts(pattern, env, rng) : null;
   return built ? toSentence(pattern, built) : null;
 }
 
@@ -1309,7 +1421,7 @@ const FORCES_PLURAL = (det: string): boolean =>
 
 function numberCandidate(index: number, part: Part): Candidate | null {
   const spec = part.np?.spec;
-  if (!spec || spec.mass || !spec.pluralForm) return null;
+  if (!spec || spec.mass || spec.pluralOnly || !spec.pluralForm) return null;
   const sg = spec.singular;
   const pl = spec.pluralForm;
   if (!spec.plural && spec.det === 'a') {
@@ -1434,7 +1546,9 @@ function phrasesOf(
       return nouns(PERSON_CLASSES).map((n) => `${rng() < 0.7 ? 'the' : 'my'} ${n.text}`);
     case 'thing':
       return nouns(THING_CLASSES).map((n) =>
-        n.mass ? `some ${n.text}` : `${rng() < 0.5 ? (n.an ? 'an' : 'a') : 'the'} ${n.text}`,
+        n.mass || n.pluralOnly
+          ? `some ${n.text}`
+          : `${rng() < 0.5 ? (n.an ? 'an' : 'a') : 'the'} ${n.text}`,
       );
     case 'time': {
       const own = timePhrases(env, meta.family, []);
@@ -1456,7 +1570,8 @@ export function buildQa(pattern: Pattern, lexicon: Lexicon, taught: Taught, rng:
     'svo-time': ['time'],
     'wh-question': ['obj', 'howmany', 'place', 'person-prep', 'time'],
   };
-  const env = sortLexicon(lexicon, taught);
+  const env = envFor(pattern, lexicon, taught);
+  if (!env) return null;
   const built = buildLex(pattern, env, rng, 'wh', new Set(allowed[pattern.shape]));
   const meta = built?.wh;
   if (!built || !meta) return null;

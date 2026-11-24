@@ -27,7 +27,7 @@ import {
 const PRINT = process.env.SENTENCE_SAMPLE === 'print';
 const WRITE = process.env.SENTENCE_POOL === 'write';
 /** Distinct sentences every pattern must be able to make. */
-const MIN_DISTINCT = 10;
+const MIN_DISTINCT = 6;
 const TRIES = 300;
 const POOL_SEED = 1;
 

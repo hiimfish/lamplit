@@ -71,6 +71,11 @@ export interface LexEntry {
   forms?: LexForms;
   /** Nouns: can be counted (a report) or not (some water). */
   countable?: boolean;
+  /**
+   * Nouns that are always plural (clothes, pants, people, scissors): `forms.pl` is the written
+   * form, the verb agrees as plural, no a / an, "there are", and no singular / number question.
+   */
+  pluralOnly?: true;
   /** The word takes "an" rather than "a" (an hour). */
   an?: true;
   /** Verbs: what they combine with. A verb with no frame is never used in a sentence. */
@@ -193,7 +198,30 @@ export interface Pattern {
   /** Words that decide the answer (yesterday, every day, tomorrow...); only words the Act taught. */
   cues?: string[];
   blanks: BlankKind[];
+  /**
+   * A pattern is a recipe: when a list below is present the engine picks ONLY from it
+   * (intersected with the taught words and with the frame's class filter). Word ids are
+   * lexicon keys. An empty intersection, or no combination that works, gives no sentence.
+   */
+  /** Only these verbs. */
+  verbs?: string[];
+  /** Only these nouns as the subject (the located thing of there-be, the agent of a passive). */
+  subjects?: string[];
+  /** Only these nouns as the object (the patient of a passive, the second noun of a comparison). */
+  objects?: string[];
+  /** Only these nouns after a preposition, and as the landmark of there-be. */
+  pobjects?: string[];
+  /** Only these adjectives (be-adj, comparative). */
+  adjectives?: string[];
+  /** Only these prepositions: preposition entries (there-be) or the frame's `prep.word` (svo-prep). */
+  preps?: string[];
+  /** The subject is one of these pronouns instead of a noun. */
+  pronoun?: PronounKey[];
 }
+
+/** The subject pronouns a pattern can ask for. */
+export const PRONOUN_KEYS = ['i', 'you', 'we', 'they', 'he', 'she', 'it'] as const;
+export type PronounKey = (typeof PRONOUN_KEYS)[number];
 
 /** An entry of `src/data/sentences/act<N>.json`: reviewed, fixed, spoken by the audio script. */
 export interface PoolSentence {

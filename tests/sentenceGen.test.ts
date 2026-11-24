@@ -338,7 +338,8 @@ describe('buildSentence: shapes', () => {
     for (const s of list) expect(s.en).toMatch(/ than /);
     expect(text).toMatch(/\blonger than\b/);
     expect(text).toMatch(/\bbigger than\b/);
-    expect(text).toMatch(/\bmore expensive than\b/);
+    // no written comparative and not clearly regular: the adjective is skipped
+    expect(text).not.toMatch(/expensive|duer|more /);
     expect(text).toMatch(/\bbetter than\b/);
     const busier = many(pattern('comparative', 'present'), {
       ...lexicon,
@@ -874,5 +875,242 @@ describe('buildPool', () => {
     if (!s) throw new Error('no sentence');
     for (const w of blankWords(s)) expect(w).toMatch(/^[a-z]+$/i);
     expect(blankWords(s)).not.toContain('is');
+  });
+});
+
+describe('patterns that name their words', () => {
+  const one = (p: Pattern, lex: Lexicon = lexicon, n = 100) => many(p, lex, n);
+  const withLists = (base: Pattern, extra: Partial<Pattern>): Pattern => ({ ...base, ...extra });
+  const svo = pattern('svo', 'present', ['every day']);
+
+  it('picks only from the lists, and the frame still filters by class', () => {
+    const p = withLists(svo, { verbs: ['write'], subjects: ['manager'], objects: ['report'] });
+    const list = one(p);
+    expect(list.length).toBeGreaterThan(50);
+    for (const s of list) {
+      expect(s.slots.verb).toBe('write');
+      expect(s.parts[0]?.np?.spec?.nounId ?? 'pronoun').toMatch(/^(manager|pronoun)$/);
+      expect(s.slots.obj).toBe('report');
+    }
+    // a subject the frame cannot take (an apple does not write): nothing
+    expect(one(withLists(svo, { verbs: ['write'], subjects: ['apple'] }))).toHaveLength(0);
+  });
+
+  it('gives null for an empty intersection or an unusable named verb', () => {
+    expect(one(withLists(svo, { verbs: ['nonexistent'] }))).toHaveLength(0);
+    expect(one(withLists(svo, { subjects: ['nonexistent'] }))).toHaveLength(0);
+    expect(one(withLists(svo, { verbs: ['write'], objects: ['water'] }))).toHaveLength(0);
+    const lex: Lexicon = { ...lexicon, walk: { pos: 'v', forms: { s3: 'walks' } } };
+    expect(one(withLists(svo, { verbs: ['walk'] }), lex)).toHaveLength(0);
+    // untaught words are dropped from the lists
+    const some = new Set(['write', 'manager', 'report']);
+    expect(
+      buildSentence(withLists(svo, { verbs: ['send'] }), lexicon, some, makeRng(1)),
+    ).toBeNull();
+  });
+
+  it('pobjects and preps restrict the phrase after the preposition', () => {
+    const p = withLists(pattern('svo-prep', 'past', ['yesterday']), {
+      verbs: ['send'],
+      pobjects: ['bank'],
+      preps: ['to'],
+    });
+    const list = one(p);
+    expect(list.length).toBeGreaterThan(30);
+    for (const s of list) expect(s.en).toMatch(/ to (the|a|my|your|our|his|her|their) bank\b/);
+    // a preposition that is not the frame's: no sentence
+    expect(one(withLists(p, { preps: ['at'] }))).toHaveLength(0);
+    // there-be uses the preposition entries and the landmark list
+    const there = withLists(pattern('there-be', 'present'), { preps: ['on'], pobjects: ['table'] });
+    for (const s of one(there))
+      expect(s.en).toMatch(/ on (the|a|my|your|our|his|her|their) table\.$/);
+    const adj = withLists(pattern('be-adj', 'present', ['now']), { adjectives: ['long'] });
+    for (const s of one(adj)) expect(s.slots.adj).toBe('long');
+  });
+
+  it('pronoun subjects agree with the verb', () => {
+    const lex: Lexicon = {
+      ...lexicon,
+      walk: {
+        pos: 'v',
+        forms: { s3: 'walks', past: 'walked', pp: 'walked', ing: 'walking' },
+        frames: [{ subj: ['person', 'role'] }],
+      },
+      open: {
+        pos: 'v',
+        forms: { s3: 'opens', past: 'opened', pp: 'opened', ing: 'opening' },
+        frames: [{ subj: ['person', 'role'], obj: ['document'] }],
+      },
+    };
+    const p = withLists(svo, { verbs: ['walk'], pronoun: ['i', 'she'] });
+    const texts = new Set(one(p, lex, 60).map((s) => s.en));
+    expect([...texts].sort()).toEqual(['I walk every day.', 'She walks every day.']);
+    const could = withLists(pattern('yes-no-question', 'could'), {
+      verbs: ['open'],
+      pronoun: ['you'],
+      objects: ['file'],
+    });
+    for (const s of one(could, lex))
+      expect(s.en).toMatch(
+        /^Could you open (the|a|my|your|our|his|her|their|two|three|some|many)?\s?files?\?$/,
+      );
+    // I always ...
+    const always = withLists(pattern('svo', 'present', ['always']), {
+      verbs: ['open'],
+      pronoun: ['i'],
+    });
+    for (const s of one(always, lex)) expect(s.en).toMatch(/^I always open /);
+    // "it" and "they" fit a frame with no person subject
+    const lex2: Lexicon = {
+      ...lex,
+      rain: {
+        pos: 'v',
+        forms: { s3: 'rains', past: 'rained', pp: 'rained', ing: 'raining' },
+        frames: [{ subj: ['quality'] }],
+      },
+    };
+    const it = withLists(svo, { verbs: ['rain'], pronoun: ['it', 'i'] });
+    for (const s of one(it, lex2)) expect(s.en).toBe('It rains every day.');
+  });
+
+  it('a pronoun subject has wrong subject options with the same agreement', () => {
+    const p = withLists(svo, { verbs: ['write'], pronoun: ['she'] });
+    let n = 0;
+    for (const s of one(p, lexicon, 60)) {
+      const q = sentenceFill(s, 'subject', makeRng(1));
+      if (!q) continue;
+      n++;
+      expect(q.answer).toBe('She');
+    }
+    expect(n).toBeGreaterThan(10);
+  });
+});
+
+describe('plural-only nouns', () => {
+  const lex: Lexicon = {
+    ...lexicon,
+    pants: { pos: 'n', cls: 'clothing', pluralOnly: true, forms: { pl: 'pants' } },
+    people: { pos: 'n', cls: 'person', pluralOnly: true, forms: { pl: 'people' } },
+    buy: {
+      pos: 'v',
+      forms: { s3: 'buys', past: 'bought', pp: 'bought', ing: 'buying' },
+      frames: [{ subj: ['person', 'role'], obj: ['clothing'] }],
+    },
+    wear: {
+      pos: 'v',
+      forms: { s3: 'wears', past: 'wore', pp: 'worn', ing: 'wearing' },
+      frames: [{ subj: ['person', 'role'], obj: ['clothing'] }],
+    },
+    short: { pos: 'adj', frames: [{ subj: ['clothing'] }] },
+    on: { pos: 'prep', frames: [{ subj: ['clothing'], obj: ['object'] }] },
+  };
+  const only = (shape: PatternShape, tense: string, extra: Partial<Pattern> = {}): Sentence[] =>
+    many({ ...pattern(shape, tense, ['now'], []), ...extra }, lex, 150);
+
+  it('agree as plural, never take a / an', () => {
+    const list = only('svo', 'present', {
+      cues: ['every day'],
+      verbs: ['buy'],
+      objects: ['pants'],
+      subjects: ['manager'],
+    });
+    expect(list.length).toBeGreaterThan(30);
+    for (const s of list) {
+      expect(s.en).not.toMatch(/\b(a|an|one|two|three) pants\b/);
+      expect(s.en).toMatch(/pants/);
+    }
+    const subj = only('svo', 'present', {
+      cues: ['every day'],
+      verbs: ['write'],
+      subjects: ['people'],
+    });
+    expect(subj.length).toBeGreaterThan(30);
+    for (const s of subj) expect(s.en).toMatch(/^(\w+ )?people write /i);
+  });
+
+  it('use "are" in be-adj and there-be', () => {
+    const be = only('be-adj', 'present', { adjectives: ['short'], subjects: ['pants'] });
+    expect(be.length).toBeGreaterThan(30);
+    for (const s of be) expect(s.en).toMatch(/pants are short now\.$/i);
+    const there = only('there-be', 'present', {
+      subjects: ['pants'],
+      preps: ['on'],
+      pobjects: ['table'],
+    });
+    expect(there.length).toBeGreaterThan(30);
+    for (const s of there) expect(s.en).toMatch(/^There are (some |many )?pants on /);
+    for (const s of only('be-adj', 'past', { adjectives: ['short'], subjects: ['pants'] }))
+      expect(s.en).toMatch(/ were short /);
+  });
+
+  it('never get a number question or a singular wrong option', () => {
+    const list = only('svo', 'present', {
+      cues: ['every day'],
+      verbs: ['buy'],
+      objects: ['pants'],
+    });
+    for (const s of list) {
+      expect(sentenceFill(s, 'number', makeRng(1))?.answer ?? '').not.toMatch(/pants/i);
+      const subj = sentenceFill(s, 'subject', makeRng(1));
+      if (subj) expect(subj.options.map((o) => o.label).join(' ')).not.toMatch(/\bpants\b/);
+    }
+    const pantsWrong = many(
+      { ...pattern('svo', 'present', ['every day']), verbs: ['write'], objects: ['report'] },
+      lex,
+      200,
+    );
+    for (const s of pantsWrong) {
+      const q = sentenceFill(s, 'object', makeRng(1));
+      if (q)
+        for (const o of q.options)
+          expect(o.label).not.toMatch(/\b(a|an|two|three) (pants|people)\b/);
+    }
+  });
+
+  it('are not offered a number question in a Q/A either', () => {
+    for (let seed = 1; seed < 100; seed++) {
+      const qa = buildQa(
+        { ...pattern('svo', 'past', undefined, []), verbs: ['buy'], objects: ['pants'] },
+        lex,
+        new Set(Object.keys(lex)),
+        makeRng(seed),
+      );
+      if (qa) expect(qa.questionType).not.toBe('how-many');
+    }
+  });
+});
+
+describe('comparative skips adjectives it cannot compare safely', () => {
+  const lex = (forms?: LexEntry['forms']): Lexicon => ({
+    ...lexicon,
+    due: { pos: 'adj', frames: [{ subj: ['document'] }], ...(forms ? { forms } : {}) },
+  });
+  const p: Pattern = { ...pattern('comparative', 'present'), adjectives: ['due'] };
+
+  it('has no sentence for an unwritten, irregular-looking adjective', () => {
+    expect(many(p, lex())).toHaveLength(0);
+  });
+
+  it('uses forms.comp when it is written', () => {
+    const list = many(p, lex({ comp: 'more due' } as unknown as LexEntry['forms']));
+    expect(list.length).toBeGreaterThan(20);
+    for (const s of list) expect(s.en).toMatch(/ more due than /);
+  });
+
+  it('keeps clearly regular ones: one syllable and two syllables in -y', () => {
+    const text = (adj: string) =>
+      many(
+        { ...pattern('comparative', 'present'), adjectives: [adj] },
+        { ...lexicon, [adj]: { pos: 'adj', frames: [{ subj: ['document'] }] } },
+        40,
+      )
+        .map((s) => s.en)
+        .join(' ');
+    expect(text('cheap')).toMatch(/cheaper than/);
+    expect(text('hot')).toMatch(/hotter than/);
+    expect(text('nice')).toMatch(/nicer than/);
+    expect(text('happy')).toMatch(/happier than/);
+    expect(text('expensive')).toBe('');
+    expect(text('tired')).toBe('');
   });
 });
