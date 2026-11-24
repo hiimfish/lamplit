@@ -32,19 +32,6 @@ export type ExamForm = 'A' | 'B';
 export type SectionKind = 'listening' | 'reading';
 
 /**
- * Left from the generated questions: every count is now empty (all questions are
- * hand-written). Kept only while src/learning/examGen.ts still reads it; goes with it.
- */
-export interface GeneratedCounts {
-  respond?: number;
-  listenCloze?: number;
-  grammarPick?: number;
-  priceList?: number;
-  sentenceFill?: number;
-  grammarFill?: number;
-}
-
-/**
  * Hand-written questions per section and form, as the number of questions in each
  * item: `talks: [3, 3, 2, 2]` is four conversations with 3, 3, 2 and 2 questions.
  */
@@ -68,8 +55,6 @@ export interface SectionPlan {
   id: string;
   kind: SectionKind;
   title: string;
-  /** Always empty (see GeneratedCounts). */
-  generated: GeneratedCounts;
   written: WrittenCounts;
   /** Questions in the section (one form). */
   total: number;
@@ -87,7 +72,7 @@ const section = (
   title: string,
   total: number,
   written: WrittenCounts,
-): SectionPlan => ({ id, kind, title, generated: {}, written, total });
+): SectionPlan => ({ id, kind, title, written, total });
 
 /**
  * Every question is hand-written (src/data/exams/<exam>.<section>.json). Bump
