@@ -1,1 +1,535 @@
-[]
+[
+  {
+    "id": "a1_q01",
+    "kind": "qa",
+    "en": "When can I dance?",
+    "grammarId": "can-ability",
+    "responses": ["A steak.", "The neighbor.", "At the lake.", "Every evening."],
+    "answer": 3
+  },
+  {
+    "id": "a1_q02",
+    "kind": "qa",
+    "en": "What can he cook?",
+    "grammarId": "can-ability",
+    "responses": ["At the school.", "The family.", "Every afternoon.", "Some chicken."],
+    "answer": 3
+  },
+  {
+    "id": "a1_q03",
+    "kind": "qa",
+    "en": "What can you read?",
+    "grammarId": "can-ability",
+    "responses": ["The neighbor.", "The messages.", "Every week.", "At the station."],
+    "answer": 1
+  },
+  {
+    "id": "a1_q04",
+    "kind": "qa",
+    "en": "When do we eat cookies?",
+    "grammarId": "present-simple",
+    "responses": ["Every week.", "The book.", "At the bank.", "The doctor."],
+    "answer": 0
+  },
+  {
+    "id": "a1_q05",
+    "kind": "qa",
+    "en": "When do we buy tomatoes?",
+    "grammarId": "present-simple",
+    "responses": ["Every week.", "The waiter.", "Some cheese.", "At the center."],
+    "answer": 0
+  },
+  {
+    "id": "a1_q06",
+    "kind": "qa",
+    "en": "When do you wear a jacket?",
+    "grammarId": "present-simple",
+    "responses": ["At the park.", "Every weekend.", "My neighbor.", "The jacket."],
+    "answer": 1
+  },
+  {
+    "id": "a1_q07",
+    "kind": "qa",
+    "en": "When do you read the letter?",
+    "grammarId": "present-simple",
+    "responses": ["At the office.", "Every afternoon.", "The tomato.", "The doctor."],
+    "answer": 1
+  },
+  {
+    "id": "a1_q08",
+    "kind": "qa",
+    "en": "When do you dance?",
+    "grammarId": "present-simple",
+    "responses": ["The nurse.", "Every week.", "At the library.", "Some soup."],
+    "answer": 1
+  },
+  {
+    "id": "a1_q09",
+    "kind": "qa",
+    "en": "When do they swim?",
+    "grammarId": "present-simple",
+    "responses": ["My neighbor.", "At the lake.", "Some soup.", "Every weekend."],
+    "answer": 3
+  },
+  {
+    "id": "a1_q10",
+    "kind": "qa",
+    "en": "Where does the nurse walk every day?",
+    "grammarId": "present-simple",
+    "responses": ["To the station.", "Every afternoon.", "The kid.", "The envelope."],
+    "answer": 0
+  },
+  {
+    "id": "a1_q11",
+    "kind": "qa",
+    "en": "When does he wait for the taxi?",
+    "grammarId": "present-simple",
+    "responses": ["Every day.", "At the corner.", "The people.", "A form."],
+    "answer": 0
+  },
+  {
+    "id": "a1_q12",
+    "kind": "qa",
+    "en": "When do I buy the bread?",
+    "grammarId": "countable-uncountable",
+    "responses": ["At the bridge.", "The counter.", "The neighbor.", "Every Sunday."],
+    "answer": 3
+  },
+  {
+    "id": "a1_q13",
+    "kind": "qa",
+    "en": "When do we eat the chicken?",
+    "grammarId": "some-any",
+    "responses": ["The nurse.", "In the room.", "Every week.", "A taxi."],
+    "answer": 2
+  },
+  {
+    "id": "a1_q14",
+    "kind": "qa",
+    "en": "When does he buy bananas?",
+    "grammarId": "articles",
+    "responses": ["Every Sunday.", "At the museum.", "Some soup.", "The neighbor."],
+    "answer": 0
+  },
+  {
+    "id": "a1_q15",
+    "kind": "qa",
+    "en": "When are you singing?",
+    "grammarId": "present-continuous",
+    "responses": ["The waiter.", "At the school.", "Every weekend.", "Some chocolate."],
+    "answer": 2
+  },
+  {
+    "id": "a1_s01",
+    "kind": "statement",
+    "en": "You are careful.",
+    "grammarId": "be-verb",
+    "blankWord": "careful"
+  },
+  {
+    "id": "a1_s02",
+    "kind": "statement",
+    "en": "A pizza is delicious.",
+    "grammarId": "be-verb",
+    "blankWord": "delicious"
+  },
+  {
+    "id": "a1_s03",
+    "kind": "statement",
+    "en": "The tomato is cheap.",
+    "grammarId": "be-verb",
+    "blankWord": "cheap"
+  },
+  {
+    "id": "a1_s04",
+    "kind": "statement",
+    "en": "The pants are blue.",
+    "grammarId": "be-verb",
+    "blankWord": "pants"
+  },
+  {
+    "id": "a1_s05",
+    "kind": "statement",
+    "en": "The coats are tight.",
+    "grammarId": "be-verb",
+    "blankWord": "tight"
+  },
+  {
+    "id": "a1_s06",
+    "kind": "statement",
+    "en": "A pizza is expensive.",
+    "grammarId": "be-verb",
+    "blankWord": "pizza"
+  },
+  {
+    "id": "a1_s07",
+    "kind": "statement",
+    "en": "His coat is new.",
+    "grammarId": "plural-nouns",
+    "blankWord": "coat"
+  },
+  {
+    "id": "a1_s08",
+    "kind": "statement",
+    "en": "You were sick yesterday.",
+    "grammarId": "past-be",
+    "blankWord": "sick"
+  },
+  {
+    "id": "a1_s09",
+    "kind": "statement",
+    "en": "The pizza was great last night.",
+    "grammarId": "past-be",
+    "blankWord": "pizza"
+  },
+  {
+    "id": "a1_s10",
+    "kind": "statement",
+    "en": "We can sing every day.",
+    "grammarId": "can-ability",
+    "blankWord": "sing"
+  },
+  {
+    "id": "a1_s11",
+    "kind": "statement",
+    "en": "He can cook soup.",
+    "grammarId": "can-ability",
+    "blankWord": "cook"
+  },
+  {
+    "id": "a1_s12",
+    "kind": "statement",
+    "en": "I can read a letter.",
+    "grammarId": "can-ability",
+    "blankWord": "letter"
+  },
+  {
+    "id": "a1_s13",
+    "kind": "statement",
+    "en": "You eat some sandwiches every day.",
+    "grammarId": "present-simple",
+    "blankWord": "sandwiches"
+  },
+  {
+    "id": "a1_s14",
+    "kind": "statement",
+    "en": "She buys your bags every week.",
+    "grammarId": "present-simple",
+    "blankWord": "bags"
+  },
+  {
+    "id": "a1_s15",
+    "kind": "statement",
+    "en": "We wear a jacket every day.",
+    "grammarId": "present-simple",
+    "blankWord": "jacket"
+  },
+  {
+    "id": "a1_s16",
+    "kind": "statement",
+    "en": "They read her email every evening.",
+    "grammarId": "present-simple",
+    "blankWord": "email"
+  },
+  {
+    "id": "a1_s17",
+    "kind": "statement",
+    "en": "We sing every weekend.",
+    "grammarId": "present-simple",
+    "blankWord": "sing"
+  },
+  {
+    "id": "a1_s18",
+    "kind": "statement",
+    "en": "She swims in a lake every weekend.",
+    "grammarId": "present-simple",
+    "blankWord": "swims"
+  },
+  {
+    "id": "a1_s19",
+    "kind": "statement",
+    "en": "Our nurse walks to the park every week.",
+    "grammarId": "present-simple",
+    "blankWord": "park"
+  },
+  {
+    "id": "a1_s20",
+    "kind": "statement",
+    "en": "We wait for a taxi every day.",
+    "grammarId": "present-simple",
+    "blankWord": "taxi"
+  },
+  {
+    "id": "a1_s21",
+    "kind": "statement",
+    "en": "He buys some salt every week.",
+    "grammarId": "countable-uncountable",
+    "blankWord": "buys"
+  },
+  {
+    "id": "a1_s22",
+    "kind": "statement",
+    "en": "She eats fish every weekend.",
+    "grammarId": "some-any",
+    "blankWord": "fish"
+  },
+  {
+    "id": "a1_s23",
+    "kind": "statement",
+    "en": "She buys a muffin every weekend.",
+    "grammarId": "articles",
+    "blankWord": "muffin"
+  },
+  {
+    "id": "a1_s24",
+    "kind": "statement",
+    "en": "You are singing at the moment.",
+    "grammarId": "present-continuous",
+    "blankWord": "singing"
+  },
+  {
+    "id": "a1_s25",
+    "kind": "statement",
+    "en": "We are swimming in the lake at the moment.",
+    "grammarId": "present-continuous",
+    "blankWord": "swimming"
+  },
+  {
+    "id": "a1_s26",
+    "kind": "statement",
+    "en": "We are eating the soup at the moment.",
+    "grammarId": "present-continuous",
+    "blankWord": "eating"
+  },
+  {
+    "id": "a1_s27",
+    "kind": "statement",
+    "en": "A waiter is reading a letter now.",
+    "grammarId": "present-continuous",
+    "blankWord": "waiter"
+  },
+  {
+    "id": "a1_s28",
+    "kind": "statement",
+    "en": "She is waiting for the taxi now.",
+    "grammarId": "present-continuous",
+    "blankWord": "taxi"
+  },
+  {
+    "id": "a1_s29",
+    "kind": "statement",
+    "en": "There is a taxi on the bridge.",
+    "grammarId": "there-is-are",
+    "blankWord": "taxi"
+  },
+  {
+    "id": "a1_s30",
+    "kind": "statement",
+    "en": "There is a neighbor at the library.",
+    "grammarId": "there-is-are",
+    "blankWord": "neighbor"
+  },
+  {
+    "id": "a1_s31",
+    "kind": "statement",
+    "en": "You cleaned an office last weekend.",
+    "grammarId": "past-regular",
+    "blankWord": "office"
+  },
+  {
+    "id": "a1_s32",
+    "kind": "statement",
+    "en": "She returned the jacket yesterday.",
+    "grammarId": "past-regular",
+    "blankWord": "returned"
+  },
+  {
+    "id": "a1_s33",
+    "kind": "statement",
+    "en": "They walked to the pharmacy yesterday.",
+    "grammarId": "past-regular",
+    "blankWord": "walked"
+  },
+  {
+    "id": "a1_s34",
+    "kind": "statement",
+    "en": "They played with the kid yesterday.",
+    "grammarId": "past-regular",
+    "blankWord": "kid"
+  },
+  {
+    "id": "a1_s35",
+    "kind": "statement",
+    "en": "You danced last weekend.",
+    "grammarId": "past-regular",
+    "blankWord": "danced"
+  },
+  {
+    "id": "a1_s36",
+    "kind": "statement",
+    "en": "I bought a pizza last weekend.",
+    "grammarId": "past-irregular",
+    "blankWord": "bought"
+  },
+  {
+    "id": "a1_s37",
+    "kind": "statement",
+    "en": "She wore the skirt yesterday.",
+    "grammarId": "past-irregular",
+    "blankWord": "skirt"
+  },
+  {
+    "id": "a1_s38",
+    "kind": "statement",
+    "en": "She wrote postcards last night.",
+    "grammarId": "past-irregular",
+    "blankWord": "wrote"
+  },
+  {
+    "id": "a1_s39",
+    "kind": "statement",
+    "en": "They sang yesterday.",
+    "grammarId": "past-irregular",
+    "blankWord": "sang"
+  },
+  {
+    "id": "a1_s40",
+    "kind": "statement",
+    "en": "You swam in the lake last weekend.",
+    "grammarId": "past-irregular",
+    "blankWord": "lake"
+  },
+  {
+    "id": "a1_s41",
+    "kind": "statement",
+    "en": "You wore the coat last week.",
+    "grammarId": "past-irregular",
+    "blankWord": "wore"
+  },
+  {
+    "id": "a1_s42",
+    "kind": "statement",
+    "en": "She stood at the corner last night.",
+    "grammarId": "past-irregular",
+    "blankWord": "stood"
+  },
+  {
+    "id": "a1_s43",
+    "kind": "statement",
+    "en": "He is sick.",
+    "grammarId": "be-verb",
+    "blankWord": "sick"
+  },
+  {
+    "id": "a1_s44",
+    "kind": "statement",
+    "en": "The latte is hot.",
+    "grammarId": "be-verb",
+    "blankWord": "latte"
+  },
+  {
+    "id": "a1_s45",
+    "kind": "statement",
+    "en": "Fruit is fresh.",
+    "grammarId": "be-verb",
+    "blankWord": "fresh"
+  },
+  {
+    "id": "a1_s46",
+    "kind": "statement",
+    "en": "Pants are green.",
+    "grammarId": "be-verb",
+    "blankWord": "pants"
+  },
+  {
+    "id": "a1_s47",
+    "kind": "statement",
+    "en": "Coats are loose.",
+    "grammarId": "be-verb",
+    "blankWord": "loose"
+  },
+  {
+    "id": "a1_s48",
+    "kind": "statement",
+    "en": "The coat is cheap.",
+    "grammarId": "be-verb",
+    "blankWord": "cheap"
+  },
+  {
+    "id": "a1_s49",
+    "kind": "statement",
+    "en": "Her clothes are warm.",
+    "grammarId": "plural-nouns",
+    "blankWord": "clothes"
+  },
+  {
+    "id": "a1_s50",
+    "kind": "statement",
+    "en": "We were busy last week.",
+    "grammarId": "past-be",
+    "blankWord": "busy"
+  },
+  {
+    "id": "a1_s51",
+    "kind": "statement",
+    "en": "The tea was hot last night.",
+    "grammarId": "past-be",
+    "blankWord": "tea"
+  },
+  {
+    "id": "a1_s52",
+    "kind": "statement",
+    "en": "You can sing every weekend.",
+    "grammarId": "can-ability",
+    "blankWord": "sing"
+  },
+  {
+    "id": "a1_s53",
+    "kind": "statement",
+    "en": "She can cook chicken.",
+    "grammarId": "can-ability",
+    "blankWord": "cook"
+  },
+  {
+    "id": "a1_s54",
+    "kind": "statement",
+    "en": "We can write a postcard.",
+    "grammarId": "can-ability",
+    "blankWord": "postcard"
+  },
+  {
+    "id": "a1_s55",
+    "kind": "statement",
+    "en": "They eat many eggs every week.",
+    "grammarId": "present-simple",
+    "blankWord": "eat"
+  },
+  {
+    "id": "a1_s56",
+    "kind": "statement",
+    "en": "I buy some milk every week.",
+    "grammarId": "present-simple",
+    "blankWord": "milk"
+  },
+  {
+    "id": "a1_s57",
+    "kind": "statement",
+    "en": "They wear their pants every day.",
+    "grammarId": "present-simple",
+    "blankWord": "wear"
+  },
+  {
+    "id": "a1_s58",
+    "kind": "statement",
+    "en": "I read a letter every weekend.",
+    "grammarId": "present-simple",
+    "blankWord": "read"
+  },
+  {
+    "id": "a1_s60",
+    "kind": "statement",
+    "en": "I swim in a lake every day.",
+    "grammarId": "present-simple",
+    "blankWord": "swim"
+  }
+]
