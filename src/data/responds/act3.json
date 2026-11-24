@@ -1,1 +1,974 @@
-[]
+[
+  {
+    "id": "a3_r01",
+    "question": {
+      "en": "But there's a lot of competition here. What makes yours different?",
+      "zh": "不過這裡競爭很激烈。你們的跟別家差在哪裡？",
+      "qtype": "what",
+      "role": "client"
+    },
+    "answer": {
+      "en": "The main difference is the quality of the material.",
+      "zh": "主要差在用料的品質。",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "Until ten, I think. It's upstairs, next to the gym.",
+        "zh": "我記得是到十點。在樓上，健身房旁邊。",
+        "atype": "time"
+      },
+      {
+        "en": "Sure. A housekeeper will knock and pick it up soon.",
+        "zh": "沒問題。房務人員等一下會去敲門收衣服。",
+        "atype": "agree"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r02",
+    "question": {
+      "en": "I order our office supplies every month. Can you take it over?",
+      "zh": "辦公用品一直是我每個月在訂。你可以接手嗎？",
+      "qtype": "request",
+      "role": "coworker"
+    },
+    "answer": {
+      "en": "Sure, I'd be happy to help with that.",
+      "zh": "好啊，我很樂意幫忙。",
+      "atype": "agree"
+    },
+    "wrong": [
+      {
+        "en": "Yes, please. One clip for each month.",
+        "zh": "好，麻煩你了。每個月用一個夾子。",
+        "atype": "accept-offer"
+      },
+      {
+        "en": "You take the window. I like the aisle.",
+        "zh": "你坐靠窗吧，我喜歡靠走道。",
+        "atype": "choice"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r03",
+    "question": {
+      "en": "Could you put it in an email?",
+      "zh": "可以寫成 email 寄給我嗎？",
+      "qtype": "request",
+      "role": "client"
+    },
+    "answer": {
+      "en": "I'll email you the confirmation first thing Monday morning.",
+      "zh": "我星期一一早就把確認信寄給您。",
+      "atype": "agree"
+    },
+    "wrong": [
+      {
+        "en": "Right. The truck can't wait, so that box goes out tomorrow.",
+        "zh": "對。車子不能等，所以那箱明天再出。",
+        "atype": "yes-no"
+      },
+      {
+        "en": "A replacement, please. I need lamps for my sale, not money.",
+        "zh": "換貨，麻煩了。我特賣要的是燈，不是錢。",
+        "atype": "choice"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r04",
+    "question": {
+      "en": "Could you send it to him today?",
+      "zh": "你今天可以寄給他嗎？",
+      "qtype": "request",
+      "role": "manager"
+    },
+    "answer": {
+      "en": "I'll take care of it right away.",
+      "zh": "我馬上處理。",
+      "atype": "agree"
+    },
+    "wrong": [
+      {
+        "en": "Sure. Let's find a place nearby.",
+        "zh": "好啊。我們去附近找個地方吧。",
+        "atype": "accept-offer"
+      },
+      {
+        "en": "By Friday is fine. Take your time.",
+        "zh": "星期五前交就可以了，慢慢來。",
+        "atype": "time"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r05",
+    "question": {
+      "en": "Nice and friendly. So, who is it?",
+      "zh": "很好，很親切。那是誰打來的？",
+      "qtype": "who",
+      "role": "coworker"
+    },
+    "answer": {
+      "en": "There's somebody on the phone for you.",
+      "zh": "有人打電話找你。",
+      "atype": "person"
+    },
+    "wrong": [
+      {
+        "en": "You take the window. I like the aisle.",
+        "zh": "你坐靠窗吧，我喜歡靠走道。",
+        "atype": "choice"
+      },
+      {
+        "en": "One moment, please, I'll transfer you.",
+        "zh": "請稍等，我幫您轉接。",
+        "atype": "agree"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r06",
+    "question": {
+      "en": "Great, go ahead. How's it going so far?",
+      "zh": "好，請說。目前做得怎麼樣？",
+      "qtype": "how",
+      "role": "manager"
+    },
+    "answer": {
+      "en": "So far, everything is on schedule.",
+      "zh": "到目前為止都照進度在走。",
+      "atype": "statement"
+    },
+    "wrong": [
+      {
+        "en": "By Friday is fine. Take your time.",
+        "zh": "星期五前交就可以了，慢慢來。",
+        "atype": "time"
+      },
+      {
+        "en": "Yes. Payday is every other Friday.",
+        "zh": "對，每隔一個星期五發薪。",
+        "atype": "yes-no"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r07",
+    "question": {
+      "en": "First question: do we have enough ink?",
+      "zh": "第一個問題：墨水還夠嗎？",
+      "qtype": "yes-no",
+      "role": "coworker"
+    },
+    "answer": {
+      "en": "I'm not sure, but I'll find out.",
+      "zh": "我不確定，我去問清楚。",
+      "atype": "statement"
+    },
+    "wrong": [
+      {
+        "en": "Sure. Let's find a place nearby.",
+        "zh": "好啊。我們去附近找個地方吧。",
+        "atype": "accept-offer"
+      },
+      {
+        "en": "I'll take care of it right away.",
+        "zh": "我馬上處理。",
+        "atype": "agree"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r08",
+    "question": {
+      "en": "So, when will the new lamps get here?",
+      "zh": "那新的燈什麼時候會到？",
+      "qtype": "when",
+      "role": "customer"
+    },
+    "answer": {
+      "en": "It might take two or three days to get there.",
+      "zh": "可能要兩三天才會送到。",
+      "atype": "time"
+    },
+    "wrong": [
+      {
+        "en": "Yes. It gives you access to the whole office.",
+        "zh": "可以。整間辦公室你都能進出。",
+        "atype": "yes-no"
+      },
+      {
+        "en": "Keep it simple. Just write 'December order.'",
+        "zh": "簡單就好，寫「December order」就行了。",
+        "atype": "thing"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r09",
+    "question": {
+      "en": "Great. What time does it start?",
+      "zh": "太好了。幾點開始？",
+      "qtype": "when",
+      "role": "coworker"
+    },
+    "answer": {
+      "en": "Breakfast is downstairs from six thirty to ten.",
+      "zh": "早餐在樓下，六點半到十點。",
+      "atype": "time"
+    },
+    "wrong": [
+      {
+        "en": "Yes, the vegetarian dishes are marked in green.",
+        "zh": "有，素食的菜都用綠色標出來了。",
+        "atype": "yes-no"
+      },
+      {
+        "en": "Brochures on the counter, right under our logo.",
+        "zh": "簡介放櫃台上，就在我們的商標下面。",
+        "atype": "place"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r10",
+    "question": {
+      "en": "One more thing. Do we have enough ink?",
+      "zh": "還有一件事。墨水還夠嗎？",
+      "qtype": "yes-no",
+      "role": "coworker"
+    },
+    "answer": {
+      "en": "I'm not sure, but I'll find out.",
+      "zh": "我不確定，我去問清楚。",
+      "atype": "statement"
+    },
+    "wrong": [
+      {
+        "en": "I'll take care of it right away.",
+        "zh": "我馬上處理。",
+        "atype": "agree"
+      },
+      {
+        "en": "Sure. Let's find a place nearby.",
+        "zh": "好啊。我們去附近找個地方吧。",
+        "atype": "accept-offer"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r109",
+    "question": {
+      "en": "What might you revise?",
+      "qtype": "what",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "His agenda.",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "In the bathroom.",
+        "atype": "place"
+      },
+      {
+        "en": "The neighbor.",
+        "atype": "person"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r11",
+    "question": {
+      "en": "Good. Did they give you the menu, Dan?",
+      "zh": "很好。Dan，他們有給你菜單嗎？",
+      "qtype": "yes-no",
+      "role": "manager"
+    },
+    "answer": {
+      "en": "Yes. It's a buffet, and everything is fresh.",
+      "zh": "有。是自助式的，東西都很新鮮。",
+      "atype": "yes-no"
+    },
+    "wrong": [
+      {
+        "en": "Keep it simple. Just write 'December order.'",
+        "zh": "簡單就好，寫「December order」就行了。",
+        "atype": "thing"
+      },
+      {
+        "en": "Sure. It's clear and polite. Okay, send it.",
+        "zh": "好啊。寫得清楚又客氣。好，寄出去吧。",
+        "atype": "agree"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r112",
+    "question": {
+      "en": "What might you print?",
+      "qtype": "what",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Your form.",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "At the lake.",
+        "atype": "place"
+      },
+      {
+        "en": "Every Sunday.",
+        "atype": "time"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r115",
+    "question": {
+      "en": "What was he writing yesterday afternoon?",
+      "qtype": "what",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "A proposal.",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "Yesterday evening.",
+        "atype": "time"
+      },
+      {
+        "en": "At the row.",
+        "atype": "place"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r116",
+    "question": {
+      "en": "What might you review?",
+      "qtype": "what",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Many invoices.",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "At the market.",
+        "atype": "place"
+      },
+      {
+        "en": "Every evening.",
+        "atype": "time"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r12",
+    "question": {
+      "en": "So, what's new from Harbor Trading this year?",
+      "zh": "那 Harbor Trading 今年有什麼新東西？",
+      "qtype": "what",
+      "role": "client"
+    },
+    "answer": {
+      "en": "We have a wide range of styles and sizes.",
+      "zh": "我們的款式和尺寸選擇很多。",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "Not at all. I'll email them after lunch.",
+        "zh": "當然不會。吃完午餐我就寄給你。",
+        "atype": "agree"
+      },
+      {
+        "en": "I'll call back later. Sorry to bother you.",
+        "zh": "我晚點再打好了。不好意思打擾了。",
+        "atype": "choice"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r13",
+    "question": {
+      "en": "I can't reach Ms. Carter on her direct line. Could you put me through?",
+      "zh": "我打 Carter 小姐的直撥電話一直找不到她。可以幫我轉過去嗎？",
+      "qtype": "request",
+      "role": "client"
+    },
+    "answer": {
+      "en": "One moment, please, I'll transfer you.",
+      "zh": "請稍等，我幫您轉接。",
+      "atype": "agree"
+    },
+    "wrong": [
+      {
+        "en": "The trash can. We can't recycle those.",
+        "zh": "丟垃圾桶。那種不能回收。",
+        "atype": "thing"
+      },
+      {
+        "en": "There's somebody on the phone for you.",
+        "zh": "有人打電話找你。",
+        "atype": "person"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r14",
+    "question": {
+      "en": "When may she submit a schedule?",
+      "qtype": "when",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Every Sunday.",
+      "atype": "time"
+    },
+    "wrong": [
+      {
+        "en": "My leader.",
+        "atype": "person"
+      },
+      {
+        "en": "Some plastic.",
+        "atype": "thing"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r15",
+    "question": {
+      "en": "When might she reschedule a workshop?",
+      "qtype": "when",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Every evening.",
+      "atype": "time"
+    },
+    "wrong": [
+      {
+        "en": "The member.",
+        "atype": "person"
+      },
+      {
+        "en": "At the country.",
+        "atype": "place"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r16",
+    "question": {
+      "en": "When were they writing proposals?",
+      "qtype": "when",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Last weekend.",
+      "atype": "time"
+    },
+    "wrong": [
+      {
+        "en": "At the aisle.",
+        "atype": "place"
+      },
+      {
+        "en": "My pilot.",
+        "atype": "person"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r17",
+    "question": {
+      "en": "What might you attach?",
+      "qtype": "what",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Forms.",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "At the pharmacy.",
+        "atype": "place"
+      },
+      {
+        "en": "Every Saturday.",
+        "atype": "time"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r18",
+    "question": {
+      "en": "When did they review an invoice?",
+      "qtype": "when",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Last week.",
+      "atype": "time"
+    },
+    "wrong": [
+      {
+        "en": "The story.",
+        "atype": "thing"
+      },
+      {
+        "en": "In the lounge.",
+        "atype": "place"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r19",
+    "question": {
+      "en": "When might he cancel the workshops?",
+      "qtype": "when",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Every evening.",
+      "atype": "time"
+    },
+    "wrong": [
+      {
+        "en": "A notice.",
+        "atype": "thing"
+      },
+      {
+        "en": "At the region.",
+        "atype": "place"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r20",
+    "question": {
+      "en": "When does the manager approve a schedule?",
+      "qtype": "when",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Every evening.",
+      "atype": "time"
+    },
+    "wrong": [
+      {
+        "en": "The key.",
+        "atype": "thing"
+      },
+      {
+        "en": "At the center.",
+        "atype": "place"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r21",
+    "question": {
+      "en": "When did we print the form?",
+      "qtype": "when",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Last Sunday.",
+      "atype": "time"
+    },
+    "wrong": [
+      {
+        "en": "In the room.",
+        "atype": "place"
+      },
+      {
+        "en": "The suit.",
+        "atype": "thing"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r22",
+    "question": {
+      "en": "When were we writing many proposals?",
+      "qtype": "when",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Last weekend.",
+      "atype": "time"
+    },
+    "wrong": [
+      {
+        "en": "Some money.",
+        "atype": "thing"
+      },
+      {
+        "en": "The colleague.",
+        "atype": "person"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r23",
+    "question": {
+      "en": "When was I reading the reports?",
+      "qtype": "when",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Yesterday evening.",
+      "atype": "time"
+    },
+    "wrong": [
+      {
+        "en": "The elevator.",
+        "atype": "thing"
+      },
+      {
+        "en": "At the road.",
+        "atype": "place"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r24",
+    "question": {
+      "en": "When was he replacing the monitor?",
+      "qtype": "when",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Yesterday morning.",
+      "atype": "time"
+    },
+    "wrong": [
+      {
+        "en": "The ad.",
+        "atype": "thing"
+      },
+      {
+        "en": "At the aisle.",
+        "atype": "place"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r25",
+    "question": {
+      "en": "When might she cancel an event?",
+      "qtype": "when",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Every evening.",
+      "atype": "time"
+    },
+    "wrong": [
+      {
+        "en": "The discount.",
+        "atype": "thing"
+      },
+      {
+        "en": "My guy.",
+        "atype": "person"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r26",
+    "question": {
+      "en": "When was she loading a box?",
+      "qtype": "when",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Yesterday evening.",
+      "atype": "time"
+    },
+    "wrong": [
+      {
+        "en": "Some wind.",
+        "atype": "thing"
+      },
+      {
+        "en": "At the terminal.",
+        "atype": "place"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r27",
+    "question": {
+      "en": "When will we finish a form?",
+      "qtype": "when",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Tomorrow afternoon.",
+      "atype": "time"
+    },
+    "wrong": [
+      {
+        "en": "The staff.",
+        "atype": "person"
+      },
+      {
+        "en": "A certificate.",
+        "atype": "thing"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r37",
+    "question": {
+      "en": "What might you attach?",
+      "qtype": "what",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "A schedule.",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "The manufacturer.",
+        "atype": "person"
+      },
+      {
+        "en": "Every Sunday.",
+        "atype": "time"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r39",
+    "question": {
+      "en": "What might you revise?",
+      "qtype": "what",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Many schedules.",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "At the city.",
+        "atype": "place"
+      },
+      {
+        "en": "The member.",
+        "atype": "person"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r76",
+    "question": {
+      "en": "What was he printing last night?",
+      "qtype": "what",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Our report.",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "In the room.",
+        "atype": "place"
+      },
+      {
+        "en": "Last Saturday.",
+        "atype": "time"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r85",
+    "question": {
+      "en": "What might you revise?",
+      "qtype": "what",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "An invoice.",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "At the department.",
+        "atype": "place"
+      },
+      {
+        "en": "My candidate.",
+        "atype": "person"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r86",
+    "question": {
+      "en": "What was she reviewing yesterday afternoon?",
+      "qtype": "what",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Proposals.",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "Yesterday evening.",
+        "atype": "time"
+      },
+      {
+        "en": "The father.",
+        "atype": "person"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r88",
+    "question": {
+      "en": "What might you revise?",
+      "qtype": "what",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Some schedules.",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "Every evening.",
+        "atype": "time"
+      },
+      {
+        "en": "At the row.",
+        "atype": "place"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r89",
+    "question": {
+      "en": "What might you revise?",
+      "qtype": "what",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "The reports.",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "My staff.",
+        "atype": "person"
+      },
+      {
+        "en": "At the terminal.",
+        "atype": "place"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r93",
+    "question": {
+      "en": "What might you attach?",
+      "qtype": "what",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Your schedule.",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "My kid.",
+        "atype": "person"
+      },
+      {
+        "en": "At the school.",
+        "atype": "place"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a3_r99",
+    "question": {
+      "en": "What was he printing last night?",
+      "qtype": "what",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Some emails.",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "The daughter.",
+        "atype": "person"
+      },
+      {
+        "en": "Last Sunday.",
+        "atype": "time"
+      }
+    ],
+    "verified": 2
+  }
+]

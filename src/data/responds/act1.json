@@ -1,1 +1,998 @@
-[]
+[
+  {
+    "id": "a1_r01",
+    "question": {
+      "en": "Sure. Can I see your ID?",
+      "zh": "好的。可以看一下你的證件嗎？",
+      "qtype": "request",
+      "role": "postal_clerk"
+    },
+    "answer": {
+      "en": "Here's my ID.",
+      "zh": "這是我的證件。",
+      "atype": "agree"
+    },
+    "wrong": [
+      {
+        "en": "My head hurts.",
+        "zh": "我頭痛。",
+        "atype": "place"
+      },
+      {
+        "en": "To go, please.",
+        "zh": "外帶，謝謝。",
+        "atype": "choice"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r02",
+    "question": {
+      "en": "This soup is so good. Do you cook?",
+      "zh": "這湯好好喝。你會做菜嗎？",
+      "qtype": "yes-no",
+      "role": "friend"
+    },
+    "answer": {
+      "en": "I really like cooking.",
+      "zh": "我很喜歡做菜。",
+      "atype": "statement"
+    },
+    "wrong": [
+      {
+        "en": "Yes. Trash, on Monday.",
+        "zh": "對。垃圾，星期一。",
+        "atype": "agree"
+      },
+      {
+        "en": "It was great, thanks.",
+        "zh": "很棒，謝謝。",
+        "atype": "manner"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r03",
+    "question": {
+      "en": "How was your dinner?",
+      "zh": "今天的晚餐還可以嗎？",
+      "qtype": "how",
+      "role": "server"
+    },
+    "answer": {
+      "en": "It was great, thanks.",
+      "zh": "很棒，謝謝。",
+      "atype": "manner"
+    },
+    "wrong": [
+      {
+        "en": "Yes, I just moved in.",
+        "zh": "對，我剛搬進來。",
+        "atype": "yes-no"
+      },
+      {
+        "en": "A small one, please.",
+        "zh": "小杯的，謝謝。",
+        "atype": "choice"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r04",
+    "question": {
+      "en": "Good. And do you have a car?",
+      "zh": "好。那你有車嗎？",
+      "qtype": "yes-no",
+      "role": "landlord"
+    },
+    "answer": {
+      "en": "No, I don't have a car.",
+      "zh": "沒有，我沒有車。",
+      "atype": "yes-no"
+    },
+    "wrong": [
+      {
+        "en": "A table for two, please.",
+        "zh": "兩位，謝謝。",
+        "atype": "quantity"
+      },
+      {
+        "en": "Yes. Trash, on Monday.",
+        "zh": "對。垃圾，星期一。",
+        "atype": "agree"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r05",
+    "question": {
+      "en": "So, do you live here alone?",
+      "zh": "那你一個人住在這裡嗎？",
+      "qtype": "yes-no",
+      "role": "landlord"
+    },
+    "answer": {
+      "en": "Yes, I live alone.",
+      "zh": "對，我一個人住。",
+      "atype": "yes-no"
+    },
+    "wrong": [
+      {
+        "en": "It's a little big.",
+        "zh": "有點大。",
+        "atype": "manner"
+      },
+      {
+        "en": "No sugar, please.",
+        "zh": "不加糖，謝謝。",
+        "atype": "decline"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r07",
+    "question": {
+      "en": "Good. Do you live here alone?",
+      "zh": "好。你一個人住這裡嗎？",
+      "qtype": "yes-no",
+      "role": "landlord"
+    },
+    "answer": {
+      "en": "Yes, I live alone.",
+      "zh": "對，我一個人住。",
+      "atype": "yes-no"
+    },
+    "wrong": [
+      {
+        "en": "It's a little big.",
+        "zh": "有點大。",
+        "atype": "manner"
+      },
+      {
+        "en": "No sugar, please.",
+        "zh": "不加糖，謝謝。",
+        "atype": "decline"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r10",
+    "question": {
+      "en": "Hi! How was your weekend?",
+      "zh": "嗨！週末過得怎麼樣？",
+      "qtype": "how",
+      "role": "friend"
+    },
+    "answer": {
+      "en": "It was great, thanks.",
+      "zh": "很棒，謝謝。",
+      "atype": "manner"
+    },
+    "wrong": [
+      {
+        "en": "Yes, I just moved in.",
+        "zh": "對，我剛搬進來。",
+        "atype": "yes-no"
+      },
+      {
+        "en": "A small one, please.",
+        "zh": "小杯的，謝謝。",
+        "atype": "choice"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r102",
+    "question": {
+      "en": "Who did we play with last weekend?",
+      "qtype": "who",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "With the kid.",
+      "atype": "person"
+    },
+    "wrong": [
+      {
+        "en": "A stamp.",
+        "atype": "thing"
+      },
+      {
+        "en": "At the corner.",
+        "atype": "place"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r11",
+    "question": {
+      "en": "Are you new here?",
+      "zh": "你是新來的嗎？",
+      "qtype": "yes-no",
+      "role": "landlord"
+    },
+    "answer": {
+      "en": "Yes, I just moved in.",
+      "zh": "對，我剛搬進來。",
+      "atype": "yes-no"
+    },
+    "wrong": [
+      {
+        "en": "It was great, thanks.",
+        "zh": "很棒，謝謝。",
+        "atype": "manner"
+      },
+      {
+        "en": "A small one, please.",
+        "zh": "小杯的，謝謝。",
+        "atype": "choice"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r13",
+    "question": {
+      "en": "Hi! Are you new here?",
+      "zh": "嗨！你是新來的嗎？",
+      "qtype": "yes-no",
+      "role": "landlord"
+    },
+    "answer": {
+      "en": "Yes, I just moved in.",
+      "zh": "對，我剛搬進來。",
+      "atype": "yes-no"
+    },
+    "wrong": [
+      {
+        "en": "It was great, thanks.",
+        "zh": "很棒，謝謝。",
+        "atype": "manner"
+      },
+      {
+        "en": "Yes. Trash, on Monday.",
+        "zh": "對。垃圾，星期一。",
+        "atype": "agree"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r14",
+    "question": {
+      "en": "I see. Where does it hurt?",
+      "zh": "這樣啊。哪裡痛？",
+      "qtype": "where",
+      "role": "doctor"
+    },
+    "answer": {
+      "en": "My head hurts.",
+      "zh": "我頭痛。",
+      "atype": "place"
+    },
+    "wrong": [
+      {
+        "en": "It's a medium.",
+        "zh": "這件是 M 號。",
+        "atype": "thing"
+      },
+      {
+        "en": "To go, please.",
+        "zh": "外帶，謝謝。",
+        "atype": "choice"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r15",
+    "question": {
+      "en": "I see. Do you have a fever?",
+      "zh": "這樣啊。有發燒嗎？",
+      "qtype": "yes-no",
+      "role": "doctor"
+    },
+    "answer": {
+      "en": "I have a fever and a cough.",
+      "zh": "我發燒又咳嗽。",
+      "atype": "yes-no"
+    },
+    "wrong": [
+      {
+        "en": "It's by the eggs and bread.",
+        "zh": "在蛋和麵包旁邊。",
+        "atype": "place"
+      },
+      {
+        "en": "Sure. That's twenty dollars.",
+        "zh": "好的。一共二十塊。",
+        "atype": "agree"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r16",
+    "question": {
+      "en": "Good evening! How many people?",
+      "zh": "晚安！請問幾位？",
+      "qtype": "how-many",
+      "role": "server"
+    },
+    "answer": {
+      "en": "A table for two, please.",
+      "zh": "兩位，謝謝。",
+      "atype": "quantity"
+    },
+    "wrong": [
+      {
+        "en": "Do I need an appointment?",
+        "zh": "需要預約嗎？",
+        "atype": "yes-no"
+      },
+      {
+        "en": "I'm just looking, thanks.",
+        "zh": "我只是看看，謝謝。",
+        "atype": "decline"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r18",
+    "question": {
+      "en": "How does it fit?",
+      "zh": "穿起來怎麼樣？",
+      "qtype": "how",
+      "role": "assistant"
+    },
+    "answer": {
+      "en": "This one fits well.",
+      "zh": "這件很合身。",
+      "atype": "manner"
+    },
+    "wrong": [
+      {
+        "en": "Yes, I live alone.",
+        "zh": "對，我一個人住。",
+        "atype": "yes-no"
+      },
+      {
+        "en": "A small one, please.",
+        "zh": "小杯的，謝謝。",
+        "atype": "choice"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r19",
+    "question": {
+      "en": "So, where are you from?",
+      "zh": "那你是從哪裡來的？",
+      "qtype": "where",
+      "role": "landlord"
+    },
+    "answer": {
+      "en": "I'm from Taiwan.",
+      "zh": "我來自台灣。",
+      "atype": "place"
+    },
+    "wrong": [
+      {
+        "en": "No sugar, please.",
+        "zh": "不加糖，謝謝。",
+        "atype": "decline"
+      },
+      {
+        "en": "Sure, no problem.",
+        "zh": "可以，沒問題。",
+        "atype": "agree"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r20",
+    "question": {
+      "en": "Hi, welcome! How many people?",
+      "zh": "嗨，歡迎光臨！請問幾位？",
+      "qtype": "how-many",
+      "role": "server"
+    },
+    "answer": {
+      "en": "A table for two, please.",
+      "zh": "兩位，謝謝。",
+      "atype": "quantity"
+    },
+    "wrong": [
+      {
+        "en": "No, I don't have a car.",
+        "zh": "沒有，我沒有車。",
+        "atype": "yes-no"
+      },
+      {
+        "en": "I'm just looking, thanks.",
+        "zh": "我只是看看，謝謝。",
+        "atype": "decline"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r22",
+    "question": {
+      "en": "For here or to go?",
+      "zh": "內用還是外帶？",
+      "qtype": "choice",
+      "role": "barista"
+    },
+    "answer": {
+      "en": "To go, please.",
+      "zh": "外帶，謝謝。",
+      "atype": "choice"
+    },
+    "wrong": [
+      {
+        "en": "It's a medium.",
+        "zh": "這件是 M 號。",
+        "atype": "thing"
+      },
+      {
+        "en": "My head hurts.",
+        "zh": "我頭痛。",
+        "atype": "place"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r24",
+    "question": {
+      "en": "Okay. Small, medium, or large?",
+      "zh": "好。小杯、中杯，還是大杯？",
+      "qtype": "choice",
+      "role": "barista"
+    },
+    "answer": {
+      "en": "A small one, please.",
+      "zh": "小杯的，謝謝。",
+      "atype": "choice"
+    },
+    "wrong": [
+      {
+        "en": "It was great, thanks.",
+        "zh": "很棒，謝謝。",
+        "atype": "manner"
+      },
+      {
+        "en": "Yes, I just moved in.",
+        "zh": "對，我剛搬進來。",
+        "atype": "yes-no"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r25",
+    "question": {
+      "en": "Hi! What can I get for you?",
+      "zh": "嗨！要點什麼？",
+      "qtype": "what",
+      "role": "barista"
+    },
+    "answer": {
+      "en": "Can I get a latte, please?",
+      "zh": "可以給我一杯拿鐵嗎？",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "At nine, Monday to Friday.",
+        "zh": "星期一到星期五都是九點。",
+        "atype": "time"
+      },
+      {
+        "en": "I have a fever and a cough.",
+        "zh": "我發燒又咳嗽。",
+        "atype": "yes-no"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r26",
+    "question": {
+      "en": "How does it fit? Too tight?",
+      "zh": "穿起來怎麼樣？會太緊嗎？",
+      "qtype": "how",
+      "role": "assistant"
+    },
+    "answer": {
+      "en": "It's a little big.",
+      "zh": "有點大。",
+      "atype": "manner"
+    },
+    "wrong": [
+      {
+        "en": "Yes, I live alone.",
+        "zh": "對，我一個人住。",
+        "atype": "yes-no"
+      },
+      {
+        "en": "Sure, no problem.",
+        "zh": "可以，沒問題。",
+        "atype": "agree"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r27",
+    "question": {
+      "en": "When does she read her newspaper?",
+      "qtype": "when",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Every evening.",
+      "atype": "time"
+    },
+    "wrong": [
+      {
+        "en": "At the lake.",
+        "atype": "place"
+      },
+      {
+        "en": "The nurse.",
+        "atype": "person"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r28",
+    "question": {
+      "en": "Where did I walk yesterday?",
+      "qtype": "where",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "To the library.",
+      "atype": "place"
+    },
+    "wrong": [
+      {
+        "en": "The package.",
+        "atype": "thing"
+      },
+      {
+        "en": "The kid.",
+        "atype": "person"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r29",
+    "question": {
+      "en": "When did you buy the pizza?",
+      "qtype": "when",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Yesterday afternoon.",
+      "atype": "time"
+    },
+    "wrong": [
+      {
+        "en": "At the museum.",
+        "atype": "place"
+      },
+      {
+        "en": "My guest.",
+        "atype": "person"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r30",
+    "question": {
+      "en": "When do they dance?",
+      "qtype": "when",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Every week.",
+      "atype": "time"
+    },
+    "wrong": [
+      {
+        "en": "At the corner.",
+        "atype": "place"
+      },
+      {
+        "en": "The people.",
+        "atype": "person"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r31",
+    "question": {
+      "en": "When did she wear a coat?",
+      "qtype": "when",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Last weekend.",
+      "atype": "time"
+    },
+    "wrong": [
+      {
+        "en": "At the center.",
+        "atype": "place"
+      },
+      {
+        "en": "The waiter.",
+        "atype": "person"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r32",
+    "question": {
+      "en": "When do I eat the egg?",
+      "qtype": "when",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Every weekend.",
+      "atype": "time"
+    },
+    "wrong": [
+      {
+        "en": "The doctor.",
+        "atype": "person"
+      },
+      {
+        "en": "The ball.",
+        "atype": "thing"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r33",
+    "question": {
+      "en": "When did they eat pizzas?",
+      "qtype": "when",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Last Sunday.",
+      "atype": "time"
+    },
+    "wrong": [
+      {
+        "en": "The friend.",
+        "atype": "person"
+      },
+      {
+        "en": "At the corner.",
+        "atype": "place"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r39",
+    "question": {
+      "en": "What can I cook?",
+      "qtype": "what",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "The chicken.",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "At the street.",
+        "atype": "place"
+      },
+      {
+        "en": "Every afternoon.",
+        "atype": "time"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r43",
+    "question": {
+      "en": "Who did she play with yesterday?",
+      "qtype": "who",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "With a friend.",
+      "atype": "person"
+    },
+    "wrong": [
+      {
+        "en": "At the home.",
+        "atype": "place"
+      },
+      {
+        "en": "A ticket.",
+        "atype": "thing"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r44",
+    "question": {
+      "en": "Where do many friends walk every day?",
+      "qtype": "where",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "To the restaurant.",
+      "atype": "place"
+    },
+    "wrong": [
+      {
+        "en": "My people.",
+        "atype": "person"
+      },
+      {
+        "en": "Some chocolate.",
+        "atype": "thing"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r47",
+    "question": {
+      "en": "What can they write?",
+      "qtype": "what",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "A book.",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "Every afternoon.",
+        "atype": "time"
+      },
+      {
+        "en": "My nurse.",
+        "atype": "person"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r51",
+    "question": {
+      "en": "What can she write?",
+      "qtype": "what",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "The messages.",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "At the pharmacy.",
+        "atype": "place"
+      },
+      {
+        "en": "Every week.",
+        "atype": "time"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r55",
+    "question": {
+      "en": "Who did they play with last weekend?",
+      "qtype": "who",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "With our neighbor.",
+      "atype": "person"
+    },
+    "wrong": [
+      {
+        "en": "At the hospital.",
+        "atype": "place"
+      },
+      {
+        "en": "Last week.",
+        "atype": "time"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r61",
+    "question": {
+      "en": "Where did she walk yesterday?",
+      "qtype": "where",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "To the pharmacy.",
+      "atype": "place"
+    },
+    "wrong": [
+      {
+        "en": "Yesterday evening.",
+        "atype": "time"
+      },
+      {
+        "en": "The dollar.",
+        "atype": "thing"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r69",
+    "question": {
+      "en": "Where do many friends walk every day?",
+      "qtype": "where",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "To our museum.",
+      "atype": "place"
+    },
+    "wrong": [
+      {
+        "en": "The nurse.",
+        "atype": "person"
+      },
+      {
+        "en": "Every weekend.",
+        "atype": "time"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r76",
+    "question": {
+      "en": "Where does the nurse walk every day?",
+      "qtype": "where",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "To the museum.",
+      "atype": "place"
+    },
+    "wrong": [
+      {
+        "en": "Every evening.",
+        "atype": "time"
+      },
+      {
+        "en": "The bag.",
+        "atype": "thing"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r82",
+    "question": {
+      "en": "Who did you play with yesterday?",
+      "qtype": "who",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "With the neighbor.",
+      "atype": "person"
+    },
+    "wrong": [
+      {
+        "en": "At the lake.",
+        "atype": "place"
+      },
+      {
+        "en": "Yesterday evening.",
+        "atype": "time"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r88",
+    "question": {
+      "en": "Who did you play with last weekend?",
+      "qtype": "who",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "With the kid.",
+      "atype": "person"
+    },
+    "wrong": [
+      {
+        "en": "Some juice.",
+        "atype": "thing"
+      },
+      {
+        "en": "Last Saturday.",
+        "atype": "time"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r90",
+    "question": {
+      "en": "What can they read?",
+      "qtype": "what",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Some postcards.",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "Every weekend.",
+        "atype": "time"
+      },
+      {
+        "en": "At the lake.",
+        "atype": "place"
+      }
+    ],
+    "verified": 2
+  },
+  {
+    "id": "a1_r99",
+    "question": {
+      "en": "What did you buy yesterday?",
+      "qtype": "what",
+      "role": "announcer"
+    },
+    "answer": {
+      "en": "Pizzas.",
+      "atype": "thing"
+    },
+    "wrong": [
+      {
+        "en": "Yesterday evening.",
+        "atype": "time"
+      },
+      {
+        "en": "The driver.",
+        "atype": "person"
+      }
+    ],
+    "verified": 2
+  }
+]
