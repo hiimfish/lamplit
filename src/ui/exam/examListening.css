@@ -1,1 +1,67 @@
-/* 幕結業考: examListening. */
+/* 幕結業考: examListening. The pick is a plain boxed highlight, never right or wrong. */
+.ex-listen {
+  min-width: 0;
+}
+
+.ex-question {
+  margin: 0;
+  font-size: calc(11 * var(--px));
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.ex-blank {
+  letter-spacing: var(--px);
+}
+
+.ex-picture {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  border: var(--px) solid var(--ink);
+}
+
+.ex-status {
+  font-size: calc(11 * var(--px));
+  color: var(--ink);
+}
+
+.ex-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(3 * var(--px));
+}
+
+.ex-options.letters {
+  grid-template-columns: repeat(auto-fit, minmax(calc(36 * var(--px)), 1fr));
+}
+
+.pixel-button.ex-option {
+  min-width: 0;
+}
+
+.ex-letter {
+  margin-right: calc(3 * var(--px));
+  font-weight: bold;
+}
+
+.ex-text {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.pixel-button.ex-option.picked {
+  box-shadow: inset 0 0 0 calc(2 * var(--px)) var(--ink);
+}
+
+.pixel-button.ex-option.on {
+  outline: var(--px) dashed var(--ink);
+  outline-offset: calc(-3 * var(--px));
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .ex-options {
+    grid-template-columns: 1fr 1fr;
+  }
+}
