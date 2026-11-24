@@ -1,5 +1,281 @@
 {
   "exam": "exam4",
   "section": "s4",
-  "draft": true
+  "passages": [
+    {
+      "id": "s4_r1",
+      "form": "A",
+      "kind": "notice",
+      "title": "Memo: Next Year's Budget",
+      "lines": [
+        "To: All team leaders",
+        "From: Ms. Park, Finance",
+        "Our budget meeting will be held on Monday, October 6, in the main conference room. Please send me your budget plans by Thursday, October 2.",
+        "This year, the company will spend about 8 percent less on travel. Teams may still take business trips, but every trip needs approval from your manager first. We ask you to use video calls when a short meeting is enough.",
+        "On the other hand, the company will spend more on training. Each employee can take one training course next year, and the company will pay the full fee. Please choose a course that helps your work.",
+        "Office supplies are also changing. Instead of ordering paper and pens one by one, each team will order once a month from the purchasing office.",
+        "If you have questions about the new rules, please ask me before the meeting. I would like every plan to be correct and clear.",
+        "Thanks for your help, everyone."
+      ],
+      "questions": [
+        {
+          "en": "Why did Ms. Park write this memo?",
+          "zh": "朴女士為什麼寫這份備忘錄？",
+          "options": [
+            "To announce a new office for the finance team",
+            "To invite team leaders to a training course",
+            "To ask for budget plans and explain new rules",
+            "To report last year's sales to the managers"
+          ],
+          "answer": 2
+        },
+        {
+          "en": "What will the company spend less on next year?",
+          "zh": "公司明年在什麼方面會花得比較少？",
+          "options": ["Business trips", "Training courses", "Office supplies", "Meeting rooms"],
+          "answer": 0
+        },
+        {
+          "en": "What should team leaders do by Thursday, October 2?",
+          "zh": "團隊主管在十月二日星期四以前應該做什麼？",
+          "options": [
+            "Ask a manager to approve a trip",
+            "Order paper and pens for the team",
+            "Choose a training course",
+            "Send their budget plans to Ms. Park"
+          ],
+          "answer": 3
+        }
+      ]
+    },
+    {
+      "id": "s4_r2",
+      "form": "A",
+      "kind": "ad",
+      "title": "Now Hiring: Marketing Assistant",
+      "lines": [
+        "Our food company is looking for a marketing assistant to join our team in the city center office.",
+        "The assistant will help plan advertising campaigns, write emails to customers, and make reports about our sales. He or she will work closely with the marketing manager, Mr. Evans.",
+        "Requirements: A degree in business or a related subject is preferred. At least two years of experience in marketing is required. Good writing skills and the ability to work with a team are important. Knowing a second language is a plus, but it is not required.",
+        "We offer a competitive salary, health insurance, and 15 days of paid vacation each year. New employees also receive training in their first month.",
+        "To apply, please send your resume and a short letter about yourself to the human resources office by November 15. Do not call the office. Only people chosen for an interview will be contacted."
+      ],
+      "questions": [
+        {
+          "en": "What will the new assistant do?",
+          "zh": "新的助理要做什麼？",
+          "options": [
+            "Drive trucks to the stores",
+            "Help plan advertising campaigns",
+            "Cook food in the kitchen",
+            "Repair computers in the office"
+          ],
+          "answer": 1
+        },
+        {
+          "en": "Which of the following is NOT required for the job?",
+          "zh": "下列哪一項不是這份工作的必要條件？",
+          "options": [
+            "Two years of marketing experience",
+            "Good writing skills",
+            "The ability to work with a team",
+            "Knowing a second language"
+          ],
+          "answer": 3
+        },
+        {
+          "en": "How can people apply for the job?",
+          "zh": "大家要怎麼應徵這份工作？",
+          "options": [
+            "By sending a resume and a letter by email",
+            "By calling the office on November 15",
+            "By visiting the marketing manager",
+            "By filling out a form in a store"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "s4_r3",
+      "form": "A",
+      "kind": "notice",
+      "title": "Notice: Customer Service Training",
+      "lines": [
+        "The human resources office will hold a customer service training in the main hall on Wednesday, March 12. The session will begin at 9:00 a.m. and end at 4:00 p.m.",
+        "Mr. Ruiz, a teacher from the training center, will lead the day. In the morning, he will talk about how to listen to customers and answer their complaints. In the afternoon, staff will practice in small groups.",
+        "Lunch will be provided at noon. If you cannot eat certain foods, please tell Ms. Kim by Friday, March 7.",
+        "All store staff must attend. Managers will make sure that someone is still available to help customers at each store, so please check your store schedule. If you cannot come on March 12, you may join the same training on Thursday, April 3, but you must sign up first.",
+        "After the training, every person will receive a certificate. Please bring paper and a pen."
+      ],
+      "questions": [
+        {
+          "en": "What will staff do in the afternoon?",
+          "zh": "員工下午要做什麼？",
+          "options": [
+            "Listen to a talk by Ms. Kim",
+            "Practice in small groups",
+            "Visit a store with the managers",
+            "Take a test for a certificate"
+          ],
+          "answer": 1
+        },
+        {
+          "en": "What should a person with a food problem do?",
+          "zh": "有食物限制的人應該怎麼做？",
+          "options": [
+            "Bring lunch from home on March 12",
+            "Sign up for the training on April 3",
+            "Tell Ms. Kim before March 7",
+            "Ask Mr. Ruiz after the morning talk"
+          ],
+          "answer": 2
+        },
+        {
+          "en": "What must people do to join the training on April 3?",
+          "zh": "想參加四月三日的訓練，必須做什麼？",
+          "options": [
+            "Ask for a new certificate",
+            "Pay the full fee",
+            "Bring paper to the office",
+            "Sign up first"
+          ],
+          "answer": 3
+        }
+      ]
+    },
+    {
+      "id": "s4_r4",
+      "form": "B",
+      "kind": "email",
+      "title": "Subject: Our Summer Campaign",
+      "lines": [
+        "Dear team,",
+        "I am happy to tell you about our summer campaign for the new Cloud Lamp series. The campaign will start on April 1 and run for six weeks.",
+        "There are three parts. First, we will send an email to all our customers with a discount of 15 percent for the first two weeks. Second, we will put ads on local radio and on our website. Third, stores that sell our lamps will get a poster and a small display for the front of the store.",
+        "The total budget for the campaign is $20,000. About half will go to radio advertising. The rest will pay for the emails, the posters, and the new website pages.",
+        "To make this campaign a success, I need two things from you. Please send me your ideas for the poster by March 10. Also, the sales team should make a list of the stores that want a display by March 15.",
+        "Our first meeting about the campaign is on Tuesday at 3:00 p.m. in room 204. I hope to see you there.",
+        "Best regards,",
+        "Ms. Chen, Marketing Manager"
+      ],
+      "questions": [
+        {
+          "en": "Why did Ms. Chen send this email?",
+          "zh": "陳女士為什麼寄這封電子郵件？",
+          "options": [
+            "To thank customers for their orders",
+            "To explain a new campaign and ask for help",
+            "To offer a job in the marketing office",
+            "To report the cost of last summer"
+          ],
+          "answer": 1
+        },
+        {
+          "en": "What will customers get during the first two weeks?",
+          "zh": "前兩週顧客可以得到什麼？",
+          "options": ["A free poster", "A small lamp", "A radio", "A discount"],
+          "answer": 3
+        },
+        {
+          "en": "What should the sales team do by March 15?",
+          "zh": "業務團隊在三月十五日以前應該做什麼？",
+          "options": [
+            "List the stores that want a display",
+            "Send ideas for the poster",
+            "Write emails to customers",
+            "Choose a room for the meeting"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "s4_r5",
+      "form": "B",
+      "kind": "notice",
+      "title": "Notice: Factory Visit for New Employees",
+      "lines": [
+        "All new employees will visit our main factory on Friday, June 6. The bus will leave from the front of the head office at 8:30 a.m. and come back at about 3:00 p.m.",
+        "At the factory, Mr. Okafor, the production manager, will show you how our products are made. You will see the machines, the packing area, and the warehouse. You will also meet some of the workers who have been here for many years.",
+        "For your safety, please follow these rules. Wear strong shoes. The factory will give each visitor a hat at the door. Photos are not allowed inside the building.",
+        "There will be a short lunch in the factory restaurant. After lunch, you will have time to ask questions.",
+        "If you cannot join the visit, please tell Ms. Torres in the human resources office by Monday, June 2. A second visit will be held in July for people who cannot come."
+      ],
+      "questions": [
+        {
+          "en": "What is NOT allowed inside the factory?",
+          "zh": "工廠裡面不可以做什麼？",
+          "options": ["Asking questions", "Meeting the workers", "Taking photos", "Wearing a hat"],
+          "answer": 2
+        },
+        {
+          "en": "Where will the bus leave from?",
+          "zh": "巴士要從哪裡出發？",
+          "options": [
+            "The door of the factory",
+            "The human resources office",
+            "The factory restaurant",
+            "The front of the head office"
+          ],
+          "answer": 3
+        },
+        {
+          "en": "What should an employee do if he or she cannot go on June 6?",
+          "zh": "員工如果六月六日不能去，應該怎麼做？",
+          "options": [
+            "Tell Ms. Torres by June 2",
+            "Go to the head office on Friday",
+            "Ask Mr. Okafor for a hat",
+            "Call the bus driver on Friday"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "s4_r6",
+      "form": "B",
+      "kind": "notice",
+      "title": "Announcement: Our New Branch Office",
+      "lines": [
+        "Our travel company will open a new branch office in Riverside on Monday, September 8. The office is on Maple Street, next to the post office.",
+        "The Riverside office will have six employees. Ms. Wong, who has worked at our head office for five years, will be the manager. She will lead a team of travel agents, who will help customers choose and book trips.",
+        "The office will be open from 9:00 a.m. to 6:00 p.m. on weekdays and from 10:00 a.m. to 2:00 p.m. on Saturdays. It will be closed on Sundays.",
+        "To celebrate the opening, we will hold a small party on Saturday, September 13, from 11:00 a.m. Visitors can meet the staff, enjoy free drinks, and enter a prize drawing for a free weekend trip. Everyone in the neighborhood is welcome.",
+        "Employees who want to work in the new office may talk to Ms. Wong or to the human resources office before August 22.",
+        "We thank all our customers for their support, and we look forward to serving you in Riverside."
+      ],
+      "questions": [
+        {
+          "en": "What will Ms. Wong most likely do at the new office?",
+          "zh": "王女士在新辦公室最可能做什麼？",
+          "options": [
+            "Drive customers to the party",
+            "Lead a team of travel agents",
+            "Clean the office on Sundays",
+            "Repair the computers"
+          ],
+          "answer": 1
+        },
+        {
+          "en": "What can visitors win at the party?",
+          "zh": "訪客在派對上有機會贏得什麼？",
+          "options": [
+            "A new bus ticket",
+            "A job at the new office",
+            "Free drinks for a year",
+            "A free weekend trip"
+          ],
+          "answer": 3
+        },
+        {
+          "en": "What time will the office close on Saturdays?",
+          "zh": "星期六辦公室幾點關門？",
+          "options": ["11:00 a.m.", "6:00 p.m.", "2:00 p.m.", "10:00 a.m."],
+          "answer": 2
+        }
+      ]
+    }
+  ]
 }
