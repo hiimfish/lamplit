@@ -18,6 +18,7 @@ import { settingsStore, type Settings, DEV_TOOLS } from '../core/settings';
 import { browserStorage } from '../core/storageKeys';
 import { useStore } from '../core/store';
 import './settings.css';
+import { useFullScreen } from './useFullScreen';
 import { useModal } from './useModal';
 import { KeyCap } from './KeyCap';
 
@@ -424,11 +425,15 @@ function DevSwitch({ unlockAll }: { unlockAll: boolean }) {
 
 const TITLE_ID = 'settings-title';
 
-/** Modal settings dialog. The caller dims and inerts the screen behind it. */
-export function SettingsPanel({ onClose }: { onClose: () => void }) {
+/**
+ * Modal settings dialog. The caller dims and inerts the screen behind it; on a phone held
+ * upright it is a page of its own (useFullScreen). onHowTo, when given, adds 怎麼玩.
+ */
+export function SettingsPanel({ onClose, onHowTo }: { onClose: () => void; onHowTo?: () => void }) {
   const settings = useStore(settingsStore);
   const panelRef = useRef<HTMLDivElement>(null);
   useModal(panelRef, onClose);
+  useFullScreen();
 
   return (
     <div
@@ -447,6 +452,13 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
       <TestButtons />
       <ZhSwitch showZh={settings.showZh} />
       <SaveGroup />
+      {onHowTo && (
+        <div class="settings-group">
+          <button type="button" class="pixel-button" onClick={onHowTo} data-testid="settings-howto">
+            怎麼玩
+          </button>
+        </div>
+      )}
       <KeyList />
       {DEV_TOOLS && <DevSwitch unlockAll={settings.unlockAll} />}
       <button type="button" class="pixel-button settings-close" onClick={onClose}>

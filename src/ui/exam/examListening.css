@@ -5,7 +5,7 @@
 
 .ex-question {
   margin: 0;
-  font-size: calc(11 * var(--px));
+  font-size: calc(11 * var(--fpx));
   color: var(--ink);
   overflow-wrap: anywhere;
 }
@@ -23,7 +23,7 @@
 }
 
 .ex-status {
-  font-size: calc(11 * var(--px));
+  font-size: calc(11 * var(--fpx));
   color: var(--ink);
 }
 
@@ -51,8 +51,19 @@
   overflow-wrap: anywhere;
 }
 
+/* The picked key, as in reading (examReading.css): lamp fill, a thick ink rim and a ● mark. */
 .pixel-button.ex-option.picked {
-  box-shadow: inset 0 0 0 calc(2 * var(--px)) var(--ink);
+  background: var(--lamp);
+  color: var(--ink);
+  border-color: var(--ink);
+  box-shadow: inset 0 0 0 var(--px) var(--ink);
+}
+
+.ex-option.picked::after {
+  content: '●';
+  flex: none;
+  margin-left: auto;
+  padding-left: calc(3 * var(--px));
 }
 
 .pixel-button.ex-option.on {

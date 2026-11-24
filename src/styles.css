@@ -1,7 +1,9 @@
 /*
  * Sizes use calc(N * var(--px)): --px is the on-screen size of one logical
  * (game) pixel, so the UI lines up with the pixel art at every zoom level.
- * Text uses multiples of 11 logical pixels, the native size of Cubic 11.
+ * Text sizes use --fpx, a little smaller than --px (7/8), so text sits
+ * lighter on a phone; borders, paddings and key heights stay on --px. No text
+ * goes below 10 * --fpx.
  *
  * Look: an old handheld screen / paper card. Four main colours only - ink,
  * paper, lamp orange and a rare neon pink - with crisp 2px ink borders, a hard
@@ -25,6 +27,8 @@
 
 :root {
   --px: 2px;
+  /* Text pixel: see the note at the top. */
+  --fpx: calc(var(--px) * 0.875);
   --scene-w: 960px;
   --scene-h: 540px;
   --frame-x: 0px;
@@ -63,7 +67,7 @@ body {
   background: var(--screen-bg);
   color: var(--ink);
   font-family: 'Cubic 11', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
-  font-size: calc(11 * var(--px));
+  font-size: calc(11 * var(--fpx));
   line-height: 1.3;
   -webkit-font-smoothing: none;
   -webkit-text-size-adjust: 100%;
@@ -152,6 +156,19 @@ body {
     inset 0 calc(2 * var(--px)) 0 var(--ink);
 }
 
+/*
+ * Menu-type screens and 設定 (data-full, see useFullScreen.ts): no street on top, the paper
+ * panel runs the whole height. The notch and the home bar stay clear as above.
+ */
+:root[data-orientation='portrait'][data-full] #game {
+  display: none;
+}
+
+:root[data-orientation='portrait'][data-full] #ui {
+  border-top-width: var(--px);
+  box-shadow: none;
+}
+
 .screen {
   position: absolute;
   inset: 0;
@@ -186,7 +203,7 @@ body {
   display: inline-block;
   margin: 0;
   padding-bottom: calc(2 * var(--px));
-  font-size: calc(22 * var(--px));
+  font-size: calc(22 * var(--fpx));
   font-weight: normal;
   line-height: 1.2;
   color: var(--ink);

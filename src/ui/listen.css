@@ -94,7 +94,7 @@
 
 .listen-story .bubble-slow::before {
   content: '慢';
-  font-size: calc(10 * var(--px));
+  font-size: calc(10 * var(--fpx));
 }
 
 .listen-story .bubble-slow .kc,

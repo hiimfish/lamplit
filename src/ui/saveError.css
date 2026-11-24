@@ -7,7 +7,7 @@
   transform: translateX(-50%);
   max-width: calc(100% - 8 * var(--px));
   padding: calc(2 * var(--px)) calc(6 * var(--px));
-  font-size: calc(11 * var(--px));
+  font-size: calc(11 * var(--fpx));
   color: var(--paper);
   background: var(--ink);
   border: var(--px) solid var(--lamp);

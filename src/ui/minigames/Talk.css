@@ -31,7 +31,7 @@
   gap: calc(2 * var(--px));
   min-width: calc(60 * var(--px));
   padding: calc(3 * var(--px)) calc(6 * var(--px));
-  font-size: calc(11 * var(--px));
+  font-size: calc(11 * var(--fpx));
   color: var(--ink);
   background: var(--paper);
   box-shadow: inset 0 0 0 var(--px) var(--ink);
@@ -107,7 +107,7 @@
 .talk-hint,
 .talk-transcript-title {
   margin: 0;
-  font-size: calc(11 * var(--px));
+  font-size: calc(11 * var(--fpx));
   color: var(--ink);
 }
 
@@ -165,7 +165,7 @@
 }
 
 .talk-once-note {
-  font-size: calc(11 * var(--px));
+  font-size: calc(11 * var(--fpx));
   color: var(--ink);
 }
 
@@ -198,7 +198,7 @@
 
 .talk-table-title {
   margin: 0;
-  font-size: calc(11 * var(--px));
+  font-size: calc(11 * var(--fpx));
   color: var(--ink);
 }
 
@@ -208,7 +208,7 @@
   border-collapse: collapse;
   background: var(--paper);
   color: var(--ink);
-  font-size: calc(11 * var(--px));
+  font-size: calc(11 * var(--fpx));
   line-height: 1.25;
   box-shadow: 0 0 0 var(--px) var(--ink);
 }

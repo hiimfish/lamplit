@@ -102,8 +102,15 @@ export function ExamRunner({ section, onFinish, onQuit }: Props) {
 
   const item = items[index];
   const last = index >= items.length - 1;
+  // Moving on without a pick asks once first: the first press only says so.
+  const [warned, setWarned] = useState<string | null>(null);
+  const unanswered = !!item && (picks[item.qid] ?? null) === null;
   const next = () => {
     if (!item) return;
+    if (unanswered && warned !== item.qid) {
+      setWarned(item.qid);
+      return;
+    }
     if (last) finish();
     else setIndex(index + 1);
   };
@@ -145,6 +152,11 @@ export function ExamRunner({ section, onFinish, onQuit }: Props) {
         <div class="exam-runner-body" key={item.qid}>
           {section.kind === 'listening' ? <ExamListening {...view} /> : <ExamReading {...view} />}
         </div>
+        {unanswered && warned === item.qid && (
+          <p class="exam-runner-note" role="status" data-testid="exam-skip-note">
+            這題還沒選答案，再按一次跳過
+          </p>
+        )}
         <div class="flow-actions exam-runner-actions">
           <QuitKey label="先離開" onLeave={onQuit} testId="exam-quit" />
           <button type="button" class="pixel-button primary" onClick={next} data-testid="exam-next">

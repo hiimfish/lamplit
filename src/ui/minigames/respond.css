@@ -34,7 +34,7 @@
   align-items: center;
   gap: calc(4 * var(--px));
   min-height: var(--tap);
-  font-size: calc(11 * var(--px));
+  font-size: calc(11 * var(--fpx));
   color: var(--ink);
 }
 
@@ -87,7 +87,7 @@
 
 .rs-status {
   margin: 0;
-  font-size: calc(11 * var(--px));
+  font-size: calc(11 * var(--fpx));
   color: var(--ink);
 }
 

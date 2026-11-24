@@ -7,6 +7,7 @@ import { appStore, commitSave, currentNow } from '../core/appState';
 import { useStore } from '../core/store';
 import { logAnswer } from '../learning/mistakes';
 import { makeRng, buildTaskPractice } from '../learning/questionGen';
+import { isHeard } from '../learning/heardQuestion';
 import type { AnswerResult, Question } from '../learning/questions';
 import {
   applySessionAnswer,
@@ -45,14 +46,15 @@ export function QuestionRunner({ questions, showHearts, onFinish, onProgress }: 
   const [results, setResults] = useState<AnswerResult[]>([]);
   const [combo, setCombo] = useState(0);
   const [heartsLeft, setHeartsLeft] = useState(MAX_HEARTS);
-  const [refilled, setRefilled] = useState(false);
+  /** The gentle note after the hearts refill, or undefined. */
+  const [refilled, setRefilled] = useState<string | undefined>(undefined);
   const session = useRef<PracticeSession>(createSession());
 
   const question = questions[index];
 
   const onAnswer = (result: AnswerResult) => {
     if (!question) return;
-    setRefilled(false);
+    setRefilled(undefined);
     let nextResults = results;
     if (question.kind !== 'speak') {
       // Speak questions are never graded and never used for scheduling.
@@ -75,7 +77,8 @@ export function QuestionRunner({ questions, showHearts, onFinish, onProgress }: 
         setCombo(0);
         if (heartsLeft <= 1) {
           setHeartsLeft(MAX_HEARTS);
-          setRefilled(true);
+          // A question read on screen (文法快練, signs, passages) has nothing to hear again.
+          setRefilled(isHeard(question) ? '沒關係，再聽一次' : '沒關係，再想一次');
         } else {
           setHeartsLeft(heartsLeft - 1);
         }
@@ -99,7 +102,7 @@ export function QuestionRunner({ questions, showHearts, onFinish, onProgress }: 
         {/* A refill follows a wrong answer, so it never shows together with a combo. */}
         {refilled ? (
           <span class="gentle" data-testid="refill">
-            沒關係，再聽一次
+            {refilled}
           </span>
         ) : (
           combo >= 2 && <span class="combo">連擊 x{combo}</span>

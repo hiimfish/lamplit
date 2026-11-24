@@ -9,7 +9,7 @@
 }
 
 .exam-stats dd {
-  font-size: calc(12 * var(--px));
+  font-size: calc(12 * var(--fpx));
   overflow-wrap: anywhere;
 }
 

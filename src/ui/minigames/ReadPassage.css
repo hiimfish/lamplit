@@ -54,7 +54,7 @@
 
 .rp-count {
   flex: none;
-  font-size: calc(11 * var(--px));
+  font-size: calc(11 * var(--fpx));
   color: var(--ink);
 }
 
@@ -90,7 +90,7 @@
   overflow-y: auto;
   overscroll-behavior: contain;
   padding: calc(5 * var(--px)) calc(7 * var(--px));
-  font-size: calc(11 * var(--px));
+  font-size: calc(11 * var(--fpx));
   line-height: 1.5;
   color: var(--ink);
   background: var(--paper);
@@ -129,7 +129,7 @@
   right: calc(2 * var(--px));
   bottom: calc(2 * var(--px));
   padding: 0 calc(3 * var(--px));
-  font-size: calc(11 * var(--px));
+  font-size: calc(11 * var(--fpx));
   line-height: 1.3;
   color: var(--paper);
   background: var(--ink);
@@ -268,7 +268,7 @@
 .rp-need-note {
   flex: none;
   margin-left: auto;
-  font-size: calc(11 * var(--px));
+  font-size: calc(11 * var(--fpx));
   color: var(--ink);
 }
 

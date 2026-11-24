@@ -34,6 +34,7 @@ describe('sanitizeSettings', () => {
       sfxVolume: 0.3,
       showZh: false,
       unlockAll: true,
+      seenIntro: true,
     };
     expect(sanitizeSettings(s)).toEqual(s);
   });
@@ -52,8 +53,16 @@ describe('sanitizeSettings', () => {
       sfxVolume: NaN,
       showZh: 'yes',
       unlockAll: 1,
+      seenIntro: 'no',
     });
     expect(s).toEqual(DEFAULT_SETTINGS);
+  });
+
+  it('seenIntro: false by default (older saves have none), kept when it is a boolean', () => {
+    expect(DEFAULT_SETTINGS.seenIntro).toBe(false);
+    expect(sanitizeSettings({ showZh: true }).seenIntro).toBe(false);
+    expect(sanitizeSettings({ seenIntro: true }).seenIntro).toBe(true);
+    expect(sanitizeSettings({ seenIntro: 1 }).seenIntro).toBe(false);
   });
 
   it('falls back to defaults for non-objects', () => {

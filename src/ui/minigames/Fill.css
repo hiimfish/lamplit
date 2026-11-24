@@ -6,14 +6,14 @@
  */
 .fill-sentence {
   margin: 0;
-  font-size: calc(22 * var(--px));
+  font-size: calc(22 * var(--fpx));
   line-height: 1.5;
   color: var(--ink);
   overflow-wrap: break-word;
 }
 
 :root[data-orientation='landscape'] .fill-sentence {
-  font-size: calc(11 * var(--px));
+  font-size: calc(11 * var(--fpx));
   line-height: 2;
 }
 

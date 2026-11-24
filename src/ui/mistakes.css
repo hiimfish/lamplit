@@ -7,7 +7,7 @@
 .mistakes-sub {
   margin: calc(4 * var(--px)) 0 0;
   color: var(--ink);
-  font-size: calc(10 * var(--px));
+  font-size: calc(10 * var(--fpx));
 }
 
 .mistakes-list > li {

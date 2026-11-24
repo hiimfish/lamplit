@@ -30,6 +30,7 @@ import './flow.css';
 import { useRefocus } from './focus';
 import { useKeys } from './keys';
 import { KeyCap } from './KeyCap';
+import { HowToPlay, shouldShowIntro } from './HowToPlay';
 import { SettingsPanel } from './SettingsPanel';
 import { SceneStage } from './stage/SceneStage';
 import { stageArea } from './stage/stageArea';
@@ -231,7 +232,19 @@ function TaskList({
 export function TownScreen() {
   const { save, layout, town, activeTask } = useStore(appStore);
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const openAll = devUnlockAll(useStore(settingsStore));
+  const settings = useStore(settingsStore);
+  const openAll = devUnlockAll(settings);
+  // 怎麼玩: on the first visit, and again from 設定. Players who already played a task count
+  // as having seen it.
+  const played = Object.keys(save.tasks).length;
+  const [howOpen, setHowOpen] = useState(() => shouldShowIntro(settings.seenIntro, played));
+  useEffect(() => {
+    if (!settings.seenIntro && played > 0) settingsStore.set({ seenIntro: true });
+  }, [settings.seenIntro, played]);
+  const closeHow = () => {
+    setHowOpen(false);
+    if (!settingsStore.get().seenIntro) settingsStore.set({ seenIntro: true });
+  };
   const headingRef = useRef<HTMLHeadingElement>(null);
   useEffect(() => playMusic('town'), []);
 
@@ -309,8 +322,10 @@ export function TownScreen() {
   };
 
   enterRef.current =
-    !place && !settingsOpen && next ? () => startTask(next.unit.id, next.task.id) : undefined;
-  backRef.current = place && !settingsOpen ? () => show(actIndex) : undefined;
+    !place && !settingsOpen && !howOpen && next
+      ? () => startTask(next.unit.id, next.task.id)
+      : undefined;
+  backRef.current = place && !settingsOpen && !howOpen ? () => show(actIndex) : undefined;
   // The act tabs are one radio group: ←/→ (or ↑/↓) move the choice and the focus.
   const onActKey = (e: KeyboardEvent) => {
     const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
@@ -356,7 +371,7 @@ export function TownScreen() {
   const top = (
     <div
       class="town-top"
-      inert={settingsOpen}
+      inert={settingsOpen || howOpen}
       style={{ width: lp(area.w), height: lp(layout.sceneH) }}
       data-testid="town-top"
     >
@@ -407,7 +422,7 @@ export function TownScreen() {
   return (
     <div class="flow has-stage" data-testid="town">
       {frame && createPortal(top, frame)}
-      <div class="flow-card" inert={settingsOpen}>
+      <div class="flow-card" inert={settingsOpen || howOpen}>
         <h1 class="sr-only" ref={headingRef}>
           {place ? place.title : `小鎮：第${act.no}幕 ${act.title}`}
         </h1>
@@ -475,7 +490,18 @@ export function TownScreen() {
 
       {settingsOpen && (
         <div class="overlay">
-          <SettingsPanel onClose={() => setSettingsOpen(false)} />
+          <SettingsPanel
+            onClose={() => setSettingsOpen(false)}
+            onHowTo={() => {
+              setSettingsOpen(false);
+              setHowOpen(true);
+            }}
+          />
+        </div>
+      )}
+      {howOpen && (
+        <div class="overlay">
+          <HowToPlay onClose={closeHow} />
         </div>
       )}
     </div>

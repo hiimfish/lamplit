@@ -12,6 +12,8 @@ export interface Settings {
   showZh: boolean;
   /** Dev mode: every task in the town is open (see devUnlockAll). */
   unlockAll: boolean;
+  /** The 怎麼玩 cards were shown once (or skipped); they open again only from 設定. */
+  seenIntro: boolean;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -21,6 +23,7 @@ export const DEFAULT_SETTINGS: Settings = {
   sfxVolume: 0.7,
   showZh: true,
   unlockAll: false,
+  seenIntro: false,
 };
 
 export const SETTINGS_KEY = STORAGE_KEYS.settings;
@@ -50,6 +53,7 @@ export function sanitizeSettings(raw: unknown): Settings {
     sfxVolume: volumeOr(r.sfxVolume, DEFAULT_SETTINGS.sfxVolume),
     showZh: typeof r.showZh === 'boolean' ? r.showZh : DEFAULT_SETTINGS.showZh,
     unlockAll: typeof r.unlockAll === 'boolean' ? r.unlockAll : DEFAULT_SETTINGS.unlockAll,
+    seenIntro: typeof r.seenIntro === 'boolean' ? r.seenIntro : DEFAULT_SETTINGS.seenIntro,
   };
 }
 

@@ -19,6 +19,10 @@ import { ReviewScreen } from './ReviewScreen';
 import { SprintScreen } from './SprintScreen';
 import { TaskScreen } from './TaskScreen';
 import { TOWN, TownScreen } from './TownScreen';
+import { useFullScreen } from './useFullScreen';
+
+/** Menu-type screens: on a phone held upright they take the whole screen (useFullScreen). */
+const FULL_SCREENS = new Set(['review', 'sprint', 'goal', 'progress', 'exam', 'grammar', 'result']);
 
 const showDebug = new URLSearchParams(window.location.search).has('debug');
 
@@ -77,6 +81,7 @@ function useScreenFocus(screen: string) {
 export function App() {
   const { screen, layout } = useStore(appStore);
   useScreenFocus(screen);
+  useFullScreen(FULL_SCREENS.has(screen));
   return (
     <>
       {screen === 'title' && <TitleScreen />}

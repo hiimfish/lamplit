@@ -21,6 +21,11 @@
   left: var(--frame-x);
 }
 
+/* 設定 open as a full page (useFullScreen): the scene goes with the street. */
+:root[data-orientation='portrait'][data-full] .town-top {
+  display: none;
+}
+
 .town-scene {
   position: relative;
   flex: none;

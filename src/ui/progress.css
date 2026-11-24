@@ -14,7 +14,7 @@
 
 .progress-big {
   margin: 0;
-  font-size: calc(16 * var(--px));
+  font-size: calc(16 * var(--fpx));
   line-height: 1.3;
   color: var(--ink);
 }
@@ -41,7 +41,7 @@
 
 .progress-stats dd {
   margin: 0;
-  font-size: calc(14 * var(--px));
+  font-size: calc(14 * var(--fpx));
   color: var(--ink);
 }
 
@@ -126,7 +126,7 @@
 }
 
 .progress-day-date {
-  font-size: calc(9 * var(--px));
+  font-size: calc(10 * var(--fpx));
 }
 
 .progress-readout {
@@ -175,7 +175,7 @@
   border-radius: 0;
   text-align: center;
   font: inherit;
-  font-size: calc(14 * var(--px));
+  font-size: calc(14 * var(--fpx));
   color: var(--ink);
   background: var(--paper);
   box-shadow: inset 0 0 0 var(--px) var(--ink);

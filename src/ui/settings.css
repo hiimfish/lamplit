@@ -1,4 +1,4 @@
-/* Settings panel. Sizes: calc(N * var(--px)); text sizes are multiples of 11. */
+/* Settings panel. Sizes: calc(N * var(--px)); text sizes use --fpx. */
 .settings-panel {
   gap: calc(6 * var(--px));
   max-height: calc(100% - 6 * var(--px));
@@ -7,11 +7,49 @@
   scrollbar-color: var(--ink) var(--paper);
 }
 
+/*
+ * Phone upright: 設定 is a page of its own, not a floating card. The street and the town's
+ * scene are hidden while it is open (useFullScreen), so it runs the whole height and scrolls
+ * inside itself.
+ */
+:root[data-orientation='portrait'] .overlay:has(> .settings-panel) {
+  padding: 0;
+  background: var(--paper);
+  overflow: hidden;
+}
+
+:root[data-orientation='portrait'] .settings-panel {
+  align-self: stretch;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  border: 0;
+  box-shadow: none;
+}
+
+:root[data-orientation='portrait'] .settings-title {
+  flex: none;
+  min-height: calc(20 * var(--px));
+  padding: calc(4 * var(--px)) 0;
+}
+
+:root[data-orientation='portrait'] .settings-panel > * {
+  flex-shrink: 0;
+}
+
+:root[data-orientation='portrait'] .pixel-button.settings-close {
+  align-self: stretch;
+  min-height: var(--tap);
+  margin-top: auto;
+}
+
 /* Title as an ink header strip with paper text. */
 .settings-title {
   margin: calc(-8 * var(--px)) calc(-8 * var(--px)) 0;
   padding: var(--px) 0 calc(2 * var(--px));
-  font-size: calc(11 * var(--px));
+  font-size: calc(11 * var(--fpx));
   font-weight: normal;
   text-align: center;
   color: var(--paper);
@@ -80,12 +118,12 @@
 }
 
 .settings-label {
-  font-size: calc(11 * var(--px));
+  font-size: calc(11 * var(--fpx));
 }
 
 .settings-value {
   text-align: right;
-  font-size: calc(11 * var(--px));
+  font-size: calc(11 * var(--fpx));
   color: var(--ink);
 }
 
@@ -220,7 +258,7 @@
   min-height: var(--tap);
   padding: calc(2 * var(--px)) calc(3 * var(--px));
   font: inherit;
-  font-size: calc(11 * var(--px));
+  font-size: calc(11 * var(--fpx));
   color: var(--ink);
   background: var(--paper);
   border: var(--px) solid var(--ink);

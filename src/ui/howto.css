@@ -1,0 +1,128 @@
+/* 怎麼玩 (HowToPlay.tsx): a dialog like 設定 holding one intro card at a time. */
+.how-panel {
+  gap: calc(6 * var(--px));
+  max-height: calc(100% - 6 * var(--px));
+  overflow-y: auto;
+}
+
+/* Title as an ink header strip with paper text, like 設定. */
+.how-title {
+  margin: calc(-8 * var(--px)) calc(-8 * var(--px)) 0;
+  padding: var(--px) 0 calc(2 * var(--px));
+  font-size: calc(11 * var(--fpx));
+  font-weight: normal;
+  text-align: center;
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.how-card {
+  gap: calc(5 * var(--px));
+  min-height: calc(96 * var(--px));
+  justify-content: center;
+}
+
+.how-card p,
+.how-card h3 {
+  margin: 0;
+}
+
+.how-step {
+  align-self: flex-end;
+  color: var(--ink);
+}
+
+.how-heading {
+  font-size: calc(14 * var(--fpx));
+  font-weight: normal;
+  color: var(--ink);
+  border-bottom: var(--line) solid var(--neon);
+}
+
+.how-line {
+  max-width: calc(260 * var(--px));
+  color: var(--ink);
+}
+
+/* Where you are in the four cards: ink squares, the current one lamp. */
+.how-dots {
+  display: flex;
+  justify-content: center;
+  gap: calc(4 * var(--px));
+}
+
+.how-dot {
+  width: calc(5 * var(--px));
+  height: calc(5 * var(--px));
+  background: var(--paper);
+  box-shadow: 0 0 0 var(--px) var(--ink);
+}
+
+.how-dot.on {
+  background: var(--lamp);
+}
+
+.how-actions {
+  display: flex;
+  justify-content: center;
+  gap: calc(4 * var(--px));
+  flex-wrap: wrap;
+}
+
+/* 上一張 on the first card: looks disabled but keeps focus (aria-disabled, not disabled). */
+.how-actions .pixel-button[aria-disabled='true'] {
+  color: var(--dim);
+  border-color: var(--dim);
+  box-shadow: none;
+  cursor: default;
+}
+
+/* Phone upright: a page of its own, the keys along the bottom where the thumb is. */
+:root[data-orientation='portrait'] .overlay:has(> .how-panel) {
+  padding: 0;
+  background: var(--paper);
+  overflow: hidden;
+}
+
+:root[data-orientation='portrait'] .how-panel {
+  align-self: stretch;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  border: 0;
+  box-shadow: none;
+}
+
+:root[data-orientation='portrait'] .how-panel > * {
+  flex-shrink: 0;
+}
+
+:root[data-orientation='portrait'] .how-title {
+  min-height: calc(20 * var(--px));
+  padding: calc(4 * var(--px)) 0;
+}
+
+/* The card sits in the middle of the page, the dots and keys along the bottom. */
+:root[data-orientation='portrait'] .how-card {
+  min-height: calc(140 * var(--px));
+  margin-block: auto;
+}
+
+:root[data-orientation='portrait'] .how-actions {
+  flex-wrap: nowrap;
+}
+
+:root[data-orientation='portrait'] .how-actions .primary {
+  flex: 1;
+}
+
+:root[data-orientation='landscape'] .how-panel {
+  max-width: calc(360 * var(--px));
+  padding: calc(6 * var(--px));
+}
+
+:root[data-orientation='landscape'] .how-title {
+  margin: calc(-6 * var(--px)) calc(-6 * var(--px)) 0;
+}

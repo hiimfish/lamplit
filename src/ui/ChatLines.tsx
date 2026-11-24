@@ -86,6 +86,18 @@ export function ChatLines({
     if (list) list.scrollTop = list.scrollHeight;
   }, [lines.length]);
 
+  // The log's height follows what sits under it (role-play: the question); keep the newest
+  // line in view when it changes.
+  useEffect(() => {
+    const list = listRef.current;
+    if (!list || typeof ResizeObserver === 'undefined') return;
+    const observer = new ResizeObserver(() => {
+      list.scrollTop = list.scrollHeight;
+    });
+    observer.observe(list);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div class="chat" ref={listRef}>
       {lines.map((line, index) => {

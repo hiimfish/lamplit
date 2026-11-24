@@ -33,7 +33,7 @@
 .mg-zh.mg-zh-target {
   align-self: flex-start;
   padding: calc(2 * var(--px)) calc(6 * var(--px));
-  font-size: calc(13 * var(--px));
+  font-size: calc(13 * var(--fpx));
   background: var(--lamp-tint);
   box-shadow: inset 0 0 0 var(--px) var(--ink);
 }
@@ -41,5 +41,5 @@
 /* Sideways the screen is short: the box stays, at the normal text size. */
 :root[data-orientation='landscape'] .mg-zh.mg-zh-target {
   padding: 0 calc(4 * var(--px));
-  font-size: calc(11 * var(--px));
+  font-size: calc(11 * var(--fpx));
 }

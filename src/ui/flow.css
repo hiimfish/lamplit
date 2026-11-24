@@ -279,12 +279,27 @@
 }
 
 /*
- * Role-play: the log shares the card with an arrange question, so it stays short;
- * it scrolls to the newest line, which is the cue for the learner's turn.
+ * Role-play: the log shares the card with an arrange question. The role-play fills the card
+ * and the log takes the height the question leaves (several lines, never just one); it
+ * scrolls to the newest line, which is the cue for the learner's turn. The question keeps
+ * its own height at the bottom.
  */
-:root[data-orientation] .roleplay .chat {
-  min-height: 0;
-  max-height: calc(64 * var(--px));
+.flow-card > .roleplay {
+  flex: 1 0 auto;
+}
+
+:root[data-orientation] .roleplay > .chat {
+  flex: 1 1 0;
+  min-height: calc(72 * var(--px));
+  max-height: none;
+}
+
+:root[data-orientation='portrait'] .roleplay > .chat {
+  min-height: calc(120 * var(--px));
+}
+
+:root[data-orientation] .flow.has-stage .roleplay > .practice {
+  flex-grow: 0;
 }
 
 /* Landscape is short: the log takes what the title, heading and keys leave. */
@@ -525,7 +540,7 @@
 }
 
 .intro-emoji {
-  font-size: calc(33 * var(--px));
+  font-size: calc(33 * var(--fpx));
   padding: calc(3 * var(--px)) calc(5 * var(--px));
   box-shadow:
     0 0 0 var(--line) var(--ink),
@@ -534,7 +549,7 @@
 }
 
 .intro-en {
-  font-size: calc(22 * var(--px));
+  font-size: calc(22 * var(--fpx));
   line-height: 1.2;
   color: var(--ink);
 }
@@ -640,7 +655,7 @@
 }
 
 .result-stars {
-  font-size: calc(22 * var(--px));
+  font-size: calc(22 * var(--fpx));
   letter-spacing: calc(3 * var(--px));
 }
 

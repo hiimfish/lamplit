@@ -4,14 +4,16 @@ import { playSfx } from '../audio/sfx';
 import { playAudio, stopAudio } from '../audio/pronounce';
 import { getItem, type ItemInfo } from '../content/units';
 import { appStore } from '../core/appState';
+import { devUnlockAll, settingsStore } from '../core/settings';
 import { useStore } from '../core/store';
+import { nextStop, openUnits } from '../learning/townPlan';
 import { En } from './En';
 import './flow.css';
 import { clipsOf } from './IntroCards';
 import { hasItemIcon, iconIdOf, ItemIcon } from './ItemIcon';
 import { useKeys } from './keys';
 import { KeyCap } from './KeyCap';
-import { StarMarks } from './TownScreen';
+import { StarMarks, TOWN } from './TownScreen';
 
 /** Says a learned item once (a pair: one side, then the other); a new tap cuts it off. */
 let hearing = 0;
@@ -27,8 +29,26 @@ export function ResultScreen() {
   const { result, save } = useStore(appStore);
   useEffect(() => playMusic('town'), []);
   useEffect(() => () => stopAudio(), []);
+  const openAll = devUnlockAll(useStore(settingsStore));
   const toTown = () => appStore.set({ screen: 'town' });
-  useKeys({ Enter: toTown, Back: toTown });
+  // 下一關 after a task: the next new task, found as the town's 下一關 finds it.
+  const stop =
+    result?.kind === 'task'
+      ? nextStop(save, openUnits(TOWN, save, openAll), result.unitId)
+      : undefined;
+  const nextTask = stop?.unit.tasks[stop.index];
+  const playNext =
+    stop && nextTask
+      ? () => {
+          playSfx('click');
+          appStore.set({
+            screen: 'task',
+            activeTask: { unitId: stop.unit.id, taskId: nextTask.id },
+            result: undefined,
+          });
+        }
+      : undefined;
+  useKeys({ Enter: playNext ?? toTown, Back: toTown });
   if (!result) {
     return (
       <div class="flow">
@@ -110,20 +130,26 @@ export function ResultScreen() {
         )}
         {result.kind === 'review' && <p class="flow-note">明天再來，會有新的複習。</p>}
         <div class="flow-actions">
+          {playNext && (
+            <button class="pixel-button primary" onClick={playNext} data-testid="next-task">
+              下一關
+              <KeyCap k="Enter" />
+            </button>
+          )}
           <button
-            class="pixel-button primary"
+            class={`pixel-button${playNext ? '' : ' primary'}`}
             onClick={() => appStore.set({ screen: 'town' })}
             data-testid="to-town"
           >
             回小鎮
-            <KeyCap k="Enter" />
+            {!playNext && <KeyCap k="Enter" />}
           </button>
           {isTask && (
             <button class="pixel-button" onClick={replay} data-testid="replay">
               再玩一次
             </button>
           )}
-          {isSprint && (
+          {(isSprint || result.kind === 'review') && (
             <button
               class="pixel-button"
               onClick={() => appStore.set({ screen: 'goal', result: undefined })}
