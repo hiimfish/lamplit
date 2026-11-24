@@ -1,1 +1,53 @@
-/* 幕結業考: examReading. */
+/*
+ * 幕結業考, reading questions (ExamReading.tsx). The text, sign, picture and fill styles are
+ * the practice screens' own (minigames.css, ReadPassage.css, textFill.css, Fill.css); this
+ * file only adds what the exam changes: a neutral pick (no right/wrong colour), the
+ * placeholders in a text with blanks, and a ceiling for the text box so the keys stay
+ * reachable. Nothing animates.
+ */
+
+.er {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* The picked key: lamp fill, a thick ink rim and a ● mark, so it never relies on colour. */
+.pixel-button.mg-option.er-picked {
+  background: var(--lamp);
+  color: var(--ink);
+  border-color: var(--ink);
+  box-shadow: inset 0 0 0 var(--px) var(--ink);
+}
+
+.mg-option.er-picked::after {
+  content: '●';
+  flex: none;
+  margin-left: auto;
+  padding-left: calc(3 * var(--px));
+}
+
+/* A long text scrolls inside its box; the question and keys below stay on screen. */
+.er-box {
+  max-height: 42dvh;
+}
+
+:root[data-orientation='landscape'] .er-box {
+  max-height: 100%;
+}
+
+/* A blank of an earlier question: its place is named, not answered. */
+.er-blank {
+  padding: 0 calc(2 * var(--px));
+  white-space: nowrap;
+}
+
+.tf-gap.er-earlier {
+  border-style: solid;
+}
+
+/* Keys are never clipped sideways; long options wrap inside their box. */
+.er-options .mg-option > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
