@@ -11,7 +11,9 @@ export default defineConfig(({ command, mode }) => ({
   // `npm run dev:https` serves a self-signed https site so phones on the LAN can use the
   // microphone (browsers only allow it in a secure context; plain LAN http is not one).
   plugins: [preact(), ...(mode === 'https' ? [basicSsl()] : [])],
-  server: { host: true },
+  // Agent worktrees, scratch files and docs live inside the repo; watching them makes the dev
+  // server crawl and balloon in memory.
+  server: { host: true, watch: { ignored: ['**/.claude/**', '**/.tmp/**', '**/docs/**'] } },
   build: { chunkSizeWarningLimit: 2000 },
   test: {
     include: ['tests/**/*.test.ts'],

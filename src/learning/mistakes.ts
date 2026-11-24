@@ -45,7 +45,7 @@ export const MISTAKE_LABELS: Record<string, string> = {
   'k:text-fill': '段落填空',
   'k:arrange': '排句子',
   'k:spell': '打字拼單字',
-  'k:choose-reply': '選回答',
+  'k:choose-reply': '選出正確的句子',
 };
 
 /** The label of a tag: the table above, else `lookup` (for `p:` and `g:`), else undefined. */

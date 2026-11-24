@@ -296,7 +296,7 @@ describe('labels', () => {
     expect(MISTAKE_LABELS['k:fill-grammar']).toBe('文法填空');
     expect(MISTAKE_LABELS['k:text-fill']).toBe('段落填空');
     expect(MISTAKE_LABELS['k:arrange']).toBe('排句子');
-    expect(MISTAKE_LABELS['k:choose-reply']).toBe('選回答');
+    expect(MISTAKE_LABELS['k:choose-reply']).toBe('選出正確的句子');
     expect(MISTAKE_LABELS['k:respond']).toBe('應答題');
   });
 

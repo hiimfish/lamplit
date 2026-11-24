@@ -296,7 +296,7 @@ export function GoalScreen() {
           )}
         </div>
         <p class="flow-note" data-testid="goal-later">
-          之後會加入：多益題型。
+          結業考在小鎮：每一幕地點的最後一格。
         </p>
 
         <div class="flow-actions">
