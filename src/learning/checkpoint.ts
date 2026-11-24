@@ -3,7 +3,7 @@
  * practice test; on the sprint it is compared with the plan's target for that week,
  * and a score well below it offers to extend. Pure.
  */
-import { dateKey, sortCheckpoints, type Route, type SaveData } from '../core/save';
+import { dateKey, sortCheckpoints, type Checkpoint, type Route, type SaveData } from '../core/save';
 import { SPRINT_WEEKS, sprintWeek, sprintWeeks } from './sprint';
 
 /** Total-score targets by week of a 12-week sprint (the plan's checkpoints). */
@@ -74,13 +74,23 @@ export function addExamCheckpoint(
   reading: number,
   retake: boolean,
 ): SaveData {
-  void now;
-  void act;
-  void listening;
-  void reading;
-  void retake;
-  return save;
+  const date = dateKey(now);
+  const entry: Checkpoint = {
+    date,
+    listening: clampScore(listening),
+    reading: clampScore(reading),
+    source: 'exam',
+    act,
+  };
+  if (retake) entry.retake = true;
+  const others = save.checkpoints.filter(
+    (c) => !(c.source === 'exam' && c.act === act && c.date === date),
+  );
+  return { ...save, checkpoints: sortCheckpoints([...others, entry]) };
 }
+
+/** The most total score an exam of each Act can estimate (the caps of both parts added). */
+const EXAM_CAPS: Record<1 | 2 | 3 | 4, number> = { 1: 300, 2: 425, 3: 540, 4: 700 };
 
 /**
  * Whether an exam of this Act can be compared with the sprint's target: only when the
@@ -88,7 +98,35 @@ export function addExamCheckpoint(
  * 3: 540, 4: 700).
  */
 export function examComparable(act: 1 | 2 | 3 | 4, target: number): boolean {
-  void act;
-  void target;
-  return false;
+  return target <= EXAM_CAPS[act];
+}
+
+/**
+ * How an exam sees the target: 'behind' only when even the high end of its range is
+ * under target - TARGET_MARGIN, 'ahead' only when even the low end is over target +
+ * TARGET_MARGIN, otherwise 'on-track'. Undefined with no target. `total` is the point
+ * estimate, which the range already stands for.
+ */
+export function examVerdict(
+  total: number,
+  low: number,
+  high: number,
+  target: number | undefined,
+): Verdict | undefined {
+  void total;
+  if (target === undefined) return undefined;
+  if (high < target - TARGET_MARGIN) return 'behind';
+  if (low > target + TARGET_MARGIN) return 'ahead';
+  return 'on-track';
+}
+
+/** Why an exam is not held against the target (undefined when it can be, or no target). */
+export function examCapNote(
+  act: 1 | 2 | 3 | 4,
+  target: number | undefined,
+  week?: number,
+): string | undefined {
+  if (target === undefined || examComparable(act, target)) return undefined;
+  const of = week === undefined ? '' : `第 ${week} 週的`;
+  return `這場考試最高估到 ${EXAM_CAPS[act]}，不和${of}目標比`;
 }

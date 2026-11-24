@@ -2,9 +2,13 @@ import { describe, expect, it } from 'vitest';
 import { createEmptySave, mergeSaves, sanitizeSave } from '../src/core/save';
 import {
   addCheckpoint,
+  addExamCheckpoint,
   checkpointTarget,
   checkpointVerdict,
   clampScore,
+  examCapNote,
+  examComparable,
+  examVerdict,
 } from '../src/learning/checkpoint';
 import { chooseRoute, extendSprint } from '../src/learning/sprint';
 
@@ -134,5 +138,80 @@ describe('exam scores in the checkpoints', () => {
     };
     expect(mergeSaves(withExam, withExam).checkpoints).toEqual(withExam.checkpoints);
     expect(mergeSaves(withExam, base).checkpoints).toEqual(withExam.checkpoints);
+  });
+});
+
+describe('examVerdict', () => {
+  it('is behind only when even the high end is under target - 25', () => {
+    expect(examVerdict(150, 120, 174, 200)).toBe('behind');
+    expect(examVerdict(150, 120, 175, 200)).toBe('on-track');
+  });
+
+  it('is ahead only when even the low end is over target + 25', () => {
+    expect(examVerdict(260, 226, 290, 200)).toBe('ahead');
+    expect(examVerdict(260, 225, 290, 200)).toBe('on-track');
+  });
+
+  it('is on track when the range crosses the target, and undefined with no target', () => {
+    expect(examVerdict(200, 120, 280, 200)).toBe('on-track');
+    expect(examVerdict(200, 120, 280, undefined)).toBeUndefined();
+  });
+});
+
+describe('examComparable and examCapNote', () => {
+  it('compares only when the target is within the most the exam can estimate', () => {
+    expect(examComparable(1, 300)).toBe(true);
+    expect(examComparable(1, 305)).toBe(false);
+    expect(examComparable(2, 425)).toBe(true);
+    expect(examComparable(2, 430)).toBe(false);
+    expect(examComparable(3, 540)).toBe(true);
+    expect(examComparable(3, 545)).toBe(false);
+    expect(examComparable(4, 600)).toBe(true);
+    expect(examComparable(4, 700)).toBe(true);
+  });
+
+  it('says why a target is not compared, with the numbers', () => {
+    expect(examCapNote(1, 540, 9)).toBe('這場考試最高估到 300，不和第 9 週的目標比');
+    expect(examCapNote(1, 540)).toBe('這場考試最高估到 300，不和目標比');
+    expect(examCapNote(1, 225, 3)).toBeUndefined();
+    expect(examCapNote(2, undefined, 3)).toBeUndefined();
+  });
+});
+
+describe('addExamCheckpoint', () => {
+  const base = createEmptySave(now);
+  const exams = (save: ReturnType<typeof createEmptySave>) =>
+    save.checkpoints.filter((c) => c.source === 'exam');
+
+  it('stores the estimate with its source and Act, and no retake mark by default', () => {
+    const saved = addExamCheckpoint(base, now, 2, 190, 183, false);
+    expect(saved.checkpoints).toEqual([
+      { date: '2026-11-24', listening: 190, reading: 185, source: 'exam', act: 2 },
+    ]);
+  });
+
+  it('marks a retake', () => {
+    const saved = addExamCheckpoint(base, now, 1, 100, 100, true);
+    expect(saved.checkpoints[0]).toMatchObject({ source: 'exam', act: 1, retake: true });
+  });
+
+  it('replaces the same Act on the same day, and keeps other Acts, days and ETS scores', () => {
+    let save = addCheckpoint(base, now, 300, 300);
+    save = addExamCheckpoint(save, now, 1, 100, 100, false);
+    save = addExamCheckpoint(save, now, 2, 150, 150, false);
+    save = addExamCheckpoint(save, day(-1), 1, 90, 90, false);
+    save = addExamCheckpoint(save, now, 1, 120, 125, true);
+    expect(save.checkpoints).toHaveLength(4);
+    const today = exams(save).filter((c) => c.date === '2026-11-24' && c.act === 1);
+    expect(today).toEqual([
+      { date: '2026-11-24', listening: 120, reading: 125, source: 'exam', act: 1, retake: true },
+    ]);
+    expect(exams(save).find((c) => c.act === 2)?.listening).toBe(150);
+    expect(save.checkpoints.some((c) => c.source === undefined && c.listening === 300)).toBe(true);
+  });
+
+  it('does not change the save it was given', () => {
+    addExamCheckpoint(base, now, 3, 200, 200, false);
+    expect(base.checkpoints).toEqual([]);
   });
 });
