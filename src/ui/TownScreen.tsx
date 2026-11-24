@@ -393,8 +393,8 @@ export function TownScreen() {
     </div>
   );
 
-  // Folded (2026-11-25, the user's calls): 今天的目標, the story row first with 下一關 (this
-  // act's next step, its 結業考 once every task is done) and 選關 beside it; the name plate
+  // Folded (2026-11-25, the user's calls): 今天的目標, the story row first with 選關 and 開始
+  // (this act's next step, 結業考 once every task is done); the name plate
   // under the scene names the act and task. Enter still opens that step.
   const pickKey = (
     <button class="pixel-button town-pick" onClick={() => show(actIndex)} data-testid="town-pick">
@@ -403,7 +403,7 @@ export function TownScreen() {
   );
   const storyStep: StoryStep = next
     ? {
-        label: played > 0 || (save.skipTo ?? 0) > 0 ? '下一關' : '開始第一關',
+        label: '開始',
         note: `下一關：${next.unit.title}・${next.task.title}`,
         onStart: () => startTask(next.unit.id, next.task.id),
         extra: pickKey,
@@ -411,7 +411,7 @@ export function TownScreen() {
     : examDue
       ? { label: '結業考', note: `下一步：第${act.no}幕結業考`, onStart: startExam, extra: pickKey }
       : {
-          label: '下一關',
+          label: '開始',
           note: before ? `玩完第${before.no}幕才會打開` : '這一幕全部完成了！',
           extra: pickKey,
         };
