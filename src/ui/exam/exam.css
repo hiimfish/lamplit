@@ -1,1 +1,60 @@
 /* 幕結業考: the exam screen and the town tile. */
+
+/* The town tile: name over a sub-line, wrapping inside its half of the grid. */
+.place-tile.exam-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  white-space: normal;
+  line-height: calc(13 * var(--px));
+}
+
+.exam-tile-sub {
+  color: var(--ink);
+  font-size: 0.85em;
+}
+
+/* The hub: one boxed row per section. */
+.exam-sections {
+  display: flex;
+  flex-direction: column;
+  gap: calc(3 * var(--px));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.exam-section {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0 calc(4 * var(--px));
+  padding: calc(2 * var(--px)) calc(4 * var(--px));
+  color: var(--ink);
+  border: var(--px) solid var(--ink);
+}
+
+.exam-section.next {
+  background: var(--lamp-tint);
+}
+
+.exam-section.done {
+  border-style: dashed;
+}
+
+.exam-section-kind {
+  margin-left: calc(4 * var(--px));
+  padding: 0 calc(3 * var(--px));
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.exam-section-info {
+  grid-column: 1;
+}
+
+.exam-section-state {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+}
