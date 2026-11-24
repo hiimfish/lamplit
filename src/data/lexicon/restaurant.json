@@ -1,5 +1,5 @@
 {
-  "people": { "pos": "n", "cls": "person", "forms": { "pl": "people" } },
+  "people": { "pos": "n", "cls": "person", "forms": { "pl": "people" }, "pluralOnly": true },
   "friend": { "pos": "n", "cls": "person", "forms": { "pl": "friends" } },
   "restaurant": { "pos": "n", "cls": "place", "forms": { "pl": "restaurants" } },
   "waiter": { "pos": "n", "cls": "role", "forms": { "pl": "waiters" } },

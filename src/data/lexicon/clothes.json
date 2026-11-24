@@ -58,12 +58,14 @@
   "clothes": {
     "pos": "n",
     "cls": "clothing",
-    "countable": false
+    "forms": { "pl": "clothes" },
+    "pluralOnly": true
   },
   "pants": {
     "pos": "n",
     "cls": "clothing",
-    "countable": false
+    "forms": { "pl": "pants" },
+    "pluralOnly": true
   },
   "color": {
     "pos": "n",
