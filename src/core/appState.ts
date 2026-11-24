@@ -91,20 +91,31 @@ export const appStore = createStore<AppState>({
   save: initialSave(),
 });
 
+type DayStamp = (save: SaveData, now: Date) => SaveData;
+
+/** Writes today's line of `history` into each save (set by the UI, which knows the town). */
+let stampDay: DayStamp = (save) => save;
+
+export function setDayStamp(stamp: DayStamp): void {
+  stampDay = stamp;
+}
+
 /**
  * Stores the new save in memory and in localStorage. Call after every answer.
  * If another tab wrote since we last synced, the two saves are merged per item
- * instead of one overwriting the other.
+ * instead of one overwriting the other. Today's history line is brought up to date.
  */
 export function commitSave(save: SaveData): void {
   const storage = readStorage();
+  const now = currentNow();
   let next = save;
   if (storage) {
     const stored = readStored(storage);
     if (stored !== null && stored !== lastSynced) {
-      next = mergeSaves(save, loadSave(storage, currentNow(), saveKey));
+      next = mergeSaves(save, loadSave(storage, now, saveKey));
     }
   }
+  next = stampDay(next, now);
   appStore.set({ save: next });
   if (storage && writeSave(storage, next, saveKey)) lastSynced = readStored(storage);
 }

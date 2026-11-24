@@ -25,7 +25,23 @@ export interface DailyCounters {
   sprintNew: number;
   /** Answers given in 今日複習 today. */
   reviewed: number;
+  /** Story scenes heard to the end in 聽力加量 today. */
+  listened: number;
 }
+
+/** One past (or the current) day in `history`: its counters and whether every goal was met. */
+export interface DayRecord {
+  tasks: number;
+  sprintNew: number;
+  reviewed: number;
+  listened: number;
+  answered: number;
+  correct: number;
+  met: boolean;
+}
+
+/** Days of history kept; older ones are dropped. */
+export const HISTORY_DAYS = 120;
 
 /**
  * 一般 or 衝刺 (docs/specs/sprint.md). `start` is the day 衝刺 was last chosen
@@ -34,6 +50,10 @@ export interface DailyCounters {
 export interface Route {
   kind: 'normal' | 'sprint';
   start: string | null;
+  /** Length of the sprint in weeks; unset means 12. Grows by 4 when the player extends it. */
+  weeks?: number;
+  /** The last day the player was asked to extend (and extended or said no): misses count after it. */
+  askedOn?: string;
 }
 
 export interface SaveData {
@@ -45,6 +65,8 @@ export interface SaveData {
   streak: { count: number; lastDate: string | null };
   lastPlayedDate: string | null;
   daily: DailyCounters;
+  /** The last HISTORY_DAYS days, keyed YYYY-MM-DD; written on every save (recordToday). */
+  history: Record<string, DayRecord>;
   route: Route;
 }
 
@@ -90,7 +112,15 @@ export function resolveNow(search: string, real: Date): Date {
 }
 
 function emptyDaily(now: Date): DailyCounters {
-  return { date: dateKey(now), answered: 0, correct: 0, tasksDone: 0, sprintNew: 0, reviewed: 0 };
+  return {
+    date: dateKey(now),
+    answered: 0,
+    correct: 0,
+    tasksDone: 0,
+    sprintNew: 0,
+    reviewed: 0,
+    listened: 0,
+  };
 }
 
 export function createEmptySave(now: Date): SaveData {
@@ -102,6 +132,7 @@ export function createEmptySave(now: Date): SaveData {
     streak: { count: 0, lastDate: null },
     lastPlayedDate: null,
     daily: emptyDaily(now),
+    history: {},
     route: { kind: 'normal', start: null },
   };
 }
@@ -109,6 +140,45 @@ export function createEmptySave(now: Date): SaveData {
 /** Today's counters; zeros if the saved ones are from another day. */
 export function dailyFor(save: SaveData, now: Date): DailyCounters {
   return save.daily.date === dateKey(now) ? save.daily : emptyDaily(now);
+}
+
+/** Keeps only the last HISTORY_DAYS days up to `today`. */
+function pruneHistory(
+  history: Record<string, DayRecord>,
+  today: string,
+): Record<string, DayRecord> {
+  const kept: Record<string, DayRecord> = {};
+  for (const [key, record] of Object.entries(history)) {
+    const age = daysBetween(key, today);
+    if (age < HISTORY_DAYS) kept[key] = record;
+  }
+  return kept;
+}
+
+/**
+ * Copies today's counters into `history[today]`. `met` says whether every goal is
+ * met right now; once a day is met it stays met (a review falling due later does
+ * not take it back).
+ */
+export function recordToday(save: SaveData, now: Date, met: boolean): SaveData {
+  const today = dateKey(now);
+  const daily = dailyFor(save, now);
+  const before = save.history[today];
+  const record: DayRecord = {
+    tasks: daily.tasksDone,
+    sprintNew: daily.sprintNew,
+    reviewed: daily.reviewed,
+    listened: daily.listened,
+    answered: daily.answered,
+    correct: daily.correct,
+    met: met || (before?.met ?? false),
+  };
+  if (
+    before &&
+    (Object.keys(record) as (keyof DayRecord)[]).every((key) => record[key] === before[key])
+  )
+    return save;
+  return { ...save, history: pruneHistory({ ...save.history, [today]: record }, today) };
 }
 
 /**
@@ -233,7 +303,24 @@ export function sanitizeSave(raw: unknown, now: Date): SaveData {
       tasksDone: whole(raw.daily.tasksDone),
       sprintNew: whole(raw.daily.sprintNew),
       reviewed: whole(raw.daily.reviewed),
+      listened: whole(raw.daily.listened),
     };
+  }
+  if (isObject(raw.history)) {
+    const history: Record<string, DayRecord> = {};
+    for (const [key, record] of Object.entries(raw.history)) {
+      if (!isDateKey(key) || !isObject(record)) continue;
+      history[key] = {
+        tasks: whole(record.tasks),
+        sprintNew: whole(record.sprintNew),
+        reviewed: whole(record.reviewed),
+        listened: whole(record.listened),
+        answered: whole(record.answered),
+        correct: whole(record.correct),
+        met: record.met === true,
+      };
+    }
+    save.history = pruneHistory(history, dateKey(now));
   }
   // Older saves have no route: they play the normal one.
   if (isObject(raw.route)) {
@@ -243,6 +330,9 @@ export function sanitizeSave(raw: unknown, now: Date): SaveData {
     };
     if (save.route.kind === 'sprint' && !save.route.start)
       save.route = { kind: 'normal', start: null };
+    const weeks = raw.route.weeks;
+    if (isCount(weeks) && weeks > 12 && weeks <= 52 && save.route.start) save.route.weeks = weeks;
+    if (isDateKey(raw.route.askedOn) && save.route.start) save.route.askedOn = raw.route.askedOn;
   }
   return save;
 }
@@ -328,9 +418,25 @@ export function mergeSaves(ours: SaveData, theirs: SaveData): SaveData {
       tasksDone: Math.max(ours.daily.tasksDone, theirs.daily.tasksDone),
       sprintNew: Math.max(ours.daily.sprintNew, theirs.daily.sprintNew),
       reviewed: Math.max(ours.daily.reviewed, theirs.daily.reviewed),
+      listened: Math.max(ours.daily.listened, theirs.daily.listened),
     };
   } else {
     daily = ours.daily.date > theirs.daily.date ? ours.daily : theirs.daily;
+  }
+  const history: Record<string, DayRecord> = { ...theirs.history };
+  for (const [key, record] of Object.entries(ours.history)) {
+    const other = history[key];
+    history[key] = other
+      ? {
+          tasks: Math.max(record.tasks, other.tasks),
+          sprintNew: Math.max(record.sprintNew, other.sprintNew),
+          reviewed: Math.max(record.reviewed, other.reviewed),
+          listened: Math.max(record.listened, other.listened),
+          answered: Math.max(record.answered, other.answered),
+          correct: Math.max(record.correct, other.correct),
+          met: record.met || other.met,
+        }
+      : record;
   }
   return {
     ...ours,
@@ -340,7 +446,20 @@ export function mergeSaves(ours: SaveData, theirs: SaveData): SaveData {
     streak,
     lastPlayedDate: laterDate(ours.lastPlayedDate, theirs.lastPlayedDate),
     daily,
+    history,
+    route: mergeRoute(ours.route, theirs.route),
   };
+}
+
+/** Our route; on the same sprint, the longer length and the later ask from either tab. */
+function mergeRoute(ours: Route, theirs: Route): Route {
+  if (ours.start === null || ours.start !== theirs.start) return ours;
+  const route = { ...ours };
+  const weeks = Math.max(ours.weeks ?? 12, theirs.weeks ?? 12);
+  if (weeks > 12) route.weeks = weeks;
+  const asked = laterDate(ours.askedOn ?? null, theirs.askedOn ?? null);
+  if (asked) route.askedOn = asked;
+  return route;
 }
 
 /* ---------- export / import ---------- */

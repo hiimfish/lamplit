@@ -6,14 +6,18 @@ import { appStore, commitSave, currentNow } from '../core/appState';
 import { dailyFor, type Route } from '../core/save';
 import { devUnlockAll, settingsStore } from '../core/settings';
 import { useStore } from '../core/store';
+import { goalStatus, MISS_LIMIT, shouldOfferExtend } from '../learning/dailyGoal';
 import { buildDailyReview } from '../learning/sessionPlan';
 import {
   chooseRoute,
+  declineExtend,
+  EXTEND_WEEKS,
+  extendSprint,
   reviewLimit,
-  SPRINT_WEEKS,
   sprintEndDate,
   sprintPlan,
   sprintWeek,
+  sprintWeeks,
   taskGoal,
   type SprintStatus,
 } from '../learning/sprint';
@@ -40,6 +44,7 @@ const ROUTES: { kind: Route['kind']; label: string }[] = [
 /** One block of the day: name, how far, a done mark (shape, not colour) and its key. */
 function GoalRow({
   name,
+  met,
   done,
   total,
   note,
@@ -47,13 +52,13 @@ function GoalRow({
   testId,
 }: {
   name: string;
+  met: boolean;
   done?: number;
   total?: number;
   note?: string;
   children?: ComponentChildren;
   testId: string;
 }) {
-  const met = done !== undefined && total !== undefined && total > 0 && done >= total;
   return (
     <div class={`goal-row${met ? ' met' : ''}`} data-testid={testId}>
       <span class="goal-name">
@@ -84,6 +89,14 @@ export function GoalScreen() {
   const due = buildDailyReview(save, now, reviewLimit(save.route)).length;
   const plan = sprintPlan(TOWN, save, now, due);
   const week = sprintWeek(save.route, now);
+  const weeks = sprintWeeks(save.route);
+  const status = goalStatus(TOWN, save, now, due);
+  const offerExtend = shouldOfferExtend(save, now);
+  const answerExtend = (extend: boolean) => {
+    playSfx('click');
+    const latest = appStore.get().save;
+    commitSave(extend ? extendSprint(latest, currentNow()) : declineExtend(latest, currentNow()));
+  };
   // The story task 下一關 would open: the next new task among the open acts.
   const stop = nextStop(save, openUnits(TOWN, save, openAll), activeTask?.unitId);
   const stopTask = stop?.unit.tasks[stop.index];
@@ -143,15 +156,44 @@ export function GoalScreen() {
         </div>
         <p class="flow-note" data-testid="route-note">
           {save.route.kind === 'sprint' && save.route.start
-            ? week > SPRINT_WEEKS
-              ? `衝刺的 ${SPRINT_WEEKS} 週已經過了（${save.route.start} 開始），可以繼續或改回一般。`
-              : `衝刺第 ${week}／${SPRINT_WEEKS} 週，預計 ${sprintEndDate(save.route.start)} 結束。`
+            ? week > weeks
+              ? `衝刺的 ${weeks} 週已經過了（${save.route.start} 開始），可以繼續或改回一般。`
+              : `衝刺第 ${week}／${weeks} 週，預計 ${sprintEndDate(save.route.start, weeks)} 結束。`
             : '照自己的步調玩，每天一點點。'}
         </p>
+        {offerExtend && (
+          <div class="goal-extend" role="group" aria-label="延長衝刺" data-testid="goal-extend">
+            <p class="flow-note">
+              最近 {MISS_LIMIT} 天沒完成目標，要把衝刺延長 {EXTEND_WEEKS} 週嗎？每天的量會變少。
+            </p>
+            <div class="goal-extend-keys">
+              <button
+                class="pixel-button primary"
+                onClick={() => answerExtend(true)}
+                data-testid="extend-yes"
+              >
+                延長 {EXTEND_WEEKS} 週
+              </button>
+              <button
+                class="pixel-button"
+                onClick={() => answerExtend(false)}
+                data-testid="extend-no"
+              >
+                先不用
+              </button>
+            </div>
+          </div>
+        )}
+        {status.all && (
+          <p class="flow-note goal-all" data-testid="goal-all">
+            <span class="goal-mark">✓</span>今天的目標都完成了！
+          </p>
+        )}
 
         <div class="goal-rows">
           <GoalRow
             name="劇情任務"
+            met={status.tasks}
             done={daily.tasksDone}
             total={taskGoal(save.route)}
             note={
@@ -170,6 +212,7 @@ export function GoalScreen() {
           </GoalRow>
           <GoalRow
             name="單字快練"
+            met={status.sprint}
             done={plan.today}
             total={plan.goal}
             note={SPRINT_NOTE[plan.status]}
@@ -186,6 +229,7 @@ export function GoalScreen() {
           </GoalRow>
           <GoalRow
             name="今日複習"
+            met={status.review}
             note={
               due > 0
                 ? `今天已答 ${daily.reviewed} 題，還有 ${due} 題到期。`

@@ -64,6 +64,11 @@
   gap: calc(2 * var(--px));
 }
 
+/* Today's goal tally after 每日目標: blocks met out of all, or a ✓ once every one is. */
+.goal-tally {
+  margin-left: calc(3 * var(--px));
+}
+
 /* Over the dusk scene a paper focus ring reads better than ink. */
 .town-hud .pixel-button:focus-visible {
   outline-color: var(--paper);

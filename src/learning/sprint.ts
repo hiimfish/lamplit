@@ -12,8 +12,13 @@ import { actUnits, isActUnlocked, type TownAct } from './townPlan';
 
 /** Words per 快練 round. */
 export const SPRINT_SIZE = 10;
-/** The sprint route lasts 12 weeks; the last one teaches nothing new. */
+/** The sprint route lasts 12 weeks unless extended; the last week teaches nothing new. */
 export const SPRINT_WEEKS = 12;
+/** Weeks one extension adds. */
+export const EXTEND_WEEKS = 4;
+/** From week 3 the daily new words are spread over the days left, within these bounds. */
+const SPREAD_MIN = 10;
+const SPREAD_MAX = 50;
 /** Daily review cap: the normal route keeps it small, the sprint route needs room. */
 export const REVIEW_LIMIT = { normal: 20, sprint: 200 } as const;
 /** Story tasks a day the goal screen aims for. */
@@ -45,20 +50,43 @@ export function sprintWeek(route: Route, now: Date): number {
   return Math.max(1, Math.floor(days / 7) + 1);
 }
 
-/** The sprint route's planned last day (start + 12 weeks - 1 day), as YYYY-MM-DD. */
-export function sprintEndDate(start: string): string {
+/** How many weeks the sprint lasts: 12, plus any extensions. */
+export const sprintWeeks = (route: Route): number => route.weeks ?? SPRINT_WEEKS;
+
+/** The sprint route's planned last day (start + its weeks - 1 day), as YYYY-MM-DD. */
+export function sprintEndDate(start: string, weeks: number = SPRINT_WEEKS): string {
   const [y = 0, m = 1, d = 1] = start.split('-').map(Number);
-  return dateKey(new Date(y, m - 1, d + SPRINT_WEEKS * 7 - 1));
+  return dateKey(new Date(y, m - 1, d + weeks * 7 - 1));
 }
 
-/** New words a day: 10 on the normal route; 15, 25, then 42, and none in week 12+. */
-export function dailyNewWordGoal(route: Route, now: Date): number {
-  if (route.kind !== 'sprint') return NORMAL_NEW_WORDS;
+/**
+ * New words a day. Normal route: 10. Sprint: 15 in week 1 and 25 in week 2 to ease
+ * in; then `wordsLeft` (words without a card at the start of today) spread over the
+ * days up to the end of the next-to-last week, kept within 10 to 50; none in the
+ * last week. Never more than `wordsLeft`.
+ */
+export function dailyNewWordGoal(route: Route, now: Date, wordsLeft: number): number {
+  if (route.kind !== 'sprint' || !route.start) return Math.min(NORMAL_NEW_WORDS, wordsLeft);
+  const weeks = sprintWeeks(route);
   const week = sprintWeek(route, now);
-  if (week <= 1) return 15;
-  if (week === 2) return 25;
-  if (week < SPRINT_WEEKS) return 42;
-  return 0;
+  if (week >= weeks) return 0;
+  if (week <= 1) return Math.min(15, wordsLeft);
+  if (week === 2) return Math.min(25, wordsLeft);
+  const daysIn = dayIndex(dateKey(now)) - dayIndex(route.start);
+  const daysLeft = (weeks - 1) * 7 - daysIn;
+  const spread = Math.ceil(wordsLeft / Math.max(1, daysLeft));
+  return Math.min(wordsLeft, Math.max(SPREAD_MIN, Math.min(SPREAD_MAX, spread)));
+}
+
+/** Adds EXTEND_WEEKS to the sprint; the ask is answered today. */
+export function extendSprint(save: SaveData, now: Date): SaveData {
+  const weeks = sprintWeeks(save.route) + EXTEND_WEEKS;
+  return { ...save, route: { ...save.route, weeks, askedOn: dateKey(now) } };
+}
+
+/** The player said no to extending: ask again only after new missed days. */
+export function declineExtend(save: SaveData, now: Date): SaveData {
+  return { ...save, route: { ...save.route, askedOn: dateKey(now) } };
 }
 
 export const reviewLimit = (route: Route): number => REVIEW_LIMIT[route.kind];
@@ -84,6 +112,23 @@ export function sprintWindow<U extends WordUnit>(town: readonly TownAct<U>[], sa
   if (!here) return [];
   const next = open[current + 1];
   return next && next.act === here.act ? [here.unit, next.unit] : [here.unit];
+}
+
+const townWordCache = new WeakMap<object, readonly string[]>();
+
+/** Every word item id taught anywhere in the town, once each. */
+export function townWordIds<U extends WordUnit>(town: readonly TownAct<U>[]): readonly string[] {
+  let ids = townWordCache.get(town);
+  if (!ids) {
+    const all = town.flatMap((act) =>
+      actUnits(act).flatMap((unit) =>
+        unit.tasks.flatMap((task) => task.newWordIds.map((id) => `word:${id}`)),
+      ),
+    );
+    ids = [...new Set(all)];
+    townWordCache.set(town, ids);
+  }
+  return ids;
 }
 
 /** Word item ids of the window, in play order, that have no card yet. */
@@ -123,7 +168,9 @@ export function sprintPlan<U extends WordUnit>(
   dueCount: number,
 ): SprintPlan {
   const today = dailyFor(save, now).sprintNew;
-  const goal = dailyNewWordGoal(save.route, now);
+  // Count today's 快練 words as still left, so the goal holds still through the day.
+  const wordsLeft = townWordIds(town).filter((id) => !(id in save.cards)).length + today;
+  const goal = dailyNewWordGoal(save.route, now, wordsLeft);
   const base = { today, goal, words: [] };
   const left = goal - today;
   if (left <= 0) return { ...base, status: 'goal-met' };
@@ -145,11 +192,14 @@ export function finishReview(save: SaveData, count: number, now: Date): SaveData
   return { ...save, daily: { ...daily, reviewed: daily.reviewed + count } };
 }
 
-/** Switches route. Choosing 衝刺 starts its 12 weeks today; 一般 keeps the old start. */
+/**
+ * Switches route. Choosing 衝刺 starts a fresh 12 weeks today; 一般 keeps the old
+ * start (and any extension), so going back is not a loss.
+ */
 export function chooseRoute(save: SaveData, kind: Route['kind'], now: Date): SaveData {
   if (save.route.kind === kind) return save;
   return {
     ...save,
-    route: kind === 'sprint' ? { kind, start: dateKey(now) } : { kind, start: save.route.start },
+    route: kind === 'sprint' ? { kind, start: dateKey(now) } : { ...save.route, kind },
   };
 }

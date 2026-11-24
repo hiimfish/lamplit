@@ -8,6 +8,8 @@ import { taskKey } from '../src/learning/sessionPlan';
 import {
   chooseRoute,
   dailyNewWordGoal,
+  declineExtend,
+  extendSprint,
   finishReview,
   finishSprint,
   reviewLimit,
@@ -15,7 +17,9 @@ import {
   sprintEndDate,
   sprintPlan,
   sprintWeek,
+  sprintWeeks,
   sprintWindow,
+  townWordIds,
 } from '../src/learning/sprint';
 import { buildTown } from '../src/learning/townPlan';
 
@@ -82,12 +86,51 @@ describe('routes', () => {
 
   it('sets new words a day by route and week', () => {
     const route = { kind: 'sprint', start: '2026-11-24' } as const;
-    expect(dailyNewWordGoal({ kind: 'normal', start: null }, now)).toBe(10);
-    expect(dailyNewWordGoal(route, now)).toBe(15);
-    expect(dailyNewWordGoal(route, day(7))).toBe(25);
-    expect(dailyNewWordGoal(route, day(14))).toBe(42);
-    expect(dailyNewWordGoal(route, day(76))).toBe(42);
-    expect(dailyNewWordGoal(route, day(77))).toBe(0);
+    expect(dailyNewWordGoal({ kind: 'normal', start: null }, now, 2501)).toBe(10);
+    expect(dailyNewWordGoal({ kind: 'normal', start: null }, now, 4)).toBe(4);
+    expect(dailyNewWordGoal(route, now, 2501)).toBe(15);
+    expect(dailyNewWordGoal(route, day(7), 2501)).toBe(25);
+    expect(dailyNewWordGoal(route, day(77), 2501)).toBe(0);
+  });
+
+  it('spreads the words left over the days up to the next-to-last week from week 3', () => {
+    const route = { kind: 'sprint', start: '2026-11-24' } as const;
+    // Week 3 starts on day 14; 63 days are left before week 12.
+    expect(dailyNewWordGoal(route, day(14), 2221)).toBe(36);
+    expect(dailyNewWordGoal(route, day(14), 100)).toBe(10);
+    expect(dailyNewWordGoal(route, day(14), 5000)).toBe(50);
+    expect(dailyNewWordGoal(route, day(76), 30)).toBe(30);
+    expect(dailyNewWordGoal(route, day(14), 6)).toBe(6);
+  });
+
+  it('extends the sprint by 4 weeks: a later end, fewer words a day', () => {
+    const start = chooseRoute(createEmptySave(now), 'sprint', now);
+    const longer = extendSprint(start, day(20));
+    expect(longer.route).toEqual({
+      kind: 'sprint',
+      start: '2026-11-24',
+      weeks: 16,
+      askedOn: '2026-12-14',
+    });
+    expect(sprintWeeks(longer.route)).toBe(16);
+    expect(sprintEndDate('2026-11-24', 16)).toBe('2027-03-15');
+    // Week 12 still teaches on a 16-week sprint: 28 days are left before week 16.
+    expect(dailyNewWordGoal(longer.route, day(77), 560)).toBe(20);
+    expect(declineExtend(start, day(20)).route).toEqual({
+      kind: 'sprint',
+      start: '2026-11-24',
+      askedOn: '2026-12-14',
+    });
+  });
+
+  it('keeps an extension when going back to normal; a new sprint starts at 12 weeks', () => {
+    const longer = extendSprint(chooseRoute(createEmptySave(now), 'sprint', now), day(20));
+    const normal = chooseRoute(longer, 'normal', day(21));
+    expect(normal.route).toMatchObject({ kind: 'normal', weeks: 16 });
+    expect(chooseRoute(normal, 'sprint', day(22)).route).toEqual({
+      kind: 'sprint',
+      start: '2026-12-16',
+    });
   });
 
   it('gives the sprint route a larger review cap', () => {
@@ -109,6 +152,32 @@ describe('save fields', () => {
     expect(kept.route).toEqual({ kind: 'sprint', start: '2026-11-20' });
     const broken = sanitizeSave({ route: { kind: 'sprint', start: 'soon' } }, now);
     expect(broken.route).toEqual({ kind: 'normal', start: null });
+  });
+
+  it('keeps a sane extension and ask day, drops bad ones', () => {
+    const route = { kind: 'sprint', start: '2026-11-20', weeks: 16, askedOn: '2026-12-01' };
+    expect(sanitizeSave({ route }, now).route).toEqual(route);
+    for (const weeks of [12, 11, 16.5, 99, '16']) {
+      expect(sanitizeSave({ route: { ...route, weeks } }, now).route.weeks).toBeUndefined();
+    }
+    expect(
+      sanitizeSave({ route: { ...route, askedOn: 'soon' } }, now).route.askedOn,
+    ).toBeUndefined();
+  });
+
+  it('merges two tabs on one sprint: the longer length and the later ask', () => {
+    const sprint = chooseRoute(createEmptySave(now), 'sprint', now);
+    const ours = declineExtend(sprint, day(30));
+    const theirs = extendSprint(sprint, day(20));
+    expect(mergeSaves(ours, theirs).route).toEqual({
+      kind: 'sprint',
+      start: '2026-11-24',
+      weeks: 16,
+      askedOn: '2026-12-24',
+    });
+    // A different sprint in the other tab: ours wins whole.
+    const other = extendSprint(chooseRoute(createEmptySave(day(1)), 'sprint', day(1)), day(2));
+    expect(mergeSaves(ours, other).route).toEqual(ours.route);
   });
 
   it('merges two tabs: our route, the larger counters', () => {
@@ -219,6 +288,12 @@ describe('buildSprintQuestions', () => {
 });
 
 describe('the real town', () => {
+  it('counts every word of the four acts once', () => {
+    const ids = townWordIds(buildTown(ACTS, UNITS));
+    expect(new Set(ids).size).toBe(ids.length);
+    expect(ids.length).toBeGreaterThan(2400);
+  });
+
   it('teaches from 搬家第一天 and 咖啡廳 on a new save', () => {
     const real = buildTown(ACTS, UNITS);
     expect(sprintWindow(real, createEmptySave(now)).map((u) => u.id)).toEqual(['move_in', 'cafe']);

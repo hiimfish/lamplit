@@ -9,6 +9,7 @@ import { appStore, currentNow } from '../core/appState';
 import { currentStreak, type SaveData } from '../core/save';
 import { devUnlockAll, settingsStore } from '../core/settings';
 import { useStore } from '../core/store';
+import { goalStatus } from '../learning/dailyGoal';
 import { buildDailyReview, isTaskUnlocked, taskKey } from '../learning/sessionPlan';
 import { reviewLimit } from '../learning/sprint';
 import {
@@ -272,6 +273,7 @@ export function TownScreen() {
   const now = currentNow();
   const dueCount = buildDailyReview(save, now, reviewLimit(save.route)).length;
   const streak = currentStreak(save, now);
+  const goal = goalStatus(TOWN, save, now, dueCount);
 
   // What 下一關 opens: the next new task of this act (the name plate names it); none while
   // the act is locked.
@@ -383,8 +385,12 @@ export function TownScreen() {
                 appStore.set({ screen: 'goal' });
               }}
               data-testid="goal"
+              aria-label={`每日目標，完成 ${goal.met}／${goal.total}`}
             >
               每日目標
+              <span class="goal-tally" data-testid="goal-tally">
+                {goal.all ? '✓' : `${goal.met}/${goal.total}`}
+              </span>
             </button>
             <button class="pixel-button small" onClick={() => setSettingsOpen(true)}>
               設定

@@ -1,7 +1,9 @@
 import { useEffect, useRef } from 'preact/hooks';
 import { playChime, unlockAudio } from '../audio/audioContext';
-import { appStore } from '../core/appState';
+import { appStore, setDayStamp } from '../core/appState';
+import { recordToday } from '../core/save';
 import { useStore } from '../core/store';
+import { goalStatus } from '../learning/dailyGoal';
 import { focusStatic } from './focus';
 import { GoalScreen } from './GoalScreen';
 import { useKeys } from './keys';
@@ -10,9 +12,12 @@ import { ResultScreen } from './ResultScreen';
 import { ReviewScreen } from './ReviewScreen';
 import { SprintScreen } from './SprintScreen';
 import { TaskScreen } from './TaskScreen';
-import { TownScreen } from './TownScreen';
+import { TOWN, TownScreen } from './TownScreen';
 
 const showDebug = new URLSearchParams(window.location.search).has('debug');
+
+// Every save records today's counters and whether all of 每日目標 is met.
+setDayStamp((save, now) => recordToday(save, now, goalStatus(TOWN, save, now).all));
 
 function TitleScreen() {
   const start = () => {

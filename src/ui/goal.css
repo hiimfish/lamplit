@@ -65,6 +65,35 @@
   white-space: nowrap;
 }
 
+/* 跟不上時: the offer to extend, a dashed paper box with its two keys side by side. */
+.goal-extend {
+  display: grid;
+  gap: calc(2 * var(--px));
+  padding: calc(2 * var(--px)) calc(5 * var(--px));
+  color: var(--ink);
+  background: var(--paper);
+  outline: var(--px) dashed var(--ink);
+  outline-offset: calc(-1 * var(--px));
+}
+
+.goal-extend > .flow-note {
+  margin: 0;
+}
+
+.goal-extend-keys {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(2 * var(--px));
+}
+
+.goal-extend-keys > .pixel-button {
+  min-width: 0;
+}
+
+.goal-all {
+  margin: 0;
+}
+
 /* Sideways the screen is short: tighter rows and keys. */
 :root[data-orientation='landscape'] .goal-rows {
   gap: calc(2 * var(--px));
