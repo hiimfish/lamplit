@@ -1,1 +1,516 @@
-[]
+[
+  {
+    "id": "a1_be_person_adj",
+    "grammarId": "be-verb",
+    "shape": "be-adj",
+    "tense": "present",
+    "blanks": ["verb-form", "subject"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "adjectives": ["happy", "sick", "busy", "careful"]
+  },
+  {
+    "id": "a1_be_drink_hot",
+    "grammarId": "be-verb",
+    "shape": "be-adj",
+    "tense": "present",
+    "blanks": ["verb-form", "article"],
+    "subjects": ["soup", "tea", "coffee", "latte", "pizza"],
+    "adjectives": ["hot", "delicious", "great"]
+  },
+  {
+    "id": "a1_be_fresh_food",
+    "grammarId": "be-verb",
+    "shape": "be-adj",
+    "tense": "present",
+    "blanks": ["verb-form", "article"],
+    "subjects": ["bread", "fruit", "fish", "apple", "tomato", "orange", "banana", "vegetable"],
+    "adjectives": ["fresh", "cheap", "delicious"]
+  },
+  {
+    "id": "a1_be_clothes_color",
+    "grammarId": "be-verb",
+    "shape": "be-adj",
+    "tense": "present",
+    "blanks": ["verb-form", "article"],
+    "subjects": ["shirt", "dress", "jacket", "coat", "hat", "scarf", "skirt", "pants"],
+    "adjectives": ["red", "blue", "black", "white", "green", "new", "old"]
+  },
+  {
+    "id": "a1_be_clothes_fit",
+    "grammarId": "be-verb",
+    "shape": "be-adj",
+    "tense": "present",
+    "blanks": ["verb-form"],
+    "subjects": ["jacket", "coat", "skirt", "dress", "pants"],
+    "adjectives": ["long", "short", "tight", "loose", "warm"]
+  },
+  {
+    "id": "a1_be_price",
+    "grammarId": "be-verb",
+    "shape": "be-adj",
+    "tense": "present",
+    "blanks": ["verb-form"],
+    "subjects": ["coat", "jacket", "steak", "pizza", "cake", "umbrella"],
+    "adjectives": ["cheap", "expensive"]
+  },
+  {
+    "id": "a1_plural_clothes",
+    "grammarId": "plural-nouns",
+    "shape": "be-adj",
+    "tense": "present",
+    "blanks": ["verb-form"],
+    "subjects": ["hat", "scarf", "shoe", "coat", "jacket", "pants", "clothes"],
+    "adjectives": ["new", "old", "warm"]
+  },
+  {
+    "id": "a1_was_person",
+    "grammarId": "past-be",
+    "shape": "be-adj",
+    "tense": "past",
+    "cues": ["yesterday", "last week", "last weekend"],
+    "blanks": ["verb-form"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "adjectives": ["happy", "sick", "busy"]
+  },
+  {
+    "id": "a1_was_food",
+    "grammarId": "past-be",
+    "shape": "be-adj",
+    "tense": "past",
+    "cues": ["yesterday", "last week", "last night"],
+    "blanks": ["verb-form"],
+    "subjects": ["soup", "pizza", "coffee", "tea", "steak"],
+    "adjectives": ["hot", "delicious", "great", "cheap"]
+  },
+  {
+    "id": "a1_can_perform",
+    "grammarId": "can-ability",
+    "shape": "svo-time",
+    "tense": "can",
+    "cues": ["every day", "every weekend"],
+    "blanks": ["subject"],
+    "verbs": ["sing", "dance", "swim"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "pobjects": ["lake"]
+  },
+  {
+    "id": "a1_can_cook",
+    "grammarId": "can-ability",
+    "shape": "svo",
+    "tense": "can",
+    "blanks": ["article", "object"],
+    "verbs": ["cook"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "objects": ["pizza", "soup", "salad", "steak", "chicken", "rice"]
+  },
+  {
+    "id": "a1_can_read_write",
+    "grammarId": "can-ability",
+    "shape": "svo",
+    "tense": "can",
+    "blanks": ["article", "object"],
+    "verbs": ["read", "write"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "objects": ["letter", "postcard", "email", "message", "book"]
+  },
+  {
+    "id": "a1_can_question",
+    "grammarId": "can-ability",
+    "shape": "yes-no-question",
+    "tense": "can",
+    "blanks": ["subject"],
+    "verbs": ["sing", "dance", "swim"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "pobjects": ["lake"]
+  },
+  {
+    "id": "a1_ps_eat",
+    "grammarId": "present-simple",
+    "shape": "svo-time",
+    "tense": "present",
+    "cues": ["every day", "every weekend", "every week"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["eat"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "objects": [
+      "sandwich",
+      "muffin",
+      "cookie",
+      "cake",
+      "salad",
+      "apple",
+      "banana",
+      "orange",
+      "egg",
+      "pizza"
+    ]
+  },
+  {
+    "id": "a1_ps_buy",
+    "grammarId": "present-simple",
+    "shape": "svo-time",
+    "tense": "present",
+    "cues": ["every week", "every weekend"],
+    "blanks": ["verb-form", "object"],
+    "verbs": ["buy"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "objects": ["bread", "milk", "cheese", "apple", "egg", "tomato", "bag"]
+  },
+  {
+    "id": "a1_ps_wear",
+    "grammarId": "present-simple",
+    "shape": "svo-time",
+    "tense": "present",
+    "cues": ["every day", "every weekend"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["wear"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "objects": ["hat", "coat", "jacket", "scarf", "shirt", "dress", "skirt", "pants"]
+  },
+  {
+    "id": "a1_ps_read",
+    "grammarId": "present-simple",
+    "shape": "svo-time",
+    "tense": "present",
+    "cues": ["every day", "every evening", "every weekend"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["read"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "objects": ["book", "newspaper", "letter", "email", "message"]
+  },
+  {
+    "id": "a1_ps_sing_dance",
+    "grammarId": "present-simple",
+    "shape": "svo-time",
+    "tense": "present",
+    "cues": ["every day", "every weekend", "every week"],
+    "blanks": ["verb-form", "subject"],
+    "verbs": ["sing", "dance"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"]
+  },
+  {
+    "id": "a1_ps_swim",
+    "grammarId": "present-simple",
+    "shape": "svo-time",
+    "tense": "present",
+    "cues": ["every day", "every weekend", "every week"],
+    "blanks": ["verb-form"],
+    "verbs": ["swim"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "pobjects": ["lake"]
+  },
+  {
+    "id": "a1_ps_walk",
+    "grammarId": "present-simple",
+    "shape": "svo-prep",
+    "tense": "present",
+    "cues": ["every day", "every week"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["walk"],
+    "subjects": ["neighbor", "friend", "nurse", "kid", "volunteer"],
+    "pobjects": ["library", "museum", "park", "station", "restaurant"]
+  },
+  {
+    "id": "a1_ps_wait",
+    "grammarId": "present-simple",
+    "shape": "svo-time",
+    "tense": "present",
+    "cues": ["every day", "every morning"],
+    "blanks": ["verb-form", "prep", "article"],
+    "verbs": ["wait"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "pobjects": ["bus", "taxi"]
+  },
+  {
+    "id": "a1_ps_question",
+    "grammarId": "present-simple",
+    "shape": "yes-no-question",
+    "tense": "present",
+    "cues": ["every week", "every weekend"],
+    "blanks": ["verb-form", "subject"],
+    "verbs": ["eat", "wear", "buy"],
+    "pronoun": ["you", "he", "she", "they"],
+    "objects": ["hat", "scarf", "jacket", "bread", "cake", "apple", "sandwich"]
+  },
+  {
+    "id": "a1_mass_buy",
+    "grammarId": "countable-uncountable",
+    "shape": "svo-time",
+    "tense": "present",
+    "cues": ["every week", "every weekend"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["buy"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "objects": ["bread", "milk", "cheese", "butter", "rice", "salt", "oil", "juice", "meat"]
+  },
+  {
+    "id": "a1_some_eat",
+    "grammarId": "some-any",
+    "shape": "svo-time",
+    "tense": "present",
+    "cues": ["every day", "every weekend"],
+    "blanks": ["article"],
+    "verbs": ["eat"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "objects": ["bread", "cheese", "rice", "fish", "chicken", "candy", "chocolate"]
+  },
+  {
+    "id": "a1_art_eat",
+    "grammarId": "articles",
+    "shape": "svo-time",
+    "tense": "present",
+    "cues": ["every day", "every weekend"],
+    "blanks": ["article"],
+    "verbs": ["eat", "buy"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "objects": ["sandwich", "apple", "egg", "orange", "banana", "muffin", "cookie"]
+  },
+  {
+    "id": "a1_pc_sing_dance",
+    "grammarId": "present-continuous",
+    "shape": "svo-time",
+    "tense": "progressive",
+    "cues": ["now", "right now", "at the moment"],
+    "blanks": ["subject"],
+    "verbs": ["sing", "dance"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"]
+  },
+  {
+    "id": "a1_pc_swim",
+    "grammarId": "present-continuous",
+    "shape": "svo-time",
+    "tense": "progressive",
+    "cues": ["now", "right now", "at the moment"],
+    "blanks": ["subject"],
+    "verbs": ["swim"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "pobjects": ["lake"]
+  },
+  {
+    "id": "a1_pc_food",
+    "grammarId": "present-continuous",
+    "shape": "svo-time",
+    "tense": "progressive",
+    "cues": ["now", "right now", "at the moment"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["eat", "cook"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "objects": ["sandwich", "salad", "pizza", "soup", "egg", "cake", "rice"]
+  },
+  {
+    "id": "a1_pc_write",
+    "grammarId": "present-continuous",
+    "shape": "svo-time",
+    "tense": "progressive",
+    "cues": ["now", "right now", "at the moment"],
+    "blanks": ["verb-form", "subject"],
+    "verbs": ["read", "write"],
+    "subjects": ["neighbor", "friend", "doctor", "nurse", "waiter", "driver"],
+    "objects": ["letter", "email", "message"]
+  },
+  {
+    "id": "a1_pc_wait",
+    "grammarId": "present-continuous",
+    "shape": "svo-time",
+    "tense": "progressive",
+    "cues": ["now", "right now"],
+    "blanks": ["subject", "prep"],
+    "verbs": ["wait"],
+    "pronoun": ["you", "we", "they", "he", "she"],
+    "pobjects": ["bus", "taxi"]
+  },
+  {
+    "id": "a1_there_on",
+    "grammarId": "there-is-are",
+    "shape": "there-be",
+    "tense": "present",
+    "blanks": ["verb-form", "article"],
+    "preps": ["on"],
+    "subjects": ["bus", "taxi", "car", "sign"],
+    "pobjects": ["road", "bridge"]
+  },
+  {
+    "id": "a1_there_at",
+    "grammarId": "there-is-are",
+    "shape": "there-be",
+    "tense": "present",
+    "blanks": ["verb-form", "article"],
+    "preps": ["at"],
+    "subjects": ["bus", "taxi", "friend", "neighbor"],
+    "pobjects": ["station", "school", "library", "museum"]
+  },
+  {
+    "id": "a1_pr_clean",
+    "grammarId": "past-regular",
+    "shape": "svo-time",
+    "tense": "past",
+    "cues": ["yesterday", "last week", "last weekend"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["clean"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "objects": ["room", "garden", "office"]
+  },
+  {
+    "id": "a1_pr_return",
+    "grammarId": "past-regular",
+    "shape": "svo-time",
+    "tense": "past",
+    "cues": ["yesterday", "last week"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["return", "exchange"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "objects": ["shirt", "coat", "jacket", "hat", "scarf", "dress", "skirt", "bag", "umbrella"]
+  },
+  {
+    "id": "a1_pr_walk",
+    "grammarId": "past-regular",
+    "shape": "svo-prep",
+    "tense": "past",
+    "cues": ["yesterday", "last week", "last weekend"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["walk"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "pobjects": ["school", "library", "museum", "park", "station", "pharmacy", "hospital"]
+  },
+  {
+    "id": "a1_pr_play",
+    "grammarId": "past-regular",
+    "shape": "svo-prep",
+    "tense": "past",
+    "cues": ["yesterday", "last weekend"],
+    "blanks": ["verb-form"],
+    "verbs": ["play"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "pobjects": ["friend", "kid", "neighbor"]
+  },
+  {
+    "id": "a1_pr_dance",
+    "grammarId": "past-regular",
+    "shape": "svo-time",
+    "tense": "past",
+    "cues": ["yesterday", "last weekend", "last night"],
+    "blanks": ["verb-form"],
+    "verbs": ["dance"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"]
+  },
+  {
+    "id": "a1_pi_eat_buy",
+    "grammarId": "past-irregular",
+    "shape": "svo-time",
+    "tense": "past",
+    "cues": ["yesterday", "last week", "last weekend"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["eat", "buy"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "objects": [
+      "apple",
+      "banana",
+      "orange",
+      "bread",
+      "cake",
+      "sandwich",
+      "cookie",
+      "egg",
+      "cheese",
+      "pizza"
+    ]
+  },
+  {
+    "id": "a1_pi_wear_buy",
+    "grammarId": "past-irregular",
+    "shape": "svo-time",
+    "tense": "past",
+    "cues": ["yesterday", "last week", "last weekend"],
+    "blanks": ["verb-form", "object"],
+    "verbs": ["wear", "buy"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "objects": ["hat", "coat", "jacket", "scarf", "shirt", "dress", "skirt", "pants"]
+  },
+  {
+    "id": "a1_pi_write",
+    "grammarId": "past-irregular",
+    "shape": "svo-time",
+    "tense": "past",
+    "cues": ["yesterday", "last week", "last night"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["write"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "objects": ["letter", "postcard", "email", "message"]
+  },
+  {
+    "id": "a1_pi_sing",
+    "grammarId": "past-irregular",
+    "shape": "svo-time",
+    "tense": "past",
+    "cues": ["yesterday", "last week", "last weekend"],
+    "blanks": ["verb-form"],
+    "verbs": ["sing"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"]
+  },
+  {
+    "id": "a1_pi_swim",
+    "grammarId": "past-irregular",
+    "shape": "svo-time",
+    "tense": "past",
+    "cues": ["yesterday", "last week", "last weekend"],
+    "blanks": ["verb-form"],
+    "verbs": ["swim"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "pobjects": ["lake"]
+  },
+  {
+    "id": "a1_pi_hold",
+    "grammarId": "past-irregular",
+    "shape": "svo-time",
+    "tense": "past",
+    "cues": ["yesterday", "last week"],
+    "blanks": ["verb-form", "article"],
+    "verbs": ["hold", "carry"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "objects": ["box", "bag", "umbrella", "ball", "package"]
+  },
+  {
+    "id": "a1_pi_stand",
+    "grammarId": "past-irregular",
+    "shape": "svo-time",
+    "tense": "past",
+    "cues": ["yesterday", "last week", "last night"],
+    "blanks": ["verb-form"],
+    "verbs": ["stand"],
+    "pronoun": ["i", "you", "we", "they", "he", "she"],
+    "pobjects": ["corner", "station"]
+  },
+  {
+    "id": "a1_what_past",
+    "grammarId": "past-irregular",
+    "shape": "wh-question",
+    "tense": "past",
+    "cues": ["yesterday", "last week"],
+    "blanks": ["verb-form"],
+    "verbs": ["eat", "buy", "wear"],
+    "pronoun": ["you", "they", "he", "she"],
+    "objects": ["apple", "cake", "sandwich", "pizza", "hat", "coat", "scarf", "jacket"]
+  },
+  {
+    "id": "a1_where_past",
+    "grammarId": "prepositions-place-time",
+    "shape": "wh-question",
+    "tense": "past",
+    "cues": ["yesterday", "last week"],
+    "blanks": ["verb-form"],
+    "verbs": ["walk"],
+    "pronoun": ["you", "they", "he", "she"],
+    "pobjects": ["school", "library", "park", "station"]
+  },
+  {
+    "id": "a1_who_play",
+    "grammarId": "past-regular",
+    "shape": "wh-question",
+    "tense": "past",
+    "cues": ["yesterday", "last weekend"],
+    "blanks": ["verb-form"],
+    "verbs": ["play"],
+    "pronoun": ["you", "they", "he", "she"],
+    "pobjects": ["friend", "kid", "neighbor"]
+  }
+]
