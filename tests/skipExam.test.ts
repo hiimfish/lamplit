@@ -106,3 +106,12 @@ describe('passSkip', () => {
     expect([0, 1, 2, 3, 4].map(isSkipAct)).toEqual([false, true, true, true, false]);
   });
 });
+
+describe('跳級考 listening, as the real TOEIC', () => {
+  it.each(ACTS)('act %i: every sound plays once and 應答題 responses are only heard', (act) => {
+    for (const section of skipSections(act, 7)) {
+      expect(section.plays).toBe(1);
+      expect(section.responseMode).toBe('audio');
+    }
+  });
+});

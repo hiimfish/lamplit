@@ -121,6 +121,7 @@ export function ExamRunner({ section, onFinish, onQuit }: Props) {
   if (!item) return null;
   const view = {
     exam: section.exam,
+    ...(section.responseMode ? { responseMode: section.responseMode } : {}),
     item,
     choice: picks[item.qid] ?? null,
     onChoose: (optionId: string) => setPicks((p) => ({ ...p, [item.qid]: optionId })),

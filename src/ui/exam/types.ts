@@ -2,7 +2,7 @@
  * Types the exam's screens and its learning code share (docs/specs/ui-flow.md,
  * 幕結業考). Types only, so src/learning/exam*.ts may import them too.
  */
-import type { ExamId, SectionKind } from '../../content/exam';
+import type { ExamId, ResponseMode, SectionKind } from '../../content/exam';
 import type { Question } from '../../learning/questions';
 
 /** One question of a section, as the runner shows it. */
@@ -29,6 +29,8 @@ export interface ExamSectionRun {
   items: ExamItem[];
   /** Plays allowed per question (Infinity: no limit). */
   plays: number;
+  /** How a 應答題 shows its options, when not the exam's own RESPONSE_MODE (跳級考: `audio`). */
+  responseMode?: ResponseMode;
   /** Reading only: seconds on the countdown; `hard` ends the section when it runs out. */
   timer?: { seconds: number; hard: boolean };
 }
@@ -53,6 +55,8 @@ export interface ExamSectionResult {
 export interface ExamViewProps {
   /** The exam being sat: its RESPONSE_MODE decides how a 應答題 shows its options. */
   exam: ExamId;
+  /** Overrides the exam's RESPONSE_MODE (the section's `responseMode`). */
+  responseMode?: ResponseMode;
   item: ExamItem;
   /** The option id picked so far, or null. */
   choice: string | null;

@@ -2,11 +2,13 @@
  * 跳級考: a short 結業考 a player with some English can sit for Acts 1 to 3 without
  * playing their tasks. Passing the one of Act N opens every Act up to N + 1
  * (`save.skipTo`). Its questions are a third or so of the hand-written exam items
- * (both forms, picked by the seed), so they need no new text or audio. It is kept apart
+ * (both forms, picked by the seed), so they need no new text or audio. Its listening is
+ * sat the way the real TOEIC is, whatever the act: each sound plays once and a 應答題's
+ * three responses are only heard (Part 2), so it shows a real base. It is kept apart
  * from the 幕結業考: no record in `save.exams`, no coins, no checkpoint; the answers only
  * feed the mistake tags.
  */
-import { EXAM_PLAN, EXAM_PLAYS, READING_TIMER, sectionHasFile, type ExamId } from '../content/exam';
+import { EXAM_PLAN, READING_TIMER, sectionHasFile, type ExamId } from '../content/exam';
 import { examFile } from '../content/exams';
 import type { SaveData } from '../core/save';
 import type { ExamSectionRun } from '../ui/exam/types';
@@ -16,6 +18,9 @@ import { logOutcomes, sectionQuestions, type ExamOutcome } from './exam';
 export type SkipAct = 1 | 2 | 3;
 
 export const isSkipAct = (act: number): act is SkipAct => act === 1 || act === 2 || act === 3;
+
+/** Plays per question, as in the real TOEIC. */
+export const SKIP_PLAYS = 1;
 
 /** Share of right answers that passes. */
 export const SKIP_PASS = 0.8;
@@ -42,7 +47,8 @@ export function skipSections(act: SkipAct, seed: number): ExamSectionRun[] {
         kind: plan.kind,
         title: plan.title,
         items,
-        plays: EXAM_PLAYS[exam],
+        plays: SKIP_PLAYS,
+        responseMode: 'audio' as const,
         ...(plan.kind === 'reading' ? { timer: { ...timer, seconds } } : {}),
       },
     ];

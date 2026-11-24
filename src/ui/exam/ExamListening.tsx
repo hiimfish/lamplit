@@ -142,7 +142,7 @@ function startsSound(question: Question): boolean {
 export function ExamListening(props: ExamViewProps) {
   const { exam, item, choice, onChoose, playsLeft } = props;
   const question = item.question;
-  const mode = RESPONSE_MODE[exam];
+  const mode = props.responseMode ?? RESPONSE_MODE[exam];
   const latest = useRef(props);
   latest.current = props;
   const [step, setStep] = useState(-1);
