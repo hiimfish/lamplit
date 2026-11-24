@@ -132,3 +132,61 @@
 .progress-readout {
   min-height: calc(2 * 1.4em);
 }
+
+/* 檢查點: the scores so far and the form to add one. */
+.checkpoint {
+  display: grid;
+  gap: calc(2 * var(--px));
+}
+
+.checkpoint-form {
+  display: grid;
+  gap: calc(2 * var(--px));
+  padding: calc(2 * var(--px)) calc(4 * var(--px));
+  background: var(--paper);
+  box-shadow: inset 0 0 0 var(--px) var(--ink);
+}
+
+/* 聽力 −50 −5 [ 275 ] +5 +50 in one row; the value box is the spinbutton. */
+.score-field {
+  display: grid;
+  grid-template-columns: auto repeat(2, minmax(0, 1fr)) minmax(calc(36 * var(--px)), 1.2fr) repeat(
+      2,
+      minmax(0, 1fr)
+    );
+  align-items: center;
+  gap: calc(2 * var(--px));
+}
+
+.score-field > .pixel-button {
+  min-width: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.score-value {
+  padding: calc(2 * var(--px)) 0;
+  text-align: center;
+  font-size: calc(14 * var(--px));
+  color: var(--ink);
+  background: var(--paper);
+  box-shadow: inset 0 0 0 var(--px) var(--ink);
+}
+
+.score-value:focus-visible {
+  outline: calc(2 * var(--px)) solid var(--ink);
+  outline-offset: var(--px);
+}
+
+.checkpoint-list {
+  display: grid;
+  gap: var(--px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ink);
+}
+
+.checkpoint-fine {
+  color: var(--dim);
+}

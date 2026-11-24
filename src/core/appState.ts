@@ -11,7 +11,8 @@ import {
 } from './save';
 import { createStore } from './store';
 
-type Screen = 'title' | 'town' | 'task' | 'review' | 'sprint' | 'goal' | 'listen' | 'progress' | 'result';
+type Screen =
+  'title' | 'town' | 'task' | 'review' | 'sprint' | 'goal' | 'listen' | 'progress' | 'result';
 
 /** What the result screen shows after a task, a daily review or a 單字快練 round. */
 interface ResultData {

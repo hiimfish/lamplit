@@ -85,6 +85,7 @@ tests/              Vitest 測試
 | `daily`          | 當天的答題數、答對數、完成任務數、單字快練學的新字數（`sprintNew`）、今日複習答的題數（`reviewed`）、聽力加量聽完的場景數（`listened`）                                                                        |
 | `history`        | 最近 120 天，每天一筆（key 是 YYYY-MM-DD）：當天的各項數字和 `met`（每日目標是否全部達成，達成過就一直算達成）。每次存檔（`commitSave`）都更新今天那一筆；舊存檔沒有這欄，讀成空的                             |
 | `route`          | 路線：`kind` 是 `normal` 或 `sprint`，`start` 是最近一次選衝刺的日期（YYYY-MM-DD，沒選過是 null）；`weeks` 是延長後的週數（沒有就是 12），`askedOn` 是最近一次問要不要延長的日期；舊存檔沒有這欄，讀成一般路線 |
+| `checkpoints`    | 玩家輸入的 ETS 練習題分數，依日期排序：`{ date, listening, reading }`，分數 5～495、5 的倍數；最多留 50 筆；舊存檔沒有這欄，讀成空的                                                                           |
 
 規則：
 

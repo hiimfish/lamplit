@@ -42,6 +42,16 @@ export interface DayRecord {
   met: boolean;
 }
 
+/** A score from an official ETS practice test (檢查點), each part 5 to 495 in steps of 5. */
+export interface Checkpoint {
+  date: string;
+  listening: number;
+  reading: number;
+}
+
+/** ETS scores kept; the oldest go first. */
+export const CHECKPOINTS_KEPT = 50;
+
 /** Days of history kept; older ones are dropped. */
 export const HISTORY_DAYS = 120;
 
@@ -69,6 +79,8 @@ export interface SaveData {
   daily: DailyCounters;
   /** The last HISTORY_DAYS days, keyed YYYY-MM-DD; written on every save (recordToday). */
   history: Record<string, DayRecord>;
+  /** ETS practice scores entered by the player, oldest first. */
+  checkpoints: Checkpoint[];
   route: Route;
 }
 
@@ -142,6 +154,7 @@ export function createEmptySave(now: Date): SaveData {
     lastPlayedDate: null,
     daily: emptyDaily(now),
     history: {},
+    checkpoints: [],
     route: { kind: 'normal', start: null },
   };
 }
@@ -333,6 +346,9 @@ export function sanitizeSave(raw: unknown, now: Date): SaveData {
     }
     save.history = pruneHistory(history, dateKey(now));
   }
+  if (Array.isArray(raw.checkpoints)) {
+    save.checkpoints = sortCheckpoints(raw.checkpoints.filter(isCheckpoint));
+  }
   // Older saves have no route: they play the normal one.
   if (isObject(raw.route)) {
     save.route = {
@@ -466,8 +482,33 @@ export function mergeSaves(ours: SaveData, theirs: SaveData): SaveData {
     lastPlayedDate: laterDate(ours.lastPlayedDate, theirs.lastPlayedDate),
     daily,
     history,
+    checkpoints: sortCheckpoints([...theirs.checkpoints, ...ours.checkpoints]),
     route: mergeRoute(ours.route, theirs.route),
   };
+}
+
+/** A score part as ETS reports it: 5 to 495 in steps of 5. */
+export const isEtsScore = (value: unknown): value is number =>
+  isCount(value) && value >= 5 && value <= 495 && value % 5 === 0;
+
+function isCheckpoint(raw: unknown): raw is Checkpoint {
+  return (
+    isObject(raw) && isDateKey(raw.date) && isEtsScore(raw.listening) && isEtsScore(raw.reading)
+  );
+}
+
+/** Oldest first, each score once, at most CHECKPOINTS_KEPT (copies only the fields kept). */
+export function sortCheckpoints(list: readonly Checkpoint[]): Checkpoint[] {
+  const seen = new Set<string>();
+  const unique: Checkpoint[] = [];
+  for (const { date, listening, reading } of list) {
+    const id = `${date}/${listening}/${reading}`;
+    if (seen.has(id)) continue;
+    seen.add(id);
+    unique.push({ date, listening, reading });
+  }
+  unique.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+  return unique.slice(-CHECKPOINTS_KEPT);
 }
 
 /** Our route; on the same sprint, the longer length and the later ask from either tab. */

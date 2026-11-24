@@ -12,6 +12,7 @@ import {
   taskProgress,
   type PlanDelta,
 } from '../learning/progress';
+import { CheckpointPanel } from './CheckpointPanel';
 import { useKeys } from './keys';
 import { KeyCap } from './KeyCap';
 import { TOWN } from './TownScreen';
@@ -58,12 +59,13 @@ export function ProgressScreen() {
   const now = currentNow();
   const today = dateKey(now);
   const [picked, setPicked] = useState(today);
+  const [editing, setEditing] = useState(false);
 
   const toGoal = () => {
     playSfx('click');
     appStore.set({ screen: 'goal' });
   };
-  useKeys({ Enter: toGoal, Back: toGoal });
+  useKeys({ Enter: toGoal, Back: toGoal }, !editing);
 
   const delta = planDelta(TOWN, save, now);
   const tasks = taskProgress(TOWN, save);
@@ -172,6 +174,8 @@ export function ProgressScreen() {
             {dayWords(shown.date, shown.record, today)}
           </p>
         )}
+
+        <CheckpointPanel onEditing={setEditing} />
 
         <div class="flow-actions">
           <button class="pixel-button primary" onClick={toGoal} data-testid="progress-back">
