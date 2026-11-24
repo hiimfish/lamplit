@@ -5,6 +5,7 @@ import {
   EXAM_PLAN,
   EXAM_PLAYS,
   READING_TIMER,
+  RESPONSE_MODE,
   examAct,
   sectionHasFile,
   type ExamId,
@@ -291,6 +292,7 @@ export function ExamScreen() {
       <ExamReview
         items={reviewQuestions(phase.outcomes)}
         onDone={() => setPhase({ ...phase, kind: 'result' })}
+        responseMode={RESPONSE_MODE[exam]}
       />
     );
   }

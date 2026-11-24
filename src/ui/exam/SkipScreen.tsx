@@ -79,6 +79,7 @@ function SkipExam({ act }: { act: SkipAct }) {
       <ExamReview
         items={reviewQuestions(phase.outcomes)}
         onDone={() => setPhase({ ...phase, kind: 'result' })}
+        responseMode="audio"
       />
     );
   }

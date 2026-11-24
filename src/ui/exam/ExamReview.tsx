@@ -1,4 +1,5 @@
 import { useState } from 'preact/hooks';
+import type { ResponseMode } from '../../content/exam';
 import type { Question } from '../../learning/questions';
 import { KeyCap } from '../KeyCap';
 import { useKeys } from '../keys';
@@ -29,7 +30,16 @@ export function pickedText(question: Question, picked: string | null): string {
  * Nothing is saved: the AnswerResult is ignored (no applySessionAnswer, commitSave, coins,
  * streak or mistake log), and this file imports no save or store code.
  */
-export function ExamReview({ items, onDone }: { items: ExamReviewItem[]; onDone: () => void }) {
+export function ExamReview({
+  items,
+  onDone,
+  responseMode,
+}: {
+  items: ExamReviewItem[];
+  onDone: () => void;
+  /** How the exam showed its 應答題, so 重做錯題 shows them the same way. */
+  responseMode: ResponseMode;
+}) {
   const [index, setIndex] = useState(0);
   const item = items[index];
   const next = () => setIndex((i) => i + 1);
@@ -73,7 +83,12 @@ export function ExamReview({ items, onDone }: { items: ExamReviewItem[]; onDone:
         <p class="exam-review-picked" data-testid="exam-review-picked">
           你上次選的：{pickedText(item.question, item.picked)}
         </p>
-        <QuestionView key={item.qid} question={item.question} onAnswer={next} />
+        <QuestionView
+          key={item.qid}
+          question={item.question}
+          onAnswer={next}
+          responseMode={responseMode}
+        />
       </div>
     </div>
   );

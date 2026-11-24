@@ -3,6 +3,7 @@
  * learner answers; the result is passed on to the caller only when they press 繼續,
  * so the feedback stays on screen until then.
  */
+import type { ResponseMode } from '../../content/exam';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { stopAudio } from '../../audio/pronounce';
 import type { AnswerResult, Question } from '../../learning/questions';
@@ -32,6 +33,8 @@ export interface QuestionViewProps {
   onAnswer: (result: AnswerResult) => void;
   /** Told the result as soon as the learner answers, while its feedback is on screen. */
   onGraded?: (result: AnswerResult) => void;
+  /** How a 應答題 shows its responses (重做錯題 matches its exam); sound only when unset. */
+  responseMode?: ResponseMode;
 }
 
 const ids = new WeakMap<Question, number>();
@@ -46,7 +49,7 @@ function keyFor(question: Question): number {
   return id;
 }
 
-function Body({ question, onAnswer, onGraded }: QuestionViewProps) {
+function Body({ question, onAnswer, onGraded, responseMode }: QuestionViewProps) {
   const [result, setResult] = useState<AnswerResult | null>(null);
   const [sent, setSent] = useState(false);
   const onAnswered = (r: AnswerResult) => setResult((current) => current ?? r);
@@ -119,7 +122,7 @@ function Body({ question, onAnswer, onGraded }: QuestionViewProps) {
       view = <Talk question={question} onAnswered={onAnswered} />;
       break;
     case 'respond':
-      view = <Respond question={question} onAnswered={onAnswered} />;
+      view = <Respond question={question} onAnswered={onAnswered} mode={responseMode ?? 'audio'} />;
       break;
     case 'text-fill':
       view = <TextFill question={question} onAnswered={onAnswered} />;

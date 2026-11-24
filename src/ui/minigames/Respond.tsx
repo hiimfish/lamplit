@@ -3,6 +3,7 @@ import { nowPlaying, playAudio, preloadAudio, stopAudio } from '../../audio/pron
 import { ROLE_LABEL } from '../../content/roles';
 import { settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
+import type { ResponseMode } from '../../content/exam';
 import type { RespondQuestion } from '../../learning/questions';
 import '../flow.css';
 import './respond.css';
@@ -118,8 +119,16 @@ function liveDeps(slow: boolean): ConversationDeps {
  * on a computer. After answering, the prompt and the three responses show as boxed lines
  * with their Chinese (tap a line to hear it again, 慢速 beside it), the right one marked ○
  * and a wrong pick ×.
+ *
+ * `mode` (重做錯題 of an exam, as that exam showed it): `text` plays only the prompt and the
+ * pick keys show the responses' English; `text-audio` plays all and shows them; `audio`
+ * (the default, practice) shows only the letters.
  */
-export function Respond({ question, onAnswered }: MinigameProps<RespondQuestion>) {
+export function Respond({
+  question,
+  onAnswered,
+  mode = 'audio',
+}: MinigameProps<RespondQuestion> & { mode?: ResponseMode }) {
   const clock = useAnswerClock();
   const { showZh } = useStore(settingsStore);
   const [picked, setPicked] = useState<string | null>(null);
@@ -151,7 +160,7 @@ export function Respond({ question, onAnswered }: MinigameProps<RespondQuestion>
 
   useEffect(() => {
     preloadAudio(clips.map((c) => c.audioId));
-    void run(clips.map((_, i) => i));
+    void run(mode === 'text' ? [0] : clips.map((_, i) => i));
     return () => {
       token.current++;
       stopAudio();
@@ -309,8 +318,12 @@ export function Respond({ question, onAnswered }: MinigameProps<RespondQuestion>
                     <span class="rs-mark">{now ? '▶' : ''}</span>
                     {letter}
                   </span>
-                  <span class="rs-what" aria-hidden="true">
-                    {now ? '正在說…' : `選 ${letter}`}
+                  <span
+                    class="rs-what"
+                    aria-hidden="true"
+                    lang={mode === 'audio' ? undefined : 'en'}
+                  >
+                    {now ? '正在說…' : mode === 'audio' ? `選 ${letter}` : option.en}
                   </span>
                 </button>
                 <button
