@@ -962,8 +962,8 @@
           "id": "t8_12",
           "role": "neighbor",
           "speaker": "npc",
-          "en": "That's great news! How are you getting there?",
-          "zh": "真是好消息！你要怎麼去上班？"
+          "en": "That's great news! The traffic's terrible on Monday mornings, though.",
+          "zh": "真是好消息！不過星期一早上很塞喔。"
         },
         {
           "id": "t8_13",

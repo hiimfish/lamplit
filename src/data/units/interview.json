@@ -12,7 +12,7 @@
       "distractors": [
         { "text": "Hi, I have a interview at ten.", "error": "article" },
         { "text": "Hi, I have interview at ten.", "error": "missing-word" },
-        { "text": "Hi, I have an interview in ten.", "error": "other" }
+        { "text": "Hi, I have an interview on ten.", "error": "other" }
       ]
     },
     {
@@ -267,16 +267,15 @@
           "id": "t1_3",
           "role": "front_desk",
           "speaker": "npc",
-          "en": "Great. Ms. Carter, the office manager, will be right out.",
-          "zh": "好的。辦公室主管 Carter 小姐馬上就出來。"
+          "en": "Certainly. I'll tell Ms. Carter, the office manager, that you're here.",
+          "zh": "好的，我跟辦公室主管 Carter 小姐說你到了。"
         },
         {
           "id": "t1_4",
           "role": "front_desk",
           "speaker": "npc",
-          "en": "Do you mind waiting a few minutes?",
-          "zh": "你介意等幾分鐘嗎？",
-          "stage": { "act": "ask" }
+          "en": "I hope you don't mind waiting a few minutes.",
+          "zh": "可能要麻煩你稍等幾分鐘。"
         },
         {
           "id": "t1_5",
@@ -291,8 +290,8 @@
           "id": "t1_6",
           "role": "front_desk",
           "speaker": "npc",
-          "en": "Certainly. Here's a short form. It only takes a minute.",
-          "zh": "當然。這張表格很短，一下子就填好了。"
+          "en": "Yes, please. Here's a short form. It only takes a minute.",
+          "zh": "要喔，麻煩填一下這張表，很短，一下子就好。"
         },
         {
           "id": "t1_7",
@@ -623,8 +622,8 @@
           "id": "t5_3",
           "role": "manager",
           "speaker": "npc",
-          "en": "It is. We respect each other here and share our success.",
-          "zh": "沒錯。我們這裡的人互相尊重，有成果也一起分享。"
+          "en": "It is. People here respect each other, and everyone shares in our success.",
+          "zh": "沒錯。這裡的人互相尊重，公司有成績，大家都有份。"
         },
         {
           "id": "t5_4",
@@ -673,8 +672,8 @@
           "id": "t6_1",
           "role": "manager",
           "speaker": "npc",
-          "en": "Okay. What's your biggest strength?",
-          "zh": "好。你最大的優點是什麼？",
+          "en": "Okay. What's your biggest strength? Do you work fast?",
+          "zh": "好。你最大的優點是什麼？你做事快嗎？",
           "stage": { "act": "ask" }
         },
         {
@@ -881,8 +880,8 @@
           "id": "t8_12",
           "role": "manager",
           "speaker": "npc",
-          "en": "I like that attitude. What's your biggest strength?",
-          "zh": "我喜歡這種態度。你最大的優點是什麼？"
+          "en": "I like that attitude. Do you work fast?",
+          "zh": "我喜歡這種態度。你做事快嗎？"
         },
         {
           "id": "t8_13",

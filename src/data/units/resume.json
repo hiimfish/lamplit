@@ -272,8 +272,8 @@
           "id": "t1_5",
           "role": "counselor",
           "speaker": "npc",
-          "en": "No, not here. Don't add your mother, father or children.",
-          "zh": "不用，這裡不寫。爸爸、媽媽、小孩都不要加上去。"
+          "en": "No. Don't add your mother, father or children to a resume.",
+          "zh": "不用。履歷上不寫爸爸、媽媽或小孩。"
         },
         {
           "id": "t1_6",
@@ -592,8 +592,8 @@
           "id": "t5_5",
           "role": "counselor",
           "speaker": "npc",
-          "en": "Yes, Harbor Trading works with a lot of foreign companies.",
-          "zh": "有，Harbor Trading 跟很多外國公司有往來。"
+          "en": "Yes. Harbor Trading works with a lot of foreign companies, including some in Taiwan.",
+          "zh": "有。Harbor Trading 跟很多外國公司有往來，其中也有台灣的公司。"
         },
         {
           "id": "t5_6",

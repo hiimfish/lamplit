@@ -460,7 +460,7 @@
           "title": "Waiter Wanted at Rosa's Restaurant",
           "lines": [
             "Part time: evenings and weekends",
-            "Wage: $17 an hour",
+            "Wage: $20 an hour",
             "No experience required. We teach you!",
             "Come in and ask for Rosa after 2:00."
           ],
@@ -553,8 +553,8 @@
             {
               "id": "t5_talk_4",
               "role": "counselor",
-              "en": "It pays less, but at least it's Monday to Friday.",
-              "zh": "錢比較少，但至少是星期一到五上班。"
+              "en": "It pays a bit less, but at least it's Monday to Friday.",
+              "zh": "錢少一點，但至少是星期一到五上班。"
             },
             {
               "id": "t5_talk_5",
@@ -585,8 +585,8 @@
           "id": "t5_2",
           "role": "counselor",
           "speaker": "npc",
-          "en": "The restaurant pays more, but the shifts are late.",
-          "zh": "餐廳錢比較多，可是班都很晚。"
+          "en": "The restaurant pays more per hour, but the shifts are late.",
+          "zh": "餐廳時薪比較高，可是班都很晚。"
         },
         {
           "id": "t5_3",
@@ -664,8 +664,8 @@
           "id": "t6_3",
           "role": "counselor",
           "speaker": "npc",
-          "en": "Great choice! Why that one?",
-          "zh": "選得好！為什麼選那份？"
+          "en": "Great choice! You'll be on the phone and meeting people all day.",
+          "zh": "選得好！那份工作整天都在接電話、跟人見面喔。"
         },
         {
           "id": "t6_4",
@@ -906,8 +906,8 @@
           "id": "t8_19",
           "role": "counselor",
           "speaker": "npc",
-          "en": "No, just yourself. See you at ten!",
-          "zh": "不用，人來就好。十點見！"
+          "en": "Just a list of your old jobs. See you at ten!",
+          "zh": "帶一份你以前做過的工作清單就好。十點見！"
         }
       ]
     }

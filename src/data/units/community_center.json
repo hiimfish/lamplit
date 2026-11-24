@@ -211,7 +211,7 @@
     {
       "id": "can_cant",
       "focus": "can／can't",
-      "note": "can 很短很輕，像「肯」；can't 的母音嘴巴張大、拉長，接近「艾」，字尾舌尖頂上排牙齒後面。",
+      "note": "單獨念的時候，can 和 can't 母音一樣，要聽字尾：can't 最後舌尖頂住上排牙齒後面、停一下，聲音像被切斷；can 則是 n 的鼻音收尾。放進句子裡，can 通常念得又輕又短，像「肯」，can't 還是念得清楚有重音。",
       "a": { "id": "can", "en": "can", "zh": "可以；能" },
       "b": { "id": "cant", "en": "can't", "zh": "不能" }
     }
@@ -339,15 +339,15 @@
           "id": "t3_1",
           "role": "instructor",
           "speaker": "npc",
-          "en": "We had summer classes in July and August.",
-          "zh": "我們七月和八月有暑期班。"
+          "en": "We have summer classes in July and August.",
+          "zh": "我們七月和八月有開暑期班。"
         },
         {
           "id": "t3_2",
           "role": "instructor",
           "speaker": "npc",
-          "en": "They're over now. So, what's your plan?",
-          "zh": "現在都結束了。那你有什麼打算？",
+          "en": "They're almost over. So, what's your plan?",
+          "zh": "快結束了。那你有什麼打算？",
           "stage": { "act": "ask" }
         },
         {
@@ -362,8 +362,8 @@
           "id": "t3_4",
           "role": "instructor",
           "speaker": "npc",
-          "en": "Great. The new course starts this month.",
-          "zh": "很好。新的課程這個月就開始。"
+          "en": "Great. The new course starts next week.",
+          "zh": "很好。新的課程下禮拜就開始。"
         },
         {
           "id": "t3_5",

@@ -599,7 +599,7 @@
           "role": "librarian",
           "speaker": "npc",
           "en": "Of course. Do you live in the city?",
-          "zh": "沒問題。你住在市區嗎？",
+          "zh": "沒問題。你住在本市嗎？",
           "stage": {
             "act": "ask"
           }
@@ -816,8 +816,8 @@
           "id": "t4_3",
           "role": "librarian",
           "speaker": "npc",
-          "en": "A job fair? Companies come, and you can talk to them about jobs.",
-          "zh": "就業博覽會？很多公司會來，你可以跟他們聊工作的事。"
+          "en": "\"Fair\"? At a job fair, companies come, and you can talk to them about jobs.",
+          "zh": "Fair 嗎？job fair 就是就業博覽會，很多公司會來，你可以跟他們聊工作的事。"
         },
         {
           "id": "t4_4",
@@ -999,8 +999,8 @@
           "id": "t6_5",
           "role": "librarian",
           "speaker": "npc",
-          "en": "Yes, but it's around twenty cents a copy.",
-          "zh": "可以，不過一張大約二十分錢。"
+          "en": "Yes, but it's twenty cents a copy.",
+          "zh": "可以，不過一張要 0.2 美元。"
         },
         {
           "id": "t6_6",

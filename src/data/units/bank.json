@@ -229,7 +229,7 @@
           "id": "t1_3",
           "role": "teller",
           "speaker": "npc",
-          "en": "Sure! There are just two people before you.",
+          "en": "Sure! There are just two people ahead of you.",
           "zh": "好的！你前面只有兩個人。"
         },
         {
@@ -321,8 +321,8 @@
           "id": "t3_3",
           "role": "teller",
           "speaker": "npc",
-          "en": "Sure. You need an answer here. What's your income?",
-          "zh": "好啊。這裡要填。你的收入是多少？"
+          "en": "Sure. You didn't answer this one. What's your income?",
+          "zh": "好啊。這一題你沒填。你的收入是多少？"
         },
         {
           "id": "t3_4",
