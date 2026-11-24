@@ -1,1 +1,525 @@
-{}
+{
+  "human": {
+    "pos": "other",
+    "skip": true
+  },
+  "staff": {
+    "pos": "n",
+    "cls": "role",
+    "countable": false
+  },
+  "access": {
+    "pos": "n",
+    "cls": "quality",
+    "countable": false
+  },
+  "resource": {
+    "pos": "other",
+    "skip": true
+  },
+  "orientation": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "orientations"
+    }
+  },
+  "badge": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "badges"
+    }
+  },
+  "supervisor": {
+    "pos": "n",
+    "cls": "role",
+    "forms": {
+      "pl": "supervisors"
+    }
+  },
+  "contact": {
+    "pos": "other",
+    "skip": true
+  },
+  "official": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["document", "quality"]
+      }
+    ]
+  },
+  "daughter": {
+    "pos": "n",
+    "cls": "person",
+    "forms": {
+      "pl": "daughters"
+    }
+  },
+  "identification": {
+    "pos": "n",
+    "cls": "document",
+    "countable": false
+  },
+  "emergency": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "emergencies"
+    }
+  },
+  "payroll": {
+    "pos": "other",
+    "skip": true
+  },
+  "provide": {
+    "pos": "v",
+    "forms": {
+      "s3": "provides",
+      "past": "provided",
+      "pp": "provided",
+      "ing": "providing"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role", "place"],
+        "obj": ["food", "drink", "document", "object"]
+      }
+    ]
+  },
+  "department": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "departments"
+    }
+  },
+  "facility": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "facilities"
+    }
+  },
+  "tour": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "tours"
+    }
+  },
+  "receptionist": {
+    "pos": "n",
+    "cls": "role",
+    "forms": {
+      "pl": "receptionists"
+    }
+  },
+  "locate": {
+    "pos": "other",
+    "skip": true
+  },
+  "entrance": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "entrances"
+    }
+  },
+  "policy": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "policies"
+    }
+  },
+  "organization": {
+    "pos": "other",
+    "skip": true
+  },
+  "identify": {
+    "pos": "v",
+    "forms": {
+      "s3": "identifies",
+      "past": "identified",
+      "pp": "identified",
+      "ing": "identifying"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["person", "object"]
+      }
+    ]
+  },
+  "professional": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      }
+    ]
+  },
+  "workplace": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "workplaces"
+    }
+  },
+  "confidential": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["document"]
+      }
+    ]
+  },
+  "absent": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      }
+    ]
+  },
+  "handbook": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "handbooks"
+    }
+  },
+  "vacation": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "vacations"
+    }
+  },
+  "health": {
+    "pos": "n",
+    "cls": "quality",
+    "countable": false
+  },
+  "worker": {
+    "pos": "n",
+    "cls": "role",
+    "forms": {
+      "pl": "workers"
+    }
+  },
+  "earn": {
+    "pos": "v",
+    "forms": {
+      "s3": "earns",
+      "past": "earned",
+      "pp": "earned",
+      "ing": "earning"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["money"]
+      }
+    ]
+  },
+  "eligible": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      }
+    ]
+  },
+  "paycheck": {
+    "pos": "n",
+    "cls": "money",
+    "forms": {
+      "pl": "paychecks"
+    }
+  },
+  "enroll": {
+    "pos": "v",
+    "forms": {
+      "s3": "enrolls",
+      "past": "enrolled",
+      "pp": "enrolled",
+      "ing": "enrolling"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "prep": {
+          "word": "in",
+          "cls": ["event"]
+        }
+      }
+    ]
+  },
+  "role": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "roles"
+    }
+  },
+  "knowledge": {
+    "pos": "n",
+    "cls": "quality",
+    "countable": false
+  },
+  "responsibility": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "responsibilities"
+    }
+  },
+  "assignment": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "assignments"
+    }
+  },
+  "familiar": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      }
+    ]
+  },
+  "plenty": {
+    "pos": "other",
+    "skip": true
+  },
+  "routine": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "routines"
+    }
+  },
+  "product": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "products"
+    }
+  },
+  "sell": {
+    "pos": "v",
+    "forms": {
+      "s3": "sells",
+      "past": "sold",
+      "pp": "sold",
+      "ing": "selling"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role", "place"],
+        "obj": ["object", "food", "clothing", "device"]
+      }
+    ]
+  },
+  "culture": {
+    "pos": "n",
+    "cls": "quality",
+    "countable": false
+  },
+  "director": {
+    "pos": "n",
+    "cls": "role",
+    "forms": {
+      "pl": "directors"
+    }
+  },
+  "ability": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "abilities"
+    }
+  },
+  "introduction": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "introductions"
+    }
+  },
+  "senior": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      }
+    ]
+  },
+  "overview": {
+    "pos": "n",
+    "cls": "document",
+    "forms": {
+      "pl": "overviews"
+    }
+  },
+  "smile": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "smiles"
+    }
+  },
+  "procedure": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "procedures"
+    }
+  },
+  "permanent": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["object", "role", "quality"]
+      }
+    ]
+  },
+  "temporary": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["object", "role", "quality"]
+      }
+    ]
+  },
+  "paperwork": {
+    "pos": "n",
+    "cls": "document",
+    "countable": false
+  },
+  "submit": {
+    "pos": "v",
+    "forms": {
+      "s3": "submits",
+      "past": "submitted",
+      "pp": "submitted",
+      "ing": "submitting"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["document"]
+      }
+    ]
+  },
+  "flexible": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["quality", "event"]
+      }
+    ]
+  },
+  "lines": {
+    "t1_6": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t1_7": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t2_3": {
+      "side": "question",
+      "qtype": "who"
+    },
+    "t2_4": {
+      "side": "answer",
+      "atype": "person"
+    },
+    "t2_7": {
+      "side": "question",
+      "qtype": "when"
+    },
+    "t2_8": {
+      "side": "answer",
+      "atype": "time"
+    },
+    "t3_3": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t3_4": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t3_5": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t3_6": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t4_3": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t4_4": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t5_2": {
+      "side": "question",
+      "qtype": "how-many"
+    },
+    "t5_3": {
+      "side": "answer",
+      "atype": "quantity"
+    },
+    "t5_4": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t5_5": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t9_4": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t9_5": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t9_6": {
+      "side": "question",
+      "qtype": "who"
+    },
+    "t9_7": {
+      "side": "answer",
+      "atype": "person"
+    },
+    "t9_10": {
+      "side": "question",
+      "qtype": "how-many"
+    },
+    "t9_11": {
+      "side": "answer",
+      "atype": "quantity"
+    },
+    "t9_12": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t9_13": {
+      "side": "answer",
+      "atype": "yes-no"
+    }
+  }
+}
