@@ -1,1 +1,59 @@
-{}
+{
+  "fruit": { "pos": "n", "cls": "food", "countable": false },
+  "apple": { "pos": "n", "cls": "food", "forms": { "pl": "apples" } },
+  "orange": { "pos": "n", "cls": "food", "forms": { "pl": "oranges" } },
+  "banana": { "pos": "n", "cls": "food", "forms": { "pl": "bananas" } },
+  "fresh": { "pos": "adj", "frames": [{ "subj": ["food"] }] },
+  "vegetable": { "pos": "n", "cls": "food", "forms": { "pl": "vegetables" } },
+  "tomato": { "pos": "n", "cls": "food", "forms": { "pl": "tomatoes" } },
+  "potato": { "pos": "n", "cls": "food", "forms": { "pl": "potatoes" } },
+  "oil": { "pos": "n", "cls": "food", "countable": false },
+  "meat": { "pos": "n", "cls": "food", "countable": false },
+  "salt": { "pos": "n", "cls": "food", "countable": false },
+  "rice": { "pos": "n", "cls": "food", "countable": false },
+  "half": { "pos": "other", "skip": true },
+  "piece": { "pos": "other", "skip": true },
+  "fish": { "pos": "n", "cls": "food", "countable": false },
+  "pound": { "pos": "other", "skip": true },
+  "chicken": { "pos": "n", "cls": "food", "countable": false },
+  "thirteen": { "pos": "other", "skip": true },
+  "thirty": { "pos": "other", "skip": true },
+  "fifteen": { "pos": "other", "skip": true },
+  "forty": { "pos": "other", "skip": true },
+  "hundred": { "pos": "other", "skip": true },
+  "buy": {
+    "pos": "v",
+    "forms": { "s3": "buys", "past": "bought", "pp": "bought", "ing": "buying" },
+    "frames": [
+      { "subj": ["person"], "obj": ["food", "drink"] },
+      { "subj": ["person"], "obj": ["clothing", "object", "device"] }
+    ]
+  },
+  "price": { "pos": "n", "cls": "money", "forms": { "pl": "prices" } },
+  "each": { "pos": "other", "skip": true },
+  "cheap": {
+    "pos": "adj",
+    "frames": [{ "subj": ["food", "drink", "clothing", "object", "device"] }]
+  },
+  "expensive": {
+    "pos": "adj",
+    "frames": [{ "subj": ["food", "drink", "clothing", "object", "device", "vehicle"] }]
+  },
+  "free": { "pos": "other", "skip": true },
+  "cheese": { "pos": "n", "cls": "food", "countable": false },
+  "butter": { "pos": "n", "cls": "food", "countable": false },
+  "pizza": { "pos": "n", "cls": "food", "forms": { "pl": "pizzas" } },
+  "juice": { "pos": "n", "cls": "drink", "countable": false },
+  "lines": {
+    "t1_1": { "side": "question", "qtype": "where" },
+    "t1_2": { "side": "answer", "atype": "place" },
+    "t6_2": { "side": "question", "qtype": "how-much" },
+    "t6_3": { "side": "answer", "atype": "price" },
+    "t6_4": { "side": "question", "qtype": "how-many" },
+    "t6_5": { "side": "answer", "atype": "quantity" },
+    "t2_2": { "side": "question", "qtype": "request" },
+    "t2_3": { "side": "answer", "atype": "agree" },
+    "t7_2": { "side": "question", "qtype": "yes-no" },
+    "t7_3": { "side": "answer", "atype": "yes-no" }
+  }
+}
