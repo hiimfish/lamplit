@@ -239,3 +239,42 @@ export function goalBack(): { screen: 'town' | 'goal'; label: string } {
     ? { screen: 'town', label: '回小鎮' }
     : { screen: 'goal', label: '回每日目標' };
 }
+
+/** Whether a save is kept from before the last 完全取代 import or 重置進度. */
+export function hasBackup(): boolean {
+  const storage = readStorage();
+  try {
+    return !!storage?.getItem(STORAGE_KEYS.preImportSave);
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * 還原上一次的進度 (設定): the save kept before the last 完全取代 import or 重置進度 comes back,
+ * and the progress it replaces becomes the backup, so a wrong press can be swapped back. Not
+ * merged with what is stored. False when there is no backup or no storage.
+ */
+export function restoreBackup(): boolean {
+  const storage = readStorage();
+  if (!storage || !hasBackup()) return false;
+  const restored = loadSave(storage, currentNow(), STORAGE_KEYS.preImportSave);
+  const current = readStored(storage);
+  try {
+    if (current !== null) storage.setItem(STORAGE_KEYS.preImportSave, current);
+    else storage.removeItem(STORAGE_KEYS.preImportSave);
+  } catch {
+    // the swap could not keep the current save; the restore still goes ahead
+  }
+  lastSynced = current;
+  appStore.set({
+    town: undefined,
+    activeTask: undefined,
+    activeExam: undefined,
+    activeSkip: undefined,
+    result: undefined,
+    backTo: undefined,
+  });
+  commitSave(restored);
+  return true;
+}

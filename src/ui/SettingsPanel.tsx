@@ -2,7 +2,14 @@ import { useRef, useState } from 'preact/hooks';
 import { playAudio } from '../audio/pronounce';
 import { playSfx } from '../audio/sfx';
 import type { VoiceMode } from '../audio/voices';
-import { appStore, applyImport, currentNow, resetProgress } from '../core/appState';
+import {
+  appStore,
+  applyImport,
+  currentNow,
+  hasBackup,
+  resetProgress,
+  restoreBackup,
+} from '../core/appState';
 import {
   CODE_ERRORS,
   MAX_CODE_CHARS,
@@ -406,44 +413,66 @@ function SaveGroup() {
 
 /**
  * 重置進度: clears this device's progress (tasks, words, coins, exams, history) after a second
- * press; settings stay. Copying the save code first is suggested.
+ * press; settings stay. Copying the save code first is suggested. 還原上一次的進度 (shown
+ * while a backup is kept) swaps back the save from before the last reset or 完全取代 import.
  */
 function ResetGroup() {
-  const [armed, setArmed] = useState(false);
-  const [done, setDone] = useState(false);
-  const reset = () => {
+  const [armed, setArmed] = useState<'reset' | 'restore' | null>(null);
+  const [status, setStatus] = useState('');
+  // Re-read on every save change: a 完全取代 import in 存檔 above also leaves a backup.
+  useStore(appStore);
+  const backup = hasBackup();
+  const press = (what: 'reset' | 'restore') => {
     playSfx('click');
-    if (!armed) {
-      setArmed(true);
-      setDone(false);
+    if (armed !== what) {
+      setArmed(what);
+      setStatus('');
       return;
     }
-    resetProgress();
-    setArmed(false);
-    setDone(true);
+    if (what === 'reset') resetProgress();
+    else restoreBackup();
+    setArmed(null);
+    setStatus(
+      what === 'reset'
+        ? '進度已重置。按「還原上一次的進度」可以換回來。'
+        : `已還原：金幣 ${appStore.get().save.coins}。剛才的進度留作備份，可以再換回來。`,
+    );
   };
+  const reset = () => press('reset');
   return (
     <div class="settings-group" data-testid="reset-group">
       <p class="settings-label">重置進度</p>
       <p class="settings-note">
-        {armed
+        {armed === 'reset'
           ? '這台裝置的任務、單字、金幣、考試和每天的紀錄都會清掉，回到第一次玩的樣子（設定不變）。確定的話再按一次。'
-          : '從頭開始玩。想留著現在的進度，先在上面複製或下載存檔。'}
+          : armed === 'restore'
+            ? '換回上一次重置或「完全取代」匯入之前的進度；現在的進度會留作備份。確定的話再按一次。'
+            : '從頭開始玩。想留著現在的進度，先在上面複製或下載存檔。'}
       </p>
       <div class="settings-actions">
         <button
           type="button"
-          class={`pixel-button${armed ? ' primary' : ''}`}
+          class={`pixel-button${armed === 'reset' ? ' primary' : ''}`}
           onClick={reset}
           data-testid="reset-progress"
         >
-          {armed ? '確定重置' : '重置進度'}
+          {armed === 'reset' ? '確定重置' : '重置進度'}
         </button>
+        {backup && (
+          <button
+            type="button"
+            class={`pixel-button${armed === 'restore' ? ' primary' : ''}`}
+            onClick={() => press('restore')}
+            data-testid="restore-backup"
+          >
+            {armed === 'restore' ? '確定還原' : '還原上一次的進度'}
+          </button>
+        )}
         {armed && (
           <button
             type="button"
             class="pixel-button"
-            onClick={() => setArmed(false)}
+            onClick={() => setArmed(null)}
             data-testid="reset-cancel"
           >
             取消
@@ -451,7 +480,7 @@ function ResetGroup() {
         )}
       </div>
       <p class="settings-note" role="status" aria-live="polite">
-        {done ? '進度已重置。' : ''}
+        {status}
       </p>
     </div>
   );

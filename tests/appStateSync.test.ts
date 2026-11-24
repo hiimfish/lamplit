@@ -129,3 +129,26 @@ describe('resetProgress (設定 → 重置進度)', () => {
     expect(app.appStore.get().backTo).toBeUndefined();
   });
 });
+
+describe('restoreBackup (設定 → 還原上一次的進度)', () => {
+  it('has nothing to restore on a fresh device', () => {
+    expect(app.hasBackup()).toBe(false);
+    expect(app.restoreBackup()).toBe(false);
+  });
+
+  it('brings back the progress from before a reset, and can swap back again', () => {
+    app.commitSave(withCoins(30, ['here']));
+    app.resetProgress();
+    expect(app.appStore.get().save.coins).toBe(0);
+    expect(app.hasBackup()).toBe(true);
+
+    expect(app.restoreBackup()).toBe(true);
+    expect(app.appStore.get().save.coins).toBe(30);
+    expect(Object.keys(app.appStore.get().save.cards)).toEqual(['here']);
+    expect(JSON.parse(data.get(SAVE_KEY)!).coins).toBe(30);
+
+    // The reset save is now the backup: a wrong press can be undone.
+    expect(app.restoreBackup()).toBe(true);
+    expect(app.appStore.get().save.coins).toBe(0);
+  });
+});
