@@ -1,4 +1,11 @@
-import { existsSync, mkdtempSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import {
+  existsSync,
+  mkdirSync,
+  mkdtempSync,
+  readdirSync,
+  readFileSync,
+  writeFileSync,
+} from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
@@ -6,6 +13,7 @@ import {
   jobHash,
   jobsToRun,
   languageCodeOf,
+  loadItems,
   planJobs,
   runJobs,
   serializeManifest,
@@ -426,5 +434,58 @@ describe('gen-audio incremental manifest', () => {
     expect(result.failed).toBe(1);
     expect(manifest).toEqual({});
     expect(saveManifest).not.toHaveBeenCalled();
+  });
+});
+
+describe('loadItems', () => {
+  it('lists the clips of the sentence pool and the respond bank by act', () => {
+    const root = mkdtempSync(join(tmpdir(), 'gen-audio-'));
+    const write = (dir: string, name: string, data: unknown) => {
+      mkdirSync(join(root, dir), { recursive: true });
+      writeFileSync(join(root, dir, name), JSON.stringify(data));
+    };
+    write('units', 'empty.json', {
+      id: 'empty',
+      title: 'e',
+      titleEn: 'e',
+      chunks: [],
+      words: [],
+      tasks: [],
+    });
+    write('sentences', 'act2.json', [
+      {
+        id: 'a2_s01',
+        kind: 'statement',
+        en: 'She prints a letter.',
+        grammarId: 'x',
+        blankWord: 'letter',
+      },
+      {
+        id: 'a2_q01',
+        kind: 'qa',
+        en: 'Where is it?',
+        grammarId: 'x',
+        responses: ['At home.', 'Today.'],
+        answer: 0,
+      },
+    ]);
+    write('responds', 'act3.json', [
+      {
+        id: 'a3_r01',
+        question: { en: 'Is it ready?', qtype: 'yes-no', role: 'manager' },
+        answer: { en: 'Yes, it is.', atype: 'yes-no' },
+        wrong: [
+          { en: 'At six.', atype: 'time' },
+          { en: 'In the hall.', atype: 'place' },
+        ],
+        verified: 2,
+      },
+    ]);
+    write('exams', 'ignored.txt', {});
+    const ids = loadItems(join(root, 'units')).map((item: { id: string }) => item.id);
+    expect(ids).toContain('pool2.respond.a2_s01');
+    expect(ids).toContain('pool2.response.a2_q01_1');
+    expect(ids).toContain('bank3.respond.a3_r01');
+    expect(ids).toContain('bank3.response.a3_r01_2');
   });
 });
