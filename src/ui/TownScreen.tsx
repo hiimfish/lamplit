@@ -332,10 +332,13 @@ export function TownScreen() {
       town: unitId ? { act: index, unitId, picking: true } : { act: index, picking: true },
     });
   };
-  /** Folds 選關 away, back to the 下一關 card of this act. */
+  /**
+   * Folds 選關 away, back to the act to go on in (defaultAct), whichever act was browsed: a
+   * locked or finished one has no 開始.
+   */
   const fold = () => {
     playSfx('click');
-    appStore.set({ town: { act: actIndex } });
+    appStore.set({ town: undefined });
   };
   const startTask = (unitId: string, taskId: string) => {
     playSfx('click');

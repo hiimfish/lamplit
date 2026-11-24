@@ -426,16 +426,6 @@ body {
   margin-bottom: calc(2 * var(--px));
 }
 
-/* Under 點一下繼續: the task it goes on with, on a small paper label. */
-.title-next {
-  margin: calc(-6 * var(--px)) 0 0;
-  padding: calc(0.5 * var(--px)) calc(3 * var(--px));
-  font-size: calc(7 * var(--fpx));
-  color: var(--ink);
-  background: var(--paper);
-  border: var(--line) solid var(--ink);
-}
-
 /*
  * Trademark and licence lines under the start key: half-size type (Cubic 11 stays
  * crisp at 11px), centred and quiet. In landscape a paper strip keeps them legible

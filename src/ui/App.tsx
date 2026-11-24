@@ -47,12 +47,11 @@ function TitleScreen() {
   const { save } = useStore(appStore);
   const settings = useStore(settingsStore);
   const played = Object.keys(save.tasks).length > 0;
-  // 繼續 opens the town on the act of the next new task (its place tile lit); the label under
-  // the key names that task. It no longer goes straight into it (2026-11-25, the user's call).
+  // 繼續 opens the town on the act of the next new task. It no longer goes straight into it,
+  // nor names the task under the key (2026-11-25, the user's calls).
   const target = continueTarget(TOWN, save, undefined, devUnlockAll(settings));
   const resume = played || (save.skipTo ?? 0) > 0;
   const into = target && (played || settings.seenIntro) ? target : undefined;
-  const task = into?.unit.tasks[into.index];
   const start = () => {
     // Must run inside the tap handler so the browser allows sound afterwards.
     unlockAudio();
@@ -73,11 +72,6 @@ function TitleScreen() {
         {resume ? '點一下繼續' : '點一下開始'}
         <KeyCap k="Enter" />
       </button>
-      {resume && into && task && (
-        <p class="title-next" data-testid="title-next">
-          {into.unit.title}・{task.title}
-        </p>
-      )}
       <footer class="title-notice" data-testid="title-notice">
         <p>TOEIC®（多益）是 ETS 的註冊商標。本遊戲與 ETS 無關，未經 ETS 認可或贊助。</p>
         <p lang="en">
