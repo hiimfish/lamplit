@@ -315,6 +315,32 @@
 }
 
 /*
+ * Phone upright, under a scene: the step keys (下一句, 下一張, 開始, 看結果) stay along the
+ * bottom of the panel, where the thumb is and where 繼續 sits in practice, and run wide.
+ */
+:root[data-orientation='portrait'] .flow.has-stage .flow-card > :is(.story, .intro) {
+  flex-grow: 1;
+}
+
+:root[data-orientation='portrait']
+  .flow.has-stage
+  .flow-card
+  > :is(.story, .intro)
+  > .flow-actions:last-child {
+  margin-top: auto;
+  flex-wrap: nowrap;
+}
+
+:root[data-orientation='portrait']
+  .flow.has-stage
+  .flow-card
+  > :is(.story, .intro)
+  > .flow-actions:last-child
+  > .primary {
+  flex: 1;
+}
+
+/*
  * Landscape task with a stage (stage/stage.css): the stage is a full-height
  * column on the left, --stage-w wide (set on #frame while the task is open).
  * The task card (story, intro cards, practice) fills everything to its right,
