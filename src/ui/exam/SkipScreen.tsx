@@ -133,7 +133,7 @@ function SkipIntro({
           {actNo(act + 1)}幕。
         </p>
         <p class="flow-note" data-testid="skip-real">
-          聽力照真的多益考：每題只播一次，應答題的三個回應只聽不看。
+          聽力照真的多益考：每題只播一次，看圖題的句子和應答題的回應都只聽不看。
         </p>
         <p class="flow-note">
           沒考過也沒關係，可以再考。中途離開要從頭來。跳過的幕還是開著，隨時可以回去玩。

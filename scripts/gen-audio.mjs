@@ -11,7 +11,7 @@ import * as nodeFs from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { unitToAudioItems } from '../src/content/audioItems.ts';
-import { sectionAsUnit } from '../src/content/exam.ts';
+import { sectionAsUnit, withHeardPictures } from '../src/content/exam.ts';
 import { SLOW_RATE, VOICE_NAMES, audioPath, isValidAudioId } from '../src/audio/voices.ts';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -86,13 +86,20 @@ function readJsonFiles(dir) {
 
 /**
  * Every unit's items, then the exams' (src/data/exams, drafts skipped, through
- * sectionAsUnit).
+ * sectionAsUnit), plus the sentence clips of every exam picture the 跳級考 plays
+ * (withHeardPictures) that the files do not already have.
  */
 export function loadItems(unitsDir = UNITS_DIR) {
   const dataDir = join(unitsDir, '..');
   const items = readJsonFiles(unitsDir).flatMap(({ data }) => unitToAudioItems(data));
   for (const { data } of readJsonFiles(join(dataDir, 'exams'))) {
-    if (!data.draft) items.push(...unitToAudioItems(sectionAsUnit(data)));
+    if (data.draft) continue;
+    const own = unitToAudioItems(sectionAsUnit(data));
+    const ids = new Set(own.map((item) => item.id));
+    const heard = unitToAudioItems(sectionAsUnit(withHeardPictures(data))).filter(
+      (item) => !ids.has(item.id),
+    );
+    items.push(...own, ...heard);
   }
   return items;
 }

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { examFile } from '../src/content/exams';
+import { examFilesOf } from '../src/content/exams';
 import { EXAM_PLAN } from '../src/content/exam';
 import { createEmptySave } from '../src/core/save';
 import { correctOf, gradeSection, type ExamOutcome } from '../src/learning/exam';
@@ -48,16 +48,36 @@ describe('skipSections', () => {
     expect([1, 2, 3, 4, 5].some((seed) => ids(seed).join() !== ids(7).join())).toBe(true);
   });
 
-  it('only asks written items of the exam (their audio is already made)', () => {
+  it('only asks written items of the exam (their audio is made)', () => {
     for (const act of ACTS) {
-      for (const section of skipSections(act, 3)) {
-        const file = examFile(`exam${act}`, section.id);
-        const known = new Set(
-          Object.values(file ?? {})
+      const known = new Set(
+        examFilesOf(`exam${act}`).flatMap((file) =>
+          Object.values(file)
             .filter(Array.isArray)
             .flatMap((items: { id?: string }[]) => items.map((it) => it.id)),
-        );
+        ),
+      );
+      for (const section of skipSections(act, 3)) {
         for (const item of section.items) expect(known.has(item.seenId)).toBe(true);
+      }
+    }
+  });
+
+  it('hears the pictures first in the listening, each sentence with its own clip', () => {
+    for (const seed of [1, 2, 3]) {
+      const [listening, ...rest] = skipSections(1, seed);
+      const pictures = listening?.items.filter((i) => i.question.kind === 'picture') ?? [];
+      expect(pictures.length).toBeGreaterThan(0);
+      expect(listening?.items[0]?.question.kind).toBe('picture');
+      for (const { question } of pictures) {
+        if (question.kind !== 'picture') continue;
+        expect(question.listen).toBe(true);
+        for (const option of question.options) {
+          expect(option.audioId).toMatch(/^exam1\.pictureopt\.s2_p\d+_\d$/);
+        }
+      }
+      for (const section of rest) {
+        expect(section.items.some((i) => i.question.kind === 'picture')).toBe(false);
       }
     }
   });

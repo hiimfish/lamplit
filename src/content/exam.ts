@@ -208,6 +208,16 @@ export interface ExamSectionFile {
 }
 
 /**
+ * The section with every 看圖選句 heard, not read (`listen`), as the real TOEIC's Part 1:
+ * the 跳級考 sits its pictures this way, and scripts/gen-audio.mjs makes their sentence
+ * clips (`examN.pictureopt.<id>_<i>`) from it. The 結業考 keeps the files as written.
+ */
+export function withHeardPictures(file: ExamSectionFile): ExamSectionFile {
+  if (!file.pictures) return file;
+  return { ...file, pictures: file.pictures.map((p) => ({ ...p, listen: true as const })) };
+}
+
+/**
  * The section as a one-task unit named after its exam, so the existing audio and
  * check code reads it: ids become `exam1.respond.s1_q3`, `exam3.talk.s2_t1_1`.
  */

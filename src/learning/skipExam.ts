@@ -3,12 +3,20 @@
  * playing their tasks. Passing the one of Act N opens every Act up to N + 1
  * (`save.skipTo`). Its questions are a third or so of the hand-written exam items
  * (both forms, picked by the seed), so they need no new text or audio. Its listening is
- * sat the way the real TOEIC is, whatever the act: each sound plays once and a 應答題's
- * three responses are only heard (Part 2), so it shows a real base. It is kept apart
+ * sat the way the real TOEIC is, whatever the act: each sound plays once, a 看圖選句's
+ * sentences and a 應答題's responses are only heard (Parts 1 and 2), so it shows a real base. It is kept apart
  * from the 幕結業考: no record in `save.exams`, no coins, no checkpoint; the answers only
  * feed the mistake tags.
  */
-import { EXAM_PLAN, READING_TIMER, sectionHasFile, type ExamId } from '../content/exam';
+import {
+  EXAM_PLAN,
+  READING_TIMER,
+  sectionHasFile,
+  withHeardPictures,
+  type ExamId,
+  type ExamSectionFile,
+  type SectionPlan,
+} from '../content/exam';
 import { examFile } from '../content/exams';
 import type { SaveData } from '../core/save';
 import type { ExamSectionRun } from '../ui/exam/types';
@@ -28,14 +36,45 @@ export const SKIP_PASS = 0.8;
 const examOf = (act: SkipAct): ExamId => `exam${act}`;
 
 /**
+ * The section files a 跳級考 draws from: the exam's own, with every 看圖選句 moved from the
+ * reading sections to the front of the first listening section and heard, not read
+ * (withHeardPictures), as the real TOEIC's Part 1.
+ */
+function skipFiles(exam: ExamId): { plan: SectionPlan; file: ExamSectionFile | undefined }[] {
+  const files = EXAM_PLAN[exam].sections.map((plan) => ({
+    plan,
+    file: sectionHasFile(plan) ? examFile(exam, plan.id) : undefined,
+  }));
+  const moved = files.flatMap(({ plan, file }) =>
+    plan.kind === 'reading' ? (file?.pictures ?? []) : [],
+  );
+  const first = files.findIndex(({ plan }) => plan.kind === 'listening');
+  return files.map(({ plan, file }, i) => {
+    if (!file) return { plan, file };
+    if (plan.kind === 'reading' && file.pictures) {
+      const rest = { ...file };
+      delete rest.pictures;
+      return { plan, file: rest };
+    }
+    if (i === first && moved.length > 0) {
+      return {
+        plan,
+        file: withHeardPictures({ ...file, pictures: [...moved, ...(file.pictures ?? [])] }),
+      };
+    }
+    return { plan, file: withHeardPictures(file) };
+  });
+}
+
+/**
  * The sections of a 跳級考, in the order of the full exam, each with about a third of its
- * items (pickWritten `short`). The reading countdown shrinks in step with the questions
- * (whole half-minutes, at least one minute). Deterministic for a seed.
+ * items (pickWritten `short`); the pictures are heard at the start of the listening
+ * (skipFiles). The reading countdown shrinks in step with the questions (whole
+ * half-minutes, at least one minute). Deterministic for a seed.
  */
 export function skipSections(act: SkipAct, seed: number): ExamSectionRun[] {
   const exam = examOf(act);
-  return EXAM_PLAN[exam].sections.flatMap((plan) => {
-    const file = sectionHasFile(plan) ? examFile(exam, plan.id) : undefined;
+  return skipFiles(exam).flatMap(({ plan, file }) => {
     const items = sectionQuestions(file, seed, { section: plan.id, form: 'short' });
     if (items.length === 0) return [];
     const timer = READING_TIMER[exam];
