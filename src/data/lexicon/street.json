@@ -56,6 +56,8 @@
   "road": { "pos": "n", "cls": "place", "forms": { "pl": "roads" } },
   "taxi": { "pos": "n", "cls": "vehicle", "forms": { "pl": "taxis" } },
   "bridge": { "pos": "n", "cls": "place", "forms": { "pl": "bridges" } },
+  "on": { "pos": "prep", "frames": [{ "subj": ["place", "object", "vehicle"], "obj": ["place"] }] },
+  "at": { "pos": "prep", "frames": [{ "subj": ["person", "vehicle"], "obj": ["place"] }] },
   "lines": {
     "t1_1": { "side": "question", "qtype": "where" },
     "t1_2": { "side": "answer", "atype": "place" },
