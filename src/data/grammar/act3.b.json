@@ -1,0 +1,905 @@
+{
+  "act": 3,
+  "items": [
+    {
+      "id": "g_passive-question-by_01",
+      "grammarId": "passive-question-by",
+      "en": "___ these boxes packed by the night team?",
+      "zh": "這些箱子是夜班的人打包的嗎？",
+      "options": ["Were", "Was", "Did", "Do"],
+      "answer": 0,
+      "note": "被動問句是 be 動詞提前加過去分詞；主詞 these boxes 是複數，用 Were。Did / Do 後面要接原形，不能接 packed。"
+    },
+    {
+      "id": "g_passive-question-by_02",
+      "grammarId": "passive-question-by",
+      "en": "Was the shipment ___ by the carrier this morning?",
+      "zh": "那批貨今天早上被貨運公司收走了嗎？",
+      "options": ["collect", "collects", "collected", "collection"],
+      "answer": 2,
+      "note": "Was 開頭又有 by 帶出做動作的人，是被動，要用過去分詞 collected；collect / collects 是主動形，collection 是名詞。"
+    },
+    {
+      "id": "g_passive-question-by_03",
+      "grammarId": "passive-question-by",
+      "en": "Were the shelves ___ by the new worker last week?",
+      "zh": "架子上週是新來的員工檢查的嗎？",
+      "options": ["inspect", "inspected", "inspecting", "inspects"],
+      "answer": 1,
+      "note": "架子是「被檢查」，Were 後面接過去分詞 inspected；inspecting 是進行式，表示架子自己在檢查，後面也少了受詞。"
+    },
+    {
+      "id": "g_passive-question-by_04",
+      "grammarId": "passive-question-by",
+      "en": "Was the truck loaded ___ the warehouse staff?",
+      "zh": "卡車是倉庫的員工裝貨的嗎？",
+      "options": ["by", "of", "since", "until"],
+      "answer": 0,
+      "note": "被動句要說是誰做的，用 by 加人；of 不能帶出動作者，since / until 後面要接時間。"
+    },
+    {
+      "id": "g_passive-question-by_05",
+      "grammarId": "passive-question-by",
+      "en": "___ the order sent by Ms. Carter yesterday?",
+      "zh": "那張訂單昨天是 Ms. Carter 寄出的嗎？",
+      "options": ["Did", "Has", "Was", "Were"],
+      "answer": 2,
+      "note": "order 是單數、yesterday 是過去，被動問句用 Was；Were 配複數，Did / Has 後面不能直接接 sent 當被動。"
+    },
+    {
+      "id": "g_passive-question-by_06",
+      "grammarId": "passive-question-by",
+      "en": "Were all the fragile items ___ in plastic before they were loaded?",
+      "zh": "所有易碎品在裝車前都有用塑膠包起來嗎？",
+      "options": ["wrap", "wrapping", "wraps", "wrapped"],
+      "answer": 3,
+      "note": "易碎品是「被包」，Were 後面接過去分詞 wrapped；wrapping 會變成物品自己在包東西，wrap / wraps 不能放在 Were 後面。"
+    },
+    {
+      "id": "g_passive-question-by_07",
+      "grammarId": "passive-question-by",
+      "en": "Wasn't the equipment ___ by the technician last month?",
+      "zh": "那些設備上個月不是技術人員檢查過了嗎？",
+      "options": ["checked", "check", "checks", "checking"],
+      "answer": 0,
+      "note": "否定的被動問句一樣是 Wasn't 加過去分詞 checked；checking 後面少了受詞，check / checks 不能接在 Wasn't 後面。"
+    },
+    {
+      "id": "g_passive-question-by_08",
+      "grammarId": "passive-question-by",
+      "en": "Is the warehouse ___ by a different company now?",
+      "zh": "這個倉庫現在是由另一家公司經營的嗎？",
+      "options": ["operates", "operate", "operation", "operated"],
+      "answer": 3,
+      "note": "現在式的被動問句用 Is 加過去分詞 operated；operate / operates 是主動動詞，operation 是名詞，都不能接在 Is 後面再接 by。"
+    },
+    {
+      "id": "g_passive-question-by_09",
+      "grammarId": "passive-question-by",
+      "en": "Were the goods ___ before they left the dock?",
+      "zh": "貨物離開碼頭前有秤過重嗎？",
+      "options": ["weigh", "weighed", "weight", "weighs"],
+      "answer": 1,
+      "note": "貨物是「被秤」，Were 後面接過去分詞 weighed；weight 是名詞「重量」，weigh / weighs 是原形和第三人稱。"
+    },
+    {
+      "id": "g_passive-question-by_10",
+      "grammarId": "passive-question-by",
+      "en": "Who ___ the new tags printed by?",
+      "zh": "新的標籤是誰印的？",
+      "options": ["did", "have", "were", "was"],
+      "answer": 2,
+      "note": "問「被誰做的」用 Who + be + 主詞 + 過去分詞 + by；tags 是複數用 were。did / have 後面不能接 printed 當被動。"
+    },
+    {
+      "id": "g_quantifiers-most-none_01",
+      "grammarId": "quantifiers-most-none",
+      "en": "___ of the shelves in Section B are empty now.",
+      "zh": "B 區大部分的架子現在都是空的。",
+      "options": ["Most", "Almost", "Mostly", "Much"],
+      "answer": 0,
+      "note": "「大部分的…」是 Most of the；Almost 和 Mostly 是副詞，不能接 of，Much of 只配不可數名詞，shelves 是可數複數。"
+    },
+    {
+      "id": "g_quantifiers-most-none_02",
+      "grammarId": "quantifiers-most-none",
+      "en": "___ of the boxes were damaged, so the customer was happy.",
+      "zh": "箱子一個都沒有壞，所以客戶很高興。",
+      "options": ["No", "Nothing", "None", "Nobody"],
+      "answer": 2,
+      "note": "「…之中一個也沒有」是 None of the；No 後面直接接名詞、不能接 of，Nothing 和 Nobody 也不能接 of the boxes。"
+    },
+    {
+      "id": "g_quantifiers-most-none_03",
+      "grammarId": "quantifiers-most-none",
+      "en": "Most of ___ trucks leave the yard before nine.",
+      "zh": "大部分的卡車九點前就離開貨場了。",
+      "options": ["a", "the", "this", "much"],
+      "answer": 1,
+      "note": "most of 後面要接 the 加名詞；a 和 this 只能接單數，much 不能接複數 trucks。"
+    },
+    {
+      "id": "g_quantifiers-most-none_04",
+      "grammarId": "quantifiers-most-none",
+      "en": "I checked the list, and none ___ the items are missing.",
+      "zh": "我核對過清單了，沒有任何一項東西不見。",
+      "options": ["of", "from", "in", "for"],
+      "answer": 0,
+      "note": "固定說法是 none of the 加名詞；none 後面不接 from / in / for 來表示「其中」。"
+    },
+    {
+      "id": "g_quantifiers-most-none_05",
+      "grammarId": "quantifiers-most-none",
+      "en": "We sold ___ of the stock last month, so we need to order more.",
+      "zh": "我們上個月賣掉了大部分的庫存，所以要再訂貨。",
+      "options": ["mostly", "most", "almost", "many"],
+      "answer": 1,
+      "note": "「大部分的庫存」是 most of the stock；mostly 和 almost 是副詞不能接 of，stock 不可數，不能用 many of。"
+    },
+    {
+      "id": "g_quantifiers-most-none_06",
+      "grammarId": "quantifiers-most-none",
+      "en": "___ of our drivers can work this Sunday, so the shipment will be late.",
+      "zh": "我們的司機這個星期天一個都不能上班，所以貨會晚到。",
+      "options": ["Nothing", "No", "Nobody", "None"],
+      "answer": 3,
+      "note": "None of 加 our / the 加名詞，表示「一個也沒有」；No 不能接 of，Nothing 和 Nobody 不能接 of our drivers。"
+    },
+    {
+      "id": "g_quantifiers-most-none_07",
+      "grammarId": "quantifiers-most-none",
+      "en": "Most ___ the equipment in this room is over ten years old.",
+      "zh": "這個房間裡大部分的設備都超過十年了。",
+      "options": ["in", "for", "of", "by"],
+      "answer": 2,
+      "note": "most 後面有 the 時一定要加 of：most of the equipment；in / for / by 都不能這樣用。"
+    },
+    {
+      "id": "g_quantifiers-most-none_08",
+      "grammarId": "quantifiers-most-none",
+      "en": "Most of ___ in this section are fragile, so please be careful.",
+      "zh": "這區大部分的貨物都是易碎品，請小心。",
+      "options": ["goods", "the goods", "good", "the good"],
+      "answer": 1,
+      "note": "most of 後面要接 the 加名詞，貨物是複數 goods：most of the goods；少了 the 不行，good 是形容詞「好的」。"
+    },
+    {
+      "id": "g_quantifiers-most-none_09",
+      "grammarId": "quantifiers-most-none",
+      "en": "I'm afraid ___ of the rooms in the storage area is empty.",
+      "zh": "恐怕倉儲區的房間沒有一間是空的。",
+      "options": ["none", "no", "nobody", "nothing"],
+      "answer": 0,
+      "note": "none of the rooms 是「房間一間也沒有」；no 後面要直接接名詞，nobody 和 nothing 都不能接 of the rooms。"
+    },
+    {
+      "id": "g_quantifiers-most-none_10",
+      "grammarId": "quantifiers-most-none",
+      "en": "We moved most of ___ old stock to the back of the warehouse.",
+      "zh": "我們把大部分的舊庫存搬到倉庫後面了。",
+      "options": ["a", "an", "much", "the"],
+      "answer": 3,
+      "note": "most of 後面要有 the：most of the old stock；a / an 不能接不可數的 stock，much 不能放在 of 後面。"
+    },
+    {
+      "id": "g_unless_01",
+      "grammarId": "unless",
+      "en": "___ you send the receipt, we can't give you a refund.",
+      "zh": "除非你寄收據來，不然我們沒辦法退款給你。",
+      "options": ["Unless", "Without", "Because of", "Instead"],
+      "answer": 0,
+      "note": "後面是完整子句 you send…，要用連接詞 Unless（除非）；Without 和 Because of 是介系詞，Instead 是副詞，都不能接子句。"
+    },
+    {
+      "id": "g_unless_02",
+      "grammarId": "unless",
+      "en": "Unless the replacement ___ by Friday, we will refund your money.",
+      "zh": "如果替換品星期五前還沒到，我們會退錢給你。",
+      "options": ["will arrive", "arrives", "arrive", "arriving"],
+      "answer": 1,
+      "note": "unless 子句說未來的事仍用現在式，主詞單數用 arrives；will arrive 不放在 unless 子句裡，arrive 少了 -s。"
+    },
+    {
+      "id": "g_unless_03",
+      "grammarId": "unless",
+      "en": "We won't close your case unless you ___ us to.",
+      "zh": "除非你叫我們結案，不然我們不會結案。",
+      "options": ["tell", "telling", "tells", "to tell"],
+      "answer": 0,
+      "note": "unless 後面是完整子句，主詞 you 配現在式 tell；tells 是第三人稱單數，telling / to tell 不能當子句的動詞。"
+    },
+    {
+      "id": "g_unless_04",
+      "grammarId": "unless",
+      "en": "___ the item is defective, we can't accept the return.",
+      "zh": "除非商品有瑕疵，否則我們不能接受退貨。",
+      "options": ["Because of", "Instead of", "Unless", "Without"],
+      "answer": 2,
+      "note": "the item is defective 是子句，要用連接詞 Unless；Because of、Instead of、Without 是介系詞，後面只能接名詞。"
+    },
+    {
+      "id": "g_unless_05",
+      "grammarId": "unless",
+      "en": "If you ___ receive a reply by Monday, please call us again.",
+      "zh": "如果你星期一前還沒收到回覆，請再打電話給我們。",
+      "options": ["doesn't", "not", "don't", "no"],
+      "answer": 2,
+      "note": "if not 就是 unless 的意思；主詞 you 的否定是 don't receive。doesn't 配第三人稱單數，not / no 不能直接放在動詞前。"
+    },
+    {
+      "id": "g_unless_06",
+      "grammarId": "unless",
+      "en": "We can't fix the problem ___ you tell us your order number.",
+      "zh": "除非你告訴我們訂單號碼，不然我們沒辦法處理這個問題。",
+      "options": ["without", "unless", "because of", "instead"],
+      "answer": 1,
+      "note": "空格後面是子句 you tell us…，要用連接詞 unless；without 和 because of 只能接名詞或 -ing，instead 是副詞。"
+    },
+    {
+      "id": "g_unless_07",
+      "grammarId": "unless",
+      "en": "Unless the manager ___ the refund, I can't give you the money back.",
+      "zh": "除非經理核准退款，不然我沒辦法把錢退給你。",
+      "options": ["approve", "approving", "will approve", "approves"],
+      "answer": 3,
+      "note": "unless 子句用現在式代替未來，主詞 the manager 是單數，用 approves；will approve 不放在 unless 子句，approving 不能當動詞。"
+    },
+    {
+      "id": "g_unless_08",
+      "grammarId": "unless",
+      "en": "The order will be shipped tomorrow unless there ___ a problem with your payment.",
+      "zh": "除非你的付款有問題，不然訂單明天就會出貨。",
+      "options": ["be", "is", "being", "will be"],
+      "answer": 1,
+      "note": "雖然說的是明天，unless 子句仍用現在式 there is；will be 不放在 unless 子句，be / being 不能當子句的動詞。"
+    },
+    {
+      "id": "g_unless_09",
+      "grammarId": "unless",
+      "en": "You won't get a replacement ___ you send us a picture of the damage.",
+      "zh": "除非你把損壞的照片寄給我們，不然拿不到替換品。",
+      "options": ["during", "because of", "without", "unless"],
+      "answer": 3,
+      "note": "後面接子句 you send us…，只有連接詞 unless 可以；during、because of、without 都是介系詞。"
+    },
+    {
+      "id": "g_unless_10",
+      "grammarId": "unless",
+      "en": "Unless you ___ any questions, I'll close the case now.",
+      "zh": "如果你沒有其他問題，我現在就結案了。",
+      "options": ["have", "has", "having", "to have"],
+      "answer": 0,
+      "note": "unless 後面是完整子句，主詞 you 配 have；has 是第三人稱單數，having / to have 不能當子句的動詞。"
+    },
+    {
+      "id": "g_may-polite-suggestion_01",
+      "grammarId": "may-polite-suggestion",
+      "en": "You may want ___ the receipt in a safe place.",
+      "zh": "你可能會想把收據放在安全的地方。",
+      "options": ["to keep", "keep", "keeping", "kept"],
+      "answer": 0,
+      "note": "客氣的建議是 may want to 加原形動詞：want to keep；want 後面不直接接原形、-ing 或過去式。"
+    },
+    {
+      "id": "g_may-polite-suggestion_02",
+      "grammarId": "may-polite-suggestion",
+      "en": "You ___ want to call the store before you go.",
+      "zh": "你去之前或許可以先打電話給店家。",
+      "options": ["has", "may", "had", "are"],
+      "answer": 1,
+      "note": "You may want to… 是委婉的建議，may 後面接原形 want；has、had、are 後面都不能接原形 want，has 也不配主詞 you。"
+    },
+    {
+      "id": "g_may-polite-suggestion_03",
+      "grammarId": "may-polite-suggestion",
+      "en": "You may ___ to check the status of your order first.",
+      "zh": "你可以先查一下你的訂單狀態。",
+      "options": ["wants", "wanting", "want", "wanted"],
+      "answer": 2,
+      "note": "may 是助動詞，後面一律接原形 want；wants、wanting、wanted 都不能放在 may 後面。"
+    },
+    {
+      "id": "g_may-polite-suggestion_04",
+      "grammarId": "may-polite-suggestion",
+      "en": "You might want to ___ your order number ready when you call.",
+      "zh": "打電話的時候，你最好先把訂單號碼準備好。",
+      "options": ["having", "has", "had", "have"],
+      "answer": 3,
+      "note": "might want to 和 may want to 一樣客氣，to 後面接原形 have；having、has、had 都不能接在 to 後面。"
+    },
+    {
+      "id": "g_may-polite-suggestion_05",
+      "grammarId": "may-polite-suggestion",
+      "en": "Customers may want ___ a replacement instead of a refund.",
+      "zh": "客人可能會想要換貨，而不是退款。",
+      "options": ["asking for", "to ask for", "asked for", "ask for"],
+      "answer": 1,
+      "note": "want 後面要接 to 加原形：want to ask for；want asking / want asked / want ask 都不合文法。"
+    },
+    {
+      "id": "g_may-polite-suggestion_06",
+      "grammarId": "may-polite-suggestion",
+      "en": "It ___ be a good idea to wait until the replacement arrives.",
+      "zh": "等替換品到了再說，或許比較好。",
+      "options": ["might", "may to", "must to", "should to"],
+      "answer": 0,
+      "note": "用 might 讓建議聽起來比較委婉，後面直接接原形 be；may、must、should 後面都不能加 to。"
+    },
+    {
+      "id": "g_may-polite-suggestion_07",
+      "grammarId": "may-polite-suggestion",
+      "en": "You may not want to ___ the box until the technician checks it.",
+      "zh": "技術人員看過之前，你可能先別打開箱子比較好。",
+      "options": ["opening", "open", "opens", "opened"],
+      "answer": 1,
+      "note": "may not want to 是客氣地建議「先別…」，to 後面接原形 open；opening、opens、opened 都不能接在 to 後面。"
+    },
+    {
+      "id": "g_may-polite-suggestion_08",
+      "grammarId": "may-polite-suggestion",
+      "en": "Perhaps you ___ want to speak to my supervisor about this.",
+      "zh": "這件事你或許可以跟我的主管談談。",
+      "options": ["are", "does", "may", "have"],
+      "answer": 2,
+      "note": "perhaps 加 may want to 讓建議更委婉；are / have 後面不能接原形 want，does 不配主詞 you。"
+    },
+    {
+      "id": "g_may-polite-suggestion_09",
+      "grammarId": "may-polite-suggestion",
+      "en": "You might want to ___ a copy of the email, just in case.",
+      "zh": "以防萬一，你可能要留一份那封 email 的副本。",
+      "options": ["keep", "keeping", "kept", "keeps"],
+      "answer": 0,
+      "note": "might want to 後面接原形動詞 keep；keeping、kept、keeps 都不能放在 to 後面。"
+    },
+    {
+      "id": "g_may-polite-suggestion_10",
+      "grammarId": "may-polite-suggestion",
+      "en": "___ I suggest that you try our online help page first?",
+      "zh": "我可以建議您先試試我們的線上說明頁面嗎？",
+      "options": ["Am", "Have", "Was", "May"],
+      "answer": 3,
+      "note": "May I suggest…? 是客服常用的客氣建議，May 後面接原形 suggest；Am、Have、Was 後面都不能接原形動詞。"
+    },
+    {
+      "id": "g_past-continuous_01",
+      "grammarId": "past-continuous",
+      "en": "I ___ for my luggage when the announcement came.",
+      "zh": "廣播響起的時候，我正在等行李。",
+      "options": ["was waiting", "were waiting", "waiting", "am waiting"],
+      "answer": 0,
+      "note": "廣播出現時正在進行的動作用過去進行式，主詞 I 配 was waiting；were 配 you / we / they，am 是現在式，waiting 少了 be 動詞。"
+    },
+    {
+      "id": "g_past-continuous_02",
+      "grammarId": "past-continuous",
+      "en": "The passengers ___ to the gate when the storm started.",
+      "zh": "暴風雨開始的時候，乘客正走向登機門。",
+      "options": ["was walking", "walks", "were walking", "walking"],
+      "answer": 2,
+      "note": "passengers 是複數，過去進行式用 were walking；was 配單數，walks 是現在式單數，walking 少了 be 動詞。"
+    },
+    {
+      "id": "g_past-continuous_03",
+      "grammarId": "past-continuous",
+      "en": "What ___ you doing at the airport at six this morning?",
+      "zh": "你今天早上六點在機場做什麼？",
+      "options": ["was", "did", "do", "were"],
+      "answer": 3,
+      "note": "問過去某個時間點正在做的事，用 were you doing；主詞 you 不配 was，did / do 後面要接原形 do，不能接 doing。"
+    },
+    {
+      "id": "g_past-continuous_04",
+      "grammarId": "past-continuous",
+      "en": "She was ___ her boarding pass when the guard called her name.",
+      "zh": "警衛叫她名字的時候，她正在看她的登機證。",
+      "options": ["check", "checking", "checks", "checked"],
+      "answer": 1,
+      "note": "was 加 -ing 是過去進行式：was checking；was checked 是被動，後面不能再接 her boarding pass，check / checks 不能接在 was 後面。"
+    },
+    {
+      "id": "g_past-continuous_05",
+      "grammarId": "past-continuous",
+      "en": "We ___ sitting in the lounge at 3 p.m., so we didn't hear the gate change.",
+      "zh": "下午三點我們正坐在貴賓室，所以沒聽到登機門更改。",
+      "options": ["were", "was", "are", "did"],
+      "answer": 0,
+      "note": "at 3 p.m. 是過去的時間點，主詞 we 用 were sitting；was 配單數，are 是現在式，did 後面不能接 -ing。"
+    },
+    {
+      "id": "g_past-continuous_06",
+      "grammarId": "past-continuous",
+      "en": "It ___ hard when our plane landed.",
+      "zh": "我們的飛機降落的時候，雨下得很大。",
+      "options": ["rains", "was raining", "raining", "were raining"],
+      "answer": 1,
+      "note": "飛機降落時雨正在下，用過去進行式；主詞 It 配 was raining。rains 是現在式，raining 少了 be 動詞，were 不配 It。"
+    },
+    {
+      "id": "g_past-continuous_07",
+      "grammarId": "past-continuous",
+      "en": "I ___ paying attention, so I missed the announcement.",
+      "zh": "我那時沒在注意，所以錯過了廣播。",
+      "options": ["didn't", "wasn't", "don't", "weren't"],
+      "answer": 1,
+      "note": "過去進行式的否定是 wasn't 加 -ing，主詞 I 用 wasn't；didn't / don't 後面要接原形，weren't 不配 I。"
+    },
+    {
+      "id": "g_past-continuous_08",
+      "grammarId": "past-continuous",
+      "en": "___ the attendants still cleaning the cabin when you got on the plane?",
+      "zh": "你上飛機的時候，空服員還在清理客艙嗎？",
+      "options": ["Was", "Did", "Were", "Are"],
+      "answer": 2,
+      "note": "過去進行式的問句把 were 提前，attendants 是複數用 Were；Did 後面不能接 -ing，Was 配單數，Are 是現在式，跟 got 不搭。"
+    },
+    {
+      "id": "g_past-continuous_09",
+      "grammarId": "past-continuous",
+      "en": "At ten last night, the pilot ___ the passengers about the weather.",
+      "zh": "昨晚十點，機長正在跟乘客說明天氣狀況。",
+      "options": ["telling", "is telling", "were telling", "was telling"],
+      "answer": 3,
+      "note": "at ten last night 是過去的時間點，主詞 the pilot 是單數，用 was telling；is telling 是現在式，were 配複數，telling 少了 be 動詞。"
+    },
+    {
+      "id": "g_past-continuous_10",
+      "grammarId": "past-continuous",
+      "en": "I was ___ for the shuttle when I realized my wallet was gone.",
+      "zh": "我在找接駁車的時候，發現錢包不見了。",
+      "options": ["look", "looks", "looked", "looking"],
+      "answer": 3,
+      "note": "was 後面接 -ing 才是過去進行式：was looking for；look / looks 不能接在 was 後面，was looked for 是被動，不能用 I 當主詞再接 the shuttle。"
+    },
+    {
+      "id": "g_time-clause-before-until_01",
+      "grammarId": "time-clause-before-until",
+      "en": "Please stay in your seat until the plane ___ completely.",
+      "zh": "請留在座位上，直到飛機完全停下來。",
+      "options": ["stops", "will stop", "stop", "stopped"],
+      "answer": 0,
+      "note": "until 子句說未來的事用現在式，plane 是單數用 stops；will stop 不放在 until 子句，stopped 是過去式，不配 Please 的請求。"
+    },
+    {
+      "id": "g_time-clause-before-until_02",
+      "grammarId": "time-clause-before-until",
+      "en": "We need to check in before the counter ___ at 9:30.",
+      "zh": "我們得在櫃台九點半關閉前辦好報到。",
+      "options": ["will close", "closes", "close", "closing"],
+      "answer": 1,
+      "note": "before 子句雖然說未來，仍用現在式；counter 是單數用 closes。will close 不放在 before 子句，closing 少了動詞。"
+    },
+    {
+      "id": "g_time-clause-before-until_03",
+      "grammarId": "time-clause-before-until",
+      "en": "I'll wait in the lounge ___ my flight is announced.",
+      "zh": "我會在貴賓室等，直到廣播我的班機。",
+      "options": ["by", "during", "until", "since"],
+      "answer": 2,
+      "note": "「一直等到…」用連接詞 until 接子句；by 和 during 是介系詞不能接子句，since 要配完成式，不配 I'll wait。"
+    },
+    {
+      "id": "g_time-clause-before-until_04",
+      "grammarId": "time-clause-before-until",
+      "en": "Please show your boarding pass ___ you get on the plane.",
+      "zh": "上飛機前請出示登機證。",
+      "options": ["by", "prior", "during", "before"],
+      "answer": 3,
+      "note": "後面是子句 you get on the plane，要用連接詞 before；by 和 during 是介系詞，prior 要寫成 prior to 而且後面不接子句。"
+    },
+    {
+      "id": "g_time-clause-before-until_05",
+      "grammarId": "time-clause-before-until",
+      "en": "Wait here until the shuttle ___.",
+      "zh": "在這裡等，等接駁車來。",
+      "options": ["arrives", "will arrive", "arrive", "arriving"],
+      "answer": 0,
+      "note": "until 子句說未來的事用現在式，shuttle 是單數用 arrives；will arrive 不放在 until 子句，arrive 少了 -s。"
+    },
+    {
+      "id": "g_time-clause-before-until_06",
+      "grammarId": "time-clause-before-until",
+      "en": "Before you ___ the plane, please turn off your phone.",
+      "zh": "上飛機前請把手機關機。",
+      "options": ["will get on", "getting on", "get on", "got on"],
+      "answer": 2,
+      "note": "before 子句說未來的事用現在式 get on；will get on 不放在 before 子句，got on 是過去式，getting on 少了主要動詞。"
+    },
+    {
+      "id": "g_time-clause-before-until_07",
+      "grammarId": "time-clause-before-until",
+      "en": "The flight was delayed ___ the storm passed.",
+      "zh": "班機一直延誤到暴風雨過去。",
+      "options": ["until", "by", "during", "because of"],
+      "answer": 0,
+      "note": "the storm passed 是子句，要用連接詞 until（直到）；by、during、because of 都只能接名詞，不能接子句。"
+    },
+    {
+      "id": "g_time-clause-before-until_08",
+      "grammarId": "time-clause-before-until",
+      "en": "I won't book a room until I ___ my new itinerary.",
+      "zh": "拿到新的行程表之前，我不會訂房間。",
+      "options": ["getting", "gets", "will get", "get"],
+      "answer": 3,
+      "note": "until 子句說未來仍用現在式，主詞 I 用 get；will get 不放在 until 子句，gets 配第三人稱，getting 不能當動詞。"
+    },
+    {
+      "id": "g_time-clause-before-until_09",
+      "grammarId": "time-clause-before-until",
+      "en": "Please finish your coffee ___ boarding begins.",
+      "zh": "請在開始登機前把咖啡喝完。",
+      "options": ["during", "before", "because of", "by"],
+      "answer": 1,
+      "note": "boarding begins 是子句，用連接詞 before；during、because of、by 是介系詞，後面不能接主詞加動詞。"
+    },
+    {
+      "id": "g_time-clause-before-until_10",
+      "grammarId": "time-clause-before-until",
+      "en": "The gate won't open ___ thirty minutes before departure.",
+      "zh": "登機門要到起飛前三十分鐘才會開。",
+      "options": ["while", "during", "until", "since"],
+      "answer": 2,
+      "note": "not…until 是「直到…才」；while 後面要接子句，during 不接時間點，since 要配完成式。"
+    },
+    {
+      "id": "g_relative-omitted-that_01",
+      "grammarId": "relative-omitted-that",
+      "en": "The room ___ booked has a view of the pool.",
+      "zh": "我訂的房間看得到游泳池。",
+      "options": ["I", "me", "my", "mine"],
+      "answer": 0,
+      "note": "the room (that) I booked，省略 that 後，名詞後面直接接主詞 I 加動詞；me、my、mine 不能當子句的主詞。"
+    },
+    {
+      "id": "g_relative-omitted-that_02",
+      "grammarId": "relative-omitted-that",
+      "en": "Is this the towel you ___ for?",
+      "zh": "這是你要的毛巾嗎？",
+      "options": ["asking", "asked it", "asked", "to ask"],
+      "answer": 2,
+      "note": "the towel (that) you asked for，towel 已經是 asked for 的受詞，不能再加 it；asking 和 to ask 不能當子句的動詞。"
+    },
+    {
+      "id": "g_relative-omitted-that_03",
+      "grammarId": "relative-omitted-that",
+      "en": "The suite we reserved ___ too small for our team.",
+      "zh": "我們訂的套房對我們團隊來說太小了。",
+      "options": ["were", "it was", "being", "was"],
+      "answer": 3,
+      "note": "主詞是 The suite (that) we reserved，後面接主要動詞 was；不能再加 it，were 配複數，being 不能當動詞。"
+    },
+    {
+      "id": "g_relative-omitted-that_04",
+      "grammarId": "relative-omitted-that",
+      "en": "The hotel the agency ___ is near the airport.",
+      "zh": "旅行社推薦的飯店在機場附近。",
+      "options": ["recommended", "recommended it", "recommending", "recommends it"],
+      "answer": 0,
+      "note": "the hotel (that) the agency recommended，hotel 就是受詞，不能再加 it；recommending 少了 be 動詞，不能當子句的動詞。"
+    },
+    {
+      "id": "g_relative-omitted-that_05",
+      "grammarId": "relative-omitted-that",
+      "en": "Did you find the key ___ lost last night?",
+      "zh": "你昨晚弄丟的鑰匙找到了嗎？",
+      "options": ["your", "you", "yours", "yourself"],
+      "answer": 1,
+      "note": "the key (that) you lost，省略 that 後接主詞 you；your 是所有格、yours 是所有代名詞、yourself 是反身代名詞，都不能當主詞。"
+    },
+    {
+      "id": "g_relative-omitted-that_06",
+      "grammarId": "relative-omitted-that",
+      "en": "The laundry service ___ used yesterday was fast.",
+      "zh": "我們昨天用的洗衣服務很快。",
+      "options": ["us", "our", "we", "ours"],
+      "answer": 2,
+      "note": "the laundry service (that) we used，子句要主格 we；us 是受格，our / ours 是所有格，不能當主詞。"
+    },
+    {
+      "id": "g_relative-omitted-that_07",
+      "grammarId": "relative-omitted-that",
+      "en": "The man you spoke to at reception ___ the hotel manager.",
+      "zh": "你在櫃台跟他說話的那位先生是飯店經理。",
+      "options": ["he is", "is", "are", "being"],
+      "answer": 1,
+      "note": "The man (that) you spoke to at reception 整個是主詞，後面直接接 is；不能再加 he，are 配複數，being 不能當動詞。"
+    },
+    {
+      "id": "g_relative-omitted-that_08",
+      "grammarId": "relative-omitted-that",
+      "en": "This is the voucher the travel agency ___ us.",
+      "zh": "這是旅行社給我們的住宿券。",
+      "options": ["giving", "give it", "gave it", "gave"],
+      "answer": 3,
+      "note": "the voucher (that) the travel agency gave us，voucher 就是 gave 的受詞，不能再加 it；giving 不能當子句的動詞。"
+    },
+    {
+      "id": "g_relative-omitted-that_09",
+      "grammarId": "relative-omitted-that",
+      "en": "The room ___ I stayed in last time was very quiet.",
+      "zh": "我上次住的那間房很安靜。",
+      "options": ["that", "what", "who", "where"],
+      "answer": 0,
+      "note": "room 是 stayed in 的受詞，關係詞用 that（也可以省略）；who 只指人，what 前面不接名詞，where 後面不能再有 in。"
+    },
+    {
+      "id": "g_relative-omitted-that_10",
+      "grammarId": "relative-omitted-that",
+      "en": "Could you send me the receipt for the room ___?",
+      "zh": "可以把我訂的房間的收據寄給我嗎？",
+      "options": ["I reserved it", "me reserved", "I reserved", "reserved me"],
+      "answer": 2,
+      "note": "the room (that) I reserved，room 已經是受詞，子句不能再加 it；me 是受格不能當主詞，reserved me 意思變成「房間訂了我」。"
+    },
+    {
+      "id": "g_while-past-continuous_01",
+      "grammarId": "while-past-continuous",
+      "en": "Someone knocked on the door while I ___ a shower.",
+      "zh": "我在洗澡的時候有人敲門。",
+      "options": ["was taking", "were taking", "am taking", "taking"],
+      "answer": 0,
+      "note": "while 帶出當時正在進行的背景動作，用過去進行式，主詞 I 配 was taking；were 配複數，am 是現在式，taking 少了 be 動詞。"
+    },
+    {
+      "id": "g_while-past-continuous_02",
+      "grammarId": "while-past-continuous",
+      "en": "While we ___ dinner downstairs, the housekeeper cleaned our room.",
+      "zh": "我們在樓下吃晚餐的時候，房務人員打掃了我們的房間。",
+      "options": ["was having", "are having", "were having", "have"],
+      "answer": 2,
+      "note": "主句是過去式，while 子句用過去進行式；主詞 we 配 were having。was 配單數，are having 和 have 是現在式。"
+    },
+    {
+      "id": "g_while-past-continuous_03",
+      "grammarId": "while-past-continuous",
+      "en": "The lights went off ___ I was using the iron.",
+      "zh": "我在用熨斗的時候燈突然熄了。",
+      "options": ["during", "while", "meanwhile", "because of"],
+      "answer": 1,
+      "note": "後面是子句 I was using…，要用連接詞 while；during 和 because of 是介系詞，meanwhile 是副詞，都不能接子句。"
+    },
+    {
+      "id": "g_while-past-continuous_04",
+      "grammarId": "while-past-continuous",
+      "en": "My phone rang while I was ___ the towels.",
+      "zh": "我在洗毛巾的時候手機響了。",
+      "options": ["wash", "washed", "washes", "washing"],
+      "answer": 3,
+      "note": "while 後面用過去進行式 was 加 -ing：was washing；was washed 是被動，後面不能再接 the towels，wash / washes 不能接在 was 後面。"
+    },
+    {
+      "id": "g_while-past-continuous_05",
+      "grammarId": "while-past-continuous",
+      "en": "While the guests ___ in the pool, the alarm went off.",
+      "zh": "客人在游泳池游泳的時候，警報響了。",
+      "options": ["were swimming", "was swimming", "swimming", "are swimming"],
+      "answer": 0,
+      "note": "guests 是複數，while 子句用 were swimming；was 配單數，are swimming 是現在式，swimming 少了 be 動詞。"
+    },
+    {
+      "id": "g_while-past-continuous_06",
+      "grammarId": "while-past-continuous",
+      "en": "I lost my key ___ I was walking to the gym.",
+      "zh": "我走去健身房的路上把鑰匙弄丟了。",
+      "options": ["between", "meanwhile", "while", "during"],
+      "answer": 2,
+      "note": "空格後是子句 I was walking…，要用連接詞 while；between 和 during 是介系詞，meanwhile 是副詞，不能連接兩個子句。"
+    },
+    {
+      "id": "g_while-past-continuous_07",
+      "grammarId": "while-past-continuous",
+      "en": "While she ___ for a taxi, it started to rain.",
+      "zh": "她在等計程車的時候開始下雨了。",
+      "options": ["waits", "waiting", "was waiting", "were waiting"],
+      "answer": 2,
+      "note": "下雨時她正在等車，while 子句用過去進行式，主詞 she 配 was waiting；waits 是現在式，waiting 少了 be 動詞，were 不配 she。"
+    },
+    {
+      "id": "g_while-past-continuous_08",
+      "grammarId": "while-past-continuous",
+      "en": "Did anyone call while I ___?",
+      "zh": "我在睡覺的時候有人打電話來嗎？",
+      "options": ["sleeping", "was sleeping", "am sleeping", "were sleeping"],
+      "answer": 1,
+      "note": "Did anyone call 是過去，while 子句用過去進行式，主詞 I 配 was sleeping；am 是現在式，were 不配 I，sleeping 少了 be 動詞。"
+    },
+    {
+      "id": "g_while-past-continuous_09",
+      "grammarId": "while-past-continuous",
+      "en": "I didn't hear the bell while I ___ to music.",
+      "zh": "我在聽音樂的時候沒聽到門鈴。",
+      "options": ["listen", "listening", "were listening", "was listening"],
+      "answer": 3,
+      "note": "主句是過去式，while 子句用過去進行式，主詞 I 配 was listening；listen 是現在式，listening 少了 be 動詞，were 不配 I。"
+    },
+    {
+      "id": "g_while-past-continuous_10",
+      "grammarId": "while-past-continuous",
+      "en": "While the technicians ___ the air conditioner, we waited downstairs.",
+      "zh": "技術人員在修冷氣的時候，我們在樓下等。",
+      "options": ["was fixing", "fixing", "are fixing", "were fixing"],
+      "answer": 3,
+      "note": "technicians 是複數，while 子句用 were fixing；was 配單數，are fixing 是現在式，跟 waited 不搭，fixing 少了 be 動詞。"
+    },
+    {
+      "id": "g_noun-adjective-form_01",
+      "grammarId": "noun-adjective-form",
+      "en": "Our new model is very ___ from last year's version.",
+      "zh": "我們的新款跟去年的版本很不一樣。",
+      "options": ["different", "difference", "differently", "differ"],
+      "answer": 0,
+      "note": "is very 後面要接形容詞 different；difference 是名詞，differently 是副詞，differ 是動詞。"
+    },
+    {
+      "id": "g_noun-adjective-form_02",
+      "grammarId": "noun-adjective-form",
+      "en": "Can you explain the ___ between these two products?",
+      "zh": "你可以說明這兩個產品的差別嗎？",
+      "options": ["different", "difference", "differently", "differ"],
+      "answer": 1,
+      "note": "the 後面、between 前面要放名詞 difference；different 是形容詞，後面沒有名詞可修飾，differently 是副詞，differ 是動詞。"
+    },
+    {
+      "id": "g_noun-adjective-form_03",
+      "grammarId": "noun-adjective-form",
+      "en": "The market for phones is very ___ this year.",
+      "zh": "今年手機市場競爭非常激烈。",
+      "options": ["competitor", "competition", "competitive", "competitively"],
+      "answer": 2,
+      "note": "very 後面接形容詞 competitive（競爭激烈的）；competitor 和 competition 是名詞，competitively 是副詞。"
+    },
+    {
+      "id": "g_noun-adjective-form_04",
+      "grammarId": "noun-adjective-form",
+      "en": "There is strong ___ between the booths at this fair.",
+      "zh": "這次商展各攤位之間競爭很激烈。",
+      "options": ["competition", "competitive", "competitively", "competitor"],
+      "answer": 0,
+      "note": "There is strong 後面要接名詞，而且沒有冠詞，用不可數的 competition；competitor 可數要加 a，competitive 是形容詞，competitively 是副詞。"
+    },
+    {
+      "id": "g_noun-adjective-form_05",
+      "grammarId": "noun-adjective-form",
+      "en": "The trade fair was a big ___ for our company.",
+      "zh": "這次商展對我們公司來說非常成功。",
+      "options": ["successful", "success", "successfully", "succeed"],
+      "answer": 1,
+      "note": "a big 後面要接名詞 success；successful 是形容詞，後面還缺名詞，successfully 是副詞，succeed 是動詞。"
+    },
+    {
+      "id": "g_noun-adjective-form_06",
+      "grammarId": "noun-adjective-form",
+      "en": "Our designers are very ___, so every booth looks unique.",
+      "zh": "我們的設計師很有創意，所以每個攤位看起來都很獨特。",
+      "options": ["creatively", "create", "creativity", "creative"],
+      "answer": 3,
+      "note": "are very 後面接形容詞 creative 描述人；creativity 是名詞，creatively 是副詞，create 是動詞。"
+    },
+    {
+      "id": "g_noun-adjective-form_07",
+      "grammarId": "noun-adjective-form",
+      "en": "She spoke to the visitors with ___.",
+      "zh": "她很有自信地跟參觀者說話。",
+      "options": ["confident", "confidently", "confidence", "confidential"],
+      "answer": 2,
+      "note": "介系詞 with 後面要接名詞 confidence；confident 和 confidential 是形容詞，confidently 是副詞。"
+    },
+    {
+      "id": "g_noun-adjective-form_08",
+      "grammarId": "noun-adjective-form",
+      "en": "This style is ___ with customers in Asia.",
+      "zh": "這個款式很受亞洲客人的歡迎。",
+      "options": ["popularity", "popular", "popularly", "population"],
+      "answer": 1,
+      "note": "be popular with 是「受…歡迎」，is 後面接形容詞 popular；popularity 和 population 是名詞，popularly 是副詞。"
+    },
+    {
+      "id": "g_noun-adjective-form_09",
+      "grammarId": "noun-adjective-form",
+      "en": "The ___ at the opening of the exhibition was enormous.",
+      "zh": "展覽開幕時大家都超級興奮。",
+      "options": ["excitement", "exciting", "excited", "excite"],
+      "answer": 0,
+      "note": "The 後面、動詞 was 前面要放名詞當主詞：excitement；exciting 和 excited 是形容詞，excite 是動詞。"
+    },
+    {
+      "id": "g_noun-adjective-form_10",
+      "grammarId": "noun-adjective-form",
+      "en": "The new model is small but very ___.",
+      "zh": "新款很小，但性能很強。",
+      "options": ["power", "powerfully", "powers", "powerful"],
+      "answer": 3,
+      "note": "very 後面接形容詞 powerful，跟 small 對稱；power / powers 是名詞或動詞，powerfully 是副詞。"
+    },
+    {
+      "id": "g_during-over_01",
+      "grammarId": "during-over",
+      "en": "Many visitors came to our booth ___ the first day of the fair.",
+      "zh": "商展第一天有很多參觀者來我們的攤位。",
+      "options": ["during", "while", "meanwhile", "when"],
+      "answer": 0,
+      "note": "the first day of the fair 是名詞片語，要用介系詞 during；while 和 when 後面要接子句，meanwhile 是副詞。"
+    },
+    {
+      "id": "g_during-over_02",
+      "grammarId": "during-over",
+      "en": "Sales of the new model rose ___ the past three months.",
+      "zh": "新款的銷量在過去三個月裡上升了。",
+      "options": ["while", "over", "since", "between"],
+      "answer": 1,
+      "note": "over the past three months 是「在過去這段期間內」；while 要接子句，since 接起點而且要配完成式，between 要接兩個時間點。"
+    },
+    {
+      "id": "g_during-over_03",
+      "grammarId": "during-over",
+      "en": "Please turn off your phones ___ the demonstration.",
+      "zh": "示範進行時請把手機關掉。",
+      "options": ["while", "meanwhile", "during", "as"],
+      "answer": 2,
+      "note": "the demonstration 是名詞（一個活動），用介系詞 during；while 和 as 要接子句，meanwhile 是副詞。"
+    },
+    {
+      "id": "g_during-over_04",
+      "grammarId": "during-over",
+      "en": "We met more than fifty potential partners ___ the weekend.",
+      "zh": "我們這個週末認識了五十多個潛在合作夥伴。",
+      "options": ["as", "while", "meanwhile", "over"],
+      "answer": 3,
+      "note": "over the weekend 是「整個週末期間」；as 和 while 是連接詞要接子句，meanwhile 是副詞不能接名詞。"
+    },
+    {
+      "id": "g_during-over_05",
+      "grammarId": "during-over",
+      "en": "Our team will be very busy ___ the next few days.",
+      "zh": "接下來幾天我們團隊會非常忙。",
+      "options": ["meanwhile", "over", "then", "while"],
+      "answer": 1,
+      "note": "the next few days 是一段期間，用介系詞 over；meanwhile 和 then 是副詞，while 要接子句。"
+    },
+    {
+      "id": "g_during-over_06",
+      "grammarId": "during-over",
+      "en": "___ lunch, our representative will answer questions at the booth.",
+      "zh": "午餐時間，我們的代表會在攤位回答問題。",
+      "options": ["During", "While", "Meanwhile", "When"],
+      "answer": 0,
+      "note": "lunch 是名詞，前面用介系詞 During；While 和 When 後面要接子句，Meanwhile 是副詞，不能接名詞。"
+    },
+    {
+      "id": "g_during-over_07",
+      "grammarId": "during-over",
+      "en": "The fair has grown a lot ___ the last ten years.",
+      "zh": "這個商展在過去十年成長了很多。",
+      "options": ["between", "since", "over", "while"],
+      "answer": 2,
+      "note": "over the last ten years 搭配完成式，說這段期間內的變化；since 後面接起點不接一段期間，between 要接兩個時間點，while 要接子句。"
+    },
+    {
+      "id": "g_during-over_08",
+      "grammarId": "during-over",
+      "en": "Did you hear any good news ___ the convention?",
+      "zh": "你在大會期間有聽到什麼好消息嗎？",
+      "options": ["while", "during", "as", "meanwhile"],
+      "answer": 1,
+      "note": "the convention 是一個活動名詞，用 during；while 和 as 後面要接子句，meanwhile 是副詞。"
+    },
+    {
+      "id": "g_during-over_09",
+      "grammarId": "during-over",
+      "en": "Our booth was busy ___ the whole exhibition.",
+      "zh": "整個展覽期間，我們的攤位都很忙。",
+      "options": ["meanwhile", "while", "then", "during"],
+      "answer": 3,
+      "note": "the whole exhibition 是名詞，用介系詞 during；meanwhile 和 then 是副詞，while 要接子句。"
+    },
+    {
+      "id": "g_during-over_10",
+      "grammarId": "during-over",
+      "en": "We will discuss the results with our partners ___ dinner this evening.",
+      "zh": "我們今晚會邊吃晚餐邊跟合作夥伴討論結果。",
+      "options": ["while", "meanwhile", "as", "over"],
+      "answer": 3,
+      "note": "over dinner 是「邊吃飯邊…」，over 接一段時間或一頓飯；while 和 as 要接子句，meanwhile 是副詞。"
+    }
+  ]
+}
