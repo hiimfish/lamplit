@@ -110,10 +110,6 @@
     "t5_7": { "side": "question", "qtype": "how" },
     "t5_8": { "side": "answer", "atype": "manner" },
     "t6_2": { "side": "question", "qtype": "yes-no" },
-    "t6_3": { "side": "answer", "atype": "statement" },
-    "t5_talk_3": { "side": "question", "qtype": "yes-no" },
-    "t5_talk_4": { "side": "answer", "atype": "yes-no" },
-    "t5_talk_7": { "side": "question", "qtype": "how" },
-    "t5_talk_8": { "side": "answer", "atype": "manner" }
+    "t6_3": { "side": "answer", "atype": "statement" }
   }
 }
