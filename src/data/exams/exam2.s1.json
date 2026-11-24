@@ -1,5 +1,406 @@
 {
   "exam": "exam2",
   "section": "s1",
-  "draft": true
+  "talks": [
+    {
+      "id": "s1_t1",
+      "form": "A",
+      "lines": [
+        {
+          "id": "s1_t1_l1",
+          "role": "passerby",
+          "en": "Hi. I want to open a new account.",
+          "zh": "你好，我想開一個新帳戶。"
+        },
+        {
+          "id": "s1_t1_l2",
+          "role": "teller",
+          "en": "Sure. Do you have your ID with you?",
+          "zh": "好的。您有帶身分證嗎？"
+        },
+        {
+          "id": "s1_t1_l3",
+          "role": "passerby",
+          "en": "No, I left it at home. Can I use my card?",
+          "zh": "沒有，我放在家裡了。我可以用我的卡嗎？"
+        },
+        {
+          "id": "s1_t1_l4",
+          "role": "teller",
+          "en": "Sorry, I need your ID. Please come back tomorrow.",
+          "zh": "抱歉，我需要您的身分證。請明天再來。"
+        },
+        {
+          "id": "s1_t1_l5",
+          "role": "passerby",
+          "en": "OK. I will bring it in the morning.",
+          "zh": "好，我明天早上帶來。"
+        }
+      ],
+      "questions": [
+        {
+          "en": "What does the bank ask the person to show?",
+          "zh": "銀行要求這個人出示什麼？",
+          "options": ["A phone bill", "His ID", "A bank card"],
+          "answer": 1
+        },
+        {
+          "en": "When will the person come back?",
+          "zh": "客人什麼時候會再來？",
+          "options": ["This afternoon", "Next week", "Tomorrow morning"],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "id": "s1_t2",
+      "form": "A",
+      "lines": [
+        {
+          "id": "s1_t2_l1",
+          "role": "neighbor",
+          "en": "Excuse me. I can't find this book.",
+          "zh": "不好意思，我找不到這本書。"
+        },
+        {
+          "id": "s1_t2_l2",
+          "role": "librarian",
+          "en": "Let me check. Someone borrowed it yesterday.",
+          "zh": "我查一下。昨天有人借走了。"
+        },
+        {
+          "id": "s1_t2_l3",
+          "role": "neighbor",
+          "en": "When will it be back?",
+          "zh": "它什麼時候會還回來？"
+        },
+        {
+          "id": "s1_t2_l4",
+          "role": "librarian",
+          "en": "On Friday. I can put your name on a list.",
+          "zh": "星期五。我可以把您的名字放在名單上。"
+        },
+        {
+          "id": "s1_t2_l5",
+          "role": "neighbor",
+          "en": "Yes, please. Thank you.",
+          "zh": "好的，麻煩你了。謝謝。"
+        }
+      ],
+      "questions": [
+        {
+          "en": "Why can't the person find the book?",
+          "zh": "這個人為什麼找不到這本書？",
+          "options": ["It is too old", "Someone borrowed it", "It is in the office"],
+          "answer": 1
+        },
+        {
+          "en": "What will the librarian do?",
+          "zh": "圖書館員會做什麼？",
+          "options": ["Call another library", "Buy a new book", "Put a name on a list"],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "id": "s1_t3",
+      "form": "A",
+      "lines": [
+        {
+          "id": "s1_t3_l1",
+          "role": "neighbor",
+          "en": "The sink in my kitchen is leaking.",
+          "zh": "我廚房的水槽漏水。"
+        },
+        {
+          "id": "s1_t3_l2",
+          "role": "landlord",
+          "en": "Since when?",
+          "zh": "從什麼時候開始的？"
+        },
+        {
+          "id": "s1_t3_l3",
+          "role": "neighbor",
+          "en": "Since last night. There is water on the floor.",
+          "zh": "從昨晚開始。地板上有水。"
+        },
+        {
+          "id": "s1_t3_l4",
+          "role": "landlord",
+          "en": "I will send a plumber at ten tomorrow.",
+          "zh": "我明天十點會派一位水電師傅過去。"
+        },
+        {
+          "id": "s1_t3_l5",
+          "role": "neighbor",
+          "en": "Thanks. I will be home.",
+          "zh": "謝謝。我會在家。"
+        }
+      ],
+      "questions": [
+        {
+          "en": "What is the problem?",
+          "zh": "問題是什麼？",
+          "options": ["A broken window", "A broken door", "A leaking sink"],
+          "answer": 2
+        },
+        {
+          "en": "When will the plumber come?",
+          "zh": "水電師傅什麼時候會來？",
+          "options": ["At ten tomorrow", "On Sunday", "At noon today"],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "s1_t4",
+      "form": "A",
+      "lines": [
+        {
+          "id": "s1_t4_l1",
+          "role": "manager",
+          "en": "Welcome. Your first day starts at eight on Monday.",
+          "zh": "歡迎。您的第一天在星期一八點開始。"
+        },
+        {
+          "id": "s1_t4_l2",
+          "role": "passerby",
+          "en": "Do I need to bring anything?",
+          "zh": "我需要帶什麼東西嗎？"
+        },
+        {
+          "id": "s1_t4_l3",
+          "role": "manager",
+          "en": "Just your lunch. We will give you a work shirt.",
+          "zh": "帶午餐就好。我們會給您一件工作襯衫。"
+        },
+        {
+          "id": "s1_t4_l4",
+          "role": "passerby",
+          "en": "Great. Where can I park?",
+          "zh": "太好了。我可以把車停在哪裡？"
+        },
+        {
+          "id": "s1_t4_l5",
+          "role": "manager",
+          "en": "Behind the office. Come to the front desk first.",
+          "zh": "在辦公室後面。請先到櫃台來。"
+        }
+      ],
+      "questions": [
+        {
+          "en": "What should the new employee bring?",
+          "zh": "新進員工該帶什麼？",
+          "options": ["Lunch", "A new phone", "Some money"],
+          "answer": 0
+        },
+        {
+          "en": "Where can the new employee park?",
+          "zh": "員工可以把車停在哪裡？",
+          "options": ["Behind the office", "In front of the bank", "Next to the library"],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "s1_t5",
+      "form": "B",
+      "lines": [
+        {
+          "id": "s1_t5_l1",
+          "role": "passerby",
+          "en": "I want to find a job near my home.",
+          "zh": "我想在家附近找一份工作。"
+        },
+        {
+          "id": "s1_t5_l2",
+          "role": "counselor",
+          "en": "What can you do?",
+          "zh": "您會做什麼？"
+        },
+        {
+          "id": "s1_t5_l3",
+          "role": "passerby",
+          "en": "I can cook, and I speak some English.",
+          "zh": "我會煮菜，也會說一點英文。"
+        },
+        {
+          "id": "s1_t5_l4",
+          "role": "counselor",
+          "en": "Good. A restaurant needs a cook. Here is the address.",
+          "zh": "很好。有間餐廳需要廚師。這是地址。"
+        },
+        {
+          "id": "s1_t5_l5",
+          "role": "passerby",
+          "en": "Thank you. I will go there this afternoon.",
+          "zh": "謝謝你。我今天下午就過去。"
+        }
+      ],
+      "questions": [
+        {
+          "en": "What job does the counselor suggest?",
+          "zh": "就業顧問建議什麼工作？",
+          "options": ["A driver at a school", "A cook at a restaurant", "A clerk at a shop"],
+          "answer": 1
+        },
+        {
+          "en": "When will the person go to the restaurant?",
+          "zh": "這個人什麼時候會去餐廳？",
+          "options": ["Tomorrow morning", "On Sunday", "This afternoon"],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "id": "s1_t6",
+      "form": "B",
+      "lines": [
+        {
+          "id": "s1_t6_l1",
+          "role": "passerby",
+          "en": "Hi, I want to join your English class.",
+          "zh": "嗨，我想參加你們的英文課。"
+        },
+        {
+          "id": "s1_t6_l2",
+          "role": "instructor",
+          "en": "It meets every Tuesday at six. It is ten dollars.",
+          "zh": "每個星期二六點上課。費用是十元。"
+        },
+        {
+          "id": "s1_t6_l3",
+          "role": "passerby",
+          "en": "Can I pay now?",
+          "zh": "我可以現在付款嗎？"
+        },
+        {
+          "id": "s1_t6_l4",
+          "role": "instructor",
+          "en": "You can pay at the desk. Please bring a bag.",
+          "zh": "可以到櫃台付款。請帶一個袋子。"
+        },
+        {
+          "id": "s1_t6_l5",
+          "role": "passerby",
+          "en": "OK. I will get one today.",
+          "zh": "好，我今天就去準備一個。"
+        }
+      ],
+      "questions": [
+        {
+          "en": "How often does the class meet?",
+          "zh": "這門課多久上一次？",
+          "options": ["Every Tuesday", "Every Friday", "Every day"],
+          "answer": 0
+        },
+        {
+          "en": "How much is the class?",
+          "zh": "這門課多少錢？",
+          "options": ["Fifteen dollars", "Ten dollars", "Twenty dollars"],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "s1_t7",
+      "form": "B",
+      "lines": [
+        {
+          "id": "s1_t7_l1",
+          "role": "passerby",
+          "en": "My car makes a strange noise.",
+          "zh": "我的車發出奇怪的聲音。"
+        },
+        {
+          "id": "s1_t7_l2",
+          "role": "mechanic",
+          "en": "Let me look. The tire is old.",
+          "zh": "我看看。輪胎很舊了。"
+        },
+        {
+          "id": "s1_t7_l3",
+          "role": "passerby",
+          "en": "Can you fix it today?",
+          "zh": "你今天能修好嗎？"
+        },
+        {
+          "id": "s1_t7_l4",
+          "role": "mechanic",
+          "en": "No, I need a new tire. It will be ready on Thursday.",
+          "zh": "不行，我需要一個新輪胎。星期四就會好。"
+        },
+        {
+          "id": "s1_t7_l5",
+          "role": "passerby",
+          "en": "OK. I will come and get it then.",
+          "zh": "好，我到時候來取車。"
+        }
+      ],
+      "questions": [
+        {
+          "en": "What is wrong with the car?",
+          "zh": "這輛車哪裡有問題？",
+          "options": ["A light is broken", "The door is broken", "The tire is old"],
+          "answer": 2
+        },
+        {
+          "en": "When will the car be ready?",
+          "zh": "車什麼時候會修好？",
+          "options": ["On Thursday", "Today", "Tomorrow"],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "s1_t8",
+      "form": "B",
+      "lines": [
+        {
+          "id": "s1_t8_l1",
+          "role": "front_desk",
+          "en": "Good morning. Do you have an interview today?",
+          "zh": "早安。您今天有面試嗎？"
+        },
+        {
+          "id": "s1_t8_l2",
+          "role": "passerby",
+          "en": "Yes, with Ms. Lin at nine.",
+          "zh": "有，九點和 Lin 小姐面試。"
+        },
+        {
+          "id": "s1_t8_l3",
+          "role": "front_desk",
+          "en": "Please sign here and wait. She is in a meeting.",
+          "zh": "請在這裡簽名並稍等。她正在開會。"
+        },
+        {
+          "id": "s1_t8_l4",
+          "role": "passerby",
+          "en": "How long should I wait?",
+          "zh": "我該等多久？"
+        },
+        {
+          "id": "s1_t8_l5",
+          "role": "front_desk",
+          "en": "About ten minutes. Please sit over there.",
+          "zh": "大約十分鐘。請坐在那邊。"
+        }
+      ],
+      "questions": [
+        {
+          "en": "Why must the person wait?",
+          "zh": "這個人為什麼必須等？",
+          "options": ["Ms. Lin is in a meeting", "The office is closed", "The form is not ready"],
+          "answer": 0
+        },
+        {
+          "en": "How long will the person wait?",
+          "zh": "這個人要等多久？",
+          "options": ["About an hour", "Until noon", "About ten minutes"],
+          "answer": 2
+        }
+      ]
+    }
+  ]
 }
