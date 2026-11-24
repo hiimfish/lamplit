@@ -1,0 +1,28 @@
+/* 最常錯的音和文法: rows reuse the .progress-acts meters; only the label column differs. */
+.mistakes-block {
+  display: grid;
+  gap: calc(2 * var(--px));
+}
+
+.mistakes-sub {
+  margin: calc(4 * var(--px)) 0 0;
+  color: var(--ink);
+  font-size: calc(10 * var(--px));
+}
+
+.mistakes-list > li {
+  grid-template-columns: minmax(calc(64 * var(--px)), 40%) minmax(0, 1fr) auto;
+}
+
+.mistakes-list .progress-act-name {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.mistakes-empty {
+  margin: 0;
+}
+
+:root[data-orientation='portrait'] .mistakes-list > li {
+  grid-template-columns: minmax(0, 44%) minmax(0, 1fr) auto;
+}
