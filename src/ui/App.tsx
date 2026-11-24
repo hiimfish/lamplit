@@ -2,10 +2,13 @@ import { useEffect, useRef } from 'preact/hooks';
 import { playChime, unlockAudio } from '../audio/audioContext';
 import { appStore, setDayStamp } from '../core/appState';
 import { recordToday } from '../core/save';
+import { devUnlockAll, settingsStore } from '../core/settings';
 import { useStore } from '../core/store';
 import { goalStatus } from '../learning/dailyGoal';
 import { grammarOn } from '../learning/grammarOn';
+import { continueTarget } from '../learning/townPlan';
 import { ExamScreen } from './exam/ExamScreen';
+import { SkipScreen } from './exam/SkipScreen';
 import { focusStatic } from './focus';
 import { GoalScreen } from './GoalScreen';
 import { GrammarDrillScreen } from './GrammarDrillScreen';
@@ -22,7 +25,16 @@ import { TOWN, TownScreen } from './TownScreen';
 import { useFullScreen } from './useFullScreen';
 
 /** Menu-type screens: on a phone held upright they take the whole screen (useFullScreen). */
-const FULL_SCREENS = new Set(['review', 'sprint', 'goal', 'progress', 'exam', 'grammar', 'result']);
+const FULL_SCREENS = new Set([
+  'review',
+  'sprint',
+  'goal',
+  'progress',
+  'exam',
+  'skip',
+  'grammar',
+  'result',
+]);
 
 const showDebug = new URLSearchParams(window.location.search).has('debug');
 
@@ -32,11 +44,29 @@ setDayStamp((save, now) =>
 );
 
 function TitleScreen() {
+  const { save } = useStore(appStore);
+  const settings = useStore(settingsStore);
+  const played = Object.keys(save.tasks).length > 0;
+  // 繼續 goes straight into the next new task; a new player (怎麼玩 not seen, nothing
+  // played) and one with every task played go to the town instead.
+  const target = continueTarget(TOWN, save, undefined, devUnlockAll(settings));
+  const resume = played || (save.skipTo ?? 0) > 0;
+  const into = target && (played || settings.seenIntro) ? target : undefined;
+  const task = into?.unit.tasks[into.index];
   const start = () => {
     // Must run inside the tap handler so the browser allows sound afterwards.
     unlockAudio();
     playChime();
-    appStore.set({ screen: 'town' });
+    if (into && task) {
+      appStore.set({
+        screen: 'task',
+        town: { act: into.act },
+        activeTask: { unitId: into.unit.id, taskId: task.id },
+        result: undefined,
+      });
+    } else {
+      appStore.set({ screen: 'town' });
+    }
   };
   // A key press is a user gesture too, so Enter or Space can unlock sound and start.
   useKeys({ Enter: start, Space: start });
@@ -49,9 +79,14 @@ function TitleScreen() {
         <p class="subtitle">英語學習</p>
       </div>
       <button class="pixel-button primary blink" onClick={start} data-testid="start">
-        點一下開始
+        {resume ? '點一下繼續' : '點一下開始'}
         <KeyCap k="Enter" />
       </button>
+      {resume && into && task && (
+        <p class="title-next" data-testid="title-next">
+          {into.unit.title}・{task.title}
+        </p>
+      )}
       <footer class="title-notice" data-testid="title-notice">
         <p>TOEIC®（多益）是 ETS 的註冊商標。本遊戲與 ETS 無關，未經 ETS 認可或贊助。</p>
         <p lang="en">
@@ -93,6 +128,7 @@ export function App() {
       {screen === 'listen' && <ListenScreen />}
       {screen === 'progress' && <ProgressScreen />}
       {screen === 'exam' && <ExamScreen />}
+      {screen === 'skip' && <SkipScreen />}
       {screen === 'grammar' && <GrammarDrillScreen />}
       {screen === 'result' && <ResultScreen />}
       <SaveErrorBanner />

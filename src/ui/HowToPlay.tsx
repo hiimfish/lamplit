@@ -13,7 +13,11 @@ import './howto.css';
 export const HOW_CARDS: readonly { title: string; lines: readonly string[] }[] = [
   {
     title: '小鎮和任務',
-    lines: ['點一個地點，再點任務就能開始。', '任務一關一關打開，玩完一幕，下一幕就解鎖。'],
+    lines: [
+      '點一個地點，再點任務就能開始。',
+      '任務一關一關打開，玩完一幕，下一幕就解鎖。',
+      '已經有基礎？點還沒開的那一幕，考過跳級考就能直接往後。',
+    ],
   },
   {
     title: '每日目標',

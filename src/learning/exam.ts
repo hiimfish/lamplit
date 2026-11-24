@@ -114,6 +114,9 @@ function hashText(text: string): number {
   return h >>> 0;
 }
 
+/** 跳級考 sits about one item in this many of a full form. */
+const SHORT_SHARE = 3;
+
 const sectionRng = (seed: number, section: string): Rng =>
   makeRng((seed ^ hashText(section)) >>> 0);
 
@@ -122,11 +125,13 @@ const sectionRng = (seed: number, section: string): Rng =>
  * chosen items. `A` or `B` takes that form's items (an item with no form is in both);
  * `mixed` fills the places of the form A shape (same number of items, each with the same
  * number of questions) from the items of both forms, the least seen first (`seen` counts
- * per item id), ties broken by the seed. Deterministic per seed.
+ * per item id), ties broken by the seed. `short` (跳級考) takes about a third as many
+ * items as form A has, at least one, from both forms in an order shuffled by the seed.
+ * Deterministic per seed.
  */
 export function pickWritten(
   file: ExamSectionFile,
-  form: ExamForm | 'mixed',
+  form: ExamForm | 'mixed' | 'short',
   seen: Seen,
   seed: number,
 ): ExamSectionFile {
@@ -137,7 +142,10 @@ export function pickWritten(
     const all = itemsOf(file, kind);
     const inForm = (f: ExamForm) => all.filter((it) => it.form === undefined || it.form === f);
     let picked: AnyItem[];
-    if (form !== 'mixed') {
+    if (form === 'short') {
+      const count = Math.max(1, Math.round(inForm('A').length / SHORT_SHARE));
+      picked = shuffle(all, rng).slice(0, count);
+    } else if (form !== 'mixed') {
       picked = inForm(form);
     } else {
       const pool = shuffle(all, rng);
@@ -225,8 +233,8 @@ export function questionDifficulty(q: Question): number {
 export interface SectionOptions {
   /** `s1`, `s2`, ...: prefixes the qids. */
   section: string;
-  /** Which hand-written form to sit (see chooseForm). */
-  form: ExamForm | 'mixed';
+  /** Which hand-written form to sit (see chooseForm); `short` for a 跳級考. */
+  form: ExamForm | 'mixed' | 'short';
   /** Times each written item was seen (`save.exams[exam].seen`); decides `mixed`. */
   seen?: Seen;
 }
@@ -440,6 +448,28 @@ function scored(outcome: ExamOutcome): ScoredAnswer[] {
 }
 
 /**
+ * The mistake tags of every answer of finished sections, and the streak (once per
+ * section). Shared by the 幕結業考 and the 跳級考.
+ */
+export function logOutcomes(save: SaveData, outcomes: readonly ExamOutcome[], now: Date): SaveData {
+  let next: SaveData = save;
+  for (const outcome of outcomes) {
+    const choiceOf = new Map(outcome.answers.map((a) => [a.qid, a.choice]));
+    for (const item of outcome.items) {
+      const correct = choiceOf.get(item.qid) === correctOf(item.question);
+      next = logAnswer(
+        next,
+        item.question,
+        { itemId: item.question.itemId, correct, usedHelp: false, ms: 0 },
+        now,
+      );
+    }
+    next = touchPlayed(next, now);
+  }
+  return next;
+}
+
+/**
  * Closes a sitting: estimates 聽力 and 閱讀 over all the sections, writes `exams[exam]`
  * (attempts, date, scores, `seen`), the checkpoint, the coins (first completion only),
  * the streak, the mistake tags of every answer, and drops the run. The answers do not
@@ -480,20 +510,7 @@ export function finishRun(
   for (const id of shown) seen[id] = (seen[id] ?? 0) + 1;
   const retake = reused > 0;
 
-  let next: SaveData = save;
-  for (const outcome of outcomes) {
-    const choiceOf = new Map(outcome.answers.map((a) => [a.qid, a.choice]));
-    for (const item of outcome.items) {
-      const correct = choiceOf.get(item.qid) === correctOf(item.question);
-      next = logAnswer(
-        next,
-        item.question,
-        { itemId: item.question.itemId, correct, usedHelp: false, ms: 0 },
-        now,
-      );
-    }
-    next = touchPlayed(next, now);
-  }
+  let next = logOutcomes(save, outcomes, now);
 
   const first = before === undefined;
   const coins = first ? EXAM_COINS : 0;

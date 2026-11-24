@@ -24,6 +24,7 @@ type Screen =
   | 'listen'
   | 'progress'
   | 'exam'
+  | 'skip'
   | 'grammar'
   | 'result';
 
@@ -45,6 +46,8 @@ export interface AppState {
   activeTask?: { unitId: string; taskId: string };
   /** The Act (1 to 4) whose 結業考 is open on the exam screen. */
   activeExam?: number;
+  /** The Act (1 to 3) whose 跳級考 is open on the skip screen. */
+  activeSkip?: number;
   /**
    * What the town shows: an act (index into ACTS) and, when a location is open,
    * its unit. Unset until the player picks one; the town then opens on the act

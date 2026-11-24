@@ -562,3 +562,26 @@ describe('grammarSeen in the save', () => {
     expect(mergeSaves(base, base).grammarSeen).toBeUndefined();
   });
 });
+
+describe('skipTo in the save (跳級考)', () => {
+  const now = new Date(2026, 10, 25, 12, 0, 0);
+  it('is unset on a new or older save', () => {
+    expect(createEmptySave(now).skipTo).toBeUndefined();
+    expect(sanitizeSave({}, now).skipTo).toBeUndefined();
+    expect(sanitizeSave({ skipTo: 0 }, now).skipTo).toBeUndefined();
+    expect(sanitizeSave({ skipTo: 'x' }, now).skipTo).toBeUndefined();
+  });
+
+  it('keeps a whole act index, at most the last act', () => {
+    expect(sanitizeSave({ skipTo: 2 }, now).skipTo).toBe(2);
+    expect(sanitizeSave({ skipTo: 2.7 }, now).skipTo).toBe(2);
+    expect(sanitizeSave({ skipTo: 9 }, now).skipTo).toBe(3);
+  });
+
+  it('merges to the furthest act', () => {
+    const base = createEmptySave(now);
+    expect(mergeSaves({ ...base, skipTo: 1 }, { ...base, skipTo: 3 }).skipTo).toBe(3);
+    expect(mergeSaves({ ...base, skipTo: 2 }, base).skipTo).toBe(2);
+    expect(mergeSaves(base, base).skipTo).toBeUndefined();
+  });
+});

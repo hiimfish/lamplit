@@ -6,7 +6,7 @@ import { getItem, type ItemInfo } from '../content/units';
 import { appStore } from '../core/appState';
 import { devUnlockAll, settingsStore } from '../core/settings';
 import { useStore } from '../core/store';
-import { nextStop, openUnits } from '../learning/townPlan';
+import { nextStop, playOrder } from '../learning/townPlan';
 import { En } from './En';
 import './flow.css';
 import { clipsOf } from './IntroCards';
@@ -34,7 +34,7 @@ export function ResultScreen() {
   // 下一關 after a task: the next new task, found as the town's 下一關 finds it.
   const stop =
     result?.kind === 'task'
-      ? nextStop(save, openUnits(TOWN, save, openAll), result.unitId)
+      ? nextStop(save, playOrder(TOWN, save, openAll), result.unitId)
       : undefined;
   const nextTask = stop?.unit.tasks[stop.index];
   const playNext =

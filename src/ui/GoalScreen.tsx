@@ -28,7 +28,7 @@ import {
 } from '../learning/sprint';
 import './flow.css';
 import './goal.css';
-import { nextStop, openUnits } from '../learning/townPlan';
+import { nextStop, playOrder } from '../learning/townPlan';
 import { useKeys } from './keys';
 import { KeyCap } from './KeyCap';
 import { TOWN } from './TownScreen';
@@ -142,7 +142,7 @@ export function GoalScreen() {
     commitSave(extend ? extendSprint(latest, currentNow()) : declineExtend(latest, currentNow()));
   };
   // The story task 下一關 would open: the next new task among the open acts.
-  const stop = nextStop(save, openUnits(TOWN, save, openAll), activeTask?.unitId);
+  const stop = nextStop(save, playOrder(TOWN, save, openAll), activeTask?.unitId);
   const stopTask = stop?.unit.tasks[stop.index];
   const playStory = () => {
     if (!stop || !stopTask) return;
@@ -292,7 +292,9 @@ export function GoalScreen() {
               onClick={playStory}
               data-testid="goal-story"
             >
-              {Object.keys(save.tasks).length > 0 ? '下一關' : '開始第一關'}
+              {Object.keys(save.tasks).length > 0 || (save.skipTo ?? 0) > 0
+                ? '下一關'
+                : '開始第一關'}
             </button>
           </GoalRow>
           <GoalRow

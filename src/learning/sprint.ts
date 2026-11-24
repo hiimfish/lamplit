@@ -98,15 +98,20 @@ const played = (save: SaveData, unit: WordUnit): boolean =>
 /**
  * The places 快練 may teach from: the furthest place (in play order, open acts only)
  * the player has played a task in (the first place on a new save), and the next
- * place when it is in the same act.
+ * place when it is in the same act. After a 跳級考 only the acts from `save.skipTo` on
+ * count, starting at the first place of that act.
  */
 export function sprintWindow<U extends WordUnit>(town: readonly TownAct<U>[], save: SaveData): U[] {
   const open = town.flatMap((act, index) =>
     isActUnlocked(town, save, index) ? actUnits(act).map((unit) => ({ unit, act: index })) : [],
   );
-  let current = 0;
+  const from = save.skipTo ?? 0;
+  let current = Math.max(
+    0,
+    open.findIndex((entry) => entry.act >= from),
+  );
   open.forEach((entry, i) => {
-    if (played(save, entry.unit)) current = i;
+    if (entry.act >= from && played(save, entry.unit)) current = i;
   });
   const here = open[current];
   if (!here) return [];

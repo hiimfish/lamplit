@@ -7,13 +7,14 @@ import { taskKey } from '../src/learning/sessionPlan';
 import {
   actUnits,
   buildTown,
+  continueTarget,
   defaultAct,
   firstNewTask,
   isActUnlocked,
   isPlaceUnlocked,
   nextStep,
   nextStop,
-  openUnits,
+  playOrder,
   progressOf,
 } from '../src/learning/townPlan';
 
@@ -211,8 +212,8 @@ describe('isActUnlocked', () => {
   });
 
   it('lists only the units of open acts', () => {
-    expect(openUnits(town, createEmptySave(now)).map((u) => u.id)).toEqual(['a', 'b']);
-    expect(openUnits(town, createEmptySave(now), true).map((u) => u.id)).toEqual(['a', 'b', 'c']);
+    expect(playOrder(town, createEmptySave(now)).map((u) => u.id)).toEqual(['a', 'b']);
+    expect(playOrder(town, createEmptySave(now), true).map((u) => u.id)).toEqual(['a', 'b', 'c']);
   });
 
   it('locks every later act of the real town on a new save', () => {
@@ -252,5 +253,43 @@ describe('isPlaceUnlocked', () => {
   it('opens everything with the dev switch, and nothing for a unit not in the act', () => {
     expect(isPlaceUnlocked(town, createEmptySave(now), 0, b, true)).toBe(true);
     expect(isPlaceUnlocked(town, createEmptySave(now), 0, c)).toBe(false);
+  });
+});
+
+describe('跳級考 (save.skipTo)', () => {
+  const town = buildTown(acts, [unit('a', 1), unit('b', 1), unit('c', 2)]);
+  const skipped = (base = createEmptySave(now)): SaveData => ({ ...base, skipTo: 1 });
+
+  it('opens the acts up to skipTo with nothing played', () => {
+    expect(isActUnlocked(town, skipped(), 1)).toBe(true);
+    const [c] = actUnits(town[1]!);
+    expect(isPlaceUnlocked(town, skipped(), 1, c!)).toBe(true);
+  });
+
+  it('puts the acts it skipped after the ones it opened', () => {
+    expect(playOrder(town, skipped()).map((u) => u.id)).toEqual(['c', 'a', 'b']);
+  });
+
+  it('opens the town on the act it skipped to', () => {
+    expect(defaultAct(town, skipped())).toBe(1);
+  });
+
+  it('continues from the first new task, in the act it skipped to', () => {
+    const target = continueTarget(town, skipped(played({ 'c/t1': 2 })));
+    expect(target && { act: target.act, unit: target.unit.id, index: target.index }).toEqual({
+      act: 1,
+      unit: 'c',
+      index: 1,
+    });
+  });
+
+  it('goes back to the skipped acts once everything ahead was played', () => {
+    expect(continueTarget(town, skipped(played({ 'c/t1': 1, 'c/t2': 1 })))?.unit.id).toBe('a');
+  });
+
+  it('starts at the first task on a new save, and is undefined once everything was played', () => {
+    expect(continueTarget(town, createEmptySave(now))?.unit.id).toBe('a');
+    const all = played({ 'a/t1': 1, 'b/t1': 1, 'c/t1': 1, 'c/t2': 1 });
+    expect(continueTarget(town, all)).toBeUndefined();
   });
 });

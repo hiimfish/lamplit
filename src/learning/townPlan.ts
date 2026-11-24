@@ -138,7 +138,8 @@ export function nextStep<U extends UnitLike>(
  * Whether an act's locations can be played: the first act always; a later one once
  * every task of the act before it was played at least once (any score). An act the
  * player already has a task record in stays open, so an older save is never locked
- * out of where it was. `openAll` (the dev switch) opens everything.
+ * out of where it was. Acts up to `save.skipTo` (opened by a 跳級考) are open too.
+ * `openAll` (the dev switch) opens everything.
  */
 export function isActUnlocked<U extends UnitLike>(
   town: readonly TownAct<U>[],
@@ -146,7 +147,7 @@ export function isActUnlocked<U extends UnitLike>(
   index: number,
   openAll = false,
 ): boolean {
-  if (openAll || index <= 0) return true;
+  if (openAll || index <= 0 || index <= (save.skipTo ?? 0)) return true;
   const act = town[index];
   const before = town[index - 1];
   if (!act || !before) return false;
@@ -179,15 +180,32 @@ export function isPlaceUnlocked<U extends UnitLike>(
   return before !== undefined && firstNewTask(save, before) === -1;
 }
 
-/** The playable units of every act that is open, in play order. */
-export function openUnits<U extends UnitLike>(
+/**
+ * The open units in the order 下一關 should try them: acts from the one a 跳級考 opened
+ * onward first, then the acts it skipped (still open, to go back to later).
+ */
+export function playOrder<U extends UnitLike>(
   town: readonly TownAct<U>[],
   save: SaveData,
   openAll = false,
 ): U[] {
-  return town.flatMap((act, index) =>
-    isActUnlocked(town, save, index, openAll) ? actUnits(act) : [],
-  );
+  const from = save.skipTo ?? 0;
+  const open = (index: number) => isActUnlocked(town, save, index, openAll);
+  const ahead = town.flatMap((act, index) => (index >= from && open(index) ? actUnits(act) : []));
+  const skipped = town.flatMap((act, index) => (index < from && open(index) ? actUnits(act) : []));
+  return [...ahead, ...skipped];
+}
+
+/** Where 繼續 on the title screen goes: the next new task, with the act it is in. */
+export function continueTarget<U extends UnitLike>(
+  town: readonly TownAct<U>[],
+  save: SaveData,
+  lastUnitId?: string,
+  openAll = false,
+): { act: number; unit: U; index: number } | undefined {
+  const stop = nextStop(save, playOrder(town, save, openAll), lastUnitId);
+  if (!stop) return undefined;
+  return { act: town.findIndex((act) => actUnits(act).includes(stop.unit)), ...stop };
 }
 
 /**
@@ -200,8 +218,8 @@ export function defaultAct<U extends UnitLike>(
   lastUnitId?: string,
   openAll = false,
 ): number {
-  const next = nextStop(save, openUnits(town, save, openAll), lastUnitId);
-  if (next) return town.findIndex((act) => actUnits(act).includes(next.unit));
+  const next = continueTarget(town, save, lastUnitId, openAll);
+  if (next) return next.act;
   for (let i = lastPlayableAct(town); i > 0; i--) {
     if (isActUnlocked(town, save, i, openAll)) return i;
   }

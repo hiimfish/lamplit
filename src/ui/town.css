@@ -171,6 +171,18 @@
   border-style: dashed;
 }
 
+/* A locked act: why, and the 跳級考 key that opens it now. */
+.act-locked {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--px);
+}
+
+.act-locked .flow-note {
+  margin: 0;
+}
+
 /* Locations of the act: two columns of boxed keys, name over progress. */
 .place-grid {
   display: grid;

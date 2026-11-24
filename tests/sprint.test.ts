@@ -212,6 +212,14 @@ describe('sprintWindow', () => {
     expect(sprintWindow(town, saveWith(act1)).map((u) => u.id)).toEqual(['b']);
     expect(sprintWindow(town, saveWith([...act1, 'c/t1'])).map((u) => u.id)).toEqual(['c']);
   });
+  it('starts at the act a 跳級考 opened, ignoring places played in the acts it skipped', () => {
+    expect(sprintWindow(town, { ...createEmptySave(now), skipTo: 1 }).map((u) => u.id)).toEqual([
+      'c',
+    ]);
+    expect(sprintWindow(town, { ...saveWith(['b/t1']), skipTo: 1 }).map((u) => u.id)).toEqual([
+      'c',
+    ]);
+  });
 });
 
 describe('sprintCandidates and sprintPlan', () => {

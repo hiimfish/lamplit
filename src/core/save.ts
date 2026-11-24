@@ -164,6 +164,11 @@ export interface SaveData {
   examRun?: ExamRun;
   /** 文法快練: each bank item answered, by item id (unset until the first answer). */
   grammarSeen?: Record<string, GrammarSeen>;
+  /**
+   * 跳級考: the index of the furthest act opened by passing a short exam (1 opens act 2);
+   * unset when none was passed. Acts up to it are open whatever tasks were played.
+   */
+  skipTo?: number;
 }
 
 /** One 文法快練 item: when it was last answered (ms) and whether that answer was wrong. */
@@ -235,6 +240,9 @@ function emptyDaily(now: Date): DailyCounters {
     grammar: 0,
   };
 }
+
+/** The highest skipTo: the last act (index 3) is the furthest a 跳級考 can open. */
+const SKIP_MAX = 3;
 
 export function createEmptySave(now: Date): SaveData {
   return {
@@ -448,6 +456,8 @@ export function sanitizeSave(raw: unknown, now: Date): SaveData {
   if (examRun) save.examRun = examRun;
   const grammarSeen = sanitizeGrammarSeen(raw.grammarSeen, now);
   if (grammarSeen) save.grammarSeen = grammarSeen;
+  const skipTo = whole(raw.skipTo);
+  if (skipTo > 0) save.skipTo = Math.min(SKIP_MAX, skipTo);
   if (Array.isArray(raw.checkpoints)) {
     save.checkpoints = sortCheckpoints(raw.checkpoints.filter(isCheckpoint));
   }
@@ -621,6 +631,9 @@ export function mergeSaves(ours: SaveData, theirs: SaveData): SaveData {
   const grammarSeen = mergeGrammarSeen(ours.grammarSeen, theirs.grammarSeen);
   if (grammarSeen) merged.grammarSeen = grammarSeen;
   else delete merged.grammarSeen;
+  const skipTo = Math.max(ours.skipTo ?? 0, theirs.skipTo ?? 0);
+  if (skipTo > 0) merged.skipTo = skipTo;
+  else delete merged.skipTo;
   return merged;
 }
 

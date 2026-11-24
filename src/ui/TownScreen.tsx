@@ -12,6 +12,7 @@ import { useStore } from '../core/store';
 import { goalStatus } from '../learning/dailyGoal';
 import { isExamUnlocked } from '../learning/exam';
 import { grammarOn } from '../learning/grammarOn';
+import { isSkipAct } from '../learning/skipExam';
 import { buildDailyReview, isTaskUnlocked, taskKey } from '../learning/sessionPlan';
 import { reviewLimit } from '../learning/sprint';
 import {
@@ -124,7 +125,7 @@ function NamePlate({
           {units.length === 0
             ? '即將開幕'
             : locked
-              ? `玩完第${locked.no}幕就會打開`
+              ? `玩完第${locked.no}幕或考過跳級考就會打開`
               : next
                 ? `下一關：${next.unit.title}・${next.task.title}`
                 : examDue
@@ -334,6 +335,10 @@ export function TownScreen() {
     playSfx('click');
     appStore.set({ screen: 'exam', activeExam: actNo, result: undefined });
   };
+  const startSkip = (act: number) => {
+    playSfx('click');
+    appStore.set({ screen: 'skip', activeSkip: act, result: undefined });
+  };
   const startReview = () => {
     playSfx('click');
     appStore.set({ screen: 'review', result: undefined });
@@ -386,7 +391,7 @@ export function TownScreen() {
         {/* The plate says 下一步; the key keeps to one line beside 今日複習. */}
         {examDue
           ? `第${act.no}幕結業考`
-          : Object.keys(save.tasks).length > 0
+          : Object.keys(save.tasks).length > 0 || (save.skipTo ?? 0) > 0
             ? '下一關'
             : '開始第一關'}
         <KeyCap k="Enter" />
@@ -496,10 +501,25 @@ export function TownScreen() {
               <p class="flow-note">這一幕還在準備中，下面是之後會開的地點。</p>
             )}
             {units.length > 0 && before && beforeProgress && (
-              <p class="flow-note" data-testid="act-locked">
-                <LockMark />
-                先玩完第{before.no}幕（{beforeProgress.done}／{beforeProgress.total}）才能進這一幕。
-              </p>
+              <div class="act-locked" data-testid="act-locked">
+                <p class="flow-note">
+                  <LockMark />
+                  先玩完第{before.no}幕（{beforeProgress.done}／{beforeProgress.total}
+                  ）才能進這一幕。
+                </p>
+                {isSkipAct(actIndex) && (
+                  <>
+                    <p class="flow-note">已經有基礎？考過第{before.no}幕跳級考就能直接進來。</p>
+                    <button
+                      class="pixel-button"
+                      onClick={() => startSkip(actIndex)}
+                      data-testid="skip-challenge"
+                    >
+                      挑戰第{before.no}幕跳級考
+                    </button>
+                  </>
+                )}
+              </div>
             )}
             <div class="place-grid">
               {act.places.map((item, index) => (
