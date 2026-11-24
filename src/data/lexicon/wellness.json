@@ -1,1 +1,537 @@
-{}
+{
+  "suffer": {
+    "pos": "other",
+    "skip": true
+  },
+  "pain": {
+    "pos": "other",
+    "skip": true
+  },
+  "physical": {
+    "pos": "other",
+    "skip": true
+  },
+  "headache": {
+    "pos": "other",
+    "skip": true
+  },
+  "fatigue": {
+    "pos": "other",
+    "skip": true
+  },
+  "severe": {
+    "pos": "other",
+    "skip": true
+  },
+  "symptom": {
+    "pos": "other",
+    "skip": true
+  },
+  "optional": {
+    "pos": "other",
+    "skip": true
+  },
+  "allergy": {
+    "pos": "other",
+    "skip": true
+  },
+  "consultation": {
+    "pos": "other",
+    "skip": true
+  },
+  "habit": {
+    "pos": "other",
+    "skip": true
+  },
+  "regular": {
+    "pos": "other",
+    "skip": true
+  },
+  "diet": {
+    "pos": "other",
+    "skip": true
+  },
+  "tough": {
+    "pos": "other",
+    "skip": true
+  },
+  "cope": {
+    "pos": "other",
+    "skip": true
+  },
+  "leisure": {
+    "pos": "other",
+    "skip": true
+  },
+  "lifestyle": {
+    "pos": "other",
+    "skip": true
+  },
+  "consistently": {
+    "pos": "other",
+    "skip": true
+  },
+  "pension": {
+    "pos": "other",
+    "skip": true
+  },
+  "retirement": {
+    "pos": "other",
+    "skip": true
+  },
+  "coverage": {
+    "pos": "other",
+    "skip": true
+  },
+  "prescription": {
+    "pos": "other",
+    "skip": true
+  },
+  "dental": {
+    "pos": "other",
+    "skip": true
+  },
+  "voluntary": {
+    "pos": "other",
+    "skip": true
+  },
+  "compensation": {
+    "pos": "other",
+    "skip": true
+  },
+  "administer": {
+    "pos": "other",
+    "skip": true
+  },
+  "exclusively": {
+    "pos": "other",
+    "skip": true
+  },
+  "aid": {
+    "pos": "other",
+    "skip": true
+  },
+  "injury": {
+    "pos": "other",
+    "skip": true
+  },
+  "illness": {
+    "pos": "other",
+    "skip": true
+  },
+  "mental": {
+    "pos": "other",
+    "skip": true
+  },
+  "morale": {
+    "pos": "other",
+    "skip": true
+  },
+  "hotline": {
+    "pos": "other",
+    "skip": true
+  },
+  "unpaid": {
+    "pos": "other",
+    "skip": true
+  },
+  "flextime": {
+    "pos": "other",
+    "skip": true
+  },
+  "partial": {
+    "pos": "other",
+    "skip": true
+  },
+  "separately": {
+    "pos": "other",
+    "skip": true
+  },
+  "wellness": {
+    "pos": "other",
+    "skip": true
+  },
+  "fitness": {
+    "pos": "other",
+    "skip": true
+  },
+  "yoga": {
+    "pos": "other",
+    "skip": true
+  },
+  "massage": {
+    "pos": "other",
+    "skip": true
+  },
+  "relaxation": {
+    "pos": "other",
+    "skip": true
+  },
+  "recreational": {
+    "pos": "other",
+    "skip": true
+  },
+  "membership": {
+    "pos": "other",
+    "skip": true
+  },
+  "beneficial": {
+    "pos": "other",
+    "skip": true
+  },
+  "emotional": {
+    "pos": "other",
+    "skip": true
+  },
+  "anxiety": {
+    "pos": "other",
+    "skip": true
+  },
+  "intense": {
+    "pos": "other",
+    "skip": true
+  },
+  "burden": {
+    "pos": "other",
+    "skip": true
+  },
+  "mood": {
+    "pos": "other",
+    "skip": true
+  },
+  "relieve": {
+    "pos": "other",
+    "skip": true
+  },
+  "periodically": {
+    "pos": "other",
+    "skip": true
+  },
+  "distraction": {
+    "pos": "other",
+    "skip": true
+  },
+  "accuracy": {
+    "pos": "other",
+    "skip": true
+  },
+  "flexibility": {
+    "pos": "other",
+    "skip": true
+  },
+  "partially": {
+    "pos": "other",
+    "skip": true
+  },
+  "occurrence": {
+    "pos": "other",
+    "skip": true
+  },
+  "refresh": {
+    "pos": "other",
+    "skip": true
+  },
+  "harm": {
+    "pos": "other",
+    "skip": true
+  },
+  "healthcare": {
+    "pos": "other",
+    "skip": true
+  },
+  "healthy": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role", "food"]
+      }
+    ]
+  },
+  "ill": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      }
+    ]
+  },
+  "virus": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "viruses"
+    }
+  },
+  "shoulder": {
+    "pos": "n",
+    "cls": "body",
+    "forms": {
+      "pl": "shoulders"
+    }
+  },
+  "neck": {
+    "pos": "n",
+    "cls": "body",
+    "forms": {
+      "pl": "necks"
+    }
+  },
+  "medical": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["document", "place"]
+      }
+    ]
+  },
+  "heart": {
+    "pos": "n",
+    "cls": "body",
+    "forms": {
+      "pl": "hearts"
+    }
+  },
+  "blood": {
+    "pos": "n",
+    "cls": "body",
+    "countable": false
+  },
+  "clinic": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "clinics"
+    }
+  },
+  "physician": {
+    "pos": "n",
+    "cls": "role",
+    "forms": {
+      "pl": "physicians"
+    }
+  },
+  "checkup": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "checkups"
+    }
+  },
+  "portion": {
+    "pos": "n",
+    "cls": "food",
+    "forms": {
+      "pl": "portions"
+    }
+  },
+  "commuter": {
+    "pos": "n",
+    "cls": "person",
+    "forms": {
+      "pl": "commuters"
+    }
+  },
+  "harmful": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["food", "object"]
+      }
+    ]
+  },
+  "insure": {
+    "pos": "v",
+    "forms": {
+      "s3": "insures",
+      "past": "insured",
+      "pp": "insured",
+      "ing": "insuring"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["vehicle", "object"]
+      }
+    ]
+  },
+  "comprehensive": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["document"]
+      }
+    ]
+  },
+  "spouse": {
+    "pos": "n",
+    "cls": "person",
+    "forms": {
+      "pl": "spouses"
+    }
+  },
+  "active": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      }
+    ]
+  },
+  "locker": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "lockers"
+    }
+  },
+  "enjoyable": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["event", "place"]
+      }
+    ]
+  },
+  "supplement": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "supplements"
+    }
+  },
+  "tidy": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["room", "place", "object"]
+      }
+    ]
+  },
+  "athletic": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      }
+    ]
+  },
+  "timer": {
+    "pos": "n",
+    "cls": "device",
+    "forms": {
+      "pl": "timers"
+    }
+  },
+  "recover": {
+    "pos": "v",
+    "forms": {
+      "s3": "recovers",
+      "past": "recovered",
+      "pp": "recovered",
+      "ing": "recovering"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      }
+    ]
+  },
+  "careless": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      }
+    ]
+  },
+  "uncomfortable": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      }
+    ]
+  },
+  "considerate": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      }
+    ]
+  },
+  "exhausted": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["person", "role"]
+      }
+    ]
+  },
+  "lines": {
+    "t1_1": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t1_2": {
+      "side": "answer",
+      "atype": "statement"
+    },
+    "t2_3": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t2_4": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t2_6": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t2_7": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t4_6": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t4_7": {
+      "side": "answer",
+      "atype": "statement"
+    },
+    "t5_2": {
+      "side": "question",
+      "qtype": "how-many"
+    },
+    "t5_3": {
+      "side": "answer",
+      "atype": "quantity"
+    },
+    "t5_5": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t5_6": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t6_6": {
+      "side": "question",
+      "qtype": "offer"
+    },
+    "t6_7": {
+      "side": "answer",
+      "atype": "decline"
+    },
+    "t8_2": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t8_3": {
+      "side": "answer",
+      "atype": "yes-no"
+    }
+  }
+}
