@@ -1,1 +1,535 @@
-[]
+[
+  {
+    "id": "a2_q01",
+    "kind": "qa",
+    "en": "What must he finish?",
+    "grammarId": "have-to-must",
+    "responses": ["The family.", "Every Sunday.", "The email.", "At the school."],
+    "answer": 2
+  },
+  {
+    "id": "a2_q02",
+    "kind": "qa",
+    "en": "What must they renew?",
+    "grammarId": "have-to-must",
+    "responses": ["Many passports.", "At the school.", "The child.", "Every Sunday."],
+    "answer": 0
+  },
+  {
+    "id": "a2_q03",
+    "kind": "qa",
+    "en": "What do I sometimes cook?",
+    "grammarId": "frequency-adverbs",
+    "responses": ["At home.", "Some chicken.", "Every afternoon.", "The volunteer."],
+    "answer": 1
+  },
+  {
+    "id": "a2_q04",
+    "kind": "qa",
+    "en": "What does she sometimes read?",
+    "grammarId": "frequency-adverbs",
+    "responses": ["The manager.", "At the college.", "Every afternoon.", "Some newspapers."],
+    "answer": 3
+  },
+  {
+    "id": "a2_q05",
+    "kind": "qa",
+    "en": "What do I often print?",
+    "grammarId": "frequency-adverbs",
+    "responses": ["A postcard.", "At the center.", "Every Saturday.", "The classmate."],
+    "answer": 0
+  },
+  {
+    "id": "a2_q06",
+    "kind": "qa",
+    "en": "Who does he usually listen to?",
+    "grammarId": "frequency-adverbs",
+    "responses": ["At the school.", "Every week.", "To a teacher.", "The newspaper."],
+    "answer": 2
+  },
+  {
+    "id": "a2_q07",
+    "kind": "qa",
+    "en": "When did we clean some gardens?",
+    "grammarId": "past-did-didnt",
+    "responses": ["Last weekend.", "Some wine.", "At the pharmacy.", "The member."],
+    "answer": 0
+  },
+  {
+    "id": "a2_q08",
+    "kind": "qa",
+    "en": "When did she write many letters?",
+    "grammarId": "past-did-didnt",
+    "responses": ["The author.", "The clock.", "Last Sunday.", "At the company."],
+    "answer": 2
+  },
+  {
+    "id": "a2_q09",
+    "kind": "qa",
+    "en": "What should they print?",
+    "grammarId": "should",
+    "responses": ["The mother.", "Every Sunday.", "At the pharmacy.", "A cover letter."],
+    "answer": 3
+  },
+  {
+    "id": "a2_q10",
+    "kind": "qa",
+    "en": "Where have we stayed for two weeks?",
+    "grammarId": "present-perfect-for-since",
+    "responses": ["In the house.", "Every evening.", "The classmate.", "An umbrella."],
+    "answer": 0
+  },
+  {
+    "id": "a2_q11",
+    "kind": "qa",
+    "en": "What have they just printed?",
+    "grammarId": "present-perfect-just-already-yet",
+    "responses": ["A form.", "At the house.", "The father.", "Every Saturday."],
+    "answer": 0
+  },
+  {
+    "id": "a2_q12",
+    "kind": "qa",
+    "en": "What have I already received?",
+    "grammarId": "present-perfect-just-already-yet",
+    "responses": ["The doctor.", "Every afternoon.", "An email.", "At the school."],
+    "answer": 2
+  },
+  {
+    "id": "a2_q13",
+    "kind": "qa",
+    "en": "When will I clean some rooms?",
+    "grammarId": "will-wont",
+    "responses": ["At the pharmacy.", "The father.", "Next week.", "A salad."],
+    "answer": 2
+  },
+  {
+    "id": "a2_q14",
+    "kind": "qa",
+    "en": "When will they write the message?",
+    "grammarId": "will-wont",
+    "responses": ["The steak.", "The neighbor.", "At the school.", "Tomorrow evening."],
+    "answer": 3
+  },
+  {
+    "id": "a2_q15",
+    "kind": "qa",
+    "en": "When will you print the form?",
+    "grammarId": "will-wont",
+    "responses": ["The newspaper.", "The adult.", "Tomorrow afternoon.", "At the college."],
+    "answer": 2
+  },
+  {
+    "id": "a2_s01",
+    "kind": "statement",
+    "en": "He must finish a schedule.",
+    "grammarId": "have-to-must",
+    "blankWord": "schedule"
+  },
+  {
+    "id": "a2_s02",
+    "kind": "statement",
+    "en": "They must renew their certificate.",
+    "grammarId": "have-to-must",
+    "blankWord": "renew"
+  },
+  {
+    "id": "a2_s04",
+    "kind": "statement",
+    "en": "She often reads a newspaper.",
+    "grammarId": "frequency-adverbs",
+    "blankWord": "newspaper"
+  },
+  {
+    "id": "a2_s05",
+    "kind": "statement",
+    "en": "We sometimes print a letter.",
+    "grammarId": "frequency-adverbs",
+    "blankWord": "print"
+  },
+  {
+    "id": "a2_s06",
+    "kind": "statement",
+    "en": "We sometimes listen to a nurse.",
+    "grammarId": "frequency-adverbs",
+    "blankWord": "nurse"
+  },
+  {
+    "id": "a2_s07",
+    "kind": "statement",
+    "en": "We cleaned some rooms last week.",
+    "grammarId": "past-did-didnt",
+    "blankWord": "rooms"
+  },
+  {
+    "id": "a2_s08",
+    "kind": "statement",
+    "en": "She wrote a postcard last week.",
+    "grammarId": "past-did-didnt",
+    "blankWord": "wrote"
+  },
+  {
+    "id": "a2_s09",
+    "kind": "statement",
+    "en": "I should rewrite her cover letter.",
+    "grammarId": "should",
+    "blankWord": "rewrite"
+  },
+  {
+    "id": "a2_s10",
+    "kind": "statement",
+    "en": "I have stayed in the house since last week.",
+    "grammarId": "present-perfect-for-since",
+    "blankWord": "stayed"
+  },
+  {
+    "id": "a2_s11",
+    "kind": "statement",
+    "en": "We have just printed a schedule.",
+    "grammarId": "present-perfect-just-already-yet",
+    "blankWord": "printed"
+  },
+  {
+    "id": "a2_s12",
+    "kind": "statement",
+    "en": "I have already received the emails.",
+    "grammarId": "present-perfect-just-already-yet",
+    "blankWord": "emails"
+  },
+  {
+    "id": "a2_s13",
+    "kind": "statement",
+    "en": "She will clean many apartments next week.",
+    "grammarId": "will-wont",
+    "blankWord": "apartments"
+  },
+  {
+    "id": "a2_s14",
+    "kind": "statement",
+    "en": "I will write the messages tomorrow.",
+    "grammarId": "will-wont",
+    "blankWord": "write"
+  },
+  {
+    "id": "a2_s15",
+    "kind": "statement",
+    "en": "The cars are faster than the buses.",
+    "grammarId": "comparative",
+    "blankWord": "cars"
+  },
+  {
+    "id": "a2_s16",
+    "kind": "statement",
+    "en": "The box is cheaper than the umbrella.",
+    "grammarId": "comparative",
+    "blankWord": "box"
+  },
+  {
+    "id": "a2_s17",
+    "kind": "statement",
+    "en": "The doctors are happier than the nurses.",
+    "grammarId": "comparative",
+    "blankWord": "nurses"
+  },
+  {
+    "id": "a2_s18",
+    "kind": "statement",
+    "en": "We must finish our form.",
+    "grammarId": "have-to-must",
+    "blankWord": "finish"
+  },
+  {
+    "id": "a2_s19",
+    "kind": "statement",
+    "en": "He must renew a passport.",
+    "grammarId": "have-to-must",
+    "blankWord": "renew"
+  },
+  {
+    "id": "a2_s20",
+    "kind": "statement",
+    "en": "We sometimes eat rice.",
+    "grammarId": "frequency-adverbs",
+    "blankWord": "rice"
+  },
+  {
+    "id": "a2_s21",
+    "kind": "statement",
+    "en": "He often reads a magazine.",
+    "grammarId": "frequency-adverbs",
+    "blankWord": "magazine"
+  },
+  {
+    "id": "a2_s22",
+    "kind": "statement",
+    "en": "She never writes emails.",
+    "grammarId": "frequency-adverbs",
+    "blankWord": "emails"
+  },
+  {
+    "id": "a2_s23",
+    "kind": "statement",
+    "en": "He never listens to the doctor.",
+    "grammarId": "frequency-adverbs",
+    "blankWord": "listens"
+  },
+  {
+    "id": "a2_s24",
+    "kind": "statement",
+    "en": "We cleaned a garden last week.",
+    "grammarId": "past-did-didnt",
+    "blankWord": "cleaned"
+  },
+  {
+    "id": "a2_s25",
+    "kind": "statement",
+    "en": "We wrote a postcard yesterday.",
+    "grammarId": "past-did-didnt",
+    "blankWord": "wrote"
+  },
+  {
+    "id": "a2_s26",
+    "kind": "statement",
+    "en": "You should review my resume.",
+    "grammarId": "should",
+    "blankWord": "resume"
+  },
+  {
+    "id": "a2_s27",
+    "kind": "statement",
+    "en": "He has just prepared an application.",
+    "grammarId": "present-perfect-just-already-yet",
+    "blankWord": "application"
+  },
+  {
+    "id": "a2_s28",
+    "kind": "statement",
+    "en": "We have just received her emails.",
+    "grammarId": "present-perfect-just-already-yet",
+    "blankWord": "received"
+  },
+  {
+    "id": "a2_s29",
+    "kind": "statement",
+    "en": "She will cook fish next week.",
+    "grammarId": "will-wont",
+    "blankWord": "fish"
+  },
+  {
+    "id": "a2_s30",
+    "kind": "statement",
+    "en": "He will print the email tomorrow.",
+    "grammarId": "will-wont",
+    "blankWord": "print"
+  },
+  {
+    "id": "a2_s31",
+    "kind": "statement",
+    "en": "Your taxi is slower than the bus.",
+    "grammarId": "comparative",
+    "blankWord": "slower"
+  },
+  {
+    "id": "a2_s32",
+    "kind": "statement",
+    "en": "The bag is heavier than the umbrella.",
+    "grammarId": "comparative",
+    "blankWord": "bag"
+  },
+  {
+    "id": "a2_s33",
+    "kind": "statement",
+    "en": "The manager is busier than the doctor.",
+    "grammarId": "comparative",
+    "blankWord": "manager"
+  },
+  {
+    "id": "a2_s34",
+    "kind": "statement",
+    "en": "They must finish the resume.",
+    "grammarId": "have-to-must",
+    "blankWord": "resume"
+  },
+  {
+    "id": "a2_s35",
+    "kind": "statement",
+    "en": "You must renew the certificate.",
+    "grammarId": "have-to-must",
+    "blankWord": "renew"
+  },
+  {
+    "id": "a2_s36",
+    "kind": "statement",
+    "en": "We often cook at home.",
+    "grammarId": "frequency-adverbs",
+    "blankWord": "cook"
+  },
+  {
+    "id": "a2_s37",
+    "kind": "statement",
+    "en": "She sometimes reads the newspapers.",
+    "grammarId": "frequency-adverbs",
+    "blankWord": "newspapers"
+  },
+  {
+    "id": "a2_s38",
+    "kind": "statement",
+    "en": "She always prints her schedule.",
+    "grammarId": "frequency-adverbs",
+    "blankWord": "schedule"
+  },
+  {
+    "id": "a2_s39",
+    "kind": "statement",
+    "en": "They never wait for the taxi.",
+    "grammarId": "frequency-adverbs",
+    "blankWord": "wait"
+  },
+  {
+    "id": "a2_s40",
+    "kind": "statement",
+    "en": "She cleaned a garden yesterday.",
+    "grammarId": "past-did-didnt",
+    "blankWord": "garden"
+  },
+  {
+    "id": "a2_s41",
+    "kind": "statement",
+    "en": "He printed a postcard last week.",
+    "grammarId": "past-did-didnt",
+    "blankWord": "postcard"
+  },
+  {
+    "id": "a2_s42",
+    "kind": "statement",
+    "en": "She should print a cover letter.",
+    "grammarId": "should",
+    "blankWord": "print"
+  },
+  {
+    "id": "a2_s43",
+    "kind": "statement",
+    "en": "We have stayed in the house since last week.",
+    "grammarId": "present-perfect-for-since",
+    "blankWord": "house"
+  },
+  {
+    "id": "a2_s44",
+    "kind": "statement",
+    "en": "They have already finished the schedule.",
+    "grammarId": "present-perfect-just-already-yet",
+    "blankWord": "schedule"
+  },
+  {
+    "id": "a2_s45",
+    "kind": "statement",
+    "en": "They have already written an email.",
+    "grammarId": "present-perfect-just-already-yet",
+    "blankWord": "written"
+  },
+  {
+    "id": "a2_s46",
+    "kind": "statement",
+    "en": "She will clean the garden tomorrow.",
+    "grammarId": "will-wont",
+    "blankWord": "garden"
+  },
+  {
+    "id": "a2_s47",
+    "kind": "statement",
+    "en": "She will review our message tomorrow.",
+    "grammarId": "will-wont",
+    "blankWord": "message"
+  },
+  {
+    "id": "a2_s48",
+    "kind": "statement",
+    "en": "The taxis are faster than the buses.",
+    "grammarId": "comparative",
+    "blankWord": "faster"
+  },
+  {
+    "id": "a2_s49",
+    "kind": "statement",
+    "en": "The bag is cheaper than our box.",
+    "grammarId": "comparative",
+    "blankWord": "box"
+  },
+  {
+    "id": "a2_s50",
+    "kind": "statement",
+    "en": "The nurses are busier than the doctors.",
+    "grammarId": "comparative",
+    "blankWord": "doctors"
+  },
+  {
+    "id": "a2_s51",
+    "kind": "statement",
+    "en": "They must print the application.",
+    "grammarId": "have-to-must",
+    "blankWord": "application"
+  },
+  {
+    "id": "a2_s52",
+    "kind": "statement",
+    "en": "She must renew her certificate.",
+    "grammarId": "have-to-must",
+    "blankWord": "renew"
+  },
+  {
+    "id": "a2_s53",
+    "kind": "statement",
+    "en": "We usually eat meat.",
+    "grammarId": "frequency-adverbs",
+    "blankWord": "meat"
+  },
+  {
+    "id": "a2_s54",
+    "kind": "statement",
+    "en": "She often reads the newspapers.",
+    "grammarId": "frequency-adverbs",
+    "blankWord": "reads"
+  },
+  {
+    "id": "a2_s55",
+    "kind": "statement",
+    "en": "She often prints a postcard.",
+    "grammarId": "frequency-adverbs",
+    "blankWord": "prints"
+  },
+  {
+    "id": "a2_s56",
+    "kind": "statement",
+    "en": "We usually listen to the counselor.",
+    "grammarId": "frequency-adverbs",
+    "blankWord": "counselor"
+  },
+  {
+    "id": "a2_s57",
+    "kind": "statement",
+    "en": "We cleaned a room yesterday.",
+    "grammarId": "past-did-didnt",
+    "blankWord": "cleaned"
+  },
+  {
+    "id": "a2_s58",
+    "kind": "statement",
+    "en": "She printed some messages last week.",
+    "grammarId": "past-did-didnt",
+    "blankWord": "messages"
+  },
+  {
+    "id": "a2_s59",
+    "kind": "statement",
+    "en": "They should rewrite some letters.",
+    "grammarId": "should",
+    "blankWord": "letters"
+  },
+  {
+    "id": "a2_s60",
+    "kind": "statement",
+    "en": "He has stayed in an apartment for two weeks.",
+    "grammarId": "present-perfect-for-since",
+    "blankWord": "stayed"
+  }
+]
