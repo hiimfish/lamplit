@@ -1,5 +1,151 @@
 {
   "exam": "exam3",
   "section": "s3",
-  "draft": true
+  "textFills": [
+    {
+      "id": "s3_f1",
+      "form": "A",
+      "kind": "notice",
+      "title": "Schedule change",
+      "lines": [
+        "To all staff,",
+        "The Tuesday meeting ___ to Thursday.",
+        "Everyone ___ planned to come should still come.",
+        "Please send your questions to Ms. Reed ___ Wednesday."
+      ],
+      "zh": [
+        "各位同仁：",
+        "星期二的會議已經改到星期四。",
+        "原本打算參加的人還是請來。",
+        "請在星期三以前把問題寄給 Ms. Reed。"
+      ],
+      "blanks": [
+        {
+          "options": ["has been moved", "have been moved", "has been moving", "has move"],
+          "answer": 0,
+          "note": "會議是被改期，要用被動式，主詞 meeting 是單數。"
+        },
+        {
+          "options": ["which", "who", "whose", "where"],
+          "answer": 1,
+          "note": "指人的關係子句用 who。"
+        },
+        {
+          "options": ["during", "since", "by", "within"],
+          "answer": 2,
+          "note": "「在星期三以前」用 by。"
+        }
+      ]
+    },
+    {
+      "id": "s3_f2",
+      "form": "A",
+      "kind": "email",
+      "title": "Your order",
+      "lines": [
+        "Dear Mr. Hughes,",
+        "Thank you for your order. We ___ your payment yesterday.",
+        "Your boxes will arrive ___ three days.",
+        "___",
+        "Sincerely, Ms. Carter"
+      ],
+      "zh": [
+        "Hughes 先生您好：",
+        "謝謝您的訂購。我們昨天收到了您的款項。",
+        "您的箱子會在三天內送到。",
+        "如果您的訂單有任何問題，請打電話給我。",
+        "誠摯地，Ms. Carter"
+      ],
+      "blanks": [
+        {
+          "options": ["receive", "receives", "receiving", "received"],
+          "answer": 3,
+          "note": "有 yesterday，要用過去式。"
+        },
+        {
+          "options": ["within", "since", "until", "at"],
+          "answer": 0,
+          "note": "「三天內」用 within。"
+        },
+        {
+          "options": [
+            "The hotel room I booked was very small.",
+            "Please call me if there is a problem with your order.",
+            "Most of the staff were at the trade fair.",
+            "Our lunch is provided every Friday."
+          ],
+          "answer": 1,
+          "note": "這封信在講訂單，只有這句接得上。"
+        }
+      ]
+    },
+    {
+      "id": "s3_f3",
+      "form": "B",
+      "kind": "email",
+      "title": "Your booking",
+      "lines": [
+        "Dear Ms. Lin,",
+        "We tried to call you while you ___ the booking form.",
+        "Please call us ___ you arrive at the hotel.",
+        "Please read our hotel rules ___."
+      ],
+      "zh": [
+        "Lin 女士您好：",
+        "您填寫訂房表格的時候，我們試著打電話給您。",
+        "您一到飯店，請打電話給我們。",
+        "請仔細閱讀我們的飯店規定。"
+      ],
+      "blanks": [
+        {
+          "options": ["was filling", "are filled", "filling", "were filling"],
+          "answer": 3,
+          "note": "while 加過去進行式，主詞 you 用 were。"
+        },
+        {
+          "options": ["during", "until", "as soon as", "unless"],
+          "answer": 2,
+          "note": "「一到就打電話」用 as soon as。"
+        },
+        {
+          "options": ["carefully", "careful", "care", "caring"],
+          "answer": 0,
+          "note": "修飾動詞 read 要用副詞 carefully。"
+        }
+      ]
+    },
+    {
+      "id": "s3_f4",
+      "form": "B",
+      "kind": "notice",
+      "title": "Trade fair information",
+      "lines": [
+        "The fair is open ___ the weekend, from ten to six.",
+        "If you ___ early, you will get a free bag.",
+        "Many companies show their new ___ at the fair."
+      ],
+      "zh": [
+        "展覽在週末期間開放，從十點到六點。",
+        "如果您早點來，就能拿到一個免費的袋子。",
+        "很多公司在展覽上展示他們的新產品。"
+      ],
+      "blanks": [
+        {
+          "options": ["by", "within", "during", "since"],
+          "answer": 2,
+          "note": "「在週末期間」用 during。"
+        },
+        {
+          "options": ["came", "will come", "coming", "come"],
+          "answer": 3,
+          "note": "if 子句用現在式，不加 will。"
+        },
+        {
+          "options": ["produce", "products", "produced", "producing"],
+          "answer": 1,
+          "note": "their new 後面接名詞，複數 products。"
+        }
+      ]
+    }
+  ]
 }
