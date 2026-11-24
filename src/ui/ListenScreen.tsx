@@ -11,7 +11,7 @@ import {
 import { playSfx } from '../audio/sfx';
 import type { Task, Unit } from '../content/types';
 import { lineAudioId, speakerOf } from '../content/units';
-import { appStore, commitSave, currentNow, goalBack } from '../core/appState';
+import { appStore, commitSave, currentNow } from '../core/appState';
 import { dailyFor } from '../core/save';
 import { useStore } from '../core/store';
 import { finishListen, listenGoal, pickListenTask } from '../learning/listen';
@@ -204,7 +204,7 @@ export function ListenScreen() {
   };
   const toGoal = () => {
     playSfx('click');
-    appStore.set({ screen: goalBack().screen });
+    appStore.set({ screen: 'town' });
   };
 
   const confirming = snap.phase === 'confirm';
@@ -234,7 +234,7 @@ export function ListenScreen() {
           <p class="flow-note">先玩一關劇情，才有可以重聽的故事。</p>
           <div class="flow-actions">
             <button class="pixel-button primary" onClick={toGoal} data-testid="listen-back">
-              {goalBack().label}
+              回小鎮
               <KeyCap k="Enter" />
             </button>
           </div>
@@ -299,7 +299,7 @@ export function ListenScreen() {
                 再聽一段
               </button>
               <button class="pixel-button primary" onClick={toGoal} data-testid="listen-goal">
-                {goalBack().label}
+                回小鎮
                 <KeyCap k="Enter" />
               </button>
             </div>

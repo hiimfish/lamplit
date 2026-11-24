@@ -1,20 +1,7 @@
 /*
- * 每日目標 (GoalScreen.tsx): the route as two keys in one row (the chosen one is lamp,
- * aria-checked), then one paper box per block of the day. A met block gets a ✓ before
- * its name and a solid ink rim: shape, never colour alone.
+ * 今天的目標 (GoalRows.tsx, in the town): one paper box per block of the day. A met block
+ * gets a ✓ before its name and a solid ink rim: shape, never colour alone.
  */
-.route-tabs {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: calc(2 * var(--px));
-}
-
-.pixel-button.route-tab {
-  min-width: 0;
-  min-height: var(--tap);
-  white-space: nowrap;
-}
-
 .goal-rows {
   display: grid;
   gap: calc(3 * var(--px));
@@ -103,10 +90,6 @@
   min-width: 0;
 }
 
-.goal-all {
-  margin: 0;
-}
-
 /* Sideways the screen is short: tighter rows and keys. */
 :root[data-orientation='landscape'] .goal-rows {
   gap: calc(2 * var(--px));
@@ -117,10 +100,4 @@
   min-height: 0;
   padding-top: var(--px);
   padding-bottom: var(--px);
-}
-
-:root[data-orientation='landscape'] .goal .pixel-button {
-  min-height: calc(18 * var(--px));
-  padding-top: 0;
-  padding-bottom: 0;
 }

@@ -24,7 +24,7 @@
   margin: 0;
 }
 
-/* Phone upright, under the scene: 再聽一段 and 回每日目標 sit wide along the bottom, like 下一句. */
+/* Phone upright, under the scene: 再聽一段 and 回小鎮 sit wide along the bottom, like 下一句. */
 :root[data-orientation='portrait'] .flow.has-stage .flow-card > .listen-done {
   flex-grow: 1;
 }

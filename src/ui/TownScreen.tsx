@@ -421,7 +421,7 @@ export function TownScreen() {
         今天的目標
         <span class="goal-tally">{goal.all ? '✓ 都完成了' : `${goal.met}/${goal.total}`}</span>
       </h2>
-      <GoalRows story={storyStep} from="town" />
+      <GoalRows story={storyStep} />
     </section>
   );
 
@@ -452,23 +452,6 @@ export function TownScreen() {
             <span data-testid="streak">連續 {streak} 天</span>
           </span>
           <span class="town-hud-keys">
-            <button
-              class="pixel-button small"
-              onClick={() => {
-                playSfx('click');
-                appStore.set({ screen: 'goal' });
-              }}
-              data-testid="goal"
-              aria-label={
-                goal.all ? '每日目標，今天都完成了' : `每日目標，完成 ${goal.met}／${goal.total}`
-              }
-            >
-              {/* Only the blocks that count today (今天不用 ones are left out of both numbers). */}
-              每日目標
-              <span class="goal-tally" data-testid="goal-tally">
-                {goal.all ? '✓' : `${goal.met}/${goal.total}`}
-              </span>
-            </button>
             <button
               class="pixel-button small"
               onClick={() => {

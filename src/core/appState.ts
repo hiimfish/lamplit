@@ -20,7 +20,6 @@ type Screen =
   | 'task'
   | 'review'
   | 'sprint'
-  | 'goal'
   | 'listen'
   | 'progress'
   | 'exam'
@@ -46,11 +45,6 @@ export interface AppState {
   activeTask?: { unitId: string; taskId: string };
   /** The Act (1 to 4) whose 結業考 is open on the exam screen. */
   activeExam?: number;
-  /**
-   * Where a block of 今天的目標 (快練, 複習, 聽力加量, 文法快練) goes back to: the town when it
-   * was started there, else 每日目標.
-   */
-  backTo?: 'town' | 'goal';
   /** The Act (1 to 3) whose 跳級考 is open on the skip screen. */
   activeSkip?: number;
   /**
@@ -220,7 +214,6 @@ export function resetProgress(): void {
     activeExam: undefined,
     activeSkip: undefined,
     result: undefined,
-    backTo: undefined,
   });
   commitSave(createEmptySave(currentNow()));
 }
@@ -231,13 +224,6 @@ export function remeasureLayout(): Layout {
   const layout = measure();
   appStore.set({ layout });
   return layout;
-}
-
-/** The screen a block of 今天的目標 returns to, and the words on its key. */
-export function goalBack(): { screen: 'town' | 'goal'; label: string } {
-  return appStore.get().backTo === 'town'
-    ? { screen: 'town', label: '回小鎮' }
-    : { screen: 'goal', label: '回每日目標' };
 }
 
 /** Whether a save is kept from before the last 完全取代 import or 重置進度. */
@@ -273,7 +259,6 @@ export function restoreBackup(): boolean {
     activeExam: undefined,
     activeSkip: undefined,
     result: undefined,
-    backTo: undefined,
   });
   commitSave(restored);
   return true;

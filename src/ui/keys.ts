@@ -7,7 +7,7 @@
  *   `              再聽一次 / 聽發音 (normal speed); the key under Esc
  *   Shift+`        慢速 (counted as help, the same as tapping it)
  *   Esc            排句子 and 拼字: take back the last block or letter; 跟我說: 取消;
- *                  elsewhere 返回 (先回小鎮 asks again first, 回第N幕, 回小鎮, 回每日目標)
+ *                  elsewhere 返回 (先回小鎮 asks again first, 回第N幕, 回小鎮)
  *   Shift+Esc      排句子: 重排
  *   T              看中文 / 中文 on or off (when T is not a typed letter or a block)
  *   ArrowLeft      上一張; ArrowRight is another 下一句 / 下一張

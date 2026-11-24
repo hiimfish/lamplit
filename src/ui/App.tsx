@@ -10,7 +10,6 @@ import { continueTarget } from '../learning/townPlan';
 import { ExamScreen } from './exam/ExamScreen';
 import { SkipScreen } from './exam/SkipScreen';
 import { focusStatic } from './focus';
-import { GoalScreen } from './GoalScreen';
 import { GrammarDrillScreen } from './GrammarDrillScreen';
 import { useKeys } from './keys';
 import { KeyCap } from './KeyCap';
@@ -25,16 +24,7 @@ import { TOWN, TownScreen } from './TownScreen';
 import { useFullScreen } from './useFullScreen';
 
 /** Menu-type screens: on a phone held upright they take the whole screen (useFullScreen). */
-const FULL_SCREENS = new Set([
-  'review',
-  'sprint',
-  'goal',
-  'progress',
-  'exam',
-  'skip',
-  'grammar',
-  'result',
-]);
+const FULL_SCREENS = new Set(['review', 'sprint', 'progress', 'exam', 'skip', 'grammar', 'result']);
 
 const showDebug = new URLSearchParams(window.location.search).has('debug');
 
@@ -109,7 +99,6 @@ export function App() {
       {screen === 'task' && <TaskScreen />}
       {screen === 'review' && <ReviewScreen />}
       {screen === 'sprint' && <SprintScreen />}
-      {screen === 'goal' && <GoalScreen />}
       {screen === 'listen' && <ListenScreen />}
       {screen === 'progress' && <ProgressScreen />}
       {screen === 'exam' && <ExamScreen />}

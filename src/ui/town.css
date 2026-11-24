@@ -62,14 +62,14 @@
   box-shadow: 0 0 0 var(--px) var(--ink);
 }
 
-/* 每日目標 and 設定, side by side at the top right. */
+/* 進度 and 設定, side by side at the top right. */
 .town-hud-keys {
   flex: none;
   display: flex;
   gap: calc(2 * var(--px));
 }
 
-/* Today's goal tally after 每日目標: blocks met out of all, or a ✓ once every one is. */
+/* The tally after 今天的目標: blocks met out of all, or a ✓ once every one is. */
 .goal-tally {
   margin-left: calc(3 * var(--px));
 }

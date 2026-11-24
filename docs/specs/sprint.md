@@ -115,7 +115,7 @@
    - 每天的新字目標：一般路線 10 個；衝刺第 1 週 15 個、第 2 週 25 個，第 3 週到倒數第二週照剩下的字數算（每天 10～50 個，約 36 個），最後一週 0 個。
    - 一輪最多 10 個字：先看介紹卡（和任務的介紹卡一樣），再每個字一題聽音選字和一題選意思。答完到結算畫面，列出學到的字。
    - 今天有到期的複習、而且今天還沒複習過時不能開始（「今天還沒複習：先做一輪今日複習，再學新字。」）；今天的新字學完了、或目前地點和下一個地點的字都學過了，也會停用並說明原因。
-   - 程式：`src/learning/sprint.ts`（規則）、`src/ui/SprintScreen.tsx`、`src/ui/GoalScreen.tsx`；存檔的 `daily.sprintNew`、`daily.reviewed` 記今天的數字。
+   - 程式：`src/learning/sprint.ts`（規則）、`src/ui/SprintScreen.tsx`、`src/ui/GoalRows.tsx`（小鎮的今天的目標）、`src/ui/settings/RouteGroup.tsx`（設定的路線）；存檔的 `daily.sprintNew`、`daily.reviewed` 記今天的數字。
 4. **聽力加量**（2026-11-24 已做）：重聽玩過的劇情，預設只聽英文；可以看中文，也可以跟著說。
    - 每天的目標用場景數算：一般 1 段、衝刺 3 段（約 30 分鐘）。還沒玩過任何劇情時不算進每日目標。
    - 挑哪一段（`src/learning/listen.ts` 的 `pickListenTask`）：玩過的任務裡聽過次數最少的；一樣多時取遊玩順序最前面的。每個任務記聽完的次數（`tasks[key].heard`）。

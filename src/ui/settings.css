@@ -1,53 +1,20 @@
-/* Settings panel. Sizes: calc(N * var(--px)); text sizes use --fpx. */
-.settings-panel {
-  gap: calc(6 * var(--px));
-  max-height: calc(100% - 6 * var(--px));
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--ink) var(--paper);
-}
-
 /*
- * Phone upright: 設定 is a page of its own, not a floating card. The street and the town's
- * scene are hidden while it is open (useFullScreen), so it runs the whole height and scrolls
- * inside itself.
+ * Settings (SettingsPanel.tsx). Sizes: calc(N * var(--px)); text sizes use --fpx.
+ * Sideways and on a computer: an ink title strip, the sections as a column of boxed keys on
+ * the left, the chosen section on the right (only that side scrolls). Each setting is a row:
+ * its name in a fixed column, its control on the right. A phone held upright shows the list
+ * of sections first, then one section as a page.
  */
-:root[data-orientation='portrait'] .overlay:has(> .settings-panel) {
+.settings-panel {
+  gap: 0;
   padding: 0;
-  background: var(--paper);
   overflow: hidden;
-}
-
-:root[data-orientation='portrait'] .settings-panel {
-  align-self: stretch;
-  width: 100%;
-  max-width: none;
-  height: 100%;
-  max-height: none;
-  margin: 0;
-  border: 0;
-  box-shadow: none;
-}
-
-:root[data-orientation='portrait'] .settings-title {
-  flex: none;
-  min-height: calc(20 * var(--px));
-  padding: calc(4 * var(--px)) 0;
-}
-
-:root[data-orientation='portrait'] .settings-panel > * {
-  flex-shrink: 0;
-}
-
-:root[data-orientation='portrait'] .pixel-button.settings-close {
-  align-self: stretch;
-  min-height: var(--tap);
-  margin-top: auto;
 }
 
 /* Title as an ink header strip with paper text. */
 .settings-title {
-  margin: calc(-8 * var(--px)) calc(-8 * var(--px)) 0;
+  flex: none;
+  margin: 0;
   padding: var(--px) 0 calc(2 * var(--px));
   font-size: calc(11 * var(--fpx));
   font-weight: normal;
@@ -56,18 +23,128 @@
   background: var(--ink);
 }
 
-.settings-group {
+.settings-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+}
+
+/* The sections, with 關閉 at the foot of the column. */
+.settings-nav {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: calc(4 * var(--px));
+  width: calc(76 * var(--px));
+  padding: calc(6 * var(--px));
+  border-right: var(--px) solid var(--ink);
+  overflow-y: auto;
+}
+
+.settings-tabs {
   display: flex;
   flex-direction: column;
   gap: calc(2 * var(--px));
 }
 
-.settings-group + .settings-group {
-  padding-top: calc(4 * var(--px));
-  border-top: var(--px) dotted var(--ink);
+.pixel-button.settings-tab,
+.pixel-button.settings-tab.primary {
+  justify-content: space-between;
+  min-height: calc(20 * var(--px));
+  padding-right: calc(5 * var(--px));
+  padding-left: calc(5 * var(--px));
+  text-align: left;
+}
+
+/* The chosen section: lamp, with a thicker ink rim (shape as well as colour). */
+.pixel-button.settings-tab[aria-selected='true'] {
+  box-shadow:
+    inset 0 0 0 var(--px) var(--ink),
+    var(--drop);
+}
+
+.settings-more {
+  margin-left: auto;
+}
+
+.pixel-button.settings-close {
+  margin-top: auto;
+}
+
+.settings-pane {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-pane-head {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: calc(6 * var(--px));
+  padding: calc(4 * var(--px)) calc(8 * var(--px));
+  border-bottom: var(--px) dotted var(--ink);
+}
+
+.settings-pane-title {
+  margin: 0;
+  font-size: calc(13 * var(--fpx));
+  font-weight: normal;
+}
+
+.settings-pane-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: calc(5 * var(--px));
+  padding: calc(6 * var(--px)) calc(8 * var(--px)) calc(8 * var(--px));
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink) var(--paper);
+}
+
+.settings-pane-body > * {
+  flex-shrink: 0;
+}
+
+/* One setting: the name on the left, the control on the right. */
+.settings-row {
+  display: grid;
+  grid-template-columns: calc(48 * var(--px)) minmax(0, 1fr);
+  align-items: center;
+  gap: calc(6 * var(--px));
+}
+
+.settings-label {
+  font-size: calc(11 * var(--fpx));
+}
+
+.settings-control {
+  display: flex;
+  align-items: center;
+  gap: calc(4 * var(--px));
+  min-width: 0;
+}
+
+.settings-control > .pixel-button {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: var(--tap);
+  white-space: nowrap;
+  padding-right: calc(4 * var(--px));
+  padding-left: calc(4 * var(--px));
+}
+
+.settings-group {
+  display: flex;
+  flex-direction: column;
+  gap: calc(3 * var(--px));
 }
 
 .settings-actions {
+  display: flex;
   flex-direction: row;
   gap: calc(4 * var(--px));
 }
@@ -80,14 +157,11 @@
 }
 
 /*
- * Voice and 顯示中文 are boxed keys. The chosen one is lamp-filled with a
- * thicker ink rim (an extra inset pixel, so its size does not change).
+ * Choices and switches are boxed keys. The chosen one is lamp-filled with a thicker ink rim
+ * (an extra inset pixel, so its size does not change).
  */
-/* Same height chosen or not (chosen keys are primary, which has the tap height). */
 .pixel-button.settings-choice {
   min-height: var(--tap);
-  justify-content: flex-start;
-  text-align: left;
 }
 
 .pixel-button.settings-choice[aria-checked='true'] {
@@ -100,28 +174,14 @@
   box-shadow: inset 0 0 0 var(--px) var(--ink);
 }
 
-.pixel-button.settings-close {
-  align-self: center;
-  min-width: calc(66 * var(--px));
-}
-
 .settings-note {
   margin: 0;
   color: var(--ink);
 }
 
-.settings-row {
-  display: grid;
-  grid-template-columns: calc(40 * var(--px)) 1fr calc(30 * var(--px));
-  align-items: center;
-  gap: calc(6 * var(--px));
-}
-
-.settings-label {
-  font-size: calc(11 * var(--fpx));
-}
-
 .settings-value {
+  flex: none;
+  width: calc(26 * var(--px));
   text-align: right;
   font-size: calc(11 * var(--fpx));
   color: var(--ink);
@@ -133,6 +193,8 @@
  */
 .settings-slider {
   --fill: 50%;
+  flex: 1 1 auto;
+  min-width: 0;
   width: 100%;
   height: calc(22 * var(--px));
   margin: 0;
@@ -180,34 +242,68 @@
   outline-offset: var(--px);
 }
 
-/* Landscape screens are short, so tighten the panel until it fits without scrolling. */
+/* Sideways and on a computer: a fixed card, as tall as the screen allows. */
 :root[data-orientation='landscape'] .settings-panel {
-  max-width: calc(390 * var(--px));
+  width: 100%;
+  max-width: calc(430 * var(--px));
+  height: 100%;
+  max-height: calc(320 * var(--px));
+  margin: 0;
+}
+
+/* A phone held sideways is short: lower section keys so every one and 關閉 fit. */
+:root[data-orientation='landscape'] .settings-nav {
   gap: calc(2 * var(--px));
-  padding: calc(6 * var(--px));
 }
 
-:root[data-orientation='landscape'] .settings-title {
-  margin: calc(-6 * var(--px)) calc(-6 * var(--px)) 0;
+:root[data-orientation='landscape'] .pixel-button.settings-tab,
+:root[data-orientation='landscape'] .pixel-button.settings-close {
+  min-height: calc(18 * var(--px));
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
-:root[data-orientation='landscape'] .settings-group + .settings-group {
-  padding-top: calc(3 * var(--px));
+/*
+ * Phone upright: 設定 is a page of its own, not a floating card. The street and the town's
+ * scene are hidden while it is open (useFullScreen), so it runs the whole height; the list
+ * of sections, or one section, fills it.
+ */
+:root[data-orientation='portrait'] .overlay:has(> .settings-panel) {
+  padding: 0;
+  background: var(--paper);
+  overflow: hidden;
 }
 
-:root[data-orientation='landscape'] .settings-group[role='radiogroup'] {
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: calc(2 * var(--px)) calc(4 * var(--px));
+:root[data-orientation='portrait'] .settings-panel {
+  align-self: stretch;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  border: 0;
+  box-shadow: none;
 }
 
-:root[data-orientation='landscape'] .settings-group[role='radiogroup'] .settings-choice {
-  flex: 1;
+:root[data-orientation='portrait'] .settings-title {
+  min-height: calc(20 * var(--px));
+  padding: calc(4 * var(--px)) 0;
 }
 
-:root[data-orientation='landscape'] .settings-group[role='radiogroup'] .settings-note {
-  flex-basis: 100%;
-  text-align: center;
+:root[data-orientation='portrait'] .settings-nav {
+  flex: 1 1 auto;
+  width: auto;
+  padding: calc(8 * var(--px));
+  border-right: 0;
+}
+
+:root[data-orientation='portrait'] .settings-tabs {
+  gap: calc(4 * var(--px));
+}
+
+:root[data-orientation='portrait'] .pixel-button.settings-tab,
+:root[data-orientation='portrait'] .pixel-button.settings-close {
+  min-height: var(--tap);
 }
 
 /*
