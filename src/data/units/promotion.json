@@ -66,20 +66,20 @@
     },
     {
       "id": "mention_a_weakness_in_my_appraisal",
-      "en": "Is it a good idea to mention a weakness in my appraisal?",
-      "zh": "在考核表裡提到自己的缺點，這樣好嗎？",
+      "en": "Is it a good idea to mention a weakness in my self-appraisal?",
+      "zh": "在自評表裡提到自己的缺點，這樣好嗎？",
       "note": "問某件事該不該做。Is it a good idea to + 動詞原形？",
       "distractors": [
         {
-          "text": "Is it good idea to mention a weakness in my appraisal?",
+          "text": "Is it good idea to mention a weakness in my self-appraisal?",
           "error": "article"
         },
         {
-          "text": "Is it a good idea to mentioning a weakness in my appraisal?",
+          "text": "Is it a good idea to mentioning a weakness in my self-appraisal?",
           "error": "other"
         },
         {
-          "text": "Is it a good idea mention a weakness in my appraisal?",
+          "text": "Is it a good idea mention a weakness in my self-appraisal?",
           "error": "missing-word"
         }
       ]
@@ -1048,8 +1048,8 @@
         },
         {
           "id": "encouraging_fill",
-          "en": "The comments Dan made on my appraisal were very ___.",
-          "zh": "Dan 對我考核表的意見很讓人振奮。",
+          "en": "The comments Dan made on my self-appraisal were very ___.",
+          "zh": "Dan 對我自評表的意見很讓人振奮。",
           "options": ["encouraging", "encouraged", "encourage", "encourages"],
           "answer": 0,
           "note": "意見讓人受到鼓勵：-ing 形容詞 encouraging。",
@@ -1061,8 +1061,8 @@
           "id": "t2_1",
           "role": "coworker",
           "speaker": "npc",
-          "en": "So this is the appraisal you wrote? Let me see.",
-          "zh": "所以這是你寫的考核表？我看看。"
+          "en": "So this is the self-appraisal you wrote? Let me see.",
+          "zh": "所以這是你寫的自評表？我看看。"
         },
         {
           "id": "t2_2",
@@ -1097,8 +1097,8 @@
           "id": "t2_6",
           "role": "guide",
           "speaker": "player",
-          "en": "Is it a good idea to mention a weakness in my appraisal?",
-          "zh": "在考核表裡提到自己的缺點，這樣好嗎？",
+          "en": "Is it a good idea to mention a weakness in my self-appraisal?",
+          "zh": "在自評表裡提到自己的缺點，這樣好嗎？",
           "chunkId": "mention_a_weakness_in_my_appraisal"
         },
         {
@@ -1392,8 +1392,8 @@
             {
               "id": "t5_talk_7",
               "role": "guide",
-              "en": "I know. I called Jack urgently that day and sent a correction.",
-              "zh": "我知道。我當天就緊急打給 Jack，也寄了更正。"
+              "en": "I know. When I noticed, I called Jack urgently and sent a correction, but the lamps had already shipped.",
+              "zh": "我知道。我一發現就緊急打給 Jack，也寄了更正，可是燈已經出貨了。"
             },
             {
               "id": "t5_talk_8",
@@ -2039,15 +2039,15 @@
           "id": "t9_4",
           "role": "manager",
           "speaker": "npc",
-          "en": "Have you finished your appraisal yet?",
-          "zh": "你的考核表寫好了嗎？"
+          "en": "Have you finished your self-appraisal yet?",
+          "zh": "你的自評表寫好了嗎？"
         },
         {
           "id": "t9_5",
           "role": "guide",
           "speaker": "player",
-          "en": "Is it a good idea to mention a weakness in my appraisal?",
-          "zh": "在考核表裡提到自己的缺點，這樣好嗎？",
+          "en": "Is it a good idea to mention a weakness in my self-appraisal?",
+          "zh": "在自評表裡提到自己的缺點，這樣好嗎？",
           "chunkId": "mention_a_weakness_in_my_appraisal"
         },
         {

@@ -207,20 +207,20 @@
     },
     {
       "id": "said_earlier_hiring",
-      "en": "As I mentioned earlier, I can't share our exact sales numbers.",
-      "zh": "我剛才也提過，確切的銷售數字我沒辦法透露。",
-      "note": "As I mentioned earlier = 我剛才提過，再說一次自己講過的話。",
+      "en": "As you said, I can't share our exact sales numbers.",
+      "zh": "就像您說的，確切的銷售數字我沒辦法透露。",
+      "note": "As you said = 就像你說的，順著對方剛講的話回答。",
       "distractors": [
         {
-          "text": "As I mentioned earlier, I can't share our exact sales number.",
+          "text": "As you said, I can't share an exact sales numbers.",
           "error": "plural"
         },
         {
-          "text": "As I mention earlier, I can't share our exact sales numbers.",
+          "text": "As you saying, I can't share our exact sales numbers.",
           "error": "other"
         },
         {
-          "text": "As I mentioned earlier, I can't to share our exact sales numbers.",
+          "text": "As you said, I can't to share our exact sales numbers.",
           "error": "extra-word"
         }
       ]
@@ -347,7 +347,7 @@
     {
       "id": "authentic",
       "en": "authentic",
-      "zh": "道地的；真正的",
+      "zh": "真品的；正宗的",
       "emoji": "💯",
       "abstract": true
     },
@@ -409,7 +409,7 @@
       "abstract": true
     },
     { "id": "spam", "en": "spam", "zh": "垃圾郵件", "emoji": "📧", "abstract": true },
-    { "id": "found", "en": "found", "zh": "（founded）創立", "emoji": "🏗️", "abstract": true },
+    { "id": "found", "en": "found", "zh": "創立（found, founded；不是 find 的過去式）", "emoji": "🏗️", "abstract": true },
     { "id": "amaze", "en": "amaze", "zh": "讓人驚訝", "emoji": "😲", "abstract": true },
     { "id": "donation", "en": "donation", "zh": "捐贈；捐款", "emoji": "💝", "abstract": true },
     { "id": "charity", "en": "charity", "zh": "慈善機構", "emoji": "🤲", "abstract": true },
@@ -772,7 +772,7 @@
           "role": "coworker",
           "speaker": "npc",
           "en": "Nice. Stores like that it's authentic, not a cheap copy.",
-          "zh": "不錯。店家就是喜歡它是真材實料，不是便宜的仿冒品。"
+          "zh": "不錯。店家就是喜歡它是正牌貨，不是便宜的仿冒品。"
         },
         {
           "id": "t3_4",
@@ -960,7 +960,7 @@
               "id": "t5_talk_3",
               "role": "reporter",
               "en": "And desk lamps were always your specialty?",
-              "zh": "桌燈一直都是你們的招牌產品嗎？"
+              "zh": "檯燈一直都是你們的招牌產品嗎？"
             },
             {
               "id": "t5_talk_4",
@@ -1280,8 +1280,8 @@
           "id": "t6_6",
           "role": "guide",
           "speaker": "player",
-          "en": "As I mentioned earlier, I can't share our exact sales numbers.",
-          "zh": "我剛才也提過，確切的銷售數字我沒辦法透露。",
+          "en": "As you said, I can't share our exact sales numbers.",
+          "zh": "就像您說的，確切的銷售數字我沒辦法透露。",
           "chunkId": "said_earlier_hiring"
         },
         {
@@ -1390,7 +1390,7 @@
               "id": "t7_talk_10",
               "role": "reporter",
               "en": "Many offices have insufficient light, and more stores now opt for desk lamps with good design.",
-              "zh": "很多辦公室的照明不足，現在也有愈來愈多店家選擇設計好的桌燈。"
+              "zh": "很多辦公室的照明不足，現在也有愈來愈多店家選擇設計好的檯燈。"
             },
             {
               "id": "t7_talk_11",

@@ -9,7 +9,7 @@
       "zh": "所以您是想在您的門市賣 Lantern 系列？",
       "note": "把對方的提議用自己的話再說一次，確認聽懂了。So 開頭表示「所以說……」。",
       "distractors": [
-        { "text": "So you'd like to sell the Lantern series in your store?", "error": "plural" },
+        { "text": "So you'd like to sell the Lantern series in your twelve store?", "error": "plural" },
         {
           "text": "So you'd like sell the Lantern series in your stores?",
           "error": "missing-word"
@@ -88,7 +88,7 @@
       "zh": "我今晚會把草案從頭看一遍，再把我的意見寄給您。",
       "note": "答應仔細看文件、再回覆意見。read through 是「從頭到尾看一遍」。",
       "distractors": [
-        { "text": "I'll read through the draft tonight and send you my note.", "error": "plural" },
+        { "text": "I'll read through the draft tonight and send you a notes.", "error": "plural" },
         {
           "text": "I'll read though the draft tonight and send you my notes.",
           "error": "spelling"
@@ -153,7 +153,7 @@
       "note": "聽完留言後說接下來要做的事。call him back 是「回他電話」。",
       "distractors": [
         { "text": "I'll look the changes and call him back.", "error": "missing-word" },
-        { "text": "I'll look at the change and call him back.", "error": "plural" },
+        { "text": "I'll look at a changes and call him back.", "error": "plural" },
         { "text": "I'll look at the changes and call back him.", "error": "word-order" }
       ]
     },
@@ -356,7 +356,7 @@
     {
       "id": "bargain",
       "en": "bargain",
-      "zh": "交易（drive a hard bargain 很會殺價）",
+      "zh": "交易（drive a hard bargain 很會談條件、寸步不讓）",
       "emoji": "🪙",
       "abstract": true
     },
@@ -443,8 +443,8 @@
     { "id": "proceed", "en": "proceed", "zh": "進行；繼續下去", "emoji": "➡️", "abstract": true },
     {
       "id": "premise",
-      "en": "premise",
-      "zh": "（premises）公司的建築和場地",
+      "en": "premises",
+      "zh": "（公司的）建築和場地；這個意思一定用複數",
       "emoji": "🏬",
       "abstract": true
     },
@@ -481,15 +481,15 @@
           "id": "t1_1",
           "role": "manager",
           "speaker": "npc",
-          "en": "Good morning, Mr. Hughes. I hear you have something to propose.",
-          "zh": "Hughes 先生早安。聽說您有事想提議？"
+          "en": "Good morning, Mr. Hughes. Thanks for joining us by video. I hear you have something to propose.",
+          "zh": "Hughes 先生早安，謝謝您跟我們視訊。聽說您有事想提議？"
         },
         {
           "id": "t1_2",
           "role": "client",
           "speaker": "npc",
-          "en": "Good afternoon! Yes, my customers keep asking about Lantern.",
-          "zh": "午安！是的，我的客人一直在問 Lantern。"
+          "en": "Good afternoon from the UK! Yes, my customers keep asking about Lantern.",
+          "zh": "英國這邊是下午，午安！是的，我的客人一直在問 Lantern。"
         },
         {
           "id": "t1_3",
@@ -809,7 +809,7 @@
             },
             {
               "en": "What does Mr. Shaw say is missing from Section 3?",
-              "zh": "Shaw 先生說第 3 段少了什麼？",
+              "zh": "Shaw 先生說第 3 條少了什麼？",
               "options": ["The price", "Online sales", "The trademark"],
               "answer": 1,
               "needs": [1]
@@ -841,7 +841,7 @@
           "role": "lawyer",
           "speaker": "npc",
           "en": "Section five says the Lantern trademark is your property.",
-          "zh": "第五段寫明 Lantern 的商標是你們的財產。"
+          "zh": "第五條寫明 Lantern 的商標是你們的財產。"
         },
         {
           "id": "t4_3",
@@ -855,7 +855,7 @@
           "role": "lawyer",
           "speaker": "npc",
           "en": "And section seven explains how either side can terminate it.",
-          "zh": "第七段說明雙方要怎麼終止合約。"
+          "zh": "第七條說明雙方要怎麼終止合約。"
         },
         {
           "id": "t4_5",
@@ -949,8 +949,8 @@
             {
               "id": "t5_talk_7",
               "role": "lawyer",
-              "en": "We should say which court, and which judge, would deal with it.",
-              "zh": "我們應該寫清楚由哪個法院、哪位法官處理。"
+              "en": "We should say which country's courts would deal with it.",
+              "zh": "我們應該寫清楚由哪個國家的法院處理。"
             },
             {
               "id": "t5_talk_8",
@@ -1288,7 +1288,7 @@
           "role": "client",
           "speaker": "npc",
           "en": "You drive a hard bargain. All right, three years it is.",
-          "zh": "您真會殺價。好吧，就簽三年。"
+          "zh": "您真會談條件。好吧，就簽三年。"
         }
       ]
     },
@@ -1594,8 +1594,8 @@
           "id": "t9_4",
           "role": "client",
           "speaker": "npc",
-          "en": "Exactly. And I'd want to be the only one selling them there.",
-          "zh": "沒錯。而且我希望在那邊只有我能賣。"
+          "en": "Exactly. And I'd want to be the only seller there. How would the contract put that?",
+          "zh": "沒錯。而且我希望在那邊只有我能賣。合約上會怎麼寫？"
         },
         {
           "id": "t9_5",

@@ -59,7 +59,7 @@
           "error": "missing-word"
         },
         {
-          "text": "Let's start by looking at last year's number.",
+          "text": "Let's start by looking at all of last year's number.",
           "error": "plural"
         }
       ]
@@ -214,11 +214,11 @@
       "note": "片語動詞 cut back on＝少用、少花一點。What I'd suggest is + V-ing＝我的建議是……。",
       "distractors": [
         {
-          "text": "What I'd suggest is cutting back samples for the trade show.",
+          "text": "What I'd suggest cutting back on samples for the trade show.",
           "error": "missing-word"
         },
         {
-          "text": "What I'd suggest is cut back on samples for the trade show.",
+          "text": "What I'd suggest is cuts back on samples for the trade show.",
           "error": "other"
         },
         {

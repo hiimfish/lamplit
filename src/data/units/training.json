@@ -1255,8 +1255,8 @@
             {
               "id": "t7_talk_4",
               "role": "announcer",
-              "en": "In the afternoon, you'll practice your interaction with customers in small groups.",
-              "zh": "下午會分成小組，練習怎麼和客人應對。"
+              "en": "In the afternoon, your staff will practice customer interaction in small groups.",
+              "zh": "下午貴公司的同仁會分成小組，練習怎麼和客人應對。"
             },
             {
               "id": "t7_talk_5",
@@ -1346,8 +1346,8 @@
           "id": "t7_6",
           "role": "new_hire",
           "speaker": "npc",
-          "en": "Sounds great. I'll ask Ms. Carter if I can go.",
-          "zh": "聽起來很棒。我去問 Carter 小姐我可不可以去。"
+          "en": "Sounds great. I'll ask Ms. Carter if I can be one of the people going.",
+          "zh": "聽起來很棒。我去問 Carter 小姐能不能讓我也去。"
         },
         {
           "id": "t7_7",

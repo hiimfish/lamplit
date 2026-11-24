@@ -157,7 +157,7 @@
     {
       "id": "keep_you_posted_on_second_shipment",
       "en": "I'll keep you posted on how the second shipment is going.",
-      "zh": "第二批貨的進度，我會隨時跟大家報告。",
+      "zh": "第二批貨的進度，我會隨時告訴您。",
       "accept": ["I will keep you posted on how the second shipment is going."],
       "note": "答應隨時回報進度。keep you posted on＝有消息就告訴你。",
       "distractors": [
@@ -630,8 +630,8 @@
           "id": "t3_8",
           "role": "branch_manager",
           "speaker": "npc",
-          "en": "We call it the Tube. Take it to work. The traffic jams here are terrible.",
-          "zh": "我們這裡叫它 the Tube。上班就搭地鐵吧，這裡塞車很可怕。"
+          "en": "We call it the Tube. Take it to get around. The traffic jams here are terrible.",
+          "zh": "我們這裡叫它 the Tube。要去哪裡就搭地鐵吧，這裡塞車很可怕。"
         },
         {
           "id": "t3_9",
@@ -1296,7 +1296,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "I'll keep you posted on how the second shipment is going.",
-          "zh": "第二批貨的進度，我會隨時跟大家報告。",
+          "zh": "第二批貨的進度，我會隨時告訴您。",
           "chunkId": "keep_you_posted_on_second_shipment"
         },
         {
@@ -1528,7 +1528,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "I'll keep you posted on how the second shipment is going.",
-          "zh": "第二批貨的進度，我會隨時跟大家報告。",
+          "zh": "第二批貨的進度，我會隨時告訴您。",
           "chunkId": "keep_you_posted_on_second_shipment"
         },
         {

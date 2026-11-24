@@ -695,8 +695,8 @@
           "id": "t4_4",
           "role": "supplier",
           "speaker": "npc",
-          "en": "Sure, right behind that glass. They measure everything, down to the gram.",
-          "zh": "對啊，就在那片玻璃後面。他們什麼都量，精確到一公克。"
+          "en": "Sure, right behind that glass. They even weigh each lamp, and it has to be within five grams.",
+          "zh": "對啊，就在那片玻璃後面。他們連每盞燈的重量都要量，誤差不能超過五公克。"
         },
         {
           "id": "t4_5",

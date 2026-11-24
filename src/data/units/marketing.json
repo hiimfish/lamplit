@@ -62,7 +62,7 @@
           "error": "word-order"
         },
         {
-          "text": "Let's keep the questionnaire short so people actually finish.",
+          "text": "Let's keep the questionnaire short people actually finish it.",
           "error": "missing-word"
         },
         {
@@ -187,7 +187,7 @@
       "note": "請人把東西先準備好。have + 東西 + ready = 把……準備好。",
       "distractors": [
         { "text": "Could we have the flyers ready before trade show?", "error": "article" },
-        { "text": "Could we have the flyer ready before the trade show?", "error": "plural" },
+        { "text": "Could we have a flyers ready before the trade show?", "error": "plural" },
         { "text": "Could we have ready the flyers before the trade show?", "error": "word-order" }
       ]
     }
@@ -699,7 +699,7 @@
             "We sent the questionnaire to 2,400 subscribers of the Harbor Trading website, and 612 people answered. Most of them browse the website at least once a month. Many of them work from home two or three days a week. Answers were similar across age and gender.",
             "Three clear trends emerged.",
             "First, price: 58 percent of respondents would pay $45 or less for a desk lamp, so the series has to be affordable.",
-            "Second, design: most respondents said their current lamp looks outdated. They want something compact and attractive for a small home office. They liked the soft light and the smooth movement of the arm, and the light frame was the most popular characteristic.",
+            "Second, design: most respondents said their current lamp looks outdated. They want something compact and attractive for a small home office. They liked the soft light and the smooth movement of the arm, and the frame's light weight was the most popular characteristic.",
             "Third, \"Made in Taiwan\" is widely seen as a sign of good quality, so this perception can help us.",
             "I think these results are good news for Lantern. Next step: we will use them to write the brand message.",
             "Thanks, Nina"
@@ -714,7 +714,7 @@
             {
               "en": "Which characteristic was the most popular?",
               "zh": "最受歡迎的特點是哪一個？",
-              "options": ["The dark color", "The light frame", "The large size"],
+              "options": ["The dark color", "The light weight", "The large size"],
               "answer": 1
             },
             {
@@ -760,7 +760,7 @@
           "id": "t4_5",
           "role": "agency",
           "speaker": "npc",
-          "en": "People also love the soft light and the light frame.",
+          "en": "People also love the soft light and how light the frame is.",
           "zh": "大家也很喜歡柔和的燈光和輕巧的燈架。"
         },
         {
