@@ -33,28 +33,64 @@ const dayOf = (key: string): Date => {
 
 const ACT_NAMES = ['一', '二', '三', '四'] as const;
 
-/** Where the score came from: an ETS practice test, or a 幕結業考 (marked 重考 when sat again). */
+/** Where the score came from: a TOEIC practice test, or a 幕結業考 (marked 重考 when sat again). */
 function sourceLabel(entry: Checkpoint): string {
-  if (entry.source !== 'exam' || !entry.act) return 'ETS 練習題';
+  if (entry.source !== 'exam' || !entry.act) return '多益練習題';
   return `第${ACT_NAMES[entry.act - 1]}幕結業考（估計）${entry.retake ? '・重考' : ''}`;
 }
 
 const shortDate = (key: string): string => `${Number(key.slice(5, 7))}/${Number(key.slice(8))}`;
 
-/** One part of the score: −50 −5 [ value ] +5 +50; the value is a spinbutton (←→ ±5, ↑↓ ±50). */
+/**
+ * One part of the score: −50 −5 [ value ] +5 +50. The value is a number box: type a score
+ * (kept within 5～495 in steps of 5 once you leave the box), or use ←→ ±5 and ↑↓ ±50.
+ * The game's key map ignores keys typed in a field, so the box handles Enter and Esc itself.
+ */
 function ScoreField({
   label,
   value,
   onChange,
+  onSubmit,
+  onCancel,
   testId,
 }: {
   label: string;
   value: number;
   onChange: (update: (value: number) => number) => void;
+  onSubmit: () => void;
+  onCancel: () => void;
   testId: string;
 }) {
-  const step = (by: number) => onChange((v) => clampScore(v + by));
+  /** What is being typed, until the box is left; null shows `value`. */
+  const [draft, setDraft] = useState<string | null>(null);
+  const commit = () => {
+    setDraft(null);
+    onChange((v) => clampScore(v));
+  };
+  const step = (by: number) => {
+    setDraft(null);
+    onChange((v) => clampScore(v + by));
+  };
+  const onInput = (e: Event) => {
+    const text = (e.currentTarget as HTMLInputElement).value;
+    setDraft(text);
+    const typed = Number(text);
+    // Keep the raw number while typing (clamping "2" to 5 would fight the next digit).
+    if (text.trim() !== '' && Number.isFinite(typed)) onChange(() => typed);
+  };
   const onKey = (e: KeyboardEvent) => {
+    if (e.isComposing) return;
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      commit();
+      onSubmit();
+      return;
+    }
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      onCancel();
+      return;
+    }
     const by = { ArrowRight: 5, ArrowLeft: -5, ArrowUp: 50, ArrowDown: -50 }[e.key];
     if (!by) return;
     e.preventDefault();
@@ -79,18 +115,19 @@ function ScoreField({
       >
         −5
       </button>
-      <span
+      <input
+        type="number"
+        inputMode="numeric"
         class="score-value"
-        role="spinbutton"
-        tabIndex={0}
+        min={5}
+        max={495}
+        step={5}
         aria-label={`${label}分數`}
-        aria-valuemin={5}
-        aria-valuemax={495}
-        aria-valuenow={value}
+        value={draft ?? String(value)}
+        onInput={onInput}
+        onBlur={commit}
         onKeyDown={onKey}
-      >
-        {value}
-      </span>
+      />
       <button
         type="button"
         class="pixel-button small"
@@ -144,8 +181,11 @@ export function CheckpointPanel({ onEditing }: { onEditing: (editing: boolean) =
   };
   const record = () => {
     playSfx('click');
-    commitSave(addCheckpoint(appStore.get().save, currentNow(), listening, reading));
-    setJustSaved(target === undefined ? undefined : checkpointVerdict(listening + reading, target));
+    // A score still being typed is raw; keep it within 5～495 in steps of 5.
+    const l = clampScore(listening);
+    const r = clampScore(reading);
+    commitSave(addCheckpoint(appStore.get().save, currentNow(), l, r));
+    setJustSaved(target === undefined ? undefined : checkpointVerdict(l + r, target));
     setEditing(false);
     onEditing(false);
   };
@@ -165,7 +205,7 @@ export function CheckpointPanel({ onEditing }: { onEditing: (editing: boolean) =
         {target === undefined
           ? save.route.kind === 'sprint'
             ? '衝刺第 3 週起會和計畫的目標比較。'
-            : '做完 ETS 官方練習題後記下分數，看自己的進步。'
+            : '做完多益（TOEIC）官方練習題後記下分數，看自己的進步。'
           : `衝刺第 ${weekNow} 週的目標：總分 ${target}。`}
       </p>
 
@@ -175,10 +215,19 @@ export function CheckpointPanel({ onEditing }: { onEditing: (editing: boolean) =
             label="聽力"
             value={listening}
             onChange={setListening}
+            onSubmit={record}
+            onCancel={() => open(false)}
             testId="score-listening"
           />
-          <ScoreField label="閱讀" value={reading} onChange={setReading} testId="score-reading" />
-          <p class="flow-note">總分 {listening + reading}</p>
+          <ScoreField
+            label="閱讀"
+            value={reading}
+            onChange={setReading}
+            onSubmit={record}
+            onCancel={() => open(false)}
+            testId="score-reading"
+          />
+          <p class="flow-note">總分 {clampScore(listening) + clampScore(reading)}</p>
           <div class="flow-actions">
             <button
               class="pixel-button"
@@ -197,7 +246,7 @@ export function CheckpointPanel({ onEditing }: { onEditing: (editing: boolean) =
       ) : (
         <div class="flow-actions">
           <button class="pixel-button" onClick={() => open(true)} data-testid="checkpoint-open">
-            輸入 ETS 分數
+            輸入多益練習題分數
           </button>
         </div>
       )}
@@ -238,7 +287,7 @@ export function CheckpointPanel({ onEditing }: { onEditing: (editing: boolean) =
         </ul>
       )}
       <p class="flow-note checkpoint-fine">
-        結業考的分數是遊戲估計的，不是官方分數；請用 ETS 官方練習題確認。
+        結業考的分數是遊戲估計的，不是官方分數；請用多益（TOEIC）官方練習題確認。
       </p>
     </section>
   );

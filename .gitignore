@@ -22,5 +22,6 @@ Thumbs.db
 # style reference images by other artists: local reference only, never commit
 docs/art-image/
 
-# Agent worktrees (Claude Code)
+# Agent worktrees and local settings (Claude Code)
 .claude/worktrees/
+.claude/settings.local.json

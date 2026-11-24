@@ -179,7 +179,7 @@ tests/              Vitest 測試
 | 變數                 | 必要               | 用途                                                       | 設定方式                                                                            |
 | -------------------- | ------------------ | ---------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | `GOOGLE_TTS_API_KEY` | 只有產生音檔時需要 | Google Cloud API 金鑰，限制只能用 Cloud Text-to-Speech API | 寫在 `.env`（不進版控），腳本用 `--env-file` 讀取                                   |
-| `VITE_BASE`          | 否                 | 網站部署路徑，預設 `/english-learn/`                       | 建置時在 shell 設定，例如 `VITE_BASE=/my-repo/ npm run build`；寫在 `.env` 沒有作用 |
+| `VITE_BASE`          | 否                 | 網站部署路徑，預設 `/lamplit/`                             | 建置時在 shell 設定，例如 `VITE_BASE=/my-repo/ npm run build`；寫在 `.env` 沒有作用 |
 
 <!-- END AUTO-GENERATED -->
 
@@ -230,10 +230,10 @@ tests/              Vitest 測試
 
 ### 部署
 
-- 目標是 GitHub Pages，網址路徑預設是 `/english-learn/`（見上方的 `VITE_BASE`）。GitHub Pages 免費方案需要公開的 repo。
-- **目前尚未部署**，也還沒有自動部署（GitHub Actions）和離線遊玩（PWA）。
-- 手動部署的步驟：`npm run build` → 把 `dist/` 的內容發布到 GitHub Pages。發布前先用 `npm run preview` 在本機確認。
-- 發布前要先確認 Google Cloud 服務條款允許公開生成的音檔（見 [audio.md](audio.md)）。
+- 目標是 GitHub Pages，網址路徑預設是 `/lamplit/`（見上方的 `VITE_BASE`）。GitHub Pages 免費方案需要公開的 repo。
+- 自動部署：`.github/workflows/pages.yml` 在推上 `main`（或手動執行）時跑測試、用 repo 名稱當 `VITE_BASE` 建置，刪掉 `dist/audio/manifest.json` 後發布到 GitHub Pages。repo 的 Settings → Pages 要把來源設成「GitHub Actions」。還沒有離線遊玩（PWA）。
+- 發布前可以先在本機確認：`npm run build` → `npm run preview`（preview 也用 `/lamplit/` 路徑，和 GitHub Pages 一樣）。
+- 生成的音檔隨網站一起發布，但不開放授權（見 [audio.md](audio.md) 和根目錄的 `LICENSE`）。
 
 ### 上線後檢查
 

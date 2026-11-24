@@ -1,0 +1,47 @@
+MIT License
+
+Copyright (c) 2026 Fish
+
+This license covers the source code of 點燈英語 Lamplit and its original content:
+the story, dialogue, questions, the pixel art drawn in code and the synthesized
+music and sound effects, except for the files listed under "Exceptions" below.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Exceptions
+----------
+
+The MIT License above does not apply to the following:
+
+- public/assets/fonts/
+  Cubic 11 (俐方體 11 號) by ACh-K, licensed under the SIL Open Font License 1.1.
+  See public/assets/fonts/Cubic_11-OFL.txt.
+
+- src/data/wordlists/
+  The New General Service List (NGSL) and TOEIC Service List (TSL) by Browne,
+  Culligan and Phillips, licensed under CC BY-SA 4.0.
+  See src/data/wordlists/README.md.
+
+- public/audio/
+  Speech generated with Google Cloud Text-to-Speech for this project.
+  All rights reserved. These files are not licensed for reuse, and must not be
+  used to train or improve speech-synthesis or other machine-learning models.
+
+TOEIC is a registered trademark of ETS. This product is not endorsed or
+approved by ETS.

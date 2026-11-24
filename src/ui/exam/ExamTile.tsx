@@ -64,7 +64,7 @@ export function ExamTile({ act, no }: { act: number; no: string }) {
     >
       <span class="exam-tile-name">第{no}幕結業考</span>
       <span class="exam-tile-sub">
-        多益模擬・約 {examMinutes(exam)} 分鐘{attempts > 0 ? `・已考過 ${attempts} 次` : ''}
+        多益題型練習・約 {examMinutes(exam)} 分鐘{attempts > 0 ? `・已考過 ${attempts} 次` : ''}
       </span>
     </button>
   );

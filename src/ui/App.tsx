@@ -38,15 +38,22 @@ function TitleScreen() {
   return (
     <div class="screen title-screen">
       <div class="title-block">
-        <h1 class="title">像素英語小鎮</h1>
+        <h1 class="title">點燈英語</h1>
         <p class="subtitle" lang="en">
-          Pixel English Town
+          Lamplit
         </p>
       </div>
       <button class="pixel-button primary blink" onClick={start} data-testid="start">
         點一下開始
         <KeyCap k="Enter" />
       </button>
+      <footer class="title-notice" data-testid="title-notice">
+        <p>TOEIC®（多益）是 ETS 的註冊商標。本遊戲與 ETS 無關，未經 ETS 認可或贊助。</p>
+        <p lang="en">
+          TOEIC is a registered trademark of ETS. This product is not endorsed or approved by ETS.
+        </p>
+        <p>© 2026 Fish · MIT License</p>
+      </footer>
     </div>
   );
 }

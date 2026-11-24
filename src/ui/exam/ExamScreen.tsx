@@ -177,7 +177,7 @@ function ExamHub({
         ) : (
           <>
             <p class="flow-note">
-              多益模擬，約 {examMinutes(exam)} 分鐘，分成 {plan.sections.length}{' '}
+              多益題型練習，約 {examMinutes(exam)} 分鐘，分成 {plan.sections.length}{' '}
               段。每段考完才算數，中途離開只會丟掉那一段。
             </p>
             {record && (

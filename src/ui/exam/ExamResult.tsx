@@ -43,9 +43,11 @@ export const verdictText = (verdict: Verdict, target: number, week: number): str
 export const capText = (act: 1 | 2 | 3 | 4): string =>
   `第${ACT_NAMES[act - 1]}幕結業考最高只能估到 ${EXAM_CAPS[act]} 分`;
 
-/** The calibration line: how many ETS scores the estimates were adjusted by, or how to start. */
+/** The calibration line: how many TOEIC practice-test scores the estimates were adjusted by, or how to start. */
 export const calibrationText = (pairs: number): string =>
-  pairs > 0 ? `已依你 ${pairs} 次 ETS 分數校正` : '還沒校正：輸入一次 ETS 練習題分數後會更準';
+  pairs > 0
+    ? `已依你 ${pairs} 次多益練習題分數校正`
+    : '還沒校正：輸入一次多益（TOEIC）練習題分數後會更準';
 
 /** 「有 3 題你看過，分數可能偏高。」 */
 export const retakeText = (reused: number): string => `有 ${reused} 題你看過，分數可能偏高。`;

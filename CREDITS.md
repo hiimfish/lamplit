@@ -15,7 +15,7 @@
 
 ## 聲音
 
-- 發音音檔（`public/audio/`）：由本專案用 Google Cloud Text-to-Speech 產生（Chirp 3 HD、Neural2 聲線）。公開發布前需確認 Google Cloud 服務條款，見 `docs/specs/audio.md`。
+- 發音音檔（`public/audio/`）：由本專案用 Google Cloud Text-to-Speech 產生（Chirp 3 HD、Neural2 聲線）。作者把這些音檔當作服務產出的內容使用，隨網站一起發布；音檔不開放授權，不能拿去其他地方使用，也不能用來訓練或改進語音合成或其他機器學習模型（見 `LICENSE`）。
 - 背景音樂和音效：本專案用 Web Audio 即時合成的原創內容，沒有音檔。
 
 ## 資料

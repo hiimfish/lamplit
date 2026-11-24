@@ -1,7 +1,8 @@
 {
-  "name": "pixel-english-town",
+  "name": "lamplit",
   "private": true,
   "version": "0.0.1",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",

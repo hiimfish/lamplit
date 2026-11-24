@@ -15,7 +15,7 @@ describe('exam result wording', () => {
   });
 
   it('says how the estimates were calibrated', () => {
-    expect(words.calibrationText(2)).toBe('已依你 2 次 ETS 分數校正');
+    expect(words.calibrationText(2)).toBe('已依你 2 次多益練習題分數校正');
     expect(words.calibrationText(0)).toContain('還沒校正');
   });
 

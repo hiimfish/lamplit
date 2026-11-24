@@ -406,5 +406,29 @@ body {
  */
 :root[data-orientation='landscape'] .title-screen .pixel-button[data-testid='start'] {
   margin-top: auto;
-  margin-bottom: calc(12 * var(--px));
+  margin-bottom: calc(2 * var(--px));
+}
+
+/*
+ * Trademark and licence lines under the start key: half-size type (Cubic 11 stays
+ * crisp at 11px), centred and quiet. In landscape a paper strip keeps them legible
+ * over the street.
+ */
+.title-notice {
+  max-width: 100%;
+  margin-top: calc(-4 * var(--px));
+  text-align: center;
+  font-size: calc(5.5 * var(--px));
+  line-height: 1.4;
+  color: var(--ink);
+  opacity: 0.8;
+}
+
+.title-notice p {
+  margin: 0;
+}
+
+:root[data-orientation='landscape'] .title-notice {
+  padding: var(--px) calc(4 * var(--px));
+  background: var(--paper);
 }

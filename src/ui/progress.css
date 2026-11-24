@@ -164,13 +164,29 @@
   padding-right: 0;
 }
 
+/* A typeable number box; the browser's own spin arrows are hidden (the ± keys do that job). */
 .score-value {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
   padding: calc(2 * var(--px)) 0;
+  border: none;
+  border-radius: 0;
   text-align: center;
+  font: inherit;
   font-size: calc(14 * var(--px));
   color: var(--ink);
   background: var(--paper);
   box-shadow: inset 0 0 0 var(--px) var(--ink);
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.score-value::-webkit-inner-spin-button,
+.score-value::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
 }
 
 .score-value:focus-visible {
