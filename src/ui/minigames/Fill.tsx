@@ -6,7 +6,7 @@ import type { MinigameProps } from './shared';
 
 /** The prompt: 文法填空 (`grammar`) names itself; a plain 句子填空 asks for the word that fits. */
 export function fillPrompt(question: Pick<FillQuestion, 'grammar'>): string {
-  return question.grammar ? '文法填空：選出正確的形式' : '選出最適合放進空格的字';
+  return question.grammar ? '文法填空：選出放進空格最正確的答案' : '選出最適合放進空格的字';
 }
 
 /**
