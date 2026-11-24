@@ -27,7 +27,8 @@ export function ResultScreen() {
   const { result, save } = useStore(appStore);
   useEffect(() => playMusic('town'), []);
   useEffect(() => () => stopAudio(), []);
-  useKeys({ Enter: () => appStore.set({ screen: 'town' }) });
+  const toTown = () => appStore.set({ screen: 'town' });
+  useKeys({ Enter: toTown, Back: toTown });
   if (!result) {
     return (
       <div class="flow">

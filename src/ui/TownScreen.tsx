@@ -256,9 +256,14 @@ export function TownScreen() {
   // Enter starts 下一關 (開始第一關) from the act view, unless another key has focus. The
   // handler is set further down, once 下一關 is known (hooks stay above the early return).
   const enterRef = useRef<(() => void) | undefined>(undefined);
+  // Esc (返回) goes from a location's tasks back to its act.
+  const backRef = useRef<(() => void) | undefined>(undefined);
   useKeys({
     get Enter() {
       return enterRef.current;
+    },
+    get Back() {
+      return backRef.current;
     },
   });
 
@@ -301,6 +306,7 @@ export function TownScreen() {
 
   enterRef.current =
     !place && !settingsOpen && next ? () => startTask(next.unit.id, next.task.id) : undefined;
+  backRef.current = place && !settingsOpen ? () => show(actIndex) : undefined;
   // The act tabs are one radio group: ←/→ (or ↑/↓) move the choice and the focus.
   const onActKey = (e: KeyboardEvent) => {
     const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
@@ -318,6 +324,7 @@ export function TownScreen() {
     <div class="town-actions">
       <button class="pixel-button back-key" onClick={() => show(actIndex)} data-testid="back">
         回第{act.no}幕
+        <KeyCap k="Back" />
       </button>
     </div>
   ) : (

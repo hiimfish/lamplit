@@ -16,6 +16,7 @@ import {
 } from '../learning/sessionPlan';
 import './flow.css';
 import { IntroCards } from './IntroCards';
+import { QuitKey } from './QuitKey';
 import { QuestionView } from './minigames/QuestionView';
 import { RolePlay } from './RolePlay';
 import { SceneStory } from './SceneStory';
@@ -215,13 +216,7 @@ export function TaskScreen() {
         {!rolePlay && phase === 'practice' && (
           <QuestionRunner questions={questions} showHearts onFinish={finish} />
         )}
-        <button
-          class="pixel-button small quit"
-          onClick={() => appStore.set({ screen: 'town' })}
-          data-testid="quit"
-        >
-          先回小鎮
-        </button>
+        <QuitKey label="先回小鎮" onLeave={() => appStore.set({ screen: 'town' })} testId="quit" />
       </div>
     </div>
   );

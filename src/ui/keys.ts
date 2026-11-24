@@ -6,7 +6,8 @@
  *   Space          the screen's main next step: 下一句, 下一張, 開始練習, 檢查, 繼續, 回小鎮, 下一關
  *   `              再聽一次 / 聽發音 (normal speed); the key under Esc
  *   Shift+`        慢速 (counted as help, the same as tapping it)
- *   Esc            排句子 and 拼字: take back the last block or letter; elsewhere 取消
+ *   Esc            排句子 and 拼字: take back the last block or letter; 跟我說: 取消;
+ *                  elsewhere 返回 (先回小鎮 asks again first, 回第N幕, 回小鎮, 回每日目標)
  *   Shift+Esc      排句子: 重排
  *   T              看中文 / 中文 on or off (when T is not a typed letter or a block)
  *   ArrowLeft      上一張; ArrowRight is another 下一句 / 下一張
@@ -15,7 +16,7 @@
  *
  * Screens register a map with useKeys() under action names that predate the left-hand layout:
  * 'Enter' = next step, 'Space' = replay, 'Shift+Space' = slow, 'Backspace' = take back,
- * 'Escape' = 重排 / 取消, '0' = 中文. keyName() names the physical key, and ACTIONS turns it
+ * 'Escape' = 重排 / 取消, 'Back' = 返回, '0' = 中文. keyName() names the physical key, and ACTIONS turns it
  * into the actions it may stand for, tried in order; one document listener hands the key to
  * the most recently registered map that has one of them. Keys are ignored while Ctrl, Alt or
  * Meta is held, while typing in a field, inside a dialog, and while an IME is composing. Space
@@ -27,7 +28,8 @@ import { useEffect, useRef } from 'preact/hooks';
 export type KeyHandler = (e: KeyboardEvent) => void;
 /**
  * Action names: 'Enter' (next step), 'Space' (replay), 'Shift+Space' (slow), 'Backspace'
- * (take back), 'Escape' (重排 / 取消), '0' (中文), and digits and letters for themselves.
+ * (take back), 'Escape' (重排 / 取消), 'Back' (返回: leave the screen), '0' (中文), and digits
+ * and letters for themselves.
  */
 export type KeyMap = Partial<Record<string, KeyHandler>>;
 
@@ -72,6 +74,20 @@ const ACTIONS: Record<string, readonly string[]> = {
   // T types a t or places a T block where it is one; otherwise it is 中文.
   t: ['t', '0'],
 };
+
+/**
+ * Actions a key stands for only when no screen has any of its ACTIONS: Esc leaves the screen
+ * (返回) only when nothing on it can be taken back or cancelled, even when the 返回 key was
+ * registered after the question it sits over.
+ */
+const FALLBACK: Record<string, readonly string[]> = {
+  Escape: ['Back'],
+};
+
+/** The fallback actions of the physical key `name` (see FALLBACK). */
+export function fallbackFor(name: string): readonly string[] {
+  return FALLBACK[name] ?? [];
+}
 
 /** The actions, in order, that the physical key `name` stands for. */
 export function actionsFor(name: string): readonly string[] {
@@ -125,17 +141,22 @@ export function handleKey(e: KeyboardEvent): void {
   if (!name) return;
   if ((name === 'Enter' || name === 'Space' || name === 'Shift+Space') && controlHasFocus(e))
     return;
-  const actions = actionsFor(name);
+  if (!runFirst(actionsFor(name), e)) runFirst(fallbackFor(name), e);
+}
+
+/** Runs the newest layer's handler for the first of `actions` it has; false if none has one. */
+function runFirst(actions: readonly string[], e: KeyboardEvent): boolean {
   for (let i = layers.length - 1; i >= 0; i--) {
     const map = layers[i]!.map();
     const action = actions.find((a) => map[a]);
     if (!action) continue;
     e.preventDefault();
     // Holding a key down repeats only taking back; a held next step or digit acts once.
-    if (e.repeat && action !== 'Backspace') return;
+    if (e.repeat && action !== 'Backspace') return true;
     map[action]!(e);
-    return;
+    return true;
   }
+  return false;
 }
 
 /** Registers `map` while the component is mounted and `enabled` is true. The newest map wins a key. */

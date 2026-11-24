@@ -9,6 +9,7 @@ import { addCoins, buildDailyReview, reviewCoins, starsForAccuracy } from '../le
 import { finishReview, reviewLimit } from '../learning/sprint';
 import './flow.css';
 import { QuestionRunner } from './TaskScreen';
+import { QuitKey } from './QuitKey';
 
 function buildQuestions(ids: string[], seed: number): Question[] {
   const rng = makeRng(seed);
@@ -65,9 +66,11 @@ export function ReviewScreen() {
         ) : (
           <QuestionRunner questions={questions} showHearts={false} onFinish={finish} />
         )}
-        <button class="pixel-button small quit" onClick={() => appStore.set({ screen: 'town' })}>
-          先回小鎮
-        </button>
+        <QuitKey
+          label="先回小鎮"
+          confirm={questions.length > 0}
+          onLeave={() => appStore.set({ screen: 'town' })}
+        />
       </div>
     </div>
   );

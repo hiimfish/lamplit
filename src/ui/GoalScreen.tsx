@@ -77,7 +77,7 @@ export function GoalScreen() {
   const openAll = devUnlockAll(useStore(settingsStore));
   useEffect(() => playMusic('town'), []);
   const toTown = () => appStore.set({ screen: 'town' });
-  useKeys({ Enter: toTown });
+  useKeys({ Enter: toTown, Back: toTown });
 
   const now = currentNow();
   const daily = dailyFor(save, now);

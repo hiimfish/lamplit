@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { actionsFor, digitIndex, keyName, letterIndex } from '../src/ui/keys';
+import { actionsFor, digitIndex, fallbackFor, keyName, letterIndex } from '../src/ui/keys';
 import { keyCapLabel } from '../src/ui/KeyCap';
 
 const press = (key: string, shiftKey = false, code?: string) => keyName({ key, shiftKey, code });
@@ -41,6 +41,14 @@ describe('left-hand actions', () => {
   it('Esc takes back first, then cancels; Shift+Esc is 重排', () => {
     expect(actionsFor('Escape')).toEqual(['Backspace', 'Escape']);
     expect(actionsFor('Shift+Escape')).toEqual(['Escape']);
+  });
+
+  it('Esc is 返回 only when nothing on the screen takes it back or cancels', () => {
+    expect(actionsFor('Escape')).not.toContain('Back');
+    expect(fallbackFor('Escape')).toEqual(['Back']);
+    expect(fallbackFor('Shift+Escape')).toEqual([]);
+    expect(fallbackFor('Backspace')).toEqual([]);
+    expect(keyCapLabel('Back')).toBe('Esc');
   });
 
   it('T types or places a block first, then shows 中文', () => {

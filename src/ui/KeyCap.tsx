@@ -15,6 +15,7 @@ const LABELS: Record<string, string> = {
   ArrowLeft: '←',
   ArrowRight: '→',
   Backspace: 'Esc',
+  Back: 'Esc',
   '0': 'T',
 };
 

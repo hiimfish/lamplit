@@ -13,6 +13,7 @@ import { IntroCards } from './IntroCards';
 import { QuestionRunner } from './TaskScreen';
 import { TOWN } from './TownScreen';
 import { SPRINT_NOTE } from './GoalScreen';
+import { QuitKey } from './QuitKey';
 
 /** Where each word lives, so its audio and its place's words can be found. */
 function wordHome(): Map<string, { unit: Unit; word: Word }> {
@@ -83,12 +84,11 @@ export function SprintScreen() {
         ) : (
           <QuestionRunner questions={round.questions} showHearts={false} onFinish={finish} />
         )}
-        <button
-          class="pixel-button small quit"
-          onClick={() => appStore.set({ screen: ready ? 'town' : 'goal' })}
-        >
-          {ready ? '先回小鎮' : '回每日目標'}
-        </button>
+        <QuitKey
+          label={ready ? '先回小鎮' : '回每日目標'}
+          confirm={ready}
+          onLeave={() => appStore.set({ screen: ready ? 'town' : 'goal' })}
+        />
       </div>
     </div>
   );
