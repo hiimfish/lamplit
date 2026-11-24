@@ -121,35 +121,37 @@ export function ExamRunner({ section, onFinish, onQuit }: Props) {
     onPlayed: () => setCounts((c) => withPlay(c, item)),
   };
   return (
-    <div class="exam-runner" data-testid="exam-runner">
-      <div class="flow-bar exam-runner-bar">
-        <span class="exam-runner-title">{section.title}</span>
-        <span data-testid="exam-progress">
-          第 {index + 1}／{items.length} 題
-        </span>
-        {left !== null && (
-          <span class={`exam-clock${left <= 60 ? ' low' : ''}`} data-testid="exam-clock">
-            {formatClock(left)}
+    <div class="flow">
+      <div class="flow-card exam-runner" data-testid="exam-runner">
+        <div class="flow-bar exam-runner-bar">
+          <span class="exam-runner-title">{section.title}</span>
+          <span data-testid="exam-progress">
+            第 {index + 1}／{items.length} 題
           </span>
+          {left !== null && (
+            <span class={`exam-clock${left <= 60 ? ' low' : ''}`} data-testid="exam-clock">
+              {formatClock(left)}
+            </span>
+          )}
+        </div>
+        <div class="progress" aria-hidden="true">
+          <div class="progress-fill" style={{ width: `${(index / items.length) * 100}%` }} />
+        </div>
+        {expired && !timer?.hard && (
+          <p class="exam-runner-note" data-testid="exam-timeup">
+            時間到了，可以繼續作答
+          </p>
         )}
-      </div>
-      <div class="progress" aria-hidden="true">
-        <div class="progress-fill" style={{ width: `${(index / items.length) * 100}%` }} />
-      </div>
-      {expired && !timer?.hard && (
-        <p class="exam-runner-note" data-testid="exam-timeup">
-          時間到了，可以繼續作答
-        </p>
-      )}
-      <div class="exam-runner-body" key={item.qid}>
-        {section.kind === 'listening' ? <ExamListening {...view} /> : <ExamReading {...view} />}
-      </div>
-      <div class="flow-actions exam-runner-actions">
-        <QuitKey label="先離開" onLeave={onQuit} testId="exam-quit" />
-        <button type="button" class="pixel-button primary" onClick={next} data-testid="exam-next">
-          {last ? '交卷' : '下一題'}
-          <KeyCap k="Enter" />
-        </button>
+        <div class="exam-runner-body" key={item.qid}>
+          {section.kind === 'listening' ? <ExamListening {...view} /> : <ExamReading {...view} />}
+        </div>
+        <div class="flow-actions exam-runner-actions">
+          <QuitKey label="先離開" onLeave={onQuit} testId="exam-quit" />
+          <button type="button" class="pixel-button primary" onClick={next} data-testid="exam-next">
+            {last ? '交卷' : '下一題'}
+            <KeyCap k="Enter" />
+          </button>
+        </div>
       </div>
     </div>
   );

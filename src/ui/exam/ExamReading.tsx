@@ -3,6 +3,7 @@ import { useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { PICTURE_H, PICTURE_W } from '../../art/pictures';
 import { textFillParts } from '../../learning/gen/textFills';
 import type {
+  ChooseReplyQuestion,
   FillQuestion,
   PassageQuestion,
   PictureQuestion,
@@ -87,6 +88,24 @@ function Sign({ question, choice, onChoose }: Props<SignQuestion>) {
         </p>
       </div>
       <ExamOptions options={question.options} choice={choice} onChoose={onChoose} />
+    </div>
+  );
+}
+
+/** 文法選句: the line to answer in English only, then the sentences to pick from. */
+function ReplyView({ question, choice, onChoose }: Props<ChooseReplyQuestion>) {
+  const options = question.options.map((o) => ({ id: o.id, label: o.text }));
+  return (
+    <div class="mg er">
+      <p class="mg-prompt" lang="en">
+        Choose the best reply.
+      </p>
+      <div class="mg-npc">
+        <span class="mg-npc-text" data-testid="npc-text" lang="en">
+          {question.npcText}
+        </span>
+      </div>
+      <ExamOptions options={options} choice={choice} onChoose={onChoose} />
     </div>
   );
 }
@@ -461,6 +480,8 @@ export function ExamReading({ item, choice, onChoose }: ExamViewProps) {
   switch (q.kind) {
     case 'read-sign':
       return <Sign key={key} question={q} choice={choice} onChoose={onChoose} />;
+    case 'choose-reply':
+      return <ReplyView key={key} question={q} choice={choice} onChoose={onChoose} />;
     case 'fill':
       return <FillView key={key} question={q} choice={choice} onChoose={onChoose} />;
     case 'picture':

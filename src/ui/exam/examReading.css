@@ -51,3 +51,21 @@
   min-width: 0;
   overflow-wrap: anywhere;
 }
+
+/* A set of texts on a portrait phone: a short paper box, so the question and the keys are
+   on screen without scrolling the page; the tabs sit outside the box and stay in sight. */
+:root[data-orientation='portrait'] .er-box.rp-set {
+  max-height: 26dvh;
+}
+
+/* 「這題要看」 wraps beside the prompt instead of being clipped. */
+.er .rp-head {
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.er .rp-need-note {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}

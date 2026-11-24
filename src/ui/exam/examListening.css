@@ -65,3 +65,9 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* The sound-only picture of 聽力一: larger and centred. */
+.ex-picture {
+  margin-inline: auto;
+  width: min(100%, calc(144 * var(--px)));
+}
