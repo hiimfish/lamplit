@@ -1,1 +1,764 @@
-{}
+{
+  "goods": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "goods"
+    },
+    "pluralOnly": true
+  },
+  "stock": {
+    "pos": "n",
+    "cls": "object",
+    "countable": false
+  },
+  "shipment": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "shipments"
+    }
+  },
+  "warehouse": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "warehouses"
+    }
+  },
+  "dock": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "docks"
+    }
+  },
+  "truck": {
+    "pos": "n",
+    "cls": "vehicle",
+    "forms": {
+      "pl": "trucks"
+    }
+  },
+  "inventory": {
+    "pos": "n",
+    "cls": "document",
+    "countable": false
+  },
+  "category": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "categories"
+    }
+  },
+  "shelf": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "shelves"
+    }
+  },
+  "rack": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "racks"
+    }
+  },
+  "label": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "labels"
+    }
+  },
+  "plastic": {
+    "pos": "n",
+    "cls": "object",
+    "countable": false
+  },
+  "fire": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "fires"
+    }
+  },
+  "equipment": {
+    "pos": "n",
+    "cls": "object",
+    "countable": false
+  },
+  "ladder": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "ladders"
+    }
+  },
+  "alarm": {
+    "pos": "n",
+    "cls": "device",
+    "forms": {
+      "pl": "alarms"
+    }
+  },
+  "glove": {
+    "pos": "n",
+    "cls": "clothing",
+    "forms": {
+      "pl": "gloves"
+    }
+  },
+  "vehicle": {
+    "pos": "n",
+    "cls": "vehicle",
+    "forms": {
+      "pl": "vehicles"
+    }
+  },
+  "yard": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "yards"
+    }
+  },
+  "tag": {
+    "pos": "n",
+    "cls": "object",
+    "forms": {
+      "pl": "tags"
+    }
+  },
+  "temperature": {
+    "pos": "n",
+    "cls": "quality",
+    "forms": {
+      "pl": "temperatures"
+    }
+  },
+  "machinery": {
+    "pos": "n",
+    "cls": "object",
+    "countable": false
+  },
+  "sea": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "seas"
+    }
+  },
+  "carrier": {
+    "pos": "n",
+    "cls": "role",
+    "forms": {
+      "pl": "carriers"
+    }
+  },
+  "port": {
+    "pos": "n",
+    "cls": "place",
+    "forms": {
+      "pl": "ports"
+    }
+  },
+  "operation": {
+    "pos": "other",
+    "skip": true
+  },
+  "dozen": {
+    "pos": "other",
+    "skip": true
+  },
+  "aware": {
+    "pos": "other",
+    "skip": true
+  },
+  "capacity": {
+    "pos": "other",
+    "skip": true
+  },
+  "rush": {
+    "pos": "other",
+    "skip": true
+  },
+  "multiple": {
+    "pos": "other",
+    "skip": true
+  },
+  "maximum": {
+    "pos": "other",
+    "skip": true
+  },
+  "none": {
+    "pos": "other",
+    "skip": true
+  },
+  "thorough": {
+    "pos": "other",
+    "skip": true
+  },
+  "shortage": {
+    "pos": "other",
+    "skip": true
+  },
+  "remain": {
+    "pos": "other",
+    "skip": true
+  },
+  "storage": {
+    "pos": "other",
+    "skip": true
+  },
+  "status": {
+    "pos": "other",
+    "skip": true
+  },
+  "transport": {
+    "pos": "other",
+    "skip": true
+  },
+  "huge": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["object", "place", "room", "vehicle"]
+      }
+    ]
+  },
+  "empty": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["object", "room", "place", "vehicle"]
+      }
+    ]
+  },
+  "fragile": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["object"]
+      }
+    ]
+  },
+  "safe": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["place", "room", "object", "vehicle"]
+      }
+    ]
+  },
+  "wet": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["object", "clothing", "place", "room"]
+      }
+    ]
+  },
+  "yellow": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["object", "clothing", "vehicle", "document"]
+      }
+    ]
+  },
+  "accurate": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["document", "number"]
+      }
+    ]
+  },
+  "electrical": {
+    "pos": "adj",
+    "frames": [
+      {
+        "subj": ["device", "object"]
+      }
+    ]
+  },
+  "mark": {
+    "pos": "v",
+    "forms": {
+      "s3": "marks",
+      "past": "marked",
+      "pp": "marked",
+      "ing": "marking"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["object", "document"]
+      }
+    ]
+  },
+  "match": {
+    "pos": "v",
+    "forms": {
+      "s3": "matches",
+      "past": "matched",
+      "pp": "matched",
+      "ing": "matching"
+    },
+    "frames": [
+      {
+        "subj": ["number", "document"]
+      }
+    ]
+  },
+  "count": {
+    "pos": "v",
+    "forms": {
+      "s3": "counts",
+      "past": "counted",
+      "pp": "counted",
+      "ing": "counting"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["object", "money"]
+      }
+    ]
+  },
+  "measure": {
+    "pos": "v",
+    "forms": {
+      "s3": "measures",
+      "past": "measured",
+      "pp": "measured",
+      "ing": "measuring"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["object"]
+      }
+    ]
+  },
+  "store": {
+    "pos": "v",
+    "forms": {
+      "s3": "stores",
+      "past": "stored",
+      "pp": "stored",
+      "ing": "storing"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["object", "food"],
+        "prep": {
+          "word": "in",
+          "cls": ["room", "object"]
+        },
+        "prepRequired": true
+      }
+    ]
+  },
+  "protect": {
+    "pos": "v",
+    "forms": {
+      "s3": "protects",
+      "past": "protected",
+      "pp": "protected",
+      "ing": "protecting"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role", "object"],
+        "obj": ["object", "person"]
+      }
+    ]
+  },
+  "pack": {
+    "pos": "v",
+    "forms": {
+      "s3": "packs",
+      "past": "packed",
+      "pp": "packed",
+      "ing": "packing"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["object", "clothing"]
+      }
+    ]
+  },
+  "seal": {
+    "pos": "v",
+    "forms": {
+      "s3": "seals",
+      "past": "sealed",
+      "pp": "sealed",
+      "ing": "sealing"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["object"]
+      }
+    ]
+  },
+  "wrap": {
+    "pos": "v",
+    "forms": {
+      "s3": "wraps",
+      "past": "wrapped",
+      "pp": "wrapped",
+      "ing": "wrapping"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["object"],
+        "prep": {
+          "word": "in",
+          "cls": ["object"]
+        }
+      }
+    ]
+  },
+  "prevent": {
+    "pos": "v",
+    "forms": {
+      "s3": "prevents",
+      "past": "prevented",
+      "pp": "prevented",
+      "ing": "preventing"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role", "object", "device"],
+        "obj": ["event"]
+      }
+    ]
+  },
+  "warn": {
+    "pos": "v",
+    "forms": {
+      "s3": "warns",
+      "past": "warned",
+      "pp": "warned",
+      "ing": "warning"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role", "device"],
+        "obj": ["person", "role"]
+      }
+    ]
+  },
+  "lift": {
+    "pos": "v",
+    "forms": {
+      "s3": "lifts",
+      "past": "lifted",
+      "pp": "lifted",
+      "ing": "lifting"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["object"]
+      }
+    ]
+  },
+  "load": {
+    "pos": "v",
+    "forms": {
+      "s3": "loads",
+      "past": "loaded",
+      "pp": "loaded",
+      "ing": "loading"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["object", "vehicle"]
+      }
+    ]
+  },
+  "stack": {
+    "pos": "v",
+    "forms": {
+      "s3": "stacks",
+      "past": "stacked",
+      "pp": "stacked",
+      "ing": "stacking"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["object"]
+      }
+    ]
+  },
+  "handle": {
+    "pos": "v",
+    "forms": {
+      "s3": "handles",
+      "past": "handled",
+      "pp": "handled",
+      "ing": "handling"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["object", "document"]
+      }
+    ]
+  },
+  "inspect": {
+    "pos": "v",
+    "forms": {
+      "s3": "inspects",
+      "past": "inspected",
+      "pp": "inspected",
+      "ing": "inspecting"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["object", "vehicle", "device"]
+      }
+    ]
+  },
+  "disappear": {
+    "pos": "v",
+    "forms": {
+      "s3": "disappears",
+      "past": "disappeared",
+      "pp": "disappeared",
+      "ing": "disappearing"
+    },
+    "frames": [
+      {
+        "subj": ["object", "document", "money"]
+      }
+    ]
+  },
+  "control": {
+    "pos": "v",
+    "forms": {
+      "s3": "controls",
+      "past": "controlled",
+      "pp": "controlled",
+      "ing": "controlling"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role", "device"],
+        "obj": ["quality"]
+      }
+    ]
+  },
+  "operate": {
+    "pos": "v",
+    "forms": {
+      "s3": "operates",
+      "past": "operated",
+      "pp": "operated",
+      "ing": "operating"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["device", "vehicle"]
+      }
+    ]
+  },
+  "maintain": {
+    "pos": "v",
+    "forms": {
+      "s3": "maintains",
+      "past": "maintained",
+      "pp": "maintained",
+      "ing": "maintaining"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["device", "vehicle"]
+      }
+    ]
+  },
+  "shut": {
+    "pos": "v",
+    "forms": {
+      "s3": "shuts",
+      "past": "shut",
+      "pp": "shut",
+      "ing": "shutting"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["room", "object"]
+      }
+    ]
+  },
+  "install": {
+    "pos": "v",
+    "forms": {
+      "s3": "installs",
+      "past": "installed",
+      "pp": "installed",
+      "ing": "installing"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["device", "object"]
+      }
+    ]
+  },
+  "contain": {
+    "pos": "v",
+    "forms": {
+      "s3": "contains",
+      "past": "contained",
+      "pp": "contained",
+      "ing": "containing"
+    },
+    "frames": [
+      {
+        "subj": ["object"],
+        "obj": ["object", "food"]
+      }
+    ]
+  },
+  "track": {
+    "pos": "v",
+    "forms": {
+      "s3": "tracks",
+      "past": "tracked",
+      "pp": "tracked",
+      "ing": "tracking"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["object"]
+      }
+    ]
+  },
+  "collect": {
+    "pos": "v",
+    "forms": {
+      "s3": "collects",
+      "past": "collected",
+      "pp": "collected",
+      "ing": "collecting"
+    },
+    "frames": [
+      {
+        "subj": ["person", "role"],
+        "obj": ["object", "document"]
+      }
+    ]
+  },
+  "weigh": {
+    "pos": "v",
+    "forms": {
+      "s3": "weighs",
+      "past": "weighed",
+      "pp": "weighed",
+      "ing": "weighing"
+    },
+    "frames": [
+      {
+        "subj": ["object"]
+      },
+      {
+        "subj": ["person", "role"],
+        "obj": ["object"]
+      }
+    ]
+  },
+  "in": {
+    "pos": "prep",
+    "frames": [
+      {
+        "subj": ["object", "document", "device"],
+        "obj": ["object", "room", "place"]
+      }
+    ]
+  },
+  "on": {
+    "pos": "prep",
+    "frames": [
+      {
+        "subj": ["object", "document", "device"],
+        "obj": ["object", "room", "place"]
+      }
+    ]
+  },
+  "lines": {
+    "t3_2": {
+      "side": "question",
+      "qtype": "how"
+    },
+    "t3_3": {
+      "side": "answer",
+      "atype": "manner"
+    },
+    "t5_2": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t5_3": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t5_4": {
+      "side": "question",
+      "qtype": "which"
+    },
+    "t5_5": {
+      "side": "answer",
+      "atype": "thing"
+    },
+    "t7_2": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t7_3": {
+      "side": "answer",
+      "atype": "yes-no"
+    },
+    "t9_9": {
+      "side": "question",
+      "qtype": "how"
+    },
+    "t9_10": {
+      "side": "answer",
+      "atype": "manner"
+    },
+    "t9_12": {
+      "side": "question",
+      "qtype": "which"
+    },
+    "t9_13": {
+      "side": "answer",
+      "atype": "thing"
+    },
+    "t9_16": {
+      "side": "question",
+      "qtype": "yes-no"
+    },
+    "t9_17": {
+      "side": "answer",
+      "atype": "yes-no"
+    }
+  }
+}
