@@ -12,11 +12,21 @@ import {
 import { createStore } from './store';
 
 type Screen =
-  'title' | 'town' | 'task' | 'review' | 'sprint' | 'goal' | 'listen' | 'progress' | 'result';
+  | 'title'
+  | 'town'
+  | 'task'
+  | 'review'
+  | 'sprint'
+  | 'goal'
+  | 'listen'
+  | 'progress'
+  | 'exam'
+  | 'grammar'
+  | 'result';
 
-/** What the result screen shows after a task, a daily review or a 單字快練 round. */
+/** What the result screen shows after a task, a daily review, a 單字快練 round or a 文法快練 round. */
 interface ResultData {
-  kind: 'task' | 'review' | 'sprint';
+  kind: 'task' | 'review' | 'sprint' | 'grammar';
   unitId?: string;
   taskId?: string;
   outcome: TaskOutcome;
@@ -30,6 +40,8 @@ export interface AppState {
   save: SaveData;
   /** The task being played, as `${unitId}/${taskId}` parts. */
   activeTask?: { unitId: string; taskId: string };
+  /** The Act (1 to 4) whose 結業考 is open on the exam screen. */
+  activeExam?: number;
   /**
    * What the town shows: an act (index into ACTS) and, when a location is open,
    * its unit. Unset until the player picks one; the town then opens on the act

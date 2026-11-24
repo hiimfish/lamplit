@@ -39,6 +39,7 @@ const EMPTY_DAY: DayRecord = {
   sprintNew: 0,
   reviewed: 0,
   listened: 0,
+  grammar: 0,
   answered: 0,
   correct: 0,
   met: false,

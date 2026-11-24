@@ -1,7 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import { ACTS, type Act } from '../src/content/acts';
 import { UNITS } from '../src/content/units';
-import { createEmptySave, mergeSaves, sanitizeSave, type SaveData } from '../src/core/save';
+import {
+  betterSpoken,
+  createEmptySave,
+  mergeSaves,
+  sanitizeSave,
+  type SaveData,
+} from '../src/core/save';
 import { finishListen, listenGoal, pickListenTask } from '../src/learning/listen';
 import { finishTask, taskKey } from '../src/learning/sessionPlan';
 import { buildTown } from '../src/learning/townPlan';
@@ -106,5 +112,53 @@ describe('heard in the save', () => {
     const heard = finishListen(played(['a/t1']), 'a/t1', now);
     const replayed = finishTask(heard, 'a/t1', [], now).save;
     expect(replayed.tasks['a/t1']).toMatchObject({ heard: 1, plays: 2 });
+  });
+});
+
+describe('spoken in the save', () => {
+  const withSpoken = (spoken: unknown) =>
+    sanitizeSave({ tasks: { 'a/t1': { stars: 2, plays: 1, spoken } } }, now).tasks['a/t1'];
+
+  it('keeps a good record', () => {
+    expect(withSpoken({ score: 82, lines: 8 })?.spoken).toEqual({ score: 82, lines: 8 });
+    expect(withSpoken({ score: 0, lines: 1, extra: 1 })?.spoken).toEqual({ score: 0, lines: 1 });
+  });
+
+  it('drops a bad one', () => {
+    for (const bad of [
+      { score: 101, lines: 3 },
+      { score: -1, lines: 3 },
+      { score: 50.5, lines: 3 },
+      { score: 50, lines: 0 },
+      { score: 50 },
+      'great',
+      null,
+    ]) {
+      expect(withSpoken(bad)).toEqual({ stars: 2, plays: 1 });
+    }
+  });
+
+  it('keeps the higher score, on a tie the one with more lines', () => {
+    expect(betterSpoken({ score: 80, lines: 5 }, { score: 90, lines: 3 })).toEqual({
+      score: 90,
+      lines: 3,
+    });
+    expect(betterSpoken({ score: 80, lines: 5 }, { score: 80, lines: 7 })).toEqual({
+      score: 80,
+      lines: 7,
+    });
+    expect(betterSpoken(undefined, { score: 10, lines: 1 })).toEqual({ score: 10, lines: 1 });
+    expect(betterSpoken(undefined, undefined)).toBeUndefined();
+  });
+
+  it('merges two tabs: the better record', () => {
+    const ours = played(['a/t1']);
+    ours.tasks['a/t1'] = { stars: 2, plays: 1, spoken: { score: 60, lines: 4 } };
+    const theirs = played(['a/t1']);
+    theirs.tasks['a/t1'] = { stars: 2, plays: 1, spoken: { score: 75, lines: 3 } };
+    expect(mergeSaves(ours, theirs).tasks['a/t1']?.spoken).toEqual({ score: 75, lines: 3 });
+    expect(mergeSaves(theirs, ours).tasks['a/t1']?.spoken).toEqual({ score: 75, lines: 3 });
+    const none = played(['a/t1']);
+    expect(mergeSaves(none, ours).tasks['a/t1']?.spoken).toEqual({ score: 60, lines: 4 });
   });
 });

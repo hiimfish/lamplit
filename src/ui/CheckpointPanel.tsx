@@ -31,6 +31,14 @@ const dayOf = (key: string): Date => {
   return new Date(y, m - 1, d, 12);
 };
 
+const ACT_NAMES = ['一', '二', '三', '四'] as const;
+
+/** Where the score came from: an ETS practice test, or a 幕結業考 (marked 重考 when sat again). */
+function sourceLabel(entry: Checkpoint): string {
+  if (entry.source !== 'exam' || !entry.act) return 'ETS 練習題';
+  return `第${ACT_NAMES[entry.act - 1]}幕結業考（估計）${entry.retake ? '・重考' : ''}`;
+}
+
 const shortDate = (key: string): string => `${Number(key.slice(5, 7))}/${Number(key.slice(8))}`;
 
 /** One part of the score: −50 −5 [ value ] +5 +50; the value is a spinbutton (←→ ±5, ↑↓ ±50). */
@@ -151,7 +159,7 @@ export function CheckpointPanel({ onEditing }: { onEditing: (editing: boolean) =
   return (
     <section class="checkpoint" aria-labelledby="checkpoint-title" data-testid="checkpoint">
       <p class="flow-heading" id="checkpoint-title">
-        ETS 練習題分數
+        分數紀錄
       </p>
       <p class="flow-note">
         {target === undefined
@@ -189,7 +197,7 @@ export function CheckpointPanel({ onEditing }: { onEditing: (editing: boolean) =
       ) : (
         <div class="flow-actions">
           <button class="pixel-button" onClick={() => open(true)} data-testid="checkpoint-open">
-            輸入分數
+            輸入 ETS 分數
           </button>
         </div>
       )}
@@ -219,15 +227,19 @@ export function CheckpointPanel({ onEditing }: { onEditing: (editing: boolean) =
               const day = dayOf(entry.date);
               const week = Math.min(sprintWeek(save.route, day), sprintWeeks(save.route));
               return (
-                <li key={`${entry.date}/${entry.listening}/${entry.reading}`}>
-                  {shortDate(entry.date)}：
+                <li
+                  key={`${entry.date}/${entry.listening}/${entry.reading}/${entry.source ?? ''}/${entry.act ?? ''}`}
+                >
+                  {shortDate(entry.date)}：{sourceLabel(entry)}，
                   {entryWords(entry, checkpointTarget(save.route, day), week)}
                 </li>
               );
             })}
         </ul>
       )}
-      <p class="flow-note checkpoint-fine">遊戲不能保證官方分數，請用 ETS 官方練習題確認。</p>
+      <p class="flow-note checkpoint-fine">
+        結業考的分數是遊戲估計的，不是官方分數；請用 ETS 官方練習題確認。
+      </p>
     </section>
   );
 }

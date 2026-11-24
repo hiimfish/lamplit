@@ -248,7 +248,7 @@ export function onceLocked(
  * while answering. Plain text in the game's one font at the body size; long cells wrap
  * inside their column, so 4 columns of 3 words fit a phone held upright.
  */
-function TalkTableView({ table }: { table: TalkTable }) {
+export function TalkTableView({ table }: { table: TalkTable }) {
   const [header, ...rows] = table.rows;
   return (
     <div class="talk-table-box">

@@ -271,7 +271,7 @@ export function GoalScreen() {
           </GoalRow>
         </div>
         <p class="flow-note" data-testid="goal-later">
-          之後會加入：多益題型、幕結業考。
+          之後會加入：多益題型。
         </p>
 
         <div class="flow-actions">

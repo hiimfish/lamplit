@@ -24,6 +24,7 @@ import {
   type Progress,
   type TownAct,
 } from '../learning/townPlan';
+import { ExamTile } from './exam/ExamTile';
 import './flow.css';
 import { useRefocus } from './focus';
 import { useKeys } from './keys';
@@ -465,6 +466,7 @@ export function TownScreen() {
                   onOpen={(unitId) => show(actIndex, unitId)}
                 />
               ))}
+              <ExamTile act={actIndex + 1} no={act.no} />
             </div>
           </>
         )}

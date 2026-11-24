@@ -388,7 +388,11 @@ function checkCloze(
 const SIGN_MAX_WORDS = 15;
 
 /** 讀招牌／價目: a short sign and one question with 2 to 4 answers. */
-function checkSigns(value: unknown, seen: Set<string>, report: (problem: string) => void): void {
+export function checkSigns(
+  value: unknown,
+  seen: Set<string>,
+  report: (problem: string) => void,
+): void {
   const signs = list(value);
   if (!signs || signs.length === 0) {
     report('signs must be a non-empty list');

@@ -3,6 +3,7 @@ import { ROLE_LABEL } from '../content/roles';
 import type { SceneLine } from '../content/types';
 import { settingsStore } from '../core/settings';
 import { useStore } from '../core/store';
+import type { SpokenMark } from '../learning/spokenScore';
 import { KeyCap } from './KeyCap';
 import './flow.css';
 
@@ -16,6 +17,12 @@ interface Props {
   keyHints?: boolean;
   /** Show the Chinese or not, in place of the saved 中文 setting (聽力加量 hides it). */
   zh?: boolean;
+  /** Ids of the lines whose Chinese was opened one by one (with `onPeek`). */
+  peeked?: ReadonlySet<string>;
+  /** Adds a 「中」 key to each line that opens that line's Chinese; gets the line id. */
+  onPeek?: (lineId: string) => void;
+  /** Heard-word marks per line id, drawn under the English words (跟著說 scores). */
+  marks?: Readonly<Record<string, readonly SpokenMark[]>>;
 }
 
 /** The 中文 key: shows or hides the Chinese under every line (a saved setting). */

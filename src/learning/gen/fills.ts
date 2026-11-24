@@ -24,6 +24,8 @@ export interface FillQuestion {
   itemId: string;
   /** 文法填空: the options are forms of one word (the screen says so). */
   grammar?: true;
+  /** GRAMMAR_POINTS ids of a sentence built by the generator (logged as `g:<id>`). */
+  grammarIds?: string[];
 }
 
 const BLANK = '___';

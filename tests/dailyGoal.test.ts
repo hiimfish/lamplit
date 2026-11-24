@@ -48,6 +48,7 @@ const record = (met: boolean, tasks = 0): DayRecord => ({
   sprintNew: 0,
   reviewed: 0,
   listened: 0,
+  grammar: 0,
   answered: 0,
   correct: 0,
   met,

@@ -1,3 +1,4 @@
+import { EXAM_IDS, isExamId, type ExamId } from '../content/exam';
 import { newStoredCard, type StoredCard } from '../learning/scheduler';
 
 /**
@@ -9,12 +10,20 @@ export const SAVE_KEY = 'pixel-english-town.save.v1';
 export const DEBUG_SAVE_KEY = `${SAVE_KEY}.debug`;
 const SAVE_VERSION = 1;
 
+/** The best 跟著說 round of a task's story in 聽力加量: score 0-100 over `lines` scored lines. */
+export interface SpokenRecord {
+  score: number;
+  lines: number;
+}
+
 interface TaskRecord {
   /** Best stars so far, 1 to 3. */
   stars: number;
   plays: number;
   /** Times its story was heard to the end in 聽力加量; unset means never. */
   heard?: number;
+  /** The best 跟著說 round of its story; unset means none. */
+  spoken?: SpokenRecord;
 }
 
 export interface DailyCounters {
@@ -29,6 +38,8 @@ export interface DailyCounters {
   reviewed: number;
   /** Story scenes heard to the end in 聽力加量 today. */
   listened: number;
+  /** Questions answered in 文法快練 today. */
+  grammar: number;
 }
 
 /** One past (or the current) day in `history`: its counters and whether every goal was met. */
@@ -37,6 +48,7 @@ export interface DayRecord {
   sprintNew: number;
   reviewed: number;
   listened: number;
+  grammar: number;
   answered: number;
   correct: number;
   met: boolean;
@@ -47,6 +59,12 @@ export interface Checkpoint {
   date: string;
   listening: number;
   reading: number;
+  /** `exam`: estimated by a 幕結業考, not entered from an ETS test (unset). */
+  source?: 'exam';
+  /** The Act whose exam it was; set exactly when `source` is `exam`. */
+  act?: 1 | 2 | 3 | 4;
+  /** Sat again with questions seen before, so the score may read high. */
+  retake?: true;
 }
 
 /** ETS scores kept; the oldest go first. */
@@ -54,6 +72,56 @@ export const CHECKPOINTS_KEPT = 50;
 
 /** Days of history kept; older ones are dropped. */
 export const HISTORY_DAYS = 120;
+
+/** `[missed, asked]`: how often a question carrying a tag was answered wrong, and asked. */
+export type MistakeCount = [missed: number, asked: number];
+
+/** One day of the 最常錯 log, keyed by tag (`p:<pairId>`, `k:<kind>`, `e:<error>`, `g:<grammarId>`). */
+export type MistakeDay = Record<string, MistakeCount>;
+
+/** Tags kept per day; the ones answered wrong most often stay. */
+export const MISTAKE_TAGS_PER_DAY = 60;
+
+/** What a tag looks like: a one-letter kind, a colon and a short id. */
+export const MISTAKE_TAG = /^[a-z]:[a-z0-9_-]{1,48}$/;
+
+/** Per exam: sittings, the last one's date and estimated scores, and the questions seen. */
+export interface ExamRecord {
+  attempts: number;
+  lastDate: string;
+  listening: number;
+  reading: number;
+  /** Hand-written question id to the times it was shown (decides the next form). */
+  seen: Record<string, number>;
+}
+
+/** Offsets that bring the exam estimate toward the player's ETS scores. */
+export interface ExamCalibration {
+  /** Points added to the listening estimate (within +-50). */
+  listening: number;
+  reading: number;
+  /** ETS scores paired with an exam estimate so far. */
+  pairs: number;
+}
+
+/** Every exam's record by id, and the calibration shared by all of them. */
+export interface ExamsSave extends Partial<Record<ExamId, ExamRecord>> {
+  calibration?: ExamCalibration;
+}
+
+/** A sitting in progress: finished sections are kept, a section left halfway is dropped. */
+export interface ExamRun {
+  exam: ExamId;
+  seed: number;
+  startedOn: string;
+  /** Ids of the finished sections (`s1`, ...). */
+  done: string[];
+  /** Answers of the finished sections: question id to option id (`o2`). */
+  answers: Record<string, string>;
+}
+
+/** A run older than this many days is dropped. */
+export const EXAM_RUN_DAYS = 7;
 
 /**
  * 一般 or 衝刺 (docs/specs/sprint.md). `start` is the day 衝刺 was last chosen
@@ -82,6 +150,12 @@ export interface SaveData {
   /** ETS practice scores entered by the player, oldest first. */
   checkpoints: Checkpoint[];
   route: Route;
+  /** The last HISTORY_DAYS days of answered-wrong counts by tag, keyed YYYY-MM-DD. */
+  mistakes: Record<string, MistakeDay>;
+  /** 幕結業考 results and the calibration. */
+  exams: ExamsSave;
+  /** The exam sitting in progress, if any. */
+  examRun?: ExamRun;
 }
 
 /** The tiny part of localStorage we use, so tests can pass a fake. */
@@ -141,6 +215,7 @@ function emptyDaily(now: Date): DailyCounters {
     sprintNew: 0,
     reviewed: 0,
     listened: 0,
+    grammar: 0,
   };
 }
 
@@ -156,6 +231,8 @@ export function createEmptySave(now: Date): SaveData {
     history: {},
     checkpoints: [],
     route: { kind: 'normal', start: null },
+    mistakes: {},
+    exams: {},
   };
 }
 
@@ -164,13 +241,10 @@ export function dailyFor(save: SaveData, now: Date): DailyCounters {
   return save.daily.date === dateKey(now) ? save.daily : emptyDaily(now);
 }
 
-/** Keeps only the last HISTORY_DAYS days up to `today`. */
-function pruneHistory(
-  history: Record<string, DayRecord>,
-  today: string,
-): Record<string, DayRecord> {
-  const kept: Record<string, DayRecord> = {};
-  for (const [key, record] of Object.entries(history)) {
+/** Keeps only the last HISTORY_DAYS days up to `today` (for `history` and `mistakes`). */
+function pruneDays<T>(days: Record<string, T>, today: string): Record<string, T> {
+  const kept: Record<string, T> = {};
+  for (const [key, record] of Object.entries(days)) {
     const age = daysBetween(key, today);
     if (age < HISTORY_DAYS) kept[key] = record;
   }
@@ -191,6 +265,7 @@ export function recordToday(save: SaveData, now: Date, met: boolean): SaveData {
     sprintNew: daily.sprintNew,
     reviewed: daily.reviewed,
     listened: daily.listened,
+    grammar: daily.grammar,
     answered: daily.answered,
     correct: daily.correct,
     met: met || (before?.met ?? false),
@@ -200,7 +275,7 @@ export function recordToday(save: SaveData, now: Date, met: boolean): SaveData {
     (Object.keys(record) as (keyof DayRecord)[]).every((key) => record[key] === before[key])
   )
     return save;
-  return { ...save, history: pruneHistory({ ...save.history, [today]: record }, today) };
+  return { ...save, history: pruneDays({ ...save.history, [today]: record }, today) };
 }
 
 /**
@@ -312,6 +387,8 @@ export function sanitizeSave(raw: unknown, now: Date): SaveData {
       save.tasks[id] = { stars, plays: Math.max(1, whole(record.plays)) };
       const heard = whole(record.heard);
       if (heard > 0) save.tasks[id].heard = heard;
+      const spoken = sanitizeSpoken(record.spoken);
+      if (spoken) save.tasks[id].spoken = spoken;
     }
   }
   save.coins = whole(raw.coins);
@@ -328,6 +405,7 @@ export function sanitizeSave(raw: unknown, now: Date): SaveData {
       sprintNew: whole(raw.daily.sprintNew),
       reviewed: whole(raw.daily.reviewed),
       listened: whole(raw.daily.listened),
+      grammar: whole(raw.daily.grammar),
     };
   }
   if (isObject(raw.history)) {
@@ -339,13 +417,18 @@ export function sanitizeSave(raw: unknown, now: Date): SaveData {
         sprintNew: whole(record.sprintNew),
         reviewed: whole(record.reviewed),
         listened: whole(record.listened),
+        grammar: whole(record.grammar),
         answered: whole(record.answered),
         correct: whole(record.correct),
         met: record.met === true,
       };
     }
-    save.history = pruneHistory(history, dateKey(now));
+    save.history = pruneDays(history, dateKey(now));
   }
+  save.mistakes = sanitizeMistakes(raw.mistakes, dateKey(now));
+  save.exams = sanitizeExams(raw.exams);
+  const examRun = sanitizeExamRun(raw.examRun, dateKey(now));
+  if (examRun) save.examRun = examRun;
   if (Array.isArray(raw.checkpoints)) {
     save.checkpoints = sortCheckpoints(raw.checkpoints.filter(isCheckpoint));
   }
@@ -435,6 +518,8 @@ export function mergeSaves(ours: SaveData, theirs: SaveData): SaveData {
     };
     const heard = Math.max(record.heard ?? 0, other.heard ?? 0);
     if (heard > 0) merged.heard = heard;
+    const spoken = betterSpoken(record.spoken, other.spoken);
+    if (spoken) merged.spoken = spoken;
     tasks[id] = merged;
   }
   const streakLast = laterDate(ours.streak.lastDate, theirs.streak.lastDate);
@@ -454,6 +539,7 @@ export function mergeSaves(ours: SaveData, theirs: SaveData): SaveData {
       sprintNew: Math.max(ours.daily.sprintNew, theirs.daily.sprintNew),
       reviewed: Math.max(ours.daily.reviewed, theirs.daily.reviewed),
       listened: Math.max(ours.daily.listened, theirs.daily.listened),
+      grammar: Math.max(ours.daily.grammar, theirs.daily.grammar),
     };
   } else {
     daily = ours.daily.date > theirs.daily.date ? ours.daily : theirs.daily;
@@ -467,6 +553,7 @@ export function mergeSaves(ours: SaveData, theirs: SaveData): SaveData {
           sprintNew: Math.max(record.sprintNew, other.sprintNew),
           reviewed: Math.max(record.reviewed, other.reviewed),
           listened: Math.max(record.listened, other.listened),
+          grammar: Math.max(record.grammar, other.grammar),
           answered: Math.max(record.answered, other.answered),
           correct: Math.max(record.correct, other.correct),
           met: record.met || other.met,
@@ -484,6 +571,9 @@ export function mergeSaves(ours: SaveData, theirs: SaveData): SaveData {
     history,
     checkpoints: sortCheckpoints([...theirs.checkpoints, ...ours.checkpoints]),
     route: mergeRoute(ours.route, theirs.route),
+    mistakes: mergeMistakes(ours.mistakes, theirs.mistakes),
+    exams: mergeExams(ours.exams, theirs.exams),
+    ...mergeExamRun(ours.examRun, theirs.examRun),
   };
 }
 
@@ -491,21 +581,36 @@ export function mergeSaves(ours: SaveData, theirs: SaveData): SaveData {
 export const isEtsScore = (value: unknown): value is number =>
   isCount(value) && value >= 5 && value <= 495 && value % 5 === 0;
 
+const isAct = (value: unknown): value is 1 | 2 | 3 | 4 =>
+  value === 1 || value === 2 || value === 3 || value === 4;
+
+/** An exam score needs its Act; any other `source` is not one we know. */
 function isCheckpoint(raw: unknown): raw is Checkpoint {
   return (
-    isObject(raw) && isDateKey(raw.date) && isEtsScore(raw.listening) && isEtsScore(raw.reading)
+    isObject(raw) &&
+    isDateKey(raw.date) &&
+    isEtsScore(raw.listening) &&
+    isEtsScore(raw.reading) &&
+    (raw.source === undefined || (raw.source === 'exam' && isAct(raw.act)))
   );
 }
 
-/** Oldest first, each score once, at most CHECKPOINTS_KEPT (copies only the fields kept). */
+/** Oldest first, each score once (per source and Act), at most CHECKPOINTS_KEPT (copies only the fields kept). */
 export function sortCheckpoints(list: readonly Checkpoint[]): Checkpoint[] {
   const seen = new Set<string>();
   const unique: Checkpoint[] = [];
-  for (const { date, listening, reading } of list) {
-    const id = `${date}/${listening}/${reading}`;
+  for (const { date, listening, reading, source, act, retake } of list) {
+    const exam = source === 'exam' && isAct(act);
+    const id = `${date}/${listening}/${reading}/${exam ? 'exam' : ''}/${exam ? act : ''}`;
     if (seen.has(id)) continue;
     seen.add(id);
-    unique.push({ date, listening, reading });
+    const entry: Checkpoint = { date, listening, reading };
+    if (exam) {
+      entry.source = 'exam';
+      entry.act = act;
+      if (retake === true) entry.retake = true;
+    }
+    unique.push(entry);
   }
   unique.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
   return unique.slice(-CHECKPOINTS_KEPT);
@@ -520,6 +625,186 @@ function mergeRoute(ours: Route, theirs: Route): Route {
   const asked = laterDate(ours.askedOn ?? null, theirs.askedOn ?? null);
   if (asked) route.askedOn = asked;
   return route;
+}
+
+/* ---------- 跟著說, 最常錯 and 結業考 ---------- */
+
+/** A 跟著說 record: score a whole number 0-100, at least one scored line; else undefined. */
+function sanitizeSpoken(raw: unknown): SpokenRecord | undefined {
+  if (!isObject(raw)) return undefined;
+  const { score, lines } = raw;
+  if (!isCount(score) || score > 100 || !isCount(lines) || lines < 1) return undefined;
+  return { score, lines };
+}
+
+/** The better 跟著說 round: the higher score, on a tie the one with more lines scored. */
+export function betterSpoken(
+  a: SpokenRecord | undefined,
+  b: SpokenRecord | undefined,
+): SpokenRecord | undefined {
+  if (!a || !b) return a ?? b;
+  if (a.score !== b.score) return a.score > b.score ? a : b;
+  return b.lines > a.lines ? b : a;
+}
+
+/** The tags of one day: bad tags and values go, `[0, 0]` goes, at most MISTAKE_TAGS_PER_DAY stay. */
+function sanitizeMistakeDay(raw: unknown): MistakeDay {
+  const entries: [string, MistakeCount][] = [];
+  if (isObject(raw)) {
+    for (const [tag, value] of Object.entries(raw)) {
+      if (!MISTAKE_TAG.test(tag) || !Array.isArray(value) || value.length !== 2) continue;
+      const [missed, asked] = value as unknown[];
+      if (!isCount(missed) || !isCount(asked) || (missed === 0 && asked === 0)) continue;
+      entries.push([tag, [missed, asked]]);
+    }
+  }
+  return capMistakeDay(Object.fromEntries(entries));
+}
+
+/** Keeps the MISTAKE_TAGS_PER_DAY tags missed most (ties: asked more, then by name). */
+function capMistakeDay(day: MistakeDay): MistakeDay {
+  const entries = Object.entries(day);
+  if (entries.length <= MISTAKE_TAGS_PER_DAY) return day;
+  entries.sort(
+    ([ta, a], [tb, b]) => b[0] - a[0] || b[1] - a[1] || (ta < tb ? -1 : ta > tb ? 1 : 0),
+  );
+  return Object.fromEntries(entries.slice(0, MISTAKE_TAGS_PER_DAY));
+}
+
+/** `mistakes` from anything: only real dates, kept for HISTORY_DAYS, and days with something in them. */
+function sanitizeMistakes(raw: unknown, today: string): Record<string, MistakeDay> {
+  const days: Record<string, MistakeDay> = {};
+  if (isObject(raw)) {
+    for (const [key, value] of Object.entries(raw)) {
+      if (!isDateKey(key)) continue;
+      const day = sanitizeMistakeDay(value);
+      if (Object.keys(day).length > 0) days[key] = day;
+    }
+  }
+  return pruneDays(days, today);
+}
+
+/** Both tabs' days and tags together; each number is the larger of the two. */
+function mergeMistakes(
+  ours: Record<string, MistakeDay>,
+  theirs: Record<string, MistakeDay>,
+): Record<string, MistakeDay> {
+  const merged: Record<string, MistakeDay> = { ...theirs };
+  for (const [key, day] of Object.entries(ours)) {
+    const other = merged[key];
+    if (!other) {
+      merged[key] = day;
+      continue;
+    }
+    const both: MistakeDay = { ...other };
+    for (const [tag, [missed, asked]] of Object.entries(day)) {
+      const before = both[tag];
+      both[tag] = before
+        ? [Math.max(missed, before[0]), Math.max(asked, before[1])]
+        : [missed, asked];
+    }
+    merged[key] = capMistakeDay(both);
+  }
+  return merged;
+}
+
+const ITEM_ID = /^[a-z0-9_.-]{1,80}$/;
+
+/** At most this many question ids are remembered per exam in `seen`. */
+const SEEN_KEPT = 1000;
+
+function sanitizeExamRecord(raw: unknown): ExamRecord | undefined {
+  if (!isObject(raw)) return undefined;
+  const { attempts, lastDate, listening, reading } = raw;
+  if (!isCount(attempts) || attempts < 1 || !isDateKey(lastDate)) return undefined;
+  if (!isEtsScore(listening) || !isEtsScore(reading)) return undefined;
+  const seen: Record<string, number> = {};
+  if (isObject(raw.seen)) {
+    for (const [id, times] of Object.entries(raw.seen)) {
+      if (Object.keys(seen).length >= SEEN_KEPT) break;
+      if (ITEM_ID.test(id) && isCount(times) && times > 0) seen[id] = times;
+    }
+  }
+  return { attempts, lastDate, listening, reading, seen };
+}
+
+const CALIBRATION_LIMIT = 50;
+
+function sanitizeCalibration(raw: unknown): ExamCalibration | undefined {
+  if (!isObject(raw) || !isCount(raw.pairs) || raw.pairs < 1) return undefined;
+  const offset = (value: unknown): number =>
+    Math.max(-CALIBRATION_LIMIT, Math.min(CALIBRATION_LIMIT, Math.round(num(value))));
+  return { listening: offset(raw.listening), reading: offset(raw.reading), pairs: raw.pairs };
+}
+
+function sanitizeExams(raw: unknown): ExamsSave {
+  const exams: ExamsSave = {};
+  if (!isObject(raw)) return exams;
+  for (const id of EXAM_IDS) {
+    const record = sanitizeExamRecord(raw[id]);
+    if (record) exams[id] = record;
+  }
+  const calibration = sanitizeCalibration(raw.calibration);
+  if (calibration) exams.calibration = calibration;
+  return exams;
+}
+
+/** The run in progress, unless its exam is unknown, an id is bad or it is over EXAM_RUN_DAYS old. */
+function sanitizeExamRun(raw: unknown, today: string): ExamRun | undefined {
+  if (!isObject(raw) || !isExamId(raw.exam) || !isDateKey(raw.startedOn)) return undefined;
+  if (!isCount(raw.seed) || daysBetween(raw.startedOn, today) > EXAM_RUN_DAYS) return undefined;
+  const done = Array.isArray(raw.done)
+    ? raw.done.filter((id): id is string => typeof id === 'string' && ITEM_ID.test(id))
+    : [];
+  const answers: Record<string, string> = {};
+  if (isObject(raw.answers)) {
+    for (const [qid, choice] of Object.entries(raw.answers)) {
+      if (ITEM_ID.test(qid) && typeof choice === 'string' && /^o\d{1,2}$/.test(choice)) {
+        answers[qid] = choice;
+      }
+    }
+  }
+  return { exam: raw.exam, seed: raw.seed, startedOn: raw.startedOn, done, answers };
+}
+
+/** The same sitting seen from two tabs: the one with more sections done wins; else ours. */
+function mergeExamRun(
+  ours: ExamRun | undefined,
+  theirs: ExamRun | undefined,
+): { examRun?: ExamRun } {
+  if (!ours || !theirs) return {};
+  const same =
+    ours.exam === theirs.exam && ours.seed === theirs.seed && ours.startedOn === theirs.startedOn;
+  return same && theirs.done.length > ours.done.length ? { examRun: theirs } : {};
+}
+
+/** Per exam the larger `attempts`; the scores of the later sitting; the larger counts of `seen`. */
+function mergeExams(ours: ExamsSave, theirs: ExamsSave): ExamsSave {
+  const merged: ExamsSave = {};
+  for (const id of EXAM_IDS) {
+    const a = ours[id];
+    const b = theirs[id];
+    if (!a || !b) {
+      const only = a ?? b;
+      if (only) merged[id] = only;
+      continue;
+    }
+    const later = b.lastDate > a.lastDate ? b : a;
+    const seen: Record<string, number> = { ...b.seen };
+    for (const [qid, times] of Object.entries(a.seen)) seen[qid] = Math.max(times, seen[qid] ?? 0);
+    merged[id] = {
+      attempts: Math.max(a.attempts, b.attempts),
+      lastDate: later.lastDate,
+      listening: later.listening,
+      reading: later.reading,
+      seen,
+    };
+  }
+  const a = ours.calibration;
+  const b = theirs.calibration;
+  const calibration = a && b ? (b.pairs > a.pairs ? b : a) : (a ?? b);
+  if (calibration) merged.calibration = calibration;
+  return merged;
 }
 
 /* ---------- export / import ---------- */

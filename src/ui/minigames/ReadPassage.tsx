@@ -94,7 +94,7 @@ function Line({ hit, children }: { hit: boolean; children: ComponentChildren }) 
 }
 
 /** One text, laid out the way its kind looks in real life. */
-function PassageText({ text, hit }: { text: PassageQuestionText; hit: number }) {
+export function PassageText({ text, hit }: { text: PassageQuestionText; hit: number }) {
   const { passageKind: kind, title, lines } = text;
   const body = lines.map((line, i) => (
     <Line key={i} hit={i === hit}>

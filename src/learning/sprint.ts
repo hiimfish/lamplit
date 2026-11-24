@@ -22,7 +22,7 @@ const SPREAD_MAX = 50;
 /** Daily review cap: the normal route keeps it small, the sprint route needs room. */
 export const REVIEW_LIMIT = { normal: 20, sprint: 200 } as const;
 /** Story tasks a day the goal screen aims for. */
-export const TASK_GOAL = { normal: 1, sprint: 4 } as const;
+export const TASK_GOAL = { normal: 1, sprint: 5 } as const;
 /** New words a day on the normal route. */
 const NORMAL_NEW_WORDS = 10;
 

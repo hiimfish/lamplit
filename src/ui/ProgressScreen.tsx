@@ -15,6 +15,7 @@ import {
 import { CheckpointPanel } from './CheckpointPanel';
 import { useKeys } from './keys';
 import { KeyCap } from './KeyCap';
+import { MistakePanel } from './MistakePanel';
 import { TOWN } from './TownScreen';
 import './flow.css';
 import './progress.css';
@@ -175,6 +176,7 @@ export function ProgressScreen() {
           </p>
         )}
 
+        <MistakePanel />
         <CheckpointPanel onEditing={setEditing} />
 
         <div class="flow-actions">

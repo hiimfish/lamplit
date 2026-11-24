@@ -95,3 +95,44 @@ describe('checkpoints in the save', () => {
     ]);
   });
 });
+
+describe('exam scores in the checkpoints', () => {
+  const entry = (extra: object) => ({ date: '2026-11-25', listening: 200, reading: 190, ...extra });
+  const load = (list: unknown[]) => sanitizeSave({ checkpoints: list }, now).checkpoints;
+
+  it('keeps source, act and retake of an exam score; extra fields are still dropped', () => {
+    expect(load([entry({ source: 'exam', act: 2, retake: true, extra: 1 })])).toEqual([
+      entry({ source: 'exam', act: 2, retake: true }),
+    ]);
+    expect(load([entry({ source: 'exam', act: 1 })])).toEqual([entry({ source: 'exam', act: 1 })]);
+  });
+
+  it('drops an exam score with no valid Act or an unknown source', () => {
+    expect(load([entry({ source: 'exam' }), entry({ source: 'exam', act: 5 })])).toEqual([]);
+    expect(load([entry({ source: 'friend', act: 1 })])).toEqual([]);
+  });
+
+  it('forgets act and retake when the score is not from an exam', () => {
+    expect(load([entry({ act: 3, retake: true })])).toEqual([entry({})]);
+  });
+
+  it('keeps an ETS score and an exam score of the same numbers apart, by Act too', () => {
+    const list = load([
+      entry({}),
+      entry({ source: 'exam', act: 1 }),
+      entry({ source: 'exam', act: 2 }),
+      entry({ source: 'exam', act: 2 }),
+    ]);
+    expect(list).toHaveLength(3);
+  });
+
+  it('merges two tabs without duplicating an exam score', () => {
+    const base = createEmptySave(now);
+    const withExam = {
+      ...base,
+      checkpoints: load([entry({ source: 'exam', act: 1, retake: true })]),
+    };
+    expect(mergeSaves(withExam, withExam).checkpoints).toEqual(withExam.checkpoints);
+    expect(mergeSaves(withExam, base).checkpoints).toEqual(withExam.checkpoints);
+  });
+});

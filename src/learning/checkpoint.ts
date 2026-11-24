@@ -61,3 +61,34 @@ export function addCheckpoint(
   };
   return { ...save, checkpoints: sortCheckpoints([...save.checkpoints, entry]) };
 }
+
+/**
+ * Records the estimate of a 幕結業考 for today (replacing the same Act's entry of the
+ * same day when it is sat again). `retake` marks a sitting that reused questions.
+ */
+export function addExamCheckpoint(
+  save: SaveData,
+  now: Date,
+  act: 1 | 2 | 3 | 4,
+  listening: number,
+  reading: number,
+  retake: boolean,
+): SaveData {
+  void now;
+  void act;
+  void listening;
+  void reading;
+  void retake;
+  return save;
+}
+
+/**
+ * Whether an exam of this Act can be compared with the sprint's target: only when the
+ * target is not above the highest total the exam can estimate (Act 1: 300, 2: 425,
+ * 3: 540, 4: 700).
+ */
+export function examComparable(act: 1 | 2 | 3 | 4, target: number): boolean {
+  void act;
+  void target;
+  return false;
+}

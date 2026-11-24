@@ -4,8 +4,10 @@ import { appStore, setDayStamp } from '../core/appState';
 import { recordToday } from '../core/save';
 import { useStore } from '../core/store';
 import { goalStatus } from '../learning/dailyGoal';
+import { ExamScreen } from './exam/ExamScreen';
 import { focusStatic } from './focus';
 import { GoalScreen } from './GoalScreen';
+import { GrammarDrillScreen } from './GrammarDrillScreen';
 import { useKeys } from './keys';
 import { KeyCap } from './KeyCap';
 import { ListenScreen } from './ListenScreen';
@@ -74,6 +76,8 @@ export function App() {
       {screen === 'goal' && <GoalScreen />}
       {screen === 'listen' && <ListenScreen />}
       {screen === 'progress' && <ProgressScreen />}
+      {screen === 'exam' && <ExamScreen />}
+      {screen === 'grammar' && <GrammarDrillScreen />}
       {screen === 'result' && <ResultScreen />}
       {showDebug && (
         <div class="debug" data-testid="debug">

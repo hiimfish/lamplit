@@ -300,7 +300,7 @@ function clozeQuestions(unit: Unit, task: Task, rng: Rng, units: readonly Unit[]
 }
 
 /** Reading questions (讀招牌／價目) for the task's `signs`, options in a shuffled order. */
-function signQuestions(task: Task, rng: Rng): SignQuestion[] {
+export function signQuestions(task: Task, rng: Rng): SignQuestion[] {
   return (task.signs ?? []).map((sign) => {
     const question: SignQuestion = {
       kind: 'read-sign',

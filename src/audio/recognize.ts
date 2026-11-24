@@ -221,3 +221,29 @@ export function markRecognitionNoteSeen(): void {
 
 export const RECOGNITION_NOTE =
   '提醒：語音辨識由瀏覽器完成，Chrome 會把錄到的聲音傳送給 Google 處理。要繼續辨識嗎？';
+
+/** One alternative transcript the recognizer offered for what was said. */
+export type SpokenAlternative = string;
+
+export interface ScoredListening {
+  /** The alternatives heard ([] when nothing was heard); settles once. */
+  promise: Promise<SpokenAlternative[]>;
+  /** Stops the microphone and drops the result. */
+  abort(): void;
+  /** Stops listening and hands in what was heard so far. */
+  stop(): void;
+}
+
+export interface ListenAlternativesOptions extends ListenOptions {
+  /** Alternatives asked of the recognizer. Default 3. */
+  maxAlternatives?: number;
+}
+
+/**
+ * Like listenOnce, but returns every alternative of the result (for scoring a spoken
+ * line) and can be stopped early. Not built yet: it hears nothing.
+ */
+export function listenAlternatives(options: ListenAlternativesOptions = {}): ScoredListening {
+  void options;
+  return { promise: Promise.resolve([]), abort: () => undefined, stop: () => undefined };
+}

@@ -35,6 +35,7 @@ const record = (answered: number, correct: number, tasks = 0): DayRecord => ({
   sprintNew: 0,
   reviewed: 0,
   listened: 0,
+  grammar: 0,
   answered,
   correct,
   met: false,
