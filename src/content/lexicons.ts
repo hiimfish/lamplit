@@ -44,12 +44,12 @@ function byAct<T>(files: Record<string, T[]>): Record<number, T[]> {
 }
 
 export const LEXICONS: Record<string, Lexicon> = {};
-/** Tagged story lines (the `lines` of the lexicon files) by line id, over all locations. */
+/** Tagged story lines (the `lines` of the lexicon files), keyed `<unitId>/<lineId>` (line ids repeat across locations). */
 export const LINE_TAGS: Record<string, LineTag> = {};
 for (const [path, file] of Object.entries(lexiconFiles)) {
   const { entries, lines } = splitLexiconFile(file);
   LEXICONS[fileName(path)] = entries;
-  Object.assign(LINE_TAGS, lines);
+  for (const [lineId, tag] of Object.entries(lines)) LINE_TAGS[`${fileName(path)}/${lineId}`] = tag;
 }
 
 export const PATTERNS: Record<number, Pattern[]> = byAct(patternFiles);
