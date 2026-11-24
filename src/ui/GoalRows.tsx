@@ -108,7 +108,7 @@ export function GoalRows({ story }: { story?: StoryStep }) {
   };
   const grammarLeft = drillRemaining(save, save.route, now);
   const storyStep: StoryStep = story ?? {
-    label: Object.keys(save.tasks).length > 0 || (save.skipTo ?? 0) > 0 ? '下一關' : '開始第一關',
+    label: '開始',
     note: stop && stopTask ? `下一關：${stop.unit.title}・${stopTask.title}` : '劇情都玩過了。',
     ...(stopTask ? { onStart: playStory } : {}),
   };
@@ -142,7 +142,11 @@ export function GoalRows({ story }: { story?: StoryStep }) {
         skip={!status.applies.sprint}
         done={plan.today}
         total={plan.goal}
-        note={SPRINT_NOTE[plan.status]}
+        note={
+          plan.status === 'ready' && plan.words.length > 0
+            ? `這一輪 ${plan.words.length} 個新字。`
+            : SPRINT_NOTE[plan.status]
+        }
         testId="goal-sprint"
       >
         <button
@@ -151,7 +155,7 @@ export function GoalRows({ story }: { story?: StoryStep }) {
           onClick={() => go('sprint')}
           data-testid="start-sprint"
         >
-          {plan.words.length > 0 ? `開始（${plan.words.length} 字）` : '開始'}
+          開始
         </button>
       </GoalRow>
       <GoalRow
@@ -175,7 +179,7 @@ export function GoalRows({ story }: { story?: StoryStep }) {
           onClick={() => go('review')}
           data-testid="goal-start-review"
         >
-          複習（{due}）
+          開始
         </button>
       </GoalRow>
       <GoalRow

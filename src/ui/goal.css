@@ -60,7 +60,12 @@
   grid-row: 1 / span 2;
 }
 
-/* The story row's keys: 下一關, and in the town 選關 then 開始. */
+/* Every key on the right is one size (all read 開始, and the town's 選關 beside one). */
+.goal-row .pixel-button {
+  width: calc(46 * var(--px));
+}
+
+/* The story row's keys: 開始, and in the town 選關 before it. */
 .goal-row > .goal-keys {
   grid-column: 2;
   grid-row: 1 / span 2;

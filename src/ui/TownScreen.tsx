@@ -409,7 +409,7 @@ export function TownScreen() {
         extra: pickKey,
       }
     : examDue
-      ? { label: '結業考', note: `下一步：第${act.no}幕結業考`, onStart: startExam, extra: pickKey }
+      ? { label: '開始', note: `下一步：第${act.no}幕結業考`, onStart: startExam, extra: pickKey }
       : {
           label: '開始',
           note: before ? `玩完第${before.no}幕才會打開` : '這一幕全部完成了！',
