@@ -6,7 +6,10 @@ import { appStore, commitSave, currentNow } from '../core/appState';
 import { dailyFor, type Route } from '../core/save';
 import { devUnlockAll, settingsStore } from '../core/settings';
 import { useStore } from '../core/store';
+import { GRAMMAR_POINTS } from '../content/grammar';
+import { PATTERNS } from '../content/lexicons';
 import { goalStatus, MISS_LIMIT, shouldOfferExtend } from '../learning/dailyGoal';
+import { drillAvailable, drillRemaining, grammarGoal } from '../learning/grammarDrill';
 import { listenGoal, pickListenTask } from '../learning/listen';
 import { buildDailyReview } from '../learning/sessionPlan';
 import {
@@ -91,7 +94,8 @@ export function GoalScreen() {
   const plan = sprintPlan(TOWN, save, now, due);
   const week = sprintWeek(save.route, now);
   const weeks = sprintWeeks(save.route);
-  const status = goalStatus(TOWN, save, now, due);
+  const grammarOn = drillAvailable(save, TOWN, GRAMMAR_POINTS, Object.values(PATTERNS).flat());
+  const status = goalStatus(TOWN, save, now, due, grammarOn);
   const offerExtend = shouldOfferExtend(save, now);
   const answerExtend = (extend: boolean) => {
     playSfx('click');
@@ -111,7 +115,7 @@ export function GoalScreen() {
     });
   };
   const listenNext = pickListenTask(TOWN, save);
-  const go = (screen: 'sprint' | 'review' | 'listen' | 'progress') => {
+  const go = (screen: 'sprint' | 'review' | 'listen' | 'grammar' | 'progress') => {
     playSfx('click');
     appStore.set({ screen, result: undefined });
   };
@@ -269,6 +273,28 @@ export function GoalScreen() {
               開始
             </button>
           </GoalRow>
+          {status.hasGrammar && (
+            <GoalRow
+              name="文法快練"
+              met={status.grammar}
+              done={daily.grammar}
+              total={grammarGoal(save.route)}
+              note={
+                drillRemaining(save, save.route, now) > 0
+                  ? `還有 ${drillRemaining(save, save.route, now)} 題。`
+                  : '今天的文法題答完了。'
+              }
+              testId="goal-grammar"
+            >
+              <button
+                class="pixel-button primary"
+                onClick={() => go('grammar')}
+                data-testid="start-grammar"
+              >
+                開始
+              </button>
+            </GoalRow>
+          )}
         </div>
         <p class="flow-note" data-testid="goal-later">
           之後會加入：多益題型。

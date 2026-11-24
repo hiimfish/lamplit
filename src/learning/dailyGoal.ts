@@ -3,6 +3,7 @@
  * in a row missed on the sprint → offer to extend). Pure, per docs/specs/sprint.md.
  */
 import { dailyFor, dateKey, HISTORY_DAYS, shiftDay, type SaveData } from '../core/save';
+import { grammarGoal } from './grammarDrill';
 import { listenGoal, pickListenTask } from './listen';
 import { buildDailyReview, taskKey } from './sessionPlan';
 import { reviewLimit, sprintPlan, sprintWeek, sprintWeeks, taskGoal } from './sprint';
@@ -31,6 +32,10 @@ export interface GoalStatus {
   review: boolean;
   /** 聽力加量: today's scenes heard, or no story played yet to hear again. */
   listen: boolean;
+  /** 文法快練: today's questions answered. False, and not counted, while `hasGrammar` is false. */
+  grammar: boolean;
+  /** Whether 文法快練 is a block today (the drill has sentences to ask). */
+  hasGrammar: boolean;
   /** Blocks met and blocks in all. */
   met: number;
   total: number;
@@ -41,12 +46,16 @@ export interface GoalStatus {
 export const dueCount = (save: SaveData, now: Date): number =>
   buildDailyReview(save, now, reviewLimit(save.route)).length;
 
-/** Which of today's blocks are met. `due` defaults to dueCount. */
+/**
+ * Which of today's blocks are met. `due` defaults to dueCount. `grammarAvailable`
+ * (default false: no 文法快練 block) is drillAvailable(...) for the real town.
+ */
 export function goalStatus<U extends GoalUnit>(
   town: readonly TownAct<U>[],
   save: SaveData,
   now: Date,
   due: number = dueCount(save, now),
+  grammarAvailable = false,
 ): GoalStatus {
   const daily = dailyFor(save, now);
   const storyLeft = town.some((act) =>
@@ -57,9 +66,22 @@ export function goalStatus<U extends GoalUnit>(
   const sprint = status === 'goal-met' || status === 'caught-up';
   const review = due === 0;
   const listen = daily.listened >= listenGoal(save.route) || !pickListenTask(town, save);
-  const flags = [tasks, sprint, review, listen];
+  const grammar = grammarAvailable && daily.grammar >= grammarGoal(save.route);
+  const flags = grammarAvailable
+    ? [tasks, sprint, review, listen, grammar]
+    : [tasks, sprint, review, listen];
   const met = flags.filter(Boolean).length;
-  return { tasks, sprint, review, listen, met, total: flags.length, all: met === flags.length };
+  return {
+    tasks,
+    sprint,
+    review,
+    listen,
+    grammar,
+    hasGrammar: grammarAvailable,
+    met,
+    total: flags.length,
+    all: met === flags.length,
+  };
 }
 
 /**

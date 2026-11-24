@@ -154,6 +154,48 @@ describe('goalStatus', () => {
   });
 });
 
+describe('goalStatus 文法快練', () => {
+  const allFour = () => {
+    const played = finishTask(createEmptySave(now), taskKey('a', 't1'), [], now).save;
+    return finishListen(finishSprint(played, 10, now), taskKey('a', 't1'), now);
+  };
+
+  it('is no block by default', () => {
+    const status = goalStatus(town, createEmptySave(now), now, 0);
+    expect(status).toMatchObject({ hasGrammar: false, grammar: false, total: 4 });
+  });
+
+  it('is a fifth block when available, met at the route goal', () => {
+    const save = allFour();
+    const open = goalStatus(town, save, now, 0, true);
+    expect(open).toMatchObject({ hasGrammar: true, grammar: false, met: 4, total: 5, all: false });
+    save.daily.grammar = 9;
+    expect(goalStatus(town, save, now, 0, true).grammar).toBe(false);
+    save.daily.grammar = 10;
+    expect(goalStatus(town, save, now, 0, true)).toMatchObject({
+      grammar: true,
+      met: 5,
+      all: true,
+    });
+  });
+
+  it('asks 15 on the sprint', () => {
+    const save = chooseRoute(allFour(), 'sprint', now);
+    save.daily.grammar = 14;
+    expect(goalStatus(town, save, now, 0, true).grammar).toBe(false);
+    save.daily.grammar = 15;
+    expect(goalStatus(town, save, now, 0, true).grammar).toBe(true);
+  });
+
+  it('keeps a day met without the drill, whatever the counter says', () => {
+    const save = allFour();
+    expect(goalStatus(town, save, now, 0).all).toBe(true);
+    expect(recordToday(save, now, goalStatus(town, save, now, 0).all).history[key(0)]?.met).toBe(
+      true,
+    );
+  });
+});
+
 describe('missedDays and the offer to extend', () => {
   it('counts days in a row not met, ending yesterday; unplayed days count too', () => {
     const save = sprintSave({ [key(0)]: record(false), [key(2)]: record(false) });
