@@ -338,10 +338,6 @@ export function TownScreen() {
     playSfx('click');
     appStore.set({ screen: 'skip', activeSkip: act, result: undefined });
   };
-  const startReview = () => {
-    playSfx('click');
-    appStore.set({ screen: 'review', result: undefined });
-  };
 
   const idle = !place && !settingsOpen && !howOpen;
   enterRef.current =
@@ -364,6 +360,9 @@ export function TownScreen() {
     );
   };
 
+  // Only a place's tasks have a key above them (回第N幕). The act view has no 今日複習 or 下一關
+  // keys (2026-11-25, the user removed them): 今日複習 is in 每日目標, and the next task is the
+  // lit place tile, 點一下繼續 on the title screen and 下一關 after a task; Enter still opens it.
   const actions = place ? (
     <div class="town-actions">
       <button class="pixel-button back-key" onClick={() => show(actIndex)} data-testid="back">
@@ -371,32 +370,7 @@ export function TownScreen() {
         <KeyCap k="Back" />
       </button>
     </div>
-  ) : (
-    <div class="town-actions">
-      <button
-        class="pixel-button primary"
-        disabled={dueCount === 0}
-        onClick={startReview}
-        data-testid="review"
-      >
-        今日複習（{dueCount}）
-      </button>
-      <button
-        class="pixel-button primary"
-        disabled={!next && !examDue}
-        onClick={() => (next ? startTask(next.unit.id, next.task.id) : examDue && startExam())}
-        data-testid="continue"
-      >
-        {/* The plate says 下一步; the key keeps to one line beside 今日複習. */}
-        {examDue
-          ? `第${act.no}幕結業考`
-          : Object.keys(save.tasks).length > 0 || (save.skipTo ?? 0) > 0
-            ? '下一關'
-            : '開始第一關'}
-        <KeyCap k="Enter" />
-      </button>
-    </div>
-  );
+  ) : null;
 
   const top = (
     <div
