@@ -416,6 +416,16 @@ export function TownScreen() {
                 {goal.all ? '✓' : `${goal.met}/${goal.total}`}
               </span>
             </button>
+            <button
+              class="pixel-button small"
+              onClick={() => {
+                playSfx('click');
+                appStore.set({ screen: 'progress', progressFrom: 'town' });
+              }}
+              data-testid="town-progress"
+            >
+              進度
+            </button>
             <button class="pixel-button small" onClick={() => setSettingsOpen(true)}>
               設定
             </button>

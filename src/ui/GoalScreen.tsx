@@ -156,7 +156,11 @@ export function GoalScreen() {
   const listenNext = pickListenTask(TOWN, save);
   const go = (screen: 'sprint' | 'review' | 'listen' | 'grammar' | 'progress') => {
     playSfx('click');
-    appStore.set({ screen, result: undefined });
+    appStore.set({
+      screen,
+      result: undefined,
+      ...(screen === 'progress' ? { progressFrom: 'goal' as const } : {}),
+    });
   };
   const pick = (kind: Route['kind']) => {
     playSfx('click');

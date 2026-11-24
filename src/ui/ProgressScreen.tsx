@@ -57,16 +57,18 @@ function dayWords(date: string, record: DayRecord, today: string): string {
  * has been learned, recent accuracy, each act's tasks and the last 14 days.
  */
 export function ProgressScreen() {
-  const { save } = useStore(appStore);
+  const { save, progressFrom } = useStore(appStore);
   useEffect(() => playMusic('town'), []);
   const now = currentNow();
   const today = dateKey(now);
   const [picked, setPicked] = useState(today);
   const [editing, setEditing] = useState(false);
 
+  // Back to where 進度 was opened: the town's top bar or 每日目標.
+  const fromTown = progressFrom === 'town';
   const toGoal = () => {
     playSfx('click');
-    appStore.set({ screen: 'goal' });
+    appStore.set({ screen: fromTown ? 'town' : 'goal' });
   };
   useKeys({ Enter: toGoal, Back: toGoal }, !editing);
 
@@ -189,7 +191,7 @@ export function ProgressScreen() {
 
         <div class="flow-actions">
           <button class="pixel-button primary" onClick={toGoal} data-testid="progress-back">
-            回每日目標
+            {fromTown ? '回小鎮' : '回每日目標'}
             <KeyCap k="Enter" />
           </button>
         </div>
