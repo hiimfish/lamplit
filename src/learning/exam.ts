@@ -400,12 +400,17 @@ export interface ExamDeps {
     reading: number,
     retake: boolean,
   ) => SaveData;
+  /** updateCalibration from src/learning/examScore.ts, run after the checkpoint is stored. */
+  updateCalibration: (save: SaveData, now: Date) => SaveData;
 }
 
 export interface ExamSummary {
   exam: ExamId;
+  /** The raw estimates (no personal offset): what is stored in the record and checkpoint. */
   listening: ExamEstimate;
   reading: ExamEstimate;
+  /** The estimates with the player's calibration offset: what the screen shows. */
+  shown: { listening: ExamEstimate; reading: ExamEstimate };
   /** The first completed sitting of this exam (the one that pays). */
   first: boolean;
   coins: number;
@@ -445,15 +450,15 @@ export function finishRun(
   const before: ExamRecord | undefined = save.exams[exam];
   const priorSeen = before?.seen ?? {};
   const offsets = save.exams.calibration;
-  const estimate = (kind: SectionKind): ExamEstimate =>
-    deps.score(
-      act,
-      kind,
-      outcomes.filter((o) => o.kind === kind).flatMap(scored),
-      offsets?.[kind] ?? 0,
-    );
-  const listening = estimate('listening');
-  const reading = estimate('reading');
+  const estimate = (kind: SectionKind, offset: number): ExamEstimate =>
+    deps.score(act, kind, outcomes.filter((o) => o.kind === kind).flatMap(scored), offset);
+  // Stored values carry no offset: calibration pairs ETS scores with the raw estimates.
+  const listening = estimate('listening', 0);
+  const reading = estimate('reading', 0);
+  const shownScores = {
+    listening: estimate('listening', offsets?.listening ?? 0),
+    reading: estimate('reading', offsets?.reading ?? 0),
+  };
 
   // Written items shown: counted once per sitting; a reused question was seen before.
   const shown = new Set<string>();
@@ -497,6 +502,7 @@ export function finishRun(
   next = { ...next, exams: { ...next.exams, [exam]: record } };
   next = abandonRun(next);
   next = deps.addCheckpoint(next, now, act, listening.score, reading.score, retake);
+  next = deps.updateCalibration(next, now);
   if (coins > 0) next = addCoins(next, coins);
 
   return {
@@ -505,6 +511,7 @@ export function finishRun(
       exam,
       listening,
       reading,
+      shown: shownScores,
       first,
       coins,
       retake,

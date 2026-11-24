@@ -303,6 +303,7 @@ const deps = (
     const base = (kind === 'listening' ? 100 : 200) + right * 5;
     return { score: base, low: base - 10, high: base + 10 };
   },
+  updateCalibration: (save) => save,
   addCheckpoint: (save, _now, act, listening, reading, retake) => {
     calls.retake = retake;
     return {
@@ -360,9 +361,10 @@ describe('finishRun', () => {
       exams: { calibration: { listening: 15, reading: -5, pairs: 2 } },
     };
     const { summary } = finishRun(save, 'exam2', sections('A', 1, right), NOW, deps(calls));
-    expect(calls.offsets).toEqual([15, -5]);
-    expect(calls.n).toEqual([9, 2]);
+    expect(calls.offsets).toEqual([0, 0, 15, -5]);
+    expect(calls.n).toEqual([9, 2, 9, 2]);
     expect(summary.listening.score).toBe(100 + 9 * 5);
+    expect(summary.shown.listening.score).toBe(100 + 9 * 5);
     expect(summary.reading.score).toBe(200 + 0 * 5);
   });
 
