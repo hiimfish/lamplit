@@ -679,5 +679,12 @@
       "side": "answer",
       "atype": "accept-offer"
     }
+  },
+  "cancellation": {
+    "pos": "n",
+    "cls": "event",
+    "forms": {
+      "pl": "cancellations"
+    }
   }
 }
