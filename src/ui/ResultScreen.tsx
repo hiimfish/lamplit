@@ -63,7 +63,7 @@ export function ResultScreen() {
             ? '任務完成！'
             : isSprint
               ? '快練完成！'
-              : outcome.kind === 'grammar'
+              : result.kind === 'grammar'
                 ? '文法快練完成！'
                 : '複習完成！'}
         </h1>
