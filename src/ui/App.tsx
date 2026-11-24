@@ -9,6 +9,7 @@ import { GoalScreen } from './GoalScreen';
 import { useKeys } from './keys';
 import { KeyCap } from './KeyCap';
 import { ListenScreen } from './ListenScreen';
+import { ProgressScreen } from './ProgressScreen';
 import { ResultScreen } from './ResultScreen';
 import { ReviewScreen } from './ReviewScreen';
 import { SprintScreen } from './SprintScreen';
@@ -72,6 +73,7 @@ export function App() {
       {screen === 'sprint' && <SprintScreen />}
       {screen === 'goal' && <GoalScreen />}
       {screen === 'listen' && <ListenScreen />}
+      {screen === 'progress' && <ProgressScreen />}
       {screen === 'result' && <ResultScreen />}
       {showDebug && (
         <div class="debug" data-testid="debug">

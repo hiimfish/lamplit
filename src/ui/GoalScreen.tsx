@@ -111,7 +111,7 @@ export function GoalScreen() {
     });
   };
   const listenNext = pickListenTask(TOWN, save);
-  const go = (screen: 'sprint' | 'review' | 'listen') => {
+  const go = (screen: 'sprint' | 'review' | 'listen' | 'progress') => {
     playSfx('click');
     appStore.set({ screen, result: undefined });
   };
@@ -275,6 +275,9 @@ export function GoalScreen() {
         </p>
 
         <div class="flow-actions">
+          <button class="pixel-button" onClick={() => go('progress')} data-testid="goal-progress">
+            進度
+          </button>
           <button class="pixel-button" onClick={toTown} data-testid="goal-back">
             回小鎮
             <KeyCap k="Enter" />

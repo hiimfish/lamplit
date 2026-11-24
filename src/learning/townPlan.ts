@@ -9,7 +9,7 @@ import { taskKey } from './sessionPlan';
 
 const STARS_PER_TASK = 3;
 
-interface UnitLike {
+export interface UnitLike {
   id: string;
   tasks: readonly { id: string }[];
 }

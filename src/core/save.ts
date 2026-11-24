@@ -90,8 +90,15 @@ function dayNumber(key: string): number {
   return Math.round(Date.UTC(y, m - 1, d) / 86_400_000);
 }
 
-function daysBetween(fromKey: string, toKey: string): number {
+/** Calendar days from one YYYY-MM-DD to another (negative if `toKey` is earlier). */
+export function daysBetween(fromKey: string, toKey: string): number {
   return dayNumber(toKey) - dayNumber(fromKey);
+}
+
+/** The local date `offset` days from `key`, as YYYY-MM-DD. */
+export function shiftDay(key: string, offset: number): string {
+  const [y = 0, m = 1, d = 1] = key.split('-').map(Number);
+  return dateKey(new Date(y, m - 1, d + offset));
 }
 
 /**

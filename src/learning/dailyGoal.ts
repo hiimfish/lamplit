@@ -2,7 +2,7 @@
  * 每日目標: whether each block of the day is met, and the 跟不上時 rule (three days
  * in a row missed on the sprint → offer to extend). Pure, per docs/specs/sprint.md.
  */
-import { dailyFor, dateKey, HISTORY_DAYS, type SaveData } from '../core/save';
+import { dailyFor, dateKey, HISTORY_DAYS, shiftDay, type SaveData } from '../core/save';
 import { listenGoal, pickListenTask } from './listen';
 import { buildDailyReview, taskKey } from './sessionPlan';
 import { reviewLimit, sprintPlan, sprintWeek, sprintWeeks, taskGoal } from './sprint';
@@ -60,12 +60,6 @@ export function goalStatus<U extends GoalUnit>(
   const flags = [tasks, sprint, review, listen];
   const met = flags.filter(Boolean).length;
   return { tasks, sprint, review, listen, met, total: flags.length, all: met === flags.length };
-}
-
-/** The local date `offset` days from `key`, as YYYY-MM-DD. */
-function shiftDay(key: string, offset: number): string {
-  const [y = 0, m = 1, d = 1] = key.split('-').map(Number);
-  return dateKey(new Date(y, m - 1, d + offset));
 }
 
 /**
