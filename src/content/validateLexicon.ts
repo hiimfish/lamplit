@@ -229,10 +229,32 @@ export function validateLexicon(file: unknown, unit: Unit): string[] {
       checkLines(value, unit, problems);
       continue;
     }
-    if (!wordIds.has(id)) problems.push(`entry "${id}" is not a word of ${unit.id}`);
+    if (!wordIds.has(id) && !isTaughtPreposition(id, value, unit)) {
+      problems.push(`entry "${id}" is not a word of ${unit.id}`);
+    }
     checkEntry(id, value, problems);
   }
   return problems;
+}
+
+/**
+ * A location preposition (next_to, in_front_of) is taught inside a chunk, not as a word of
+ * its own. Its entry may use an id that is not in `words` when it is `pos: 'prep'` and
+ * the phrase really occurs in this unit's chunks or story lines.
+ */
+function isTaughtPreposition(id: string, value: unknown, unit: Unit): boolean {
+  if (!isObject(value) || value.pos !== 'prep' || !/^[a-z]+(?:_[a-z]+)*$/.test(id)) return false;
+  const norm = (text: string): string =>
+    ` ${text
+      .toLowerCase()
+      .replace(/[^a-z']+/g, ' ')
+      .trim()} `;
+  const phrase = norm(id.replace(/_/g, ' '));
+  const texts = [
+    ...(unit.chunks ?? []).map((c) => c.en),
+    ...(unit.tasks ?? []).flatMap((t) => (t.scene ?? []).map((line) => line.en)),
+  ];
+  return texts.some((text) => norm(text).includes(phrase));
 }
 
 /** Strict mode: ids of the unit's words that have no entry (not even a skip). */

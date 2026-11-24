@@ -265,3 +265,30 @@ describe('validatePool responds', () => {
     expect(validatePool([respond, respond], 'responds').join()).toMatch(/duplicate/);
   });
 });
+
+describe('validateLexicon: a preposition taught in a chunk', () => {
+  const streetUnit = {
+    id: 'street',
+    words: [{ id: 'bank' }],
+    chunks: [
+      { id: 'c1', en: "It's next to the bank." },
+      { id: 'c2', en: 'Go straight.' },
+    ],
+    tasks: [{ id: 't1', scene: [{ id: 'l1', en: 'The park is in front of the school.' }] }],
+  } as unknown as Unit;
+  const prep = { pos: 'prep', frames: [{ subj: ['object'], obj: ['place'] }] };
+
+  it('accepts a prep entry whose phrase is in a chunk or a story line', () => {
+    expect(validateLexicon({ next_to: prep }, streetUnit)).toEqual([]);
+    expect(validateLexicon({ in_front_of: prep }, streetUnit)).toEqual([]);
+  });
+
+  it('still rejects a prep phrase the unit never says', () => {
+    expect(validateLexicon({ behind: prep }, streetUnit).join()).toMatch(/not a word of street/);
+  });
+
+  it('only prepositions may leave the word list', () => {
+    const noun = { pos: 'n', cls: 'place', forms: { pl: 'banks' } };
+    expect(validateLexicon({ next_to: noun }, streetUnit).join()).toMatch(/not a word of street/);
+  });
+});
