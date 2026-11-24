@@ -3,6 +3,7 @@
  * 文法選句 and 價目表, made from the Act's story sentences and the verified bank. Pure:
  * the same seed gives the same questions. No new audio: sentences already have clips.
  */
+import type { ExamId } from '../content/exam';
 import type { Unit } from '../content/types';
 import type { Lexicon, RespondBankItem } from '../content/lexicon';
 import type { Question } from './questions';
@@ -37,6 +38,19 @@ export function buildRespondBank(
   void act;
   void units;
   void lexicon;
+  void seed;
+  return [];
+}
+
+/**
+ * The generated questions of one section of an exam, in the order the section shows
+ * them: `EXAM_PLAN[exam].sections[...].generated` says how many of each kind. This is
+ * the one entry the exam screen calls; it loads the Act's content itself. Returns [] until
+ * the generators are written (the section then only has its hand-written questions).
+ */
+export function generatedForSection(exam: ExamId, sectionId: string, seed: number): Question[] {
+  void exam;
+  void sectionId;
   void seed;
   return [];
 }
