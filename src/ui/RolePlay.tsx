@@ -1,15 +1,18 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { playAudio, stopAudio } from '../audio/pronounce';
 import type { Task, Unit } from '../content/types';
+import { ACTS, actOf } from '../content/acts';
 import { lineAudioId } from '../content/units';
 import { currentNow } from '../core/appState';
 import { settingsStore } from '../core/settings';
+import { zhMode } from '../learning/zhMode';
 import { buildRolePlayTurns, makeRng, rolePlaySteps } from '../learning/questionGen';
 import type { AnswerResult } from '../learning/questions';
 import { ChatLines, ZhToggle } from './ChatLines';
 import './flow.css';
 import { useKeys } from './keys';
 import { KeyCap } from './KeyCap';
+import { LocalZhToggle } from './SceneStory';
 import { QuestionRunner } from './TaskScreen';
 
 interface Props {
@@ -35,6 +38,16 @@ export function RolePlay({ unit, task, onShown, onFinish }: Props) {
     [unit, task],
   );
   const [speak, setSpeak] = useState(false);
+  const peekMode = zhMode(actOf(unit.id, ACTS)) === 'peek';
+  const [allZh, setAllZh] = useState(false);
+  const [peeked, setPeeked] = useState<ReadonlySet<string>>(new Set());
+  useEffect(() => setPeeked(new Set()), [task.id]);
+  const peek = (lineId: string) =>
+    setPeeked((now) => {
+      const next = new Set(now);
+      if (!next.delete(lineId)) next.add(lineId);
+      return next;
+    });
   const steps = useMemo(() => rolePlaySteps(lines, turns, speak), [lines, turns, speak]);
   const questions = useMemo(() => steps.map((s) => s.question), [steps]);
   const [step, setStep] = useState<Step>('brief');
@@ -92,7 +105,9 @@ export function RolePlay({ unit, task, onShown, onFinish }: Props) {
         else if (step === 'end') onFinish(results);
       },
       '0': () => {
-        if (step === 'end') settingsStore.set({ showZh: !settingsStore.get().showZh });
+        if (step !== 'end') return;
+        if (peekMode) setAllZh(!allZh);
+        else settingsStore.set({ showZh: !settingsStore.get().showZh });
       },
     },
     step !== 'turns',
@@ -129,7 +144,18 @@ export function RolePlay({ unit, task, onShown, onFinish }: Props) {
     );
   }
 
-  const chat = <ChatLines lines={lines.slice(0, shown)} current={shown - 1} onPlay={play} />;
+  const chat = peekMode ? (
+    <ChatLines
+      lines={lines.slice(0, shown)}
+      current={shown - 1}
+      onPlay={play}
+      zh={allZh}
+      peeked={peeked}
+      onPeek={peek}
+    />
+  ) : (
+    <ChatLines lines={lines.slice(0, shown)} current={shown - 1} onPlay={play} />
+  );
   if (step === 'turns') {
     return (
       <div class="roleplay" data-testid="roleplay">
@@ -151,7 +177,11 @@ export function RolePlay({ unit, task, onShown, onFinish }: Props) {
       <p class="flow-heading">你完成了整段對話！</p>
       {chat}
       <div class="flow-actions">
-        <ZhToggle hint />
+        {peekMode ? (
+          <LocalZhToggle on={allZh} onToggle={() => setAllZh(!allZh)} hint />
+        ) : (
+          <ZhToggle hint />
+        )}
         <button
           class="pixel-button primary"
           onClick={() => onFinish(results)}
