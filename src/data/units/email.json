@@ -541,7 +541,7 @@
           "role": "coworker",
           "speaker": "npc",
           "en": "I just sent you a newsletter. There's a good article about desk lamps.",
-          "zh": "我剛寄了一份電子報給你，裡面有一篇講桌燈的文章，寫得不錯。"
+          "zh": "我剛寄了一份電子報給你，裡面有一篇講檯燈的文章，寫得不錯。"
         },
         {
           "id": "t2_2",
@@ -646,8 +646,8 @@
           "id": "t3_5",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Don't attempt to hide it. Write 'Please ignore my last email.'",
-          "zh": "不要想裝作沒事。就寫「Please ignore my last email.」"
+          "en": "Don't attempt to hide it. Just tell them to ignore the old file.",
+          "zh": "不要想瞞過去。直接請對方別管舊的那個檔案。"
         },
         {
           "id": "t3_6",

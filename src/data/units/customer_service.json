@@ -194,17 +194,17 @@
     },
     {
       "id": "it_might_take_two_or_three_days",
-      "en": "It might take two or three days to get there.",
+      "en": "It might take two or three days to reach you.",
       "zh": "可能要兩三天才會送到。",
-      "accept": ["It may take two or three days to get there."],
+      "accept": ["It may take two or three days to reach you."],
       "note": "might + 動詞原形 = 可能會，比 will 委婉，不把話說死。",
       "distractors": [
         {
-          "text": "It might takes two or three days to get there.",
+          "text": "It might takes two or three days to reach you.",
           "error": "other"
         },
         {
-          "text": "It might to take two or three days to get there.",
+          "text": "It might to take two or three days to reach you.",
           "error": "extra-word"
         },
         {
@@ -1352,7 +1352,7 @@
           "id": "t6_2",
           "role": "guide",
           "speaker": "player",
-          "en": "It might take two or three days to get there.",
+          "en": "It might take two or three days to reach you.",
           "zh": "可能要兩三天才會送到。",
           "chunkId": "it_might_take_two_or_three_days"
         },
@@ -1704,7 +1704,7 @@
           "id": "t9_12",
           "role": "guide",
           "speaker": "player",
-          "en": "It might take two or three days to get there.",
+          "en": "It might take two or three days to reach you.",
           "zh": "可能要兩三天才會送到。",
           "chunkId": "it_might_take_two_or_three_days"
         },

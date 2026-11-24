@@ -395,8 +395,8 @@
           "id": "t1_6",
           "role": "manager",
           "speaker": "npc",
-          "en": "About eighty, with families. It's more of a social occasion.",
-          "zh": "八十人左右，會帶家人來。算是比較聯誼性質的場合。"
+          "en": "About eighty, counting guests. It's more of a social occasion.",
+          "zh": "八十人左右，包含大家帶來的來賓。算是比較聯誼性質的場合。"
         },
         {
           "id": "t1_7",
@@ -1176,8 +1176,8 @@
           "id": "t8_5",
           "role": "manager",
           "speaker": "npc",
-          "en": "You achieved a lot this year. Take some pride in that.",
-          "zh": "你今年做到了很多事，該為自己感到驕傲。"
+          "en": "You achieved a lot this year. You should be proud of that.",
+          "zh": "你今年做到了很多事，應該為自己感到驕傲。"
         },
         {
           "id": "t8_6",
@@ -1339,15 +1339,15 @@
           "id": "t9_18",
           "role": "manager",
           "speaker": "npc",
-          "en": "Great. And Mr. Ellis wants you at his table that night.",
-          "zh": "很好。還有，Ellis 先生那天晚上想請你坐他那桌。"
+          "en": "Great. And Mr. Ellis wants you at his table that night. He has an award for you.",
+          "zh": "很好。還有，Ellis 先生那天晚上想請你坐他那桌，他有個獎要頒給你。"
         },
         {
           "id": "t9_19",
           "role": "guide",
           "speaker": "player",
           "en": "I really wasn't expecting this, but thank you so much!",
-          "zh": "我真的完全沒想到，非常謝謝大家！",
+          "zh": "我真的完全沒想到，非常謝謝！",
           "chunkId": "wasnt_expecting_this"
         },
         {

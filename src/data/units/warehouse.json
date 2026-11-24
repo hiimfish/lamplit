@@ -1507,7 +1507,7 @@
             {
               "en": "What should people NOT do near the storage room?",
               "zh": "大家「不可以」在儲藏室附近做什麼？",
-              "options": ["Load trucks", "Use machinery", "Count stock"],
+              "options": ["Take a break", "Use machinery", "Count stock"],
               "answer": 1
             }
           ]
@@ -1540,8 +1540,8 @@
           "id": "t7_4",
           "role": "warehouse_lead",
           "speaker": "npc",
-          "en": "It'll control the temperature, so it's never too hot or too cold.",
-          "zh": "它會控制溫度，裡面就不會太熱或太冷。",
+          "en": "It'll control the temperature, so it's never too cold in there.",
+          "zh": "它會控制溫度，裡面就不會太冷。",
           "stage": {
             "act": "want",
             "item": "temperature"

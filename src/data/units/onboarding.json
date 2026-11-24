@@ -46,7 +46,7 @@
       "distractors": [
         { "text": "When you need these forms back?", "error": "missing-word" },
         { "text": "When do you need these form back?", "error": "plural" },
-        { "text": "When do you need back these forms?", "error": "word-order" }
+        { "text": "When do you these forms need back?", "error": "word-order" }
       ]
     },
     {
@@ -659,8 +659,8 @@
             {
               "id": "t5_talk_2",
               "role": "hr",
-              "en": "Yes. All full time workers are eligible for health insurance.",
-              "zh": "有。所有全職員工都符合健康保險的資格。"
+              "en": "Yes. Everyone who works full time is eligible for health insurance.",
+              "zh": "有。只要是全職員工，都符合健康保險的資格。"
             },
             {
               "id": "t5_talk_3",
@@ -858,7 +858,7 @@
               "id": "t7_talk_2",
               "role": "manager",
               "en": "We sell desk lamps and other products for the home and office.",
-              "zh": "我們賣桌燈，還有其他居家和辦公室用的產品。"
+              "zh": "我們賣檯燈，還有其他居家和辦公室用的產品。"
             },
             {
               "id": "t7_talk_3",
@@ -887,14 +887,14 @@
             {
               "id": "t7_talk_7",
               "role": "manager",
-              "en": "Our senior sales person is Dan. He sits next to you. Ask him first.",
-              "zh": "我們資深的業務是 Dan，他坐你隔壁。先問他。"
+              "en": "Ask Dan in sales first. He has been here the longest, and he sits next to you.",
+              "zh": "先問業務的 Dan。他在這裡最久，又坐你隔壁。"
             },
             {
               "id": "t7_talk_8",
               "role": "manager",
-              "en": "We don't have big departments. There are only six of us.",
-              "zh": "我們沒有什麼大部門，總共只有六個人。"
+              "en": "We don't have big departments, so everyone helps out.",
+              "zh": "我們沒有什麼大部門，所以大家都會互相支援。"
             }
           ],
           "questions": [
@@ -907,7 +907,7 @@
             {
               "en": "Who should the new worker ask first?",
               "zh": "新員工有問題要先問誰？",
-              "options": ["The director", "The senior sales person", "Ms. Reed"],
+              "options": ["The director", "Someone in sales", "Ms. Reed"],
               "answer": 1
             }
           ]
@@ -925,8 +925,8 @@
           "id": "t7_2",
           "role": "manager",
           "speaker": "npc",
-          "en": "We're a small team, only six people.",
-          "zh": "我們是個小團隊，只有六個人。"
+          "en": "We're a small team here, so everyone knows each other.",
+          "zh": "我們這邊是個小團隊，大家彼此都認識。"
         },
         {
           "id": "t7_3",

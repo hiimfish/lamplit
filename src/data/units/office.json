@@ -918,7 +918,7 @@
             "From: Ms. Reed",
             "General rules for the kitchen",
             "The kitchen is a shared space. Please follow these rules:",
-            "1. The refrigerator is small. Put your name on your food. Perhaps you forgot something in there? We throw away old food every Friday afternoon.",
+            "1. The refrigerator is small. Put your name on your food. We throw away old food every Friday afternoon.",
             "2. Clean your cups and forks right away.",
             "3. Turn off all appliances at the end of the day.",
             "4. Please recycle. Bottles go in the blue bin. Paper goes in the green bin.",
@@ -971,8 +971,8 @@
           "id": "t4_4",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Good question. The memo doesn't say.",
-          "zh": "問得好。公告上沒寫。"
+          "en": "Good question. The memo doesn't say. Perhaps she forgot.",
+          "zh": "問得好。公告上沒寫，也許她忘了寫。"
         },
         {
           "id": "t4_5",

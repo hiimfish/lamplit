@@ -990,7 +990,7 @@
           "role": "hotel_clerk",
           "speaker": "npc",
           "en": "The train station is just across the street, too.",
-          "zh": "電車站也就在對面。"
+          "zh": "車站也就在對面。"
         }
       ]
     },
@@ -1104,7 +1104,7 @@
             "Here is some information for your stay.",
             "Internet: Complimentary and unlimited. Choose the wireless network \"Guest\". The password is your room number and your last name.",
             "Breakfast: Complimentary, daily from 6:30 to 10:00 in the restaurant downstairs. You can also dine there in the evening until 9:30. The bar is open until midnight.",
-            "Laundry: Put your clothes in the laundry bag in the closet. Bring it to Reception before 9:00 a.m., and we will return it the same evening.",
+            "Laundry: Put your clothes in the laundry bag in the closet and call Reception before 9:00 a.m. We will pick it up and return it the same evening.",
             "Pool and gym: Upstairs on the eighth floor, open daily from 6:00 a.m. to 10:00 p.m. Extra towels for the shower are in the closet."
           ],
           "questions": [
@@ -1115,8 +1115,8 @@
               "answer": 1
             },
             {
-              "en": "By what time should you bring your laundry to Reception?",
-              "zh": "送洗的衣服最晚幾點要拿到櫃台？",
+              "en": "By what time should you call Reception about your laundry?",
+              "zh": "要送洗衣服的話，最晚幾點要打給櫃台？",
               "options": ["6:30 a.m.", "9:00 a.m.", "9:30 p.m."],
               "answer": 1
             },
@@ -1378,13 +1378,13 @@
           "title": "Laundry Service",
           "lines": [
             "Need clean clothes? Our laundry service is open daily.",
-            "Put your clothes in the basket in your closet and call the front desk. A housekeeper will ___ them up.",
+            "Put your clothes in the laundry bag in your closet and call the front desk before 9:00 a.m. A housekeeper will ___ them up.",
             "We will wash, dry and ___ your shirts, and bring them back the same evening.",
             "___ Ask at the front desk for the price list."
           ],
           "zh": [
             "需要乾淨的衣服嗎？我們的洗衣服務每天都有。",
-            "把衣服放進衣櫃裡的籃子，再打電話給櫃台。房務人員會來收。",
+            "把衣服放進衣櫃裡的洗衣袋，早上九點前打電話給櫃台。房務人員會來收。",
             "我們會幫您把襯衫洗好、弄乾、燙好，當天晚上送回。",
             "這項服務不是免費的。價目表請向櫃台索取。"
           ],

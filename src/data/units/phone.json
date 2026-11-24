@@ -1362,8 +1362,8 @@
           "id": "t7_1",
           "role": "coworker",
           "speaker": "npc",
-          "en": "It's after five in England, so they might be closed.",
-          "zh": "英國那邊已經過五點了，他們可能下班了。"
+          "en": "It's almost six in England, so they might be closed.",
+          "zh": "英國那邊快六點了，他們可能下班了。"
         },
         {
           "id": "t7_2",

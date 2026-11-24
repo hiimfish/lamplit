@@ -26,7 +26,7 @@
     {
       "id": "which_terminal_leave_from",
       "en": "Which terminal does our flight leave from?",
-      "zh": "我們的班機是從第幾航廈出發？",
+      "zh": "我們的班機是從哪個航廈出發？",
       "accept": ["What terminal does our flight leave from?"],
       "note": "問班機從哪個航廈出發。主詞 our flight 是單數，用 does，leave 用原形。",
       "distractors": [
@@ -842,7 +842,7 @@
           "role": "guide",
           "speaker": "player",
           "en": "Which terminal does our flight leave from?",
-          "zh": "我們的班機是從第幾航廈出發？",
+          "zh": "我們的班機是從哪個航廈出發？",
           "chunkId": "which_terminal_leave_from"
         },
         {
@@ -1358,14 +1358,14 @@
             "Dear passengers,",
             "Flight 482 to Chicago is delayed because of bad weather. The plane will depart from a new gate.",
             "Please stay near this gate ___ we post the new gate on the screens.",
-            "If you are one of our frequent passengers, you are welcome to wait in our ___.",
+            "If you are a member, you are welcome to wait in our ___.",
             "Thank you for ___ patient."
           ],
           "zh": [
             "各位旅客好：",
             "往芝加哥的 482 班機因為天氣不好延誤了，飛機會改從新的登機門起飛。",
             "在我們把新的登機門公布在螢幕上之前，請待在這個登機門附近。",
-            "常搭我們班機的旅客，歡迎到我們的貴賓室等候。",
+            "如果您是我們的會員，歡迎到我們的貴賓室等候。",
             "謝謝您耐心等候。"
           ],
           "blanks": [
@@ -1392,8 +1392,8 @@
           "id": "t6_1",
           "role": "coworker",
           "speaker": "npc",
-          "en": "Still cloudy out there. This could be a long wait.",
-          "zh": "外面還是陰陰的。可能要等很久喔。"
+          "en": "Still cloudy out there. Delays are frequent in weather like this.",
+          "zh": "外面還是陰陰的。這種天氣很常誤點。"
         },
         {
           "id": "t6_2",
@@ -1508,8 +1508,8 @@
             {
               "id": "t7_talk_8",
               "role": "announcer",
-              "en": "Thank you for your cooperation. We hope to get you to Chicago safely.",
-              "zh": "謝謝您的配合，我們希望讓您平安抵達芝加哥。"
+              "en": "Thank you for your cooperation. We look forward to getting you to Chicago safely.",
+              "zh": "謝謝您的配合，我們會盡力讓您平安抵達芝加哥。"
             }
           ],
           "questions": [
@@ -1766,8 +1766,8 @@
           "id": "t9_10",
           "role": "airline_agent",
           "speaker": "npc",
-          "en": "Sorry, just a window and an aisle. Can I see your boarding passes?",
-          "zh": "抱歉，只剩一個靠窗、一個靠走道。可以看一下兩位的登機證嗎？"
+          "en": "Sorry, those two aren't together. They're a few rows apart. Can I see your boarding passes?",
+          "zh": "抱歉，那兩個位子沒有連在一起，隔了幾排。可以看一下兩位的登機證嗎？"
         },
         {
           "id": "t9_11",

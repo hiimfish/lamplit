@@ -1481,8 +1481,8 @@
             {
               "id": "t7_talk_2",
               "role": "announcer",
-              "en": "It was an enormous first day, and the excitement here was great.",
-              "zh": "今天第一天人非常多，現場氣氛也非常熱烈。"
+              "en": "We had an enormous number of visitors on our first day, and the excitement here was great.",
+              "zh": "第一天的訪客非常多，現場氣氛也非常熱烈。"
             },
             {
               "id": "t7_talk_3",
@@ -1588,8 +1588,8 @@
           "id": "t7_6",
           "role": "coworker",
           "speaker": "npc",
-          "en": "That was an enormous first day. I'm so tired.",
-          "zh": "第一天人也太多了吧，我好累。"
+          "en": "We had an enormous number of visitors today. I'm so tired.",
+          "zh": "今天來的人也太多了吧，我好累。"
         },
         {
           "id": "t7_7",

@@ -245,7 +245,7 @@
           "error": "other"
         },
         {
-          "text": "They only can deliver half the order on time.",
+          "text": "They can deliver only half on time the order.",
           "error": "word-order"
         }
       ]
@@ -446,7 +446,7 @@
           "role": "supplier",
           "speaker": "npc",
           "en": "I brought a sample of our glass desk lamp.",
-          "zh": "我帶了我們玻璃桌燈的樣品來。"
+          "zh": "我帶了我們玻璃檯燈的樣品來。"
         },
         {
           "id": "t1_6",
@@ -550,8 +550,8 @@
           "id": "t2_6",
           "role": "supplier",
           "speaker": "npc",
-          "en": "Sorry, not at five hundred. Discounts start at a thousand.",
-          "zh": "抱歉，五百個沒有。折扣要一千個才有。"
+          "en": "Our usual discount starts at a thousand. But we can talk about it.",
+          "zh": "我們一般的折扣要一千個起跳，不過可以再談。"
         },
         {
           "id": "t2_7",
@@ -930,7 +930,7 @@
           ],
           "zh": [
             "你好：",
-            "謝謝你們選擇 Brightway。這封信是你們訂單的確認：大款玻璃桌燈 500 盞。",
+            "謝謝你們選擇 Brightway。這封信是你們訂單的確認：大款玻璃檯燈 500 盞。",
             "照我們的約定，單價是 17 美元，降了 2 美元。",
             "我們的製造商下週開始生產，4 月 14 日前會把燈送到。",
             "祝好，Jack"
@@ -1121,8 +1121,8 @@
           "id": "t7_3",
           "role": "manager",
           "speaker": "npc",
-          "en": "That's not good. Is that a problem for us?",
-          "zh": "這不太妙。對我們會有影響嗎？"
+          "en": "That's not good. When do we need them again?",
+          "zh": "這不太妙。我們是什麼時候要拿到貨？"
         },
         {
           "id": "t7_4",
