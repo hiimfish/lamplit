@@ -308,9 +308,8 @@ export function TownScreen() {
   const step = actOpen ? nextStep(save, units, exam, lastUnitId) : undefined;
   const stop = step?.kind === 'task' ? step : undefined;
   const examDue = step?.kind === 'exam';
-  // How far the act before a locked one is, for the note above the tiles.
+  // The act before a locked one: the name plate says to finish it, the card offers its 跳級考.
   const before = actOpen ? undefined : TOWN[actIndex - 1];
-  const beforeProgress = before && progressOf(save, actUnits(before));
   const stopTask = stop?.unit.tasks[stop.index];
   const next = stop && stopTask ? { unit: stop.unit, task: stopTask } : undefined;
 
@@ -500,25 +499,16 @@ export function TownScreen() {
             {units.length === 0 && (
               <p class="flow-note">這一幕還在準備中，下面是之後會開的地點。</p>
             )}
-            {units.length > 0 && before && beforeProgress && (
+            {units.length > 0 && before && isSkipAct(actIndex) && (
               <div class="act-locked" data-testid="act-locked">
-                <p class="flow-note">
-                  <LockMark />
-                  先玩完第{before.no}幕（{beforeProgress.done}／{beforeProgress.total}
-                  ）才能進這一幕。
-                </p>
-                {isSkipAct(actIndex) && (
-                  <>
-                    <p class="flow-note">已經有基礎？考過第{before.no}幕跳級考就能直接進來。</p>
-                    <button
-                      class="pixel-button"
-                      onClick={() => startSkip(actIndex)}
-                      data-testid="skip-challenge"
-                    >
-                      挑戰第{before.no}幕跳級考
-                    </button>
-                  </>
-                )}
+                <p class="flow-note">已經有基礎？考過第{before.no}幕跳級考就能直接進來。</p>
+                <button
+                  class="pixel-button"
+                  onClick={() => startSkip(actIndex)}
+                  data-testid="skip-challenge"
+                >
+                  挑戰第{before.no}幕跳級考
+                </button>
               </div>
             )}
             <div class="place-grid">
