@@ -292,9 +292,26 @@
   max-height: calc(var(--scene-h) - 102 * var(--px));
 }
 
-/* Portrait has a tall paper panel: show the whole short scene without an inner scrollbar. */
+/*
+ * Portrait has a tall paper panel: show the whole short scene without an inner scrollbar.
+ * When the panel is shorter (a home-screen web app gives room to the status bar and the
+ * home bar), the story's log gives way instead of the card, so it scrolls inside itself
+ * and ChatLines can keep the newest line in view; the heading and keys keep their height.
+ */
 :root[data-orientation='portrait'] .chat {
   max-height: calc(270 * var(--px));
+}
+
+:root[data-orientation='portrait'] .flow-card .story {
+  flex: 0 1 auto;
+}
+
+:root[data-orientation='portrait'] .story > * {
+  flex-shrink: 0;
+}
+
+:root[data-orientation='portrait'] .story > .chat {
+  flex-shrink: 1;
 }
 
 /*
