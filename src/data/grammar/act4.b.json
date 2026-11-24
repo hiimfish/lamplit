@@ -1,0 +1,1405 @@
+{
+  "act": 4,
+  "items": [
+    {
+      "id": "g_modal-passive-obligation_01",
+      "grammarId": "modal-passive-obligation",
+      "en": "Every page of the contract must be ___ by both companies.",
+      "zh": "合約的每一頁都必須由雙方公司簽名。",
+      "options": [
+        "signed",
+        "sign",
+        "signing",
+        "to sign"
+      ],
+      "answer": 0,
+      "note": "合約是「被簽」，must be 後面接過去分詞 signed；sign、signing、to sign 都不能接在 must be 後面表示被動。"
+    },
+    {
+      "id": "g_modal-passive-obligation_02",
+      "grammarId": "modal-passive-obligation",
+      "en": "All changes to the agreement must ___ approved by Mr. Ellis first.",
+      "zh": "協議的所有修改都必須先經過 Ellis 先生核准。",
+      "options": [
+        "being",
+        "be",
+        "been",
+        "to be"
+      ],
+      "answer": 1,
+      "note": "助動詞 must 後面接原形 be，再接過去分詞 approved；being、been、to be 都不能直接放在 must 後面。"
+    },
+    {
+      "id": "g_modal-passive-obligation_03",
+      "grammarId": "modal-passive-obligation",
+      "en": "This clause ___ checked by our lawyer before we sign the contract.",
+      "zh": "這個條款在我們簽約前必須讓我們的律師看過。",
+      "options": [
+        "must",
+        "must have",
+        "must be",
+        "must to be"
+      ],
+      "answer": 2,
+      "note": "條款是「被檢查」，要用 must be checked；must checked 少了 be，must have checked 是主動，must 後面不加 to。"
+    },
+    {
+      "id": "g_modal-passive-obligation_04",
+      "grammarId": "modal-passive-obligation",
+      "en": "Payment must be ___ within thirty days of the invoice date.",
+      "zh": "款項必須在發票日期後三十天內付清。",
+      "options": [
+        "make",
+        "makes",
+        "to make",
+        "made"
+      ],
+      "answer": 3,
+      "note": "款項是「被支付」，must be 後面接過去分詞 made；make、makes 是動詞原形和現在式，to make 不能接在 be 後面當被動。"
+    },
+    {
+      "id": "g_modal-passive-obligation_05",
+      "grammarId": "modal-passive-obligation",
+      "en": "These documents must not be ___ outside the office.",
+      "zh": "這些文件不可以帶出辦公室。",
+      "options": [
+        "take",
+        "taken",
+        "took",
+        "takes"
+      ],
+      "answer": 1,
+      "note": "否定的規定一樣是 must not be 加過去分詞，take 的過去分詞是 taken；took 是過去式，不能放在 be 後面。"
+    },
+    {
+      "id": "g_modal-passive-obligation_06",
+      "grammarId": "modal-passive-obligation",
+      "en": "The signed copy must ___ to our office by Friday.",
+      "zh": "簽好的那份必須在星期五前寄到我們辦公室。",
+      "options": [
+        "be sent",
+        "sends",
+        "sending",
+        "sent"
+      ],
+      "answer": 0,
+      "note": "那份文件是「被寄」，must 後面接 be sent；must 後面要接原形，sends、sending 不行，只放 sent 又少了 be。"
+    },
+    {
+      "id": "g_modal-passive-obligation_07",
+      "grammarId": "modal-passive-obligation",
+      "en": "Must this form ___ by a manager, or can I sign it myself?",
+      "zh": "這張表一定要經理簽嗎？還是我可以自己簽？",
+      "options": [
+        "been signed",
+        "signed",
+        "signing",
+        "be signed"
+      ],
+      "answer": 3,
+      "note": "問句把 must 移到前面，後面還是 be 加過去分詞：Must this form be signed；been signed、signed、signing 都不能直接接在 must 後面。"
+    },
+    {
+      "id": "g_modal-passive-obligation_08",
+      "grammarId": "modal-passive-obligation",
+      "en": "Before it is shipped, every lamp ___ for safety.",
+      "zh": "每一盞燈出貨前都必須做安全測試。",
+      "options": [
+        "must tested",
+        "must be tested",
+        "must testing",
+        "must be test"
+      ],
+      "answer": 1,
+      "note": "燈是「被測試」，完整的形式是 must be tested；must tested 少了 be，must testing 和 must be test 形態都錯。"
+    },
+    {
+      "id": "g_modal-passive-obligation_09",
+      "grammarId": "modal-passive-obligation",
+      "en": "The whole agreement must be ___ carefully before anyone signs it.",
+      "zh": "整份協議在任何人簽名前都必須仔細讀過。",
+      "options": [
+        "reads",
+        "reader",
+        "read",
+        "to read"
+      ],
+      "answer": 2,
+      "note": "read 的過去分詞還是 read（念 red），must be read 是「必須被讀」；reads 是現在式，reader 是名詞，to read 不能當被動。"
+    },
+    {
+      "id": "g_modal-passive-obligation_10",
+      "grammarId": "modal-passive-obligation",
+      "en": "Any changes to the price must be ___ in writing.",
+      "zh": "價格的任何更動都必須用書面提出。",
+      "options": [
+        "make",
+        "to make",
+        "makes",
+        "made"
+      ],
+      "answer": 3,
+      "note": "更動是「被提出」，must be 加過去分詞 made；make、makes 是主動的形態，to make 放在 be 後面不合文法。"
+    },
+    {
+      "id": "g_despite_01",
+      "grammarId": "despite",
+      "en": "___ the long delay, Mr. Hughes still signed the contract.",
+      "zh": "雖然拖了很久，Hughes 先生還是簽了合約。",
+      "options": [
+        "Despite",
+        "Although",
+        "Even though",
+        "However"
+      ],
+      "answer": 0,
+      "note": "空格後面是名詞片語 the long delay，要用介系詞 Despite；Although、Even though 是連接詞，後面要接完整子句，However 不能這樣接名詞。"
+    },
+    {
+      "id": "g_despite_02",
+      "grammarId": "despite",
+      "en": "We finished the draft on time ___ several problems with the printer.",
+      "zh": "雖然印表機出了好幾次問題，我們還是準時完成了草稿。",
+      "options": [
+        "although",
+        "despite",
+        "though",
+        "even if"
+      ],
+      "answer": 1,
+      "note": "several problems with the printer 是名詞片語，前面要用 despite；although、though、even if 後面都要接有主詞和動詞的子句。"
+    },
+    {
+      "id": "g_despite_03",
+      "grammarId": "despite",
+      "en": "___ the price was high, the store placed a large order.",
+      "zh": "雖然價格很高，那家店還是下了一張大訂單。",
+      "options": [
+        "Despite",
+        "In spite",
+        "Although",
+        "Because of"
+      ],
+      "answer": 2,
+      "note": "the price was high 是完整子句（有動詞 was），要用連接詞 Although；Despite、Because of 後面只能接名詞，In spite 少了 of。"
+    },
+    {
+      "id": "g_despite_04",
+      "grammarId": "despite",
+      "en": "Despite ___ the meeting late, Ms. Chen answered every question.",
+      "zh": "雖然會議開始得晚，Chen 小姐還是回答了每一個問題。",
+      "options": [
+        "start",
+        "started",
+        "to start",
+        "starting"
+      ],
+      "answer": 3,
+      "note": "despite 是介系詞，後面接動詞要用動名詞 starting；start、started、to start 都不能直接接在介系詞後面。"
+    },
+    {
+      "id": "g_despite_05",
+      "grammarId": "despite",
+      "en": "___ our differences, I'm sure we can find a compromise.",
+      "zh": "儘管我們有歧見，我相信我們能找到折衷的辦法。",
+      "options": [
+        "Even though",
+        "Despite",
+        "Although",
+        "Instead"
+      ],
+      "answer": 1,
+      "note": "our differences 是名詞片語，所以用 Despite；Even though、Although 要接子句，Instead 是副詞，不能直接接名詞。"
+    },
+    {
+      "id": "g_despite_06",
+      "grammarId": "despite",
+      "en": "The team kept working ___ the bad weather.",
+      "zh": "儘管天氣很糟，團隊還是繼續工作。",
+      "options": [
+        "although",
+        "even though",
+        "despite",
+        "though"
+      ],
+      "answer": 2,
+      "note": "the bad weather 只是名詞片語，沒有動詞，前面要用 despite；although、even though、though 後面都要有完整子句。"
+    },
+    {
+      "id": "g_despite_07",
+      "grammarId": "despite",
+      "en": "Despite ___ busy, he read through the whole contract last night.",
+      "zh": "雖然很忙，他昨晚還是把整份合約讀完了。",
+      "options": [
+        "being",
+        "he was",
+        "was",
+        "be"
+      ],
+      "answer": 0,
+      "note": "despite 後面不能接子句，要把 be 動詞改成動名詞 being；he was 是子句，was 和 be 都不能接在介系詞後面。"
+    },
+    {
+      "id": "g_despite_08",
+      "grammarId": "despite",
+      "en": "Sales stayed strong this year ___ the higher prices.",
+      "zh": "儘管價格調高了，今年的銷售還是很好。",
+      "options": [
+        "because",
+        "although",
+        "even though",
+        "despite"
+      ],
+      "answer": 3,
+      "note": "the higher prices 是名詞片語，表示「儘管」要用 despite；because、although、even though 都是連接詞，後面要接子句。"
+    },
+    {
+      "id": "g_despite_09",
+      "grammarId": "despite",
+      "en": "___ it was raining, the visitors walked to the factory.",
+      "zh": "雖然在下雨，訪客還是走路去工廠。",
+      "options": [
+        "Despite",
+        "Despite of",
+        "In spite",
+        "Although"
+      ],
+      "answer": 3,
+      "note": "it was raining 是完整子句，要用 Although；Despite 只接名詞，而且沒有 despite of 這種說法，In spite 也少了 of。"
+    },
+    {
+      "id": "g_despite_10",
+      "grammarId": "despite",
+      "en": "Mr. Ellis approved the clause despite ___ some concerns about it.",
+      "zh": "Ellis 先生雖然對這個條款有些疑慮，還是核准了。",
+      "options": [
+        "has",
+        "having",
+        "had",
+        "have"
+      ],
+      "answer": 1,
+      "note": "despite 後面接動名詞 having；has、had、have 是一般動詞形態，不能直接放在介系詞後面。"
+    },
+    {
+      "id": "g_passive-progressive-perfect_01",
+      "grammarId": "passive-progressive-perfect",
+      "en": "How many lamps are being ___ on this line today?",
+      "zh": "今天這條產線正在組裝多少盞燈？",
+      "options": [
+        "assembled",
+        "assemble",
+        "assembling",
+        "assembles"
+      ],
+      "answer": 0,
+      "note": "燈是「被組裝」，進行被動是 are being 加過去分詞 assembled；being 後面不能接 assemble、assembling 或 assembles。"
+    },
+    {
+      "id": "g_passive-progressive-perfect_02",
+      "grammarId": "passive-progressive-perfect",
+      "en": "Have all these components already ___ tested for safety?",
+      "zh": "這些零件全都已經做過安全測試了嗎？",
+      "options": [
+        "being",
+        "been",
+        "be",
+        "was"
+      ],
+      "answer": 1,
+      "note": "完成被動是 have been 加過去分詞，問句把 Have 移到前面；Have 後面要接過去分詞 been，不能接 being、be、was。"
+    },
+    {
+      "id": "g_passive-progressive-perfect_03",
+      "grammarId": "passive-progressive-perfect",
+      "en": "The new testing lab ___ built right now, so you can't see it today.",
+      "zh": "新的測試實驗室現在正在蓋，所以今天沒辦法看。",
+      "options": [
+        "has been",
+        "being",
+        "is being",
+        "been"
+      ],
+      "answer": 2,
+      "note": "right now 表示「正在被蓋」，用進行被動 is being built；has been 是完成，不配 right now，being、been 少了主要動詞。"
+    },
+    {
+      "id": "g_passive-progressive-perfect_04",
+      "grammarId": "passive-progressive-perfect",
+      "en": "These samples have just ___ from the line for testing.",
+      "zh": "這些樣品剛從產線上抽出來要做測試。",
+      "options": [
+        "being pulled",
+        "be pulled",
+        "pull",
+        "been pulled"
+      ],
+      "answer": 3,
+      "note": "樣品是「被抽出來」，have just 後面要接 been pulled；have 後面不能接 being、be 或原形 pull。"
+    },
+    {
+      "id": "g_passive-progressive-perfect_05",
+      "grammarId": "passive-progressive-perfect",
+      "en": "The cause of the problem ___ yet, so the line is still stopped.",
+      "zh": "問題的原因還沒找到，所以產線還停著。",
+      "options": [
+        "hasn't found",
+        "hasn't been found",
+        "hasn't being found",
+        "didn't found"
+      ],
+      "answer": 1,
+      "note": "原因是「被找到」，加上 yet 用完成被動 hasn't been found；hasn't found 是主動，後面還缺受詞，being 和 didn't found 形態錯。"
+    },
+    {
+      "id": "g_passive-progressive-perfect_06",
+      "grammarId": "passive-progressive-perfect",
+      "en": "Right now, the wood bases ___ by hand in the next room.",
+      "zh": "現在木頭底座正在隔壁房間用手工切割。",
+      "options": [
+        "are being cut",
+        "has been cut",
+        "are cutting",
+        "is being cut"
+      ],
+      "answer": 0,
+      "note": "Right now 表示正在進行，底座是被切，主詞 bases 是複數，用 are being cut；has been、is being 是單數，are cutting 是主動。"
+    },
+    {
+      "id": "g_passive-progressive-perfect_07",
+      "grammarId": "passive-progressive-perfect",
+      "en": "Since Monday, over two thousand lamps ___ shipped to Mr. Hughes's stores.",
+      "zh": "從星期一到現在，已經有兩千多盞燈出貨到 Hughes 先生的門市。",
+      "options": [
+        "are being",
+        "were",
+        "have been",
+        "has been"
+      ],
+      "answer": 2,
+      "note": "Since Monday 表示「從過去到現在」，用完成被動，主詞 lamps 是複數，所以是 have been；has been 是單數，are being、were 不能配 since。"
+    },
+    {
+      "id": "g_passive-progressive-perfect_08",
+      "grammarId": "passive-progressive-perfect",
+      "en": "The machine on line two is being ___, so please don't touch it.",
+      "zh": "二號產線的機器正在維修，請不要碰。",
+      "options": [
+        "repair",
+        "repairing",
+        "repairs",
+        "repaired"
+      ],
+      "answer": 3,
+      "note": "機器是「被修」，is being 後面接過去分詞 repaired；repair、repairing、repairs 都不能接在 being 後面。"
+    },
+    {
+      "id": "g_passive-progressive-perfect_09",
+      "grammarId": "passive-progressive-perfect",
+      "en": "___ the safety report been sent to the factory manager yet?",
+      "zh": "安全報告寄給廠長了嗎？",
+      "options": [
+        "Is",
+        "Has",
+        "Was",
+        "Did"
+      ],
+      "answer": 1,
+      "note": "句中有 been sent 和 yet，是完成被動的問句，開頭要用 Has；Is、Was、Did 都不能和 been 搭配。"
+    },
+    {
+      "id": "g_passive-progressive-perfect_10",
+      "grammarId": "passive-progressive-perfect",
+      "en": "The hard hats ___ cleaned at the moment, so please wait here.",
+      "zh": "安全帽現在正在清洗，請在這裡稍等。",
+      "options": [
+        "are being",
+        "have been",
+        "being",
+        "has been"
+      ],
+      "answer": 0,
+      "note": "at the moment 表示正在進行，用進行被動 are being cleaned；have been、has been 是完成式，不配 at the moment，being 少了 be 動詞。"
+    },
+    {
+      "id": "g_noun-clause-what-how_01",
+      "grammarId": "noun-clause-what-how",
+      "en": "Can you show me ___?",
+      "zh": "你可以讓我看看你們的檢驗員是怎麼找到問題的嗎？",
+      "options": [
+        "how did your inspectors find the problem",
+        "how your inspectors found the problem",
+        "how found your inspectors the problem",
+        "what your inspectors found the problem"
+      ],
+      "answer": 1,
+      "note": "how 子句當 show 的受詞，要用陳述句語序（主詞 + 動詞）；how did … find 是問句語序，what 後面不能再接完整的句子。"
+    },
+    {
+      "id": "g_noun-clause-what-how_02",
+      "grammarId": "noun-clause-what-how",
+      "en": "This is ___ we test every lamp before it ships.",
+      "zh": "我們就是這樣在出貨前測試每一盞燈的。",
+      "options": [
+        "what",
+        "which",
+        "how",
+        "who"
+      ],
+      "answer": 2,
+      "note": "we test every lamp 已經是完整句子，只缺「方法」，用 how；what 要代替句中缺的名詞，which、who 不能這樣當名詞子句開頭。"
+    },
+    {
+      "id": "g_noun-clause-what-how_03",
+      "grammarId": "noun-clause-what-how",
+      "en": "The natural wood base is ___ customers will notice first.",
+      "zh": "天然木頭底座是客人會最先注意到的地方。",
+      "options": [
+        "how",
+        "that",
+        "which",
+        "what"
+      ],
+      "answer": 3,
+      "note": "notice 後面少了受詞，what 代替「…的東西」；how 要接完整句子，that 和 which 前面沒有先行詞，不能這樣用。"
+    },
+    {
+      "id": "g_noun-clause-what-how_04",
+      "grammarId": "noun-clause-what-how",
+      "en": "I'd like to know what ___ to a lamp if it fails the test.",
+      "zh": "我想知道燈如果沒通過測試會怎麼處理。",
+      "options": [
+        "happens",
+        "happen",
+        "is happen",
+        "happening"
+      ],
+      "answer": 0,
+      "note": "what 在子句裡當主詞（單數），動詞用 happens；happen 沒加 s，is happen 形態錯，happening 少了 be 動詞。"
+    },
+    {
+      "id": "g_noun-clause-what-how_05",
+      "grammarId": "noun-clause-what-how",
+      "en": "Could you tell me what ___ on the factory floor?",
+      "zh": "可以告訴我在廠區裡有什麼是我不該碰的嗎？",
+      "options": [
+        "shouldn't I touch",
+        "should I not touch",
+        "I shouldn't touch",
+        "I shouldn't touching"
+      ],
+      "answer": 2,
+      "note": "名詞子句用陳述句語序：what I shouldn't touch；前兩個是問句倒裝，shouldn't 後面要接原形 touch。"
+    },
+    {
+      "id": "g_noun-clause-what-how_06",
+      "grammarId": "noun-clause-what-how",
+      "en": "It depends on ___ Mr. Hughes needs the lamps in his stores.",
+      "zh": "要看 Hughes 先生多快需要這些燈上架。",
+      "options": [
+        "what",
+        "how soon",
+        "what soon",
+        "how soon does"
+      ],
+      "answer": 1,
+      "note": "子句完整、只問「多快」，用 how soon；what 後面不能接完整句子，what soon 不是英文，how soon does 是問句語序而且動詞又加了 s。"
+    },
+    {
+      "id": "g_noun-clause-what-how_07",
+      "grammarId": "noun-clause-what-how",
+      "en": "___ surprised me most was the size of the testing lab.",
+      "zh": "最讓我驚訝的是測試實驗室的規模。",
+      "options": [
+        "How",
+        "That",
+        "Which",
+        "What"
+      ],
+      "answer": 3,
+      "note": "子句裡缺主詞，what 當「…的事」，整個 What surprised me most 當主詞；How 要接完整句子，That、Which 不能這樣當主詞。"
+    },
+    {
+      "id": "g_noun-clause-what-how_08",
+      "grammarId": "noun-clause-what-how",
+      "en": "Ms. Varga explained ___ the components are tested for safety.",
+      "zh": "Varga 小姐說明了零件是怎麼做安全測試的。",
+      "options": [
+        "how",
+        "what",
+        "which",
+        "who"
+      ],
+      "answer": 0,
+      "note": "the components are tested for safety 句子完整，只缺方法，用 how；what 要代替缺的名詞，which、who 也不合。"
+    },
+    {
+      "id": "g_noun-clause-what-how_09",
+      "grammarId": "noun-clause-what-how",
+      "en": "Nobody told me ___ I needed to wear on the factory floor.",
+      "zh": "沒有人告訴我在廠區要穿戴什麼。",
+      "options": [
+        "how",
+        "what",
+        "that",
+        "if"
+      ],
+      "answer": 1,
+      "note": "wear 後面缺受詞，要用 what（我需要穿的東西）；how、that、if 後面都要接完整句子，wear 少了受詞就不成立。"
+    },
+    {
+      "id": "g_noun-clause-what-how_10",
+      "grammarId": "noun-clause-what-how",
+      "en": "Can you explain how ___ the wood base by hand?",
+      "zh": "你可以說明你們怎麼用手工做木頭底座嗎？",
+      "options": [
+        "do they make",
+        "make they",
+        "they make",
+        "they making"
+      ],
+      "answer": 2,
+      "note": "how 子句當 explain 的受詞，用陳述句語序 they make；do they make 是問句語序，make they 倒裝錯，they making 少了 be 動詞。"
+    },
+    {
+      "id": "g_reported-question_01",
+      "grammarId": "reported-question",
+      "en": "The hotel asked ___ I needed a taxi, but I walked.",
+      "zh": "飯店問我需不需要計程車，但我用走的。",
+      "options": [
+        "whether",
+        "that",
+        "what",
+        "about"
+      ],
+      "answer": 0,
+      "note": "轉述 yes/no 問句用 whether（或 if）；asked that 不用來轉述問題，what 後面不能接完整句子，about 是介系詞。"
+    },
+    {
+      "id": "g_reported-question_02",
+      "grammarId": "reported-question",
+      "en": "At immigration, they asked how long ___.",
+      "zh": "在入境審查時，他們問我要待多久。",
+      "options": [
+        "was I staying",
+        "I was staying",
+        "did I stay",
+        "I staying"
+      ],
+      "answer": 1,
+      "note": "轉述問句不倒裝，用陳述句語序 I was staying；was I staying、did I stay 是直接問句的語序，I staying 少了 be 動詞。"
+    },
+    {
+      "id": "g_reported-question_03",
+      "grammarId": "reported-question",
+      "en": "My manager asked me if I ___ the London office before.",
+      "zh": "我的主管問我以前有沒有去過倫敦辦公室。",
+      "options": [
+        "had I visited",
+        "did I visit",
+        "had visited",
+        "visited had"
+      ],
+      "answer": 2,
+      "note": "if 後面用陳述句語序，時態往前推成 had visited；had I visited、did I visit 是問句倒裝，visited had 語序錯。"
+    },
+    {
+      "id": "g_reported-question_04",
+      "grammarId": "reported-question",
+      "en": "She wanted to know where ___.",
+      "zh": "她想知道行李提領處在哪裡。",
+      "options": [
+        "was baggage claim",
+        "is baggage claim",
+        "baggage claim",
+        "baggage claim was"
+      ],
+      "answer": 3,
+      "note": "轉述問句要用「主詞 + 動詞」：where baggage claim was；was / is baggage claim 是問句倒裝，只有 baggage claim 少了動詞。"
+    },
+    {
+      "id": "g_reported-question_05",
+      "grammarId": "reported-question",
+      "en": "The driver asked us ___ we were going to the hotel or the office.",
+      "zh": "司機問我們是要去飯店還是去辦公室。",
+      "options": [
+        "that",
+        "whether",
+        "what",
+        "which"
+      ],
+      "answer": 1,
+      "note": "轉述「…還是…」的選擇問句用 whether … or；that 不轉述問題，what、which 後面不能接這樣完整的句子。"
+    },
+    {
+      "id": "g_reported-question_06",
+      "grammarId": "reported-question",
+      "en": "Mr. Hughes asked ___ the second shipment would arrive.",
+      "zh": "Hughes 先生問第二批貨什麼時候會到。",
+      "options": [
+        "that",
+        "what",
+        "did",
+        "when"
+      ],
+      "answer": 3,
+      "note": "問「什麼時候」用疑問詞 when，後面接陳述句語序；that 不轉述問題，what 後面不能接完整句子，did 不能這樣開頭。"
+    },
+    {
+      "id": "g_reported-question_07",
+      "grammarId": "reported-question",
+      "en": "Leo asked me how customers ___ to the new lamps.",
+      "zh": "Leo 問我客人對新燈的反應怎麼樣。",
+      "options": [
+        "were responding",
+        "were they responding",
+        "are they responding",
+        "responding"
+      ],
+      "answer": 0,
+      "note": "how 後面用陳述句語序，時態配 asked 往前推：customers were responding；後兩個多了倒裝的 they，responding 少了 be 動詞。"
+    },
+    {
+      "id": "g_reported-question_08",
+      "grammarId": "reported-question",
+      "en": "I asked the receptionist ___ there was a hotel near the office.",
+      "zh": "我問櫃台人員辦公室附近有沒有飯店。",
+      "options": [
+        "that",
+        "what",
+        "if",
+        "about"
+      ],
+      "answer": 2,
+      "note": "轉述「有沒有…」的 yes/no 問句用 if；asked that 不轉述問題，what 後面不能接完整句子，about 是介系詞。"
+    },
+    {
+      "id": "g_reported-question_09",
+      "grammarId": "reported-question",
+      "en": "They asked me what time my flight ___.",
+      "zh": "他們問我班機幾點起飛。",
+      "options": [
+        "did it leave",
+        "left",
+        "does it leave",
+        "leaving"
+      ],
+      "answer": 1,
+      "note": "what time 後面用陳述句語序 my flight left，時態配 asked 用過去式；did it leave、does it leave 是問句形式，leaving 少了 be 動詞。"
+    },
+    {
+      "id": "g_reported-question_10",
+      "grammarId": "reported-question",
+      "en": "A customer asked how much the lamps ___.",
+      "zh": "有位客人問這些燈多少錢。",
+      "options": [
+        "did they cost",
+        "costing",
+        "do they cost",
+        "cost"
+      ],
+      "answer": 3,
+      "note": "how much 後面接陳述句語序 the lamps cost（cost 的過去式也是 cost）；did / do they cost 是問句，costing 少了 be 動詞。"
+    },
+    {
+      "id": "g_second-conditional-wish_01",
+      "grammarId": "second-conditional-wish",
+      "en": "If I ___ you, I'd take the train to the office.",
+      "zh": "如果我是你，我會搭火車去辦公室。",
+      "options": [
+        "were",
+        "am",
+        "will be",
+        "have been"
+      ],
+      "answer": 0,
+      "note": "If I were you 是給建議的固定說法，和事實相反，be 動詞用 were；am、will be、have been 不能配後面的 I'd。"
+    },
+    {
+      "id": "g_second-conditional-wish_02",
+      "grammarId": "second-conditional-wish",
+      "en": "I wish I ___ more time to see the city.",
+      "zh": "真希望我有更多時間看看這座城市。",
+      "options": [
+        "have",
+        "had",
+        "will have",
+        "having"
+      ],
+      "answer": 1,
+      "note": "I wish 表示和現在事實相反的願望，動詞要往前推成過去式 had；have、will have 不能接在 wish 後面表示願望，having 不是完整動詞。"
+    },
+    {
+      "id": "g_second-conditional-wish_03",
+      "grammarId": "second-conditional-wish",
+      "en": "What would you do if you ___ in my shoes?",
+      "zh": "如果你是我，你會怎麼做？",
+      "options": [
+        "are",
+        "will be",
+        "were",
+        "been"
+      ],
+      "answer": 2,
+      "note": "主要子句是 would，if 子句要用過去式，be 動詞一律 were；are、will be 不配 would，been 不能單獨當動詞。"
+    },
+    {
+      "id": "g_second-conditional-wish_04",
+      "grammarId": "second-conditional-wish",
+      "en": "If I were you, I ___ a hotel near the office.",
+      "zh": "如果我是你，我會訂辦公室附近的飯店。",
+      "options": [
+        "will book",
+        "booked",
+        "book",
+        "would book"
+      ],
+      "answer": 3,
+      "note": "If I were you 的主要子句要用 would 加原形：would book；will book 是真實條件句，booked、book 少了 would。"
+    },
+    {
+      "id": "g_second-conditional-wish_05",
+      "grammarId": "second-conditional-wish",
+      "en": "I wish the office ___ closer to my hotel.",
+      "zh": "真希望辦公室離我的飯店近一點。",
+      "options": [
+        "were",
+        "is",
+        "will be",
+        "be"
+      ],
+      "answer": 0,
+      "note": "wish 後面和事實相反，be 動詞一律用 were；is、will be 是說事實或未來，be 是原形，都不合。"
+    },
+    {
+      "id": "g_second-conditional-wish_06",
+      "grammarId": "second-conditional-wish",
+      "en": "If I ___ how to drive here, I'd rent a car.",
+      "zh": "如果我知道在這裡怎麼開車，我就會租車。",
+      "options": [
+        "know",
+        "knew",
+        "will know",
+        "known"
+      ],
+      "answer": 1,
+      "note": "後面是 I'd（I would），表示和現在事實相反，if 子句用過去式 knew；know、will know 時態不配，known 是過去分詞。"
+    },
+    {
+      "id": "g_second-conditional-wish_07",
+      "grammarId": "second-conditional-wish",
+      "en": "I wish our team in Taiwan ___ see the lamps in these stores.",
+      "zh": "真希望台灣的同事也能看到這些門市裡的燈。",
+      "options": [
+        "can",
+        "will",
+        "could",
+        "are"
+      ],
+      "answer": 2,
+      "note": "wish 後面的助動詞也要往前推，can 變 could；can、will 不能這樣接在 wish 後面，are 後面不能接原形 see。"
+    },
+    {
+      "id": "g_second-conditional-wish_08",
+      "grammarId": "second-conditional-wish",
+      "en": "If we ___ more staff in London, we would open another store.",
+      "zh": "如果我們在倫敦有更多人手，我們就會再開一家店。",
+      "options": [
+        "have",
+        "will have",
+        "has",
+        "had"
+      ],
+      "answer": 3,
+      "note": "主要子句是 would open，if 子句要用過去式 had；have、will have 不配 would，has 也和 we 不一致。"
+    },
+    {
+      "id": "g_second-conditional-wish_09",
+      "grammarId": "second-conditional-wish",
+      "en": "I wish I ___ so tired after the long flight.",
+      "zh": "真希望我搭完長途飛機後沒這麼累。",
+      "options": [
+        "am not",
+        "weren't",
+        "won't be",
+        "haven't been"
+      ],
+      "answer": 1,
+      "note": "wish 後面和現在事實相反，be 動詞用 were，否定是 weren't；am not、won't be、haven't been 都不能這樣接在 wish 後面。"
+    },
+    {
+      "id": "g_second-conditional-wish_10",
+      "grammarId": "second-conditional-wish",
+      "en": "If I were in your position, I ___ ask Ms. Varga for help.",
+      "zh": "如果我是你，我會請 Varga 小姐幫忙。",
+      "options": [
+        "will",
+        "am",
+        "would",
+        "did"
+      ],
+      "answer": 2,
+      "note": "If I were … 的主要子句用 would 加原形 ask；will 是真實條件句，am、did 後面不能接原形 ask。"
+    },
+    {
+      "id": "g_used-to_01",
+      "grammarId": "used-to",
+      "en": "I used to ___ lunch at my desk almost every day.",
+      "zh": "我以前幾乎每天都在座位上吃午餐。",
+      "options": [
+        "eat",
+        "eating",
+        "ate",
+        "eats"
+      ],
+      "answer": 0,
+      "note": "used to 後面接原形動詞 eat；eating、ate、eats 都不能接在 used to 後面。"
+    },
+    {
+      "id": "g_used-to_02",
+      "grammarId": "used-to",
+      "en": "I ___ to have trouble sleeping, but now I sleep well.",
+      "zh": "我以前常睡不好，但現在睡得很好。",
+      "options": [
+        "use",
+        "used",
+        "was used",
+        "am used"
+      ],
+      "answer": 1,
+      "note": "說過去的習慣、現在不是了，肯定句用 used to 加原形；use to 只出現在 did 後面，was used to / am used to 後面不接原形 have。"
+    },
+    {
+      "id": "g_used-to_03",
+      "grammarId": "used-to",
+      "en": "Did you ___ to work late every night?",
+      "zh": "你以前每天晚上都加班嗎？",
+      "options": [
+        "used",
+        "using",
+        "use",
+        "uses"
+      ],
+      "answer": 2,
+      "note": "問句已經有 Did 表示過去，後面用原形 use to；used 重複了過去式，using、uses 形態錯。"
+    },
+    {
+      "id": "g_used-to_04",
+      "grammarId": "used-to",
+      "en": "She ___ use to drink coffee, but now she has three cups a day.",
+      "zh": "她以前不喝咖啡，但現在一天喝三杯。",
+      "options": [
+        "wasn't",
+        "doesn't",
+        "isn't",
+        "didn't"
+      ],
+      "answer": 3,
+      "note": "used to 的否定是 didn't use to，用 did 表示過去；wasn't、isn't 不能接原形 use，doesn't 是現在式。"
+    },
+    {
+      "id": "g_used-to_05",
+      "grammarId": "used-to",
+      "en": "There used to ___ a gym near our office.",
+      "zh": "我們辦公室附近以前有一間健身房。",
+      "options": [
+        "be",
+        "being",
+        "been",
+        "is"
+      ],
+      "answer": 0,
+      "note": "There used to be 表示「以前有」，used to 後面接原形 be；being、been、is 都不能接在 used to 後面。"
+    },
+    {
+      "id": "g_used-to_06",
+      "grammarId": "used-to",
+      "en": "I never used to eat breakfast, but now I ___ it every morning.",
+      "zh": "我以前從來不吃早餐，但現在每天早上都吃。",
+      "options": [
+        "used to eat",
+        "eat",
+        "ate",
+        "eating"
+      ],
+      "answer": 1,
+      "note": "now 說的是現在的習慣，用現在式 eat；used to eat 是「以前」，和 now 相反，ate 是過去式，eating 少了 be 動詞。"
+    },
+    {
+      "id": "g_used-to_07",
+      "grammarId": "used-to",
+      "en": "Mr. Ellis used to ___ to work, but now he takes the bus.",
+      "zh": "Ellis 先生以前開車上班，但現在搭公車。",
+      "options": [
+        "driving",
+        "drove",
+        "drive",
+        "drives"
+      ],
+      "answer": 2,
+      "note": "主詞是第三人稱也一樣，used to 後面接原形 drive；driving、drove、drives 都不行。"
+    },
+    {
+      "id": "g_used-to_08",
+      "grammarId": "used-to",
+      "en": "When I was younger, I ___ go to bed after midnight.",
+      "zh": "我年輕的時候，以前都過了半夜才睡。",
+      "options": [
+        "use to",
+        "was used to",
+        "am used to",
+        "used to"
+      ],
+      "answer": 3,
+      "note": "說過去的習慣用 used to 加原形 go；肯定句不寫 use to，was / am used to 後面不能接原形動詞。"
+    },
+    {
+      "id": "g_used-to_09",
+      "grammarId": "used-to",
+      "en": "Leo ___ to be very quiet, but now he talks to everyone.",
+      "zh": "Leo 以前很安靜，但現在跟每個人都聊。",
+      "options": [
+        "uses",
+        "used",
+        "was using",
+        "has used"
+      ],
+      "answer": 1,
+      "note": "以前的狀態、現在不是了，用 used to be；uses、was using、has used 加 to be 都不是這個意思，也不合文法。"
+    },
+    {
+      "id": "g_used-to_10",
+      "grammarId": "used-to",
+      "en": "We ___ have flextime here, so everyone started at nine.",
+      "zh": "我們這裡以前沒有彈性上班，所以大家都九點開始。",
+      "options": [
+        "didn't use to",
+        "don't use to",
+        "weren't used to",
+        "haven't used to"
+      ],
+      "answer": 0,
+      "note": "說以前沒有的狀況，否定是 didn't use to 加原形；don't use to 是現在式，weren't used to 不接原形，haven't used to 不是這個用法。"
+    },
+    {
+      "id": "g_phrasal-verbs-habits_01",
+      "grammarId": "phrasal-verbs-habits",
+      "en": "I'm trying to cut down ___ afternoon coffee.",
+      "zh": "我在試著少喝下午的咖啡。",
+      "options": [
+        "in",
+        "on",
+        "at",
+        "off"
+      ],
+      "answer": 1,
+      "note": "「減少…」是固定片語 cut down on；cut down in、at、off 後面都不能接你要減少的東西。"
+    },
+    {
+      "id": "g_phrasal-verbs-habits_02",
+      "grammarId": "phrasal-verbs-habits",
+      "en": "I just signed ___ for the yoga class on Wednesday evenings.",
+      "zh": "我剛報名了星期三晚上的瑜珈課。",
+      "options": [
+        "up",
+        "at",
+        "off",
+        "over"
+      ],
+      "answer": 0,
+      "note": "「報名參加」是 sign up for；sign at、sign off、sign over 都不能接 for 表示報名。"
+    },
+    {
+      "id": "g_phrasal-verbs-habits_03",
+      "grammarId": "phrasal-verbs-habits",
+      "en": "She works ___ at the gym three times a week.",
+      "zh": "她一個星期去健身房運動三次。",
+      "options": [
+        "up",
+        "off",
+        "out",
+        "in"
+      ],
+      "answer": 2,
+      "note": "「運動、健身」是 work out，不用接受詞；work up、work off 後面要接受詞，work in 也沒有運動的意思。"
+    },
+    {
+      "id": "g_phrasal-verbs-habits_04",
+      "grammarId": "phrasal-verbs-habits",
+      "en": "My doctor told me to give ___ sugar in my coffee.",
+      "zh": "醫生叫我咖啡不要再加糖。",
+      "options": [
+        "at",
+        "on",
+        "over",
+        "up"
+      ],
+      "answer": 3,
+      "note": "「戒掉」是 give up；give at、give on、give over 都沒有「戒掉」的意思。"
+    },
+    {
+      "id": "g_phrasal-verbs-habits_05",
+      "grammarId": "phrasal-verbs-habits",
+      "en": "I've decided to cut ___ on sugar this month.",
+      "zh": "我決定這個月要少吃糖。",
+      "options": [
+        "up",
+        "down",
+        "off",
+        "out"
+      ],
+      "answer": 1,
+      "note": "「減少」是 cut down on；cut up 是切碎，cut off、cut out 後面不接 on。"
+    },
+    {
+      "id": "g_phrasal-verbs-habits_06",
+      "grammarId": "phrasal-verbs-habits",
+      "en": "Leo gave up ___ lunch at his desk.",
+      "zh": "Leo 不再在座位上吃午餐了。",
+      "options": [
+        "eat",
+        "to eat",
+        "eating",
+        "ate"
+      ],
+      "answer": 2,
+      "note": "give up 的 up 是介副詞，後面接動詞要用動名詞 eating；eat、to eat、ate 都不能接在 give up 後面。"
+    },
+    {
+      "id": "g_phrasal-verbs-habits_07",
+      "grammarId": "phrasal-verbs-habits",
+      "en": "I've been ___ out every morning since last month.",
+      "zh": "從上個月開始，我每天早上都去運動。",
+      "options": [
+        "work",
+        "to work",
+        "works",
+        "working"
+      ],
+      "answer": 3,
+      "note": "have been 後面接 -ing 形成現在完成進行式：have been working out；work、works 不能接在 been 後面，to work 也不對。"
+    },
+    {
+      "id": "g_phrasal-verbs-habits_08",
+      "grammarId": "phrasal-verbs-habits",
+      "en": "I'm going to ___ up for the company's new health plan.",
+      "zh": "我要報名參加公司新的健康方案。",
+      "options": [
+        "sign",
+        "give",
+        "work",
+        "cut"
+      ],
+      "answer": 0,
+      "note": "後面有 for，「報名、加入」是 sign up for；give up、work up、cut up 都不接 for 表示加入。"
+    },
+    {
+      "id": "g_phrasal-verbs-habits_09",
+      "grammarId": "phrasal-verbs-habits",
+      "en": "He's trying to ___ down on working late.",
+      "zh": "他在試著少加班。",
+      "options": [
+        "give",
+        "cut",
+        "work",
+        "sign"
+      ],
+      "answer": 1,
+      "note": "down on 前面要接 cut，cut down on 是「減少」；give down、work down、sign down 都不是片語。"
+    },
+    {
+      "id": "g_phrasal-verbs-habits_10",
+      "grammarId": "phrasal-verbs-habits",
+      "en": "Working ___ before work helps me feel less tired.",
+      "zh": "上班前先運動讓我比較不累。",
+      "options": [
+        "up",
+        "in",
+        "out",
+        "off"
+      ],
+      "answer": 2,
+      "note": "Working out 是「運動」，整個動名詞片語當主詞；working up、working off 後面要接受詞，working in 也沒有運動的意思。"
+    },
+    {
+      "id": "g_noun-clause-that-what_01",
+      "grammarId": "noun-clause-that-what",
+      "en": "___ our customers love is how little energy the lamps use.",
+      "zh": "我們的客人最喜歡的是這些燈很省電。",
+      "options": [
+        "That",
+        "What",
+        "Which",
+        "It"
+      ],
+      "answer": 1,
+      "note": "love 後面缺受詞，要用 What（客人喜歡的東西）當主詞；That 子句必須完整，Which、It 不能這樣帶子句當主詞。"
+    },
+    {
+      "id": "g_noun-clause-that-what_02",
+      "grammarId": "noun-clause-that-what",
+      "en": "What matters is ___ we listen to our customers.",
+      "zh": "重要的是我們要聽客人的意見。",
+      "options": [
+        "what",
+        "which",
+        "that",
+        "this"
+      ],
+      "answer": 2,
+      "note": "we listen to our customers 是完整句子，當補語要用 that；what 要代替句中缺的名詞，which、this 不能帶名詞子句。"
+    },
+    {
+      "id": "g_noun-clause-that-what_03",
+      "grammarId": "noun-clause-that-what",
+      "en": "___ the lamps are made in Taiwan surprised the reporter.",
+      "zh": "這些燈是在台灣製造的，這讓記者很意外。",
+      "options": [
+        "What",
+        "Which",
+        "It",
+        "That"
+      ],
+      "answer": 3,
+      "note": "the lamps are made in Taiwan 句子完整，當主詞要用 That 帶出；What 用在缺名詞的子句，Which、It 不能這樣開頭。"
+    },
+    {
+      "id": "g_noun-clause-that-what_04",
+      "grammarId": "noun-clause-that-what",
+      "en": "I can't believe ___ they played my whole answer on the radio.",
+      "zh": "我不敢相信他們在廣播裡播了我整段回答。",
+      "options": [
+        "that",
+        "what",
+        "which",
+        "it"
+      ],
+      "answer": 0,
+      "note": "they played my whole answer 已經有受詞，子句完整，用 that；what 要代替缺的受詞，which、it 不能帶出這個子句。"
+    },
+    {
+      "id": "g_noun-clause-that-what_05",
+      "grammarId": "noun-clause-that-what",
+      "en": "The reporter asked about ___ we did with the old lamps.",
+      "zh": "記者問到我們怎麼處理那些舊燈。",
+      "options": [
+        "that",
+        "what",
+        "which",
+        "it"
+      ],
+      "answer": 1,
+      "note": "介系詞 about 後面的子句，did 缺受詞，要用 what；介系詞後面不能接 that 子句，which、it 也不合。"
+    },
+    {
+      "id": "g_noun-clause-that-what_06",
+      "grammarId": "noun-clause-that-what",
+      "en": "___ we need right now is a clear message for the interview.",
+      "zh": "我們現在需要的是採訪時清楚的重點。",
+      "options": [
+        "That",
+        "Which",
+        "What",
+        "It"
+      ],
+      "answer": 2,
+      "note": "need 後面缺受詞，What we need 當主詞（我們需要的東西）；That 後面要完整句子，Which、It 不能帶主詞子句。"
+    },
+    {
+      "id": "g_noun-clause-that-what_07",
+      "grammarId": "noun-clause-that-what",
+      "en": "Our main point is ___ the lamps use very little energy.",
+      "zh": "我們的重點是這些燈非常省電。",
+      "options": [
+        "what",
+        "which",
+        "who",
+        "that"
+      ],
+      "answer": 3,
+      "note": "the lamps use very little energy 是完整句子，當補語用 that；what 要代替缺的名詞，which、who 不能這樣用。"
+    },
+    {
+      "id": "g_noun-clause-that-what_08",
+      "grammarId": "noun-clause-that-what",
+      "en": "I agree with ___ you said about memorizing answers.",
+      "zh": "我同意你說的不要背答案那件事。",
+      "options": [
+        "what",
+        "that",
+        "which",
+        "it"
+      ],
+      "answer": 0,
+      "note": "with 後面接名詞子句，said 缺受詞，用 what（你說的話）；介系詞後面不能接 that 子句，which、it 也不合。"
+    },
+    {
+      "id": "g_noun-clause-that-what_09",
+      "grammarId": "noun-clause-that-what",
+      "en": "Everyone knows ___ Lantern gave lamps to local schools this year.",
+      "zh": "大家都知道 Lantern 今年送了燈給當地學校。",
+      "options": [
+        "what",
+        "that",
+        "which",
+        "about"
+      ],
+      "answer": 1,
+      "note": "Lantern gave lamps to local schools 句子完整，當 knows 的受詞用 that；what 用在缺名詞的子句，which、about 不能帶出這個子句。"
+    },
+    {
+      "id": "g_noun-clause-that-what_10",
+      "grammarId": "noun-clause-that-what",
+      "en": "What customers want ___ better design at a fair price.",
+      "zh": "客人要的是價格合理、設計更好的產品。",
+      "options": [
+        "are",
+        "were",
+        "is",
+        "being"
+      ],
+      "answer": 2,
+      "note": "What 子句當主詞視為單數，後面的補語 better design 也是單數，用 is；are、were 不一致，being 不是完整動詞。"
+    },
+    {
+      "id": "g_reported-own-words_01",
+      "grammarId": "reported-own-words",
+      "en": "As I ___ our team, we're actually hiring this year.",
+      "zh": "就像我跟團隊說過的，我們今年其實有在招人。",
+      "options": [
+        "said",
+        "spoke",
+        "talked",
+        "told"
+      ],
+      "answer": 3,
+      "note": "後面直接接人（our team），要用 told；said 要說 said to，spoke 和 talked 也要加 to，不能直接接人。"
+    },
+    {
+      "id": "g_reported-own-words_02",
+      "grammarId": "reported-own-words",
+      "en": "As I ___ earlier, I can't share our exact sales numbers.",
+      "zh": "就像我剛才提到的，我不能透露確切的銷售數字。",
+      "options": [
+        "mentioned",
+        "told",
+        "said to",
+        "told to"
+      ],
+      "answer": 0,
+      "note": "As I mentioned earlier 是轉述自己說過的話的常用說法；told 後面一定要接人，said to、told to 後面也少了對象。"
+    },
+    {
+      "id": "g_reported-own-words_03",
+      "grammarId": "reported-own-words",
+      "en": "I told him yesterday that I ___ the interview the week before.",
+      "zh": "我昨天跟他說，我前一個星期就接受過採訪了。",
+      "options": [
+        "have done",
+        "had done",
+        "do",
+        "will do"
+      ],
+      "answer": 1,
+      "note": "轉述時比 told 更早發生的事，要往前推成 had done；have done 不能配 the week before 這種過去的時間，do、will do 時間不對。"
+    },
+    {
+      "id": "g_reported-own-words_04",
+      "grammarId": "reported-own-words",
+      "en": "In the interview, I ___ that we started Lantern because stores wanted better design.",
+      "zh": "採訪時我說明了，我們創立 Lantern 是因為門市想要更好的設計。",
+      "options": [
+        "told",
+        "talked",
+        "explained",
+        "spoke"
+      ],
+      "answer": 2,
+      "note": "後面直接接 that 子句，用 explained；told 後面要先接人（told him that），talked、spoke 不能直接接 that 子句。"
+    },
+    {
+      "id": "g_reported-own-words_05",
+      "grammarId": "reported-own-words",
+      "en": "As I told ___ on Monday, Thursday afternoon works for us.",
+      "zh": "就像我星期一跟你說的，星期四下午我們可以。",
+      "options": [
+        "to you",
+        "for you",
+        "with you",
+        "you"
+      ],
+      "answer": 3,
+      "note": "tell 後面直接接人，不加介系詞：told you；told to you、told for you、told with you 都不對。"
+    },
+    {
+      "id": "g_reported-own-words_06",
+      "grammarId": "reported-own-words",
+      "en": "I told the team that I ___ to the reporter the day before.",
+      "zh": "我跟團隊說，我前一天已經和記者談過了。",
+      "options": [
+        "had spoken",
+        "have spoken",
+        "speak",
+        "am speaking"
+      ],
+      "answer": 0,
+      "note": "轉述 told 之前就發生的事要用 had spoken；the day before 是過去的時間點，不能配 have spoken，speak、am speaking 時間也不對。"
+    },
+    {
+      "id": "g_reported-own-words_07",
+      "grammarId": "reported-own-words",
+      "en": "As I ___ before, our team is small but strong.",
+      "zh": "就像我之前說的，我們的團隊人不多但很強。",
+      "options": [
+        "told",
+        "said",
+        "said to",
+        "told to"
+      ],
+      "answer": 1,
+      "note": "後面沒有接人，用 As I said before；told 一定要接人，said to、told to 後面也少了對象。"
+    },
+    {
+      "id": "g_reported-own-words_08",
+      "grammarId": "reported-own-words",
+      "en": "I told the reporter that we had shipped the first order the day ___.",
+      "zh": "我跟記者說，我們前一天就出了第一批貨。",
+      "options": [
+        "ago",
+        "last",
+        "before",
+        "next"
+      ],
+      "answer": 2,
+      "note": "轉述時 yesterday 要改成 the day before；the day ago、the day last、the day next 都不是英文的說法。"
+    },
+    {
+      "id": "g_reported-own-words_09",
+      "grammarId": "reported-own-words",
+      "en": "When the reporter called, I told her I ___ already finished my answers.",
+      "zh": "記者打來的時候，我跟她說我已經把回答準備好了。",
+      "options": [
+        "was",
+        "did",
+        "am",
+        "had"
+      ],
+      "answer": 3,
+      "note": "told 之前就完成的事，用 had 加過去分詞 finished；was、am 後面不能接 finished my answers 這種受詞，did 後面要接原形。"
+    },
+    {
+      "id": "g_reported-own-words_10",
+      "grammarId": "reported-own-words",
+      "en": "As I explained ___ the reporter, the lamps use very little energy.",
+      "zh": "就像我跟記者解釋過的，這些燈非常省電。",
+      "options": [
+        "to",
+        "for",
+        "at",
+        "with"
+      ],
+      "answer": 0,
+      "note": "explain 不能直接接人，要說 explain to 某人；explained for、at、with the reporter 都不是正確搭配。"
+    }
+  ]
+}
