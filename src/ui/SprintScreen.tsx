@@ -12,7 +12,7 @@ import './flow.css';
 import { IntroCards } from './IntroCards';
 import { QuestionRunner } from './TaskScreen';
 import { TOWN } from './TownScreen';
-import { SPRINT_NOTE } from './GoalScreen';
+import { SPRINT_NOTE } from './GoalRows';
 import { QuitKey } from './QuitKey';
 
 /** Where each word lives, so its audio and its place's words can be found. */

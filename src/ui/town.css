@@ -272,7 +272,7 @@
 
 /*
  * Landscape (a computer, clicked with a mouse): slimmer keys and tiles and
- * tighter gaps, so the twelve locations of an act (with 今日複習 and 下一關) and
+ * tighter gaps, so the twelve locations of an act (with 今天的目標 under them) and
  * 回第N幕 with nine tasks fit the right column without scrolling.
  */
 :root[data-orientation='landscape'] .flow-card:has(.place-grid),
@@ -357,4 +357,28 @@
   :root[data-orientation='portrait'] .task-list {
     gap: calc(2 * var(--px));
   }
+}
+
+/* 今天的目標 under the places: the 每日目標 rows, under a small heading with the tally. */
+.town-goals {
+  display: flex;
+  flex-direction: column;
+  gap: calc(3 * var(--px));
+  margin-top: calc(4 * var(--px));
+  padding-top: calc(4 * var(--px));
+  border-top: var(--px) dotted var(--ink);
+}
+
+.town-goals-title {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  font-size: inherit;
+  font-weight: normal;
+  color: var(--ink);
+}
+
+/* With 今天的目標 under them the tiles keep their own height and the card scrolls on. */
+:root[data-orientation] .flow-card:has(> .town-goals) > .place-grid {
+  flex: none;
 }

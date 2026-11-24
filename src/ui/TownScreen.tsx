@@ -28,6 +28,7 @@ import {
   type TownAct,
 } from '../learning/townPlan';
 import { examIdOf, ExamTile } from './exam/ExamTile';
+import { GoalRows } from './GoalRows';
 import './flow.css';
 import { useRefocus } from './focus';
 import { useKeys } from './keys';
@@ -528,6 +529,16 @@ export function TownScreen() {
               ))}
               <ExamTile act={actIndex + 1} no={act.no} />
             </div>
+            {/* Today's blocks with their keys, so the card's lower half is of use every day. */}
+            <section class="town-goals" aria-labelledby="town-goals-title" data-testid="town-goals">
+              <h2 class="town-goals-title" id="town-goals-title">
+                今天的目標
+                <span class="goal-tally">
+                  {goal.all ? '✓ 都完成了' : `${goal.met}/${goal.total}`}
+                </span>
+              </h2>
+              <GoalRows />
+            </section>
           </>
         )}
       </div>
