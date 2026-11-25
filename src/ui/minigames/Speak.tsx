@@ -30,8 +30,9 @@ export function Speak({ question, onAnswered }: MinigameProps<SpeakQuestion>) {
     const result = clock.finish(question.itemId, true, undefined, skipped);
     if (!result) return;
     setFinished(true);
+    // QuestionView moves on to the next question at once (nothing to read here), so the model
+    // is not replayed: it would be cut off as the question leaves.
     onAnswered(result);
-    if (!skipped) play(question.audioId, question.en);
   };
 
   const listening = recog.status === 'listening';

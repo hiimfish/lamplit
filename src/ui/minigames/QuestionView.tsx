@@ -68,8 +68,15 @@ function Body({ question, onAnswer, onGraded, responseMode }: QuestionViewProps)
   // pushes it out of view, so bring it back into view too.
   useEffect(() => {
     if (!result) return;
-    focusAndReveal(continueRef.current);
     onGraded?.(result);
+    // 大聲說說看 has no feedback to read (it is never graded): 我說完了 / 現在不方便說話 go
+    // straight on, rather than showing the same sentence again with only 繼續 under it.
+    if (question.kind === 'speak') {
+      setSent(true);
+      onAnswer(result);
+      return;
+    }
+    focusAndReveal(continueRef.current);
   }, [result]);
   // Enter presses 繼續 even when focus wandered off it (a focused 繼續 takes Enter itself).
   useKeys({ Enter: () => continueRef.current?.click() }, result !== null);
