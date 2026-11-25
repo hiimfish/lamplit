@@ -6,7 +6,8 @@ import { useKeys } from '../keys';
 import { KeyCap } from '../KeyCap';
 import { takeJustChecked } from './Arrange';
 import { isRecognitionSupported, RECOGNITION_NOTE } from '../../audio/recognize';
-import type { SpokenComparison } from '../../audio/recognize';
+import { spokenScoreText } from '../../learning/spokenScore';
+import type { SpokenScore } from '../../learning/spokenScore';
 import type { SpeakQuestion } from '../../learning/questions';
 import { play, useAnswerClock } from './shared';
 import type { MinigameProps } from './shared';
@@ -180,7 +181,7 @@ function MicControls({
       {recog.status === 'confirm' && (
         <RecognitionNotice onConfirm={recog.confirm} onCancel={recog.cancel} />
       )}
-      <SpeakNotes message={recog.message ?? rec.message} heard={recog.heard} />
+      <SpeakNotes message={recog.message ?? rec.message} score={recog.score} />
     </>
   );
 }
@@ -244,8 +245,18 @@ function RecognitionNotice(props: { onConfirm: () => void; onCancel: () => void 
   );
 }
 
-function SpeakNotes(props: { message: string | null; heard: SpokenComparison | null }) {
-  const { message, heard } = props;
+/** The words of the target the recognizer missed (names it missed are not counted). */
+function missedWords(score: SpokenScore): string[] {
+  return score.marks.filter((m) => m.status === 'missed' && !m.free).map((m) => m.word);
+}
+
+/**
+ * After 辨識: the score line shared with 聽力加量 (辨識到 N／M 個字・S 分・level), then the
+ * words not heard. The score counts the words the browser understood, not pronunciation.
+ */
+function SpeakNotes(props: { message: string | null; score: SpokenScore | null }) {
+  const { message, score } = props;
+  const missed = score ? missedWords(score) : [];
   return (
     <>
       {message && (
@@ -253,11 +264,13 @@ function SpeakNotes(props: { message: string | null; heard: SpokenComparison | n
           {message}
         </p>
       )}
-      {heard && (
+      {score && (
         <p class="mg-note" data-testid="heard">
-          {heard.missing.length === 0
-            ? '每個字都聽到了，很棒！'
-            : `沒聽到這些字：${heard.missing.join(' ')}`}
+          <span data-testid="speak-score">{spokenScoreText(score)}</span>
+          <br />
+          {missed.length === 0 ? '每個字都聽到了，很棒！' : `沒聽到：${missed.join(' ')}`}
+          <br />
+          分數是瀏覽器聽出幾個字，不是發音評分。
         </p>
       )}
     </>

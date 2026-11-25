@@ -12,6 +12,8 @@ import {
   recognitionMessage,
 } from '../../audio/recognize';
 import type { Listening, ListenOptions, SpokenComparison } from '../../audio/recognize';
+import { scoreSpoken } from '../../learning/spokenScore';
+import type { SpokenScore } from '../../learning/spokenScore';
 
 /** 'confirm' = privacy note on screen, nothing is listening yet. */
 type RecognitionStatus = 'idle' | 'confirm' | 'listening';
@@ -19,6 +21,8 @@ type RecognitionStatus = 'idle' | 'confirm' | 'listening';
 export interface RecognitionState {
   status: RecognitionStatus;
   heard: SpokenComparison | null;
+  /** The same scoring as 聽力加量's 跟著說 (spokenScore.ts): 0–100 and a level. */
+  score: SpokenScore | null;
   message: string | null;
 }
 
@@ -33,6 +37,7 @@ export interface RecognitionDeps {
 const INITIAL_RECOGNITION_STATE: RecognitionState = {
   status: 'idle',
   heard: null,
+  score: null,
   message: null,
 };
 
@@ -59,7 +64,7 @@ export class RecognitionController {
     if (this.disposed || this.state.status !== 'idle') return;
     this.target = target;
     if (this.deps.noteSeen()) this.begin();
-    else this.set({ status: 'confirm', heard: null, message: null });
+    else this.set({ status: 'confirm', heard: null, score: null, message: null });
   }
 
   /** 繼續辨識: remember the choice, then (and only then) start listening. */
@@ -76,7 +81,8 @@ export class RecognitionController {
 
   /** Clears the last result/message (e.g. when a new recording starts). */
   clear(): void {
-    if (this.state.heard || this.state.message) this.set({ heard: null, message: null });
+    if (this.state.heard || this.state.message)
+      this.set({ heard: null, score: null, message: null });
   }
 
   /** Stops any listen and closes the note. */
@@ -98,14 +104,16 @@ export class RecognitionController {
     this.deps.beforeListen();
     const mine = ++this.generation;
     const target = this.target;
-    this.set({ status: 'listening', heard: null, message: null });
+    this.set({ status: 'listening', heard: null, score: null, message: null });
     const session = this.deps.listen({ lang: 'en-US' });
     this.session = session;
     session.promise.then(
       (text) =>
         this.finish(
           mine,
-          text === '' ? { message: NOTHING_HEARD } : { heard: compareSpoken(target, text) },
+          text === ''
+            ? { message: NOTHING_HEARD }
+            : { heard: compareSpoken(target, text), score: scoreSpoken(target, [text]) },
         ),
       (error: unknown) => this.finish(mine, { message: recognitionMessage(error) }),
     );

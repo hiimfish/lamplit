@@ -44,6 +44,28 @@ export function spokenLevel(score: number): SpokenLevel {
   return 'unclear';
 }
 
+/**
+ * 辨識到 N／M 個字: N counts the target's words heard exactly or nearly (a near word is
+ * drawn with a thin underline); M counts all words except names that were missed, which
+ * the score leaves out as well.
+ */
+export function heardCount(marks: readonly SpokenMark[]): { heard: number; total: number } {
+  let heard = 0;
+  let total = 0;
+  for (const mark of marks) {
+    if (mark.status === 'missed' && mark.free) continue;
+    total += 1;
+    if (mark.status !== 'missed') heard += 1;
+  }
+  return { heard, total };
+}
+
+/** 「辨識到 5／6 個字・83 分・大致聽得出來」: 聽力加量's 跟著說 and the practice's 大聲說說看. */
+export function spokenScoreText(score: SpokenScore): string {
+  const { heard, total } = heardCount(score.marks);
+  return `辨識到 ${heard}／${total} 個字・${score.score} 分・${SPOKEN_LEVEL_LABEL[score.level]}`;
+}
+
 const NEAR_WEIGHT = 0.5;
 
 const UNIT_WORDS = [

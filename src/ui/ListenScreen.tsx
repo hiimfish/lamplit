@@ -16,8 +16,8 @@ import { dailyFor } from '../core/save';
 import { useStore } from '../core/store';
 import { finishListen, listenGoal, pickListenTask } from '../learning/listen';
 import { taskKey } from '../learning/sessionPlan';
-import { SPOKEN_LEVEL_LABEL, scoreSpoken } from '../learning/spokenScore';
-import type { SpokenMark, SpokenScore } from '../learning/spokenScore';
+import { scoreSpoken, spokenScoreText } from '../learning/spokenScore';
+import type { SpokenMark } from '../learning/spokenScore';
 import { ChatLines } from './ChatLines';
 import { useKeys } from './keys';
 import { KeyCap } from './KeyCap';
@@ -46,27 +46,6 @@ const START: ListenLoopSnapshot = {
 
 /** Shown with the first score of a visit. */
 const SCORE_DISCLAIMER = '分數是瀏覽器聽出幾個字，不是發音評分。';
-
-/**
- * 辨識到 N／M 個字: N counts the target's words heard exactly or nearly (a near word is
- * drawn with a thin underline); M counts all words except names that were missed, which
- * the score leaves out as well.
- */
-export function heardCount(marks: readonly SpokenMark[]): { heard: number; total: number } {
-  let heard = 0;
-  let total = 0;
-  for (const mark of marks) {
-    if (mark.status === 'missed' && mark.free) continue;
-    total += 1;
-    if (mark.status !== 'missed') heard += 1;
-  }
-  return { heard, total };
-}
-
-function scoreText(score: SpokenScore): string {
-  const { heard, total } = heardCount(score.marks);
-  return `辨識到 ${heard}／${total} 個字・${score.score} 分・${SPOKEN_LEVEL_LABEL[score.level]}`;
-}
 
 /**
  * 聽力加量: a story already played, heard again in English only. ListenLoop plays the
@@ -263,7 +242,7 @@ export function ListenScreen() {
   if (snap.phase === 'listening') status = '● 換你說…';
   else if (snap.phase === 'ready') status = '按「說」再唸這一句。';
   else if (snap.phase === 'scored' && snap.score) {
-    status = scoreText(snap.score);
+    status = spokenScoreText(snap.score);
     if (snap.index === firstScored) status += ` ${SCORE_DISCLAIMER}`;
   }
   if (snap.note) status = status ? `${status} ${snap.note}` : snap.note;

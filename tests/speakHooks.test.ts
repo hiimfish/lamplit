@@ -246,6 +246,13 @@ describe('RecognitionController (useRecognition)', () => {
     await flush();
     expect(controller.getState()).toMatchObject({ status: 'idle', message: null });
     expect(controller.getState().heard?.missing).toEqual(['to']);
+    // The score is 聽力加量's (spokenScore.ts): two of three words heard.
+    expect(controller.getState().score?.score).toBe(67);
+    expect(controller.getState().score?.marks.map((m) => m.status)).toEqual([
+      'missed',
+      'hit',
+      'hit',
+    ]);
     controller.request('to go please');
     sessions[1]!.done.resolve('');
     await flush();

@@ -4,10 +4,33 @@
   gap: calc(2 * var(--px));
 }
 
+/*
+ * A block's name (聽不清楚的音, 文法和拼字…): not just smaller text but a label of its own,
+ * a short ink bar before it and a dotted ink rule running to the edge (2026-11-25, the user
+ * found the old small text too faint to read as a heading).
+ */
 .mistakes-sub {
-  margin: calc(4 * var(--px)) 0 0;
+  display: flex;
+  align-items: center;
+  gap: calc(4 * var(--px));
+  margin: calc(6 * var(--px)) 0 0;
   color: var(--ink);
-  font-size: calc(10 * var(--fpx));
+  font-size: calc(11 * var(--fpx));
+}
+
+.mistakes-sub::before {
+  content: '';
+  flex: none;
+  width: calc(2 * var(--px));
+  height: calc(9 * var(--px));
+  background: var(--ink);
+}
+
+.mistakes-sub::after {
+  content: '';
+  flex: 1 1 auto;
+  min-width: calc(8 * var(--px));
+  border-bottom: var(--px) dotted var(--ink);
 }
 
 .mistakes-list > li {
