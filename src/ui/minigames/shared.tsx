@@ -1,4 +1,5 @@
 /** Small pieces shared by the minigame components. */
+import { t } from '../../core/i18n';
 import type { ComponentChildren } from 'preact';
 import { useEffect, useRef } from 'preact/hooks';
 import { playAudio } from '../../audio/pronounce';
@@ -46,7 +47,7 @@ export function useAnswerClock() {
 
 export function hintFor(error: string | undefined): string {
   if (error && error in ERROR_HINTS) return ERROR_HINTS[error as ErrorType];
-  return '再聽聽看標準說法。';
+  return t('再聽聽看標準說法。', 'Listen to how it should sound.');
 }
 
 /** Plays a clip, ignoring failures so audio problems never block learning. */
@@ -68,7 +69,7 @@ export function ReplayBar({
   audioId,
   text,
   onHelp,
-  replayLabel = '再聽一次',
+  replayLabel,
   autoplay = false,
 }: ReplayBarProps) {
   useEffect(() => {
@@ -88,16 +89,11 @@ export function ReplayBar({
         data-testid="replay"
         onClick={() => play(audioId, text)}
       >
-        ♪ {replayLabel}
+        ♪ {replayLabel ?? t('再聽一次', 'Play again')}
         <KeyCap k="Space" />
       </button>
-      <button
-        type="button"
-        class="pixel-button"
-        data-testid="slow"
-        onClick={slow}
-      >
-        慢速
+      <button type="button" class="pixel-button" data-testid="slow" onClick={slow}>
+        {t('慢速', 'Slow')}
         <KeyCap k="Shift+Space" />
       </button>
     </div>
@@ -116,14 +112,14 @@ export interface FeedbackProps {
 }
 
 /** Shown inside a FeedbackSlot, which announces it. */
-export function Feedback({ correct, hint, answer, answerLabel = '正確說法', note }: FeedbackProps) {
+export function Feedback({ correct, hint, answer, answerLabel, note }: FeedbackProps) {
   return (
     <div class={`mg-feedback ${correct ? 'good' : 'bad'}`} data-testid="feedback">
-      <strong>{correct ? '答對了！' : '不太對喔'}</strong>
+      <strong>{correct ? t('答對了！', 'Correct!') : t('不太對喔', 'Not quite')}</strong>
       {!correct && hint && <span>{hint}</span>}
       {answer && (
         <span>
-          {correct ? '' : `${answerLabel}：`}
+          {correct ? '' : `${answerLabel ?? t('正確說法', 'Should be')}${t('：', ': ')}`}
           <em lang="en">{answer}</em>
         </span>
       )}

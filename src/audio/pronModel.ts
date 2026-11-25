@@ -3,6 +3,7 @@
  * from this site and kept in the browser. scoreRecording() turns a recording into a
  * SpokenScore (pronScore.ts). Recordings never leave the device.
  */
+import { t } from '../core/i18n';
 import { scorePronunciation, logSoftmaxRows } from '../learning/pronScore';
 import type { SpokenScore } from '../learning/spokenScore';
 import { decodeToPcm, isSilent, prepareForModel } from './pcm';
@@ -20,20 +21,35 @@ export class PronError extends Error {
   }
 }
 
-const MESSAGES: Record<PronErrorCode, string> = {
-  unsupported: '這個瀏覽器不能評分（需要 WebAssembly）。可以先跳過這一題。',
-  'download-failed': '發音模型下載失敗，請確認網路後再試一次。',
-  failed: '評分失敗了，請再錄一次試試。',
+const MESSAGES: Record<PronErrorCode, [zh: string, en: string]> = {
+  unsupported: [
+    '這個瀏覽器不能評分（需要 WebAssembly）。可以先跳過這一題。',
+    "This browser can't score (it needs WebAssembly). You can skip this one.",
+  ],
+  'download-failed': [
+    '發音模型下載失敗，請確認網路後再試一次。',
+    "The pronunciation model didn't download. Check your connection and try again.",
+  ],
+  failed: ['評分失敗了，請再錄一次試試。', "Scoring didn't work. Please record again."],
 };
 
-/** Friendly zh-TW message for the UI. */
+/** Friendly message for the UI, in the current 介面語言. */
 export function pronMessage(error: unknown): string {
-  return MESSAGES[error instanceof PronError ? error.code : 'failed'];
+  const [zh, en] = MESSAGES[error instanceof PronError ? error.code : 'failed'];
+  return t(zh, en);
 }
 
-/** Shown before the first download (大聲說說看's 評分, 聽力加量's 跟著說). */
+/** Shown before the first download (大聲說說看's 評分, 聽力加量's 跟著說); the Chinese wording. */
 export const PRON_NOTE =
   '第一次評分要下載發音模型（約 95MB，建議用 Wi-Fi），之後就不用再下載。錄音只在這台裝置上評分，不會上傳。';
+
+/** PRON_NOTE in the current 介面語言. */
+export function pronNote(): string {
+  return t(
+    PRON_NOTE,
+    'The first score downloads a pronunciation model (about 95 MB, Wi-Fi is best), just once. Your recording is scored on this device and never uploaded.',
+  );
+}
 
 export function pronSupported(): boolean {
   return typeof WebAssembly === 'object' && typeof Worker === 'function';

@@ -3,6 +3,7 @@
  * practice test; on the sprint it is compared with the plan's target for that week,
  * and a score well below it offers to extend. Pure.
  */
+import { t } from '../core/i18n';
 import { dateKey, sortCheckpoints, type Checkpoint, type Route, type SaveData } from '../core/save';
 import { SPRINT_WEEKS, sprintWeek, sprintWeeks } from './sprint';
 
@@ -130,5 +131,9 @@ export function examCapNote(
 ): string | undefined {
   if (target === undefined || examComparable(act, target)) return undefined;
   const of = week === undefined ? '' : `第 ${week} 週的`;
-  return `這場考試最高估到 ${EXAM_CAPS[act]}，不和${of}目標比`;
+  const ofEn = week === undefined ? 'the' : `the week ${week}`;
+  return t(
+    `這場考試最高估到 ${EXAM_CAPS[act]}，不和${of}目標比`,
+    `This exam tops out at ${EXAM_CAPS[act]}, so it isn't compared with ${ofEn} target`,
+  );
 }

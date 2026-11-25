@@ -6,6 +6,7 @@ import type { RefObject } from 'preact';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { playSfx } from '../../audio/sfx';
 import { appStore, commitSave, currentNow } from '../../core/appState';
+import { t } from '../../core/i18n';
 import type { Route } from '../../core/save';
 import { useStore } from '../../core/store';
 import { MISS_LIMIT, shouldOfferExtend } from '../../learning/dailyGoal';
@@ -22,9 +23,9 @@ import {
 } from '../../learning/sprint';
 import '../goal.css';
 
-const ROUTES: { kind: Route['kind']; label: string }[] = [
-  { kind: 'normal', label: '一般' },
-  { kind: 'sprint', label: '衝刺 3 個月' },
+const ROUTES: { kind: Route['kind']; label: [zh: string, en: string] }[] = [
+  { kind: 'normal', label: ['一般', 'Standard'] },
+  { kind: 'sprint', label: ['衝刺 3 個月', '3-month sprint'] },
 ];
 
 /**
@@ -35,9 +36,9 @@ const ROUTES: { kind: Route['kind']; label: string }[] = [
  * about 75 minutes, plus 15–50 new words, up to 200 reviews, 3 scenes and 15 grammar
  * questions: 2–3 hours.
  */
-export const ROUTE_TIME: Record<Route['kind'], string> = {
-  normal: '約 20–30 分鐘',
-  sprint: '約 2–3 小時',
+export const ROUTE_TIME: Record<Route['kind'], [zh: string, en: string]> = {
+  normal: ['約 20–30 分鐘', 'about 20–30 min'],
+  sprint: ['約 2–3 小時', 'about 2–3 hours'],
 };
 
 /**
@@ -110,7 +111,7 @@ export function RouteGroup({ escRef }: { escRef: RefObject<(() => void) | null> 
     <>
       <div class="settings-row">
         <span class="settings-label" id="route-label">
-          路線
+          {t('路線', 'Route')}
         </span>
         <div
           ref={groupRef}
@@ -132,7 +133,7 @@ export function RouteGroup({ escRef }: { escRef: RefObject<(() => void) | null> 
                 onClick={() => pick(route.kind)}
                 data-testid={`route-${route.kind}`}
               >
-                {route.label}
+                {t(...route.label)}
               </button>
             );
           })}
@@ -141,18 +142,34 @@ export function RouteGroup({ escRef }: { escRef: RefObject<(() => void) | null> 
       <p class="settings-note" data-testid="route-note">
         {save.route.kind === 'sprint' && save.route.start
           ? week > weeks
-            ? `衝刺的 ${weeks} 週已經過了（${save.route.start} 開始），可以繼續或改回一般。`
-            : `衝刺第 ${week}／${weeks} 週，預計 ${sprintEndDate(save.route.start, weeks)} 結束。`
-          : '照自己的步調玩，每天一點點。'}
+            ? t(
+                `衝刺的 ${weeks} 週已經過了（${save.route.start} 開始），可以繼續或改回一般。`,
+                `The ${weeks}-week sprint is over (started ${save.route.start}). Keep going or switch back to Standard.`,
+              )
+            : t(
+                `衝刺第 ${week}／${weeks} 週，預計 ${sprintEndDate(save.route.start, weeks)} 結束。`,
+                `Sprint week ${week}/${weeks}, ending around ${sprintEndDate(save.route.start, weeks)}.`,
+              )
+          : t('照自己的步調玩，每天一點點。', 'Play at your own pace, a little each day.')}
       </p>
       <p class="settings-note" data-testid="route-time">
-        做完每天的目標：一般{ROUTE_TIME.normal}（{TASK_GOAL.normal} 關劇情）；衝刺
-        {ROUTE_TIME.sprint}（{TASK_GOAL.sprint} 關劇情，加上更多新字和複習）。可以分好幾次玩。
+        {t(
+          `做完每天的目標：一般${ROUTE_TIME.normal[0]}（${TASK_GOAL.normal} 關劇情）；衝刺${ROUTE_TIME.sprint[0]}（${TASK_GOAL.sprint} 關劇情，加上更多新字和複習）。可以分好幾次玩。`,
+          `Daily goals take ${ROUTE_TIME.normal[1]} on Standard (${TASK_GOAL.normal} story task), ${ROUTE_TIME.sprint[1]} on Sprint (${TASK_GOAL.sprint} story tasks, plus more new words and review). You can split it up.`,
+        )}
       </p>
       {confirmSprint && (
-        <div class="goal-extend" role="group" aria-label="改成衝刺" data-testid="sprint-confirm">
+        <div
+          class="goal-extend"
+          role="group"
+          aria-label={t('改成衝刺', 'Switch to sprint')}
+          data-testid="sprint-confirm"
+        >
           <p class="flow-note">
-            衝刺從今天開始算 {SPRINT_WEEKS} 週，每天{ROUTE_TIME.sprint}。確定要改成衝刺嗎？
+            {t(
+              `衝刺從今天開始算 ${SPRINT_WEEKS} 週，每天${ROUTE_TIME.sprint[0]}。確定要改成衝刺嗎？`,
+              `The sprint runs ${SPRINT_WEEKS} weeks from today, ${ROUTE_TIME.sprint[1]} a day. Switch to it?`,
+            )}
           </p>
           <div class="goal-extend-keys">
             <button
@@ -162,7 +179,7 @@ export function RouteGroup({ escRef }: { escRef: RefObject<(() => void) | null> 
               onClick={startSprint}
               data-testid="sprint-confirm-yes"
             >
-              改成衝刺
+              {t('改成衝刺', 'Switch to sprint')}
             </button>
             <button
               type="button"
@@ -170,15 +187,23 @@ export function RouteGroup({ escRef }: { escRef: RefObject<(() => void) | null> 
               onClick={cancelSprint}
               data-testid="sprint-confirm-no"
             >
-              先不要
+              {t('先不要', 'Not now')}
             </button>
           </div>
         </div>
       )}
       {offerExtend && (
-        <div class="goal-extend" role="group" aria-label="延長衝刺" data-testid="goal-extend">
+        <div
+          class="goal-extend"
+          role="group"
+          aria-label={t('延長衝刺', 'Extend the sprint')}
+          data-testid="goal-extend"
+        >
           <p class="flow-note">
-            最近 {MISS_LIMIT} 天沒完成目標，要把衝刺延長 {EXTEND_WEEKS} 週嗎？每天的量會變少。
+            {t(
+              `最近 ${MISS_LIMIT} 天沒完成目標，要把衝刺延長 ${EXTEND_WEEKS} 週嗎？每天的量會變少。`,
+              `Goals missed ${MISS_LIMIT} days in a row. Extend the sprint by ${EXTEND_WEEKS} weeks? Each day gets lighter.`,
+            )}
           </p>
           <div class="goal-extend-keys">
             <button
@@ -187,7 +212,7 @@ export function RouteGroup({ escRef }: { escRef: RefObject<(() => void) | null> 
               onClick={() => answerExtend(true)}
               data-testid="extend-yes"
             >
-              延長 {EXTEND_WEEKS} 週
+              {t(`延長 ${EXTEND_WEEKS} 週`, `Extend ${EXTEND_WEEKS} weeks`)}
             </button>
             <button
               type="button"
@@ -195,7 +220,7 @@ export function RouteGroup({ escRef }: { escRef: RefObject<(() => void) | null> 
               onClick={() => answerExtend(false)}
               data-testid="extend-no"
             >
-              先不用
+              {t('先不用', 'Not now')}
             </button>
           </div>
         </div>

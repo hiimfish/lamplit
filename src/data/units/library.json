@@ -583,6 +583,7 @@
     {
       "id": "t1",
       "title": "辦借書證",
+      "titleEn": "Getting a library card",
       "newChunkIds": ["get_library_card", "live_near_here"],
       "newWordIds": ["librarian", "place", "until", "eleven", "twelve"],
       "scene": [
@@ -638,6 +639,7 @@
     {
       "id": "t2",
       "title": "找書、借書",
+      "titleEn": "Finding and borrowing books",
       "newChunkIds": ["where_computer_books", "how_many_borrow"],
       "newWordIds": ["magazine", "through", "under", "behind", "author", "title"],
       "fills": [
@@ -713,6 +715,7 @@
     {
       "id": "t3",
       "title": "續借",
+      "titleEn": "Renewing a book",
       "newChunkIds": ["renew_these_books", "didnt_have_time_read"],
       "newWordIds": ["renew", "due", "ago", "still", "remember", "forget"],
       "scene": [
@@ -768,6 +771,7 @@
     {
       "id": "t4",
       "title": "看布告欄",
+      "titleEn": "The notice board",
       "newChunkIds": ["what_word_mean", "is_job_fair_free"],
       "newWordIds": ["january", "february", "march", "april", "may", "june"],
       "newPairIds": ["they_day"],
@@ -853,6 +857,7 @@
     {
       "id": "t5",
       "title": "用圖書館的電腦",
+      "titleEn": "Using the library computers",
       "newChunkIds": ["use_my_laptop_here", "write_that_down"],
       "newWordIds": ["connect", "download", "password", "search", "limit", "e_book"],
       "pictures": [
@@ -945,6 +950,7 @@
     {
       "id": "t6",
       "title": "列印和影印",
+      "titleEn": "Printing and copying",
       "newChunkIds": ["show_me_how_print", "print_them_color"],
       "newWordIds": ["print", "paper", "page", "copy", "file", "around"],
       "cloze": [
@@ -1014,6 +1020,7 @@
     {
       "id": "t7",
       "title": "安靜的規定",
+      "titleEn": "The quiet rules",
       "newChunkIds": ["let_me_turn_it_off", "where_take_call"],
       "newWordIds": ["board", "rule", "follow", "allow", "quiet", "away"],
       "spellWordIds": ["computer", "screen", "keyboard", "mouse", "teacher"],
@@ -1074,6 +1081,7 @@
     {
       "id": "t8",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

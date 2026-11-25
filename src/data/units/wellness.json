@@ -924,6 +924,7 @@
     {
       "id": "t1",
       "title": "出差回來累壞了",
+      "titleEn": "Worn out after the trip",
       "newChunkIds": ["headaches_since_london", "tired_from_long_flight"],
       "newWordIds": [
         "suffer",
@@ -1004,6 +1005,7 @@
     {
       "id": "t2",
       "title": "年度健康檢查",
+      "titleEn": "The annual checkup",
       "newChunkIds": ["book_checkup_myself", "breakfast_before_blood_test"],
       "newWordIds": [
         "medical",
@@ -1110,6 +1112,7 @@
     {
       "id": "t3",
       "title": "以前的生活習慣",
+      "titleEn": "Old habits",
       "newChunkIds": ["used_to_eat_at_desk", "never_used_to_trouble_sleeping"],
       "newWordIds": [
         "habit",
@@ -1196,6 +1199,7 @@
     {
       "id": "t4",
       "title": "讀福利說明",
+      "titleEn": "Reading the benefits guide",
       "newChunkIds": ["compare_two_insurance_plans"],
       "newWordIds": [
         "pension",
@@ -1336,6 +1340,7 @@
     {
       "id": "t5",
       "title": "請假和彈性上班",
+      "titleEn": "Leave and flexible hours",
       "backdrop": "hr",
       "newChunkIds": ["sick_leave_days_per_year", "flextime_start_at_ten"],
       "newWordIds": [
@@ -1509,6 +1514,7 @@
     {
       "id": "t6",
       "title": "報名健康計畫",
+      "titleEn": "Joining the health program",
       "newChunkIds": ["signed_up_for_yoga", "cut_down_on_coffee"],
       "newWordIds": [
         "wellness",
@@ -1750,6 +1756,7 @@
     {
       "id": "t7",
       "title": "午休健康講座",
+      "titleEn": "Lunchtime health talk",
       "newChunkIds": ["talk_made_me_think_habits"],
       "newWordIds": [
         "emotional",
@@ -1925,6 +1932,7 @@
     {
       "id": "t8",
       "title": "請一天假",
+      "titleEn": "Taking a day off",
       "newChunkIds": ["take_next_friday_off", "leo_knows_while_away"],
       "newWordIds": [
         "recover",
@@ -2021,6 +2029,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "backdrop": "main",
       "kind": "roleplay",
       "newChunkIds": [],

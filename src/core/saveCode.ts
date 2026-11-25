@@ -7,6 +7,7 @@ import {
   type SaveData,
   type StorageLike,
 } from './save';
+import { t } from './i18n';
 import { sanitizeSettings, type Settings } from './settings';
 import { STORAGE_KEYS } from './storageKeys';
 
@@ -28,13 +29,36 @@ export const MAX_CODE_CHARS = 8 * 1024 * 1024;
 /** Largest payload accepted once decompressed (bytes). */
 export const MAX_PAYLOAD_BYTES = 16 * 1024 * 1024;
 
+/** Messages for a code that cannot be read (getters: read in the current 介面語言). */
 export const CODE_ERRORS = {
-  notCode: '這不是 Lamplit 的存檔代碼，請確認複製的是整段代碼。',
-  damaged: '存檔代碼不完整或被改過，請重新複製整段代碼再試一次。',
-  tooNew: '這個存檔來自較新的版本，請先更新遊戲。',
-  tooLarge: '存檔代碼太大，無法匯入。',
-  unsupported: '這個瀏覽器解不開壓縮過的存檔代碼，請換新版瀏覽器再試。',
-} as const;
+  get notCode() {
+    return t(
+      '這不是 Lamplit 的存檔代碼，請確認複製的是整段代碼。',
+      'This is not a Lamplit save code. Make sure you copied the whole code.',
+    );
+  },
+  get damaged() {
+    return t(
+      '存檔代碼不完整或被改過，請重新複製整段代碼再試一次。',
+      'The save code is incomplete or changed. Copy the whole code again and retry.',
+    );
+  },
+  get tooNew() {
+    return t(
+      '這個存檔來自較新的版本，請先更新遊戲。',
+      'This save is from a newer version. Please update the game first.',
+    );
+  },
+  get tooLarge() {
+    return t('存檔代碼太大，無法匯入。', 'The save code is too large to import.');
+  },
+  get unsupported() {
+    return t(
+      '這個瀏覽器解不開壓縮過的存檔代碼，請換新版瀏覽器再試。',
+      "This browser can't unpack the save code. Try a newer browser.",
+    );
+  },
+};
 
 export type DecodeResult =
   | { ok: true; save: SaveData; settings?: Settings; exportedAt: string }
@@ -300,8 +324,17 @@ export const BACKUP_REMINDER_DAYS = 7;
 export function backupReminder(save: SaveData, days: number | null): string | null {
   const progress = Object.keys(save.tasks).length > 0 || saveSummary(save).cards > 0;
   if (!progress) return null;
-  if (days === null) return '還沒有備份過存檔，可以在設定裡匯出。';
-  return days > BACKUP_REMINDER_DAYS ? `已經 ${days} 天沒有備份存檔了，可以在設定裡匯出。` : null;
+  if (days === null)
+    return t(
+      '還沒有備份過存檔，可以在設定裡匯出。',
+      'No backup yet. You can export one in Settings.',
+    );
+  return days > BACKUP_REMINDER_DAYS
+    ? t(
+        `已經 ${days} 天沒有備份存檔了，可以在設定裡匯出。`,
+        `No backup for ${days} days. You can export one in Settings.`,
+      )
+    : null;
 }
 
 /** File name for a download: lamplit-save-YYYY-MM-DD.txt. */

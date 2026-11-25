@@ -842,6 +842,7 @@
     {
       "id": "t1",
       "title": "第一次上台報告",
+      "titleEn": "First presentation",
       "backdrop": "coworker",
       "newChunkIds": ["who_in_the_audience", "what_approach_works_best"],
       "newWordIds": [
@@ -919,6 +920,7 @@
     {
       "id": "t2",
       "title": "找 Dan 排練",
+      "titleEn": "Rehearsing with Dan",
       "backdrop": "main",
       "newChunkIds": ["time_me_run_through_slides", "am_i_talking_too_fast"],
       "newWordIds": [
@@ -1014,6 +1016,7 @@
     {
       "id": "t3",
       "title": "開場",
+      "titleEn": "The opening",
       "newChunkIds": ["walk_you_through_our_plan", "find_numbers_surprising"],
       "newWordIds": [
         "logical",
@@ -1084,6 +1087,7 @@
     {
       "id": "t4",
       "title": "讀去年的銷售報告",
+      "titleEn": "Last year's sales report",
       "newChunkIds": ["report_gives_us_evidence"],
       "newWordIds": [
         "indicate",
@@ -1194,6 +1198,7 @@
     {
       "id": "t5",
       "title": "解釋圖表",
+      "titleEn": "Explaining the charts",
       "newChunkIds": ["as_you_can_see_office_stores", "orange_slice_online_sales"],
       "newWordIds": [
         "bottom",
@@ -1346,6 +1351,7 @@
     {
       "id": "t6",
       "title": "回答問題",
+      "titleEn": "Answering questions",
       "newChunkIds": ["however_lasts_twice_as_long", "good_question_get_back_to_you"],
       "newWordIds": [
         "however",
@@ -1476,6 +1482,7 @@
     {
       "id": "t7",
       "title": "總經理的結語",
+      "titleEn": "Mr. Ellis's closing words",
       "newChunkIds": ["means_a_lot_coming_from_you"],
       "newWordIds": [
         "indeed",
@@ -1658,6 +1665,7 @@
     {
       "id": "t8",
       "title": "會後回饋",
+      "titleEn": "Feedback afterward",
       "backdrop": "coworker",
       "newChunkIds": ["nervous_at_first_got_easier", "one_thing_do_better"],
       "newWordIds": [
@@ -1754,6 +1762,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "backdrop": "coworker",
       "kind": "roleplay",
       "newChunkIds": [],

@@ -356,6 +356,7 @@
     {
       "id": "t1",
       "title": "抵達工廠，認識廠長",
+      "titleEn": "Meeting the plant manager",
       "newChunkIds": ["jacks_told_me_about_factory", "thanks_for_showing_us_around"],
       "newWordIds": [
         "manufacture",
@@ -433,6 +434,7 @@
     {
       "id": "t2",
       "title": "穿上安全裝備",
+      "titleEn": "Putting on safety gear",
       "newChunkIds": ["keep_hard_hat_on", "anything_i_shouldnt_touch"],
       "newWordIds": [
         "remove",
@@ -532,6 +534,7 @@
     {
       "id": "t3",
       "title": "組裝線",
+      "titleEn": "The assembly line",
       "backdrop": "main",
       "newChunkIds": ["lamps_being_assembled_today", "components_tested_for_safety"],
       "newWordIds": [
@@ -611,6 +614,7 @@
     {
       "id": "t4",
       "title": "讀工廠參觀手冊",
+      "titleEn": "The factory tour guide",
       "newChunkIds": ["didnt_realize_testing_lab"],
       "newWordIds": [
         "environment",
@@ -731,6 +735,7 @@
     {
       "id": "t5",
       "title": "品管實驗室",
+      "titleEn": "The quality lab",
       "backdrop": "main",
       "newChunkIds": ["what_happens_if_lamp_fails", "how_often_pull_samples"],
       "newWordIds": [
@@ -903,6 +908,7 @@
     {
       "id": "t6",
       "title": "發現瑕疵品",
+      "titleEn": "Finding a defect",
       "backdrop": "main",
       "newChunkIds": ["show_me_how_inspectors_found", "what_matters_most_none_reach"],
       "newWordIds": [
@@ -1101,6 +1107,7 @@
     {
       "id": "t7",
       "title": "原料倉庫導覽",
+      "titleEn": "Raw materials warehouse",
       "newChunkIds": ["natural_wood_base_notice_first"],
       "newWordIds": [
         "cloth",
@@ -1276,6 +1283,7 @@
     {
       "id": "t8",
       "title": "產量與出貨",
+      "titleEn": "Output and shipping",
       "newChunkIds": ["daily_output_fully_running", "depends_how_soon_hughes_needs"],
       "newWordIds": [
         "fuel",
@@ -1353,6 +1361,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

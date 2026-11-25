@@ -1,3 +1,4 @@
+import { showZhNow, t } from '../../core/i18n';
 import type { ComponentChildren } from 'preact';
 import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { settingsStore } from '../../core/settings';
@@ -58,22 +59,43 @@ export const PASSAGE_KIND_ZH: Record<PassageKind, string> = {
   email: '郵件',
 };
 
-/** The tabs of a passage set: "文件 n", the kind's Chinese name, and whether this question needs it. */
+/** The English name of each kind of text, for the English interface. */
+const PASSAGE_KIND_EN: Record<PassageKind, string> = {
+  message: 'Message',
+  flyer: 'Flyer',
+  notice: 'Notice',
+  ad: 'Ad',
+  form: 'Form',
+  email: 'Email',
+};
+
+/** "文件 n" / "Text n". */
+function docName(i: number): string {
+  return t(`文件 ${i + 1}`, `Text ${i + 1}`);
+}
+
+/**
+ * The tabs of a passage set: "文件 n", the kind's name (`kindZh`: Chinese, or English in the
+ * English interface), and whether this question needs it.
+ */
 export function docTabs(
   question: Pick<PassageQuestion, 'texts' | 'needs'>,
 ): { name: string; kindZh: string; needed: boolean }[] {
-  return (question.texts ?? []).map((text, t) => ({
-    name: `文件 ${t + 1}`,
-    kindZh: PASSAGE_KIND_ZH[text.passageKind],
-    needed: question.needs?.includes(t) ?? false,
+  return (question.texts ?? []).map((text, i) => ({
+    name: docName(i),
+    kindZh: t(PASSAGE_KIND_ZH[text.passageKind], PASSAGE_KIND_EN[text.passageKind]),
+    needed: question.needs?.includes(i) ?? false,
   }));
 }
 
 /** Texts named for the feedback, in reading order: "文件 1", "文件 1 和文件 3", "文件 1、文件 2 和文件 3". */
 export function docNames(indexes: readonly number[]): string {
-  const names = [...new Set(indexes)].sort((a, b) => a - b).map((t) => `文件 ${t + 1}`);
+  const names = [...new Set(indexes)].sort((a, b) => a - b).map(docName);
   if (names.length <= 1) return names.join('');
-  return `${names.slice(0, -1).join('、')} 和${names[names.length - 1]}`;
+  return t(
+    `${names.slice(0, -1).join('、')} 和${names[names.length - 1]}`,
+    `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}`,
+  );
 }
 
 /**
@@ -180,9 +202,9 @@ export function ReadPassage({ question, onAnswered }: MinigameProps<PassageQuest
   const tabs = docTabs(question);
   const needs = texts ? (question.needs ?? []) : [];
 
-  const selectTab = (t: number) => {
-    remembered.tab = t;
-    setTab(t);
+  const selectTab = (i: number) => {
+    remembered.tab = i;
+    setTab(i);
   };
 
   const choose = (id: string) => {
@@ -278,53 +300,61 @@ export function ReadPassage({ question, onAnswered }: MinigameProps<PassageQuest
   };
 
   const where = texts ? `文件 ${(question.answerText ?? 0) + 1} ` : '短文';
+  const whereEn = texts ? `Text ${(question.answerText ?? 0) + 1}` : 'the passage';
   const hint = hasLine
-    ? `看${where}裡標出來的那一行。`
+    ? t(`看${where}裡標出來的那一行。`, `Look at the marked line in ${whereEn}.`)
     : !texts
-      ? '再讀一次短文裡寫的。'
+      ? t('再讀一次短文裡寫的。', 'Read the passage again.')
       : needs.length > 0
-        ? `再讀一次${docNames(needs)}。`
-        : '再讀一次這幾篇文件。';
+        ? t(`再讀一次${docNames(needs)}。`, `Read ${docNames(needs)} again.`)
+        : t('再讀一次這幾篇文件。', 'Read the texts again.');
 
   return (
     <div class="mg rp">
       <div class="rp-head">
-        <p class="mg-prompt">{texts ? '讀文件，回答問題' : '讀短文，回答問題'}</p>
+        <p class="mg-prompt">
+          {texts
+            ? t('讀文件，回答問題', 'Read the texts and answer')
+            : t('讀短文，回答問題', 'Read and answer')}
+        </p>
         {needs.length > 0 && (
           <span class="rp-need-note" aria-hidden="true">
-            這題要看
+            {t('這題要看', 'Needed')}
           </span>
         )}
         {question.total > 1 && (
           <span class="rp-count" data-testid="passage-count">
-            第 {question.index + 1}／{question.total} 題
+            {t(
+              `第 ${question.index + 1}／${question.total} 題`,
+              `Q${question.index + 1}/${question.total}`,
+            )}
           </span>
         )}
       </div>
       <div class={`rp-layout${texts ? ' rp-layout-set' : ''}`}>
         {texts && (
-          <div class="rp-tabs" role="tablist" aria-label="文件" onKeyDown={onTabKey}>
-            {tabs.map((doc, t) => (
+          <div class="rp-tabs" role="tablist" aria-label={t('文件', 'Texts')} onKeyDown={onTabKey}>
+            {tabs.map((doc, i) => (
               <button
                 type="button"
-                key={t}
+                key={i}
                 role="tab"
-                id={`rp-tab-${t}`}
-                aria-selected={t === tab}
+                id={`rp-tab-${i}`}
+                aria-selected={i === tab}
                 aria-controls="rp-doc"
-                tabIndex={t === tab ? 0 : -1}
-                class={`pixel-button rp-tab${t === tab ? ' primary' : ''}${doc.needed ? ' rp-need' : ''}`}
-                data-testid={`passage-tab-${t}`}
+                tabIndex={i === tab ? 0 : -1}
+                class={`pixel-button rp-tab${i === tab ? ' primary' : ''}${doc.needed ? ' rp-need' : ''}`}
+                data-testid={`passage-tab-${i}`}
                 data-needed={doc.needed ? 'true' : undefined}
-                onClick={() => selectTab(t)}
+                onClick={() => selectTab(i)}
               >
                 {/* "文件 1"; landscape hides the word so the tab reads "1 表格" on one line. */}
                 <span>
-                  <span class="rp-tab-word">文件 </span>
-                  {t + 1}
+                  <span class="rp-tab-word">{t('文件 ', 'Text ')}</span>
+                  {i + 1}
                 </span>
                 <span>{doc.kindZh}</span>
-                {doc.needed && <span class="sr-only">，這題要看</span>}
+                {doc.needed && <span class="sr-only">{t('，這題要看', ', needed')}</span>}
               </button>
             ))}
           </div>
@@ -337,7 +367,7 @@ export function ReadPassage({ question, onAnswered }: MinigameProps<PassageQuest
             data-testid="passage"
             data-text={texts ? tab : undefined}
             role={texts ? 'tabpanel' : 'region'}
-            aria-label={texts ? undefined : '短文'}
+            aria-label={texts ? undefined : t('短文', 'Passage')}
             aria-labelledby={texts ? `rp-tab-${tab}` : undefined}
             tabIndex={0}
             onScroll={onScroll}
@@ -348,7 +378,7 @@ export function ReadPassage({ question, onAnswered }: MinigameProps<PassageQuest
           </div>
           {more && (
             <span class="rp-more" aria-hidden="true">
-              ▼ 還有
+              ▼ {t('還有', 'More')}
             </span>
           )}
         </div>
@@ -357,7 +387,7 @@ export function ReadPassage({ question, onAnswered }: MinigameProps<PassageQuest
             <p class="mg-sentence" data-testid="passage-question" lang="en">
               {question.en}
             </p>
-            {showZh && <p class="mg-zh">{question.zh}</p>}
+            {showZhNow(showZh) && <p class="mg-zh">{question.zh}</p>}
           </div>
           <ChoiceKeys
             options={question.options}
@@ -371,8 +401,15 @@ export function ReadPassage({ question, onAnswered }: MinigameProps<PassageQuest
                 correct={isRight}
                 hint={hint}
                 answer={answer}
-                answerLabel="正確答案"
-                note={isRight && hasLine ? `答案就在${where}裡標出來的那一行。` : undefined}
+                answerLabel={t('正確答案', 'Answer')}
+                note={
+                  isRight && hasLine
+                    ? t(
+                        `答案就在${where}裡標出來的那一行。`,
+                        `The answer is in the marked line in ${whereEn}.`,
+                      )
+                    : undefined
+                }
               />
             )}
           </FeedbackSlot>

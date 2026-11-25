@@ -444,6 +444,7 @@
     {
       "id": "t1",
       "title": "寫第一封工作信",
+      "titleEn": "First work email",
       "newChunkIds": ["put_in_subject_line", "writing_to_ask_about_order"],
       "newWordIds": ["subject", "create", "simple", "purpose", "dear", "sincerely", "regards"],
       "scene": [
@@ -503,6 +504,7 @@
     {
       "id": "t2",
       "title": "附件和連結",
+      "titleEn": "Attachments and links",
       "newChunkIds": ["cant_open_attachment", "send_me_link_instead"],
       "newWordIds": [
         "attachment",
@@ -600,6 +602,7 @@
     {
       "id": "t3",
       "title": "寄錯檔案",
+      "titleEn": "Sent the wrong file",
       "newChunkIds": ["think_i_attached_wrong_file", "wrong_file_was_attached"],
       "newWordIds": [
         "error",
@@ -670,6 +673,7 @@
     {
       "id": "t4",
       "title": "讀主管交辦的信",
+      "titleEn": "Reading the manager's email",
       "newChunkIds": ["finish_before_deadline"],
       "newWordIds": [
         "request",
@@ -755,6 +759,7 @@
     {
       "id": "t5",
       "title": "等回信、轉寄",
+      "titleEn": "Waiting and forwarding",
       "newChunkIds": ["still_waiting_for_response", "should_i_forward_it"],
       "newWordIds": [
         "reply",
@@ -865,6 +870,7 @@
     {
       "id": "t6",
       "title": "把信寫得客氣",
+      "titleEn": "Writing politely",
       "newChunkIds": ["take_a_quick_look", "read_more_carefully_next_time"],
       "newWordIds": [
         "quick",
@@ -945,6 +951,7 @@
     {
       "id": "t7",
       "title": "主管的語音留言",
+      "titleEn": "The manager's voicemail",
       "newChunkIds": ["take_care_of_it_right_away"],
       "newWordIds": [
         "raise",
@@ -1078,6 +1085,7 @@
     {
       "id": "t8",
       "title": "請假前的最後一封信",
+      "titleEn": "Last email before leave",
       "newChunkIds": ["out_of_office_on_friday", "any_further_questions"],
       "newWordIds": [
         "absence",
@@ -1152,6 +1160,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

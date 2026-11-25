@@ -500,6 +500,7 @@
     {
       "id": "t1",
       "title": "Leo 的第一天",
+      "titleEn": "Leo's first day",
       "newChunkIds": ["ill_be_your_mentor", "dont_worry_if_you_cant_remember"],
       "newWordIds": [
         "boss",
@@ -585,6 +586,7 @@
     {
       "id": "t2",
       "title": "訂購系統",
+      "titleEn": "The ordering system",
       "newChunkIds": ["just_click_here_to_see", "whatever_you_do_dont_delete"],
       "newWordIds": [
         "basically",
@@ -675,6 +677,7 @@
     {
       "id": "t3",
       "title": "請人幫忙",
+      "titleEn": "Asking for help",
       "newChunkIds": ["ill_have_luis_show_you", "lets_get_the_copier_fixed"],
       "newWordIds": [
         "rely",
@@ -753,6 +756,7 @@
     {
       "id": "t4",
       "title": "讀訂購守則",
+      "titleEn": "Reading the order rules",
       "newChunkIds": ["take_your_time_with_these_guidelines"],
       "newWordIds": [
         "behavior",
@@ -858,6 +862,7 @@
     {
       "id": "t5",
       "title": "示範下訂單",
+      "titleEn": "Showing how to order",
       "newChunkIds": ["let_me_show_you_step_by_step", "watch_me_do_one_first"],
       "newWordIds": [
         "technique",
@@ -1013,6 +1018,7 @@
     {
       "id": "t6",
       "title": "第一次出錯",
+      "titleEn": "The first mistake",
       "newChunkIds": ["its_okay_well_figure_out", "lets_go_over_the_order"],
       "newWordIds": [
         "himself",
@@ -1215,6 +1221,7 @@
     {
       "id": "t7",
       "title": "研討會的語音留言",
+      "titleEn": "Voicemail from a seminar",
       "newChunkIds": ["this_seminar_would_be_useful"],
       "newWordIds": [
         "themselves",
@@ -1361,6 +1368,7 @@
     {
       "id": "t8",
       "title": "看看 Leo 的進度",
+      "titleEn": "Checking Leo's progress",
       "newChunkIds": ["picking_things_up_faster", "ready_to_handle_clients_on_his_own"],
       "newWordIds": [
         "closely",
@@ -1457,6 +1465,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

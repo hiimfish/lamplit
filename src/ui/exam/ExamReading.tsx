@@ -1,6 +1,7 @@
 import type { ComponentChildren } from 'preact';
 import { useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { PICTURE_H, PICTURE_W } from '../../art/pictures';
+import { t } from '../../core/i18n';
 import { textFillParts } from '../../learning/gen/textFills';
 import type {
   ChooseReplyQuestion,
@@ -72,7 +73,7 @@ function ExamOptions({
 function Sign({ question, choice, onChoose }: Props<SignQuestion>) {
   return (
     <div class="mg er">
-      <p class="mg-prompt">看招牌，回答問題</p>
+      <p class="mg-prompt">{t('看招牌，回答問題', 'Read the sign and answer the question.')}</p>
       <div class="mg-sign" data-testid="sign" lang="en">
         {question.heading && <div class="mg-sign-heading">{question.heading}</div>}
         {question.rows.map((row, i) => (
@@ -115,7 +116,12 @@ function FillView({ question, choice, onChoose }: Props<FillQuestion>) {
   return (
     <div class="mg fill er">
       <p class="mg-prompt">
-        {question.grammar ? '文法填空：選出放進空格最正確的答案' : '選出最適合放進空格的字'}
+        {question.grammar
+          ? t(
+              '文法填空：選出放進空格最正確的答案',
+              'Choose the best answer to complete the sentence.',
+            )
+          : t('選出最適合放進空格的字', 'Choose the word that best completes the sentence.')}
       </p>
       <div class="mg-say">
         <p class="fill-sentence" data-testid="fill-sentence" lang="en">
@@ -130,7 +136,7 @@ function FillView({ question, choice, onChoose }: Props<FillQuestion>) {
                 {option.label}
               </span>
             ))}
-            {choice === null && <span class="sr-only">（空格）</span>}
+            {choice === null && <span class="sr-only">{t('（空格）', '(blank)')}</span>}
           </span>
           {question.after}
         </p>
@@ -145,12 +151,14 @@ function PictureView({ question, choice, onChoose }: Props<PictureQuestion>) {
   const labelled = question.options.map((o, i) => ({
     id: o.id,
     // A listen picture's sentences are heard, not read (the listening view's job): never show them.
-    label: question.listen ? `第 ${i + 1} 句` : o.en,
+    label: question.listen ? t(`第 ${i + 1} 句`, `Statement ${i + 1}`) : o.en,
   }));
   useKeys(choiceKeyMap(labelled, onChoose));
   return (
     <div class="mg er">
-      <p class="mg-prompt">看圖，哪一句說得對？</p>
+      <p class="mg-prompt">
+        {t('看圖，哪一句說得對？', 'Look at the picture. Which statement is correct?')}
+      </p>
       {url && (
         <img
           class="mg-picture"
@@ -254,35 +262,41 @@ function PassageView({ question, choice, onChoose }: Props<PassageQuestion>) {
   return (
     <div class="mg rp er">
       <div class="rp-head">
-        <p class="mg-prompt">{texts ? '讀文件，回答問題' : '讀短文，回答問題'}</p>
+        <p class="mg-prompt">
+          {texts
+            ? t('讀文件，回答問題', 'Read the texts and answer the question.')
+            : t('讀短文，回答問題', 'Read the text and answer the question.')}
+        </p>
         {needs.length > 0 && (
           <span class="rp-need-note" aria-hidden="true">
-            這題要看
+            {t('這題要看', 'Needed')}
           </span>
         )}
       </div>
       <div class={`rp-layout${texts ? ' rp-layout-set' : ''}`}>
         {texts && (
-          <div class="rp-tabs" role="tablist" aria-label="文件" onKeyDown={onTabKey}>
-            {tabs.map((doc, t) => (
+          <div class="rp-tabs" role="tablist" aria-label={t('文件', 'Texts')} onKeyDown={onTabKey}>
+            {tabs.map((doc, i) => (
               <button
                 type="button"
-                key={t}
+                key={i}
                 role="tab"
-                id={`rp-tab-${t}`}
-                aria-selected={t === tab}
+                id={`rp-tab-${i}`}
+                aria-selected={i === tab}
                 aria-controls="rp-doc"
-                tabIndex={t === tab ? 0 : -1}
-                class={`pixel-button rp-tab${t === tab ? ' primary' : ''}${doc.needed ? ' rp-need' : ''}`}
-                data-testid={`passage-tab-${t}`}
-                onClick={() => selectTab(t)}
+                tabIndex={i === tab ? 0 : -1}
+                class={`pixel-button rp-tab${i === tab ? ' primary' : ''}${doc.needed ? ' rp-need' : ''}`}
+                data-testid={`passage-tab-${i}`}
+                onClick={() => selectTab(i)}
               >
                 <span>
-                  <span class="rp-tab-word">文件 </span>
-                  {t + 1}
+                  <span class="rp-tab-word">{t('文件 ', 'Text ')}</span>
+                  {i + 1}
                 </span>
                 <span>{doc.kindZh}</span>
-                {doc.needed && <span class="sr-only">，這題要看</span>}
+                {doc.needed && (
+                  <span class="sr-only">{t('，這題要看', ', needed for this question')}</span>
+                )}
               </button>
             ))}
           </div>
@@ -294,7 +308,7 @@ function PassageView({ question, choice, onChoose }: Props<PassageQuestion>) {
             class={`rp-paper er-box rp-${shown.passageKind}${texts ? ' rp-set' : ''}`}
             data-testid="passage"
             role={texts ? 'tabpanel' : 'region'}
-            aria-label={texts ? undefined : '短文'}
+            aria-label={texts ? undefined : t('短文', 'Text')}
             aria-labelledby={texts ? `rp-tab-${tab}` : undefined}
             tabIndex={0}
             onScroll={onScroll}
@@ -305,7 +319,7 @@ function PassageView({ question, choice, onChoose }: Props<PassageQuestion>) {
           </div>
           {more && (
             <span class="rp-more" aria-hidden="true">
-              ▼ 還有
+              {t('▼ 還有', '▼ More')}
             </span>
           )}
         </div>
@@ -342,12 +356,16 @@ function Gap({ blank, current }: { blank: number; current: number }) {
       {now ? (
         <span class="er-blank">＿＿＿</span>
       ) : earlier ? (
-        <span class="er-blank">（第 {n} 題）</span>
+        <span class="er-blank">{t(`（第 ${n} 題）`, `(Q${n})`)}</span>
       ) : (
         <span class="tf-space" aria-hidden="true" />
       )}
       <span class="sr-only">
-        {now ? `（第 ${n} 格，現在要填）` : earlier ? `（第 ${n} 題）` : `（第 ${n} 格，空格）`}
+        {now
+          ? t(`（第 ${n} 格，現在要填）`, `(blank ${n}, answer now)`)
+          : earlier
+            ? t(`（第 ${n} 題）`, `(question ${n})`)
+            : t(`（第 ${n} 格，空格）`, `(blank ${n}, empty)`)}
       </span>
     </span>
   );
@@ -436,7 +454,9 @@ function TextFillView({ question, choice, onChoose }: Props<TextFillQuestion>) {
   return (
     <div class="mg text-fill tf er">
       <div class="tf-head">
-        <p class="mg-prompt">段落填空：選出空格 {n} 的答案</p>
+        <p class="mg-prompt">
+          {t(`段落填空：選出空格 ${n} 的答案`, `Choose the best answer for blank ${n}.`)}
+        </p>
         <span class="tf-count" data-testid="text-fill-count">
           {n}／{question.total}
         </span>
@@ -448,7 +468,7 @@ function TextFillView({ question, choice, onChoose }: Props<TextFillQuestion>) {
             class={`tf-paper er-box tf-${kind}`}
             data-testid="text-fill-text"
             role="region"
-            aria-label="短文"
+            aria-label={t('短文', 'Text')}
             tabIndex={0}
             onScroll={measure}
           >
@@ -458,7 +478,7 @@ function TextFillView({ question, choice, onChoose }: Props<TextFillQuestion>) {
           </div>
           {more && (
             <span class="tf-more" aria-hidden="true">
-              ▼ 還有
+              {t('▼ 還有', '▼ More')}
             </span>
           )}
         </div>

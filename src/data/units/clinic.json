@@ -211,6 +211,7 @@
     {
       "id": "t1",
       "title": "掛號",
+      "titleEn": "Registering at the desk",
       "newChunkIds": ["need_appointment", "insurance_card"],
       "newWordIds": ["form", "doctor", "nurse", "insurance"],
       "scene": [
@@ -258,6 +259,7 @@
     {
       "id": "t2",
       "title": "哪裡不舒服",
+      "titleEn": "What's wrong?",
       "newChunkIds": ["dont_feel_well", "head_hurts"],
       "newWordIds": ["back", "head", "eye", "hurt", "ear"],
       "scene": [
@@ -306,6 +308,7 @@
     {
       "id": "t3",
       "title": "打流感疫苗",
+      "titleEn": "Getting a flu shot",
       "newChunkIds": ["flu_shot", "does_it_hurt"],
       "newWordIds": ["hand", "arm", "leg", "shot", "flu"],
       "scene": [
@@ -347,6 +350,7 @@
     {
       "id": "t4",
       "title": "看醫生",
+      "titleEn": "Seeing the doctor",
       "newChunkIds": ["fever_and_cough", "is_it_serious"],
       "newWordIds": ["cold", "throat", "nose", "cough", "fever"],
       "signs": [
@@ -425,6 +429,7 @@
     {
       "id": "t5",
       "title": "醫生的交代",
+      "titleEn": "The doctor's advice",
       "newChunkIds": ["how_many_pills", "go_to_work"],
       "newWordIds": ["sleep", "rest", "body", "medicine", "pill"],
       "pictures": [
@@ -511,6 +516,7 @@
     {
       "id": "t6",
       "title": "到藥局",
+      "titleEn": "At the pharmacy",
       "newChunkIds": ["something_for_cough", "make_sleepy"],
       "newWordIds": ["sick", "tissue", "cream", "pharmacy", "mask"],
       "cloze": [
@@ -564,6 +570,7 @@
     {
       "id": "t7",
       "title": "藥怎麼吃",
+      "titleEn": "How to take the medicine",
       "newChunkIds": ["with_food", "thanks_for_help"],
       "newWordIds": ["food", "glass", "meal", "dinner", "breakfast"],
       "spellWordIds": ["shirt", "dress", "coat", "hat", "shoe"],
@@ -613,6 +620,7 @@
     {
       "id": "t8",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

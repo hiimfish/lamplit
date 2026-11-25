@@ -220,6 +220,7 @@
     {
       "id": "t1",
       "title": "有哪些課",
+      "titleEn": "What classes are there?",
       "newChunkIds": ["what_kind_of_classes", "hoping_to_find_office_job"],
       "newWordIds": ["community", "course", "learn", "student", "computer"],
       "scene": [
@@ -267,6 +268,7 @@
     {
       "id": "t2",
       "title": "填報名表",
+      "titleEn": "Filling in the sign-up form",
       "newChunkIds": ["have_to_be_a_member", "just_write_my_email"],
       "newWordIds": ["member", "join", "adult", "basic", "register"],
       "fills": [
@@ -332,6 +334,7 @@
     {
       "id": "t3",
       "title": "什麼時候開課",
+      "titleEn": "When does it start?",
       "newChunkIds": ["going_to_start_in_september", "when_do_classes_begin"],
       "newWordIds": ["plan", "july", "august", "september", "summer"],
       "scene": [
@@ -385,6 +388,7 @@
     {
       "id": "t4",
       "title": "看課程表",
+      "titleEn": "Reading the class schedule",
       "newChunkIds": ["so_it_ends_in_december", "classes_during_the_day"],
       "newWordIds": ["october", "november", "december", "workshop", "available"],
       "passages": [
@@ -459,6 +463,7 @@
     {
       "id": "t5",
       "title": "第一堂課",
+      "titleEn": "The first class",
       "newChunkIds": ["sorry_cant_hear_you", "can_you_show_me_again"],
       "newWordIds": ["teacher", "listen", "screen", "keyboard", "mouse", "instruction"],
       "pictures": [
@@ -536,6 +541,7 @@
     {
       "id": "t6",
       "title": "認識同學",
+      "titleEn": "Meeting classmates",
       "newChunkIds": ["how_often_do_you_practice", "study_a_few_nights_a_week"],
       "newWordIds": ["always", "sometimes", "never", "both", "interest", "classmate"],
       "cloze": [
@@ -593,6 +599,7 @@
     {
       "id": "t7",
       "title": "在家練習",
+      "titleEn": "Practicing at home",
       "newChunkIds": ["hard_but_learning_a_lot", "maybe_practice_together"],
       "newWordIds": ["talk", "teach", "idea", "homework", "exercise", "test"],
       "newPairIds": ["can_cant"],
@@ -656,6 +663,7 @@
     {
       "id": "t8",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

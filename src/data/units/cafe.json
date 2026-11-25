@@ -144,6 +144,7 @@
     {
       "id": "t1",
       "title": "點一杯拿鐵",
+      "titleEn": "Ordering a latte",
       "newChunkIds": ["can_i_get"],
       "newWordIds": ["latte", "tea", "muffin"],
       "scene": [
@@ -175,6 +176,7 @@
     {
       "id": "t2",
       "title": "內用還是外帶",
+      "titleEn": "For here or to go?",
       "newChunkIds": ["for_here", "to_go"],
       "newWordIds": ["water", "cake"],
       "scene": [
@@ -205,6 +207,7 @@
     {
       "id": "t3",
       "title": "付錢，還有聽不懂時",
+      "titleEn": "Paying, and asking again",
       "newChunkIds": ["how_much", "say_again", "here_you_go"],
       "newWordIds": ["sandwich"],
       "scene": [
@@ -246,6 +249,7 @@
     {
       "id": "t4",
       "title": "冰的，不加糖",
+      "titleEn": "Iced, no sugar",
       "newChunkIds": ["iced_coffee", "no_sugar"],
       "newWordIds": ["coffee", "ice", "sugar"],
       "scene": [
@@ -287,6 +291,7 @@
     {
       "id": "t5",
       "title": "大杯小杯",
+      "titleEn": "Large or small?",
       "newChunkIds": ["what_sizes", "small_one"],
       "newWordIds": ["small", "large", "medium", "cookie"],
       "scene": [
@@ -328,6 +333,7 @@
     {
       "id": "t6",
       "title": "外面有位子嗎",
+      "titleEn": "Any seats outside?",
       "newChunkIds": ["wifi_here", "table_outside"],
       "newWordIds": ["table", "window", "outside", "inside"],
       "scene": [
@@ -376,6 +382,7 @@
     {
       "id": "t7",
       "title": "這裡有人坐嗎",
+      "titleEn": "Is this seat taken?",
       "newChunkIds": ["seat_taken", "go_ahead"],
       "newWordIds": ["sit", "seat", "read", "book"],
       "scene": [
@@ -425,6 +432,7 @@
     {
       "id": "t8",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

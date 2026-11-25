@@ -1,8 +1,10 @@
 import type { ComponentChildren } from 'preact';
 import { playSfx } from '../audio/sfx';
+import { taskTitle, unitTitle } from '../content/titles';
 import { appStore, currentNow } from '../core/appState';
 import { dailyFor } from '../core/save';
 import { devUnlockAll, settingsStore } from '../core/settings';
+import { t } from '../core/i18n';
 import { useStore } from '../core/store';
 import { goalStatus } from '../learning/dailyGoal';
 import { drillRemaining, grammarGoal } from '../learning/grammarDrill';
@@ -14,11 +16,23 @@ import { nextStop, playOrder } from '../learning/townPlan';
 import './goal.css';
 import { TOWN } from './TownScreen';
 
-/** Why 單字快練 cannot start, or '' when it can. */
+/** Why 單字快練 cannot start, or '' when it can (getters: read in the current 介面語言). */
 export const SPRINT_NOTE: Record<SprintStatus, string> = {
-  'review-first': '今天還沒複習：先做一輪今日複習，再學新字。',
-  'goal-met': '今天的新字學完了，明天再來。',
-  'caught-up': '目前和下一個地點的字都學過了，先玩劇情任務往前走。',
+  get 'review-first'() {
+    return t(
+      '今天還沒複習：先做一輪今日複習，再學新字。',
+      'No review yet today: do a daily review first, then learn new words.',
+    );
+  },
+  get 'goal-met'() {
+    return t('今天的新字學完了，明天再來。', "Today's new words are done. Come back tomorrow.");
+  },
+  get 'caught-up'() {
+    return t(
+      '目前和下一個地點的字都學過了，先玩劇情任務往前走。',
+      "You've learned the words up to the next place. Play the story to move on.",
+    );
+  },
   ready: '',
 };
 
@@ -50,7 +64,7 @@ function GoalRow({
         {name}
         {skip ? (
           <span class="goal-count" data-testid={`${testId}-skip`}>
-            今天不用
+            {t('今天不用', 'Not today')}
           </span>
         ) : (
           done !== undefined &&
@@ -108,15 +122,21 @@ export function GoalRows({ story }: { story?: StoryStep }) {
   };
   const grammarLeft = drillRemaining(save, save.route, now);
   const storyStep: StoryStep = story ?? {
-    label: '開始',
-    note: stop && stopTask ? `下一關：${stop.unit.title}・${stopTask.title}` : '劇情都玩過了。',
+    label: t('開始', 'Start'),
+    note:
+      stop && stopTask
+        ? t(
+            `下一關：${stop.unit.title}・${stopTask.title}`,
+            `Next: ${unitTitle(stop.unit)} · ${taskTitle(stopTask)}`,
+          )
+        : t('劇情都玩過了。', "You've played the whole story."),
     ...(stopTask ? { onStart: playStory } : {}),
   };
 
   return (
     <div class="goal-rows">
       <GoalRow
-        name="劇情任務"
+        name={t('劇情任務', 'Story')}
         met={status.tasks}
         skip={!status.applies.tasks}
         done={daily.tasksDone}
@@ -137,14 +157,17 @@ export function GoalRows({ story }: { story?: StoryStep }) {
         </span>
       </GoalRow>
       <GoalRow
-        name="單字快練"
+        name={t('單字快練', 'Word sprint')}
         met={status.sprint}
         skip={!status.applies.sprint}
         done={plan.today}
         total={plan.goal}
         note={
           plan.status === 'ready' && plan.words.length > 0
-            ? `這一輪 ${plan.words.length} 個新字。`
+            ? t(
+                `這一輪 ${plan.words.length} 個新字。`,
+                `${plan.words.length} new words this round.`,
+              )
             : SPRINT_NOTE[plan.status]
         }
         testId="goal-sprint"
@@ -155,21 +178,30 @@ export function GoalRows({ story }: { story?: StoryStep }) {
           onClick={() => go('sprint')}
           data-testid="start-sprint"
         >
-          開始
+          {t('開始', 'Start')}
         </button>
       </GoalRow>
       <GoalRow
-        name="今日複習"
+        name={t('今日複習', 'Daily review')}
         met={status.review}
         skip={!status.applies.review}
         note={
           due === 0
             ? daily.reviewed > 0
-              ? `今天已答 ${daily.reviewed} 題，都複習完了。`
-              : '今天沒有到期的字。'
+              ? t(
+                  `今天已答 ${daily.reviewed} 題，都複習完了。`,
+                  `${daily.reviewed} answered today. All reviewed.`,
+                )
+              : t('今天沒有到期的字。', 'No words due today.')
             : status.review
-              ? `今天已答 ${daily.reviewed} 題，目標達成；還有 ${due} 題可以多練。`
-              : `今天已答 ${daily.reviewed} 題，還有 ${due} 題到期（答滿 ${reviewLimit(save.route)} 題就算完成）。`
+              ? t(
+                  `今天已答 ${daily.reviewed} 題，目標達成；還有 ${due} 題可以多練。`,
+                  `${daily.reviewed} answered today, goal met. ${due} more to practice.`,
+                )
+              : t(
+                  `今天已答 ${daily.reviewed} 題，還有 ${due} 題到期（答滿 ${reviewLimit(save.route)} 題就算完成）。`,
+                  `${daily.reviewed} answered today, ${due} due (${reviewLimit(save.route)} answers meets the goal).`,
+                )
         }
         testId="goal-review"
       >
@@ -179,19 +211,25 @@ export function GoalRows({ story }: { story?: StoryStep }) {
           onClick={() => go('review')}
           data-testid="goal-start-review"
         >
-          開始
+          {t('開始', 'Start')}
         </button>
       </GoalRow>
       <GoalRow
-        name="聽力加量"
+        name={t('聽力加量', 'Extra listening')}
         met={status.listen}
         skip={!status.applies.listen}
         done={daily.listened}
         total={listenGoal(save.route)}
         note={
           listenNext
-            ? `重聽：${listenNext.unit.title}・${listenNext.task.title}`
-            : '先玩一關劇情，才有可以重聽的故事。'
+            ? t(
+                `重聽：${listenNext.unit.title}・${listenNext.task.title}`,
+                `Listen again: ${unitTitle(listenNext.unit)} · ${taskTitle(listenNext.task)}`,
+              )
+            : t(
+                '先玩一關劇情，才有可以重聽的故事。',
+                'Play a story task first to have one to replay.',
+              )
         }
         testId="goal-listen"
       >
@@ -201,17 +239,21 @@ export function GoalRows({ story }: { story?: StoryStep }) {
           onClick={() => go('listen')}
           data-testid="start-listen"
         >
-          開始
+          {t('開始', 'Start')}
         </button>
       </GoalRow>
       {status.hasGrammar && (
         <GoalRow
-          name="文法快練"
+          name={t('文法快練', 'Grammar drill')}
           met={status.grammar}
           skip={!status.applies.grammar}
           done={daily.grammar}
           total={grammarGoal(save.route)}
-          note={grammarLeft > 0 ? `還有 ${grammarLeft} 題。` : '今天的文法題答完了。'}
+          note={
+            grammarLeft > 0
+              ? t(`還有 ${grammarLeft} 題。`, `${grammarLeft} left.`)
+              : t('今天的文法題答完了。', "Today's grammar is done.")
+          }
           testId="goal-grammar"
         >
           <button
@@ -219,7 +261,7 @@ export function GoalRows({ story }: { story?: StoryStep }) {
             onClick={() => go('grammar')}
             data-testid="start-grammar"
           >
-            開始
+            {t('開始', 'Start')}
           </button>
         </GoalRow>
       )}

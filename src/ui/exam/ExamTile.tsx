@@ -1,10 +1,12 @@
 import { playSfx } from '../../audio/sfx';
 import { ACTS } from '../../content/acts';
 import { EXAM_PLAN, type ExamId } from '../../content/exam';
+import { actName } from '../../content/titles';
 import { UNITS } from '../../content/units';
 import { appStore } from '../../core/appState';
 import type { SaveData } from '../../core/save';
 import { devUnlockAll, settingsStore } from '../../core/settings';
+import { t } from '../../core/i18n';
 import { useStore } from '../../core/store';
 import { isExamUnlocked } from '../../learning/exam';
 import { actUnits, buildTown, progressOf } from '../../learning/townPlan';
@@ -29,6 +31,9 @@ export function tasksLeft(save: SaveData, act: number): number {
   return Math.max(0, total - done);
 }
 
+/** 「第一幕結業考」 / "Act 1 final exam", from the Act's Chinese numeral. */
+const examName = (no: string): string => t(`第${no}幕結業考`, `${actName(no)} final exam`);
+
 /**
  * The last tile of an Act's place grid: its 幕結業考. Opens the exam screen when the Act's
  * tasks were all played; until then it shows how many are left.
@@ -44,9 +49,14 @@ export function ExamTile({ act, no }: { act: number; no: string }) {
     return (
       <div class="place-tile soon exam-tile" data-testid={`exam-tile-${act}`}>
         <span class="exam-tile-name">
-          <span class="lock-mark" aria-hidden="true" />第{no}幕結業考
+          <span class="lock-mark" aria-hidden="true" />
+          {examName(no)}
         </span>
-        <span class="exam-tile-sub">{left > 0 ? `還有 ${left} 個任務` : '準備中'}</span>
+        <span class="exam-tile-sub">
+          {left > 0
+            ? t(`還有 ${left} 個任務`, `${left} ${left === 1 ? 'task' : 'tasks'} left`)
+            : t('準備中', 'Coming soon')}
+        </span>
       </div>
     );
   }
@@ -62,9 +72,12 @@ export function ExamTile({ act, no }: { act: number; no: string }) {
       onClick={open}
       data-testid={`exam-tile-${act}`}
     >
-      <span class="exam-tile-name">第{no}幕結業考</span>
+      <span class="exam-tile-name">{examName(no)}</span>
       <span class="exam-tile-sub">
-        多益題型練習・約 {examMinutes(exam)} 分鐘{attempts > 0 ? `・已考過 ${attempts} 次` : ''}
+        {t(
+          `多益題型練習・約 ${examMinutes(exam)} 分鐘${attempts > 0 ? `・已考過 ${attempts} 次` : ''}`,
+          `TOEIC-style practice・about ${examMinutes(exam)} min${attempts > 0 ? `・taken ${attempts}×` : ''}`,
+        )}
       </span>
     </button>
   );

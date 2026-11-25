@@ -1,5 +1,6 @@
+import { showZhNow, t } from '../../core/i18n';
 import { useEffect, useState } from 'preact/hooks';
-import { PRON_NOTE, pronSupported } from '../../audio/pronModel';
+import { pronNote, pronSupported } from '../../audio/pronModel';
 import { settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
 import { useKeys } from '../keys';
@@ -72,13 +73,13 @@ export function Speak({ question, onAnswered }: MinigameProps<SpeakQuestion>) {
 
   return (
     <div class="mg">
-      <p class="mg-prompt">大聲說說看</p>
+      <p class="mg-prompt">{t('大聲說說看', 'Say it aloud')}</p>
       <div class="mg-npc-row">
         <div class="mg-say">
           <p class="mg-sentence" data-testid="speak-en" lang="en">
             {question.en}
           </p>
-          {showZh && <p class="mg-zh">{question.zh}</p>}
+          {showZhNow(showZh) && <p class="mg-zh">{question.zh}</p>}
         </div>
         <SpeakReplay onReplay={replay} onSlow={slow} disabled={busy} />
       </div>
@@ -88,17 +89,26 @@ export function Speak({ question, onAnswered }: MinigameProps<SpeakQuestion>) {
             <SayControls pron={pron} onSay={say} />
           ) : (
             <p class="mg-note" data-testid="pron-unsupported">
-              這個瀏覽器不能評分，可以自己念一次再按「下一題」。
+              {t(
+                '這個瀏覽器不能評分，可以自己念一次再按「下一題」。',
+                "This browser can't score. Say it once yourself, then press Next.",
+              )}
             </p>
           )}
           <div class="mg-row">
             {(scored || !canScore) && (
-              <Btn primary id="done" label="下一題" hint="Enter" onClick={() => finish(false)} />
+              <Btn
+                primary
+                id="done"
+                label={t('下一題', 'Next')}
+                hint="Enter"
+                onClick={() => finish(false)}
+              />
             )}
             {!scored && canScore && (
               <Btn
                 id="skip"
-                label="現在不方便說話"
+                label={t('現在不方便說話', "Can't talk now")}
                 disabled={pron.status === 'recording' || pron.status === 'scoring'}
                 onClick={() => finish(true)}
               />
@@ -110,18 +120,19 @@ export function Speak({ question, onAnswered }: MinigameProps<SpeakQuestion>) {
   );
 }
 
-const SAY_LABEL: Record<UsePronScore['status'], string> = {
-  idle: '● 說說看',
-  confirm: '● 說說看',
-  downloading: '下載中…',
-  recording: '● 聽你說…',
-  scoring: '評分中…',
+const SAY_LABEL: Record<UsePronScore['status'], [zh: string, en: string]> = {
+  idle: ['● 說說看', '● Say it'],
+  confirm: ['● 說說看', '● Say it'],
+  downloading: ['下載中…', 'Downloading…'],
+  recording: ['● 聽你說…', '● Listening…'],
+  scoring: ['評分中…', 'Scoring…'],
 };
 
 /** 說說看 / 再說一次, the first-time download note, progress and the score. */
 function SayControls({ pron, onSay }: { pron: UsePronScore; onSay: () => void }) {
   const scored = pron.score !== null;
-  const label = pron.status === 'idle' && scored ? '再說一次' : SAY_LABEL[pron.status];
+  const label =
+    pron.status === 'idle' && scored ? t('再說一次', 'Say it again') : t(...SAY_LABEL[pron.status]);
   return (
     <>
       <div class="mg-row">
@@ -136,18 +147,25 @@ function SayControls({ pron, onSay }: { pron: UsePronScore; onSay: () => void })
       </div>
       {pron.status === 'idle' && !scored && !pron.message && (
         <p class="mg-note" data-testid="say-hint">
-          按「說說看」後直接說，說完停一下就會評分。
+          {t(
+            '按「說說看」後直接說，說完停一下就會評分。',
+            'Press Say it and speak. Pause when you finish and it scores.',
+          )}
         </p>
       )}
       {pron.status === 'recording' && (
         <p class="mg-note" data-testid="say-recording">
-          聽你說…說完停一下就會評分（再按一次可以提早結束）
+          {t(
+            '聽你說…說完停一下就會評分（再按一次可以提早結束）',
+            'Listening… Pause when you finish and it scores (press again to stop early)',
+          )}
         </p>
       )}
       {pron.status === 'confirm' && <PronNotice onConfirm={pron.confirm} onCancel={pron.cancel} />}
       {pron.status === 'downloading' && (
         <p class="mg-note" data-testid="pron-progress">
-          下載發音模型 {Math.round(pron.progress * 100)}%
+          {t('下載發音模型', 'Downloading the pronunciation model')}{' '}
+          {Math.round(pron.progress * 100)}%
         </p>
       )}
       <SpeakNotes message={pron.message} score={pron.score} />
@@ -186,14 +204,14 @@ function SpeakReplay(props: { onReplay: () => void; onSlow: () => void; disabled
     <div class="mg-row">
       <Btn
         id="replay"
-        label="♪ 播放示範"
+        label={`♪ ${t('播放示範', 'Play model')}`}
         hint="Space"
         disabled={props.disabled}
         onClick={props.onReplay}
       />
       <Btn
         id="slow"
-        label="慢速"
+        label={t('慢速', 'Slow')}
         hint="Shift+Space"
         disabled={props.disabled}
         onClick={props.onSlow}
@@ -209,11 +227,17 @@ function PronNotice(props: { onConfirm: () => void; onCancel: () => void }) {
   return (
     <>
       <p class="mg-note" data-testid="pron-note">
-        {PRON_NOTE}
+        {pronNote()}
       </p>
       <div class="mg-row">
-        <Btn primary id="pron-confirm" label="下載並評分" hint="Enter" onClick={props.onConfirm} />
-        <Btn id="pron-cancel" label="取消" hint="Escape" onClick={props.onCancel} />
+        <Btn
+          primary
+          id="pron-confirm"
+          label={t('下載並評分', 'Download & score')}
+          hint="Enter"
+          onClick={props.onConfirm}
+        />
+        <Btn id="pron-cancel" label={t('取消', 'Cancel')} hint="Escape" onClick={props.onCancel} />
       </div>
     </>
   );
@@ -234,7 +258,9 @@ function SpeakNotes(props: { message: string | null; score: SpokenScore | null }
         <p class="mg-note" data-testid="heard">
           <span data-testid="speak-score">{spokenScoreText(score)}</span>
           <br />
-          {unclear.length === 0 ? '每個字都很清楚，很棒！' : `再練習：${unclear.join(' ')}`}
+          {unclear.length === 0
+            ? t('每個字都很清楚，很棒！', 'Every word was clear. Great!')
+            : t(`再練習：${unclear.join(' ')}`, `Practice: ${unclear.join(' ')}`)}
         </p>
       )}
     </>

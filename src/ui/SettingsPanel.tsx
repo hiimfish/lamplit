@@ -4,7 +4,7 @@ import { playSfx } from '../audio/sfx';
 import type { VoiceMode } from '../audio/voices';
 import { appStore } from '../core/appState';
 import { settingsStore, type Settings, type TextSize, DEV_TOOLS } from '../core/settings';
-import { t } from '../core/i18n';
+import { isEnglish, t } from '../core/i18n';
 import { useStore } from '../core/store';
 import { KeyCap } from './KeyCap';
 import { RouteGroup } from './settings/RouteGroup';
@@ -23,10 +23,10 @@ const VOICES: { mode: VoiceMode; label: string }[] = [
 
 type VolumeKey = 'musicVolume' | 'voiceVolume' | 'sfxVolume';
 
-const SLIDERS: { key: VolumeKey; label: string }[] = [
-  { key: 'musicVolume', label: '音樂' },
-  { key: 'voiceVolume', label: '發音' },
-  { key: 'sfxVolume', label: '音效' },
+const SLIDERS: { key: VolumeKey; label: [zh: string, en: string] }[] = [
+  { key: 'musicVolume', label: ['音樂', 'Music'] },
+  { key: 'voiceVolume', label: ['發音', 'Voice'] },
+  { key: 'sfxVolume', label: ['音效', 'Effects'] },
 ];
 
 /** ←/→ (or ↑/↓) as a step through a list, or undefined for any other key. */
@@ -94,7 +94,7 @@ function VoiceChoice({ voiceMode }: { voiceMode: VoiceMode }) {
     <>
       <div class="settings-row">
         <span class="settings-label" id="voice-label">
-          聲線
+          {t('聲線', 'Voice type')}
         </span>
         <div
           class="settings-control"
@@ -117,7 +117,12 @@ function VoiceChoice({ voiceMode }: { voiceMode: VoiceMode }) {
           ))}
         </div>
       </div>
-      <p class="settings-note">預設是 B。慢速重播一律使用聲線 A。</p>
+      <p class="settings-note">
+        {t(
+          '預設是 B。慢速重播一律使用聲線 A。',
+          'B is the default. Slow replays always use voice A.',
+        )}
+      </p>
     </>
   );
 }
@@ -128,16 +133,16 @@ function SoundSection({ settings }: { settings: Settings }) {
     <>
       <VoiceChoice voiceMode={settings.voiceMode} />
       {SLIDERS.map(({ key, label }) => (
-        <VolumeSlider key={key} volumeKey={key} label={label} value={settings[key]} />
+        <VolumeSlider key={key} volumeKey={key} label={t(...label)} value={settings[key]} />
       ))}
       <div class="settings-row">
-        <span class="settings-label">試聽</span>
+        <span class="settings-label">{t('試聽', 'Test')}</span>
         <div class="settings-control">
           <button type="button" class="pixel-button" onClick={() => test('normal')}>
-            一般
+            {t('一般', 'Normal')}
           </button>
           <button type="button" class="pixel-button" onClick={() => test('slow')}>
-            慢速
+            {t('慢速', 'Slow')}
           </button>
         </div>
       </div>
@@ -273,7 +278,7 @@ function SwitchRow({
           onClick={onToggle}
           data-testid={testId}
         >
-          {on ? '開' : '關'}
+          {on ? t('開', 'On') : t('關', 'Off')}
         </button>
       </div>
     </div>
@@ -292,18 +297,35 @@ export const KEY_LIST: [keys: string, what: string][] = [
   ['打字', '拼字：打出單字'],
   [
     'Esc',
-    '排句子、拼字：拿掉最後一個（Backspace 也可以）；跟我說：取消辨識；關閉設定；其他畫面：返回（先回小鎮要再按一次確認）',
+    '排句子、拼字：拿掉最後一個（Backspace 也可以）；跟我說：取消下載說明；關閉設定；其他畫面：返回（先回小鎮要再按一次確認）',
   ],
   ['Shift＋Esc', '排句子：重排'],
-  ['R　P　C', '跟我說：錄音／停止、播放我的錄音、辨識'],
+  ['R', '跟我說：說說看（評過分後是再說一次）；聽力加量：說'],
+];
+
+/** KEY_LIST in the English interface (no 中文 key: translations are hidden there). */
+export const KEY_LIST_EN: [keys: string, what: string][] = [
+  ['1-9', 'Pick an answer (letters work for A-D questions)'],
+  ['1234 QWER ASDF ZXCV', 'Sentence order: place the tile marked with that key'],
+  ['Space', 'Next line, next card, check, continue, next task (Enter works too)'],
+  ['` (under Esc)', 'Hear it again'],
+  ['Shift+`', 'Slow (counts as help)'],
+  ['← →', 'Previous / next card'],
+  ['Typing', 'Spelling: type the word'],
+  [
+    'Esc',
+    'Sentence order, spelling: remove the last one (Backspace works too); Repeat after me: cancel the download note; close Settings; elsewhere: go back (Back to town asks once more)',
+  ],
+  ['Shift+Esc', 'Sentence order: start over'],
+  ['R', 'Repeat after me: say it (then say it again); Extra listening: speak'],
 ];
 
 function KeyList() {
   return (
     <div class="settings-group settings-keys">
-      <p class="settings-label">鍵盤</p>
+      <p class="settings-label">{t('鍵盤', 'Keyboard')}</p>
       <dl class="settings-key-list">
-        {KEY_LIST.map(([keys, what]) => (
+        {(isEnglish() ? KEY_LIST_EN : KEY_LIST).map(([keys, what]) => (
           <div key={keys} class="settings-key-row">
             <dt>
               <kbd>{keys}</kbd>
@@ -318,15 +340,15 @@ function KeyList() {
 
 type SectionId = 'sound' | 'display' | 'route' | 'save' | 'reset' | 'help' | 'dev';
 
-const SECTIONS: { id: SectionId; label: string }[] = [
-  { id: 'sound', label: '聲音' },
-  { id: 'display', label: '顯示' },
-  { id: 'route', label: '路線' },
-  { id: 'save', label: '存檔' },
-  { id: 'reset', label: '重置' },
-  { id: 'help', label: '說明' },
+const SECTIONS: { id: SectionId; label: [zh: string, en: string] }[] = [
+  { id: 'sound', label: ['聲音', 'Sound'] },
+  { id: 'display', label: ['顯示', 'Display'] },
+  { id: 'route', label: ['路線', 'Route'] },
+  { id: 'save', label: ['存檔', 'Save'] },
+  { id: 'reset', label: ['重置', 'Reset'] },
+  { id: 'help', label: ['說明', 'Help'] },
   // Dev server only: open every task, to try any of them without clearing the ones before.
-  ...(DEV_TOOLS ? [{ id: 'dev' as const, label: '開發' }] : []),
+  ...(DEV_TOOLS ? [{ id: 'dev' as const, label: ['開發', 'Dev'] as [string, string] }] : []),
 ];
 
 const TITLE_ID = 'settings-title';
@@ -384,7 +406,8 @@ export function SettingsPanel({ onClose, onHowTo }: { onClose: () => void; onHow
     focus(`[data-testid="section-${to.id}"]`);
   };
 
-  const label = SECTIONS.find((s) => s.id === section)?.label ?? '';
+  const sectionLabel = SECTIONS.find((s) => s.id === section)?.label;
+  const label = sectionLabel ? t(...sectionLabel) : '';
   const content =
     section === 'sound' ? (
       <SoundSection settings={settings} />
@@ -400,7 +423,7 @@ export function SettingsPanel({ onClose, onHowTo }: { onClose: () => void; onHow
       <>
         {onHowTo && (
           <div class="settings-row">
-            <span class="settings-label">怎麼玩</span>
+            <span class="settings-label">{t('怎麼玩', 'How to play')}</span>
             <div class="settings-control">
               <button
                 type="button"
@@ -408,7 +431,7 @@ export function SettingsPanel({ onClose, onHowTo }: { onClose: () => void; onHow
                 onClick={onHowTo}
                 data-testid="settings-howto"
               >
-                打開說明
+                {t('打開說明', 'Open guide')}
               </button>
             </div>
           </div>
@@ -418,12 +441,17 @@ export function SettingsPanel({ onClose, onHowTo }: { onClose: () => void; onHow
     ) : section === 'dev' ? (
       <>
         <SwitchRow
-          label="所有關卡都能玩"
+          label={t('所有關卡都能玩', 'Open every level')}
           on={settings.unlockAll}
           onToggle={() => settingsStore.set({ unlockAll: !settings.unlockAll })}
           testId="dev-unlock-all"
         />
-        <p class="settings-note">開發模式：只在開發伺服器出現，正式版不會有。</p>
+        <p class="settings-note">
+          {t(
+            '開發模式：只在開發伺服器出現，正式版不會有。',
+            'Dev mode: only on the dev server, never in the released game.',
+          )}
+        </p>
       </>
     ) : null;
 
@@ -438,7 +466,7 @@ export function SettingsPanel({ onClose, onHowTo }: { onClose: () => void; onHow
       tabIndex={-1}
     >
       <h2 class="settings-title" id={TITLE_ID}>
-        設定
+        {t('設定', 'Settings')}
       </h2>
       <div class="settings-body">
         {(twoPane || !section) && (
@@ -447,7 +475,7 @@ export function SettingsPanel({ onClose, onHowTo }: { onClose: () => void; onHow
               class="settings-tabs"
               role={twoPane ? 'tablist' : undefined}
               aria-orientation={twoPane ? 'vertical' : undefined}
-              aria-label="設定分類"
+              aria-label={t('設定分類', 'Settings sections')}
               onKeyDown={twoPane ? onTabKey : undefined}
             >
               {SECTIONS.map(({ id, label: name }) => {
@@ -465,7 +493,7 @@ export function SettingsPanel({ onClose, onHowTo }: { onClose: () => void; onHow
                     onClick={() => open(id)}
                     data-testid={`section-${id}`}
                   >
-                    {name}
+                    {t(...name)}
                     {!twoPane && (
                       <span class="settings-more" aria-hidden="true">
                         ›
@@ -476,7 +504,7 @@ export function SettingsPanel({ onClose, onHowTo }: { onClose: () => void; onHow
               })}
             </div>
             <button type="button" class="pixel-button settings-close" onClick={onClose}>
-              關閉
+              {t('關閉', 'Close')}
               <KeyCap k="Escape" />
             </button>
           </div>
@@ -496,7 +524,7 @@ export function SettingsPanel({ onClose, onHowTo }: { onClose: () => void; onHow
                   onClick={back}
                   data-testid="settings-back"
                 >
-                  ‹ 設定
+                  {t('‹ 設定', '‹ Settings')}
                   <KeyCap k="Back" />
                 </button>
               )}

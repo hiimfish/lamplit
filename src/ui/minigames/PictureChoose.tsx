@@ -1,3 +1,4 @@
+import { showZhNow, t } from '../../core/i18n';
 import { useState } from 'preact/hooks';
 import { getPicture, PICTURE_H, PICTURE_W } from '../../art/pictures';
 import { settingsStore } from '../../core/settings';
@@ -54,7 +55,9 @@ export function PictureChoose({ question, onAnswered }: MinigameProps<PictureQue
 
   return (
     <div class="mg">
-      <p class="mg-prompt">看圖，哪一句說得對？</p>
+      <p class="mg-prompt">
+        {t('看圖，哪一句說得對？', 'Look at the picture. Which sentence fits?')}
+      </p>
       {url && (
         <img
           class="mg-picture"
@@ -88,7 +91,7 @@ export function PictureChoose({ question, onAnswered }: MinigameProps<PictureQue
               {index < 9 && <KeyBadge label={String(index + 1)} />}
               <span class="mg-say">
                 <span lang="en">{option.en}</span>
-                {showZh && state !== '' && <span class="mg-pair-zh">{option.zh}</span>}
+                {showZhNow(showZh) && state !== '' && <span class="mg-pair-zh">{option.zh}</span>}
               </span>
             </button>
           );
@@ -96,7 +99,14 @@ export function PictureChoose({ question, onAnswered }: MinigameProps<PictureQue
       </div>
       <FeedbackSlot>
         {picked !== null && (
-          <Feedback correct={isRight} hint={isRight ? undefined : '再看一次圖裡的人在做什麼。'} />
+          <Feedback
+            correct={isRight}
+            hint={
+              isRight
+                ? undefined
+                : t('再看一次圖裡的人在做什麼。', 'Look again at what the people are doing.')
+            }
+          />
         )}
       </FeedbackSlot>
     </div>

@@ -1,3 +1,5 @@
+import { t } from '../core/i18n';
+
 /**
  * A key hint inside a button: a small ink box with the key's name, e.g. 下一句 [Enter].
  * Shown only on a computer (fine pointer) after the player has used the keyboard, and hidden
@@ -7,7 +9,6 @@
 // Caps show the left-hand key for each action (keys.ts): next step is Space, replay is the
 // key under Esc, take back is Esc, 中文 is T. 'Shift+Escape' is 重排 in 排句子.
 const LABELS: Record<string, string> = {
-  Enter: '空白',
   Space: '`',
   'Shift+Space': 'Shift `',
   Escape: 'Esc',
@@ -21,6 +22,7 @@ const LABELS: Record<string, string> = {
 
 /** The words on the cap for an action name from keys.ts ('Enter', 'Space', '0', 'a', ...). */
 export function keyCapLabel(key: string): string {
+  if (key === 'Enter') return t('空白', 'Space');
   return LABELS[key] ?? key.toUpperCase();
 }
 

@@ -1,3 +1,4 @@
+import { isEnglish, t } from '../../core/i18n';
 import { useState } from 'preact/hooks';
 import type { FillQuestion } from '../../learning/questions';
 import './Fill.css';
@@ -6,7 +7,9 @@ import type { MinigameProps } from './shared';
 
 /** The prompt: 文法填空 (`grammar`) names itself; a plain 句子填空 asks for the word that fits. */
 export function fillPrompt(question: Pick<FillQuestion, 'grammar'>): string {
-  return question.grammar ? '文法填空：選出放進空格最正確的答案' : '選出最適合放進空格的字';
+  return question.grammar
+    ? t('文法填空：選出放進空格最正確的答案', 'Grammar: pick the best answer for the gap')
+    : t('選出最適合放進空格的字', 'Pick the word that fits the gap');
 }
 
 /**
@@ -26,7 +29,7 @@ function Gap({ question, shown }: { question: FillQuestion; shown: string | null
           {option.label}
         </span>
       ))}
-      {shown === null && <span class="sr-only">（空格）</span>}
+      {shown === null && <span class="sr-only">{t('（空格）', '(blank)')}</span>}
     </span>
   );
 }
@@ -78,7 +81,7 @@ export function Fill({ question, onAnswered }: MinigameProps<FillQuestion>) {
          * The Chinese shows only after answering, whatever the 顯示中文 setting says:
          * reading the Chinese first would give the answer away.
          */}
-        {answered && (
+        {answered && !isEnglish() && (
           <p class="mg-zh" data-testid="fill-zh">
             {question.zh}
           </p>
@@ -94,9 +97,13 @@ export function Fill({ question, onAnswered }: MinigameProps<FillQuestion>) {
         {answered && (
           <Feedback
             correct={isRight}
-            hint={wrongLabel === undefined ? undefined : `你選的「${wrongLabel}」放進去不對。`}
+            hint={
+              wrongLabel === undefined
+                ? undefined
+                : t(`你選的「${wrongLabel}」放進去不對。`, `"${wrongLabel}" doesn't fit there.`)
+            }
             answer={isRight ? undefined : question.answer}
-            answerLabel="正確答案"
+            answerLabel={t('正確答案', 'Answer')}
             note={question.note}
           />
         )}

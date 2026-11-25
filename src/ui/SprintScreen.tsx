@@ -8,6 +8,7 @@ import { buildSprintQuestions, makeRng } from '../learning/questionGen';
 import type { AnswerResult } from '../learning/questions';
 import { addCoins, buildDailyReview, reviewCoins, starsForAccuracy } from '../learning/sessionPlan';
 import { finishSprint, reviewLimit, sprintPlan, sprintWindow } from '../learning/sprint';
+import { t } from '../core/i18n';
 import './flow.css';
 import { IntroCards } from './IntroCards';
 import { QuestionRunner } from './TaskScreen';
@@ -79,7 +80,7 @@ export function SprintScreen() {
   return (
     <div class="flow" data-testid="sprint-screen">
       <div class="flow-card">
-        <div class="flow-title">單字快練</div>
+        <div class="flow-title">{t('單字快練', 'Word sprint')}</div>
         {!ready ? (
           <p data-testid="sprint-status">{SPRINT_NOTE[round.plan.status]}</p>
         ) : phase === 'intro' ? (
@@ -88,7 +89,7 @@ export function SprintScreen() {
           <QuestionRunner questions={round.questions} showHearts={false} onFinish={finish} />
         )}
         <QuitKey
-          label={ready ? '先回小鎮' : '回小鎮'}
+          label={ready ? t('先回小鎮', 'Back to town') : t('回小鎮', 'Back to town')}
           confirm={ready}
           onLeave={() => appStore.set({ screen: 'town' })}
         />

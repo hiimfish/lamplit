@@ -1,3 +1,4 @@
+import { t } from '../../core/i18n';
 import { useState } from 'preact/hooks';
 import type { ListenPickQuestion } from '../../learning/questions';
 import { hasItemIcon, ItemIcon } from '../ItemIcon';
@@ -32,7 +33,7 @@ export function ListenPick({ question, onAnswered }: MinigameProps<ListenPickQue
 
   return (
     <div class="mg">
-      <p class="mg-prompt">聽聽看，選出你聽到的</p>
+      <p class="mg-prompt">{t('聽聽看，選出你聽到的', 'Listen and pick what you hear')}</p>
       <ReplayBar audioId={question.audioId} text={correctLabel} onHelp={clock.markHelp} autoplay />
       <div class="mg-options">
         {question.options.map((option, index) => {

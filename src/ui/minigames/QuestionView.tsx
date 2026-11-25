@@ -3,6 +3,7 @@
  * learner answers; the result is passed on to the caller only when they press 繼續,
  * so the feedback stays on screen until then.
  */
+import { t } from '../../core/i18n';
 import type { ResponseMode } from '../../content/exam';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { stopAudio } from '../../audio/pronounce';
@@ -150,7 +151,7 @@ function Body({ question, onAnswer, onGraded, responseMode }: QuestionViewProps)
       */}
       {!result && (
         <button type="button" class="pixel-button primary mg-continue waiting" disabled>
-          繼續
+          {t('繼續', 'Continue')}
           <KeyCap k="Enter" />
         </button>
       )}
@@ -167,7 +168,7 @@ function Body({ question, onAnswer, onGraded, responseMode }: QuestionViewProps)
             onAnswer(result);
           }}
         >
-          繼續
+          {t('繼續', 'Continue')}
           <KeyCap k="Enter" />
         </button>
       )}

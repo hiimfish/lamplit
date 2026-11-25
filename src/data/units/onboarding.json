@@ -323,6 +323,7 @@
     {
       "id": "t1",
       "title": "第一天報到",
+      "titleEn": "Your first day",
       "newChunkIds": ["new_office_assistant", "badge_open_front_door"],
       "newWordIds": ["human", "staff", "access", "resource", "orientation", "badge"],
       "scene": [
@@ -390,6 +391,7 @@
     {
       "id": "t2",
       "title": "填報到表格",
+      "titleEn": "Filling in new-hire forms",
       "newChunkIds": ["who_put_as_supervisor", "when_need_forms_back"],
       "newWordIds": [
         "supervisor",
@@ -483,6 +485,7 @@
     {
       "id": "t3",
       "title": "參觀辦公室",
+      "titleEn": "Touring the office",
       "newChunkIds": ["is_lunch_provided", "allowed_to_eat_at_desks"],
       "newWordIds": [
         "provide",
@@ -551,6 +554,7 @@
     {
       "id": "t4",
       "title": "讀員工手冊",
+      "titleEn": "Reading the handbook",
       "newChunkIds": ["call_carter_before_nine"],
       "newWordIds": [
         "policy",
@@ -644,6 +648,7 @@
     {
       "id": "t5",
       "title": "特休和發薪日",
+      "titleEn": "Leave and payday",
       "newChunkIds": ["how_many_vacation_days", "paid_every_two_weeks"],
       "newWordIds": ["vacation", "health", "worker", "earn", "eligible", "paycheck", "enroll"],
       "talks": [
@@ -761,6 +766,7 @@
     {
       "id": "t6",
       "title": "第一批小工作",
+      "titleEn": "First small tasks",
       "newChunkIds": ["need_few_more_minutes", "plenty_of_time"],
       "newWordIds": [
         "role",
@@ -833,6 +839,7 @@
     {
       "id": "t7",
       "title": "認識公司和同事",
+      "titleEn": "The company and coworkers",
       "newChunkIds": ["excited_part_of_team"],
       "newWordIds": [
         "product",
@@ -969,6 +976,7 @@
     {
       "id": "t8",
       "title": "第一天下班前",
+      "titleEn": "End of the first day",
       "newChunkIds": ["finish_rest_first_thing", "going_to_like_it_here"],
       "newWordIds": [
         "smile",
@@ -1043,6 +1051,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

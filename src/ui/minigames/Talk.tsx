@@ -1,6 +1,7 @@
+import { showZhNow, t } from '../../core/i18n';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { nowPlaying, playAudio, preloadAudio, stopAudio } from '../../audio/pronounce';
-import { ROLE_LABEL } from '../../content/roles';
+import { roleLabel } from '../../content/roles';
 import type { Role, TalkTable } from '../../content/types';
 import { settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
@@ -151,18 +152,25 @@ export interface TalkWords {
 
 export function talkWords(question: Pick<TalkQuestion, 'monologue' | 'table'>): TalkWords {
   const what = question.monologue ? '獨白' : '對話';
+  const whatEn = question.monologue ? 'talk' : 'conversation';
   return {
     prompt: question.monologue
-      ? '聽獨白，回答問題'
+      ? t('聽獨白，回答問題', 'Listen to the talk and answer')
       : question.table
-        ? '看表格，聽對話，回答問題'
-        : '聽對話，回答問題',
-    idle: `按「再聽一次」播放${what}`,
-    playing: '仔細聽，聽完會出現問題',
-    transcript: `${what}內容（點一句再聽一次）`,
+        ? t('看表格，聽對話，回答問題', 'Read the table, listen and answer')
+        : t('聽對話，回答問題', 'Listen to the conversation and answer'),
+    idle: t(`按「再聽一次」播放${what}`, `Press Play again to hear the ${whatEn}`),
+    playing: t('仔細聽，聽完會出現問題', 'Listen closely. The question comes after.'),
+    transcript: t(`${what}內容（點一句再聽一次）`, `The ${whatEn} (tap a line to hear it again)`),
     wrongHint: question.table
-      ? `看看下面的${what}和上面的表格，找出答案。`
-      : `看看下面的${what}，找出答案在哪一句。`,
+      ? t(
+          `看看下面的${what}和上面的表格，找出答案。`,
+          `Read the ${whatEn} below and the table above to find the answer.`,
+        )
+      : t(
+          `看看下面的${what}，找出答案在哪一句。`,
+          `Read the ${whatEn} below and find the line with the answer.`,
+        ),
   };
 }
 
@@ -191,6 +199,13 @@ export function speakerTones(speakers: readonly Role[]): Map<Role, SpeakerTone> 
 export const ONCE_NOTE = '只播一次，答完才能重聽';
 /** 只播一次, when the talk was already played before the learner came back to it. */
 export const ONCE_PLAYED_NOTE = '已經播過一次，答完才能重聽';
+
+/** The 只播一次 note in the current 介面語言. */
+function onceNote(playedBefore: boolean): string {
+  return playedBefore
+    ? t(ONCE_PLAYED_NOTE, 'Already played once. Answer to hear it again.')
+    : t(ONCE_NOTE, 'Plays once. Answer to hear it again.');
+}
 
 /**
  * 只播一次 talks that have started playing and whose last question is not answered yet,
@@ -410,7 +425,11 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
     >
       <p class="mg-prompt">
         {words.prompt}
-        {question.total > 1 && `（${question.index + 1}／${question.total}）`}
+        {question.total > 1 &&
+          t(
+            `（${question.index + 1}／${question.total}）`,
+            ` (${question.index + 1}/${question.total})`,
+          )}
       </p>
       {question.table && <TalkTableView table={question.table} />}
       <div class="mg-row">
@@ -422,12 +441,12 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
           aria-describedby={locked ? 'talk-once-note' : undefined}
           onClick={replay}
         >
-          {locked && <span class="lock-mark" aria-hidden="true" />}♪ 再聽一次
+          {locked && <span class="lock-mark" aria-hidden="true" />}♪ {t('再聽一次', 'Play again')}
           <KeyCap k="Space" />
         </button>
         {locked && (
           <span class="talk-once-note" id="talk-once-note" data-testid="talk-once-note">
-            {playedBefore ? ONCE_PLAYED_NOTE : ONCE_NOTE}
+            {onceNote(playedBefore)}
           </span>
         )}
       </div>
@@ -437,7 +456,7 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
             <p class="mg-sentence" lang="en">
               {question.en}
             </p>
-            {showZh && <p class="mg-zh">{question.zh}</p>}
+            {showZhNow(showZh) && <p class="mg-zh">{question.zh}</p>}
           </div>
           <ChoiceKeys
             options={question.options}
@@ -460,7 +479,7 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
                   <span class="talk-mark" aria-hidden="true">
                     {on ? '▶' : ''}
                   </span>
-                  {ROLE_LABEL[role]}
+                  {roleLabel(role)}
                 </span>
               );
             })}
@@ -475,7 +494,9 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
               ))}
             </span>
             <span class="talk-count" data-testid="talk-count">
-              {current >= 0 ? `第 ${current + 1}／${total} 句` : `共 ${total} 句`}
+              {current >= 0
+                ? t(`第 ${current + 1}／${total} 句`, `Line ${current + 1}/${total}`)
+                : t(`共 ${total} 句`, `${total} lines`)}
             </span>
           </div>
           <p class="talk-hint" role="status">
@@ -489,7 +510,7 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
             correct={isRight}
             hint={isRight ? undefined : words.wrongHint}
             answer={answer}
-            answerLabel="正確答案"
+            answerLabel={t('正確答案', 'Answer')}
           />
         )}
       </FeedbackSlot>
@@ -516,13 +537,13 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
                           ▶
                         </span>
                       )}
-                      {ROLE_LABEL[line.role]}
+                      {roleLabel(line.role)}
                     </span>
                   )}
                   <span class="bubble-en" lang="en">
                     {line.en}
                   </span>
-                  {showZh && <span class="bubble-zh">{line.zh}</span>}
+                  {showZhNow(showZh) && <span class="bubble-zh">{line.zh}</span>}
                 </button>
                 <button
                   type="button"
@@ -530,7 +551,7 @@ export function Talk({ question, onAnswered }: MinigameProps<TalkQuestion>) {
                   data-testid={`talk-slow-${i}`}
                   onClick={() => playLine(i, true)}
                 >
-                  慢速
+                  {t('慢速', 'Slow')}
                 </button>
               </div>
             );

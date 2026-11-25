@@ -212,6 +212,7 @@
     {
       "id": "t1",
       "title": "寄回台灣",
+      "titleEn": "Sending to Taiwan",
       "newChunkIds": ["send_to_taiwan", "by_air"],
       "newWordIds": ["mail", "letter", "package", "stamp"],
       "scene": [
@@ -253,6 +254,7 @@
     {
       "id": "t2",
       "title": "地址寫哪裡",
+      "titleEn": "Where the address goes",
       "newChunkIds": ["write_address", "is_this_okay"],
       "newWordIds": ["write", "number", "city", "country", "address"],
       "scene": [
@@ -300,6 +302,7 @@
     {
       "id": "t3",
       "title": "包裹沒收到",
+      "titleEn": "A missing parcel",
       "newChunkIds": ["mailed_last_week", "missed_delivery"],
       "newWordIds": ["order", "yesterday", "notice", "delivery", "online"],
       "scene": [
@@ -348,6 +351,7 @@
     {
       "id": "t4",
       "title": "領包裹",
+      "titleEn": "Picking up a parcel",
       "newChunkIds": ["pick_up_package", "my_id"],
       "newWordIds": ["office", "open", "close", "desk", "counter"],
       "signs": [
@@ -420,6 +424,7 @@
     {
       "id": "t5",
       "title": "裡面是什麼",
+      "titleEn": "What's inside?",
       "newChunkIds": ["books_and_gifts", "be_careful"],
       "newWordIds": ["carry", "break", "heavy", "toy", "careful"],
       "pictures": [
@@ -488,6 +493,7 @@
     {
       "id": "t6",
       "title": "多久會到",
+      "titleEn": "How long will it take?",
       "newChunkIds": ["how_much_cost", "when_get_there"],
       "newWordIds": ["fast", "slow", "weight", "scale", "kilogram"],
       "cloze": [
@@ -540,6 +546,7 @@
     {
       "id": "t7",
       "title": "買包裝用品",
+      "titleEn": "Buying packing supplies",
       "newChunkIds": ["box_and_tape", "buy_stamps"],
       "newWordIds": ["tape", "envelope", "postcard", "sticker", "scissors"],
       "spellWordIds": ["menu", "soup", "salad", "wine", "game"],
@@ -582,6 +589,7 @@
     {
       "id": "t8",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

@@ -219,6 +219,7 @@
     {
       "id": "t1",
       "title": "蘋果在哪",
+      "titleEn": "Where are the apples?",
       "newChunkIds": ["where_apples", "i_see_them"],
       "newWordIds": ["fruit", "apple", "orange", "banana"],
       "scene": [
@@ -260,6 +261,7 @@
     {
       "id": "t2",
       "title": "市集試吃",
+      "titleEn": "Free samples at the market",
       "newChunkIds": ["try_one", "looks_good"],
       "newWordIds": ["fresh", "vegetable", "tomato", "potato"],
       "scene": [
@@ -308,6 +310,7 @@
     {
       "id": "t3",
       "title": "一些米、兩瓶水",
+      "titleEn": "Some rice, two waters",
       "newChunkIds": ["rice_and_eggs", "two_bottles"],
       "newWordIds": ["oil", "meat", "salt", "rice"],
       "scene": [
@@ -356,6 +359,7 @@
     {
       "id": "t4",
       "title": "肉攤秤重",
+      "titleEn": "At the meat counter",
       "newChunkIds": ["one_pound", "little_more"],
       "newWordIds": ["half", "piece", "fish", "pound", "chicken"],
       "scene": [
@@ -404,6 +408,7 @@
     {
       "id": "t5",
       "title": "排隊結帳",
+      "titleEn": "In line at checkout",
       "newChunkIds": ["in_line", "own_bag"],
       "newWordIds": ["thirteen", "thirty", "fifteen", "forty", "hundred"],
       "newPairIds": ["thirteen_thirty"],
@@ -444,6 +449,7 @@
     {
       "id": "t6",
       "title": "怎麼賣、一袋幾個",
+      "titleEn": "How much? How many a bag?",
       "newChunkIds": ["how_much_tomatoes", "how_many_bag"],
       "newWordIds": ["buy", "price", "each", "cheap", "expensive"],
       "cloze": [
@@ -496,6 +502,7 @@
     {
       "id": "t7",
       "title": "買一送一",
+      "titleEn": "Buy one, get one",
       "newChunkIds": ["buy_one_get_one", "take_two"],
       "newWordIds": ["free", "cheese", "butter", "pizza", "juice"],
       "spellWordIds": ["bus", "map", "bank", "coin", "taxi"],
@@ -537,6 +544,7 @@
     {
       "id": "t8",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

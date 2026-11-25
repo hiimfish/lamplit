@@ -361,6 +361,7 @@
     {
       "id": "t1",
       "title": "錄取通知",
+      "titleEn": "The job offer",
       "newChunkIds": ["so_happy_to_hear_that", "looking_forward_to_working_with_you"],
       "newWordIds": ["moment", "finally", "news", "accept", "everyone", "excited"],
       "scene": [
@@ -420,6 +421,7 @@
     {
       "id": "t2",
       "title": "辦公室在哪裡",
+      "titleEn": "Where's the office?",
       "newChunkIds": ["which_floor_is_your_office_on", "wait_for_you_in_the_lobby"],
       "newWordIds": ["above", "arrive", "noon", "exactly", "lobby", "below", "elevator"],
       "fills": [
@@ -498,6 +500,7 @@
     {
       "id": "t3",
       "title": "答應會準時",
+      "titleEn": "Promising to be on time",
       "newChunkIds": ["ill_be_there_by_eight_thirty", "dont_worry_i_wont_be_late"],
       "newWordIds": ["early", "soon", "receive", "ready", "promise", "confirm", "schedule"],
       "newPairIds": ["late_let"],
@@ -551,6 +554,7 @@
     {
       "id": "t4",
       "title": "讀報到須知",
+      "titleEn": "First-day instructions",
       "newChunkIds": ["i_just_got_your_email", "do_i_need_to_wear_a_suit"],
       "newWordIds": ["instead", "normal", "casual", "suit", "tie", "sweater", "formal"],
       "passages": [
@@ -639,6 +643,7 @@
     {
       "id": "t5",
       "title": "鄰居來道賀",
+      "titleEn": "A neighbor's congratulations",
       "newChunkIds": ["guess_what_i_start_on_monday", "my_family_will_be_so_happy"],
       "newWordIds": ["real", "holiday", "beautiful", "husband", "favorite", "celebrate", "proud"],
       "talks": [
@@ -742,6 +747,7 @@
     {
       "id": "t6",
       "title": "規劃上班路線",
+      "titleEn": "Planning the commute",
       "newChunkIds": ["leave_early_to_miss_traffic", "go_across_the_bridge"],
       "newWordIds": ["along", "toward", "pass", "middle", "direction", "traffic", "route"],
       "cloze": [
@@ -811,6 +817,7 @@
     {
       "id": "t7",
       "title": "新生活的前一晚",
+      "titleEn": "The night before",
       "newChunkIds": ["everything_is_ready_first_day", "thanks_for_all_your_help_since"],
       "newWordIds": ["life", "wonder", "stuff", "anyone", "anyway", "clock", "colleague"],
       "spellWordIds": ["manager", "interview", "strong", "future", "goal"],
@@ -872,6 +879,7 @@
     {
       "id": "t8",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

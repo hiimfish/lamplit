@@ -216,6 +216,7 @@
     {
       "id": "t1",
       "title": "找東西",
+      "titleEn": "Looking for something",
       "newChunkIds": ["have_milk", "where_find"],
       "newWordIds": ["milk", "egg", "bread"],
       "scene": [
@@ -257,6 +258,7 @@
     {
       "id": "t2",
       "title": "只買這個",
+      "titleEn": "Just this, please",
       "newChunkIds": ["just_this", "no_bag"],
       "newWordIds": ["money", "drink", "bag"],
       "scene": [
@@ -305,6 +307,7 @@
     {
       "id": "t3",
       "title": "下雨了",
+      "titleEn": "It's raining",
       "newChunkIds": ["need_umbrella", "last_one"],
       "newWordIds": ["rain", "umbrella", "battery"],
       "scene": [
@@ -353,6 +356,7 @@
     {
       "id": "t4",
       "title": "幫我加熱",
+      "titleEn": "Can you heat it up?",
       "newChunkIds": ["heat_it_up", "fork_too"],
       "newWordIds": ["eat", "hot", "lunch", "fork"],
       "scene": [
@@ -395,6 +399,7 @@
     {
       "id": "t5",
       "title": "付錢",
+      "titleEn": "Paying",
       "newChunkIds": ["pay_by_card", "get_receipt"],
       "newWordIds": ["dollar", "ten", "twenty", "fifty"],
       "scene": [
@@ -441,6 +446,7 @@
     {
       "id": "t6",
       "title": "買兩個",
+      "titleEn": "Buying two",
       "newChunkIds": ["two_of_these", "where_batteries"],
       "newWordIds": ["snack", "candy", "chocolate", "newspaper"],
       "scene": [
@@ -490,6 +496,7 @@
     {
       "id": "t7",
       "title": "明天見",
+      "titleEn": "See you tomorrow",
       "newChunkIds": ["nothing_else", "see_you_tomorrow"],
       "newWordIds": ["today", "tomorrow", "morning", "night"],
       "newPairIds": ["night_light"],
@@ -537,6 +544,7 @@
     {
       "id": "t8",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

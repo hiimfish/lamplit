@@ -8,11 +8,13 @@ import {
   RESPONSE_MODE,
   examAct,
   sectionHasFile,
+  sectionTitleEn,
   type ExamId,
   type SectionPlan,
 } from '../../content/exam';
 import { examFile } from '../../content/exams';
 import { appStore, commitSave, currentNow } from '../../core/appState';
+import { t } from '../../core/i18n';
 import type { ExamRun, SaveData } from '../../core/save';
 import { devUnlockAll, settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
@@ -165,47 +167,70 @@ function ExamHub({
   const record = save.exams[exam];
   const mixed = chooseForm(save, exam) === 'mixed';
   const left = tasksLeft(save, act);
-  const label = allDone ? '看成績' : run && doneIds.length > 0 ? '繼續' : '開始';
+  const label = allDone
+    ? t('看成績', 'See results')
+    : run && doneIds.length > 0
+      ? t('繼續', 'Continue')
+      : t('開始', 'Start');
 
   return (
     <div class="flow" data-testid="exam-screen">
       <div class="flow-card exam">
-        <h1 class="flow-title">{plan.title}</h1>
+        <h1 class="flow-title">{t(plan.title, plan.titleEn)}</h1>
         {!unlocked ? (
           <p class="flow-note" data-testid="exam-locked">
-            這一幕的任務都玩過以後才能考。還有 {left} 個任務。
+            {t(
+              `這一幕的任務都玩過以後才能考。還有 ${left} 個任務。`,
+              `Play every task in this act first. ${left} ${left === 1 ? 'task' : 'tasks'} left.`,
+            )}
           </p>
         ) : (
           <>
             <p class="flow-note">
-              多益題型練習，約 {examMinutes(exam)} 分鐘，分成 {plan.sections.length}{' '}
-              段。每段考完才算數，中途離開只會丟掉那一段。
+              {t(
+                `多益題型練習，約 ${examMinutes(exam)} 分鐘，分成 ${plan.sections.length} 段。每段考完才算數，中途離開只會丟掉那一段。`,
+                `TOEIC-style practice, about ${examMinutes(exam)} minutes in ${plan.sections.length} parts. A part counts once it's finished; leaving midway only loses that part.`,
+              )}
             </p>
             {record && (
               <p class="flow-note" data-testid="exam-record">
-                已考過 {record.attempts} 次，最近一次估計 聽力 {record.listening}／閱讀{' '}
-                {record.reading}
+                {t(
+                  `已考過 ${record.attempts} 次，最近一次估計 聽力 ${record.listening}／閱讀 ${record.reading}`,
+                  `Taken ${record.attempts} ${record.attempts === 1 ? 'time' : 'times'}. Last estimate: listening ${record.listening}, reading ${record.reading}`,
+                )}
               </p>
             )}
             {mixed && (
               <p class="flow-note" data-testid="exam-retake-note">
-                有一部分題目和上次相同，分數可能偏高。
+                {t(
+                  '有一部分題目和上次相同，分數可能偏高。',
+                  'Some questions are the same as last time, so the score may be high.',
+                )}
               </p>
             )}
             <ol class="exam-sections" data-testid="exam-sections">
               {sections.map((s) => {
                 const finished = doneIds.includes(s.id);
                 const isNext = !finished && next?.id === s.id;
-                const state = finished ? '已完成' : ready(s) ? '未考' : '準備中';
+                const state = finished
+                  ? t('已完成', 'Done')
+                  : ready(s)
+                    ? t('未考', 'Not taken')
+                    : t('準備中', 'Coming soon');
                 return (
                   <li
                     key={s.id}
                     class={`exam-section${finished ? ' done' : ''}${isNext ? ' next' : ''}`}
                     data-testid={`exam-section-${s.id}`}
                   >
-                    <span class="exam-section-name">{s.title}</span>
+                    <span class="exam-section-name">{t(s.title, sectionTitleEn(s.title))}</span>
                     <span class="exam-section-info">
-                      {ready(s) ? `${s.items.length} 題・約 10 分鐘` : '題目還沒備好'}
+                      {ready(s)
+                        ? t(
+                            `${s.items.length} 題・約 10 分鐘`,
+                            `${s.items.length} questions・about 10 min`,
+                          )
+                        : t('題目還沒備好', 'Questions not ready yet')}
                     </span>
                     <span class="exam-section-state">
                       {finished && <span aria-hidden="true">✓ </span>}
@@ -237,11 +262,11 @@ function ExamHub({
               onClick={restart}
               data-testid="exam-restart"
             >
-              {armed ? '確定重新開始？' : '重新開始'}
+              {armed ? t('確定重新開始？', 'Really start over?') : t('重新開始', 'Start over')}
             </button>
           )}
           <button type="button" class="pixel-button" onClick={goTown} data-testid="exam-back">
-            回小鎮
+            {t('回小鎮', 'Back to town')}
             <KeyCap k="Back" />
           </button>
         </div>

@@ -4,7 +4,7 @@ import moveInJson from '../src/data/units/move_in.json';
 import type { Task, Unit } from '../src/content/types';
 import { gradeAnswer, normalize } from '../src/learning/grading';
 import {
-  ROLE_PLAY_PROMPT,
+  rolePlayPrompt,
   buildReviewQuestions,
   buildRolePlayTurns,
   buildTaskPractice,
@@ -232,7 +232,7 @@ describe('role-play turns', () => {
   it('builds one arrange question per player line, in order', () => {
     const turns = buildRolePlayTurns(unit, rp, makeRng(1));
     expect(turns.map((q) => q.itemId)).toEqual(['chunk:can_i_get', 'chunk:to_go']);
-    expect(turns.every((q) => q.kind === 'arrange' && q.prompt === ROLE_PLAY_PROMPT)).toBe(true);
+    expect(turns.every((q) => q.kind === 'arrange' && q.prompt === rolePlayPrompt())).toBe(true);
     expect(turns.every((q) => q.zhOnRequest)).toBe(true);
     expect(turns[0]!.audioId).toBe('cafe.line.rp_2');
     expect(turns[0]!.zh).toBe('可以給我一個瑪芬嗎？');

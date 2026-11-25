@@ -3,6 +3,7 @@
  * itself comes from the on-device pronunciation model (pronScore.ts).
  */
 
+import { t } from '../core/i18n';
 export type SpokenLevel = 'clear' | 'mostly' | 'partly' | 'unclear';
 
 /** One word of the target: said clearly, unclearly, or not recognisably. */
@@ -29,6 +30,14 @@ export const SPOKEN_LEVEL_LABEL: Record<SpokenLevel, string> = {
   unclear: '要再練習',
 };
 
+/** English wording of a level, for the English interface. */
+export const SPOKEN_LEVEL_LABEL_EN: Record<SpokenLevel, string> = {
+  clear: 'Very clear',
+  mostly: 'Mostly clear',
+  partly: 'Some words unclear',
+  unclear: 'Needs practice',
+};
+
 /** 90 and up clear, 70 to 89 mostly, 40 to 69 partly, under 40 unclear. */
 export function spokenLevel(score: number): SpokenLevel {
   if (score >= 90) return 'clear';
@@ -37,9 +46,12 @@ export function spokenLevel(score: number): SpokenLevel {
   return 'unclear';
 }
 
-/** 「發音 83 分・大致清楚」: 大聲說說看's 評分 and 聽力加量's 跟著說. */
+/** 「發音 83 分・大致清楚」 (Pronunciation 83・Mostly clear): 大聲說說看's 評分 and 聽力加量's 跟著說. */
 export function spokenScoreText(score: SpokenScore): string {
-  return `發音 ${score.score} 分・${SPOKEN_LEVEL_LABEL[score.level]}`;
+  return t(
+    `發音 ${score.score} 分・${SPOKEN_LEVEL_LABEL[score.level]}`,
+    `Pronunciation ${score.score}・${SPOKEN_LEVEL_LABEL_EN[score.level]}`,
+  );
 }
 
 /** The counted words that were not clear (names and symbol words are left out). */

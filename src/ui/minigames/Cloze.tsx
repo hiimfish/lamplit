@@ -1,3 +1,4 @@
+import { showZhNow, t } from '../../core/i18n';
 import { useState } from 'preact/hooks';
 import { settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
@@ -36,7 +37,9 @@ export function Cloze({ question, onAnswered }: MinigameProps<ClozeQuestion>) {
 
   return (
     <div class="mg">
-      <p class="mg-prompt">聽聽看，空格裡是哪個字？</p>
+      <p class="mg-prompt">
+        {t('聽聽看，空格裡是哪個字？', 'Listen. Which word goes in the gap?')}
+      </p>
       <div class="mg-npc-row">
         <div class="mg-say">
           <p class="mg-cloze" data-testid="cloze-line" lang="en">
@@ -46,7 +49,7 @@ export function Cloze({ question, onAnswered }: MinigameProps<ClozeQuestion>) {
             </span>
             {question.after}
           </p>
-          {showZh && <p class="mg-zh">{question.zh}</p>}
+          {showZhNow(showZh) && <p class="mg-zh">{question.zh}</p>}
         </div>
         <ReplayBar audioId={question.audioId} text={full} onHelp={clock.markHelp} autoplay />
       </div>

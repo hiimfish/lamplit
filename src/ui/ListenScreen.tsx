@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { playMusic } from '../audio/music';
 import { nowPlaying, playAudio, stopAudio } from '../audio/pronounce';
-import { loadModel, modelCached, PRON_NOTE, pronSupported } from '../audio/pronModel';
+import { loadModel, modelCached, pronNote, pronSupported } from '../audio/pronModel';
 import { playSfx } from '../audio/sfx';
 import { createShadowMic } from '../audio/utterance';
 import type { Task, Unit } from '../content/types';
+import { taskTitle, unitTitle } from '../content/titles';
 import { lineAudioId, speakerOf } from '../content/units';
 import { appStore, commitSave, currentNow } from '../core/appState';
+import { isEnglish, showZhNow, t } from '../core/i18n';
 import { dailyFor } from '../core/save';
 import { useStore } from '../core/store';
 import { finishListen, listenGoal, pickListenTask } from '../learning/listen';
@@ -16,7 +18,7 @@ import type { SpokenMark } from '../learning/spokenScore';
 import { ChatLines } from './ChatLines';
 import { useKeys } from './keys';
 import { KeyCap } from './KeyCap';
-import { ListenLoop } from './listenLoop';
+import { ListenLoop, noteInEnglish } from './listenLoop';
 import type { ListenLoopSnapshot, ListenSummary } from './listenLoop';
 import { QuitKey } from './QuitKey';
 import { stageFrame, TaskStage } from './stage/SceneStage';
@@ -27,6 +29,9 @@ import './flow.css';
 import './listen.css';
 
 type Pick = { unit: Unit; task: Task };
+
+/** The English interface opens no line's Chinese. */
+const NO_PEEKS: ReadonlySet<string> = new Set();
 
 const START: ListenLoopSnapshot = {
   phase: 'idle',
@@ -177,7 +182,7 @@ export function ListenScreen() {
     });
   const peekCurrent = () => {
     const line = lines[shown - 1];
-    if (line && !zh) peek(line.id);
+    if (line && !zh && !isEnglish()) peek(line.id);
   };
 
   const again = () => {
@@ -205,7 +210,7 @@ export function ListenScreen() {
             ArrowRight: advance,
             Space: () => loop.play(shown - 1),
             'Shift+Space': () => loop.play(shown - 1, true),
-            '0': () => setZh(!zh),
+            ...(isEnglish() ? {} : { '0': () => setZh(!zh) }),
             g: peekCurrent,
             a: toggleAuto,
             s: toggleShadow,
@@ -217,16 +222,21 @@ export function ListenScreen() {
     return (
       <div class="flow" data-testid="listen">
         <div class="flow-card">
-          <h1 class="flow-title">聽力加量</h1>
-          <p class="flow-note">先玩一關劇情，才有可以重聽的故事。</p>
+          <h1 class="flow-title">{t('聽力加量', 'Extra listening')}</h1>
+          <p class="flow-note">
+            {t(
+              '先玩一關劇情，才有可以重聽的故事。',
+              'Play a story first, then you can hear it again here.',
+            )}
+          </p>
           <div class="flow-actions">
             <button class="pixel-button primary" onClick={toGoal} data-testid="listen-back">
-              回小鎮
+              {t('回小鎮', 'Back to town')}
               <KeyCap k="Enter" />
             </button>
           </div>
           <QuitKey
-            label="先回小鎮"
+            label={t('先回小鎮', 'Back to town')}
             confirm={false}
             onLeave={() => appStore.set({ screen: 'town' })}
             testId="quit"
@@ -244,13 +254,22 @@ export function ListenScreen() {
 
   const canSpeak = snap.micOn && pronSupported();
   const speakLabel =
-    snap.phase === 'listening' ? '說完了' : snap.phase === 'scored' ? '再說一次' : '● 說';
+    snap.phase === 'listening'
+      ? t('說完了', 'Done speaking')
+      : snap.phase === 'scored'
+        ? t('再說一次', 'Say it again')
+        : t('● 說', '● Speak');
   const speakIdle = snap.phase === 'playing' || snap.phase === 'idle';
   let status = '';
-  if (snap.phase === 'listening') status = snap.scoring ? '評分中…' : '● 換你說…';
-  else if (snap.phase === 'ready') status = '按「說」再唸這一句。';
+  if (snap.phase === 'listening')
+    status = snap.scoring ? t('評分中…', 'Scoring…') : t('● 換你說…', '● Your turn…');
+  else if (snap.phase === 'ready')
+    status = t('按「說」再唸這一句。', 'Press "Speak" to say this line.');
   else if (snap.phase === 'scored' && snap.score) status = spokenScoreText(snap.score);
-  if (snap.note) status = status ? `${status} ${snap.note}` : snap.note;
+  const note = snap.note && (isEnglish() ? noteInEnglish(snap.note) : snap.note);
+  if (note) status = status ? `${status} ${note}` : note;
+  const unitName = unitTitle(unit);
+  const taskName = taskTitle(task);
 
   return (
     <div class={`flow${frame ? ' has-stage' : ''}`} data-testid="listen">
@@ -266,41 +285,45 @@ export function ListenScreen() {
         />
       )}
       <div class="flow-card">
-        <div class="flow-title">聽力加量</div>
+        <div class="flow-title">{t('聽力加量', 'Extra listening')}</div>
         {done ? (
           <div class="listen-done" data-testid="listen-done">
-            <p class="flow-heading">聽完了！</p>
+            <p class="flow-heading">{t('聽完了！', 'All done!')}</p>
             <p class="flow-note">
-              {unit.title}・{task.title}。今天聽了 {today}／{goal} 段。
+              {t(
+                `${unitName}・${taskName}。今天聽了 ${today}／${goal} 段。`,
+                `${unitName}: ${taskName}. Today: ${today}/${goal} stories.`,
+              )}
             </p>
             {spoken && (
               <p class="flow-note" data-testid="listen-spoken">
-                跟著說 {spoken.lines} 句，平均 {spoken.score} 分（發音）。
+                {t(
+                  `跟著說 ${spoken.lines} 句，平均 ${spoken.score} 分（發音）。`,
+                  `Shadowed ${spoken.lines} lines, average pronunciation score ${spoken.score}.`,
+                )}
               </p>
             )}
             <div class="flow-actions">
               <button class="pixel-button" onClick={again} data-testid="listen-again">
-                再聽一段
+                {t('再聽一段', 'Another story')}
               </button>
               <button class="pixel-button primary" onClick={toGoal} data-testid="listen-goal">
-                回小鎮
+                {t('回小鎮', 'Back to town')}
                 <KeyCap k="Enter" />
               </button>
             </div>
           </div>
         ) : (
           <div class={`story listen-story${last ? '' : ' more'}`}>
-            <p class="flow-heading">
-              {unit.title}・{task.title}
-            </p>
+            <p class="flow-heading">{t(`${unitName}・${taskName}`, `${unitName}: ${taskName}`)}</p>
             <ChatLines
               lines={lines.slice(0, shown)}
               current={shown - 1}
               onPlay={(index, slow) => loop.play(index, slow)}
               keyHints
-              zh={zh}
-              peeked={peeked}
-              onPeek={peek}
+              zh={showZhNow(zh)}
+              peeked={isEnglish() ? NO_PEEKS : peeked}
+              {...(isEnglish() ? {} : { onPeek: peek })}
               marks={marks}
             />
             {!confirming && (
@@ -308,23 +331,31 @@ export function ListenScreen() {
                 {status}
               </p>
             )}
-            <div class="listen-options" role="group" aria-label="聽的方式" hidden={confirming}>
-              <button
-                class="pixel-button small"
-                aria-pressed={zh}
-                onClick={() => setZh(!zh)}
-                data-testid="listen-zh"
-              >
-                中文：{zh ? '開' : '關'}
-                <KeyCap k="0" />
-              </button>
+            <div
+              class="listen-options"
+              role="group"
+              aria-label={t('聽的方式', 'Listening options')}
+              hidden={confirming}
+            >
+              {!isEnglish() && (
+                <button
+                  class="pixel-button small"
+                  aria-pressed={zh}
+                  onClick={() => setZh(!zh)}
+                  data-testid="listen-zh"
+                >
+                  中文：{zh ? '開' : '關'}
+                  <KeyCap k="0" />
+                </button>
+              )}
               <button
                 class="pixel-button small"
                 aria-pressed={snap.auto}
                 onClick={toggleAuto}
                 data-testid="listen-auto"
               >
-                自動：{snap.auto ? '開' : '關'}
+                {t('自動：', 'Auto: ')}
+                {snap.auto ? t('開', 'on') : t('關', 'off')}
                 <KeyCap k="a" />
               </button>
               <button
@@ -333,13 +364,14 @@ export function ListenScreen() {
                 onClick={toggleShadow}
                 data-testid="listen-shadow"
               >
-                跟著說：{snap.shadow ? '開' : '關'}
+                {t('跟著說：', 'Shadowing: ')}
+                {snap.shadow ? t('開', 'on') : t('關', 'off')}
                 <KeyCap k="s" />
               </button>
             </div>
             {confirming ? (
               <div class="listen-confirm" data-testid="pron-note">
-                <p class="flow-note">{PRON_NOTE}</p>
+                <p class="flow-note">{pronNote()}</p>
                 {asking ? (
                   <div class="flow-actions">
                     <button
@@ -347,7 +379,7 @@ export function ListenScreen() {
                       onClick={() => loop.confirm()}
                       data-testid="pron-confirm"
                     >
-                      下載並評分
+                      {t('下載並評分', 'Download & score')}
                       <KeyCap k="Enter" />
                     </button>
                     <button
@@ -355,13 +387,14 @@ export function ListenScreen() {
                       onClick={() => loop.decline()}
                       data-testid="pron-cancel"
                     >
-                      不用評分
+                      {t('不用評分', 'No scoring')}
                       <KeyCap k="Escape" />
                     </button>
                   </div>
                 ) : (
                   <p class="flow-note" aria-live="polite" data-testid="pron-progress">
-                    下載發音模型 {Math.round(snap.progress * 100)}%
+                    {t('下載發音模型', 'Downloading the pronunciation model')}{' '}
+                    {Math.round(snap.progress * 100)}%
                   </p>
                 )}
               </div>
@@ -379,7 +412,7 @@ export function ListenScreen() {
                   </button>
                 )}
                 <button class="pixel-button primary" onClick={advance} data-testid="listen-next">
-                  {last ? '聽完了' : '下一句'}
+                  {last ? t('聽完了', 'Done') : t('下一句', 'Next line')}
                   <KeyCap k="Enter" />
                 </button>
               </div>
@@ -387,7 +420,7 @@ export function ListenScreen() {
           </div>
         )}
         <QuitKey
-          label="先回小鎮"
+          label={t('先回小鎮', 'Back to town')}
           confirm={false}
           onLeave={() => appStore.set({ screen: 'town' })}
           testId="quit"

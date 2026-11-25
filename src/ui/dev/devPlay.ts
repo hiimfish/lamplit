@@ -10,6 +10,7 @@ import { GRAMMAR_BANK } from '../../content/grammarBank';
 import type { Task, Unit, Word } from '../../content/types';
 import { UNITS } from '../../content/units';
 import { appStore } from '../../core/appState';
+import { t } from '../../core/i18n';
 import { DEV_TOOLS } from '../../core/settings';
 import { buildSprintQuestions, buildTaskPractice, makeRng } from '../../learning/questionGen';
 import type { Question } from '../../learning/questions';
@@ -21,7 +22,8 @@ export function devFallback(): boolean {
 
 export interface DevKind {
   key: string;
-  label: string;
+  /** Its name in Chinese and in English (devKindLabel picks one). */
+  label: [zh: string, en: string];
   matches: (q: Question) => boolean;
 }
 
@@ -32,28 +34,41 @@ const kind =
 
 /** Every minigame, in the order a task plays them (docs/specs/ui-flow.md). */
 export const DEV_KINDS: readonly DevKind[] = [
-  { key: 'listen-pick', label: '聽音選字', matches: kind('listen-pick') },
-  { key: 'listen-pair', label: '聽辨挑戰', matches: kind('listen-pair') },
-  { key: 'read-meaning', label: '看字選意思', matches: kind('read-meaning') },
-  { key: 'listen-meaning', label: '聽字選意思', matches: kind('listen-meaning') },
-  { key: 'cloze', label: '聽力填空', matches: kind('cloze') },
-  { key: 'choose-reply', label: '選回應', matches: kind('choose-reply') },
-  { key: 'read-sign', label: '讀招牌', matches: kind('read-sign') },
-  { key: 'picture', label: '看圖選句', matches: (q) => q.kind === 'picture' && !q.listen },
+  { key: 'listen-pick', label: ['聽音選字', 'Hear and pick'], matches: kind('listen-pick') },
+  { key: 'listen-pair', label: ['聽辨挑戰', 'Sound pairs'], matches: kind('listen-pair') },
+  { key: 'read-meaning', label: ['看字選意思', 'Read: meaning'], matches: kind('read-meaning') },
+  {
+    key: 'listen-meaning',
+    label: ['聽字選意思', 'Hear: meaning'],
+    matches: kind('listen-meaning'),
+  },
+  { key: 'cloze', label: ['聽力填空', 'Listening gaps'], matches: kind('cloze') },
+  { key: 'choose-reply', label: ['選回應', 'Pick a reply'], matches: kind('choose-reply') },
+  { key: 'read-sign', label: ['讀招牌', 'Read a sign'], matches: kind('read-sign') },
+  {
+    key: 'picture',
+    label: ['看圖選句', 'Picture match'],
+    matches: (q) => q.kind === 'picture' && !q.listen,
+  },
   {
     key: 'picture-listen',
-    label: '看圖選句（聽）',
+    label: ['看圖選句（聽）', 'Picture match (listen)'],
     matches: (q) => q.kind === 'picture' && q.listen === true,
   },
-  { key: 'fill', label: '句子填空', matches: kind('fill') },
-  { key: 'text-fill', label: '短文填空', matches: kind('text-fill') },
-  { key: 'read-passage', label: '讀短文', matches: kind('read-passage') },
-  { key: 'talk', label: '聽對話答題', matches: kind('talk') },
-  { key: 'respond', label: '應答題', matches: kind('respond') },
-  { key: 'arrange', label: '排句子', matches: kind('arrange') },
-  { key: 'spell', label: '打字拼字', matches: kind('spell') },
-  { key: 'speak', label: '大聲說說看', matches: kind('speak') },
+  { key: 'fill', label: ['句子填空', 'Sentence gaps'], matches: kind('fill') },
+  { key: 'text-fill', label: ['短文填空', 'Text gaps'], matches: kind('text-fill') },
+  { key: 'read-passage', label: ['讀短文', 'Read a passage'], matches: kind('read-passage') },
+  { key: 'talk', label: ['聽對話答題', 'Conversations'], matches: kind('talk') },
+  { key: 'respond', label: ['應答題', 'Responses'], matches: kind('respond') },
+  { key: 'arrange', label: ['排句子', 'Sentence order'], matches: kind('arrange') },
+  { key: 'spell', label: ['打字拼字', 'Spelling'], matches: kind('spell') },
+  { key: 'speak', label: ['大聲說說看', 'Say it aloud'], matches: kind('speak') },
 ];
+
+/** A question kind's name in the current 介面語言. */
+export function devKindLabel(kind: DevKind): string {
+  return t(...kind.label);
+}
 
 const SAMPLES = 3;
 

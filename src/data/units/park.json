@@ -225,6 +225,7 @@
     {
       "id": "t1",
       "title": "公園散步",
+      "titleEn": "A walk in the park",
       "newChunkIds": ["nice_day", "dog_friendly"],
       "newWordIds": ["park", "tree", "dog", "flower"],
       "scene": [
@@ -273,6 +274,7 @@
     {
       "id": "t2",
       "title": "看活動公告",
+      "titleEn": "Reading event notices",
       "newChunkIds": ["what_time_start", "is_it_free"],
       "newWordIds": ["class", "event", "center", "afternoon", "poster"],
       "scene": [
@@ -320,6 +322,7 @@
     {
       "id": "t3",
       "title": "上次的活動",
+      "titleEn": "The last event",
       "newChunkIds": ["saw_poster", "great_time"],
       "newWordIds": ["sun", "sky", "wind", "cloud", "grass"],
       "newPairIds": ["some_sun"],
@@ -369,6 +372,7 @@
     {
       "id": "t4",
       "title": "當志工",
+      "titleEn": "Volunteering",
       "newChunkIds": ["how_can_i_help", "sign_up"],
       "newWordIds": ["team", "plant", "clean", "garden", "volunteer"],
       "signs": [
@@ -442,6 +446,7 @@
     {
       "id": "t5",
       "title": "野餐",
+      "titleEn": "A picnic",
       "newChunkIds": ["something_to_drink", "help_yourself"],
       "newWordIds": ["play", "hold", "kid", "ball", "picnic"],
       "newPairIds": ["walk_work"],
@@ -513,6 +518,7 @@
     {
       "id": "t6",
       "title": "一起運動",
+      "titleEn": "Exercising together",
       "newChunkIds": ["run_together", "run_every_morning"],
       "newWordIds": ["run", "sport", "lake", "swim", "tennis"],
       "cloze": [
@@ -566,6 +572,7 @@
     {
       "id": "t7",
       "title": "保持聯絡",
+      "titleEn": "Keeping in touch",
       "newChunkIds": ["keep_in_touch", "my_number"],
       "newWordIds": ["family", "picture", "message", "email", "camera"],
       "spellWordIds": ["mail", "stamp", "city", "desk", "tape"],
@@ -614,6 +621,7 @@
     {
       "id": "t8",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

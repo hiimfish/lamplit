@@ -812,6 +812,7 @@
     {
       "id": "t1",
       "title": "訂單還沒到",
+      "titleEn": "The order hasn't arrived",
       "newChunkIds": ["completely_understand_and_like_to_help", "could_i_have_your_order_number"],
       "newWordIds": [
         "issue",
@@ -880,6 +881,7 @@
     {
       "id": "t2",
       "title": "道歉並查訂單",
+      "titleEn": "Sorry, let me check",
       "newChunkIds": ["very_sorry_for_the_inconvenience", "look_into_it_and_call_you_right_back"],
       "newWordIds": [
         "case",
@@ -964,6 +966,7 @@
     {
       "id": "t3",
       "title": "保證到貨日期",
+      "titleEn": "Promising a delivery date",
       "newChunkIds": ["have_it_thursday_unless_you_hear_from_me", "if_it_doesnt_arrive_by_friday"],
       "newWordIds": [
         "solution",
@@ -1026,6 +1029,7 @@
     {
       "id": "t4",
       "title": "讀客訴信",
+      "titleEn": "Reading a complaint letter",
       "newChunkIds": ["what_can_we_do_to_make_this_right"],
       "newWordIds": [
         "refund",
@@ -1127,6 +1131,7 @@
     {
       "id": "t5",
       "title": "道歉與補救",
+      "titleEn": "Apologizing and fixing it",
       "newChunkIds": [
         "sorry_your_order_arrived_in_that_condition",
         "prefer_a_replacement_or_a_full_refund"
@@ -1261,6 +1266,7 @@
     {
       "id": "t6",
       "title": "說明後續安排",
+      "titleEn": "Explaining next steps",
       "newChunkIds": ["it_might_take_two_or_three_days", "you_may_want_to_check_everything"],
       "newWordIds": [
         "claim",
@@ -1397,6 +1403,7 @@
     {
       "id": "t7",
       "title": "週會上的檢討",
+      "titleEn": "Review at the weekly meeting",
       "newChunkIds": ["follow_up_with_him_later_this_week"],
       "newWordIds": [
         "occur",
@@ -1531,6 +1538,7 @@
     {
       "id": "t8",
       "title": "追蹤回電",
+      "titleEn": "Follow-up call",
       "newChunkIds": [
         "calling_to_make_sure_everything_arrived_okay",
         "thank_you_again_for_your_patience"
@@ -1614,6 +1622,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

@@ -341,6 +341,7 @@
     {
       "id": "t1",
       "title": "週年派對交給你",
+      "titleEn": "In charge of the party",
       "newChunkIds": ["date_in_mind_for_party", "how_many_expect_attend"],
       "newWordIds": [
         "social",
@@ -417,6 +418,7 @@
     {
       "id": "t2",
       "title": "找場地",
+      "titleEn": "Finding a venue",
       "newChunkIds": ["venue_holds_eighty", "hall_have_stage"],
       "newWordIds": [
         "round",
@@ -508,6 +510,7 @@
     {
       "id": "t3",
       "title": "訂外燴",
+      "titleEn": "Booking the catering",
       "newChunkIds": ["food_delivered_and_served", "dishes_for_guests_no_meat"],
       "newWordIds": [
         "serve",
@@ -578,6 +581,7 @@
     {
       "id": "t4",
       "title": "讀邀請函",
+      "titleEn": "Reading the invitation",
       "newChunkIds": ["send_out_invitations"],
       "newWordIds": [
         "win",
@@ -694,6 +698,7 @@
     {
       "id": "t5",
       "title": "派對前的佈置",
+      "titleEn": "Setting up for the party",
       "newChunkIds": ["help_decorate_stage", "make_sure_microphone"],
       "newWordIds": [
         "story",
@@ -848,6 +853,7 @@
     {
       "id": "t6",
       "title": "派對開始",
+      "titleEn": "The party begins",
       "newChunkIds": ["run_out_of_food", "group_photo_before_home"],
       "newWordIds": [
         "laugh",
@@ -969,6 +975,7 @@
     {
       "id": "t7",
       "title": "總經理致詞",
+      "titleEn": "Mr. Ellis's speech",
       "newChunkIds": ["wasnt_expecting_this"],
       "newWordIds": [
         "relationship",
@@ -1122,6 +1129,7 @@
     {
       "id": "t8",
       "title": "得獎與新的開始",
+      "titleEn": "Awards and a new start",
       "newChunkIds": ["thanks_encouraging_me", "take_on_more_responsibility"],
       "newWordIds": [
         "achieve",
@@ -1206,6 +1214,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

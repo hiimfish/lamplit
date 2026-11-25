@@ -411,6 +411,7 @@
     {
       "id": "t1",
       "title": "團隊需要一個助理",
+      "titleEn": "The team needs an assistant",
       "newChunkIds": ["need_full_or_part_time", "need_extra_pair_of_hands"],
       "newWordIds": [
         "young",
@@ -487,6 +488,7 @@
     {
       "id": "t2",
       "title": "寫徵人廣告",
+      "titleEn": "Writing a job ad",
       "newChunkIds": ["list_skills_job_requires", "experience_matters_more_than_degree"],
       "newWordIds": [
         "seek",
@@ -584,6 +586,7 @@
     {
       "id": "t3",
       "title": "看應徵資料",
+      "titleEn": "Reviewing applications",
       "newChunkIds": ["know_how_many_applied", "wonder_why_programmer_apply"],
       "newWordIds": [
         "former",
@@ -662,6 +665,7 @@
     {
       "id": "t4",
       "title": "讀求職信",
+      "titleEn": "Reading cover letters",
       "newChunkIds": ["cover_letter_well_written"],
       "newWordIds": [
         "highly",
@@ -776,6 +780,7 @@
     {
       "id": "t5",
       "title": "三人面試",
+      "titleEn": "Three interviews",
       "backdrop": "new_hire",
       "newChunkIds": ["start_by_telling_about_yourself", "tell_us_why_interested"],
       "newWordIds": [
@@ -945,6 +950,7 @@
     {
       "id": "t6",
       "title": "打電話問推薦人",
+      "titleEn": "Calling references",
       "newChunkIds": ["former_manager_said_on_time", "told_me_not_lose_him"],
       "newWordIds": [
         "capable",
@@ -1113,6 +1119,7 @@
     {
       "id": "t7",
       "title": "Ms. Reed 的語音訊息",
+      "titleEn": "Ms. Reed's voicemail",
       "newChunkIds": ["agree_leo_best_fit"],
       "newWordIds": [
         "conduct",
@@ -1283,6 +1290,7 @@
     {
       "id": "t8",
       "title": "打電話錄取",
+      "titleEn": "Calling with the offer",
       "backdrop": "main",
       "newChunkIds": ["offer_you_assistant_position", "april_first_work_for_you"],
       "newWordIds": [
@@ -1374,6 +1382,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "backdrop": "new_hire",
       "kind": "roleplay",
       "newChunkIds": [],

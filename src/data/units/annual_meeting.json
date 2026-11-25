@@ -538,6 +538,7 @@
     {
       "id": "t1",
       "title": "年度大會的通知",
+      "titleEn": "Annual meeting notice",
       "backdrop": "director",
       "newChunkIds": ["how_much_time_for_results", "ask_hughes_to_join_by_video"],
       "newWordIds": [
@@ -625,6 +626,7 @@
     {
       "id": "t2",
       "title": "準備成果報告",
+      "titleEn": "Preparing the results report",
       "backdrop": "director",
       "newChunkIds": ["show_how_sales_grew", "should_i_mention_the_delay"],
       "newWordIds": [
@@ -723,6 +725,7 @@
     {
       "id": "t3",
       "title": "和總經理對議程",
+      "titleEn": "Agenda check with Mr. Ellis",
       "newChunkIds": ["should_october_numbers_be_included", "however_numbers_not_ready"],
       "newWordIds": [
         "beyond",
@@ -808,6 +811,7 @@
     {
       "id": "t4",
       "title": "讀議程和總經理的信",
+      "titleEn": "Agenda and Mr. Ellis's letter",
       "backdrop": "director",
       "newChunkIds": ["agenda_has_me_speaking"],
       "newWordIds": [
@@ -948,6 +952,7 @@
     {
       "id": "t5",
       "title": "Jack 帶來的消息",
+      "titleEn": "Jack's news",
       "newChunkIds": ["show_you_to_your_seat", "will_the_merger_change_anything"],
       "newWordIds": [
         "president",
@@ -1133,6 +1138,7 @@
     {
       "id": "t6",
       "title": "報告 Lantern 成果",
+      "titleEn": "Reporting Lantern's results",
       "backdrop": "main",
       "newChunkIds": ["despite_the_delay_we_hit", "if_we_had_one_more_designer"],
       "newWordIds": [
@@ -1367,6 +1373,7 @@
     {
       "id": "t7",
       "title": "Mr. Hughes 的影片致詞",
+      "titleEn": "Mr. Hughes's video speech",
       "newChunkIds": ["next_a_video_message"],
       "newWordIds": [
         "decade",
@@ -1535,6 +1542,7 @@
     {
       "id": "t8",
       "title": "公告與頒獎",
+      "titleEn": "Announcements and awards",
       "newChunkIds": ["couldnt_have_done_it_without_team", "share_this_award_with"],
       "newWordIds": [
         "vote",
@@ -1627,6 +1635,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

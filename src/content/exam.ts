@@ -55,6 +55,8 @@ export interface SectionPlan {
   id: string;
   kind: SectionKind;
   title: string;
+  /** The title in the English interface. */
+  titleEn: string;
   written: WrittenCounts;
   /** Questions in the section (one form). */
   total: number;
@@ -63,8 +65,24 @@ export interface SectionPlan {
 export interface ExamPlan {
   act: 1 | 2 | 3 | 4;
   title: string;
+  /** The title in the English interface. */
+  titleEn: string;
   sections: SectionPlan[];
 }
+
+/** Section titles in the English interface, by their Chinese title. */
+const SECTION_TITLE_EN: Record<string, string> = {
+  聽力: 'Listening',
+  聽力一: 'Listening 1',
+  聽力二: 'Listening 2',
+  閱讀: 'Reading',
+  閱讀一: 'Reading 1',
+  閱讀二: 'Reading 2',
+  閱讀三: 'Reading 3',
+};
+
+/** A section's English title from its Chinese one (unknown titles stay as they are). */
+export const sectionTitleEn = (title: string): string => SECTION_TITLE_EN[title] ?? title;
 
 const section = (
   id: string,
@@ -72,7 +90,7 @@ const section = (
   title: string,
   total: number,
   written: WrittenCounts,
-): SectionPlan => ({ id, kind, title, written, total });
+): SectionPlan => ({ id, kind, title, titleEn: sectionTitleEn(title), written, total });
 
 /**
  * Every question is hand-written (src/data/exams/<exam>.<section>.json). Bump
@@ -85,6 +103,7 @@ export const EXAM_PLAN: Record<ExamId, ExamPlan> = {
   exam1: {
     act: 1,
     title: '第一幕結業考',
+    titleEn: 'Act 1 final exam',
     sections: [
       section('s1', 'listening', '聽力', 16, { responds: 10, talks: [2, 2, 2] }),
       section('s2', 'reading', '閱讀', 20, {
@@ -98,6 +117,7 @@ export const EXAM_PLAN: Record<ExamId, ExamPlan> = {
   exam2: {
     act: 2,
     title: '第二幕結業考',
+    titleEn: 'Act 2 final exam',
     sections: [
       section('s1', 'listening', '聽力', 18, { responds: 8, talks: [2, 2, 2, 2, 2] }),
       section('s2', 'reading', '閱讀', 20, {
@@ -111,6 +131,7 @@ export const EXAM_PLAN: Record<ExamId, ExamPlan> = {
   exam3: {
     act: 3,
     title: '第三幕結業考',
+    titleEn: 'Act 3 final exam',
     sections: [
       section('s1', 'listening', '聽力一', 16, { responds: 8, talks: [2, 2, 2, 2] }),
       section('s2', 'listening', '聽力二', 12, { talks: [3, 3, 2, 2, 2] }),
@@ -121,6 +142,7 @@ export const EXAM_PLAN: Record<ExamId, ExamPlan> = {
   exam4: {
     act: 4,
     title: '第四幕結業考',
+    titleEn: 'Act 4 final exam',
     sections: [
       // The pictures of Act 4 are heard (`listen: true`), as in TOEIC Part 1.
       section('s1', 'listening', '聽力一', 19, { pictures: 4, responds: 9, talks: [3, 3] }),

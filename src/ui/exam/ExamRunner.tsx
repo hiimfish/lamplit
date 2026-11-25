@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
+import { sectionTitleEn } from '../../content/exam';
+import { t } from '../../core/i18n';
 import { KeyCap } from '../KeyCap';
 import { QuitKey } from '../QuitKey';
 import { useKeys } from '../keys';
@@ -132,9 +134,9 @@ export function ExamRunner({ section, onFinish, onQuit }: Props) {
     <div class="flow">
       <div class="flow-card exam-runner" data-testid="exam-runner">
         <div class="flow-bar exam-runner-bar">
-          <span class="exam-runner-title">{section.title}</span>
+          <span class="exam-runner-title">{t(section.title, sectionTitleEn(section.title))}</span>
           <span data-testid="exam-progress">
-            第 {index + 1}／{items.length} 題
+            {t(`第 ${index + 1}／${items.length} 題`, `Question ${index + 1}/${items.length}`)}
           </span>
           {left !== null && (
             <span class={`exam-clock${left <= 60 ? ' low' : ''}`} data-testid="exam-clock">
@@ -147,7 +149,7 @@ export function ExamRunner({ section, onFinish, onQuit }: Props) {
         </div>
         {expired && !timer?.hard && (
           <p class="exam-runner-note" data-testid="exam-timeup">
-            時間到了，可以繼續作答
+            {t('時間到了，可以繼續作答', "Time's up, but you can keep answering.")}
           </p>
         )}
         <div class="exam-runner-body" key={item.qid}>
@@ -155,13 +157,13 @@ export function ExamRunner({ section, onFinish, onQuit }: Props) {
         </div>
         {unanswered && warned === item.qid && (
           <p class="exam-runner-note" role="status" data-testid="exam-skip-note">
-            這題還沒選答案，再按一次跳過
+            {t('這題還沒選答案，再按一次跳過', 'No answer yet. Press again to skip.')}
           </p>
         )}
         <div class="flow-actions exam-runner-actions">
-          <QuitKey label="先離開" onLeave={onQuit} testId="exam-quit" />
+          <QuitKey label={t('先離開', 'Leave')} onLeave={onQuit} testId="exam-quit" />
           <button type="button" class="pixel-button primary" onClick={next} data-testid="exam-next">
-            {last ? '交卷' : '下一題'}
+            {last ? t('交卷', 'Submit') : t('下一題', 'Next')}
             <KeyCap k="Enter" />
           </button>
         </div>

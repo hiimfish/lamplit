@@ -232,6 +232,7 @@
     {
       "id": "t1",
       "title": "見到房東",
+      "titleEn": "Meeting the landlord",
       "newChunkIds": ["just_moved_in", "nice_to_meet_you"],
       "newWordIds": ["key", "box"],
       "newPairIds": ["fan_van", "light_right"],
@@ -279,6 +280,7 @@
     {
       "id": "t2",
       "title": "名字怎麼拼",
+      "titleEn": "How do you spell it?",
       "newChunkIds": ["from_taiwan", "spell_that"],
       "newWordIds": ["door", "chair"],
       "newPairIds": ["bed_bad", "sink_think"],
@@ -326,6 +328,7 @@
     {
       "id": "t3",
       "title": "垃圾怎麼丟",
+      "titleEn": "Taking out the trash",
       "newChunkIds": ["more_slowly", "got_it"],
       "newWordIds": ["lamp", "trash_can"],
       "newPairIds": ["ship_sheep", "cap_cup"],
@@ -374,6 +377,7 @@
     {
       "id": "t4",
       "title": "搬箱子",
+      "titleEn": "Moving boxes",
       "newChunkIds": ["help_with_box", "sure_no_problem"],
       "newWordIds": ["welcome", "room", "two", "three"],
       "scene": [
@@ -422,6 +426,7 @@
     {
       "id": "t5",
       "title": "聊聊自己",
+      "titleEn": "Talking about yourself",
       "newChunkIds": ["live_alone", "no_car"],
       "newWordIds": ["home", "car", "four", "five"],
       "scene": [
@@ -469,6 +474,7 @@
     {
       "id": "t6",
       "title": "認識鄰居",
+      "titleEn": "Meeting the neighbors",
       "newChunkIds": ["new_neighbor", "whats_your_name"],
       "newWordIds": ["okay", "neighbor", "six", "seven"],
       "scene": [
@@ -515,6 +521,7 @@
     {
       "id": "t7",
       "title": "請鄰居進來坐",
+      "titleEn": "Inviting a neighbor in",
       "newChunkIds": ["come_in", "call_me"],
       "newWordIds": ["phone", "sofa", "eight", "nine"],
       "scene": [
@@ -562,6 +569,7 @@
     {
       "id": "t8",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

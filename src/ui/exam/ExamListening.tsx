@@ -3,6 +3,7 @@ import { PICTURE_H, PICTURE_W } from '../../art/pictures';
 import { preloadAudio, stopAudio } from '../../audio/pronounce';
 import { RESPONSE_MODE } from '../../content/exam';
 import type { ResponseMode } from '../../content/exam';
+import { t } from '../../core/i18n';
 import type {
   ClozeQuestion,
   PictureQuestion,
@@ -25,9 +26,9 @@ const LETTERS = ['A', 'B', 'C', 'D'];
 
 /** What the runner shows beside the question: how many plays remain. */
 export function examPlayLabel(playsLeft: number): string {
-  if (playsLeft === Infinity) return '不限次數';
-  if (playsLeft <= 0) return '已經播過了';
-  return `可以再聽 ${playsLeft} 次`;
+  if (playsLeft === Infinity) return t('不限次數', 'No play limit');
+  if (playsLeft <= 0) return t('已經播過了', 'Already played');
+  return t(`可以再聽 ${playsLeft} 次`, playsLeft === 1 ? '1 more play' : `${playsLeft} more plays`);
 }
 
 /** One sound of a question: plays all of it, resolving true when every clip played to its end. */
@@ -200,8 +201,8 @@ export function ExamListening(props: ExamViewProps) {
   const optionStep = step - sound.firstOptionStep;
   const status = playing
     ? heardOptions && optionStep >= 0
-      ? `正在播 ${LETTERS[optionStep] ?? ''}`
-      : '正在播放…'
+      ? t(`正在播 ${LETTERS[optionStep] ?? ''}`, `Playing ${LETTERS[optionStep] ?? ''}`)
+      : t('正在播放…', 'Playing…')
     : examPlayLabel(playsLeft);
 
   const url = question.kind === 'picture' ? pictureUrl(question.pictureId) : undefined;
@@ -237,7 +238,7 @@ export function ExamListening(props: ExamViewProps) {
           disabled={!canReplay}
           onClick={() => void run()}
         >
-          ♪ {playsLeft <= 0 ? '已經播過了' : '再聽一次'}
+          ♪ {playsLeft <= 0 ? t('已經播過了', 'Already played') : t('再聽一次', 'Play again')}
           <KeyCap k="Space" />
         </button>
         <span class="ex-status" role="status" data-testid="exam-status">
@@ -256,7 +257,9 @@ export function ExamListening(props: ExamViewProps) {
               class={`pixel-button mg-option ex-option${picked ? ' picked' : ''}${now ? ' on' : ''}`}
               data-testid={`option-${option.id}`}
               aria-pressed={picked}
-              aria-label={option.label === undefined ? `選 ${letter}` : undefined}
+              aria-label={
+                option.label === undefined ? t(`選 ${letter}`, `Choose ${letter}`) : undefined
+              }
               onClick={() => onChoose(option.id)}
             >
               <KeyBadge label={String(i + 1)} />

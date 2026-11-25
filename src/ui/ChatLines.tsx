@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'preact/hooks';
-import { ROLE_LABEL } from '../content/roles';
+import { roleLabel } from '../content/roles';
 import type { SceneLine } from '../content/types';
+import { isEnglish, showZhNow, t } from '../core/i18n';
 import { settingsStore } from '../core/settings';
 import { useStore } from '../core/store';
 import type { SpokenMark } from '../learning/spokenScore';
@@ -29,6 +30,8 @@ interface Props {
 /** `hint` shows the 0 key cap where the screen maps 0 to this key. */
 export function ZhToggle({ hint = false }: { hint?: boolean }) {
   const { showZh } = useStore(settingsStore);
+  // The English interface never shows the Chinese translations.
+  if (isEnglish()) return null;
   return (
     <button
       class="pixel-button small"
@@ -78,7 +81,8 @@ export function ChatLines({
   marks,
 }: Props) {
   const saved = useStore(settingsStore).showZh;
-  const showZh = zh ?? saved;
+  const showZh = showZhNow(zh ?? saved);
+  const english = isEnglish();
   const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -111,23 +115,23 @@ export function ChatLines({
               onClick={() => onPlay(index, false)}
             >
               <span class="bubble-who">
-                {line.speaker === 'npc' ? ROLE_LABEL[line.role] : ROLE_LABEL.guide}
+                {line.speaker === 'npc' ? roleLabel(line.role) : roleLabel('guide')}
               </span>
               {keyHints && index === current && <KeyCap k="Space" />}
               <span class="bubble-en" lang="en">
                 {lineMarks ? <MarkedText text={line.en} marks={lineMarks} /> : line.en}
               </span>
-              {(showZh || open) && <span class="bubble-zh">{line.zh}</span>}
+              {(showZh || (open && !english)) && <span class="bubble-zh">{line.zh}</span>}
             </button>
             <button
               type="button"
               class="pixel-button small bubble-slow"
               onClick={() => onPlay(index, true)}
             >
-              慢速
+              {t('慢速', 'Slow')}
               {keyHints && index === current && <KeyCap k="Shift+Space" />}
             </button>
-            {onPeek && !showZh && (
+            {onPeek && !showZh && !english && (
               <button
                 type="button"
                 class="pixel-button small bubble-peek"

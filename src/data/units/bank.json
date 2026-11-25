@@ -207,6 +207,7 @@
     {
       "id": "t1",
       "title": "走進銀行",
+      "titleEn": "Walking into the bank",
       "newChunkIds": ["need_to_open_a_bank_account", "where_do_i_wait"],
       "newWordIds": ["before", "ask", "another", "question"],
       "scene": [
@@ -253,6 +254,7 @@
     {
       "id": "t2",
       "title": "證件和地址",
+      "titleEn": "ID and address",
       "newChunkIds": ["is_my_passport_okay", "this_bill_has_my_new_address"],
       "newWordIds": ["tell", "same", "different", "information", "passport"],
       "scene": [
@@ -299,6 +301,7 @@
     {
       "id": "t3",
       "title": "填開戶申請表",
+      "titleEn": "Account application form",
       "newChunkIds": ["could_you_check_my_form", "sorry_i_dont_understand"],
       "newWordIds": ["why", "important", "answer", "easy", "income"],
       "scene": [
@@ -351,6 +354,7 @@
     {
       "id": "t4",
       "title": "提款卡和提款機",
+      "titleEn": "Bank card and ATM",
       "newChunkIds": ["how_does_the_atm_work", "take_out_sixty_dollars"],
       "newWordIds": ["put", "without", "eighty", "thousand", "atm"],
       "signs": [
@@ -429,6 +433,7 @@
     {
       "id": "t5",
       "title": "第一次存錢",
+      "titleEn": "First deposit",
       "newChunkIds": ["deposit_some_cash", "when_can_i_use_the_money"],
       "newWordIds": ["seventy", "ninety", "amount", "save", "cent"],
       "fills": [
@@ -501,6 +506,7 @@
     {
       "id": "t6",
       "title": "問手續費",
+      "titleEn": "Asking about fees",
       "newChunkIds": ["do_i_have_to_pay_a_fee", "is_that_every_month"],
       "newWordIds": ["must", "charge", "statement", "balance", "fee"],
       "cloze": [
@@ -552,6 +558,7 @@
     {
       "id": "t7",
       "title": "網路銀行和付房租",
+      "titleEn": "Online banking and rent",
       "newChunkIds": ["pay_my_rent_online", "how_do_i_send_money_home"],
       "newWordIds": ["spend", "rate", "credit", "transfer", "payment"],
       "spellWordIds": ["tree", "dog", "flower", "ball", "camera"],
@@ -600,6 +607,7 @@
     {
       "id": "t8",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

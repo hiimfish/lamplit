@@ -8,6 +8,7 @@ import { buildDrill, finishDrill, grammarGoal } from '../learning/grammarDrill';
 import { drillPointsToday } from '../learning/grammarOn';
 import type { AnswerResult, Question } from '../learning/questions';
 import { reviewCoins, starsForAccuracy } from '../learning/sessionPlan';
+import { t } from '../core/i18n';
 import './flow.css';
 import './grammarDrill.css';
 import { KeyCap } from './KeyCap';
@@ -45,10 +46,15 @@ function EmptyCard() {
   return (
     <div class="flow" data-testid="grammar-screen">
       <div class="flow-card">
-        <div class="flow-title">文法快練</div>
-        <p data-testid="grammar-empty">文法快練還沒有可以出的題目。多玩幾個任務再來。</p>
+        <div class="flow-title">{t('文法快練', 'Grammar drill')}</div>
+        <p data-testid="grammar-empty">
+          {t(
+            '文法快練還沒有可以出的題目。多玩幾個任務再來。',
+            'No grammar questions yet. Play a few more tasks first.',
+          )}
+        </p>
         <button type="button" class="pixel-button primary" onClick={back}>
-          回小鎮
+          {t('回小鎮', 'Back to town')}
           <KeyCap k="Enter" />
         </button>
       </div>
@@ -117,7 +123,7 @@ export function GrammarDrillScreen() {
   return (
     <div class="flow" data-testid="grammar-screen">
       <div class="flow-card">
-        <div class="flow-title">文法快練</div>
+        <div class="flow-title">{t('文法快練', 'Grammar drill')}</div>
         <QuestionRunner
           questions={questions}
           showHearts={false}
@@ -126,7 +132,7 @@ export function GrammarDrillScreen() {
             answered.current = i;
           }}
         />
-        <QuitKey label="先收工" confirm onLeave={leave} />
+        <QuitKey label={t('先收工', 'Finish for now')} confirm onLeave={leave} />
       </div>
     </div>
   );

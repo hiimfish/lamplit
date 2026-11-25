@@ -4,6 +4,7 @@ import { playSfx } from '../audio/sfx';
 import { playAudio, stopAudio } from '../audio/pronounce';
 import { getItem, type ItemInfo } from '../content/units';
 import { appStore } from '../core/appState';
+import { t } from '../core/i18n';
 import { devUnlockAll, settingsStore } from '../core/settings';
 import { useStore } from '../core/store';
 import { nextStop, playOrder } from '../learning/townPlan';
@@ -54,7 +55,7 @@ export function ResultScreen() {
       <div class="flow">
         <div class="flow-card">
           <button class="pixel-button" onClick={() => appStore.set({ screen: 'town' })}>
-            回小鎮
+            {t('回小鎮', 'Back to town')}
           </button>
         </div>
       </div>
@@ -80,12 +81,12 @@ export function ResultScreen() {
       <div class="flow-card result">
         <h1 class="flow-title">
           {isTask
-            ? '任務完成！'
+            ? t('任務完成！', 'Task complete!')
             : isSprint
-              ? '快練完成！'
+              ? t('快練完成！', 'Sprint complete!')
               : result.kind === 'grammar'
-                ? '文法快練完成！'
-                : '複習完成！'}
+                ? t('文法快練完成！', 'Grammar drill complete!')
+                : t('複習完成！', 'Review complete!')}
         </h1>
         {isTask && (
           <div class="result-stars" data-testid="result-stars">
@@ -93,14 +94,17 @@ export function ResultScreen() {
           </div>
         )}
         <p>
-          答對 {outcome.correct} / {outcome.total}
+          {t('答對', 'Correct')} {outcome.correct} / {outcome.total}
         </p>
         <p class="result-coins">
-          金幣 +{result.coins}（共 {save.coins}）
+          {t(
+            `金幣 +${result.coins}（共 ${save.coins}）`,
+            `Coins +${result.coins} (total ${save.coins})`,
+          )}
         </p>
         {newItems.length > 0 && (
           <div class="result-new">
-            <p class="flow-heading">學到的新內容</p>
+            <p class="flow-heading">{t('學到的新內容', 'New things you learned')}</p>
             <ul>
               {newItems.map((item) => (
                 <li key={item.itemId}>
@@ -113,7 +117,7 @@ export function ResultScreen() {
                   <button
                     type="button"
                     class="pixel-button small result-play"
-                    aria-label={`聽 ${item.text}`}
+                    aria-label={t(`聽 ${item.text}`, `Hear ${item.text}`)}
                     onClick={() => void hearItem(item)}
                   >
                     ♪
@@ -123,16 +127,23 @@ export function ResultScreen() {
             </ul>
             <p class="flow-note">
               {isSprint
-                ? '這些字很快會在劇情裡遇到，也會排進今日複習。'
-                : '這些之後會排進今日複習。'}
+                ? t(
+                    '這些字很快會在劇情裡遇到，也會排進今日複習。',
+                    "You'll meet these words in the story soon, and in Daily review.",
+                  )
+                : t('這些之後會排進今日複習。', 'These will come up in Daily review.')}
             </p>
           </div>
         )}
-        {result.kind === 'review' && <p class="flow-note">明天再來，會有新的複習。</p>}
+        {result.kind === 'review' && (
+          <p class="flow-note">
+            {t('明天再來，會有新的複習。', 'Come back tomorrow for more review.')}
+          </p>
+        )}
         <div class="flow-actions">
           {playNext && (
             <button class="pixel-button primary" onClick={playNext} data-testid="next-task">
-              下一關
+              {t('下一關', 'Next task')}
               <KeyCap k="Enter" />
             </button>
           )}
@@ -141,12 +152,12 @@ export function ResultScreen() {
             onClick={() => appStore.set({ screen: 'town' })}
             data-testid="to-town"
           >
-            回小鎮
+            {t('回小鎮', 'Back to town')}
             {!playNext && <KeyCap k="Enter" />}
           </button>
           {isTask && (
             <button class="pixel-button" onClick={replay} data-testid="replay">
-              再玩一次
+              {t('再玩一次', 'Play again')}
             </button>
           )}
         </div>

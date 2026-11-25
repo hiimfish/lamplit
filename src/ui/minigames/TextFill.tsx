@@ -1,3 +1,4 @@
+import { isEnglish, t } from '../../core/i18n';
 import type { ComponentChildren } from 'preact';
 import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { textFillParts, type TextFillPart } from '../../learning/gen/textFills';
@@ -87,7 +88,7 @@ function Gap({
         <span class="tf-num" aria-hidden="true">
           {n}
         </span>
-        <span class="sr-only">（第 {n} 格）</span>
+        <span class="sr-only">{t(`（第 ${n} 格）`, ` (blank ${n})`)}</span>
         {question.answers[blank]}
       </span>
     );
@@ -104,7 +105,11 @@ function Gap({
         {n}
       </span>
       <span class="tf-space" aria-hidden="true" />
-      <span class="sr-only">{now ? `（第 ${n} 格，現在要填）` : `（第 ${n} 格，空格）`}</span>
+      <span class="sr-only">
+        {now
+          ? t(`（第 ${n} 格，現在要填）`, ` (blank ${n}, fill this one)`)
+          : t(`（第 ${n} 格，空格）`, ` (blank ${n}, empty)`)}
+      </span>
     </span>
   );
 }
@@ -146,7 +151,8 @@ function Line({
 /** The text, laid out the way its kind looks in real life. */
 function TextBody({ question, answered }: { question: TextFillQuestion; answered: boolean }) {
   const { passageKind: kind, title, lines } = question;
-  const showZh = answered && question.index === question.total - 1;
+  // The English interface never shows the Chinese translations.
+  const showZh = answered && question.index === question.total - 1 && !isEnglish();
   const parts = textFillParts(lines);
   const line = (i: number, cls = '') => (
     <Line
@@ -294,7 +300,9 @@ export function TextFill({ question, onAnswered }: MinigameProps<TextFillQuestio
   return (
     <div class="mg text-fill tf">
       <div class="tf-head">
-        <p class="mg-prompt">段落填空：選出空格 {n} 的答案</p>
+        <p class="mg-prompt">
+          {t(`段落填空：選出空格 ${n} 的答案`, `Text fill: pick the answer for blank ${n}`)}
+        </p>
         <span class="tf-count" data-testid="text-fill-count">
           {n}／{question.total}
         </span>
@@ -306,7 +314,7 @@ export function TextFill({ question, onAnswered }: MinigameProps<TextFillQuestio
             class={`tf-paper tf-${question.passageKind}`}
             data-testid="text-fill-text"
             role="region"
-            aria-label="短文"
+            aria-label={t('短文', 'Passage')}
             tabIndex={0}
             onScroll={onScroll}
           >
@@ -316,7 +324,7 @@ export function TextFill({ question, onAnswered }: MinigameProps<TextFillQuestio
           </div>
           {more && (
             <span class="tf-more" aria-hidden="true">
-              ▼ 還有
+              ▼ {t('還有', 'More')}
             </span>
           )}
         </div>
@@ -333,9 +341,13 @@ export function TextFill({ question, onAnswered }: MinigameProps<TextFillQuestio
             {answered && (
               <Feedback
                 correct={isRight}
-                hint={wrongLabel === undefined ? undefined : `你選的「${wrongLabel}」放進去不對。`}
+                hint={
+                  wrongLabel === undefined
+                    ? undefined
+                    : t(`你選的「${wrongLabel}」放進去不對。`, `"${wrongLabel}" doesn't fit there.`)
+                }
                 answer={isRight ? undefined : answer}
-                answerLabel="正確答案"
+                answerLabel={t('正確答案', 'Answer')}
                 note={question.note}
               />
             )}

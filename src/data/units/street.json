@@ -209,6 +209,7 @@
     {
       "id": "t1",
       "title": "公車站在哪",
+      "titleEn": "Where's the bus stop?",
       "newChunkIds": ["wheres_bus_stop", "far_from_here"],
       "newWordIds": ["street", "bus", "corner"],
       "scene": [
@@ -250,6 +251,7 @@
     {
       "id": "t2",
       "title": "往哪邊走",
+      "titleEn": "Which way?",
       "newChunkIds": ["which_way", "left_or_right"],
       "newWordIds": ["bank", "station", "map", "left"],
       "scene": [
@@ -299,6 +301,7 @@
     {
       "id": "t3",
       "title": "要準備零錢",
+      "titleEn": "Exact change",
       "newChunkIds": ["need_coins", "any_change"],
       "newWordIds": ["driver", "ticket", "coin", "fare"],
       "scene": [
@@ -348,6 +351,7 @@
     {
       "id": "t4",
       "title": "這班車有到嗎",
+      "titleEn": "Does this bus go there?",
       "newChunkIds": ["go_downtown", "how_much_fare"],
       "newWordIds": ["school", "hospital", "library", "museum", "downtown"],
       "scene": [
@@ -389,6 +393,7 @@
     {
       "id": "t5",
       "title": "坐多久、在哪下車",
+      "titleEn": "How long, where to get off",
       "newChunkIds": ["how_long", "my_stop"],
       "newWordIds": ["stand", "minute", "hour", "wait", "front"],
       "scene": [
@@ -436,6 +441,7 @@
     {
       "id": "t6",
       "title": "下一班車",
+      "titleEn": "The next bus",
       "newChunkIds": ["next_bus", "bus_late"],
       "newWordIds": ["monday", "tuesday", "wednesday", "thursday", "friday"],
       "cloze": [
@@ -488,6 +494,7 @@
     {
       "id": "t7",
       "title": "迷路了",
+      "titleEn": "Getting lost",
       "newChunkIds": ["im_lost", "show_on_map"],
       "newWordIds": ["walk", "sign", "road", "taxi", "bridge"],
       "spellWordIds": ["milk", "egg", "bread", "bag", "fork"],
@@ -531,6 +538,7 @@
     {
       "id": "t8",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

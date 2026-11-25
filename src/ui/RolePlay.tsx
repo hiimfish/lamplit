@@ -4,6 +4,7 @@ import type { Task, Unit } from '../content/types';
 import { ACTS, actOf } from '../content/acts';
 import { lineAudioId } from '../content/units';
 import { currentNow } from '../core/appState';
+import { t } from '../core/i18n';
 import { settingsStore } from '../core/settings';
 import { zhMode } from '../learning/zhMode';
 import { buildRolePlayTurns, makeRng, rolePlaySteps } from '../learning/questionGen';
@@ -116,12 +117,25 @@ export function RolePlay({ unit, task, onShown, onFinish }: Props) {
   if (step === 'brief') {
     return (
       <div class="intro" data-testid="roleplay-brief">
-        <p class="flow-heading">換你上場</p>
-        <p>這次沒有劇本，你要自己完成整段對話。</p>
-        <p class="flow-note">
-          輪到你的時候，看前面的對話，把單字排成你要說的話。你要說 {turns.length} 句。
+        <p class="flow-heading">{t('換你上場', "You're up")}</p>
+        <p>
+          {t(
+            '這次沒有劇本，你要自己完成整段對話。',
+            'No script this time. Finish the whole talk yourself.',
+          )}
         </p>
-        <p class="flow-note">打開「跟我說」，每句排完再大聲說一次（不計分）。</p>
+        <p class="flow-note">
+          {t(
+            `輪到你的時候，看前面的對話，把單字排成你要說的話。你要說 ${turns.length} 句。`,
+            `On your turn, read the talk so far and put the words in order to say your line. You say ${turns.length} lines.`,
+          )}
+        </p>
+        <p class="flow-note">
+          {t(
+            '打開「跟我說」，每句排完再大聲說一次（不計分）。',
+            'Turn on "Say it with me" to say each line aloud after you build it (not scored).',
+          )}
+        </p>
         <div class="flow-actions">
           <button
             class="pixel-button small"
@@ -129,14 +143,14 @@ export function RolePlay({ unit, task, onShown, onFinish }: Props) {
             aria-pressed={speak}
             data-testid="roleplay-speak"
           >
-            跟我說：{speak ? '開' : '關'}
+            {speak ? t('跟我說：開', 'Say it with me: On') : t('跟我說：關', 'Say it with me: Off')}
           </button>
           <button
             class="pixel-button primary"
             onClick={() => setStep('turns')}
             data-testid="roleplay-start"
           >
-            開始
+            {t('開始', 'Start')}
             <KeyCap k="Enter" />
           </button>
         </div>
@@ -174,7 +188,7 @@ export function RolePlay({ unit, task, onShown, onFinish }: Props) {
   }
   return (
     <div class="story" data-testid="roleplay-end">
-      <p class="flow-heading">你完成了整段對話！</p>
+      <p class="flow-heading">{t('你完成了整段對話！', 'You finished the whole talk!')}</p>
       {chat}
       <div class="flow-actions">
         {peekMode ? (
@@ -187,7 +201,7 @@ export function RolePlay({ unit, task, onShown, onFinish }: Props) {
           onClick={() => onFinish(results)}
           data-testid="roleplay-done"
         >
-          看結果
+          {t('看結果', 'See results')}
           <KeyCap k="Enter" />
         </button>
       </div>

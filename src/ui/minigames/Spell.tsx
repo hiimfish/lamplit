@@ -1,3 +1,4 @@
+import { isEnglish, t } from '../../core/i18n';
 import { useState } from 'preact/hooks';
 import { gradeAnswer, type GradeResult } from '../../learning/grading';
 import { spellMarks } from '../../learning/questionGen';
@@ -27,7 +28,12 @@ function LetterSlots({
 }) {
   const marks = graded ? spellMarks(typed, answer) : [];
   return (
-    <div class="mg-spell-slots" lang="en" data-testid="spell-slots" aria-label={typed || '空白'}>
+    <div
+      class="mg-spell-slots"
+      lang="en"
+      data-testid="spell-slots"
+      aria-label={typed || t('空白', 'Empty')}
+    >
       {[...answer].map((_, i) => {
         const state = marks[i] ?? (graded ? 'wrong' : i === typed.length ? 'next' : '');
         return (
@@ -72,7 +78,7 @@ function LetterKeys({ full, empty, onLetter, onBack, onCheck }: KeyboardProps) {
               type="button"
               class="pixel-button mg-key wide"
               data-testid="key-back"
-              aria-label="刪掉一個字母"
+              aria-label={t('刪掉一個字母', 'Delete a letter')}
               disabled={empty}
               onMouseDown={keepFocus}
               onClick={onBack}
@@ -84,12 +90,12 @@ function LetterKeys({ full, empty, onLetter, onBack, onCheck }: KeyboardProps) {
             <button
               type="button"
               class="pixel-button primary mg-key wide"
-              lang="zh-Hant"
+              lang={isEnglish() ? undefined : 'zh-Hant'}
               data-testid="check"
               disabled={empty}
               onClick={onCheck}
             >
-              檢查
+              {t('檢查', 'Check')}
             </button>
           )}
         </div>
@@ -107,10 +113,10 @@ function useSpell(question: SpellQuestion, onAnswered: MinigameProps<SpellQuesti
   const max = question.answer.length;
 
   const letter = (l: string) => {
-    if (!locked) setTyped((t) => (t.length < max ? t + l : t));
+    if (!locked) setTyped((s) => (s.length < max ? s + l : s));
   };
   const back = () => {
-    if (!locked) setTyped((t) => t.slice(0, -1));
+    if (!locked) setTyped((s) => s.slice(0, -1));
   };
   const check = () => {
     if (locked || typed === '') return;
@@ -134,7 +140,7 @@ export function Spell({ question, onAnswered }: MinigameProps<SpellQuestion>) {
 
   return (
     <div class="mg">
-      <p class="mg-prompt">聽聽看，拼出這個字</p>
+      <p class="mg-prompt">{t('聽聽看，拼出這個字', 'Listen and spell the word')}</p>
       <div class="mg-spell-cue">
         <span class="mg-emoji">
           <ItemIcon id={question.wordId} fallback={question.emoji} />

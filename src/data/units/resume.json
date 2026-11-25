@@ -233,6 +233,7 @@
     {
       "id": "t1",
       "title": "履歷工作坊：個人資料",
+      "titleEn": "Workshop: personal details",
       "newChunkIds": ["help_with_my_resume", "include_parents_names"],
       "newWordIds": ["resume", "mother", "father", "child", "add", "detail"],
       "scene": [
@@ -287,6 +288,7 @@
     {
       "id": "t2",
       "title": "寫學歷",
+      "titleEn": "Writing your education",
       "newChunkIds": ["where_put_education", "list_high_school_too"],
       "newWordIds": [
         "education",
@@ -368,6 +370,7 @@
     {
       "id": "t3",
       "title": "在台灣的工作經歷",
+      "titleEn": "Work experience in Taiwan",
       "newChunkIds": ["never_written_in_english", "had_several_jobs_taiwan"],
       "newWordIds": ["ever", "once", "past", "history", "mention", "recently", "description"],
       "scene": [
@@ -421,6 +424,7 @@
     {
       "id": "t4",
       "title": "讀履歷範例",
+      "titleEn": "Reading a sample resume",
       "newChunkIds": ["see_example_first", "looks_pretty_clear"],
       "newWordIds": ["main", "true", "describe", "document", "sentence", "background", "relevant"],
       "passages": [
@@ -503,6 +507,7 @@
     {
       "id": "t5",
       "title": "技能和語言",
+      "titleEn": "Skills and languages",
       "newChunkIds": ["grew_up_speaking_chinese", "chinese_useful_skill"],
       "newWordIds": ["language", "type", "special", "explain", "foreign", "skill", "certificate"],
       "talks": [
@@ -607,6 +612,7 @@
     {
       "id": "t6",
       "title": "請 Mia 看草稿",
+      "titleEn": "Mia reads your draft",
       "newChunkIds": ["just_finished_first_draft", "havent_sent_it_yet"],
       "newWordIds": ["already", "while", "stay", "prepare", "review", "mistake", "rewrite"],
       "cloze": [
@@ -664,6 +670,7 @@
     {
       "id": "t7",
       "title": "加上推薦人，寄出應徵",
+      "titleEn": "References, then send it",
       "newChunkIds": ["whats_a_reference", "going_to_send_harbor"],
       "newWordIds": [
         "complete",
@@ -726,6 +733,7 @@
     {
       "id": "t8",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

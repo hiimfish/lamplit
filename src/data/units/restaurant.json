@@ -211,6 +211,7 @@
     {
       "id": "t1",
       "title": "兩位",
+      "titleEn": "A table for two",
       "newChunkIds": ["table_for_two", "how_long_wait"],
       "newWordIds": ["people", "friend", "restaurant", "waiter"],
       "scene": [
@@ -258,6 +259,7 @@
     {
       "id": "t2",
       "title": "點餐",
+      "titleEn": "Ordering",
       "newChunkIds": ["recommend", "have_soup"],
       "newWordIds": ["menu", "soup", "salad", "steak", "dessert"],
       "scene": [
@@ -306,6 +308,7 @@
     {
       "id": "t3",
       "title": "聊興趣",
+      "titleEn": "Talking about hobbies",
       "newChunkIds": ["like_cooking", "for_fun"],
       "newWordIds": ["music", "movie", "sing", "dance", "cook"],
       "scene": [
@@ -354,6 +357,7 @@
     {
       "id": "t4",
       "title": "朋友的派對",
+      "titleEn": "A friend's party",
       "newChunkIds": ["thanks_inviting", "bring_anything"],
       "newWordIds": ["party", "game", "wine", "guest", "birthday"],
       "signs": [
@@ -430,6 +434,7 @@
     {
       "id": "t5",
       "title": "約時間地點",
+      "titleEn": "Making plans",
       "newChunkIds": ["see_you_friday", "meet_station"],
       "newWordIds": ["week", "weekend", "evening", "saturday", "sunday"],
       "pictures": [
@@ -499,6 +504,7 @@
     {
       "id": "t6",
       "title": "結帳",
+      "titleEn": "Paying the bill",
       "newChunkIds": ["get_check", "split_it"],
       "newWordIds": ["check", "total", "together", "tax", "tip"],
       "cloze": [
@@ -552,6 +558,7 @@
     {
       "id": "t7",
       "title": "週末過得如何",
+      "titleEn": "How was your weekend?",
       "newChunkIds": ["was_great", "food_was_good"],
       "newWordIds": ["great", "happy", "fun", "busy", "delicious"],
       "spellWordIds": ["head", "hand", "nose", "mask", "pill"],
@@ -599,6 +606,7 @@
     {
       "id": "t8",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

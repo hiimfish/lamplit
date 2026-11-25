@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'preact/hooks';
+import { t } from '../core/i18n';
 import { KeyCap } from './KeyCap';
 import { useKeys } from './keys';
 
@@ -34,7 +35,7 @@ export function QuitKey({ label, onLeave, confirm = true, testId }: Props) {
       onClick={press}
       data-testid={testId}
     >
-      {armed ? '確定離開' : label}
+      {armed ? t('確定離開', 'Really leave?') : label}
       <KeyCap k="Back" />
     </button>
   );

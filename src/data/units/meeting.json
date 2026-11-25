@@ -480,6 +480,7 @@
     {
       "id": "t1",
       "title": "改會議時間",
+      "titleEn": "Moving the meeting",
       "newChunkIds": [
         "would_you_rather_meet_morning_or_afternoon",
         "does_thursday_at_ten_work_for_you"
@@ -535,6 +536,7 @@
     {
       "id": "t2",
       "title": "訂會議室",
+      "titleEn": "Booking a meeting room",
       "newChunkIds": [
         "how_do_i_book_the_conference_room",
         "is_the_room_free_between_ten_and_eleven"
@@ -627,6 +629,7 @@
     {
       "id": "t3",
       "title": "排議程",
+      "titleEn": "Setting the agenda",
       "newChunkIds": [
         "should_i_add_anything_else_to_the_agenda",
         "if_we_start_on_time_well_finish_by_eleven"
@@ -696,6 +699,7 @@
     {
       "id": "t4",
       "title": "讀會議通知",
+      "titleEn": "Reading the meeting notice",
       "newChunkIds": ["would_you_mind_sending_me_your_slides"],
       "newWordIds": [
         "result",
@@ -803,6 +807,7 @@
     {
       "id": "t5",
       "title": "報告進度",
+      "titleEn": "Reporting progress",
       "newChunkIds": [
         "heres_a_quick_update_on_the_filing_system",
         "so_far_everything_is_on_schedule"
@@ -937,6 +942,7 @@
     {
       "id": "t6",
       "title": "討論提案",
+      "titleEn": "Discussing a proposal",
       "newChunkIds": [
         "im_not_against_the_idea_but_big_change",
         "i_prefer_the_one_thats_easier_to_use"
@@ -1069,6 +1075,7 @@
     {
       "id": "t7",
       "title": "聽主管總結",
+      "titleEn": "The manager's summary",
       "newChunkIds": ["could_you_go_over_the_second_point_again"],
       "newWordIds": [
         "effect",
@@ -1215,6 +1222,7 @@
     {
       "id": "t8",
       "title": "會後跟進",
+      "titleEn": "Following up",
       "newChunkIds": ["which_of_these_should_i_work_on_first", "that_makes_sense_to_me"],
       "newWordIds": [
         "assume",
@@ -1308,6 +1316,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

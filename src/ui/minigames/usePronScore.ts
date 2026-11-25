@@ -4,6 +4,7 @@
  * (pronModel.ts). The first time, before the model is on the device, a note asks before the
  * download. One try at a time; a late result after unmount or abort() is dropped.
  */
+import { t } from '../../core/i18n';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { stopAudio } from '../../audio/pronounce';
 import { loadModel, modelCached, pronMessage } from '../../audio/pronModel';
@@ -34,7 +35,9 @@ export interface PronDeps {
   release: () => void;
 }
 
-export const NOTHING_HEARD = '沒有聽到聲音，再說一次試試。';
+export function nothingHeard(): string {
+  return t('沒有聽到聲音，再說一次試試。', "Didn't hear anything. Try saying it again.");
+}
 
 const INITIAL_PRON_STATE: PronState = {
   status: 'idle',
@@ -129,7 +132,7 @@ export class PronController {
     try {
       const score = await attempt.promise;
       if (this.stale(mine)) return;
-      this.set(score ? { status: 'idle', score } : { status: 'idle', message: NOTHING_HEARD });
+      this.set(score ? { status: 'idle', score } : { status: 'idle', message: nothingHeard() });
     } catch (error) {
       if (!this.stale(mine)) this.set({ status: 'idle', message: errorMessage(error) });
     } finally {

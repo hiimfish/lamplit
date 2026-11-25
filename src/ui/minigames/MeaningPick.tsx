@@ -1,3 +1,4 @@
+import { t } from '../../core/i18n';
 import { useState } from 'preact/hooks';
 import type { MeaningQuestion } from '../../learning/questions';
 import { useKeys } from '../keys';
@@ -35,7 +36,11 @@ export function MeaningPick({ question, onAnswered }: MinigameProps<MeaningQuest
 
   return (
     <div class="mg">
-      <p class="mg-prompt">{listen ? '聽聽看，選出意思' : '這個字是什麼意思？'}</p>
+      <p class="mg-prompt">
+        {listen
+          ? t('聽聽看，選出意思', 'Listen. What does this word mean?')
+          : t('這個字是什麼意思？', 'What does this word mean?')}
+      </p>
       {listen ? (
         <ReplayBar audioId={question.audioId} text={question.en} onHelp={clock.markHelp} autoplay />
       ) : (
@@ -78,8 +83,8 @@ export function MeaningPick({ question, onAnswered }: MinigameProps<MeaningQuest
           <Feedback
             correct={picked === question.correctId}
             answer={question.en}
-            answerLabel="這個字是"
-            note={`意思：${meaning}`}
+            answerLabel={t('這個字是', 'The word is')}
+            note={t(`意思：${meaning}`, `Meaning: ${meaning}`)}
           />
         )}
       </FeedbackSlot>

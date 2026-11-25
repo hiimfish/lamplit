@@ -50,6 +50,39 @@ export const NOTE_END = '這段的最後一句了，按「聽完了」結束。'
 export const NOTE_SILENT_OFF = '一直沒聽到聲音，先關掉跟著說。';
 export const NOTE_DECLINED = '不評分也可以，每句後面會停一下讓你唸。';
 
+/** The English interface's wording of each note (the snapshot keeps the Chinese). */
+const NOTE_EN: readonly (readonly [string, string])[] = [
+  [
+    NOTE_UNSUPPORTED,
+    "This browser can't record and score, so Shadowing only pauses after each line.",
+  ],
+  [NOTE_INSECURE, 'Recording needs https, so Shadowing only pauses after each line.'],
+  [NOTE_DENIED, 'No microphone permission, so Shadowing only pauses after each line.'],
+  [NOTE_NO_MIC, 'No microphone found, so Shadowing only pauses after each line.'],
+  [
+    NOTE_NETWORK_OFF,
+    "The pronunciation model isn't working, so Shadowing only pauses after each line.",
+  ],
+  [NOTE_NETWORK, "This line couldn't be scored."],
+  [
+    NOTE_DOWNLOAD_FAILED,
+    "The pronunciation model didn't download, so Shadowing only pauses after each line.",
+  ],
+  [NOTE_SILENT_OFF, "Still couldn't hear you, so Shadowing is off for now."],
+  [NOTE_SILENT, "Couldn't hear you. Listen again and say it again."],
+  [NOTE_RETRY, `Not ${PASS_SCORE} yet. Listen again and say it again.`],
+  [NOTE_AGAIN, 'One more listen, then your turn.'],
+  [NOTE_END, 'This is the last line. Press "Done" to finish.'],
+  [NOTE_DECLINED, "No scoring is fine. There's a pause after each line for you to say it."],
+];
+
+/** A snapshot's note in English: every note in it (a note may carry NOTE_END) swapped. */
+export function noteInEnglish(note: string): string {
+  let out = note;
+  for (const [zh, en] of NOTE_EN) out = out.split(zh).join(en);
+  return out;
+}
+
 export type ListenErrorKind =
   'denied' | 'gesture' | 'no-mic' | 'insecure' | 'unsupported' | 'network' | 'aborted' | 'other';
 

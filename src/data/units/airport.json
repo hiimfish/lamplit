@@ -804,6 +804,7 @@
     {
       "id": "t1",
       "title": "第一次出差",
+      "titleEn": "First business trip",
       "backdrop": "main",
       "newChunkIds": ["travel_for_work_a_lot", "which_terminal_leave_from"],
       "newWordIds": ["train", "airport", "travel", "trip", "fly", "easily", "flight", "terminal"],
@@ -868,6 +869,7 @@
     {
       "id": "t2",
       "title": "櫃台報到",
+      "titleEn": "Checking in at the counter",
       "newChunkIds": ["two_seats_together", "suitcase_over_weight_limit"],
       "newWordIds": [
         "boarding_pass",
@@ -967,6 +969,7 @@
     {
       "id": "t3",
       "title": "過安檢",
+      "titleEn": "Going through security",
       "backdrop": "main",
       "newChunkIds": ["was_looking_for_boarding_pass", "were_standing_in_wrong_line"],
       "newWordIds": [
@@ -1052,6 +1055,7 @@
     {
       "id": "t4",
       "title": "讀新版行程表",
+      "titleEn": "Reading the new itinerary",
       "backdrop": "coworker",
       "newChunkIds": ["latest_version_of_itinerary"],
       "newWordIds": [
@@ -1163,6 +1167,7 @@
     {
       "id": "t5",
       "title": "班機延誤",
+      "titleEn": "Flight delayed",
       "backdrop": "coworker",
       "newChunkIds": ["new_departure_time_yet", "possible_to_catch_earlier_flight"],
       "newWordIds": [
@@ -1319,6 +1324,7 @@
     {
       "id": "t6",
       "title": "等登機",
+      "titleEn": "Waiting to board",
       "backdrop": "coworker",
       "newChunkIds": ["time_to_eat_before_we_board", "wait_until_they_post_gate"],
       "newWordIds": [
@@ -1444,6 +1450,7 @@
     {
       "id": "t7",
       "title": "聽機場廣播",
+      "titleEn": "Airport announcements",
       "backdrop": "coworker",
       "newChunkIds": ["gate_thirteen_or_thirty"],
       "newWordIds": [
@@ -1587,6 +1594,7 @@
     {
       "id": "t8",
       "title": "登機入座",
+      "titleEn": "Boarding and finding a seat",
       "backdrop": "coworker",
       "newChunkIds": ["window_seat_or_aisle", "call_as_soon_as_we_land"],
       "newWordIds": [
@@ -1690,6 +1698,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "backdrop": "coworker",
       "newChunkIds": [],

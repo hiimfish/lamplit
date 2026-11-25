@@ -23,19 +23,21 @@ import {
   saveSummary,
   type ImportMode,
 } from '../../core/saveCode';
+import { t } from '../../core/i18n';
 import { settingsStore } from '../../core/settings';
 import { browserStorage } from '../../core/storageKeys';
 import { useStore } from '../../core/store';
 
-const MODES: { mode: ImportMode; label: string }[] = [
-  { mode: 'merge', label: '合併（預設）' },
-  { mode: 'replace', label: '完全取代' },
+const MODES: { mode: ImportMode; label: [zh: string, en: string] }[] = [
+  { mode: 'merge', label: ['合併（預設）', 'Merge (default)'] },
+  { mode: 'replace', label: ['完全取代', 'Replace all'] },
 ];
 
 /** 「上次匯出：3 天前」 */
 function lastExportText(days: number | null): string {
-  if (days === null) return '上次匯出：還沒匯出過';
-  return `上次匯出：${days === 0 ? '今天' : `${days} 天前`}`;
+  if (days === null) return t('上次匯出：還沒匯出過', 'Last export: never');
+  if (days === 0) return t('上次匯出：今天', 'Last export: today');
+  return t(`上次匯出：${days} 天前`, `Last export: ${days} days ago`);
 }
 
 /**
@@ -65,7 +67,7 @@ export function SaveGroup() {
     try {
       await action();
     } catch {
-      setStatus('這次沒有成功，請再試一次。');
+      setStatus(t('這次沒有成功，請再試一次。', "That didn't work. Please try again."));
     } finally {
       setBusy(false);
     }
@@ -77,10 +79,20 @@ export function SaveGroup() {
       try {
         await navigator.clipboard.writeText(code);
         setShown(null);
-        setStatus('已複製存檔代碼，貼到另一台裝置的「匯入」就可以。');
+        setStatus(
+          t(
+            '已複製存檔代碼，貼到另一台裝置的「匯入」就可以。',
+            'Save code copied. Paste it into "Import" on the other device.',
+          ),
+        );
       } catch {
         setShown(code);
-        setStatus('沒辦法自動複製，請全選下面的代碼再複製。');
+        setStatus(
+          t(
+            '沒辦法自動複製，請全選下面的代碼再複製。',
+            "Couldn't copy automatically. Select all of the code below and copy it.",
+          ),
+        );
       }
       exported();
     });
@@ -97,7 +109,7 @@ export function SaveGroup() {
       link.remove();
       setTimeout(() => URL.revokeObjectURL(url), 1000);
       exported();
-      setStatus('已下載存檔檔案。');
+      setStatus(t('已下載存檔檔案。', 'Save file downloaded.'));
     });
 
   const pickFile = async (input: HTMLInputElement) => {
@@ -111,18 +123,30 @@ export function SaveGroup() {
     await run(async () => {
       setPasted(await file.text());
       setConfirming(false);
-      setStatus(`已讀入「${file.name}」，按「匯入」完成。`);
+      setStatus(
+        t(
+          `已讀入「${file.name}」，按「匯入」完成。`,
+          `Loaded "${file.name}". Press "Import" to finish.`,
+        ),
+      );
     });
   };
 
   const runImport = async () => {
     if (!pasted.trim()) {
-      setStatus('先貼上存檔代碼，或選擇存檔檔案。');
+      setStatus(
+        t('先貼上存檔代碼，或選擇存檔檔案。', 'Paste a save code or choose a save file first.'),
+      );
       return;
     }
     if (mode === 'replace' && !confirming) {
       setConfirming(true);
-      setStatus('完全取代會蓋掉這台裝置現在的進度。確定的話，再按一次「確定取代」。');
+      setStatus(
+        t(
+          '完全取代會蓋掉這台裝置現在的進度。確定的話，再按一次「確定取代」。',
+          'Replace all overwrites the progress on this device. If you\'re sure, press "Confirm replace".',
+        ),
+      );
       return;
     }
     setConfirming(false);
@@ -134,7 +158,12 @@ export function SaveGroup() {
       }
       const { coins, cards } = saveSummary(applyImport(result.save, result.settings, mode));
       setPasted('');
-      setStatus(`匯入完成：金幣 ${coins}、學過的卡片 ${cards} 張。`);
+      setStatus(
+        t(
+          `匯入完成：金幣 ${coins}、學過的卡片 ${cards} 張。`,
+          `Imported: ${coins} coins, ${cards} cards learned.`,
+        ),
+      );
     });
   };
 
@@ -161,10 +190,10 @@ export function SaveGroup() {
       <p class="settings-note">{lastExportText(days)}</p>
       <div class="settings-actions">
         <button type="button" class="pixel-button" disabled={busy} onClick={() => void copy()}>
-          複製存檔代碼
+          {t('複製存檔代碼', 'Copy save code')}
         </button>
         <button type="button" class="pixel-button" disabled={busy} onClick={() => void download()}>
-          下載存檔檔案
+          {t('下載存檔檔案', 'Download save file')}
         </button>
       </div>
       {shown !== null && (
@@ -172,7 +201,7 @@ export function SaveGroup() {
           class="settings-code"
           readOnly
           rows={3}
-          aria-label="存檔代碼"
+          aria-label={t('存檔代碼', 'Save code')}
           value={shown}
           onFocus={(e) => e.currentTarget.select()}
         />
@@ -180,15 +209,20 @@ export function SaveGroup() {
       <textarea
         class="settings-code"
         rows={3}
-        aria-label="貼上存檔代碼"
-        placeholder="在這裡貼上存檔代碼"
+        aria-label={t('貼上存檔代碼', 'Paste save code')}
+        placeholder={t('在這裡貼上存檔代碼', 'Paste a save code here')}
         value={pasted}
         onInput={(e) => {
           setPasted(e.currentTarget.value);
           setConfirming(false);
         }}
       />
-      <div class="settings-actions" role="radiogroup" aria-label="匯入方式" onKeyDown={onModeKey}>
+      <div
+        class="settings-actions"
+        role="radiogroup"
+        aria-label={t('匯入方式', 'Import mode')}
+        onKeyDown={onModeKey}
+      >
         {MODES.map(({ mode: m, label }) => (
           <button
             key={m}
@@ -199,7 +233,7 @@ export function SaveGroup() {
             class={`pixel-button settings-choice${mode === m ? ' primary' : ''}`}
             onClick={() => chooseMode(m)}
           >
-            {label}
+            {t(...label)}
           </button>
         ))}
       </div>
@@ -210,7 +244,7 @@ export function SaveGroup() {
           disabled={busy}
           onClick={() => fileRef.current?.click()}
         >
-          選擇檔案
+          {t('選擇檔案', 'Choose file')}
         </button>
         <button
           type="button"
@@ -218,7 +252,7 @@ export function SaveGroup() {
           disabled={busy}
           onClick={() => void runImport()}
         >
-          {confirming ? '確定取代' : '匯入'}
+          {confirming ? t('確定取代', 'Confirm replace') : t('匯入', 'Import')}
         </button>
       </div>
       <input
@@ -231,7 +265,12 @@ export function SaveGroup() {
       <p class="settings-note" role="status" aria-live="polite">
         {status}
       </p>
-      <p class="settings-note">代碼只檢查有沒有複製完整，不能防止修改。</p>
+      <p class="settings-note">
+        {t(
+          '代碼只檢查有沒有複製完整，不能防止修改。',
+          'The code only checks that it was copied whole; it does not stop edits.',
+        )}
+      </p>
     </div>
   );
 }
@@ -259,8 +298,14 @@ export function ResetGroup() {
     setArmed(null);
     setStatus(
       what === 'reset'
-        ? '進度已重置。按「還原上一次的進度」可以換回來。'
-        : `已還原：金幣 ${appStore.get().save.coins}。剛才的進度留作備份，可以再換回來。`,
+        ? t(
+            '進度已重置。按「還原上一次的進度」可以換回來。',
+            'Progress reset. Press "Restore last progress" to switch back.',
+          )
+        : t(
+            `已還原：金幣 ${appStore.get().save.coins}。剛才的進度留作備份，可以再換回來。`,
+            `Restored: ${appStore.get().save.coins} coins. The progress you had is kept as a backup.`,
+          ),
     );
   };
   const reset = () => press('reset');
@@ -268,10 +313,19 @@ export function ResetGroup() {
     <div class="settings-group" data-testid="reset-group">
       <p class="settings-note">
         {armed === 'reset'
-          ? '這台裝置的任務、單字、金幣、考試和每天的紀錄都會清掉，回到第一次玩的樣子（設定不變）。確定的話再按一次。'
+          ? t(
+              '這台裝置的任務、單字、金幣、考試和每天的紀錄都會清掉，回到第一次玩的樣子（設定不變）。確定的話再按一次。',
+              "This device's tasks, words, coins, exams and daily records will be cleared, as on the first play (settings stay). Press again to confirm.",
+            )
           : armed === 'restore'
-            ? '換回上一次重置或「完全取代」匯入之前的進度；現在的進度會留作備份。確定的話再按一次。'
-            : '從頭開始玩。想留著現在的進度，先在「存檔」複製或下載存檔。'}
+            ? t(
+                '換回上一次重置或「完全取代」匯入之前的進度；現在的進度會留作備份。確定的話再按一次。',
+                'Switch back to the progress from before the last reset or "Replace all" import; the current progress is kept as a backup. Press again to confirm.',
+              )
+            : t(
+                '從頭開始玩。想留著現在的進度，先在「存檔」複製或下載存檔。',
+                'Start over from the beginning. To keep your progress, copy or download it in "Save" first.',
+              )}
       </p>
       <div class="settings-actions">
         <button
@@ -280,7 +334,7 @@ export function ResetGroup() {
           onClick={reset}
           data-testid="reset-progress"
         >
-          {armed === 'reset' ? '確定重置' : '重置進度'}
+          {armed === 'reset' ? t('確定重置', 'Confirm reset') : t('重置進度', 'Reset progress')}
         </button>
         {backup && (
           <button
@@ -289,7 +343,9 @@ export function ResetGroup() {
             onClick={() => press('restore')}
             data-testid="restore-backup"
           >
-            {armed === 'restore' ? '確定還原' : '還原上一次的進度'}
+            {armed === 'restore'
+              ? t('確定還原', 'Confirm restore')
+              : t('還原上一次的進度', 'Restore last progress')}
           </button>
         )}
         {armed && (
@@ -299,7 +355,7 @@ export function ResetGroup() {
             onClick={() => setArmed(null)}
             data-testid="reset-cancel"
           >
-            取消
+            {t('取消', 'Cancel')}
           </button>
         )}
       </div>

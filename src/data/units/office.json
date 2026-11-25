@@ -700,6 +700,7 @@
     {
       "id": "t1",
       "title": "整理新座位",
+      "titleEn": "Setting up your desk",
       "newChunkIds": ["still_setting_up_my_desk", "where_do_you_keep_the_pens"],
       "newWordIds": ["set", "top", "space", "folder", "drawer", "pen"],
       "scene": [
@@ -760,6 +761,7 @@
     {
       "id": "t2",
       "title": "第一次用影印機",
+      "titleEn": "First time at the copier",
       "newChunkIds": ["first_time_using_this_machine", "can_i_watch_you_do_it_once"],
       "newWordIds": ["power", "fax", "function", "machine", "manual", "copier", "sheet"],
       "fills": [
@@ -837,6 +839,7 @@
     {
       "id": "t3",
       "title": "這件事要找誰",
+      "titleEn": "Who handles this?",
       "newChunkIds": ["someone_who_can_fix_my_monitor", "woman_who_works_at_the_front_desk"],
       "newWordIds": ["manage", "guy", "technician", "coworker", "monitor", "cable", "printer"],
       "scene": [
@@ -897,6 +900,7 @@
     {
       "id": "t4",
       "title": "讀茶水間公告",
+      "titleEn": "The break room notice",
       "newChunkIds": ["which_bin_do_paper_cups_go_in"],
       "newWordIds": [
         "memo",
@@ -1001,6 +1005,7 @@
     {
       "id": "t5",
       "title": "午餐時間",
+      "titleEn": "Lunchtime",
       "newChunkIds": ["so_how_was_your_weekend", "do_you_guys_eat_in_the_cafeteria"],
       "newWordIds": ["cafeteria", "mine", "nobody", "somewhere", "plate", "pot", "microwave"],
       "fills": [
@@ -1088,6 +1093,7 @@
     {
       "id": "t6",
       "title": "幫忙歸檔",
+      "titleEn": "Helping with filing",
       "newChunkIds": ["want_me_to_sort_these_by_date", "asked_me_to_scan_all_of_these"],
       "newWordIds": ["sort", "record", "project", "section", "remind", "pile", "scan", "clip"],
       "cloze": [
@@ -1165,6 +1171,7 @@
     {
       "id": "t7",
       "title": "系統登不進去",
+      "titleEn": "Can't log in",
       "newChunkIds": ["followed_the_steps_nothing_happened"],
       "newWordIds": [
         "system",
@@ -1295,6 +1302,7 @@
     {
       "id": "t8",
       "title": "接手訂辦公用品",
+      "titleEn": "Ordering office supplies",
       "newChunkIds": ["happy_to_help_with_that", "not_sure_but_ill_find_out"],
       "newWordIds": [
         "supply",
@@ -1382,6 +1390,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

@@ -1,3 +1,4 @@
+import { showZhNow, t } from '../../core/i18n';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { PICTURE_H, PICTURE_W } from '../../art/pictures';
 import { nowPlaying, playAudio, preloadAudio, stopAudio } from '../../audio/pronounce';
@@ -36,9 +37,13 @@ export function keyState(optionId: string, correctId: string, picked: string | n
 /** The line under the picture: which sentence is playing, or how to use the keys. */
 export function statusText(playing: number, count: number): string {
   if (playing >= 0) {
-    return `正在播 ${OPTION_LETTERS[playing] ?? playing + 1}（${playing + 1}／${count}）`;
+    const letter = OPTION_LETTERS[playing] ?? playing + 1;
+    return t(
+      `正在播 ${letter}（${playing + 1}／${count}）`,
+      `Playing ${letter} (${playing + 1}/${count})`,
+    );
   }
-  return '按 ♪ 再聽一句，按字母選答案';
+  return t('按 ♪ 再聽一句，按字母選答案', 'Tap ♪ to hear one again, a letter to answer');
 }
 
 /** The options as lines for playConversation, all in the announcer's voice. */
@@ -199,7 +204,9 @@ export function ListenPicture({ question, onAnswered }: MinigameProps<PictureQue
 
   return (
     <div class={`mg listen-picture${answered ? ' answered' : ''}`}>
-      <p class="mg-prompt">看圖聽句：選出說得對的那一句</p>
+      <p class="mg-prompt">
+        {t('看圖聽句：選出說得對的那一句', 'Look and listen: pick the sentence that fits')}
+      </p>
       {url && (
         <img
           class="mg-picture"
@@ -227,7 +234,7 @@ export function ListenPicture({ question, onAnswered }: MinigameProps<PictureQue
                 type="button"
                 class={`pixel-button mg-option lp-pick ${state}${on ? ' on' : ''}`}
                 data-testid={`option-${option.id}`}
-                aria-label={answered ? undefined : `選 ${letter}`}
+                aria-label={answered ? undefined : t(`選 ${letter}`, `Pick ${letter}`)}
                 aria-current={on ? 'true' : undefined}
                 disabled={answered}
                 onClick={() => choose(option.id)}
@@ -241,7 +248,7 @@ export function ListenPicture({ question, onAnswered }: MinigameProps<PictureQue
                 {answered && (
                   <span class="mg-say">
                     <span lang="en">{option.en}</span>
-                    {showZh && <span class="mg-pair-zh">{option.zh}</span>}
+                    {showZhNow(showZh) && <span class="mg-pair-zh">{option.zh}</span>}
                   </span>
                 )}
               </button>
@@ -250,7 +257,7 @@ export function ListenPicture({ question, onAnswered }: MinigameProps<PictureQue
                   type="button"
                   class="pixel-button small lp-play"
                   data-testid={`play-${option.id}`}
-                  aria-label={`再聽 ${letter}`}
+                  aria-label={t(`再聽 ${letter}`, `Play ${letter} again`)}
                   onClick={() => playOne(i)}
                 >
                   ♪
@@ -260,10 +267,10 @@ export function ListenPicture({ question, onAnswered }: MinigameProps<PictureQue
                     type="button"
                     class="pixel-button small lp-play"
                     data-testid={`slow-${option.id}`}
-                    aria-label={`慢速再聽 ${letter}`}
+                    aria-label={t(`慢速再聽 ${letter}`, `Play ${letter} slowly`)}
                     onClick={() => playOne(i, true)}
                   >
-                    慢速
+                    {t('慢速', 'Slow')}
                   </button>
                 )}
               </div>
@@ -275,7 +282,14 @@ export function ListenPicture({ question, onAnswered }: MinigameProps<PictureQue
         {answered && (
           <Feedback
             correct={isRight}
-            hint={isRight ? undefined : '再聽一次，看圖裡的人在做什麼。'}
+            hint={
+              isRight
+                ? undefined
+                : t(
+                    '再聽一次，看圖裡的人在做什麼。',
+                    'Listen again and look at what the people are doing.',
+                  )
+            }
           />
         )}
       </FeedbackSlot>

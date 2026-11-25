@@ -756,6 +756,7 @@
     {
       "id": "t1",
       "title": "電話響了",
+      "titleEn": "The phone rings",
       "newChunkIds": ["thank_you_for_calling_harbor_trading", "somebody_on_the_phone_for_you"],
       "newWordIds": ["man", "customer", "ring", "conversation", "somebody", "ourselves", "hello"],
       "scene": [
@@ -823,6 +824,7 @@
     {
       "id": "t2",
       "title": "幫客戶轉接",
+      "titleEn": "Transferring a call",
       "newChunkIds": ["one_moment_ill_transfer_you", "hold_or_call_back_later"],
       "newWordIds": [
         "reach",
@@ -911,6 +913,7 @@
     {
       "id": "t3",
       "title": "她可能在開會",
+      "titleEn": "She may be in a meeting",
       "newChunkIds": ["may_i_ask_whos_calling", "she_might_be_in_a_meeting"],
       "newWordIds": [
         "might",
@@ -986,6 +989,7 @@
     {
       "id": "t4",
       "title": "讀接電話須知",
+      "titleEn": "Phone answering guide",
       "newChunkIds": ["text_her_or_call_her_cellphone"],
       "newWordIds": [
         "caller",
@@ -1078,6 +1082,7 @@
     {
       "id": "t5",
       "title": "聽語音留言",
+      "titleEn": "Listening to voicemail",
       "newChunkIds": ["sorry_to_interrupt_left_a_voicemail", "wants_her_to_call_him_back"],
       "newWordIds": [
         "sometime",
@@ -1192,6 +1197,7 @@
     {
       "id": "t6",
       "title": "幫忙留言",
+      "titleEn": "Taking a message",
       "newChunkIds": ["would_you_like_me_to_take_a_message", "tell_her_as_soon_as_shes_back"],
       "newWordIds": [
         "repeat",
@@ -1277,6 +1283,7 @@
     {
       "id": "t7",
       "title": "換我留言",
+      "titleEn": "Leaving a message",
       "newChunkIds": ["calling_from_harbor_trading_about_order"],
       "newWordIds": [
         "press",
@@ -1406,6 +1413,7 @@
     {
       "id": "t8",
       "title": "訊號不好的回電",
+      "titleEn": "A call with bad signal",
       "newChunkIds": ["thanks_for_getting_back_to_me", "youre_breaking_up_a_little"],
       "newWordIds": [
         "connection",
@@ -1493,6 +1501,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

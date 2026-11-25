@@ -543,6 +543,7 @@
     {
       "id": "t1",
       "title": "記者想訪問你",
+      "titleEn": "A reporter wants to talk",
       "backdrop": "coworker",
       "newChunkIds": ["interview_me_instead", "never_done_interview"],
       "newWordIds": [
@@ -629,6 +630,7 @@
     {
       "id": "t2",
       "title": "和主管準備回答",
+      "titleEn": "Preparing answers",
       "backdrop": "coworker",
       "newChunkIds": ["memorize_my_answers", "points_to_get_across"],
       "newWordIds": [
@@ -736,6 +738,7 @@
     {
       "id": "t3",
       "title": "和 Dan 練習",
+      "titleEn": "Practicing with Dan",
       "backdrop": "coworker",
       "newChunkIds": ["what_makes_lantern_different", "what_customers_love"],
       "newWordIds": [
@@ -815,6 +818,7 @@
     {
       "id": "t4",
       "title": "讀記者的來信",
+      "titleEn": "Reading the reporter's email",
       "backdrop": "coworker",
       "newChunkIds": ["write_back_thursday"],
       "newWordIds": [
@@ -925,6 +929,7 @@
     {
       "id": "t5",
       "title": "採訪開始",
+      "titleEn": "The interview begins",
       "newChunkIds": ["started_lantern_because", "gave_lamps_to_schools"],
       "newWordIds": [
         "found",
@@ -1092,6 +1097,7 @@
     {
       "id": "t6",
       "title": "尖銳的問題",
+      "titleEn": "Tough questions",
       "newChunkIds": ["as_i_told_our_staff", "said_earlier_hiring"],
       "newWordIds": [
         "reveal",
@@ -1310,6 +1316,7 @@
     {
       "id": "t7",
       "title": "電台節目播出",
+      "titleEn": "On the radio",
       "backdrop": "coworker",
       "newChunkIds": ["played_my_answer_radio"],
       "newWordIds": [
@@ -1484,6 +1491,7 @@
     {
       "id": "t8",
       "title": "報導刊出",
+      "titleEn": "The story comes out",
       "backdrop": "coworker",
       "newChunkIds": ["quoted_me_correctly", "if_i_did_it_again"],
       "newWordIds": [
@@ -1574,6 +1582,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

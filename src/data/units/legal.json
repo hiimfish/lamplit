@@ -462,6 +462,7 @@
     {
       "id": "t1",
       "title": "Hughes 先生的提議",
+      "titleEn": "Mr. Hughes's proposal",
       "backdrop": "client",
       "newChunkIds": ["sell_lantern_in_your_stores", "proceed_on_that_basis"],
       "newWordIds": [
@@ -548,6 +549,7 @@
     {
       "id": "t2",
       "title": "草擬合約條件",
+      "titleEn": "Drafting the terms",
       "newChunkIds": ["contract_run_two_years", "exclusive_right_in_uk"],
       "newWordIds": [
         "length",
@@ -659,6 +661,7 @@
     {
       "id": "t3",
       "title": "律師看條款",
+      "titleEn": "The lawyer reviews terms",
       "backdrop": "lawyer",
       "newChunkIds": ["clause_approved_by_ellis", "make_sure_i_understand_tested"],
       "newWordIds": [
@@ -745,6 +748,7 @@
     {
       "id": "t4",
       "title": "讀合約草案和律師的意見",
+      "titleEn": "Draft and lawyer's notes",
       "backdrop": "lawyer",
       "newChunkIds": ["read_through_draft_tonight"],
       "newWordIds": [
@@ -892,6 +896,7 @@
     {
       "id": "t5",
       "title": "意見不合",
+      "titleEn": "A disagreement",
       "backdrop": "client",
       "newChunkIds": ["afraid_five_years_too_long", "short_break_come_back"],
       "newWordIds": [
@@ -1074,6 +1079,7 @@
     {
       "id": "t6",
       "title": "談判",
+      "titleEn": "Negotiating",
       "backdrop": "client",
       "newChunkIds": ["despite_differences_compromise", "lower_price_bigger_order"],
       "newWordIds": [
@@ -1295,6 +1301,7 @@
     {
       "id": "t7",
       "title": "律師的語音留言",
+      "titleEn": "The lawyer's voicemail",
       "newChunkIds": ["look_at_changes_call_back"],
       "newWordIds": [
         "amendment",
@@ -1471,6 +1478,7 @@
     {
       "id": "t8",
       "title": "簽約",
+      "titleEn": "Signing the contract",
       "backdrop": "main",
       "newChunkIds": ["sign_every_page", "glad_we_made_this_work"],
       "newWordIds": [
@@ -1563,6 +1571,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "backdrop": "client",
       "kind": "roleplay",
       "newChunkIds": [],

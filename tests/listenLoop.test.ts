@@ -5,7 +5,14 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { ScoredAttempt } from '../src/audio/utterance';
 import type { SpokenScore } from '../src/learning/spokenScore';
-import { classifyListenError, ListenLoop } from '../src/ui/listenLoop';
+import {
+  classifyListenError,
+  ListenLoop,
+  NOTE_END,
+  NOTE_RETRY,
+  NOTE_SILENT,
+  noteInEnglish,
+} from '../src/ui/listenLoop';
 import type { ListenLoopSnapshot, LoopDeps, LoopLine } from '../src/ui/listenLoop';
 
 function deferred<T>() {
@@ -852,5 +859,12 @@ describe('dispose', () => {
     t.plays[0]!.done.resolve();
     await tick(5000);
     expect(t.advances).toEqual([]);
+  });
+});
+
+describe('noteInEnglish', () => {
+  it('swaps each note, also a note carrying the last-line note', () => {
+    expect(noteInEnglish(NOTE_RETRY)).toBe('Not 90 yet. Listen again and say it again.');
+    expect(noteInEnglish(`${NOTE_SILENT} ${NOTE_END}`)).not.toMatch(/[一-鿿]/);
   });
 });

@@ -8,7 +8,7 @@ import { PronError } from '../src/audio/pronModel';
 import { RecorderError } from '../src/audio/recorder';
 import type { ScoredAttempt } from '../src/audio/utterance';
 import type { SpokenScore } from '../src/learning/spokenScore';
-import { NOTHING_HEARD, PronController } from '../src/ui/minigames/usePronScore';
+import { nothingHeard, PronController } from '../src/ui/minigames/usePronScore';
 import type { PronDeps, PronState } from '../src/ui/minigames/usePronScore';
 
 vi.mock('../src/audio/pronounce', () => ({ stopAudio: vi.fn(), playAudio: vi.fn() }));
@@ -151,7 +151,7 @@ describe('PronController (說說看)', () => {
     await flush();
     t.tries[0]!.result.resolve(null);
     await flush();
-    expect(t.controller.getState()).toMatchObject({ score: null, message: NOTHING_HEARD });
+    expect(t.controller.getState()).toMatchObject({ score: null, message: nothingHeard() });
   });
 
   it('a refused microphone shows the recorder message', async () => {

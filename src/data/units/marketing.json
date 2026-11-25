@@ -423,6 +423,7 @@
     {
       "id": "t1",
       "title": "和行銷顧問第一次開會",
+      "titleEn": "Meeting the consultant",
       "newChunkIds": ["lantern_series_intro", "campaigns_worked_on"],
       "newWordIds": [
         "campaign",
@@ -499,6 +500,7 @@
     {
       "id": "t2",
       "title": "誰會買 Lantern",
+      "titleEn": "Who will buy Lantern?",
       "newChunkIds": ["mainly_thinking_of_home_workers", "office_workers_relate"],
       "newWordIds": [
         "relate",
@@ -596,6 +598,7 @@
     {
       "id": "t3",
       "title": "設計問卷",
+      "titleEn": "Designing a survey",
       "newChunkIds": ["keep_questionnaire_short", "if_more_time_interview"],
       "newWordIds": [
         "research",
@@ -674,6 +677,7 @@
     {
       "id": "t4",
       "title": "讀問卷結果",
+      "titleEn": "Reading the survey results",
       "newChunkIds": ["results_show_price"],
       "newWordIds": [
         "movement",
@@ -782,6 +786,7 @@
     {
       "id": "t5",
       "title": "品牌訊息和標語",
+      "titleEn": "Brand message and slogan",
       "newChunkIds": ["slogan_short_easy", "version_sounds_warmer"],
       "newWordIds": [
         "famous",
@@ -960,6 +965,7 @@
     {
       "id": "t6",
       "title": "廣告要放哪裡",
+      "titleEn": "Where to advertise",
       "newChunkIds": ["although_magazine_ads", "on_the_other_hand_videos"],
       "newWordIds": [
         "although",
@@ -1156,6 +1162,7 @@
     {
       "id": "t7",
       "title": "競爭對手出招",
+      "titleEn": "A competitor's move",
       "newChunkIds": ["compete_on_design"],
       "newWordIds": [
         "player",
@@ -1316,6 +1323,7 @@
     {
       "id": "t8",
       "title": "決定上市日期",
+      "titleEn": "Setting the launch date",
       "newChunkIds": ["launch_early_may", "flyers_before_trade_show"],
       "newWordIds": [
         "spread",
@@ -1406,6 +1414,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

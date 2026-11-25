@@ -578,6 +578,7 @@
     {
       "id": "t1",
       "title": "打電話報修：廚房漏水",
+      "titleEn": "Reporting a kitchen leak",
       "newChunkIds": ["my_kitchen_sink_is_leaking", "water_all_over_the_floor"],
       "newWordIds": ["happen", "wall", "floor", "apartment", "leak"],
       "scene": [
@@ -631,6 +632,7 @@
     {
       "id": "t2",
       "title": "約時間來修",
+      "titleEn": "Booking a repair time",
       "newChunkIds": ["can_someone_come_fix_it_today", "im_home_all_afternoon"],
       "newWordIds": ["house", "worry", "quickly", "fix", "tool", "plumber"],
       "fills": [
@@ -704,6 +706,7 @@
     {
       "id": "t3",
       "title": "房東上門修水槽",
+      "titleEn": "The landlord fixes the sink",
       "newChunkIds": ["should_i_take_all_these_things_out", "it_seems_okay_now"],
       "newWordIds": ["fall", "drop", "pull", "push", "dark", "cabinet"],
       "scene": [
@@ -765,6 +768,7 @@
     {
       "id": "t4",
       "title": "把剛買的二手車開去修車廠",
+      "titleEn": "Taking the used car in",
       "newChunkIds": ["i_just_bought_this_used_car", "it_makes_a_strange_noise"],
       "newWordIds": ["shop", "sound", "trouble", "estimate", "engine", "mechanic"],
       "passages": [
@@ -853,6 +857,7 @@
     {
       "id": "t5",
       "title": "師傅說明估價",
+      "titleEn": "The mechanic's estimate",
       "newChunkIds": ["i_dont_need_a_whole_new_engine", "do_i_really_need_new_tires"],
       "newWordIds": ["probably", "damage", "replace", "tire", "repair", "brake"],
       "talks": [
@@ -958,6 +963,7 @@
     {
       "id": "t6",
       "title": "決定先修哪些",
+      "titleEn": "Deciding what to fix first",
       "newChunkIds": ["thats_a_bit_too_expensive", "lets_just_fix_the_brakes"],
       "newWordIds": ["enough", "finish", "speed", "safety", "accident", "dangerous"],
       "cloze": [
@@ -1041,6 +1047,7 @@
     {
       "id": "t7",
       "title": "取車付款",
+      "titleEn": "Picking up and paying",
       "newChunkIds": ["im_here_for_my_car", "it_sounds_really_good_now"],
       "newWordIds": ["almost", "full", "fill", "gas", "inspection", "warranty"],
       "spellWordIds": ["magazine", "print", "paper", "file", "board"],
@@ -1095,6 +1102,7 @@
     {
       "id": "t8",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

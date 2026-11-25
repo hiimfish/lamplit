@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'preact/hooks';
 import { playChime, unlockAudio } from '../audio/audioContext';
 import { appStore, setDayStamp } from '../core/appState';
+import { isEnglish, t } from '../core/i18n';
 import { recordToday } from '../core/save';
 import { DEV_TOOLS, devUnlockAll, settingsStore, TEXT_SCALE } from '../core/settings';
 import { useStore } from '../core/store';
@@ -66,14 +67,16 @@ function TitleScreen() {
         <h1 class="title" lang="en">
           Lamplit
         </h1>
-        <p class="subtitle">英語學習</p>
+        <p class="subtitle">{t('英語學習', 'Learn English')}</p>
       </div>
       <button class="pixel-button primary blink" onClick={start} data-testid="start">
-        {resume ? '點一下繼續' : '點一下開始'}
+        {resume ? t('點一下繼續', 'Tap to continue') : t('點一下開始', 'Tap to start')}
         <KeyCap k="Enter" />
       </button>
       <footer class="title-notice" data-testid="title-notice">
-        <p>TOEIC®（多益）是 ETS 的註冊商標。本遊戲與 ETS 無關，未經 ETS 認可或贊助。</p>
+        {!isEnglish() && (
+          <p>TOEIC®（多益）是 ETS 的註冊商標。本遊戲與 ETS 無關，未經 ETS 認可或贊助。</p>
+        )}
         <p lang="en">
           TOEIC is a registered trademark of ETS. This product is not endorsed or approved by ETS.
         </p>

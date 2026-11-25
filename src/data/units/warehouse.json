@@ -809,6 +809,7 @@
     {
       "id": "t1",
       "title": "到倉庫幫忙",
+      "titleEn": "Helping at the warehouse",
       "newChunkIds": ["asked_me_to_help_out_here", "this_place_is_huge_where_do_i_start"],
       "newWordIds": [
         "goods",
@@ -881,6 +882,7 @@
     {
       "id": "t2",
       "title": "盤點庫存",
+      "titleEn": "Counting stock",
       "newChunkIds": ["numbers_still_dont_match", "mark_it_on_inventory_list"],
       "newWordIds": [
         "mark",
@@ -975,6 +977,7 @@
     {
       "id": "t3",
       "title": "包裝與貼標籤",
+      "titleEn": "Packing and labeling",
       "newChunkIds": ["how_are_small_orders_packed", "were_these_boxes_packed_by_same_person"],
       "newWordIds": [
         "measure",
@@ -1055,6 +1058,7 @@
     {
       "id": "t4",
       "title": "讀安全須知",
+      "titleEn": "Reading the safety rules",
       "newChunkIds": ["wasnt_aware_of_rule_about_gloves"],
       "newWordIds": [
         "fire",
@@ -1160,6 +1164,7 @@
     {
       "id": "t5",
       "title": "照時刻表裝車",
+      "titleEn": "Loading on schedule",
       "newChunkIds": ["want_me_to_load_rush_order_first", "which_truck_does_this_order_go_on"],
       "newWordIds": [
         "lift",
@@ -1305,6 +1310,7 @@
     {
       "id": "t6",
       "title": "少了一箱",
+      "titleEn": "A box is missing",
       "newChunkIds": ["most_of_the_order_is_here", "none_of_these_boxes_have_yellow_tag"],
       "newWordIds": [
         "none",
@@ -1436,6 +1442,7 @@
     {
       "id": "t7",
       "title": "倉庫廣播",
+      "titleEn": "Warehouse announcements",
       "newChunkIds": ["storage_room_closed_until_three"],
       "newWordIds": [
         "control",
@@ -1566,6 +1573,7 @@
     {
       "id": "t8",
       "title": "追蹤出貨",
+      "titleEn": "Tracking a shipment",
       "newChunkIds": ["status_of_the_shipment", "let_ms_carter_know_on_its_way"],
       "newWordIds": [
         "contain",
@@ -1643,6 +1651,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

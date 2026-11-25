@@ -371,6 +371,7 @@
     {
       "id": "t1",
       "title": "和倫敦視訊",
+      "titleEn": "Video call with London",
       "newChunkIds": ["what_to_know_before_london_branch", "hotel_near_office_you_recommend"],
       "newWordIds": [
         "global",
@@ -456,6 +457,7 @@
     {
       "id": "t2",
       "title": "夜班飛機與入境",
+      "titleEn": "Night flight and arrival",
       "newChunkIds": ["here_on_business_for_two_weeks", "where_baggage_claim_is"],
       "newWordIds": [
         "traveler",
@@ -559,6 +561,7 @@
     {
       "id": "t3",
       "title": "抵達倫敦分公司",
+      "titleEn": "Arriving at the London branch",
       "newChunkIds": ["hotel_asked_whether_taxi_walked", "immigration_asked_how_long_staying"],
       "newWordIds": [
         "whether",
@@ -645,6 +648,7 @@
     {
       "id": "t4",
       "title": "讀行程、email 和公告",
+      "titleEn": "Itinerary, email and notice",
       "newChunkIds": ["thanks_for_making_the_arrangements"],
       "newWordIds": [
         "construction",
@@ -806,6 +810,7 @@
     {
       "id": "t5",
       "title": "佈置新辦公室",
+      "titleEn": "Setting up the new office",
       "newChunkIds": ["move_desks_closer_to_window", "when_internet_will_be_set_up"],
       "newWordIds": [
         "estate",
@@ -968,6 +973,7 @@
     {
       "id": "t6",
       "title": "當地的習慣",
+      "titleEn": "Local customs",
       "newChunkIds": ["what_would_you_do_in_my_shoes", "wish_i_had_more_time_city"],
       "newWordIds": [
         "manner",
@@ -1155,6 +1161,7 @@
     {
       "id": "t7",
       "title": "從倫敦參加週會",
+      "titleEn": "Weekly meeting from London",
       "newChunkIds": ["keep_you_posted_on_second_shipment"],
       "newWordIds": [
         "transition",
@@ -1318,6 +1325,7 @@
     {
       "id": "t8",
       "title": "拜訪 Hughes 的門市",
+      "titleEn": "Visiting Hughes's shop",
       "backdrop": "client",
       "newChunkIds": ["great_to_see_lantern_in_your_stores", "how_are_customers_responding"],
       "newWordIds": [
@@ -1415,6 +1423,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

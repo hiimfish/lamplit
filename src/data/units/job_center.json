@@ -254,6 +254,7 @@
     {
       "id": "t1",
       "title": "登記求職",
+      "titleEn": "Registering as a job seeker",
       "newChunkIds": ["moved_to_town_in_august", "like_to_find_a_job_here"],
       "newWordIds": ["myself", "counselor", "age", "area", "level"],
       "scene": [
@@ -306,6 +307,7 @@
     {
       "id": "t2",
       "title": "以前的工作",
+      "titleEn": "Past jobs",
       "newChunkIds": ["worked_in_an_office_in_taiwan", "looking_for_something_similar"],
       "newWordIds": ["company", "example", "experience", "actually", "clerk", "assistant"],
       "fills": [
@@ -379,6 +381,7 @@
     {
       "id": "t3",
       "title": "想要的條件",
+      "titleEn": "What you're looking for",
       "newChunkIds": ["prefer_a_smaller_company", "weekends_off_would_be_better"],
       "newWordIds": ["high", "less", "quite", "least", "low", "salary"],
       "scene": [
@@ -432,6 +435,7 @@
     {
       "id": "t4",
       "title": "看求職廣告",
+      "titleEn": "Reading job ads",
       "newChunkIds": ["full_time_or_part_time", "how_do_i_apply_for_it"],
       "newWordIds": ["require", "position", "benefit", "apply", "ad", "wage"],
       "passages": [
@@ -526,6 +530,7 @@
     {
       "id": "t5",
       "title": "比較兩份工作",
+      "titleEn": "Comparing two jobs",
       "newChunkIds": ["which_one_would_you_choose", "does_the_office_job_pay_overtime"],
       "newWordIds": ["common", "compare", "employee", "task", "shift", "hire", "overtime"],
       "talks": [
@@ -624,6 +629,7 @@
     {
       "id": "t6",
       "title": "決定應徵",
+      "titleEn": "Deciding to apply",
       "newChunkIds": ["enjoy_working_with_people", "decided_to_apply_for_the_office_job"],
       "newWordIds": ["become", "person", "able", "decide", "enjoy", "choice", "career"],
       "cloze": [
@@ -694,6 +700,7 @@
     {
       "id": "t7",
       "title": "下一步：準備申請",
+      "titleEn": "Next: getting ready to apply",
       "newChunkIds": ["what_do_i_need_for_the_application", "should_i_bring_anything_tomorrow"],
       "newWordIds": [
         "offer",
@@ -763,6 +770,7 @@
     {
       "id": "t8",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

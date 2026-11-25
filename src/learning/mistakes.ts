@@ -5,6 +5,7 @@
  *
  * Imports only types (and the pure date helpers) so it never reaches `import.meta.glob`.
  */
+import { isEnglish } from '../core/i18n';
 import { dateKey, MISTAKE_TAG, MISTAKE_TAGS_PER_DAY, shiftDay } from '../core/save';
 import type { MistakeCount, MistakeDay, SaveData } from '../core/save';
 import type { ErrorType } from './grading';
@@ -51,12 +52,38 @@ export const MISTAKE_LABELS: Record<string, string> = {
   'k:choose-reply': '選出正確的句子',
 };
 
-/** The label of a tag: the table above, else `lookup` (for `p:` and `g:`), else undefined. */
+/** The same names in the English interface. */
+export const MISTAKE_LABELS_EN: Record<string, string> = {
+  'e:article': 'Articles a/an/the',
+  'e:plural': 'Singular/plural',
+  'e:word-order': 'Word order',
+  'e:spelling': 'Spelling',
+  'e:missing-word': 'Missing word',
+  'e:extra-word': 'Extra word',
+  'k:listen-pair': 'Hear and pick a word',
+  'k:listen-pick': 'Hear and pick a word',
+  'k:listen-meaning': 'Hear and pick the meaning',
+  'k:read-meaning': 'Read and pick the meaning',
+  'k:cloze': 'Listening gap fill',
+  'k:talk': 'Conversation questions',
+  'k:respond': 'Responses',
+  'k:picture-listen': 'Picture match (listening)',
+  'k:fill-grammar': 'Grammar gap fill',
+  'k:text-fill': 'Text completion',
+  'k:arrange': 'Sentence order',
+  'k:spell': 'Type the word',
+  'k:choose-reply': 'Pick the right sentence',
+};
+
+/**
+ * The label of a tag in the current 介面語言: the tables above, else `lookup` (for `p:` and
+ * `g:`), else undefined.
+ */
 export function labelOf(
   tag: string,
   lookup?: (tag: string) => string | undefined,
 ): string | undefined {
-  return MISTAKE_LABELS[tag] ?? lookup?.(tag);
+  return (isEnglish() ? MISTAKE_LABELS_EN[tag] : MISTAKE_LABELS[tag]) ?? lookup?.(tag);
 }
 
 const ERROR_TYPES: readonly string[] = [

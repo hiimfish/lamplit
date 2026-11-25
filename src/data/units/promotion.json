@@ -938,6 +938,7 @@
     {
       "id": "t1",
       "title": "升遷面談的通知",
+      "titleEn": "Promotion interview notice",
       "newChunkIds": ["put_together_a_portfolio", "push_the_review_back_to_friday"],
       "newWordIds": [
         "deep",
@@ -1023,6 +1024,7 @@
     {
       "id": "t2",
       "title": "寫自我評估",
+      "titleEn": "Writing a self-review",
       "newChunkIds": ["which_achievement_to_put_first", "mention_a_weakness_in_my_appraisal"],
       "newWordIds": [
         "perform",
@@ -1127,6 +1129,7 @@
     {
       "id": "t3",
       "title": "回顧這兩年",
+      "titleEn": "Looking back on two years",
       "newChunkIds": ["you_said_never_be_boring", "what_surprised_me_was_how"],
       "newWordIds": [
         "reflect",
@@ -1212,6 +1215,7 @@
     {
       "id": "t4",
       "title": "讀產品經理職務說明",
+      "titleEn": "The product manager role",
       "newChunkIds": ["role_involves_more_management"],
       "newWordIds": [
         "management",
@@ -1334,6 +1338,7 @@
     {
       "id": "t5",
       "title": "面談：成果和犯過的錯",
+      "titleEn": "Interview: wins and mistakes",
       "backdrop": "director",
       "newChunkIds": ["biggest_mistake_taught_me", "proudest_of_how_the_team"],
       "newWordIds": [
@@ -1509,6 +1514,7 @@
     {
       "id": "t6",
       "title": "面談：新職責和團隊計畫",
+      "titleEn": "Interview: the new role",
       "backdrop": "director",
       "newChunkIds": ["ill_have_leo_handle_incoming_orders", "cut_out_unnecessary_steps"],
       "newWordIds": [
@@ -1720,6 +1726,7 @@
     {
       "id": "t7",
       "title": "總經理宣布決定",
+      "titleEn": "Mr. Ellis's decision",
       "backdrop": "director",
       "newChunkIds": ["promise_i_wont_let_you_down"],
       "newWordIds": [
@@ -1901,6 +1908,7 @@
     {
       "id": "t8",
       "title": "新的一章",
+      "titleEn": "A new chapter",
       "newChunkIds": ["learned_so_much_from_both_of_you", "cant_wait_to_see_what_we_build"],
       "newWordIds": [
         "chapter",
@@ -2009,6 +2017,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

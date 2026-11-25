@@ -3,11 +3,13 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import { playMusic } from '../audio/music';
 import { playSfx } from '../audio/sfx';
 import { ACTS } from '../content/acts';
+import { actName, actTitle, placeTitle, taskTitle, unitTitle } from '../content/titles';
 import type { Task, Unit } from '../content/types';
 import { UNITS } from '../content/units';
 import { appStore, currentNow } from '../core/appState';
 import { currentStreak, type SaveData } from '../core/save';
 import { DEV_TOOLS, devUnlockAll, settingsStore } from '../core/settings';
+import { isEnglish, t } from '../core/i18n';
 import { useStore } from '../core/store';
 import { goalStatus } from '../learning/dailyGoal';
 import { isExamUnlocked } from '../learning/exam';
@@ -26,6 +28,7 @@ import {
   progressOf,
   type Progress,
   type TownAct,
+  type TownPlace,
 } from '../learning/townPlan';
 import { examIdOf, ExamTile } from './exam/ExamTile';
 import { GoalRows, type StoryStep } from './GoalRows';
@@ -42,6 +45,29 @@ import type { StageView } from './stage/stageState';
 import './town.css';
 
 export const TOWN: TownAct<Unit>[] = buildTown(ACTS, UNITS);
+
+/** An act's title in the current 介面語言 (the town's acts follow ACTS). */
+function townActTitle(act: TownAct<Unit>): string {
+  const source = ACTS.find((item) => item.no === act.no);
+  return source ? actTitle(source) : act.title;
+}
+
+/** A location's name in the current 介面語言: its unit's title, else the act's place name. */
+function townPlaceTitle(actIndex: number, index: number, place: TownPlace<Unit>): string {
+  if (place.unit) return unitTitle(place.unit);
+  const source = ACTS[actIndex]?.places[index];
+  return source ? placeTitle(source) : place.title;
+}
+
+/** 下一關：location・task */
+function nextTaskNote(unit: Unit, task: Task): string {
+  return t(`下一關：${unit.title}・${task.title}`, `Next: ${unitTitle(unit)} · ${taskTitle(task)}`);
+}
+
+/** 下一步：第N幕結業考 */
+function examNote(no: string): string {
+  return t(`下一步：第${no}幕結業考`, `Next: ${actName(no)} final exam`);
+}
 
 /** Height of the name plate under the scene, in logical pixels (two lines of text). */
 const PLATE_H = 32;
@@ -68,7 +94,12 @@ function LockMark() {
 /** Stars earned out of all that can be earned, e.g. ★ 9/24. */
 function StarCount({ progress }: { progress: Progress }) {
   return (
-    <span aria-label={`星星 ${progress.stars}，最多 ${progress.maxStars}`}>
+    <span
+      aria-label={t(
+        `星星 ${progress.stars}，最多 ${progress.maxStars}`,
+        `${progress.stars} of ${progress.maxStars} stars`,
+      )}
+    >
       <span class="star-on">★</span> {progress.stars}/{progress.maxStars}
     </span>
   );
@@ -98,15 +129,15 @@ function NamePlate({
       <div class="town-plate" style={{ height: lp(PLATE_H) }} data-testid="plate">
         <div class="town-plate-row">
           <span>
-            <span class="town-chip">第{act.no}幕</span>
-            {place.title}
+            <span class="town-chip">{actName(act.no)}</span>
+            {unitTitle(place)}
           </span>
           <StarCount progress={progress} />
         </div>
         <div class="town-plate-row">
-          <span lang="en">{place.titleEn}</span>
+          <span lang="en">{isEnglish() ? '' : place.titleEn}</span>
           <span>
-            完成 {progress.done}/{progress.total}
+            {t('完成', 'Done')} {progress.done}/{progress.total}
           </span>
         </div>
       </div>
@@ -117,22 +148,25 @@ function NamePlate({
     <div class="town-plate" style={{ height: lp(PLATE_H) }} data-testid="plate">
       <div class="town-plate-row">
         <span>
-          <span class="town-chip">第{act.no}幕</span>
-          {act.title}
+          <span class="town-chip">{actName(act.no)}</span>
+          {townActTitle(act)}
         </span>
         {units.length > 0 && <StarCount progress={progressOf(save, units)} />}
       </div>
       <div class="town-plate-row">
         <span>
           {units.length === 0
-            ? '即將開幕'
+            ? t('即將開幕', 'Coming soon')
             : locked
-              ? `玩完第${locked.no}幕或考過跳級考就會打開`
+              ? t(
+                  `玩完第${locked.no}幕或考過跳級考就會打開`,
+                  `Opens after ${actName(locked.no)} or its skip test`,
+                )
               : next
-                ? `下一關：${next.unit.title}・${next.task.title}`
+                ? nextTaskNote(next.unit, next.task)
                 : examDue
-                  ? `下一步：第${act.no}幕結業考`
-                  : '這一幕全部完成了！'}
+                  ? examNote(act.no)
+                  : t('這一幕全部完成了！', 'This act is all done!')}
         </span>
       </div>
     </div>
@@ -183,7 +217,7 @@ function PlaceTile({
         {title}
       </span>
       {progress.done === 0 ? (
-        <span class="place-state new">新地點</span>
+        <span class="place-state new">{t('新地點', 'New')}</span>
       ) : (
         <span class="place-state">
           <StarCount progress={progress} />
@@ -218,17 +252,17 @@ function TaskList({
             onClick={() => onStart(unit.id, task.id)}
             data-testid={`task-${unit.id}-${task.id}`}
           >
-            <span class="task-name">{task.title}</span>
+            <span class="task-name">{taskTitle(task)}</span>
             <span class={`task-state${!unlocked ? '' : record ? ' stars' : ' new'}`}>
               {!unlocked ? (
                 <>
                   <LockMark />
-                  先完成上一關
+                  {t('先完成上一關', 'Finish the one before')}
                 </>
               ) : record ? (
                 <StarMarks n={record.stars} />
               ) : (
-                '新任務'
+                t('新任務', 'New')
               )}
             </span>
           </button>
@@ -385,14 +419,14 @@ export function TownScreen() {
   const actions = place ? (
     <div class="town-actions">
       <button class="pixel-button back-key" onClick={() => show(actIndex)} data-testid="back">
-        回第{act.no}幕
+        {t(`回第${act.no}幕`, `Back to ${actName(act.no)}`)}
         <KeyCap k="Back" />
       </button>
     </div>
   ) : (
     <div class="town-actions">
       <button class="pixel-button back-key" onClick={fold} data-testid="pick-fold">
-        收起選關
+        {t('收起選關', 'Close levels')}
         <KeyCap k="Back" />
       </button>
     </div>
@@ -403,28 +437,37 @@ export function TownScreen() {
   // under the scene names the act and task. Enter still opens that step.
   const pickKey = (
     <button class="pixel-button town-pick" onClick={() => show(actIndex)} data-testid="town-pick">
-      選關
+      {t('選關', 'Levels')}
     </button>
   );
   const storyStep: StoryStep = next
     ? {
-        label: '開始',
-        note: `下一關：${next.unit.title}・${next.task.title}`,
+        label: t('開始', 'Start'),
+        note: nextTaskNote(next.unit, next.task),
         onStart: () => startTask(next.unit.id, next.task.id),
         extra: pickKey,
       }
     : examDue
-      ? { label: '開始', note: `下一步：第${act.no}幕結業考`, onStart: startExam, extra: pickKey }
+      ? {
+          label: t('開始', 'Start'),
+          note: examNote(act.no),
+          onStart: startExam,
+          extra: pickKey,
+        }
       : {
-          label: '開始',
-          note: before ? `玩完第${before.no}幕才會打開` : '這一幕全部完成了！',
+          label: t('開始', 'Start'),
+          note: before
+            ? t(`玩完第${before.no}幕才會打開`, `Opens after ${actName(before.no)}`)
+            : t('這一幕全部完成了！', 'This act is all done!'),
           extra: pickKey,
         };
   const nextCard = (
     <section class="town-goals" aria-labelledby="town-goals-title" data-testid="town-goals">
       <h2 class="town-goals-title" id="town-goals-title">
-        今天的目標
-        <span class="goal-tally">{goal.all ? '✓ 都完成了' : `${goal.met}/${goal.total}`}</span>
+        {t('今天的目標', "Today's goals")}
+        <span class="goal-tally">
+          {goal.all ? t('✓ 都完成了', '✓ All done') : `${goal.met}/${goal.total}`}
+        </span>
       </h2>
       <GoalRows story={storyStep} />
       {DEV_TOOLS && <DevPlayRows />}
@@ -453,9 +496,9 @@ export function TownScreen() {
         <div class="town-hud">
           <span class="town-status">
             <span class="coins" data-testid="coins">
-              金幣 {save.coins}
+              {t('金幣', 'Coins')} {save.coins}
             </span>
-            <span data-testid="streak">連續 {streak} 天</span>
+            <span data-testid="streak">{t(`連續 ${streak} 天`, `${streak}-day streak`)}</span>
           </span>
           <span class="town-hud-keys">
             <button
@@ -466,10 +509,10 @@ export function TownScreen() {
               }}
               data-testid="town-progress"
             >
-              進度
+              {t('進度', 'Progress')}
             </button>
             <button class="pixel-button small" onClick={() => setSettingsOpen(true)}>
-              設定
+              {t('設定', 'Settings')}
             </button>
           </span>
         </div>
@@ -490,7 +533,12 @@ export function TownScreen() {
       {frame && createPortal(top, frame)}
       <div class="flow-card" inert={settingsOpen || howOpen}>
         <h1 class="sr-only" ref={headingRef}>
-          {place ? place.title : `小鎮：第${act.no}幕 ${act.title}`}
+          {place
+            ? unitTitle(place)
+            : t(
+                `小鎮：第${act.no}幕 ${act.title}`,
+                `Town: ${actName(act.no)} ${townActTitle(act)}`,
+              )}
         </h1>
         {place ? (
           <>
@@ -502,7 +550,12 @@ export function TownScreen() {
         ) : (
           <>
             {actions}
-            <div class="act-tabs" role="radiogroup" aria-label="選一幕" onKeyDown={onActKey}>
+            <div
+              class="act-tabs"
+              role="radiogroup"
+              aria-label={t('選一幕', 'Pick an act')}
+              onKeyDown={onActKey}
+            >
               {TOWN.map((item, index) => (
                 <button
                   key={item.no}
@@ -510,32 +563,45 @@ export function TownScreen() {
                   role="radio"
                   aria-checked={index === actIndex}
                   tabIndex={index === actIndex ? 0 : -1}
-                  aria-label={`第${item.no}幕 ${item.title}${isActUnlocked(TOWN, save, index, openAll) ? '' : '（未解鎖）'}`}
+                  aria-label={`${actName(item.no)} ${townActTitle(item)}${isActUnlocked(TOWN, save, index, openAll) ? '' : t('（未解鎖）', ' (locked)')}`}
                   class={`pixel-button act-tab${actUnits(item).length > 0 ? '' : ' soon'}`}
                   onClick={() => show(index)}
                   data-testid={`act-${index + 1}`}
                 >
-                  第{item.no}幕
+                  {actName(item.no)}
                 </button>
               ))}
             </div>
             {openAll && (
               <p class="flow-note" data-testid="dev-note">
-                開發模式：所有關卡都開放（在設定裡關掉）。
+                {t(
+                  '開發模式：所有關卡都開放（在設定裡關掉）。',
+                  'Dev mode: every level is open (turn it off in Settings).',
+                )}
               </p>
             )}
             {units.length === 0 && (
-              <p class="flow-note">這一幕還在準備中，下面是之後會開的地點。</p>
+              <p class="flow-note">
+                {t(
+                  '這一幕還在準備中，下面是之後會開的地點。',
+                  'This act is still being built. These places open later.',
+                )}
+              </p>
             )}
             {units.length > 0 && before && isSkipAct(actIndex) && (
               <div class="act-locked" data-testid="act-locked">
-                <p class="flow-note">已經有基礎？考過第{before.no}幕跳級考就能直接進來。</p>
+                <p class="flow-note">
+                  {t(
+                    `已經有基礎？考過第${before.no}幕跳級考就能直接進來。`,
+                    `Know some already? Pass the ${actName(before.no)} skip test to jump in.`,
+                  )}
+                </p>
                 <button
                   class="pixel-button"
                   onClick={() => startSkip(actIndex)}
                   data-testid="skip-challenge"
                 >
-                  挑戰第{before.no}幕跳級考
+                  {t(`挑戰第${before.no}幕跳級考`, `Take the ${actName(before.no)} skip test`)}
                 </button>
               </div>
             )}
@@ -544,7 +610,7 @@ export function TownScreen() {
                 <PlaceTile
                   key={item.title}
                   no={index + 1}
-                  title={item.title}
+                  title={townPlaceTitle(actIndex, index, item)}
                   unit={item.unit}
                   locked={
                     !actOpen ||

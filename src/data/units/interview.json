@@ -245,6 +245,7 @@
     {
       "id": "t1",
       "title": "前台報到",
+      "titleEn": "Checking in at reception",
       "newChunkIds": ["have_interview_at_ten", "fill_anything_out_first"],
       "newWordIds": ["interview", "mind", "fine", "certainly", "wish", "manager"],
       "scene": [
@@ -305,6 +306,7 @@
     {
       "id": "t2",
       "title": "見面寒暄",
+      "titleEn": "Greetings and small talk",
       "newChunkIds": ["thanks_for_meeting_me", "love_it_here_friendly"],
       "newWordIds": [
         "love",
@@ -385,6 +387,7 @@
     {
       "id": "t3",
       "title": "自我介紹",
+      "titleEn": "Introducing yourself",
       "newChunkIds": ["been_in_town_since_august", "studied_english_many_years"],
       "newWordIds": [
         "since",
@@ -453,6 +456,7 @@
     {
       "id": "t4",
       "title": "上一份工作",
+      "titleEn": "Your last job",
       "newChunkIds": ["answered_phone_wrote_emails", "took_care_of_orders_meetings"],
       "newWordIds": [
         "share",
@@ -542,6 +546,7 @@
     {
       "id": "t5",
       "title": "為什麼想來這裡",
+      "titleEn": "Why this company?",
       "newChunkIds": ["heard_great_place_to_work", "looking_for_chance_to_grow"],
       "newWordIds": ["believe", "reason", "future", "opportunity", "respect", "success", "goal"],
       "talks": [
@@ -660,6 +665,7 @@
     {
       "id": "t6",
       "title": "優點和缺點",
+      "titleEn": "Strengths and weaknesses",
       "newChunkIds": ["not_fastest_but_careful", "english_not_strong_yet"],
       "newWordIds": ["strong", "improve", "patient", "fail", "stress", "strength", "weak"],
       "cloze": [
@@ -726,6 +732,7 @@
     {
       "id": "t7",
       "title": "輪到你發問",
+      "titleEn": "Your turn to ask",
       "newChunkIds": ["ask_about_working_hours", "when_need_me_to_start"],
       "newWordIds": ["matter", "agree", "discuss", "opinion", "depend", "immediately", "attitude"],
       "spellWordIds": ["resume", "mother", "father", "university", "certificate"],
@@ -787,6 +794,7 @@
     {
       "id": "t8",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

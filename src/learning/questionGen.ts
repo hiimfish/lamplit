@@ -6,6 +6,7 @@
  * NO_ITEM for a question about no single item.
  */
 import type { Chunk, MinimalPair, SceneLine, Task, Unit, Word } from '../content/types';
+import { t } from '../core/i18n';
 import { normalize } from './grading';
 import {
   NO_ITEM,
@@ -462,7 +463,10 @@ export function buildTaskPractice(
   ];
 }
 
-export const ROLE_PLAY_PROMPT = '換你說：把單字排成你要說的話';
+/** A role-play turn's prompt, in the current 介面語言 (built while the screen renders). */
+export function rolePlayPrompt(): string {
+  return t('換你說：把單字排成你要說的話', 'Your turn: put the words in order to say your line');
+}
 
 /**
  * One arrange question per player line of a role-play task, in order. The learner
@@ -482,7 +486,7 @@ export function buildRolePlayTurns(unit: Unit, task: Task, rng: Rng): ArrangeQue
       blocks: shuffleBlocks(words, accepted, rng),
       accepted,
       itemId: chunkItemId(chunk.id),
-      prompt: ROLE_PLAY_PROMPT,
+      prompt: rolePlayPrompt(),
       zhOnRequest: true,
     };
     return [question];

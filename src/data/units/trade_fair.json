@@ -847,6 +847,7 @@
     {
       "id": "t1",
       "title": "佈置攤位",
+      "titleEn": "Setting up the booth",
       "newChunkIds": ["where_put_brochures_samples", "display_look_okay_from_front"],
       "newWordIds": [
         "model",
@@ -931,6 +932,7 @@
     {
       "id": "t2",
       "title": "招呼第一位訪客",
+      "titleEn": "The first visitor",
       "newChunkIds": ["looking_for_anything_in_particular", "thanks_for_stopping_by"],
       "newWordIds": [
         "market",
@@ -1013,6 +1015,7 @@
     {
       "id": "t3",
       "title": "見到 Mr. Hughes 本人",
+      "titleEn": "Meeting Mr. Hughes",
       "newChunkIds": ["nice_to_finally_meet_in_person", "main_difference_is_quality"],
       "newWordIds": [
         "difference",
@@ -1086,6 +1089,7 @@
     {
       "id": "t4",
       "title": "讀展覽簡介",
+      "titleEn": "Reading the fair guide",
       "newChunkIds": ["companies_from_all_over_world"],
       "newWordIds": [
         "world",
@@ -1190,6 +1194,7 @@
     {
       "id": "t5",
       "title": "介紹新系列、交換名片",
+      "titleEn": "New line and business cards",
       "newChunkIds": ["wide_range_of_styles_sizes", "give_you_one_of_my_business_cards"],
       "newWordIds": [
         "design",
@@ -1326,6 +1331,7 @@
     {
       "id": "t6",
       "title": "約他來看示範",
+      "titleEn": "Booking a demo",
       "newChunkIds": [
         "demonstration_every_afternoon_during_fair",
         "come_back_anytime_over_three_days"
@@ -1454,6 +1460,7 @@
     {
       "id": "t7",
       "title": "展場廣播",
+      "titleEn": "Hall announcements",
       "newChunkIds": ["our_display_most_creative"],
       "newWordIds": [
         "photograph",
@@ -1603,6 +1610,7 @@
     {
       "id": "t8",
       "title": "接下訂單",
+      "titleEn": "Taking the order",
       "newChunkIds": [
         "just_to_confirm_two_hundred_new_model",
         "email_confirmation_first_thing_monday"
@@ -1694,6 +1702,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

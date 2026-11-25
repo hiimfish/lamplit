@@ -409,6 +409,7 @@
     {
       "id": "t1",
       "title": "廠商來拜訪",
+      "titleEn": "A supplier visits",
       "newChunkIds": ["looking_for_new_supplier", "send_us_a_quote"],
       "newWordIds": ["supplier", "visit", "sample", "quote", "purchase", "firm", "particular"],
       "scene": [
@@ -476,6 +477,7 @@
     {
       "id": "t2",
       "title": "單價、最低訂購量和折扣",
+      "titleEn": "Prices, minimums, discounts",
       "newChunkIds": ["minimum_order_for_that_price", "discount_if_we_order_five_hundred"],
       "newWordIds": [
         "unit",
@@ -565,6 +567,7 @@
     {
       "id": "t3",
       "title": "什麼時候到貨",
+      "titleEn": "When will it arrive?",
       "newChunkIds": ["need_them_by_mid_april", "get_them_within_fourteen_days"],
       "newWordIds": [
         "within",
@@ -641,6 +644,7 @@
     {
       "id": "t4",
       "title": "讀報價單",
+      "titleEn": "Reading the quote",
       "newChunkIds": ["price_good_until_end_of_march"],
       "newWordIds": [
         "quantity",
@@ -751,6 +755,7 @@
     {
       "id": "t5",
       "title": "跟廠商談價錢",
+      "titleEn": "Negotiating the price",
       "newChunkIds": ["do_better_on_the_price", "check_with_ms_carter_get_back_to_you"],
       "newWordIds": [
         "deal",
@@ -887,6 +892,7 @@
     {
       "id": "t6",
       "title": "下訂單",
+      "titleEn": "Placing the order",
       "newChunkIds": ["go_ahead_with_the_order", "confirm_the_delivery_date"],
       "newWordIds": [
         "deliver",
@@ -1024,6 +1030,7 @@
     {
       "id": "t7",
       "title": "交貨要延後",
+      "titleEn": "A delivery delay",
       "newChunkIds": ["only_deliver_half_on_time"],
       "newWordIds": [
         "delay",
@@ -1158,6 +1165,7 @@
     {
       "id": "t8",
       "title": "發票和付款",
+      "titleEn": "Invoice and payment",
       "newChunkIds": ["mistake_on_the_invoice", "send_payment_by_end_of_week"],
       "newWordIds": [
         "invoice",
@@ -1246,6 +1254,7 @@
     {
       "id": "t9",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

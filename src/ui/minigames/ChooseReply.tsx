@@ -1,5 +1,6 @@
+import { t } from '../../core/i18n';
 import { useState } from 'preact/hooks';
-import { ROLE_LABEL } from '../../content/roles';
+import { roleLabel } from '../../content/roles';
 import type { ChooseReplyQuestion } from '../../learning/questions';
 import { En } from '../En';
 import { useKeys } from '../keys';
@@ -14,6 +15,15 @@ import {
   useAnswerClock,
 } from './shared';
 import type { MinigameProps } from './shared';
+
+/** 店員說了這句，你要怎麼回？ / The barista said this. How do you reply? */
+function replyPrompt(role: ChooseReplyQuestion['npcRole']): string {
+  const label = roleLabel(role);
+  // "Barista" reads "the barista" mid-sentence; an all-caps label (HR) stays as it is.
+  const inSentence =
+    label === label.toUpperCase() ? label : label.charAt(0).toLowerCase() + label.slice(1);
+  return t(`${label}說了這句，你要怎麼回？`, `The ${inSentence} said this. How do you reply?`);
+}
 
 export function ChooseReply({ question, onAnswered }: MinigameProps<ChooseReplyQuestion>) {
   const clock = useAnswerClock();
@@ -36,7 +46,7 @@ export function ChooseReply({ question, onAnswered }: MinigameProps<ChooseReplyQ
 
   return (
     <div class="mg">
-      <p class="mg-prompt">{ROLE_LABEL[question.npcRole]}說了這句，你要怎麼回？</p>
+      <p class="mg-prompt">{replyPrompt(question.npcRole)}</p>
       <div class="mg-npc-row">
         <div class="mg-npc">
           <span class="mg-npc-text" data-testid="npc-text" lang="en">

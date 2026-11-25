@@ -3,6 +3,7 @@ import { sentenceFrom } from '../../learning/questionGen';
 import { gradeAnswer } from '../../learning/grading';
 import type { GradeResult } from '../../learning/grading';
 import type { ArrangeQuestion } from '../../learning/questions';
+import { isEnglish, showZhNow, t } from '../../core/i18n';
 import { settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
 import { useKeys } from '../keys';
@@ -68,7 +69,7 @@ function ZhHint({ zh, visible, onReveal }: { zh: string; visible: boolean; onRev
   }
   return (
     <button type="button" class="pixel-button" data-testid="show-zh" onClick={onReveal}>
-      看中文
+      {t('看中文', 'Show Chinese')}
       <KeyCap k="0" />
     </button>
   );
@@ -88,7 +89,10 @@ function AnswerLine({ blocks, placed, grade, onRemove }: LineProps) {
     <div class="mg-line" data-testid="answer-line">
       {placed.length === 0 && (
         <span class="mg-placeholder">
-          點下面的單字放到這裡<span class="mg-type-tip">，也可以按字塊上的鍵</span>
+          {t('點下面的單字放到這裡', 'Tap the words below to put them here')}
+          <span class="mg-type-tip">
+            {t('，也可以按字塊上的鍵', ', or press the key on each word')}
+          </span>
         </span>
       )}
       {placed.map((index) => (
@@ -165,7 +169,7 @@ function CheckRow({
         disabled={empty}
         onClick={onCheck}
       >
-        檢查
+        {t('檢查', 'Check')}
         <KeyCap k="Enter" />
       </button>
       <button
@@ -175,7 +179,7 @@ function CheckRow({
         disabled={empty}
         onClick={onReset}
       >
-        重排
+        {t('重排', 'Reset')}
         <KeyCap k="Shift+Escape" />
       </button>
     </div>
@@ -250,8 +254,10 @@ export function Arrange({ question, onAnswered }: MinigameProps<ArrangeQuestion>
     clock.markHelp();
     setZhRevealed(true);
   };
-  const zhVisible = (showZh && !question.zhOnRequest) || zhRevealed;
-  useArrangeKeys(question, state, zhVisible ? null : revealZh);
+  // The English interface hides the Chinese and its 看中文 key.
+  const noZh = isEnglish();
+  const zhVisible = (showZhNow(showZh) && !question.zhOnRequest) || zhRevealed;
+  useArrangeKeys(question, state, zhVisible || noZh ? null : revealZh);
   // A new question forgets the line an earlier check played.
   useEffect(() => {
     justChecked = null;
@@ -259,9 +265,9 @@ export function Arrange({ question, onAnswered }: MinigameProps<ArrangeQuestion>
 
   return (
     <div class="mg">
-      <p class="mg-prompt">{question.prompt ?? '把單字排成句子'}</p>
+      <p class="mg-prompt">{question.prompt ?? t('把單字排成句子', 'Put the words in order')}</p>
       {/* A role-play turn's line joins the chat once answered; its 看中文 key would only take room. */}
-      {!(locked && question.zhOnRequest && !zhRevealed) && (
+      {!noZh && !(locked && question.zhOnRequest && !zhRevealed) && (
         <ZhHint zh={question.zh} visible={zhVisible} onReveal={revealZh} />
       )}
       <AnswerLine blocks={question.blocks} placed={placed} grade={grade} onRemove={remove} />

@@ -1,3 +1,4 @@
+import { showZhNow, t } from '../../core/i18n';
 import { useState } from 'preact/hooks';
 import { settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
@@ -23,7 +24,7 @@ export function ReadSign({ question, onAnswered }: MinigameProps<SignQuestion>) 
 
   return (
     <div class="mg">
-      <p class="mg-prompt">看招牌，回答問題</p>
+      <p class="mg-prompt">{t('看招牌，回答問題', 'Read the sign and answer')}</p>
       <div class="mg-sign" data-testid="sign" lang="en">
         {question.heading && <div class="mg-sign-heading">{question.heading}</div>}
         {question.rows.map((row, i) => (
@@ -37,7 +38,7 @@ export function ReadSign({ question, onAnswered }: MinigameProps<SignQuestion>) 
         <p class="mg-sentence" data-testid="sign-question" lang="en">
           {question.en}
         </p>
-        {showZh && <p class="mg-zh">{question.zh}</p>}
+        {showZhNow(showZh) && <p class="mg-zh">{question.zh}</p>}
       </div>
       <ChoiceKeys
         options={question.options}
@@ -49,9 +50,9 @@ export function ReadSign({ question, onAnswered }: MinigameProps<SignQuestion>) 
         {picked !== null && (
           <Feedback
             correct={isRight}
-            hint={isRight ? undefined : '再看一次招牌上寫的字。'}
+            hint={isRight ? undefined : t('再看一次招牌上寫的字。', 'Read the sign again.')}
             answer={answer}
-            answerLabel="正確答案"
+            answerLabel={t('正確答案', 'Answer')}
           />
         )}
       </FeedbackSlot>

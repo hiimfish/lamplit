@@ -7,6 +7,7 @@ import { buildReviewQuestions, makeRng } from '../learning/questionGen';
 import type { AnswerResult, Question } from '../learning/questions';
 import { addCoins, buildDailyReview, reviewCoins, starsForAccuracy } from '../learning/sessionPlan';
 import { finishReview, reviewLimit } from '../learning/sprint';
+import { t } from '../core/i18n';
 import './flow.css';
 import { QuestionRunner } from './TaskScreen';
 import { QuitKey } from './QuitKey';
@@ -71,14 +72,14 @@ export function ReviewScreen() {
   return (
     <div class="flow" data-testid="review-screen">
       <div class="flow-card">
-        <div class="flow-title">今日複習</div>
+        <div class="flow-title">{t('今日複習', 'Daily review')}</div>
         {questions.length === 0 ? (
-          <p>今天沒有要複習的。</p>
+          <p>{t('今天沒有要複習的。', 'Nothing to review today.')}</p>
         ) : (
           <QuestionRunner questions={questions} showHearts={false} onFinish={finish} />
         )}
         <QuitKey
-          label="先回小鎮"
+          label={t('先回小鎮', 'Back to town')}
           confirm={questions.length > 0}
           onLeave={() => appStore.set({ screen: 'town' })}
         />

@@ -1,3 +1,4 @@
+import { showZhNow, t } from '../../core/i18n';
 import { useState } from 'preact/hooks';
 import { settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
@@ -39,9 +40,10 @@ export function ListenPair({ question, onAnswered }: MinigameProps<ListenPairQue
 
   return (
     <div class="mg">
-      <p class="mg-prompt">仔細聽，是哪一個？</p>
+      <p class="mg-prompt">{t('仔細聽，是哪一個？', 'Listen closely. Which one is it?')}</p>
       <p class="mg-focus" data-testid="pair-focus">
-        聽差別：{question.focus}
+        {t('聽差別：', 'Hear the difference: ')}
+        {question.focus}
       </p>
       <ReplayBar audioId={question.audioId} text={correctLabel} onHelp={clock.markHelp} autoplay />
       <div class="mg-options">
@@ -67,7 +69,7 @@ export function ListenPair({ question, onAnswered }: MinigameProps<ListenPairQue
               <span class="mg-pair-en" lang="en">
                 {option.label}
               </span>
-              {showZh && <span class="mg-pair-zh">{option.zh}</span>}
+              {showZhNow(showZh) && <span class="mg-pair-zh">{option.zh}</span>}
             </button>
           );
         })}
@@ -76,7 +78,11 @@ export function ListenPair({ question, onAnswered }: MinigameProps<ListenPairQue
         {picked !== null && (
           <Feedback
             correct={picked === question.correctId}
-            hint={picked === question.correctId ? undefined : '兩個都聽聽看，比較一下差在哪裡。'}
+            hint={
+              picked === question.correctId
+                ? undefined
+                : t('兩個都聽聽看，比較一下差在哪裡。', 'Play both and hear how they differ.')
+            }
             answer={correctLabel}
           />
         )}
@@ -91,7 +97,7 @@ export function ListenPair({ question, onAnswered }: MinigameProps<ListenPairQue
               data-testid={`compare-${option.id}`}
               onClick={() => play(option.audioId, option.label)}
             >
-              ♪ 聽 <span lang="en">{option.label}</span>
+              ♪ {t('聽', 'Play')} <span lang="en">{option.label}</span>
             </button>
           ))}
         </div>

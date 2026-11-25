@@ -212,6 +212,7 @@
     {
       "id": "t1",
       "title": "隨便看看",
+      "titleEn": "Just looking",
       "newChunkIds": ["just_looking", "where_jackets"],
       "newWordIds": ["clothes", "shirt", "dress", "jacket"],
       "scene": [
@@ -259,6 +260,7 @@
     {
       "id": "t2",
       "title": "有黑色的嗎",
+      "titleEn": "Do you have it in black?",
       "newChunkIds": ["in_black", "what_size"],
       "newWordIds": ["color", "black", "white", "red", "blue"],
       "scene": [
@@ -306,6 +308,7 @@
     {
       "id": "t3",
       "title": "在找一件大衣",
+      "titleEn": "Looking for a coat",
       "newChunkIds": ["looking_for_coat", "someone_helping"],
       "newWordIds": ["wear", "warm", "coat", "hat", "shoe"],
       "scene": [
@@ -354,6 +357,7 @@
     {
       "id": "t4",
       "title": "試穿",
+      "titleEn": "Trying it on",
       "newChunkIds": ["try_it_on", "fitting_room"],
       "newWordIds": ["size", "green", "mirror", "skirt", "pants"],
       "scene": [
@@ -402,6 +406,7 @@
     {
       "id": "t5",
       "title": "合不合身",
+      "titleEn": "Does it fit?",
       "newChunkIds": ["fits_well", "little_big"],
       "newWordIds": ["long", "short", "fit", "tight", "loose"],
       "signs": [
@@ -485,6 +490,7 @@
     {
       "id": "t6",
       "title": "有打折嗎",
+      "titleEn": "Is it on sale?",
       "newChunkIds": ["on_sale", "take_it"],
       "newWordIds": ["new", "old", "sale", "percent", "pair"],
       "cloze": [
@@ -537,6 +543,7 @@
     {
       "id": "t7",
       "title": "退換貨",
+      "titleEn": "Returns and exchanges",
       "newChunkIds": ["return_this", "my_receipt"],
       "newWordIds": ["return", "wrong", "exchange", "gift", "scarf"],
       "spellWordIds": ["apple", "fish", "rice", "salt", "meat"],
@@ -585,6 +592,7 @@
     {
       "id": "t8",
       "title": "角色扮演大挑戰",
+      "titleEn": "Role-play challenge",
       "kind": "roleplay",
       "newChunkIds": [],
       "newWordIds": [],

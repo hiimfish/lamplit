@@ -1,6 +1,7 @@
+import { showZhNow, t } from '../../core/i18n';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { nowPlaying, playAudio, preloadAudio, stopAudio } from '../../audio/pronounce';
-import { ROLE_LABEL } from '../../content/roles';
+import { roleLabel } from '../../content/roles';
 import { settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
 import type { ResponseMode } from '../../content/exam';
@@ -74,9 +75,14 @@ export async function playClips(
 
 /** The status line under the keys. */
 export function respondStatus(playing: number, answered: boolean): string {
-  if (playing === 0) return '仔細聽問句…';
-  if (playing > 0) return `仔細聽回應 ${RESPONSE_LETTERS[playing - 1] ?? ''}…`;
-  return answered ? '點一句再聽一次，或按慢速' : '點 A、B、C 選回應；按 ♪ 再聽一次';
+  if (playing === 0) return t('仔細聽問句…', 'Listen to the question…');
+  if (playing > 0) {
+    const letter = RESPONSE_LETTERS[playing - 1] ?? '';
+    return t(`仔細聽回應 ${letter}…`, `Listen to reply ${letter}…`);
+  }
+  return answered
+    ? t('點一句再聽一次，或按慢速', 'Tap a line to hear it again, or Slow')
+    : t('點 A、B、C 選回應；按 ♪ 再聽一次', 'Tap A, B or C to reply; ♪ to hear again');
 }
 
 function browserSpeechBusy(): boolean {
@@ -196,13 +202,17 @@ export function Respond({
   useKeys(pickKeys, !answered);
   useKeys({ Space: () => replay(clips.map((_, i) => i)) });
 
-  const speaker = ROLE_LABEL[question.prompt.role];
+  const speaker = roleLabel(question.prompt.role);
 
   return (
     <div class={`mg respond${answered ? ' answered' : ''}`}>
       <p class="mg-prompt">
-        聽問句選回應
-        {question.total > 1 && `（${question.index + 1}／${question.total}）`}
+        {t('聽問句選回應', 'Hear the question, pick a reply')}
+        {question.total > 1 &&
+          t(
+            `（${question.index + 1}／${question.total}）`,
+            ` (${question.index + 1}/${question.total})`,
+          )}
       </p>
       <div class="mg-row">
         <button
@@ -211,7 +221,7 @@ export function Respond({
           data-testid="respond-replay"
           onClick={() => replay(clips.map((_, i) => i))}
         >
-          ♪ 全部再聽
+          ♪ {t('全部再聽', 'Play all again')}
           <KeyCap k="Space" />
         </button>
       </div>
@@ -229,7 +239,7 @@ export function Respond({
               <span class="bubble-en" lang="en">
                 {question.prompt.en}
               </span>
-              {showZh && <span class="bubble-zh">{question.prompt.zh}</span>}
+              {showZhNow(showZh) && <span class="bubble-zh">{question.prompt.zh}</span>}
             </button>
             <button
               type="button"
@@ -237,7 +247,7 @@ export function Respond({
               data-testid="respond-slow-prompt"
               onClick={() => replay([0], true)}
             >
-              慢速
+              {t('慢速', 'Slow')}
             </button>
           </div>
           {question.options.map((option, i) => {
@@ -256,12 +266,12 @@ export function Respond({
                 >
                   <span class="bubble-who">
                     {letter}
-                    {option.id === picked && '（你選的）'}
+                    {option.id === picked && t('（你選的）', ' (your pick)')}
                   </span>
                   <span class="bubble-en" lang="en">
                     {option.en}
                   </span>
-                  {showZh && <span class="bubble-zh">{option.zh}</span>}
+                  {showZhNow(showZh) && <span class="bubble-zh">{option.zh}</span>}
                 </button>
                 <button
                   type="button"
@@ -269,7 +279,7 @@ export function Respond({
                   data-testid={`slow-${option.id}`}
                   onClick={() => replay([i + 1], true)}
                 >
-                  慢速
+                  {t('慢速', 'Slow')}
                 </button>
               </div>
             );
@@ -289,13 +299,15 @@ export function Respond({
                 </span>
                 {speaker}
               </span>
-              <span class="rs-what">{playing === 0 ? '正在說…' : '說了一句話'}</span>
+              <span class="rs-what">
+                {playing === 0 ? t('正在說…', 'Speaking…') : t('說了一句話', 'Said something')}
+              </span>
             </div>
             <button
               type="button"
               class="pixel-button rs-play"
               data-testid="play-prompt"
-              aria-label="再聽問句"
+              aria-label={t('再聽問句', 'Hear the question again')}
               onClick={() => replay([0])}
             >
               ♪
@@ -311,7 +323,7 @@ export function Respond({
                   class={`pixel-button rs-pick${now ? ' on' : ''}`}
                   data-testid={`option-${option.id}`}
                   aria-current={now ? 'true' : undefined}
-                  aria-label={`選 ${letter}`}
+                  aria-label={t(`選 ${letter}`, `Pick ${letter}`)}
                   onClick={() => choose(option.id)}
                 >
                   <span class="rs-tab" aria-hidden="true">
@@ -323,14 +335,18 @@ export function Respond({
                     aria-hidden="true"
                     lang={mode === 'audio' ? undefined : 'en'}
                   >
-                    {now ? '正在說…' : mode === 'audio' ? `選 ${letter}` : option.en}
+                    {now
+                      ? t('正在說…', 'Speaking…')
+                      : mode === 'audio'
+                        ? t(`選 ${letter}`, `Pick ${letter}`)
+                        : option.en}
                   </span>
                 </button>
                 <button
                   type="button"
                   class="pixel-button rs-play"
                   data-testid={`play-${option.id}`}
-                  aria-label={`再聽 ${letter}`}
+                  aria-label={t(`再聽 ${letter}`, `Play ${letter} again`)}
                   onClick={() => replay([i + 1])}
                 >
                   ♪
@@ -347,9 +363,16 @@ export function Respond({
         {answered && (
           <Feedback
             correct={isRight}
-            hint={isRight ? undefined : '再聽一次問句，想想哪個回應接得上。'}
+            hint={
+              isRight
+                ? undefined
+                : t(
+                    '再聽一次問句，想想哪個回應接得上。',
+                    'Hear the question again. Which reply fits?',
+                  )
+            }
             answer={isRight ? undefined : correct?.en}
-            answerLabel="正確回應"
+            answerLabel={t('正確回應', 'Answer')}
           />
         )}
       </FeedbackSlot>

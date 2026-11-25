@@ -3,6 +3,7 @@ import { playAudio, stopAudio } from '../audio/pronounce';
 import type { Task, Unit } from '../content/types';
 import { ACTS, actOf } from '../content/acts';
 import { lineAudioId } from '../content/units';
+import { isEnglish, t } from '../core/i18n';
 import { settingsStore } from '../core/settings';
 import { zhMode } from '../learning/zhMode';
 import { ChatLines, ZhToggle } from './ChatLines';
@@ -20,6 +21,8 @@ export function LocalZhToggle({
   onToggle: () => void;
   hint?: boolean;
 }) {
+  // The English interface never shows the Chinese translations.
+  if (isEnglish()) return null;
   return (
     <button class="pixel-button small" onClick={onToggle} aria-pressed={on}>
       中文：{on ? '開' : '關'}
@@ -83,7 +86,7 @@ export function SceneStory({ unit, task, onDone, onShown }: Props) {
   });
   return (
     <div class={`story${last ? '' : ' more'}`} data-testid="story">
-      <p class="flow-heading">先看看發生什麼事</p>
+      <p class="flow-heading">{t('先看看發生什麼事', "See what's going on")}</p>
       {peekMode ? (
         <ChatLines
           lines={lines.slice(0, shown)}
@@ -105,7 +108,7 @@ export function SceneStory({ unit, task, onDone, onShown }: Props) {
         )}
         {last ? (
           <button class="pixel-button primary" onClick={onDone} data-testid="story-next">
-            認識新詞塊
+            {t('認識新詞塊', 'Meet new phrases')}
             <KeyCap k="Enter" />
           </button>
         ) : (
@@ -114,7 +117,7 @@ export function SceneStory({ unit, task, onDone, onShown }: Props) {
             onClick={() => setShown(shown + 1)}
             data-testid="story-next"
           >
-            下一句
+            {t('下一句', 'Next line')}
             <KeyCap k="Enter" />
           </button>
         )}

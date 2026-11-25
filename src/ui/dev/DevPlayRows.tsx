@@ -4,9 +4,11 @@
  * today has nothing for them) and each question kind on its own.
  */
 import { playSfx } from '../../audio/sfx';
+import { actName } from '../../content/titles';
 import { appStore } from '../../core/appState';
+import { t } from '../../core/i18n';
 import type { AppState } from '../../core/appState';
-import { DEV_KINDS, devTasks } from './devPlay';
+import { DEV_KINDS, devKindLabel, devTasks } from './devPlay';
 import './dev.css';
 
 function open(patch: Partial<AppState>): void {
@@ -16,11 +18,13 @@ function open(patch: Partial<AppState>): void {
 
 export function DevPlayRows() {
   const { story, rolePlay } = devTasks();
-  const screens: { label: string; patch: Partial<AppState> }[] = [
+  // `id` (the Chinese name) keeps each key's data-testid the same in either language.
+  const screens: { id: string; label: string; patch: Partial<AppState> }[] = [
     ...(story
       ? [
           {
-            label: '劇情任務',
+            id: '劇情任務',
+            label: t('劇情任務', 'Story'),
             patch: {
               screen: 'task' as const,
               activeTask: { unitId: story.unit.id, taskId: story.task.id },
@@ -31,7 +35,8 @@ export function DevPlayRows() {
     ...(rolePlay
       ? [
           {
-            label: '角色扮演',
+            id: '角色扮演',
+            label: t('角色扮演', 'Role-play'),
             patch: {
               screen: 'task' as const,
               activeTask: { unitId: rolePlay.unit.id, taskId: rolePlay.task.id },
@@ -39,49 +44,51 @@ export function DevPlayRows() {
           },
         ]
       : []),
-    { label: '單字快練', patch: { screen: 'sprint' } },
-    { label: '今日複習', patch: { screen: 'review' } },
-    { label: '聽力加量', patch: { screen: 'listen' } },
-    { label: '文法快練', patch: { screen: 'grammar' } },
-    { label: '進度', patch: { screen: 'progress' } },
+    { id: '單字快練', label: t('單字快練', 'Word sprint'), patch: { screen: 'sprint' } },
+    { id: '今日複習', label: t('今日複習', 'Daily review'), patch: { screen: 'review' } },
+    { id: '聽力加量', label: t('聽力加量', 'Extra listening'), patch: { screen: 'listen' } },
+    { id: '文法快練', label: t('文法快練', 'Grammar drill'), patch: { screen: 'grammar' } },
+    { id: '進度', label: t('進度', 'Progress'), patch: { screen: 'progress' } },
     ...[1, 2, 3, 4].map((act) => ({
-      label: `第${act}幕結業考`,
+      id: `第${act}幕結業考`,
+      label: t(`第${act}幕結業考`, `${actName(act)} final exam`),
       patch: { screen: 'exam' as const, activeExam: act },
     })),
     ...[1, 2, 3].map((act) => ({
-      label: `第${act}幕跳級考`,
+      id: `第${act}幕跳級考`,
+      label: t(`第${act}幕跳級考`, `${actName(act)} skip test`),
       patch: { screen: 'skip' as const, activeSkip: act },
     })),
   ];
 
   return (
     <div class="dev-play" data-testid="dev-play">
-      <p class="dev-play-title">開發測試（只在開發時出現）</p>
-      <p class="dev-play-sub">玩法</p>
+      <p class="dev-play-title">{t('開發測試（只在開發時出現）', 'Dev test (dev server only)')}</p>
+      <p class="dev-play-sub">{t('玩法', 'Ways to play')}</p>
       <div class="dev-play-keys">
-        {screens.map(({ label, patch }) => (
+        {screens.map(({ id, label, patch }) => (
           <button
-            key={label}
+            key={id}
             type="button"
             class="pixel-button small"
             onClick={() => open(patch)}
-            data-testid={`dev-${label}`}
+            data-testid={`dev-${id}`}
           >
             {label}
           </button>
         ))}
       </div>
-      <p class="dev-play-sub">題型（每種 3 題）</p>
+      <p class="dev-play-sub">{t('題型（每種 3 題）', 'Question kinds (3 each)')}</p>
       <div class="dev-play-keys">
-        {DEV_KINDS.map(({ key, label }) => (
+        {DEV_KINDS.map((devKind) => (
           <button
-            key={key}
+            key={devKind.key}
             type="button"
             class="pixel-button small"
-            onClick={() => open({ screen: 'devquiz', devKind: key })}
-            data-testid={`dev-kind-${key}`}
+            onClick={() => open({ screen: 'devquiz', devKind: devKind.key })}
+            data-testid={`dev-kind-${devKind.key}`}
           >
-            {label}
+            {devKindLabel(devKind)}
           </button>
         ))}
       </div>

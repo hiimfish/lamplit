@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import { playAudio, stopAudio } from '../audio/pronounce';
 import { getItem, taskItemIds, type ItemInfo } from '../content/units';
 import type { Task } from '../content/types';
+import { t } from '../core/i18n';
 import { settingsStore } from '../core/settings';
 import { useStore } from '../core/store';
 import { hasItemIcon, iconIdOf, ItemIcon } from './ItemIcon';
@@ -31,7 +32,12 @@ export function clipsOf(item: ItemInfo): [audioId: string, text: string][] {
 function PairCard({ item, showZh }: { item: ItemInfo; showZh: boolean }) {
   return (
     <div class="intro-card" data-testid="intro-pair">
-      {item.focus && <div class="intro-note">聽差別：{item.focus}</div>}
+      {item.focus && (
+        <div class="intro-note">
+          {t('聽差別：', 'Hear the difference: ')}
+          {item.focus}
+        </div>
+      )}
       <div class="intro-pair">
         {(item.sides ?? []).map((side) => (
           <div class="intro-pair-side" key={side.id}>
@@ -41,10 +47,10 @@ function PairCard({ item, showZh }: { item: ItemInfo; showZh: boolean }) {
             {showZh && <div class="intro-zh">{side.zh}</div>}
             <div class="flow-actions">
               <button class="pixel-button" onClick={() => play(side.audioId, side.en, false)}>
-                聽發音
+                {t('聽發音', 'Listen')}
               </button>
               <button class="pixel-button" onClick={() => play(side.audioId, side.en, true)}>
-                慢速
+                {t('慢速', 'Slow')}
               </button>
             </div>
           </div>
@@ -57,7 +63,9 @@ function PairCard({ item, showZh }: { item: ItemInfo; showZh: boolean }) {
 
 /** The task's new chunks, words and minimal pairs (or the given items), one card at a time. */
 export function IntroCards({ task, itemIds, onDone }: Props) {
-  const { showZh } = useStore(settingsStore);
+  // A new card's Chinese meaning is the explanation, not a translation to hide: it shows in
+  // the English interface too (only 顯示中文 turns it off).
+  const showZh = useStore(settingsStore).showZh;
   const items = (itemIds ?? (task ? taskItemIds(task) : [])).flatMap((id) => getItem(id) ?? []);
   const [index, setIndex] = useState(0);
   const headingRef = useRef<HTMLParagraphElement>(null);
@@ -104,12 +112,20 @@ export function IntroCards({ task, itemIds, onDone }: Props) {
   );
   if (!item) return null;
   const iconId = iconIdOf(item.itemId);
-  const kindLabel = item.kind === 'chunk' ? '句子' : item.kind === 'pair' ? '發音' : '單字';
+  const kindLabel =
+    item.kind === 'chunk'
+      ? t('句子', 'phrase')
+      : item.kind === 'pair'
+        ? t('發音', 'sounds')
+        : t('單字', 'word');
 
   return (
     <div class="intro" data-testid="intro">
       <p class="flow-heading" ref={headingRef}>
-        新的{kindLabel}（{index + 1}/{items.length}）
+        {t(
+          `新的${kindLabel}（${index + 1}/${items.length}）`,
+          `New ${kindLabel} (${index + 1}/${items.length})`,
+        )}
       </p>
       {item.kind === 'pair' ? (
         <PairCard key={item.itemId} item={item} showZh={showZh} />
@@ -127,11 +143,11 @@ export function IntroCards({ task, itemIds, onDone }: Props) {
           {item.note && <div class="intro-note">{item.note}</div>}
           <div class="flow-actions">
             <button class="pixel-button" onClick={() => play(item.audioId, item.text, false)}>
-              聽發音
+              {t('聽發音', 'Listen')}
               <KeyCap k="Space" />
             </button>
             <button class="pixel-button" onClick={() => play(item.audioId, item.text, true)}>
-              慢速
+              {t('慢速', 'Slow')}
               <KeyCap k="Shift+Space" />
             </button>
           </div>
@@ -140,12 +156,12 @@ export function IntroCards({ task, itemIds, onDone }: Props) {
       <div class="flow-actions">
         {index > 0 && (
           <button class="pixel-button small" onClick={back}>
-            上一張
+            {t('上一張', 'Back')}
             <KeyCap k="ArrowLeft" />
           </button>
         )}
         <button class="pixel-button primary" onClick={next} data-testid="intro-next">
-          {last ? '開始練習' : '下一張'}
+          {last ? t('開始練習', 'Start practice') : t('下一張', 'Next')}
           <KeyCap k="Enter" />
         </button>
       </div>

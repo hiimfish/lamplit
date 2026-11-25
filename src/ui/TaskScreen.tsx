@@ -4,7 +4,9 @@ import { nowPlaying } from '../audio/pronounce';
 import { playSfx } from '../audio/sfx';
 import { UNITS, getUnit, speakerOf, taskItemIds } from '../content/units';
 import { appStore, commitSave, currentNow } from '../core/appState';
+import { t } from '../core/i18n';
 import { useStore } from '../core/store';
+import { taskTitle } from '../content/titles';
 import { markGrammarItem } from '../learning/grammarDrill';
 import { logAnswer } from '../learning/mistakes';
 import { makeRng, buildTaskPractice } from '../learning/questionGen';
@@ -58,7 +60,11 @@ export function QuestionRunner({ questions, showHearts, onFinish, onProgress }: 
   const onGraded = (result: AnswerResult) => {
     if (!question || question.kind === 'speak' || result.correct || heartsLeft > 1) return;
     // A question read on screen (文法快練, signs, passages) has nothing to hear again.
-    setRefilled(isHeard(question) ? '沒關係，再聽一次' : '沒關係，再想一次');
+    setRefilled(
+      isHeard(question)
+        ? t('沒關係，再聽一次', "It's OK. Listen again")
+        : t('沒關係，再想一次', "It's OK. Think again"),
+    );
   };
 
   const onAnswer = (result: AnswerResult) => {
@@ -113,10 +119,18 @@ export function QuestionRunner({ questions, showHearts, onFinish, onProgress }: 
             {refilled}
           </span>
         ) : (
-          combo >= 2 && <span class="combo">連擊 x{combo}</span>
+          combo >= 2 && (
+            <span class="combo">
+              {t('連擊', 'Combo')} x{combo}
+            </span>
+          )
         )}
         {showHearts && (
-          <span class="hearts" data-testid="hearts" aria-label={`剩 ${heartsLeft} 顆心`}>
+          <span
+            class="hearts"
+            data-testid="hearts"
+            aria-label={t(`剩 ${heartsLeft} 顆心`, `${heartsLeft} hearts left`)}
+          >
             {hearts(heartsLeft)}
           </span>
         )}
@@ -134,7 +148,7 @@ type Phase = 'story' | 'intro' | 'practice';
 export function TaskScreen() {
   const active = appStore.get().activeTask;
   const unit = active ? getUnit(active.unitId) : undefined;
-  const task = unit?.tasks.find((t) => t.id === active?.taskId);
+  const task = unit?.tasks.find((it) => it.id === active?.taskId);
 
   const [phase, setPhase] = useState<Phase>('story');
   /** Story: how many scene lines are on screen. */
@@ -161,9 +175,9 @@ export function TaskScreen() {
     return (
       <div class="flow">
         <div class="flow-card">
-          <p>找不到這個任務。</p>
+          <p>{t('找不到這個任務。', "Can't find this task.")}</p>
           <button class="pixel-button" onClick={() => appStore.set({ screen: 'town' })}>
-            回小鎮
+            {t('回小鎮', 'Back to town')}
           </button>
         </div>
       </div>
@@ -210,7 +224,7 @@ export function TaskScreen() {
         />
       )}
       <div class="flow-card">
-        <div class="flow-title">{task.title}</div>
+        <div class="flow-title">{taskTitle(task)}</div>
         {rolePlay && (
           <RolePlay unit={unit} task={task} onShown={setRolePlayShown} onFinish={finish} />
         )}
@@ -228,7 +242,11 @@ export function TaskScreen() {
         {!rolePlay && phase === 'practice' && (
           <QuestionRunner questions={questions} showHearts onFinish={finish} />
         )}
-        <QuitKey label="先回小鎮" onLeave={() => appStore.set({ screen: 'town' })} testId="quit" />
+        <QuitKey
+          label={t('先回小鎮', 'Back to town')}
+          onLeave={() => appStore.set({ screen: 'town' })}
+          testId="quit"
+        />
       </div>
     </div>
   );

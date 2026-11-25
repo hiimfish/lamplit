@@ -1,6 +1,7 @@
 import { GRAMMAR_POINTS } from '../content/grammar';
 import { getItem } from '../content/units';
 import { appStore, currentNow } from '../core/appState';
+import { t } from '../core/i18n';
 import { useStore } from '../core/store';
 import { labelOf, topMistakes, type MistakeBlock, type MistakeRow } from '../learning/mistakes';
 import './mistakes.css';
@@ -14,8 +15,8 @@ const LISTED = 5;
 function pairLabel(tag: string): string | undefined {
   const info = getItem(`pair:${tag.slice(2)}`);
   if (!info || !info.sides || info.sides.length < 2) return undefined;
-  const words = info.sides.map((s) => s.en).join('／');
-  return info.focus ? `${info.focus}（${words}）` : words;
+  const words = info.sides.map((s) => s.en).join(t('／', '/'));
+  return info.focus ? t(`${info.focus}（${words}）`, `${info.focus} (${words})`) : words;
 }
 
 /** The Chinese name of a grammar point from `g:<id>`. */
@@ -41,7 +42,9 @@ function Rows({ rows, testId }: { rows: MistakeRow[]; testId: string }) {
             <span style={{ width: `${(row.missed / top) * 100}%` }} />
           </span>
           <span class="progress-act-count">
-            {row.tag.startsWith('e:') ? `錯 ${row.missed} 次` : `錯 ${row.missed}／${row.asked}`}
+            {row.tag.startsWith('e:')
+              ? t(`錯 ${row.missed} 次`, `Missed ${row.missed}x`)
+              : t(`錯 ${row.missed}／${row.asked}`, `Missed ${row.missed}/${row.asked}`)}
           </span>
         </li>
       ))}
@@ -83,28 +86,38 @@ export function MistakePanel() {
   return (
     <section class="mistakes" aria-labelledby="mistakes-title" data-testid="mistakes">
       <p class="flow-heading" id="mistakes-title">
-        最常錯的音和文法
+        {t('最常錯的音和文法', 'Most missed sounds and grammar')}
       </p>
-      <p class="flow-note">最近 30 天答錯的題目，最多各列 5 項。</p>
+      <p class="flow-note">
+        {t(
+          `最近 ${DAYS} 天答錯的題目，最多各列 ${LISTED} 項。`,
+          `Wrong answers from the last ${DAYS} days, up to ${LISTED} of each.`,
+        )}
+      </p>
       {grammar.length > 0 && (
-        <Block title="文法點" rows={grammar} empty="" testId="mistakes-points" />
+        <Block
+          title={t('文法點', 'Grammar points')}
+          rows={grammar}
+          empty=""
+          testId="mistakes-points"
+        />
       )}
       <Block
-        title="聽不清楚的音"
+        title={t('聽不清楚的音', 'Sounds you mix up')}
         rows={top('sound')}
-        empty="還沒有答錯的聽辨題。"
+        empty={t('還沒有答錯的聽辨題。', 'No missed sound questions yet.')}
         testId="mistakes-sound"
       />
       <Block
-        title="文法和拼字"
+        title={t('文法和拼字', 'Grammar and spelling')}
         rows={top('writing')}
-        empty="還沒有答錯的紀錄。"
+        empty={t('還沒有答錯的紀錄。', 'No mistakes yet.')}
         testId="mistakes-grammar"
       />
       <Block
-        title="聽力題型"
+        title={t('聽力題型', 'Listening questions')}
         rows={top('listening')}
-        empty="還沒有答錯的紀錄。"
+        empty={t('還沒有答錯的紀錄。', 'No mistakes yet.')}
         testId="mistakes-listening"
       />
     </section>
