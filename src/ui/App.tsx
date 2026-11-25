@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'preact/hooks';
 import { playChime, unlockAudio } from '../audio/audioContext';
 import { appStore, setDayStamp } from '../core/appState';
 import { recordToday } from '../core/save';
-import { devUnlockAll, settingsStore } from '../core/settings';
+import { DEV_TOOLS, devUnlockAll, settingsStore, TEXT_SCALE } from '../core/settings';
 import { useStore } from '../core/store';
 import { goalStatus } from '../learning/dailyGoal';
 import { grammarOn } from '../learning/grammarOn';
@@ -23,7 +23,6 @@ import { TaskScreen } from './TaskScreen';
 import { TOWN, TownScreen } from './TownScreen';
 import { useFullScreen } from './useFullScreen';
 import { DevQuizScreen } from './dev/DevQuizScreen';
-import { DEV_TOOLS } from '../core/settings';
 
 /** Menu-type screens: on a phone held upright they take the whole screen (useFullScreen). */
 const FULL_SCREENS = new Set([
@@ -101,6 +100,15 @@ function useScreenFocus(screen: string) {
 
 export function App() {
   const { screen, layout } = useStore(appStore);
+  // 文字大小 and 介面語言 (設定 → 顯示). Every setting change re-renders the whole tree from
+  // here (no component is memoized), so t() calls pick up a new language in place.
+  const { textSize, uiLang } = useStore(settingsStore);
+  useEffect(() => {
+    document.documentElement.style.setProperty('--text-scale', String(TEXT_SCALE[textSize]));
+  }, [textSize]);
+  useEffect(() => {
+    document.documentElement.lang = uiLang === 'en' ? 'en' : 'zh-Hant';
+  }, [uiLang]);
   useScreenFocus(screen);
   useFullScreen(FULL_SCREENS.has(screen));
   return (

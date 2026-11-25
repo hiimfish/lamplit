@@ -10,11 +10,21 @@ export interface Settings {
   sfxVolume: number;
   /** Show Chinese translations next to English. */
   showZh: boolean;
+  /** 文字大小: 中 (as designed), 大, 特大. Scales every text size (--text-scale). */
+  textSize: TextSize;
+  /** 介面語言: the game's own words in Chinese or English (src/core/i18n.ts). */
+  uiLang: UiLang;
   /** Dev mode: every task in the town is open (see devUnlockAll). */
   unlockAll: boolean;
   /** The 怎麼玩 cards were shown once (or skipped); they open again only from 設定. */
   seenIntro: boolean;
 }
+
+export type TextSize = 'medium' | 'large' | 'xlarge';
+export type UiLang = 'zh' | 'en';
+
+/** How much each 文字大小 enlarges the text. */
+export const TEXT_SCALE: Record<TextSize, number> = { medium: 1, large: 1.15, xlarge: 1.3 };
 
 export const DEFAULT_SETTINGS: Settings = {
   voiceMode: 'chirp',
@@ -22,6 +32,8 @@ export const DEFAULT_SETTINGS: Settings = {
   voiceVolume: 1,
   sfxVolume: 0.7,
   showZh: true,
+  textSize: 'medium',
+  uiLang: 'zh',
   unlockAll: false,
   seenIntro: false,
 };
@@ -52,6 +64,11 @@ export function sanitizeSettings(raw: unknown): Settings {
     voiceVolume: volumeOr(r.voiceVolume, DEFAULT_SETTINGS.voiceVolume),
     sfxVolume: volumeOr(r.sfxVolume, DEFAULT_SETTINGS.sfxVolume),
     showZh: typeof r.showZh === 'boolean' ? r.showZh : DEFAULT_SETTINGS.showZh,
+    textSize:
+      typeof r.textSize === 'string' && r.textSize in TEXT_SCALE
+        ? (r.textSize as TextSize)
+        : DEFAULT_SETTINGS.textSize,
+    uiLang: r.uiLang === 'en' ? 'en' : 'zh',
     unlockAll: typeof r.unlockAll === 'boolean' ? r.unlockAll : DEFAULT_SETTINGS.unlockAll,
     seenIntro: typeof r.seenIntro === 'boolean' ? r.seenIntro : DEFAULT_SETTINGS.seenIntro,
   };

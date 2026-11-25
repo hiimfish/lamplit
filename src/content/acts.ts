@@ -7,6 +7,8 @@
 export interface ActPlace {
   /** Name shown while the location has no unit; a unit's own title replaces it. */
   title: string;
+  /** The same in the English interface. */
+  titleEn?: string;
   unitId?: string;
 }
 
@@ -14,6 +16,8 @@ export interface Act {
   /** 一, 二, 三, 四: shown as 第一幕 ... */
   no: string;
   title: string;
+  /** The act's title in the English interface. */
+  titleEn?: string;
   places: readonly ActPlace[];
 }
 

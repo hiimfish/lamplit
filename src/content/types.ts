@@ -103,6 +103,8 @@ export type TaskKind = 'roleplay';
 export interface Task {
   id: string;
   title: string;
+  /** The title in the English interface (介面語言 English); the Chinese one when missing. */
+  titleEn?: string;
   /** Leave out for a normal task (story, new items, practice). */
   kind?: TaskKind;
   /** Chunk ids introduced here (2-4). */

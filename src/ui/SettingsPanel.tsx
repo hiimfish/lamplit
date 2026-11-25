@@ -3,7 +3,8 @@ import { playAudio } from '../audio/pronounce';
 import { playSfx } from '../audio/sfx';
 import type { VoiceMode } from '../audio/voices';
 import { appStore } from '../core/appState';
-import { settingsStore, type Settings, DEV_TOOLS } from '../core/settings';
+import { settingsStore, type Settings, type TextSize, DEV_TOOLS } from '../core/settings';
+import { t } from '../core/i18n';
 import { useStore } from '../core/store';
 import { KeyCap } from './KeyCap';
 import { RouteGroup } from './settings/RouteGroup';
@@ -140,6 +141,109 @@ function SoundSection({ settings }: { settings: Settings }) {
           </button>
         </div>
       </div>
+    </>
+  );
+}
+
+/**
+ * A row of choices as a radio group (like 聲線): ←/→ (or ↑/↓) move the choice and the
+ * focus.
+ */
+function ChoiceRow<T extends string>({
+  id,
+  label,
+  value,
+  choices,
+  onPick,
+}: {
+  id: string;
+  label: string;
+  value: T;
+  choices: readonly { value: T; label: string }[];
+  onPick: (value: T) => void;
+}) {
+  const onKey = (e: KeyboardEvent) => {
+    const step = arrowStep(e);
+    if (!step) return;
+    e.preventDefault();
+    const at = choices.findIndex((c) => c.value === value);
+    const to = (at + step + choices.length) % choices.length;
+    onPick(choices[to]!.value);
+    const group = e.currentTarget instanceof HTMLElement ? e.currentTarget : null;
+    requestAnimationFrame(() =>
+      group?.querySelectorAll<HTMLElement>('[role="radio"]')[to]?.focus(),
+    );
+  };
+  return (
+    <div class="settings-row">
+      <span class="settings-label" id={`${id}-label`}>
+        {label}
+      </span>
+      <div
+        class="settings-control"
+        role="radiogroup"
+        aria-labelledby={`${id}-label`}
+        onKeyDown={onKey}
+      >
+        {choices.map((c) => (
+          <button
+            key={c.value}
+            type="button"
+            role="radio"
+            aria-checked={value === c.value}
+            tabIndex={value === c.value ? 0 : -1}
+            class={`pixel-button settings-choice${value === c.value ? ' primary' : ''}`}
+            onClick={() => onPick(c.value)}
+            data-testid={`${id}-${c.value}`}
+          >
+            {c.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const TEXT_SIZES: readonly { value: TextSize; label: string }[] = [
+  { value: 'medium', label: '中' },
+  { value: 'large', label: '大' },
+  { value: 'xlarge', label: '特大' },
+];
+
+/** 顯示: 文字大小, 介面語言 and 顯示中文 (off, and not offered, in English). */
+function DisplaySection({ settings }: { settings: Settings }) {
+  const english = settings.uiLang === 'en';
+  return (
+    <>
+      <ChoiceRow
+        id="text-size"
+        label={t('文字大小', 'Text size')}
+        value={settings.textSize}
+        choices={TEXT_SIZES.map((c) => ({
+          value: c.value,
+          label: english ? { medium: 'M', large: 'L', xlarge: 'XL' }[c.value] : c.label,
+        }))}
+        onPick={(textSize) => settingsStore.set({ textSize })}
+      />
+      <ChoiceRow
+        id="ui-lang"
+        label={t('介面語言', 'Language')}
+        value={settings.uiLang}
+        choices={[
+          { value: 'zh', label: '中文' },
+          { value: 'en', label: 'English' },
+        ]}
+        onPick={(uiLang) => settingsStore.set({ uiLang })}
+      />
+      {english ? (
+        <p class="settings-note">Chinese translations are hidden in the English interface.</p>
+      ) : (
+        <SwitchRow
+          label="顯示中文"
+          on={settings.showZh}
+          onToggle={() => settingsStore.set({ showZh: !settings.showZh })}
+        />
+      )}
     </>
   );
 }
@@ -285,11 +389,7 @@ export function SettingsPanel({ onClose, onHowTo }: { onClose: () => void; onHow
     section === 'sound' ? (
       <SoundSection settings={settings} />
     ) : section === 'display' ? (
-      <SwitchRow
-        label="顯示中文"
-        on={settings.showZh}
-        onToggle={() => settingsStore.set({ showZh: !settings.showZh })}
-      />
+      <DisplaySection settings={settings} />
     ) : section === 'route' ? (
       <RouteGroup escRef={sectionEsc} />
     ) : section === 'save' ? (

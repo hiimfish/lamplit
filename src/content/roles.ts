@@ -1,3 +1,4 @@
+import { t } from '../core/i18n';
 import type { Role } from './types';
 
 /** How each speaker is named in the Chinese UI (story bubbles, choose-reply prompt). */
@@ -47,3 +48,54 @@ export const ROLE_LABEL: Record<Role, string> = {
   officer: '入境審查官',
   guide: '你',
 };
+
+/** How each speaker is named in the English interface. */
+export const ROLE_LABEL_EN: Record<Role, string> = {
+  barista: 'Barista',
+  landlord: 'Landlord',
+  neighbor: 'Neighbor',
+  clerk: 'Clerk',
+  passerby: 'Passerby',
+  driver: 'Driver',
+  cashier: 'Cashier',
+  vendor: 'Vendor',
+  assistant: 'Shop assistant',
+  receptionist: 'Receptionist',
+  doctor: 'Doctor',
+  pharmacist: 'Pharmacist',
+  server: 'Server',
+  friend: 'Friend',
+  postal_clerk: 'Postal clerk',
+  volunteer: 'Volunteer',
+  teller: 'Bank teller',
+  instructor: 'Instructor',
+  librarian: 'Librarian',
+  mechanic: 'Mechanic',
+  counselor: 'Job counselor',
+  front_desk: 'Front desk',
+  manager: 'Manager',
+  hr: 'HR',
+  coworker: 'Coworker',
+  client: 'Client',
+  supplier: 'Supplier',
+  warehouse_lead: 'Warehouse lead',
+  customer: 'Customer',
+  airline_agent: 'Airline agent',
+  hotel_clerk: 'Hotel clerk',
+  director: 'Director',
+  announcer: 'Announcement',
+  accountant: 'Accountant',
+  agency: 'Marketing consultant',
+  new_hire: 'New assistant',
+  lawyer: 'Lawyer',
+  plant_manager: 'Plant manager',
+  branch_manager: 'Branch manager',
+  reporter: 'Reporter',
+  officer: 'Border officer',
+  guide: 'You',
+};
+
+/** A speaker's name in the current 介面語言. */
+export function roleLabel(role: Role): string {
+  return t(ROLE_LABEL[role], ROLE_LABEL_EN[role]);
+}

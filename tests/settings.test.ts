@@ -33,10 +33,18 @@ describe('sanitizeSettings', () => {
       voiceVolume: 0.2,
       sfxVolume: 0.3,
       showZh: false,
+      textSize: 'xlarge',
+      uiLang: 'en',
       unlockAll: true,
       seenIntro: true,
     };
     expect(sanitizeSettings(s)).toEqual(s);
+  });
+
+  it('falls back for an unknown 文字大小 or 介面語言', () => {
+    const s = sanitizeSettings({ textSize: 'huge', uiLang: 'fr' });
+    expect(s.textSize).toBe('medium');
+    expect(s.uiLang).toBe('zh');
   });
 
   it('clamps volumes to 0-1', () => {
