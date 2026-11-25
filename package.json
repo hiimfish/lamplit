@@ -24,6 +24,8 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@preact/preset-vite": "^2.10.6",
+    "@resvg/resvg-js": "^2.6.2",
+    "@twemoji/svg": "^15.0.0",
     "@types/node": "^26.6.6",
     "@vitejs/plugin-basic-ssl": "^2.3.0",
     "eslint": "^10.15.0",

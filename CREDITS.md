@@ -10,7 +10,11 @@
 
 ## 圖像
 
-- 所有圖像都是本專案用程式畫的原創像素圖：街景在 `src/game/`，單字圖示在 `src/art/items/`。沒有使用外部素材包。
+- 街景、小劇場和具體名詞的單字圖示，都是本專案用程式畫的原創像素圖：街景在 `src/game/`，單字圖示在 `src/art/items/`。
+- **Twemoji**（© Twitter, Inc. 和其他貢獻者，圖像採創用 CC 姓名標示 4.0，CC BY 4.0）：抽象字的單字圖示（`src/art/emoji/sprites.ts`）由 Twemoji 的 emoji 圖改作而成
+  - 來源：https://github.com/jdecked/twemoji （透過 npm 套件 `@twemoji/svg` 15.0.0 取得）
+  - 授權：https://creativecommons.org/licenses/by/4.0/
+  - 修改方式：縮小成 24×24 像素、顏色換成遊戲調色盤、加上墨色外框（`scripts/emoji-pixels.mjs`）。≈ ≠ ∴ ◐ 和霧（🌫）是本專案自己畫的。
 - 美術方向參考了幾位畫家的作品（只參考方向，不複製任何作品）；參考圖只在本機使用，不隨專案發布。
 
 ## 聲音

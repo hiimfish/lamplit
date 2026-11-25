@@ -1,23 +1,29 @@
+import { getEmojiSprite } from '../art/emoji';
 import { getItemSprite, ITEM_SIZE, spriteRuns, type PixelRun } from '../art/items';
+import type { PixelSprite } from '../game/sprites';
 import './itemIcon.css';
 
 interface Props {
   /** Word id, e.g. "latte"; undefined for items that have no picture (chunks). */
   id: string | undefined;
-  /** Shown instead when there is no pixel icon for `id` yet (the word's emoji). */
+  /**
+   * The word's emoji: for a word with no hand-drawn icon, its pixel version is shown
+   * (src/art/emoji); the emoji itself only if even that is missing.
+   */
   fallback?: string;
 }
 
-const runCache = new Map<string, PixelRun[]>();
+const runCache = new WeakMap<PixelSprite, PixelRun[]>();
 
-function runsFor(id: string | undefined): PixelRun[] | undefined {
-  if (id === undefined) return undefined;
-  const cached = runCache.get(id);
+function spriteFor(id: string | undefined, fallback: string | undefined): PixelSprite | undefined {
+  return (id !== undefined ? getItemSprite(id) : undefined) ?? getEmojiSprite(fallback);
+}
+
+function runsOf(sprite: PixelSprite): PixelRun[] {
+  const cached = runCache.get(sprite);
   if (cached) return cached;
-  const sprite = getItemSprite(id);
-  if (!sprite) return undefined;
   const runs = spriteRuns(sprite);
-  runCache.set(id, runs);
+  runCache.set(sprite, runs);
   return runs;
 }
 
@@ -36,8 +42,8 @@ export function iconIdOf(itemId: string): string | undefined {
  * Decorative: the English word is always shown next to it.
  */
 export function ItemIcon({ id, fallback }: Props) {
-  const runs = runsFor(id);
-  if (!runs) {
+  const sprite = spriteFor(id, fallback);
+  if (!sprite) {
     return fallback ? (
       <span class="item-icon-fallback" aria-hidden="true">
         {fallback}
@@ -53,7 +59,7 @@ export function ItemIcon({ id, fallback }: Props) {
       aria-hidden="true"
       focusable="false"
     >
-      {runs.map((r) => (
+      {runsOf(sprite).map((r) => (
         <rect key={`${r.x},${r.y}`} x={r.x} y={r.y} width={r.w} height={1} fill={r.color} />
       ))}
     </svg>

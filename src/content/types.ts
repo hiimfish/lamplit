@@ -63,11 +63,14 @@ export interface Word {
   id: string;
   en: string;
   zh: string;
-  /** Placeholder picture until real pixel art exists. */
+  /**
+   * The word's emoji. A word with no hand-drawn icon shows a pixel version of it
+   * (src/art/emoji, made by scripts/emoji-pixels.mjs).
+   */
   emoji: string;
   /**
-   * An abstract or hard-to-draw word (welcome, okay, numbers, verbs): it needs no
-   * pixel icon and always shows its emoji. Concrete nouns leave this out.
+   * An abstract or hard-to-draw word (welcome, okay, numbers, verbs): it gets no
+   * hand-drawn icon and shows its emoji in pixels. Concrete nouns leave this out.
    */
   abstract?: boolean;
 }

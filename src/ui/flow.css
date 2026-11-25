@@ -604,7 +604,7 @@
   align-self: stretch;
 }
 
-/* Emoji placeholders sit on a small paper square with an ink rim. */
+/* A word's pixel icon sits on a small paper square with an ink rim. */
 .intro-emoji,
 .mg-emoji {
   display: inline-flex;
