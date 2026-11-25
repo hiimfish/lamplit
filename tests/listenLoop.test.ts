@@ -49,7 +49,7 @@ function setup(options: { modelReady?: boolean; lines?: LoopLine[] } = {}) {
   const scoreSpoken = vi.fn((target: string, alts: readonly string[]): SpokenScore | null => {
     void target;
     const n = Number(alts[0]);
-    return Number.isNaN(n) ? score(80) : score(n);
+    return Number.isNaN(n) ? score(95) : score(n);
   });
   const deps: LoopDeps = {
     play: vi.fn((audioId, opts) => {
@@ -242,27 +242,81 @@ describe('跟著說 on, microphone usable', () => {
 });
 
 describe('scoring and the hold', () => {
-  it('shows the score, holds 1800 ms at 70 or more, then advances', async () => {
+  it('shows a passing score (90 or more), holds 1800 ms, then advances', async () => {
     const t = setup();
     await listening(t);
-    t.listens[0]!.result.resolve(['70']);
+    t.listens[0]!.result.resolve(['90']);
     await tick(0);
     expect(t.loop.state).toBe('scored');
-    expect(t.last().score?.score).toBe(70);
+    expect(t.last().score?.score).toBe(90);
     await tick(1799);
     expect(t.advances).toEqual([]);
     await tick(1);
     expect(t.advances).toEqual([0]);
   });
 
-  it('holds 3500 ms below 70', async () => {
+  it('below 90 it never advances: the score shows 3500 ms, then the line plays again', async () => {
     const t = setup();
     await listening(t);
-    t.listens[0]!.result.resolve(['69']);
+    t.listens[0]!.result.resolve(['89']);
+    await tick(0);
+    expect(t.last()).toMatchObject({ phase: 'scored', note: '還沒到 90 分，再聽一次、再說一次。' });
     await tick(3499);
-    expect(t.advances).toEqual([]);
+    expect(t.plays).toHaveLength(1);
     await tick(1);
+    expect(t.plays).toHaveLength(2);
+    expect(t.plays[1]!.audioId).toBe('u.a');
+    expect(t.last()).toMatchObject({ phase: 'playing', note: '再聽一次，聽完換你說。' });
+    await t.endPlay();
+    await tick(1600);
+    expect(t.loop.state).toBe('listening');
+    t.listens[1]!.result.resolve(['60']);
+    await tick(10000);
+    expect(t.advances).toEqual([]);
+    expect(t.plays).toHaveLength(3);
+  });
+
+  it('a retry that passes moves on, and the line keeps its best score', async () => {
+    const t = setup();
+    await listening(t);
+    t.listens[0]!.result.resolve(['50']);
+    await tick(3500);
+    await t.endPlay();
+    await tick(1600);
+    t.listens[1]!.result.resolve(['92']);
+    await tick(1800);
     expect(t.advances).toEqual([0]);
+    expect(t.last().scoredLines).toBe(1);
+  });
+
+  it('retries even with 自動 off (自動 only decides moving on)', async () => {
+    const t = setup();
+    t.loop.setAuto(false);
+    await listening(t);
+    t.listens[0]!.result.resolve(['40']);
+    await tick(3500);
+    expect(t.plays).toHaveLength(2);
+  });
+
+  it('stops after the last line: 聽完了 is left to the learner', async () => {
+    const t = setup();
+    await listening(t, 3);
+    t.listens[0]!.result.resolve(['95']);
+    await tick(10000);
+    expect(t.advances).toEqual([]);
+    expect(t.last()).toMatchObject({
+      phase: 'scored',
+      note: '這段的最後一句了，按「聽完了」結束。',
+    });
+  });
+
+  it('跟著說 off: the last line also waits, after the others advanced by themselves', async () => {
+    const t = setup();
+    t.loop.play(3);
+    await t.endPlay();
+    await tick(10000);
+    expect(t.advances).toEqual([]);
+    expect(t.last()).toMatchObject({ phase: 'gap', note: '這段的最後一句了，按「聽完了」結束。' });
   });
 
   it('keeps the score on screen and waits when 自動 is off', async () => {
@@ -291,16 +345,21 @@ describe('scoring and the hold', () => {
 });
 
 describe('silence', () => {
-  it('says nothing was heard, does not count the line and advances', async () => {
+  it('says nothing was heard, does not count the line and plays it again', async () => {
     const t = setup();
     await listening(t);
     t.listens[0]!.result.resolve([]);
     await tick(0);
-    expect(t.last()).toMatchObject({ phase: 'scored', score: null, note: '沒有聽到聲音。' });
+    expect(t.last()).toMatchObject({
+      phase: 'scored',
+      score: null,
+      note: '沒有聽到聲音，再聽一次、再說一次。',
+    });
     expect(t.last().scoredLines).toBe(0);
     expect(t.scoreSpoken).not.toHaveBeenCalled();
     await tick(1800);
-    expect(t.advances).toEqual([0]);
+    expect(t.advances).toEqual([]);
+    expect(t.plays).toHaveLength(2);
   });
 
   it('treats a null score as silence too', async () => {
@@ -309,7 +368,7 @@ describe('silence', () => {
     await listening(t);
     t.listens[0]!.result.resolve(['mumble']);
     await tick(0);
-    expect(t.last().note).toBe('沒有聽到聲音。');
+    expect(t.last().note).toBe('沒有聽到聲音，再聽一次、再說一次。');
     expect(t.last().scoredLines).toBe(0);
   });
 
@@ -589,7 +648,7 @@ describe('generations', () => {
     t.loop.play(0);
     await t.endPlay();
     await tick(1600);
-    t.listens[0]!.result.resolve(['88']);
+    t.listens[0]!.result.resolve(['98']);
     await tick(1800);
     expect(t.last().index).toBe(0);
     expect(t.advances).toEqual([0, 1, 1]);

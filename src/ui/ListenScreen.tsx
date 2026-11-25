@@ -150,9 +150,9 @@ export function ListenScreen() {
   };
 
   /** The loop asks for the line after `index` (its newest played line). */
+  // Never finishes by itself: the last line waits for 聽完了 (the loop does not ask past it).
   advanceFrom.current = (index) => {
-    if (index + 1 >= lines.length) finish();
-    else setShown(index + 2);
+    if (index + 1 < lines.length) setShown(index + 2);
   };
 
   const advance = () => {

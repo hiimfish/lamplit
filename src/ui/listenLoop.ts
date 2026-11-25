@@ -23,10 +23,12 @@ export const GAP_MS = 900;
 export const SHADOW_EXTRA_MS = 1200;
 /** Browser speech resolves at once; every word gets at least this long. */
 export const MS_PER_WORD = 320;
-/** Hold after a score before moving on, and when the score is below LOW_SCORE. */
+/** Hold after a passing score before moving on. */
 export const HOLD_MS = 1800;
-export const HOLD_LOW_MS = 3500;
-export const LOW_SCORE = 70;
+/** 跟著說 moves on only from this score up; below it the line is heard and said again. */
+export const PASS_SCORE = 90;
+/** How long a score under PASS_SCORE stays on screen (its words marked) before the retry. */
+export const RETRY_MS = 3500;
 /** Silent lines in a row that turn 跟著說 off. */
 export const SILENT_LIMIT = 3;
 /** Model failures (download, scoring) in a row that turn the microphone off. */
@@ -41,7 +43,10 @@ export const NOTE_NO_MIC = '找不到麥克風，跟著說只會每句停一下�
 export const NOTE_NETWORK = '這句沒有評分成功。';
 export const NOTE_NETWORK_OFF = '發音模型一直不能用，跟著說只會每句停一下。';
 export const NOTE_DOWNLOAD_FAILED = '發音模型下載失敗，跟著說只會每句停一下。';
-export const NOTE_SILENT = '沒有聽到聲音。';
+export const NOTE_SILENT = '沒有聽到聲音，再聽一次、再說一次。';
+export const NOTE_RETRY = `還沒到 ${PASS_SCORE} 分，再聽一次、再說一次。`;
+export const NOTE_AGAIN = '再聽一次，聽完換你說。';
+export const NOTE_END = '這段的最後一句了，按「聽完了」結束。';
 export const NOTE_SILENT_OFF = '一直沒聽到聲音，先關掉跟著說。';
 export const NOTE_DECLINED = '不評分也可以，每句後面會停一下讓你唸。';
 
@@ -399,8 +404,16 @@ export class ListenLoop {
     this.deps.onAdvance(this.frontier);
   }
 
-  /** Waits a while, then moves on if 自動 is on (otherwise it stays until 自動 comes back). */
+  /**
+   * Waits a while, then moves on if 自動 is on (otherwise it stays until 自動 comes back).
+   * Never past the last line: the scene ends only with 聽完了, pressed by the learner.
+   */
   private hold(gen: number, ms: number, state: ListenLoopState): void {
+    if (this.frontier >= this.lines.length - 1) {
+      this.transientNote = this.transientNote ? `${this.transientNote} ${NOTE_END}` : NOTE_END;
+      this.enter(state);
+      return;
+    }
     this.enter(state);
     this.after(gen, ms, () => {
       if (this.auto) this.advance();
@@ -468,14 +481,34 @@ export class ListenLoop {
         this.hold(gen, GAP_MS, 'scored');
       } else {
         this.transientNote = NOTE_SILENT;
-        this.hold(gen, HOLD_MS, 'scored');
+        this.retry(gen, HOLD_MS);
       }
       return;
     }
     this.silentRun = 0;
     this.score = result;
-    this.scores.set(this.index, result.score);
-    this.hold(gen, result.score < LOW_SCORE ? HOLD_LOW_MS : HOLD_MS, 'scored');
+    this.scores.set(this.index, Math.max(result.score, this.scores.get(this.index) ?? 0));
+    if (result.score >= PASS_SCORE) {
+      this.hold(gen, HOLD_MS, 'scored');
+    } else {
+      this.transientNote = NOTE_RETRY;
+      this.retry(gen, RETRY_MS);
+    }
+  }
+
+  /**
+   * Not passed yet: the score (or the silence note) stays on screen for `ms`, then the same
+   * line plays again and the learner says it again. This repeats until it passes; 下一句
+   * moves on by hand at any time.
+   */
+  private retry(gen: number, ms: number): void {
+    this.enter('scored');
+    const index = this.index;
+    this.after(gen, ms, () => {
+      this.play(index);
+      this.transientNote = NOTE_AGAIN;
+      this.emit();
+    });
   }
 
   private failed(gen: number, error: unknown, automatic: boolean): void {
