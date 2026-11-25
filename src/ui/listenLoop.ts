@@ -1,6 +1,6 @@
 /**
- * The 聽力加量 line loop (docs/specs/ui-flow.md): plays a line, then waits, listens
- * for 跟著說, scores it and moves on. A plain class with injected dependencies, so tests
+ * The 聽力加量 line loop (docs/specs/ui-flow.md): plays a line, then waits, records the
+ * learner for 跟著說, scores the pronunciation on the device and moves on. A plain class with injected dependencies, so tests
  * drive it with fake timers. No Preact or DOM imports.
  *
  * Wiring (ListenScreen): build `new ListenLoop(onChange, deps)` once per mount; call
@@ -10,12 +10,12 @@
  * next line (or finish when `index` is the last). Skipping by hand: call `halt()` first.
  * Leaving the screen: `dispose()`.
  */
-import type { ScoredListening } from '../audio/recognize';
+import type { ScoredAttempt } from '../audio/utterance';
 import type { SpokenScore } from '../learning/spokenScore';
 
 /** What the loop is doing right now. */
 export type ListenLoopState =
-  'idle' | 'playing' | 'gap' | 'confirm' | 'ready' | 'listening' | 'scored';
+  'idle' | 'playing' | 'gap' | 'confirm' | 'downloading' | 'ready' | 'listening' | 'scored';
 
 /** The fixed gap after a line when 跟著說 is off. */
 export const GAP_MS = 900;
@@ -29,26 +29,27 @@ export const HOLD_LOW_MS = 3500;
 export const LOW_SCORE = 70;
 /** Silent lines in a row that turn 跟著說 off. */
 export const SILENT_LIMIT = 3;
-/** Network failures in a row that turn the microphone off. */
+/** Model failures (download, scoring) in a row that turn the microphone off. */
 export const NETWORK_LIMIT = 2;
 /** Scored lines needed for a summary: max(MIN_SCORED, ceil(sceneLines / 2)). */
 export const MIN_SCORED = 3;
 
-export const NOTE_UNSUPPORTED = '這個瀏覽器不能辨識，跟著說只會每句停一下。';
-export const NOTE_INSECURE = '辨識需要 https，跟著說只會每句停一下。';
+export const NOTE_UNSUPPORTED = '這個瀏覽器不能錄音評分，跟著說只會每句停一下。';
+export const NOTE_INSECURE = '錄音需要 https，跟著說只會每句停一下。';
 export const NOTE_DENIED = '沒有麥克風權限，跟著說只會每句停一下。';
 export const NOTE_NO_MIC = '找不到麥克風，跟著說只會每句停一下。';
-export const NOTE_NETWORK = '網路不通，這句沒有辨識。';
-export const NOTE_NETWORK_OFF = '網路一直不通，跟著說只會每句停一下。';
+export const NOTE_NETWORK = '這句沒有評分成功。';
+export const NOTE_NETWORK_OFF = '發音模型一直不能用，跟著說只會每句停一下。';
+export const NOTE_DOWNLOAD_FAILED = '發音模型下載失敗，跟著說只會每句停一下。';
 export const NOTE_SILENT = '沒有聽到聲音。';
 export const NOTE_SILENT_OFF = '一直沒聽到聲音，先關掉跟著說。';
-export const NOTE_DECLINED = '不辨識也可以，每句後面會停一下讓你唸。';
+export const NOTE_DECLINED = '不評分也可以，每句後面會停一下讓你唸。';
 
 export type ListenErrorKind =
   'denied' | 'gesture' | 'no-mic' | 'insecure' | 'unsupported' | 'network' | 'aborted' | 'other';
 
 /**
- * Sorts a failed listen by its `code` (RecognitionError) or, failing that, its message.
+ * Sorts a failed listen by its `code` (RecorderError, PronError) or, failing that, its message.
  * `denied` is a refused permission; `gesture` is a browser that wants a tap first. The loop
  * treats both alike: automatic start falls back to `ready`, a tap start turns the mic off.
  */
@@ -59,6 +60,7 @@ export function classifyListenError(err: unknown): ListenErrorKind {
   switch (code) {
     case 'not-allowed':
     case 'service-not-allowed':
+    case 'denied':
     case 'NotAllowedError':
       return /gesture|activation/i.test(message) ? 'gesture' : 'denied';
     case 'gesture':
@@ -66,13 +68,17 @@ export function classifyListenError(err: unknown): ListenErrorKind {
       return 'gesture';
     case 'audio-capture':
     case 'no-mic':
+    case 'mic-busy':
       return 'no-mic';
     case 'insecure':
       return 'insecure';
     case 'unsupported':
     case 'language-not-supported':
+    case 'no-mic-api':
+    case 'no-recorder':
       return 'unsupported';
     case 'network':
+    case 'download-failed':
       return 'network';
     case 'aborted':
     case 'AbortError':
@@ -92,14 +98,19 @@ export interface LoopDeps {
   /** Plays a line; resolves when it ends (browser speech may resolve at once). */
   play(audioId: string, options: { speed: 'normal' | 'slow'; text: string }): Promise<void>;
   stopAudio(): void;
-  /** Starts listening (listenAlternatives); `timeoutMs` is the clamped listening limit. */
-  listen(options: { timeoutMs: number }): ScoredListening;
-  scoreSpoken(target: string, alternatives: readonly string[]): SpokenScore | null;
+  /**
+   * Records the learner saying `target` and scores it (utterance.ts); `timeoutMs` is the
+   * clamped recording limit, `onScoring` marks the end of recording.
+   */
+  listen(options: { target: string; timeoutMs: number; onScoring: () => void }): ScoredAttempt;
+  /** Releases the microphone (跟著說 off, or no longer usable). */
+  releaseMic(): void;
   /** Clock in ms (performance.now). */
   now(): number;
-  /** Has the learner confirmed the privacy note in this browser? */
-  noteSeen(): boolean;
-  markNoteSeen(): void;
+  /** Is the pronunciation model on this device (no download note needed)? */
+  modelReady(): boolean;
+  /** Downloads and opens the model, reporting progress from 0 to 1. */
+  loadModel(onProgress: (fraction: number) => void): Promise<void>;
   /** The loop wants the next line after `index` (the newest line played); finish if last. */
   onAdvance(index: number): void;
 }
@@ -112,12 +123,16 @@ export interface ListenLoopSnapshot {
   auto: boolean;
   /** The 跟著說 switch. */
   shadow: boolean;
-  /** 跟著說 is on and recognition is usable (otherwise it only pauses). */
+  /** 跟著說 is on and the microphone and model are usable (otherwise it only pauses). */
   micOn: boolean;
   /** Listening must start with a tap on 說 (automatic start was refused). */
   tapToSpeak: boolean;
   /** One-line zh-TW message, if any. */
   note: string | undefined;
+  /** Model download progress, 0 to 1 (phase `downloading`). */
+  progress: number;
+  /** The line is recorded and its score is being worked out (phase `listening`). */
+  scoring: boolean;
   /** Result of the last listen on this line: null while none or when nothing was heard. */
   score: SpokenScore | null;
   /** Lines with a score so far. */
@@ -145,7 +160,9 @@ export class ListenLoop {
   private gen = 0;
   private disposed = false;
   private timer: ReturnType<typeof setTimeout> | undefined;
-  private handle: ScoredListening | undefined;
+  private handle: ScoredAttempt | undefined;
+  private progress = 0;
+  private scoring = false;
   private index = -1;
   private frontier = -1;
   private auto = true;
@@ -176,6 +193,8 @@ export class ListenLoop {
       micOn: this.micActive(),
       tapToSpeak: !this.autoStartOk,
       note: this.transientNote ?? this.micNote,
+      progress: this.progress,
+      scoring: this.scoring,
       score: this.score,
       scoredLines: this.scores.size,
     };
@@ -205,31 +224,55 @@ export class ListenLoop {
   }
 
   /**
-   * The 跟著說 switch. Turning it on the first time shows the privacy note (phase
-   * `confirm`); answer with confirm() or decline(). Otherwise it applies to the line
-   * on hand right away.
+   * The 跟著說 switch. Turning it on before the pronunciation model is on this device shows
+   * the download note (phase `confirm`); answer with confirm() or decline(). Otherwise it
+   * applies to the line on hand right away.
    */
   setShadow(on: boolean): void {
     if (this.disposed || on === this.shadow) return;
-    if (on && !this.deps.noteSeen()) {
+    if (on && this.micAvailable && !this.deps.modelReady()) {
       this.begin();
       this.deps.stopAudio();
       this.enter('confirm');
       return;
     }
     this.shadow = on;
+    if (!on) this.deps.releaseMic();
     this.reevaluate();
   }
 
-  /** The learner accepted the privacy note: 跟著說 on, the current line plays again. */
+  /**
+   * 下載並評分 on the note: downloads the model (phase `downloading`, with progress), then
+   * turns 跟著說 on and plays the current line again. A failed download leaves 跟著說 as a
+   * pause after each line.
+   */
   confirm(): void {
     if (this.disposed || this.state !== 'confirm') return;
-    this.deps.markNoteSeen();
-    this.shadow = true;
-    this.replayCurrent();
+    this.begin();
+    this.progress = 0;
+    this.enter('downloading');
+    const settle = (ok: boolean) => {
+      if (this.disposed || this.state !== 'downloading') return;
+      this.shadow = true;
+      if (!ok) {
+        this.micAvailable = false;
+        this.micNote = NOTE_DOWNLOAD_FAILED;
+      }
+      this.replayCurrent();
+    };
+    this.deps
+      .loadModel((fraction) => {
+        if (this.disposed || this.state !== 'downloading') return;
+        this.progress = fraction;
+        this.emit();
+      })
+      .then(
+        () => settle(true),
+        () => settle(false),
+      );
   }
 
-  /** Declined: 跟著說 stays a pause after each line (no recognition). */
+  /** Declined: 跟著說 stays a pause after each line (no scoring). */
   decline(): void {
     if (this.disposed || this.state !== 'confirm') return;
     this.shadow = true;
@@ -289,6 +332,7 @@ export class ListenLoop {
     if (this.disposed) return;
     this.begin();
     this.deps.stopAudio();
+    this.deps.releaseMic();
     this.disposed = true;
     this.state = 'idle';
   }
@@ -309,6 +353,7 @@ export class ListenLoop {
   /** Every entry point: a new generation, the microphone and timer stopped. */
   private begin(): number {
     this.gen += 1;
+    this.scoring = false;
     clearTimeout(this.timer);
     this.timer = undefined;
     const handle = this.handle;
@@ -385,9 +430,14 @@ export class ListenLoop {
     if (!line) return;
     const timeoutMs = clamp(2 * this.took + 3000, 6000, 15000);
     this.transientNote = undefined;
-    let handle: ScoredListening;
+    let handle: ScoredAttempt;
+    const onScoring = () => {
+      if (gen !== this.gen || this.disposed) return;
+      this.scoring = true;
+      this.emit();
+    };
     try {
-      handle = this.deps.listen({ timeoutMs });
+      handle = this.deps.listen({ target: line.text, timeoutMs, onScoring });
     } catch (error) {
       this.failed(gen, error, automatic);
       return;
@@ -395,8 +445,8 @@ export class ListenLoop {
     this.handle = handle;
     this.enter('listening');
     handle.promise.then(
-      (heard) => {
-        if (gen === this.gen && !this.disposed) this.heard(gen, line, heard);
+      (score) => {
+        if (gen === this.gen && !this.disposed) this.heard(gen, score);
       },
       (error: unknown) => {
         if (gen === this.gen && !this.disposed) this.failed(gen, error, automatic);
@@ -404,10 +454,9 @@ export class ListenLoop {
     );
   }
 
-  private heard(gen: number, line: LoopLine, alternatives: readonly string[]): void {
+  private heard(gen: number, result: SpokenScore | null): void {
     this.handle = undefined;
-    const said = alternatives.filter((a) => a.trim() !== '');
-    const result = said.length > 0 ? this.deps.scoreSpoken(line.text, said) : null;
+    this.scoring = false;
     this.networkRun = 0;
     if (!result) {
       this.score = null;
@@ -431,6 +480,7 @@ export class ListenLoop {
 
   private failed(gen: number, error: unknown, automatic: boolean): void {
     this.handle = undefined;
+    this.scoring = false;
     const kind = classifyListenError(error);
     if (kind === 'aborted') return;
     if (kind === 'denied' || kind === 'gesture') {
@@ -458,9 +508,10 @@ export class ListenLoop {
     }
   }
 
-  /** No recognition for the rest of this mount: a note and the timed pause. */
+  /** No scoring for the rest of this mount: a note and the timed pause. */
   private micOff(gen: number, note: string): void {
     this.micAvailable = false;
+    this.deps.releaseMic();
     this.micNote = note;
     this.transientNote = undefined;
     this.hold(gen, SHADOW_EXTRA_MS, 'gap');

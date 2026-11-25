@@ -1,14 +1,9 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { playMusic } from '../audio/music';
 import { nowPlaying, playAudio, stopAudio } from '../audio/pronounce';
-import {
-  hasSeenRecognitionNote,
-  isRecognitionSupported,
-  listenAlternatives,
-  markRecognitionNoteSeen,
-  RECOGNITION_NOTE,
-} from '../audio/recognize';
+import { loadModel, modelCached, PRON_NOTE, pronSupported } from '../audio/pronModel';
 import { playSfx } from '../audio/sfx';
+import { createShadowMic } from '../audio/utterance';
 import type { Task, Unit } from '../content/types';
 import { lineAudioId, speakerOf } from '../content/units';
 import { appStore, commitSave, currentNow } from '../core/appState';
@@ -16,7 +11,7 @@ import { dailyFor } from '../core/save';
 import { useStore } from '../core/store';
 import { finishListen, listenGoal, pickListenTask } from '../learning/listen';
 import { taskKey } from '../learning/sessionPlan';
-import { scoreSpoken, spokenScoreText } from '../learning/spokenScore';
+import { spokenScoreText } from '../learning/spokenScore';
 import type { SpokenMark } from '../learning/spokenScore';
 import { ChatLines } from './ChatLines';
 import { useKeys } from './keys';
@@ -40,17 +35,16 @@ const START: ListenLoopSnapshot = {
   micOn: false,
   tapToSpeak: false,
   note: undefined,
+  progress: 0,
+  scoring: false,
   score: null,
   scoredLines: 0,
 };
 
-/** Shown with the first score of a visit. */
-const SCORE_DISCLAIMER = '分數是瀏覽器聽出幾個字，不是發音評分。';
-
 /**
  * 聽力加量: a story already played, heard again in English only. ListenLoop plays the
  * lines one after another by itself (自動); 跟著說 asks you to say each line after it and
- * scores what the browser recognised. 中文 is off here unless turned on for this screen
+ * scores your pronunciation on this device. 中文 is off here unless turned on for this screen
  * (all lines) or opened with 「中」 for one line.
  */
 export function ListenScreen() {
@@ -62,7 +56,6 @@ export function ListenScreen() {
   const [zh, setZh] = useState(false);
   const [peeked, setPeeked] = useState<ReadonlySet<string>>(() => new Set());
   const [marks, setMarks] = useState<Record<string, SpokenMark[]>>({});
-  const [firstScored, setFirstScored] = useState<number | undefined>(undefined);
   const [spoken, setSpoken] = useState<ListenSummary | undefined>(undefined);
   const [snap, setSnap] = useState<ListenLoopSnapshot>(START);
   const { save } = useStore(appStore);
@@ -74,20 +67,32 @@ export function ListenScreen() {
   // What the loop's callbacks read when they run, long after the render that made them.
   const advanceFrom = useRef<(index: number) => void>(() => undefined);
   const loopRef = useRef<ListenLoop | undefined>(undefined);
+  // The model is already on this device (checked on arrival): 跟著說 needs no download note.
+  // Without WebAssembly there is nothing to download; the first line then says why.
+  const modelHere = useRef(!pronSupported());
   if (!loopRef.current) {
+    const mic = createShadowMic();
     loopRef.current = new ListenLoop(setSnap, {
       play: (audioId, options) => playAudio(audioId, options),
       stopAudio,
-      listen: ({ timeoutMs }) => listenAlternatives({ timeoutMs }),
-      scoreSpoken,
+      listen: (options) => mic.attempt(options),
+      releaseMic: () => mic.close(),
       now: () => performance.now(),
-      noteSeen: hasSeenRecognitionNote,
-      markNoteSeen: markRecognitionNoteSeen,
+      modelReady: () => modelHere.current,
+      loadModel: async (onProgress) => {
+        await loadModel(onProgress);
+        modelHere.current = true;
+      },
       onAdvance: (index) => advanceFrom.current(index),
     });
   }
   const loop = loopRef.current;
 
+  useEffect(() => {
+    void modelCached().then((here) => {
+      if (here) modelHere.current = true;
+    });
+  }, []);
   useEffect(
     () => () => {
       loop.dispose();
@@ -116,7 +121,6 @@ export function ListenScreen() {
     );
     setPeeked(new Set());
     setMarks({});
-    setFirstScored(undefined);
     setSpoken(undefined);
   }, [pick]);
 
@@ -126,7 +130,6 @@ export function ListenScreen() {
     if (snap.phase !== 'scored' || !snap.score || !line) return;
     const wordMarks = snap.score.marks;
     setMarks((all) => ({ ...all, [line.id]: wordMarks }));
-    setFirstScored((first) => first ?? snap.index);
   }, [snap.phase, snap.score]);
 
   const finish = () => {
@@ -186,12 +189,15 @@ export function ListenScreen() {
     appStore.set({ screen: 'town' });
   };
 
-  const confirming = snap.phase === 'confirm';
+  const asking = snap.phase === 'confirm';
+  const confirming = asking || snap.phase === 'downloading';
   useKeys(
     !pick || done
       ? { Enter: toGoal }
       : confirming
-        ? { Enter: () => loop.confirm(), Escape: () => loop.decline() }
+        ? asking
+          ? { Enter: () => loop.confirm(), Escape: () => loop.decline() }
+          : {}
         : {
             Enter: advance,
             ArrowRight: advance,
@@ -234,17 +240,14 @@ export function ListenScreen() {
   const today = dailyFor(save, currentNow()).listened;
   const goal = listenGoal(save.route);
 
-  const canSpeak = snap.micOn && isRecognitionSupported();
+  const canSpeak = snap.micOn && pronSupported();
   const speakLabel =
     snap.phase === 'listening' ? '說完了' : snap.phase === 'scored' ? '再說一次' : '● 說';
   const speakIdle = snap.phase === 'playing' || snap.phase === 'idle';
   let status = '';
-  if (snap.phase === 'listening') status = '● 換你說…';
+  if (snap.phase === 'listening') status = snap.scoring ? '評分中…' : '● 換你說…';
   else if (snap.phase === 'ready') status = '按「說」再唸這一句。';
-  else if (snap.phase === 'scored' && snap.score) {
-    status = spokenScoreText(snap.score);
-    if (snap.index === firstScored) status += ` ${SCORE_DISCLAIMER}`;
-  }
+  else if (snap.phase === 'scored' && snap.score) status = spokenScoreText(snap.score);
   if (snap.note) status = status ? `${status} ${snap.note}` : snap.note;
 
   return (
@@ -270,7 +273,7 @@ export function ListenScreen() {
             </p>
             {spoken && (
               <p class="flow-note" data-testid="listen-spoken">
-                跟著說 {spoken.lines} 句，平均 {spoken.score} 分（辨識到的字）。
+                跟著說 {spoken.lines} 句，平均 {spoken.score} 分（發音）。
               </p>
             )}
             <div class="flow-actions">
@@ -333,26 +336,32 @@ export function ListenScreen() {
               </button>
             </div>
             {confirming ? (
-              <div class="listen-confirm" data-testid="recognize-note">
-                <p class="flow-note">{RECOGNITION_NOTE}</p>
-                <div class="flow-actions">
-                  <button
-                    class="pixel-button primary"
-                    onClick={() => loop.confirm()}
-                    data-testid="recognize-confirm"
-                  >
-                    繼續辨識
-                    <KeyCap k="Enter" />
-                  </button>
-                  <button
-                    class="pixel-button"
-                    onClick={() => loop.decline()}
-                    data-testid="recognize-cancel"
-                  >
-                    不用辨識
-                    <KeyCap k="Escape" />
-                  </button>
-                </div>
+              <div class="listen-confirm" data-testid="pron-note">
+                <p class="flow-note">{PRON_NOTE}</p>
+                {asking ? (
+                  <div class="flow-actions">
+                    <button
+                      class="pixel-button primary"
+                      onClick={() => loop.confirm()}
+                      data-testid="pron-confirm"
+                    >
+                      下載並評分
+                      <KeyCap k="Enter" />
+                    </button>
+                    <button
+                      class="pixel-button"
+                      onClick={() => loop.decline()}
+                      data-testid="pron-cancel"
+                    >
+                      不用評分
+                      <KeyCap k="Escape" />
+                    </button>
+                  </div>
+                ) : (
+                  <p class="flow-note" aria-live="polite" data-testid="pron-progress">
+                    下載發音模型 {Math.round(snap.progress * 100)}%
+                  </p>
+                )}
               </div>
             ) : (
               <div class="flow-actions">

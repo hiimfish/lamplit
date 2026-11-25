@@ -1,16 +1,16 @@
 /**
- * Lifecycle logic behind useRecorder() / useRecognition(). The hooks are thin bindings over
+ * Lifecycle logic behind useRecorder() / usePronScore(). The hooks are thin bindings over
  * these controllers (dispose() == unmount), so the guards are tested here without a DOM.
  */
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import type { RecordingHandle } from '../src/audio/recorder';
 import { RecorderError } from '../src/audio/recorder';
-import { listenOnce, RecognitionError } from '../src/audio/recognize';
-import type { Listening } from '../src/audio/recognize';
+import { PronError } from '../src/audio/pronModel';
+import type { SpokenScore } from '../src/learning/spokenScore';
 import { RecorderController } from '../src/ui/minigames/useRecorder';
 import type { RecorderDeps, RecorderState } from '../src/ui/minigames/useRecorder';
-import { NOTHING_HEARD, RecognitionController } from '../src/ui/minigames/useRecognition';
-import type { RecognitionDeps, RecognitionState } from '../src/ui/minigames/useRecognition';
+import { NOTHING_HEARD, PronController } from '../src/ui/minigames/usePronScore';
+import type { PronDeps, PronState } from '../src/ui/minigames/usePronScore';
 
 vi.mock('../src/audio/pronounce', () => ({ stopAudio: vi.fn(), playAudio: vi.fn() }));
 
@@ -171,162 +171,116 @@ describe('RecorderController (useRecorder)', () => {
   });
 });
 
-function recognitionSetup(noteSeen = true) {
-  const sessions: { listening: Listening; done: ReturnType<typeof deferred<string>> }[] = [];
-  const calls: string[] = [];
-  let seen = noteSeen;
-  const deps: RecognitionDeps = {
-    listen: vi.fn(() => {
-      calls.push('listen');
-      const done = deferred<string>();
-      const listening: Listening = {
-        promise: done.promise,
-        abort: vi.fn(() => done.reject(new RecognitionError('aborted'))),
-      };
-      sessions.push({ listening, done });
-      return listening;
+function pronSetup(cached = true) {
+  const scores: ReturnType<typeof deferred<SpokenScore | null>>[] = [];
+  const download = deferred<void>();
+  let progress: (fraction: number) => void = () => undefined;
+  const deps: PronDeps = {
+    cached: vi.fn(async () => cached),
+    load: vi.fn((onProgress: (fraction: number) => void) => {
+      progress = onProgress;
+      return download.promise;
     }),
-    noteSeen: vi.fn(() => seen),
-    markNoteSeen: vi.fn(() => {
-      calls.push('markNoteSeen');
-      seen = true;
+    score: vi.fn(() => {
+      const d = deferred<SpokenScore | null>();
+      scores.push(d);
+      return d.promise;
     }),
-    beforeListen: vi.fn(() => void calls.push('beforeListen')),
   };
-  const states: RecognitionState[] = [];
-  const controller = new RecognitionController((s) => states.push(s), deps);
-  return { controller, deps, sessions, calls, states };
+  const states: PronState[] = [];
+  const controller = new PronController((s) => states.push(s), deps);
+  return { controller, deps, scores, download, states, progress: (f: number) => progress(f) };
 }
 
-describe('RecognitionController (useRecognition)', () => {
-  it('first tap shows the privacy note and does not listen or store the flag', () => {
-    const { controller, deps } = recognitionSetup(false);
-    controller.request('to go please');
+const BLOB = new Blob(['x']);
+const RESULT: SpokenScore = {
+  score: 83,
+  level: 'mostly',
+  marks: [
+    { word: 'to', status: 'near' },
+    { word: 'go', status: 'hit' },
+  ],
+};
+
+describe('PronController (usePronScore)', () => {
+  it('scores at once when the model is already on the device', async () => {
+    const { controller, deps, scores } = pronSetup(true);
+    void controller.request(BLOB, 'to go');
+    expect(controller.getState().status).toBe('scoring');
+    await flush();
+    expect(deps.score).toHaveBeenCalledWith(BLOB, 'to go');
+    scores[0]!.resolve(RESULT);
+    await flush();
+    expect(controller.getState()).toMatchObject({ status: 'idle', score: RESULT, message: null });
+  });
+
+  it('the first time asks before downloading, and downloads nothing on 取消', async () => {
+    const { controller, deps } = pronSetup(false);
+    void controller.request(BLOB, 'hi');
+    await flush();
     expect(controller.getState().status).toBe('confirm');
-    expect(deps.listen).not.toHaveBeenCalled();
-    expect(deps.markNoteSeen).not.toHaveBeenCalled();
-  });
-
-  it('繼續辨識 stores the flag, silences playback, then starts listening', () => {
-    const { controller, calls } = recognitionSetup(false);
-    controller.request('to go please');
-    controller.confirm();
-    expect(calls).toEqual(['markNoteSeen', 'beforeListen', 'listen']);
-    expect(controller.getState().status).toBe('listening');
-  });
-
-  it('取消 closes the note without listening; the note shows again next time', () => {
-    const { controller, deps } = recognitionSetup(false);
-    controller.request('hi');
+    expect(deps.load).not.toHaveBeenCalled();
     controller.cancel();
     expect(controller.getState().status).toBe('idle');
-    expect(deps.markNoteSeen).not.toHaveBeenCalled();
-    controller.request('hi');
-    expect(controller.getState().status).toBe('confirm');
-    expect(deps.listen).not.toHaveBeenCalled();
+    expect(deps.load).not.toHaveBeenCalled();
   });
 
-  it('after confirming once, later taps listen directly', () => {
-    const { controller, calls } = recognitionSetup(true);
-    controller.request('hi');
-    expect(calls).toEqual(['beforeListen', 'listen']);
-  });
-
-  it('ignores taps while already listening (single microphone consumer)', () => {
-    const { controller, deps } = recognitionSetup();
-    controller.request('hi');
-    controller.request('hi');
-    expect(deps.listen).toHaveBeenCalledTimes(1);
-  });
-
-  it('reports matched words and silence', async () => {
-    const { controller, sessions } = recognitionSetup();
-    controller.request('to go please');
-    sessions[0]!.done.resolve('go please');
+  it('下載並評分 downloads with progress, then scores', async () => {
+    const t = pronSetup(false);
+    void t.controller.request(BLOB, 'hi');
     await flush();
-    expect(controller.getState()).toMatchObject({ status: 'idle', message: null });
-    expect(controller.getState().heard?.missing).toEqual(['to']);
-    // The score is 聽力加量's (spokenScore.ts): two of three words heard.
-    expect(controller.getState().score?.score).toBe(67);
-    expect(controller.getState().score?.marks.map((m) => m.status)).toEqual([
-      'missed',
-      'hit',
-      'hit',
-    ]);
-    controller.request('to go please');
-    sessions[1]!.done.resolve('');
+    void t.controller.confirm();
+    expect(t.controller.getState().status).toBe('downloading');
+    t.progress(0.4);
+    expect(t.controller.getState().progress).toBe(0.4);
+    t.download.resolve();
     await flush();
-    expect(controller.getState()).toMatchObject({ heard: null, message: NOTHING_HEARD });
+    expect(t.controller.getState().status).toBe('scoring');
+    t.scores[0]!.resolve(RESULT);
+    await flush();
+    expect(t.controller.getState()).toMatchObject({ status: 'idle', score: RESULT });
   });
 
-  it('maps a recognition error code to its zh-TW message', async () => {
-    const { controller, sessions } = recognitionSetup();
-    controller.request('hi');
-    sessions[0]!.done.reject(new RecognitionError('network'));
+  it('a failed download shows the zh-TW message', async () => {
+    const t = pronSetup(false);
+    void t.controller.request(BLOB, 'hi');
     await flush();
-    expect(controller.getState().status).toBe('idle');
-    expect(controller.getState().message).toContain('網路');
+    void t.controller.confirm();
+    t.download.reject(new PronError('download-failed'));
+    await flush();
+    expect(t.controller.getState().status).toBe('idle');
+    expect(t.controller.getState().message).toContain('下載失敗');
   });
 
-  it('aborts the recognizer on unmount and ignores its late result', async () => {
-    const { controller, sessions, states } = recognitionSetup();
-    controller.request('hi');
-    controller.dispose();
-    expect(sessions[0]!.listening.abort).toHaveBeenCalledOnce();
-    const before = states.length;
-    sessions[0]!.done.resolve('hi');
+  it('a silent recording asks for another try', async () => {
+    const { controller, scores } = pronSetup(true);
+    void controller.request(BLOB, 'hi');
     await flush();
-    expect(states.length).toBe(before);
+    scores[0]!.resolve(null);
+    await flush();
+    expect(controller.getState()).toMatchObject({ score: null, message: NOTHING_HEARD });
   });
 
-  it('abort() (question finished) releases the UI immediately', () => {
-    const { controller, sessions } = recognitionSetup();
-    controller.request('hi');
+  it('ignores taps while scoring (one at a time)', async () => {
+    const { controller, deps } = pronSetup(true);
+    void controller.request(BLOB, 'hi');
+    void controller.request(BLOB, 'hi');
+    await flush();
+    expect(deps.score).toHaveBeenCalledTimes(1);
+  });
+
+  it('drops a late score after abort() or unmount', async () => {
+    const { controller, scores, states } = pronSetup(true);
+    void controller.request(BLOB, 'hi');
+    await flush();
     controller.abort();
-    expect(sessions[0]!.listening.abort).toHaveBeenCalledOnce();
     expect(controller.getState().status).toBe('idle');
-  });
-
-  describe('with the real listenOnce', () => {
-    class SilentRecognition {
-      static last: SilentRecognition | null = null;
-      lang = '';
-      interimResults = false;
-      maxAlternatives = 1;
-      onresult = null;
-      onerror = null;
-      onend = null;
-      start = vi.fn();
-      stop = vi.fn();
-      abort = vi.fn();
-      constructor() {
-        SilentRecognition.last = this;
-      }
-    }
-
-    beforeEach(() => {
-      vi.useFakeTimers();
-      vi.stubGlobal('window', { SpeechRecognition: SilentRecognition });
-    });
-    afterEach(() => {
-      vi.useRealTimers();
-      vi.unstubAllGlobals();
-    });
-
-    it('the timeout releases the UI when the browser never fires onend/onerror', async () => {
-      const states: RecognitionState[] = [];
-      const controller = new RecognitionController((s) => states.push(s), {
-        listen: listenOnce,
-        noteSeen: () => true,
-        markNoteSeen: () => undefined,
-        beforeListen: () => undefined,
-      });
-      controller.request('hi');
-      expect(controller.getState().status).toBe('listening');
-      await vi.advanceTimersByTimeAsync(8000);
-      expect(controller.getState().status).toBe('idle');
-      expect(controller.getState().message).toContain('再試一次');
-      expect(SilentRecognition.last?.abort).toHaveBeenCalledOnce();
-    });
+    scores[0]!.resolve(RESULT);
+    await flush();
+    expect(controller.getState().score).toBeNull();
+    controller.dispose();
+    const before = states.length;
+    controller.clear();
+    expect(states.length).toBe(before);
   });
 });

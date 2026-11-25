@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'preact/hooks';
 import { stopAudio } from '../../audio/pronounce';
+import { PRON_NOTE, pronSupported } from '../../audio/pronModel';
 import { settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
 import { useKeys } from '../keys';
 import { KeyCap } from '../KeyCap';
 import { takeJustChecked } from './Arrange';
-import { isRecognitionSupported, RECOGNITION_NOTE } from '../../audio/recognize';
-import { spokenScoreText } from '../../learning/spokenScore';
+import { spokenScoreText, unclearWords } from '../../learning/spokenScore';
 import type { SpokenScore } from '../../learning/spokenScore';
 import type { SpeakQuestion } from '../../learning/questions';
 import { play, useAnswerClock } from './shared';
 import type { MinigameProps } from './shared';
-import { useRecognition } from './useRecognition';
-import type { UseRecognition } from './useRecognition';
+import { usePronScore } from './usePronScore';
+import type { UsePronScore } from './usePronScore';
 import { useRecorder } from './useRecorder';
 import type { UseRecorder } from './useRecorder';
 
@@ -21,12 +21,12 @@ export function Speak({ question, onAnswered }: MinigameProps<SpeakQuestion>) {
   const { showZh } = useStore(settingsStore);
   const [finished, setFinished] = useState(false);
   const rec = useRecorder();
-  const recog = useRecognition(rec.pausePlayback);
+  const pron = usePronScore();
   const micBusy = rec.phase === 'starting' || rec.phase === 'recording';
 
   const finish = (skipped: boolean) => {
     rec.release();
-    recog.abort();
+    pron.abort();
     const result = clock.finish(question.itemId, true, undefined, skipped);
     if (!result) return;
     setFinished(true);
@@ -35,7 +35,6 @@ export function Speak({ question, onAnswered }: MinigameProps<SpeakQuestion>) {
     onAnswered(result);
   };
 
-  const listening = recog.status === 'listening';
   const replay = () => play(question.audioId, question.en);
   const slow = () => {
     clock.markHelp();
@@ -49,15 +48,11 @@ export function Speak({ question, onAnswered }: MinigameProps<SpeakQuestion>) {
   }, []);
 
   // Space 播放示範, Shift+Space 慢速 (help), Enter 我說完了. The mic keys (R, P, C) live in
-  // MicControls, and the first-recognition notice takes Enter / Esc while it shows.
+  // MicControls, and the first-time download note takes Enter / Esc while it shows.
   useKeys(
     {
-      Space: () => {
-        if (!listening) replay();
-      },
-      'Shift+Space': () => {
-        if (!listening) slow();
-      },
+      Space: replay,
+      'Shift+Space': slow,
       Enter: () => {
         if (!finished && !micBusy) finish(false);
       },
@@ -75,17 +70,17 @@ export function Speak({ question, onAnswered }: MinigameProps<SpeakQuestion>) {
           </p>
           {showZh && <p class="mg-zh">{question.zh}</p>}
         </div>
-        <SpeakReplay onReplay={replay} onSlow={slow} disabled={listening} />
+        <SpeakReplay onReplay={replay} onSlow={slow} />
       </div>
       {!finished && (
         <>
-          <MicControls rec={rec} recog={recog} target={question.en} />
+          <MicControls rec={rec} pron={pron} target={question.en} />
           <div class="mg-row">
             <Btn
               primary
               id="done"
               label="我說完了"
-              hint={recog.status === 'confirm' ? undefined : 'Enter'}
+              hint={pron.status === 'confirm' ? undefined : 'Enter'}
               disabled={micBusy}
               onClick={() => finish(false)}
             />
@@ -102,42 +97,43 @@ export function Speak({ question, onAnswered }: MinigameProps<SpeakQuestion>) {
   );
 }
 
-/** 錄音 / 停止 / 播放我的錄音 / 辨識 and their notes. One microphone consumer at a time. */
+/** 錄音 / 停止 / 播放我的錄音 / 評分 and their notes. One microphone consumer at a time. */
 function MicControls({
   rec,
-  recog,
+  pron,
   target,
 }: {
   rec: UseRecorder;
-  recog: UseRecognition;
+  pron: UsePronScore;
   target: string;
 }) {
-  const canRecognize = isRecognitionSupported();
-  const listening = recog.status === 'listening';
+  const canScore = pronSupported();
   const micBusy = rec.phase === 'starting' || rec.phase === 'recording';
-  const recordBlocked = rec.phase === 'starting' || recog.status !== 'idle';
+  const recordBlocked = rec.phase === 'starting' || pron.status !== 'idle';
   const record = () => {
-    recog.clear();
+    pron.clear();
     // The model (autoplayed or replayed) must not end up in the recording.
     stopAudio();
     rec.start();
   };
-  const recognize = () => {
+  const score = () => {
+    if (!rec.blob) return;
     rec.clearMessage();
-    recog.request(target);
+    pron.request(rec.blob, target);
   };
+  const scoreShown = canScore && !micBusy && rec.blob !== null;
   // Fixed letter keys, since these buttons come and go: R 錄音 / 停止 (Record), P 播放我的錄音
-  // (Play), C 辨識 (Check). Each acts only when its button is shown and enabled.
+  // (Play), C 評分 (Check). Each acts only when its button is shown and enabled.
   useKeys({
     r: () => {
       if (rec.phase === 'recording') rec.stop();
       else if (!recordBlocked) record();
     },
     p: () => {
-      if (rec.url && !listening) rec.playMine();
+      if (rec.url) rec.playMine();
     },
     c: () => {
-      if (canRecognize && !micBusy && recog.status === 'idle') recognize();
+      if (scoreShown && pron.status === 'idle') score();
     },
   });
   return (
@@ -155,22 +151,14 @@ function MicControls({
             onClick={record}
           />
         )}
-        {rec.url && (
+        {rec.url && <Btn id="play-mine" label="播放我的錄音" hint="p" onClick={rec.playMine} />}
+        {scoreShown && (
           <Btn
-            id="play-mine"
-            label="播放我的錄音"
-            hint="p"
-            disabled={listening}
-            onClick={rec.playMine}
-          />
-        )}
-        {canRecognize && !micBusy && (
-          <Btn
-            id="recognize"
-            label={listening ? '聽你說…' : '辨識'}
+            id="pron-score"
+            label={SCORE_LABEL[pron.status]}
             hint="c"
-            disabled={recog.status !== 'idle'}
-            onClick={recognize}
+            disabled={pron.status !== 'idle'}
+            onClick={score}
           />
         )}
       </div>
@@ -179,13 +167,28 @@ function MicControls({
           {rec.phase === 'starting' ? '正在開啟麥克風…' : '錄音中…說完請按停止'}
         </p>
       )}
-      {recog.status === 'confirm' && (
-        <RecognitionNotice onConfirm={recog.confirm} onCancel={recog.cancel} />
+      {canScore && !rec.blob && !micBusy && (
+        <p class="mg-note" data-testid="pron-hint">
+          錄音後可以按「評分」看發音分數。
+        </p>
       )}
-      <SpeakNotes message={recog.message ?? rec.message} score={recog.score} />
+      {pron.status === 'confirm' && <PronNotice onConfirm={pron.confirm} onCancel={pron.cancel} />}
+      {pron.status === 'downloading' && (
+        <p class="mg-note" data-testid="pron-progress">
+          下載發音模型 {Math.round(pron.progress * 100)}%
+        </p>
+      )}
+      <SpeakNotes message={pron.message ?? rec.message} score={pron.score} />
     </>
   );
 }
+
+const SCORE_LABEL: Record<UsePronScore['status'], string> = {
+  idle: '評分',
+  confirm: '評分',
+  downloading: '下載中…',
+  scoring: '評分中…',
+};
 
 interface BtnProps {
   id: string;
@@ -212,52 +215,37 @@ function Btn({ id, label, hint, primary = false, disabled = false, onClick }: Bt
   );
 }
 
-/** Same buttons as ReplayBar, but they can be disabled while the recognizer is listening. */
-function SpeakReplay(props: { onReplay: () => void; onSlow: () => void; disabled: boolean }) {
-  const { onReplay, onSlow, disabled } = props;
+/** Same buttons as ReplayBar. */
+function SpeakReplay(props: { onReplay: () => void; onSlow: () => void }) {
   return (
     <div class="mg-row">
-      <Btn id="replay" label="♪ 播放示範" hint="Space" disabled={disabled} onClick={onReplay} />
-      <Btn id="slow" label="慢速" hint="Shift+Space" disabled={disabled} onClick={onSlow} />
+      <Btn id="replay" label="♪ 播放示範" hint="Space" onClick={props.onReplay} />
+      <Btn id="slow" label="慢速" hint="Shift+Space" onClick={props.onSlow} />
     </div>
   );
 }
 
-/** Shown before the first recognition: nothing is sent until 繼續辨識. */
-function RecognitionNotice(props: { onConfirm: () => void; onCancel: () => void }) {
-  // Registered after Speak's own keys, so here Enter is 繼續辨識 (not 我說完了) and Esc 取消.
+/** Shown before the first 評分 on this device: nothing is downloaded until 下載並評分. */
+function PronNotice(props: { onConfirm: () => void; onCancel: () => void }) {
+  // Registered after Speak's own keys, so here Enter is 下載並評分 (not 我說完了) and Esc 取消.
   useKeys({ Enter: props.onConfirm, Escape: props.onCancel });
   return (
     <>
-      <p class="mg-note" data-testid="recognize-note">
-        {RECOGNITION_NOTE}
+      <p class="mg-note" data-testid="pron-note">
+        {PRON_NOTE}
       </p>
       <div class="mg-row">
-        <Btn
-          primary
-          id="recognize-confirm"
-          label="繼續辨識"
-          hint="Enter"
-          onClick={props.onConfirm}
-        />
-        <Btn id="recognize-cancel" label="取消" hint="Escape" onClick={props.onCancel} />
+        <Btn primary id="pron-confirm" label="下載並評分" hint="Enter" onClick={props.onConfirm} />
+        <Btn id="pron-cancel" label="取消" hint="Escape" onClick={props.onCancel} />
       </div>
     </>
   );
 }
 
-/** The words of the target the recognizer missed (names it missed are not counted). */
-function missedWords(score: SpokenScore): string[] {
-  return score.marks.filter((m) => m.status === 'missed' && !m.free).map((m) => m.word);
-}
-
-/**
- * After 辨識: the score line shared with 聽力加量 (辨識到 N／M 個字・S 分・level), then the
- * words not heard. The score counts the words the browser understood, not pronunciation.
- */
+/** After 評分: the score (發音 N 分・level), then the words to practise. */
 function SpeakNotes(props: { message: string | null; score: SpokenScore | null }) {
   const { message, score } = props;
-  const missed = score ? missedWords(score) : [];
+  const unclear = score ? unclearWords(score) : [];
   return (
     <>
       {message && (
@@ -269,9 +257,7 @@ function SpeakNotes(props: { message: string | null; score: SpokenScore | null }
         <p class="mg-note" data-testid="heard">
           <span data-testid="speak-score">{spokenScoreText(score)}</span>
           <br />
-          {missed.length === 0 ? '每個字都聽到了，很棒！' : `沒聽到：${missed.join(' ')}`}
-          <br />
-          分數是瀏覽器聽出幾個字，不是發音評分。
+          {unclear.length === 0 ? '每個字都很清楚，很棒！' : `再練習：${unclear.join(' ')}`}
         </p>
       )}
     </>

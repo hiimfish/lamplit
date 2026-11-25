@@ -12,6 +12,8 @@ export interface RecorderState {
   phase: RecorderPhase;
   /** Object URL of the last recording (in memory only). */
   url: string | null;
+  /** The last recording itself, for 評分. */
+  blob: Blob | null;
   message: string | null;
 }
 
@@ -34,7 +36,12 @@ const browserDeps: RecorderDeps = {
   createPlayer: (url) => new Audio(url),
 };
 
-const INITIAL_RECORDER_STATE: RecorderState = { phase: 'idle', url: null, message: null };
+const INITIAL_RECORDER_STATE: RecorderState = {
+  phase: 'idle',
+  url: null,
+  blob: null,
+  message: null,
+};
 
 /**
  * Owns at most one live recording. Every await is followed by a staleness check: a handle
@@ -63,7 +70,7 @@ export class RecorderController {
     if (this.disposed || phase === 'starting' || phase === 'recording') return;
     const mine = ++this.request;
     this.dropRecording();
-    this.set({ phase: 'starting', url: null, message: null });
+    this.set({ phase: 'starting', url: null, blob: null, message: null });
     let handle: RecordingHandle;
     try {
       handle = await this.deps.start();
@@ -95,7 +102,7 @@ export class RecorderController {
     }
     if (this.isStale(mine)) return; // never create a URL nobody will revoke
     const url = this.deps.createUrl(blob);
-    this.set({ phase: 'recorded', url });
+    this.set({ phase: 'recorded', url, blob });
   }
 
   playMine(): void {
@@ -132,7 +139,7 @@ export class RecorderController {
   private dropRecording(): void {
     this.pausePlayback();
     if (this.state.url) this.deps.revokeUrl(this.state.url);
-    this.state = { ...this.state, url: null };
+    this.state = { ...this.state, url: null, blob: null };
   }
 
   private set(patch: Partial<RecorderState>): void {

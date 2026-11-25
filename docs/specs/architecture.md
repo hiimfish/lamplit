@@ -35,11 +35,11 @@ src/
   ui/minigames/     題型元件：ListenPick、ListenPair（聽辨挑戰）、ChooseReply、Arrange、
                     Spell（打字拼字，畫面上的字母鍵盤）、Cloze（聽力填空）、ReadSign（讀招牌／價目）、
                     PictureChoose（看圖選句）、Fill（句子填空）、ReadPassage（讀短文）、Talk（聽對話答題）、
-                    Speak、QuestionView，共用的小元件（shared），以及錄音和辨識的 hook
+                    Speak、QuestionView，共用的小元件（shared），以及錄音和發音評分的 hook（useRecorder、usePronScore）
   learning/         出題（questionGen）、題目的型別和 NO_ITEM（questions）、批改、錯誤提示、FSRS 排程、
                     練習與複習的規則（sessionPlan）、小鎮畫面的進度和「下一關」要去哪一關（townPlan）；
                     幕結業考（exam 規則、examScore 估分）、最常錯（mistakes）、
-                    文法快練（grammarDrill、grammarOn）、跟著說評分（spokenScore）、
+                    文法快練（grammarDrill、grammarOn）、發音評分（pronScore 算分，spokenScore 是分級和文字）、
                     衝刺的 12 週表（sprintSchedule）、聽力加量的中文顯示（zhMode）
   learning/gen/     句子填空、讀短文、聽對話答題各自的出題檔（fills、passages、talks），加上共用的亂數和打亂選項（common）
   content/          單元型別、載入、內容檢查、音檔項目、角色的中文名稱（roles）、
@@ -48,7 +48,9 @@ src/
                     文法快練的手寫題庫和它的檢查（grammarBank）、結業考檔案的檢查（validateExam）
   content/checks/   三種新題型各自的內容檢查（fills、passages、talks），加上共用的小工具（common）
   core/             共用狀態、存檔、設定
-  audio/            發音播放、音軌與音量、背景音樂、音效、錄音、語音辨識、每個角色的聲線（voices）
+  audio/            發音播放、音軌與音量、背景音樂、音效、錄音（recorder；跟著說的自動停止錄音 utterance）、
+                    發音評分（pronModel 給畫面用、pronWorker 在 Web Worker 跑模型、pronFiles 模型檔、pcm 轉成 16 kHz）、
+                    每個角色的聲線（voices）
   art/items/        單字像素圖：每個單元一個檔（cafe、moveIn、store、street、market、clothes、clinic、
                     restaurant、postOffice、park），第一幕共 153 個；共用繪圖工具（draw）、對照表和檢查（index）
                     第二幕的 8 個檔（bank、communityCenter、library、repair、jobCenter、resume、interview、dayBefore），共 41 個
@@ -67,6 +69,7 @@ scripts/            gen-audio（產生音檔）、spike-tts（聲線比較）、
                     gen-audio 也讀 src/data/exams
 public/audio/       產生出來的發音 mp3 和 manifest.json
 public/assets/fonts 俐方體 11 號和授權文件
+public/models/w2v2/ 發音評分的模型（wav2vec2-base-960h，8 位元 ONNX，約 95MB，Apache-2.0），分成兩個 50MB 以下的檔
 tests/              Vitest 測試
 ```
 
@@ -91,22 +94,24 @@ tests/              Vitest 測試
 
 所有鍵都集中在 `src/core/storageKeys.ts`，前綴一律是 `lamplit.`。
 
-| localStorage 鍵               | 內容                                                   |
-| ----------------------------- | ------------------------------------------------------ |
-| `lamplit.save.v1`             | 進度存檔                                               |
-| `lamplit.save.v1.debug`       | 使用 `?debugDate` 時的除錯存檔（第一次會複製正式存檔） |
-| `lamplit.settings.v1`         | 設定                                                   |
-| `lamplit.recognitionNoteSeen` | 已同意語音辨識的隱私說明                               |
-| `lamplit.save.v1.corrupt`     | 讀不懂的存檔原文（只留第一份，不會覆蓋）               |
-| `lamplit.save.v1.pre-import`  | 匯入存檔代碼之前的存檔原文                             |
-| `lamplit.lastExport`          | 上次複製或下載存檔代碼的時間（ISO）                    |
-| `lamplit.migrated`            | 舊鍵都搬完了                                           |
+| localStorage 鍵               | 內容                                                      |
+| ----------------------------- | --------------------------------------------------------- |
+| `lamplit.save.v1`             | 進度存檔                                                  |
+| `lamplit.save.v1.debug`       | 使用 `?debugDate` 時的除錯存檔（第一次會複製正式存檔）    |
+| `lamplit.settings.v1`         | 設定                                                      |
+| `lamplit.recognitionNoteSeen` | 已不再使用（2026-11-25 拿掉語音辨識；舊瀏覽器裡留著無害） |
+| `lamplit.save.v1.corrupt`     | 讀不懂的存檔原文（只留第一份，不會覆蓋）                  |
+| `lamplit.save.v1.pre-import`  | 匯入存檔代碼之前的存檔原文                                |
+| `lamplit.lastExport`          | 上次複製或下載存檔代碼的時間（ISO）                       |
+| `lamplit.migrated`            | 舊鍵都搬完了                                              |
 
 **舊鍵搬家**：`src/core/boot.ts` 是 `main.tsx` 第一個載入的模組，在讀存檔和設定之前執行 `migrateStorageKeys`。舊鍵（`pixel-english-town.save.v1`、`.debug`、`pixel-english-town.settings.v1`、`english-learn.recognitionNoteSeen`）如果新鍵還沒有，就複製過去、讀回比對一樣才刪舊鍵；新鍵已經有就保留新鍵、刪舊鍵。任何一步失敗就留著舊鍵，下次啟動再試；全部搬完才寫 `lamplit.migrated`。
 
 **存檔代碼**（`src/core/saveCode.ts`，設定裡的「存檔」）：格式是 `header.payload.check`，三段都是不補 `=` 的 base64url。header 是 `{"typ":"lamplit-save","v":1,"z":"deflate-raw"}`（瀏覽器沒有 `CompressionStream` 時 `z` 是 `"none"`）；payload 是壓縮過的 UTF-8 JSON `{ saveVersion, exportedAt, save, settings }`；check 是 `header.payload` 的 FNV-1a 32 位元雜湊。check 只用來發現代碼沒複製完整，不是簽章，擋不了修改（區網 http 沒有 `crypto.subtle`）。匯入時會去掉 `__proto__`、`constructor`、`prototype` 鍵，把未來的日期拉回今天（未來的 `history`、`mistakes` 日子直接丟掉），再交給 `sanitizeSave`；比目前 `SAVE_VERSION` 新的存檔會拒收。匯入有「合併」（預設，`mergeSaves`，保留這台的設定）和「完全取代」（連設定一起換）兩種，寫入前先把原本的存檔存到 `lamplit.save.v1.pre-import`。
 
 **保護**：存檔寫不進去時 `appStore.saveError` 會亮起，畫面上方出現提示，直到下一次寫入成功；啟動時會呼叫一次 `navigator.storage.persist()`。另一個分頁存檔時，兩邊用 `mergeSaves` 合併而不是互相覆蓋；整個 localStorage 被清掉時保留記憶體裡的進度並寫回去。
+
+**發音模型**（2026-11-25）：跟我說的「評分」和聽力加量的跟著說用裝置上的發音模型。模型放在自己的網站 `public/models/w2v2/`（`model.q8.part0`、`model.q8.part1`，見 `src/audio/pronFiles.ts`），第一次要評分、使用者按「下載並評分」才下載，存進瀏覽器的 Cache API（`lamplit-models-v1`），之後不再下載。模型換了就改檔名和快取名稱，舊的不會被拿來用。模型用 onnxruntime-web（WebAssembly）在 Web Worker 裡跑；錄音只在這台裝置上評分，不會上傳。
 
 ### 存檔格式（版本 1）
 
@@ -205,7 +210,7 @@ tests/              Vitest 測試
 - 2026-11-24（已做）新增的測試：結業考的題目檔和計分、最常錯、跟著說、文法快練、聽力加量的播放節奏。每一類的對應檔案：
   - 結業考：`tests/validateExam.test.ts`（手寫題檔的格式、草稿、答案位置不超過 40%）、`tests/examContent.test.ts`（真的題目檔：只用教過的字、圖存在、不抄 5 字以上的句子）、`tests/exam.test.ts`、`tests/examRunner.test.ts`、`tests/examResult.test.ts`、`tests/examScore.test.ts`
   - 文法快練的題庫：`tests/grammarBank.test.ts`、`tests/grammarOn.test.ts`
-  - 其他：`tests/mistakes.test.ts`、`tests/saveMistakes.test.ts`、`tests/grammarDrill.test.ts`、`tests/grammar.test.ts`、`tests/spokenScore.test.ts`、`tests/listenLoop.test.ts`、`tests/zhMode.test.ts`、`tests/sprintSchedule.test.ts`
+  - 其他：`tests/mistakes.test.ts`、`tests/saveMistakes.test.ts`、`tests/grammarDrill.test.ts`、`tests/grammar.test.ts`、`tests/pronScore.test.ts`（2026-11-25 取代 `spokenScore.test.ts`）、`tests/listenLoop.test.ts`、`tests/zhMode.test.ts`、`tests/sprintSchedule.test.ts`
   - 測試數這次沒有重新統計，以 `npm test` 的結果為準。
 
 ### 手機上測錄音

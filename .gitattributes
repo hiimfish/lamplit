@@ -9,3 +9,6 @@
 *.png binary
 *.jpg binary
 *.webp binary
+# The pronunciation model (public/models/w2v2/model.q8.part*): raw bytes.
+public/models/** binary
+public/models/**/*.txt text eol=lf

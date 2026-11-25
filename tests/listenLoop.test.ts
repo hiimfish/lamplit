@@ -1,9 +1,9 @@
 /**
- * The 聽力加量 line loop: phases, waits, scoring, errors and the privacy note. Everything
+ * The 聽力加量 line loop: phases, waits, scoring, errors and the model download note. Everything
  * is injected, so the tests run it with fake timers, a fake clock and hand-resolved promises.
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import type { ScoredListening } from '../src/audio/recognize';
+import type { ScoredAttempt } from '../src/audio/utterance';
 import type { SpokenScore } from '../src/learning/spokenScore';
 import { classifyListenError, ListenLoop } from '../src/ui/listenLoop';
 import type { ListenLoopSnapshot, LoopDeps, LoopLine } from '../src/ui/listenLoop';
@@ -32,17 +32,20 @@ function score(n: number): SpokenScore {
   return { score: n, level: 'mostly', marks: [] };
 }
 
-function setup(options: { noteSeen?: boolean; lines?: LoopLine[] } = {}) {
+function setup(options: { modelReady?: boolean; lines?: LoopLine[] } = {}) {
   const plays: { audioId: string; speed: string; done: ReturnType<typeof deferred<void>> }[] = [];
   const listens: {
     timeoutMs: number;
     result: ReturnType<typeof deferred<string[]>>;
     abort: ReturnType<typeof vi.fn>;
     stop: ReturnType<typeof vi.fn>;
+    onScoring: () => void;
   }[] = [];
   const advances: number[] = [];
   const snapshots: ListenLoopSnapshot[] = [];
-  let seen = options.noteSeen ?? true;
+  let ready = options.modelReady ?? true;
+  const download = deferred<void>();
+  /** Stands in for the on-device model: a heard number becomes that score. */
   const scoreSpoken = vi.fn((target: string, alts: readonly string[]): SpokenScore | null => {
     void target;
     const n = Number(alts[0]);
@@ -55,18 +58,28 @@ function setup(options: { noteSeen?: boolean; lines?: LoopLine[] } = {}) {
       return done.promise;
     }),
     stopAudio: vi.fn(),
-    listen: vi.fn(({ timeoutMs }) => {
+    listen: vi.fn(({ target, timeoutMs, onScoring }) => {
       const result = deferred<string[]>();
-      const abort = vi.fn();
+      let aborted = false;
+      const abort = vi.fn(() => {
+        aborted = true;
+      });
       const stop = vi.fn();
-      listens.push({ timeoutMs, result, abort, stop });
-      return { promise: result.promise, abort, stop } satisfies ScoredListening;
+      listens.push({ timeoutMs, result, abort, stop, onScoring });
+      const promise = result.promise.then((alternatives) => {
+        if (aborted) throw Object.assign(new Error('aborted'), { code: 'aborted' });
+        const said = alternatives.filter((a) => a.trim() !== '');
+        return said.length > 0 ? scoreSpoken(target, said) : null;
+      });
+      return { promise, abort, stop } satisfies ScoredAttempt;
     }),
-    scoreSpoken,
+    releaseMic: vi.fn(),
     now: () => Date.now(),
-    noteSeen: () => seen,
-    markNoteSeen: vi.fn(() => {
-      seen = true;
+    modelReady: () => ready,
+    loadModel: vi.fn(async (onProgress: (fraction: number) => void) => {
+      onProgress(0.5);
+      await download.promise;
+      ready = true;
     }),
     onAdvance: (index) => void advances.push(index),
   };
@@ -79,7 +92,7 @@ function setup(options: { noteSeen?: boolean; lines?: LoopLine[] } = {}) {
     await tick(0);
   };
   const last = () => snapshots[snapshots.length - 1]!;
-  return { loop, deps, plays, listens, advances, snapshots, scoreSpoken, endPlay, last };
+  return { loop, deps, plays, listens, advances, snapshots, scoreSpoken, download, endPlay, last };
 }
 
 /** Plays line 0 with 跟著說 on and a usable microphone; stops when it is listening. */
@@ -101,7 +114,12 @@ describe('classifyListenError', () => {
     [{ code: 'gesture' }, 'gesture'],
     [{ code: 'not-allowed', message: 'needs a user gesture' }, 'denied'],
     [Object.assign(new Error('requires user gesture'), { code: 'not-allowed' }), 'gesture'],
+    [{ code: 'denied' }, 'denied'],
     [{ code: 'audio-capture' }, 'no-mic'],
+    [{ code: 'mic-busy' }, 'no-mic'],
+    [{ code: 'no-recorder' }, 'unsupported'],
+    [{ code: 'no-mic-api' }, 'unsupported'],
+    [{ code: 'download-failed' }, 'network'],
     [{ code: 'insecure' }, 'insecure'],
     [{ code: 'unsupported' }, 'unsupported'],
     [{ code: 'network' }, 'network'],
@@ -161,7 +179,7 @@ describe('after a line, 跟著說 off', () => {
 
 describe('跟著說 on, microphone not usable (the pause)', () => {
   it('pauses took + 1200 ms after declining the note', async () => {
-    const t = setup({ noteSeen: false });
+    const t = setup({ modelReady: false });
     t.loop.setShadow(true);
     t.loop.decline();
     t.loop.play(0);
@@ -257,15 +275,18 @@ describe('scoring and the hold', () => {
     expect(t.advances).toEqual([]);
   });
 
-  it('passes the line text and every alternative to scoreSpoken', async () => {
+  it('records the line text and shows 評分中 once recording ends', async () => {
     const t = setup();
     await listening(t);
-    t.listens[0]!.result.resolve(['good morning', 'good mourning']);
+    expect(t.deps.listen).toHaveBeenCalledWith(
+      expect.objectContaining({ target: 'Good morning how are you' }),
+    );
+    expect(t.last().scoring).toBe(false);
+    t.listens[0]!.onScoring();
+    expect(t.last()).toMatchObject({ phase: 'listening', scoring: true });
+    t.listens[0]!.result.resolve(['90']);
     await tick(0);
-    expect(t.scoreSpoken).toHaveBeenCalledWith('Good morning how are you', [
-      'good morning',
-      'good mourning',
-    ]);
+    expect(t.last()).toMatchObject({ phase: 'scored', scoring: false });
   });
 });
 
@@ -370,8 +391,8 @@ describe('errors', () => {
 
   it.each([
     ['audio-capture', '找不到麥克風，跟著說只會每句停一下。'],
-    ['insecure', '辨識需要 https，跟著說只會每句停一下。'],
-    ['unsupported', '這個瀏覽器不能辨識，跟著說只會每句停一下。'],
+    ['insecure', '錄音需要 https，跟著說只會每句停一下。'],
+    ['unsupported', '這個瀏覽器不能錄音評分，跟著說只會每句停一下。'],
   ])('%s turns the mic off for this mount with a note and a timed pause', async (code, note) => {
     const t = setup();
     await listening(t);
@@ -399,20 +420,20 @@ describe('errors', () => {
     expect(t.last().micOn).toBe(false);
   });
 
-  it('one network failure notes it and moves on; two in a row turn the mic off', async () => {
+  it('one model failure notes it and moves on; two in a row turn the mic off', async () => {
     const t = setup();
     await listening(t, 0);
-    t.listens[0]!.result.reject({ code: 'network' });
+    t.listens[0]!.result.reject({ code: 'download-failed' });
     await tick(0);
-    expect(t.last()).toMatchObject({ micOn: true, note: '網路不通，這句沒有辨識。' });
+    expect(t.last()).toMatchObject({ micOn: true, note: '這句沒有評分成功。' });
     await tick(900);
     expect(t.advances).toEqual([0]);
     await listening(t, 1);
-    t.listens[1]!.result.reject({ code: 'network' });
+    t.listens[1]!.result.reject({ code: 'download-failed' });
     await tick(0);
     expect(t.last()).toMatchObject({
       micOn: false,
-      note: '網路一直不通，跟著說只會每句停一下。',
+      note: '發音模型一直不能用，跟著說只會每句停一下。',
     });
   });
 
@@ -449,7 +470,7 @@ describe('errors', () => {
 });
 
 describe('speak()', () => {
-  it('while listening it means 說完了 and stops the recognizer', async () => {
+  it('while listening it means 說完了 and stops the recording', async () => {
     const t = setup();
     await listening(t);
     t.loop.speak();
@@ -523,7 +544,7 @@ describe('generations', () => {
     expect(t.deps.stopAudio).toHaveBeenCalled();
   });
 
-  it('halt() while listening aborts the recognizer and drops its result', async () => {
+  it('halt() while listening aborts the recording and drops its result', async () => {
     const t = setup();
     await listening(t);
     t.loop.halt();
@@ -606,9 +627,9 @@ describe('switching 跟著說 while a line is on hand', () => {
   });
 });
 
-describe('privacy note', () => {
+describe('model download note', () => {
   it('shows the note on the first 跟著說 and stays off until answered', async () => {
-    const t = setup({ noteSeen: false });
+    const t = setup({ modelReady: false });
     t.loop.play(0);
     t.loop.setShadow(true);
     expect(t.loop.state).toBe('confirm');
@@ -618,12 +639,15 @@ describe('privacy note', () => {
     expect(t.advances).toEqual([]);
   });
 
-  it('confirm() remembers it, turns 跟著說 on and replays the line', async () => {
-    const t = setup({ noteSeen: false });
+  it('confirm() downloads with progress, then turns 跟著說 on and replays the line', async () => {
+    const t = setup({ modelReady: false });
     t.loop.play(0);
     t.loop.setShadow(true);
     t.loop.confirm();
-    expect(t.deps.markNoteSeen).toHaveBeenCalledTimes(1);
+    expect(t.deps.loadModel).toHaveBeenCalledTimes(1);
+    expect(t.last()).toMatchObject({ phase: 'downloading', progress: 0.5, shadow: false });
+    t.download.resolve();
+    await tick(0);
     expect(t.last()).toMatchObject({ shadow: true, micOn: true, phase: 'playing' });
     expect(t.plays).toHaveLength(2);
     await t.endPlay();
@@ -631,16 +655,30 @@ describe('privacy note', () => {
     expect(t.deps.listen).toHaveBeenCalledTimes(1);
   });
 
-  it('decline() keeps the pause mode with the note and does not remember', async () => {
-    const t = setup({ noteSeen: false });
+  it('a failed download leaves 跟著說 as a pause with a note', async () => {
+    const t = setup({ modelReady: false });
     t.loop.play(0);
     t.loop.setShadow(true);
-    t.loop.decline();
-    expect(t.deps.markNoteSeen).not.toHaveBeenCalled();
+    t.loop.confirm();
+    t.download.reject(new Error('offline'));
+    await tick(0);
     expect(t.last()).toMatchObject({
       shadow: true,
       micOn: false,
-      note: '不辨識也可以，每句後面會停一下讓你唸。',
+      note: '發音模型下載失敗，跟著說只會每句停一下。',
+    });
+  });
+
+  it('decline() keeps the pause mode with the note and downloads nothing', async () => {
+    const t = setup({ modelReady: false });
+    t.loop.play(0);
+    t.loop.setShadow(true);
+    t.loop.decline();
+    expect(t.deps.loadModel).not.toHaveBeenCalled();
+    expect(t.last()).toMatchObject({
+      shadow: true,
+      micOn: false,
+      note: '不評分也可以，每句後面會停一下讓你唸。',
     });
     await t.endPlay();
     await tick(2800);
@@ -652,15 +690,22 @@ describe('privacy note', () => {
     const t = setup();
     t.loop.confirm();
     t.loop.decline();
-    expect(t.deps.markNoteSeen).not.toHaveBeenCalled();
+    expect(t.deps.loadModel).not.toHaveBeenCalled();
     expect(t.snapshots).toHaveLength(1);
   });
 
-  it('does not ask again once seen', () => {
-    const t = setup({ noteSeen: true });
+  it('does not ask when the model is already here', () => {
+    const t = setup({ modelReady: true });
     t.loop.setShadow(true);
     expect(t.loop.state).toBe('idle');
     expect(t.last().shadow).toBe(true);
+  });
+
+  it('turning 跟著說 off releases the microphone', () => {
+    const t = setup();
+    t.loop.setShadow(true);
+    t.loop.setShadow(false);
+    expect(t.deps.releaseMic).toHaveBeenCalledTimes(1);
   });
 });
 

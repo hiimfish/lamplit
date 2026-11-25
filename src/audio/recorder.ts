@@ -97,17 +97,33 @@ export interface RecordingHandle {
   stop(): Promise<Blob>;
 }
 
-export async function startRecording(): Promise<RecordingHandle> {
+/** Asks for the microphone. Rejects with a RecorderError. */
+export async function openMicrophone(): Promise<MediaStream> {
   const unsupported = checkSupport();
   if (unsupported) throw new RecorderError(unsupported);
-  let stream: MediaStream;
   try {
-    stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    return await navigator.mediaDevices.getUserMedia({ audio: true });
   } catch (error) {
     throw new RecorderError(getUserMediaErrorCode(error), String(error));
   }
+}
 
-  const release = () => stream.getTracks().forEach((t) => t.stop());
+/** Stops every track of a microphone stream. */
+export function closeMicrophone(stream: MediaStream): void {
+  stream.getTracks().forEach((t) => t.stop());
+}
+
+/** Opens the microphone and records until stop(), which also releases it. */
+export async function startRecording(): Promise<RecordingHandle> {
+  const stream = await openMicrophone();
+  return recordStream(stream, () => closeMicrophone(stream));
+}
+
+/**
+ * Records an open stream until stop(). `release` runs once the recording ends (pass a
+ * no-op to keep the microphone open for the next recording).
+ */
+export function recordStream(stream: MediaStream, release: () => void): RecordingHandle {
   const mimeType = pickMimeType();
   let recorder: MediaRecorder;
   const chunks: Blob[] = [];

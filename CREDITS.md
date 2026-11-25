@@ -26,6 +26,14 @@
   - 完整的出處和授權說明：`src/data/wordlists/README.md`
 - CMUdict 發音字典：還沒加入，使用前要先確認授權條款。
 
+## 發音評分模型
+
+- **wav2vec2-base-960h**（Meta AI，Apache License 2.0），8 位元量化的 ONNX 版本取自 Xenova/wav2vec2-base-960h
+  - 來源：https://huggingface.co/facebook/wav2vec2-base-960h 、https://huggingface.co/Xenova/wav2vec2-base-960h
+  - 檔案：`public/models/w2v2/model.q8.part0`、`model.q8.part1`（`model_quantized.onnx` 原檔切成兩半，接起來就是原檔，未修改）
+  - 授權全文：`public/models/w2v2/LICENSE-Apache-2.0.txt`
+  - 只在玩家的裝置上執行，用來替「大聲說說看」和聽力加量「跟著說」的錄音評分；錄音不會上傳。
+
 ## 程式套件
 
-- Phaser（MIT）、Preact（MIT）、ts-fsrs（MIT）。其餘開發工具見 `package.json`。
+- Phaser（MIT）、Preact（MIT）、ts-fsrs（MIT）、onnxruntime-web（MIT，執行發音評分模型）。其餘開發工具見 `package.json`。
