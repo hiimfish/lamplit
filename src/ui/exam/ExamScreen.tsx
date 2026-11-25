@@ -40,6 +40,7 @@ import { ExamReview } from './ExamReview';
 import { ExamRunner } from './ExamRunner';
 import { EXAM_TOWN, examIdOf, examMinutes, tasksLeft } from './ExamTile';
 import type { ExamAnswer, ExamSectionRun } from './types';
+import { devFallback } from '../dev/devPlay';
 import './exam.css';
 type Phase =
   | { kind: 'hub' }
@@ -109,7 +110,8 @@ function ExamHub({
   const act = examAct(exam);
   const plan = EXAM_PLAN[exam];
   const run: ExamRun | undefined = resumeRun(save, exam, currentNow());
-  const unlocked = isExamUnlocked(save, EXAM_TOWN, act, openAll);
+  // 開發測試 opens any act's 結業考, played or not.
+  const unlocked = isExamUnlocked(save, EXAM_TOWN, act, openAll) || devFallback();
   const seed = run?.seed ?? 1;
   const attempts = save.exams[exam]?.attempts ?? 0;
   const sections = useMemo(

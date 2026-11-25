@@ -22,9 +22,20 @@ import { SprintScreen } from './SprintScreen';
 import { TaskScreen } from './TaskScreen';
 import { TOWN, TownScreen } from './TownScreen';
 import { useFullScreen } from './useFullScreen';
+import { DevQuizScreen } from './dev/DevQuizScreen';
+import { DEV_TOOLS } from '../core/settings';
 
 /** Menu-type screens: on a phone held upright they take the whole screen (useFullScreen). */
-const FULL_SCREENS = new Set(['review', 'sprint', 'progress', 'exam', 'skip', 'grammar', 'result']);
+const FULL_SCREENS = new Set([
+  'review',
+  'sprint',
+  'progress',
+  'exam',
+  'skip',
+  'grammar',
+  'result',
+  'devquiz',
+]);
 
 const showDebug = new URLSearchParams(window.location.search).has('debug');
 
@@ -105,6 +116,7 @@ export function App() {
       {screen === 'skip' && <SkipScreen />}
       {screen === 'grammar' && <GrammarDrillScreen />}
       {screen === 'result' && <ResultScreen />}
+      {screen === 'devquiz' && DEV_TOOLS && <DevQuizScreen />}
       <SaveErrorBanner />
       {showDebug && (
         <div class="debug" data-testid="debug">

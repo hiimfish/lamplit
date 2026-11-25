@@ -1,0 +1,26 @@
+/* 開發測試 (DevPlayRows.tsx): a dashed divider, then small keys that wrap. */
+.dev-play {
+  display: flex;
+  flex-direction: column;
+  gap: calc(3 * var(--px));
+  margin-top: calc(8 * var(--px));
+  padding-top: calc(6 * var(--px));
+  border-top: var(--px) dashed var(--ink);
+}
+
+.dev-play-title {
+  margin: 0;
+  font-size: calc(11 * var(--fpx));
+}
+
+.dev-play-sub {
+  margin: calc(2 * var(--px)) 0 0;
+  font-size: calc(10 * var(--fpx));
+  color: var(--ink);
+}
+
+.dev-play-keys {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(3 * var(--px));
+}

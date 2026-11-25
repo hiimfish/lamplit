@@ -22,6 +22,7 @@ import { QuitKey } from './QuitKey';
 import { stageFrame, TaskStage } from './stage/SceneStage';
 import { stageAt } from './stage/stageState';
 import { TOWN } from './TownScreen';
+import { devFallback, devListenPick } from './dev/devPlay';
 import './flow.css';
 import './listen.css';
 
@@ -48,8 +49,9 @@ const START: ListenLoopSnapshot = {
  * (all lines) or opened with 「中」 for one line.
  */
 export function ListenScreen() {
-  const [pick, setPick] = useState<Pick | undefined>(() =>
-    pickListenTask(TOWN, appStore.get().save),
+  const [pick, setPick] = useState<Pick | undefined>(
+    () =>
+      pickListenTask(TOWN, appStore.get().save) ?? (devFallback() ? devListenPick() : undefined),
   );
   const [shown, setShown] = useState(1);
   const [done, setDone] = useState(false);

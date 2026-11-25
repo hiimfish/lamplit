@@ -12,6 +12,7 @@ import './flow.css';
 import { IntroCards } from './IntroCards';
 import { QuestionRunner } from './TaskScreen';
 import { TOWN } from './TownScreen';
+import { devFallback, devSprintEntries } from './dev/devPlay';
 import { SPRINT_NOTE } from './GoalRows';
 import { QuitKey } from './QuitKey';
 
@@ -34,7 +35,8 @@ export function SprintScreen() {
     const due = buildDailyReview(save, now, reviewLimit(save.route)).length;
     const plan = sprintPlan(TOWN, save, now, due);
     const home = wordHome();
-    const entries = plan.words.flatMap((id) => home.get(id.slice('word:'.length)) ?? []);
+    const planned = plan.words.flatMap((id) => home.get(id.slice('word:'.length)) ?? []);
+    const entries = planned.length === 0 && devFallback() ? devSprintEntries() : planned;
     // Wrong options: the words of the places being taught and every word already learned.
     const pool = [
       ...sprintWindow(TOWN, save).flatMap((unit) => unit.words),
@@ -72,7 +74,8 @@ export function SprintScreen() {
     });
   };
 
-  const ready = round.plan.status === 'ready' && round.questions.length > 0;
+  // 開發測試 opens it with fallback words even when today's round is done.
+  const ready = (round.plan.status === 'ready' || devFallback()) && round.questions.length > 0;
   return (
     <div class="flow" data-testid="sprint-screen">
       <div class="flow-card">

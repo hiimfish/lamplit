@@ -25,7 +25,9 @@ type Screen =
   | 'exam'
   | 'skip'
   | 'grammar'
-  | 'result';
+  | 'result'
+  /** Development only: a few questions of one kind (開發測試 in the town). */
+  | 'devquiz';
 
 /** What the result screen shows after a task, a daily review, a 單字快練 round or a 文法快練 round. */
 interface ResultData {
@@ -54,6 +56,14 @@ export interface AppState {
    */
   town?: { act: number; unitId?: string; picking?: boolean };
   result?: ResultData;
+  /**
+   * Development only (開發測試): the screen was opened from the dev list, so when it has
+   * nothing to do today (no due words, no new words, no story heard) it uses the first
+   * place's content instead. Cleared when the town shows again.
+   */
+  devPlay?: boolean;
+  /** Development only: the question kind 開發測試 plays on the devquiz screen. */
+  devKind?: string;
   /** The last write to localStorage failed; cleared by the next one that works. */
   saveError?: boolean;
 }

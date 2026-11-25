@@ -15,6 +15,7 @@ import { useKeys } from './keys';
 import { QuitKey } from './QuitKey';
 import { QuestionRunner } from './TaskScreen';
 import { TOWN } from './TownScreen';
+import { devFallback, devGrammarPoints } from './dev/devPlay';
 
 /** Wrong answers logged on `g:` tags so far today (the runner logs each answer itself). */
 function grammarMisses(save: SaveData): number {
@@ -28,8 +29,9 @@ function grammarMisses(save: SaveData): number {
 function buildRound(): Question[] {
   const now = currentNow();
   const save = appStore.get().save;
+  const points = drillPointsToday(save, now, TOWN);
   return buildDrill(
-    drillPointsToday(save, now, TOWN),
+    points.length === 0 && devFallback() ? devGrammarPoints() : points,
     GRAMMAR_BANK,
     save.grammarSeen,
     now.getTime(),

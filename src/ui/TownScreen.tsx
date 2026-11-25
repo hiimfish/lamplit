@@ -7,7 +7,7 @@ import type { Task, Unit } from '../content/types';
 import { UNITS } from '../content/units';
 import { appStore, currentNow } from '../core/appState';
 import { currentStreak, type SaveData } from '../core/save';
-import { devUnlockAll, settingsStore } from '../core/settings';
+import { DEV_TOOLS, devUnlockAll, settingsStore } from '../core/settings';
 import { useStore } from '../core/store';
 import { goalStatus } from '../learning/dailyGoal';
 import { isExamUnlocked } from '../learning/exam';
@@ -29,6 +29,7 @@ import {
 } from '../learning/townPlan';
 import { examIdOf, ExamTile } from './exam/ExamTile';
 import { GoalRows, type StoryStep } from './GoalRows';
+import { DevPlayRows } from './dev/DevPlayRows';
 import './flow.css';
 import { useRefocus } from './focus';
 import { useKeys } from './keys';
@@ -242,6 +243,10 @@ export function TownScreen() {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const settings = useStore(settingsStore);
   const openAll = devUnlockAll(settings);
+  // Back in the town: screens opened from 開發測試 stop using their fallback content.
+  useEffect(() => {
+    if (appStore.get().devPlay) appStore.set({ devPlay: undefined, devKind: undefined });
+  }, []);
   // 怎麼玩: on the first visit, and again from 設定. Players who already played a task count
   // as having seen it.
   const played = Object.keys(save.tasks).length;
@@ -422,6 +427,7 @@ export function TownScreen() {
         <span class="goal-tally">{goal.all ? '✓ 都完成了' : `${goal.met}/${goal.total}`}</span>
       </h2>
       <GoalRows story={storyStep} />
+      {DEV_TOOLS && <DevPlayRows />}
     </section>
   );
 

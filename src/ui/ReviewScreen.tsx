@@ -10,6 +10,7 @@ import { finishReview, reviewLimit } from '../learning/sprint';
 import './flow.css';
 import { QuestionRunner } from './TaskScreen';
 import { QuitKey } from './QuitKey';
+import { devFallback, devReviewIds } from './dev/devPlay';
 
 /** `reviews(id)`: how often the item was reviewed, so a word is asked a different way each time. */
 function buildQuestions(
@@ -37,8 +38,9 @@ export function ReviewScreen() {
   const questions = useMemo(() => {
     const now = currentNow();
     const save = appStore.get().save;
+    const due = buildDailyReview(save, now, reviewLimit(save.route));
     return buildQuestions(
-      buildDailyReview(save, now, reviewLimit(save.route)),
+      due.length === 0 && devFallback() ? devReviewIds() : due,
       now.getTime(),
       (id) => save.cards[id]?.reps ?? 0,
     );
