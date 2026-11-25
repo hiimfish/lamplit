@@ -1,14 +1,19 @@
 /**
- * 評分 for the Speak minigame: scores the learner's last recording on this device
+ * 說說看 for the Speak minigame: one key records the learner (stopping by itself a little
+ * after they stop talking, utterance.ts) and scores the pronunciation on this device
  * (pronModel.ts). The first time, before the model is on the device, a note asks before the
- * download. One scoring at a time; a late result after unmount or a new recording is dropped.
+ * download. One try at a time; a late result after unmount or abort() is dropped.
  */
 import { useEffect, useRef, useState } from 'preact/hooks';
-import { loadModel, modelCached, pronMessage, scoreRecording } from '../../audio/pronModel';
+import { stopAudio } from '../../audio/pronounce';
+import { loadModel, modelCached, pronMessage } from '../../audio/pronModel';
+import { RecorderError, recorderMessage } from '../../audio/recorder';
+import { createShadowMic } from '../../audio/utterance';
+import type { ScoredAttempt } from '../../audio/utterance';
 import type { SpokenScore } from '../../learning/spokenScore';
 
 /** 'confirm' = the download note is on screen; nothing is downloading yet. */
-type PronStatus = 'idle' | 'confirm' | 'downloading' | 'scoring';
+type PronStatus = 'idle' | 'confirm' | 'downloading' | 'recording' | 'scoring';
 
 export interface PronState {
   status: PronStatus;
@@ -21,10 +26,15 @@ export interface PronState {
 export interface PronDeps {
   cached: () => Promise<boolean>;
   load: (onProgress: (fraction: number) => void) => Promise<void>;
-  score: (blob: Blob, text: string) => Promise<SpokenScore | null>;
+  /** Records the learner saying `target` and scores it. */
+  attempt: (target: string, onScoring: () => void) => ScoredAttempt;
+  /** Silences the model clip before the microphone opens. */
+  beforeRecord: () => void;
+  /** Frees the microphone (question finished, unmount). */
+  release: () => void;
 }
 
-export const NOTHING_HEARD = '沒有錄到聲音，再錄一次試試。';
+export const NOTHING_HEARD = '沒有聽到聲音，再說一次試試。';
 
 const INITIAL_PRON_STATE: PronState = {
   status: 'idle',
@@ -33,11 +43,15 @@ const INITIAL_PRON_STATE: PronState = {
   message: null,
 };
 
+function errorMessage(error: unknown): string {
+  return error instanceof RecorderError ? recorderMessage(error) : pronMessage(error);
+}
+
 export class PronController {
   private state: PronState = INITIAL_PRON_STATE;
-  private blob: Blob | null = null;
   private target = '';
   private generation = 0;
+  private current: ScoredAttempt | null = null;
   private disposed = false;
 
   constructor(
@@ -49,20 +63,27 @@ export class PronController {
     return this.state;
   }
 
-  /** 評分 tapped: scores at once when the model is here, otherwise asks first. */
-  async request(blob: Blob, target: string): Promise<void> {
-    if (this.disposed || this.state.status !== 'idle') return;
-    this.blob = blob;
+  /**
+   * 說說看: records and scores at once when the model is here, otherwise asks first.
+   * While recording, a second press ends the recording early.
+   */
+  async press(target: string): Promise<void> {
+    if (this.disposed) return;
+    if (this.state.status === 'recording') {
+      this.current?.stop();
+      return;
+    }
+    if (this.state.status !== 'idle') return;
     this.target = target;
     const mine = ++this.generation;
     this.set({ status: 'scoring', score: null, message: null });
     const cached = await this.deps.cached().catch(() => false);
     if (this.stale(mine)) return;
-    if (cached) await this.run(mine);
+    if (cached) await this.record(mine);
     else this.set({ status: 'confirm' });
   }
 
-  /** 下載並評分 on the note. */
+  /** 下載並評分 on the note: downloads the model, then records. */
   async confirm(): Promise<void> {
     if (this.disposed || this.state.status !== 'confirm') return;
     const mine = ++this.generation;
@@ -72,10 +93,10 @@ export class PronController {
         if (!this.stale(mine)) this.set({ progress });
       });
     } catch (error) {
-      if (!this.stale(mine)) this.set({ status: 'idle', message: pronMessage(error) });
+      if (!this.stale(mine)) this.set({ status: 'idle', message: errorMessage(error) });
       return;
     }
-    if (!this.stale(mine)) await this.run(mine);
+    if (!this.stale(mine)) await this.record(mine);
   }
 
   /** 取消 on the note: nothing is downloaded; the note shows again next time. */
@@ -83,14 +104,12 @@ export class PronController {
     if (this.state.status === 'confirm') this.set({ status: 'idle' });
   }
 
-  /** Clears the last result (a new recording is starting). */
-  clear(): void {
-    if (this.state.score || this.state.message) this.set({ score: null, message: null });
-  }
-
-  /** Drops any scoring in progress (the question is finished). */
+  /** Drops any try in progress and frees the microphone (the question is finished). */
   abort(): void {
     this.generation += 1;
+    this.current?.abort();
+    this.current = null;
+    this.deps.release();
     if (this.state.status !== 'idle') this.set({ status: 'idle' });
   }
 
@@ -100,16 +119,21 @@ export class PronController {
     this.disposed = true;
   }
 
-  private async run(mine: number): Promise<void> {
-    const blob = this.blob;
-    if (!blob) return;
-    this.set({ status: 'scoring' });
+  private async record(mine: number): Promise<void> {
+    this.deps.beforeRecord();
+    this.set({ status: 'recording', score: null, message: null });
+    const attempt = this.deps.attempt(this.target, () => {
+      if (!this.stale(mine)) this.set({ status: 'scoring' });
+    });
+    this.current = attempt;
     try {
-      const score = await this.deps.score(blob, this.target);
+      const score = await attempt.promise;
       if (this.stale(mine)) return;
       this.set(score ? { status: 'idle', score } : { status: 'idle', message: NOTHING_HEARD });
     } catch (error) {
-      if (!this.stale(mine)) this.set({ status: 'idle', message: pronMessage(error) });
+      if (!this.stale(mine)) this.set({ status: 'idle', message: errorMessage(error) });
+    } finally {
+      if (this.current === attempt) this.current = null;
     }
   }
 
@@ -125,27 +149,39 @@ export class PronController {
 }
 
 export interface UsePronScore extends PronState {
-  request: (blob: Blob, target: string) => void;
+  press: (target: string) => void;
   confirm: () => void;
   cancel: () => void;
-  clear: () => void;
   abort: () => void;
 }
 
-const browserDeps: PronDeps = { cached: modelCached, load: loadModel, score: scoreRecording };
+/** Longest a single try records: a little more than the sentence needs. */
+function timeoutFor(target: string): number {
+  const words = target.split(/\s+/).filter(Boolean).length;
+  return Math.min(15000, Math.max(5000, 3000 + words * 600));
+}
 
 export function usePronScore(): UsePronScore {
   const [state, setState] = useState<PronState>(INITIAL_PRON_STATE);
   const ref = useRef<PronController | null>(null);
-  ref.current ??= new PronController(setState, browserDeps);
+  if (!ref.current) {
+    const mic = createShadowMic();
+    ref.current = new PronController(setState, {
+      cached: modelCached,
+      load: loadModel,
+      attempt: (target, onScoring) =>
+        mic.attempt({ target, timeoutMs: timeoutFor(target), onScoring }),
+      beforeRecord: stopAudio,
+      release: () => mic.close(),
+    });
+  }
   const controller = ref.current;
   useEffect(() => () => controller.dispose(), [controller]);
   return {
     ...state,
-    request: (blob, target) => void controller.request(blob, target),
+    press: (target) => void controller.press(target),
     confirm: () => void controller.confirm(),
     cancel: () => controller.cancel(),
-    clear: () => controller.clear(),
     abort: () => controller.abort(),
   };
 }

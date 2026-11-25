@@ -35,7 +35,7 @@ src/
   ui/minigames/     題型元件：ListenPick、ListenPair（聽辨挑戰）、ChooseReply、Arrange、
                     Spell（打字拼字，畫面上的字母鍵盤）、Cloze（聽力填空）、ReadSign（讀招牌／價目）、
                     PictureChoose（看圖選句）、Fill（句子填空）、ReadPassage（讀短文）、Talk（聽對話答題）、
-                    Speak、QuestionView，共用的小元件（shared），以及錄音和發音評分的 hook（useRecorder、usePronScore）
+                    Speak、QuestionView，共用的小元件（shared），以及說說看的 hook（usePronScore：一鍵聽你說、自動停、評分）
   learning/         出題（questionGen）、題目的型別和 NO_ITEM（questions）、批改、錯誤提示、FSRS 排程、
                     練習與複習的規則（sessionPlan）、小鎮畫面的進度和「下一關」要去哪一關（townPlan）；
                     幕結業考（exam 規則、examScore 估分）、最常錯（mistakes）、
