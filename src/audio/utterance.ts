@@ -2,9 +2,11 @@
  * 聽力加量's 跟著說: records one spoken line and scores it on the device. The microphone
  * stays open between lines (one permission prompt), and each line's recording stops by
  * itself a little after the learner stops talking, or at the time limit. Recordings stay
- * in memory and are dropped once scored.
+ * in memory and are dropped once scored. While the microphone is open the background music
+ * is off (AudioManager.micOpened).
  */
 import type { SpokenScore } from '../learning/spokenScore';
+import { getAudioManager } from './AudioManager';
 import { getAudioContext } from './audioContext';
 import { scoreRecording } from './pronModel';
 import { closeMicrophone, openMicrophone, recordStream } from './recorder';
@@ -45,13 +47,29 @@ class Aborted extends Error {
 
 export function createShadowMic(): ShadowMic {
   let stream: Promise<MediaStream> | null = null;
+  /** The music was hushed for this microphone (undone once, on close). */
+  let hushed = false;
 
   const open = () => {
-    stream ??= openMicrophone().catch((error: unknown) => {
-      stream = null;
-      throw error;
-    });
+    if (!stream) {
+      // Hush at once, before the permission prompt, so no music runs into the recording.
+      if (!hushed) {
+        getAudioManager()?.micOpened();
+        hushed = true;
+      }
+      stream = openMicrophone().catch((error: unknown) => {
+        stream = null;
+        unhush();
+        throw error;
+      });
+    }
     return stream;
+  };
+
+  const unhush = () => {
+    if (!hushed) return;
+    hushed = false;
+    getAudioManager()?.micClosed();
   };
 
   /**
@@ -150,6 +168,7 @@ export function createShadowMic(): ShadowMic {
     close() {
       const opened = stream;
       stream = null;
+      unhush();
       void opened?.then(closeMicrophone, () => undefined);
     },
   };

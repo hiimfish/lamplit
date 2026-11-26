@@ -1,6 +1,8 @@
 /**
  * Shared Web Audio graph: three gain buses (music, voice, sfx) into the destination.
- * Bus volumes follow settingsStore live. While a voice clip plays the music bus is ducked.
+ * Bus volumes follow settingsStore live. While a voice clip plays the music bus is ducked;
+ * while the microphone is open (說說看, 跟著說) the music is off, so it is neither heard
+ * over the learner nor recorded with them.
  */
 import { settingsStore, type Settings } from '../core/settings';
 import type { Store } from '../core/store';
@@ -49,6 +51,7 @@ export class AudioManager {
   readonly voice: GainNode;
   readonly sfx: GainNode;
   private voiceClips = 0;
+  private mics = 0;
   private unsubscribe: () => void;
 
   constructor(
@@ -71,9 +74,19 @@ export class AudioManager {
     return this.voiceClips > 0;
   }
 
+  /** True while a microphone is open: the music is silent. */
+  get hushed(): boolean {
+    return this.mics > 0;
+  }
+
+  /** The music bus's gain now: off while hushed, else the volume (ducked during a clip). */
+  private musicTarget(): number {
+    return this.hushed ? 0 : duckTarget(this.store.get().musicVolume, this.ducked);
+  }
+
   private applySettings(): void {
     const s = this.store.get();
-    this.ramp(this.music, duckTarget(s.musicVolume, this.ducked), VOLUME_RAMP);
+    this.ramp(this.music, this.musicTarget(), VOLUME_RAMP);
     this.ramp(this.voice, busVolume(s, 'voice'), VOLUME_RAMP);
     this.ramp(this.sfx, busVolume(s, 'sfx'), VOLUME_RAMP);
   }
@@ -87,19 +100,27 @@ export class AudioManager {
   /** Call when a voice clip starts. Calls may nest; music stays low until all end. */
   voiceStarted(): void {
     this.voiceClips += 1;
-    this.ramp(this.music, duckTarget(this.store.get().musicVolume, true), DUCK_RAMP);
+    this.ramp(this.music, this.musicTarget(), DUCK_RAMP);
   }
 
   /** Call when a voice clip ends (or is cancelled). */
   voiceEnded(): void {
     this.voiceClips = Math.max(0, this.voiceClips - 1);
     if (this.voiceClips > 0) return;
-    this.ramp(
-      this.music,
-      duckTarget(this.store.get().musicVolume, false),
-      DUCK_RAMP,
-      DUCK_RELEASE_DELAY,
-    );
+    this.ramp(this.music, this.musicTarget(), DUCK_RAMP, DUCK_RELEASE_DELAY);
+  }
+
+  /** Call when a microphone opens. Calls may nest; the music stays off until all close. */
+  micOpened(): void {
+    this.mics += 1;
+    this.ramp(this.music, this.musicTarget(), DUCK_RAMP);
+  }
+
+  /** Call when a microphone closes. */
+  micClosed(): void {
+    this.mics = Math.max(0, this.mics - 1);
+    if (this.mics > 0) return;
+    this.ramp(this.music, this.musicTarget(), DUCK_RAMP, DUCK_RELEASE_DELAY);
   }
 
   dispose(): void {

@@ -142,4 +142,34 @@ describe('AudioManager', () => {
     store.set({ musicVolume: 0.8 });
     expect(music.gain.calls.at(-1)?.value).toBeCloseTo(0.12);
   });
+
+  it('turns the music off while a microphone is open, and back on after', () => {
+    const { manager, music } = setup();
+    manager.micOpened();
+    expect(manager.hushed).toBe(true);
+    expect(music.gain.calls.at(-1)).toMatchObject({ fn: 'target', value: 0, time: 10 });
+    manager.micClosed();
+    expect(manager.hushed).toBe(false);
+    expect(music.gain.calls.at(-1)).toMatchObject({
+      fn: 'target',
+      value: DEFAULT_SETTINGS.musicVolume,
+      time: 10 + DUCK_RELEASE_DELAY,
+    });
+  });
+
+  it('keeps the music off through clips, volume changes and nested microphones', () => {
+    const { manager, store, music } = setup();
+    manager.micOpened();
+    manager.micOpened();
+    manager.voiceStarted();
+    expect(music.gain.calls.at(-1)?.value).toBe(0);
+    manager.voiceEnded();
+    expect(music.gain.calls.at(-1)?.value).toBe(0);
+    store.set({ musicVolume: 0.8 });
+    expect(music.gain.calls.at(-1)?.value).toBe(0);
+    manager.micClosed();
+    expect(manager.hushed).toBe(true);
+    manager.micClosed();
+    expect(music.gain.calls.at(-1)?.value).toBeCloseTo(0.8);
+  });
 });
