@@ -641,25 +641,20 @@
   align-self: stretch;
 }
 
-/* A word's pixel icon sits on a small paper square with an ink rim. */
+/*
+ * A word's pixel icon stands on its own: every icon has its ink outline already, so no
+ * paper square or rim around it (2026-11-26: the frame read as a box round a box).
+ */
 .intro-emoji,
 .mg-emoji {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: calc(1 * var(--px)) calc(2 * var(--px));
   line-height: 1.1;
-  background: var(--paper);
-  box-shadow: 0 0 0 var(--px) var(--ink);
 }
 
 .intro-emoji {
   font-size: calc(33 * var(--fpx));
-  padding: calc(3 * var(--px)) calc(5 * var(--px));
-  box-shadow:
-    0 0 0 var(--line) var(--ink),
-    var(--line) var(--line) 0 var(--line) var(--ink);
-  margin: var(--line) calc(2 * var(--line)) calc(2 * var(--line)) var(--line);
 }
 
 .intro-en {
