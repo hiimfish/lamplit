@@ -74,13 +74,25 @@ function TitleScreen() {
         </h1>
         <p class="subtitle">{t('英語學習', 'Learn English')}</p>
       </div>
-      {(!open || preloadStore.get().phase === 'failed') && <ModelLoader />}
-      {open && (
-        <button class="pixel-button primary blink" onClick={start} data-testid="start">
+      {/*
+       * The start key keeps its place while the model loads (hidden, the bar laid over it),
+       * so nothing on the screen moves when the bar turns into the key.
+       */}
+      <div class="title-start">
+        <button
+          class="pixel-button primary blink"
+          onClick={start}
+          disabled={!open}
+          aria-hidden={!open}
+          tabIndex={open ? undefined : -1}
+          data-testid="start"
+        >
           {resume ? t('點一下繼續', 'Tap to continue') : t('點一下開始', 'Tap to start')}
           <KeyCap k="Enter" />
         </button>
-      )}
+        {!open && <ModelLoader />}
+      </div>
+      {open && preloadStore.get().phase === 'failed' && <ModelLoader />}
       <footer class="title-notice" data-testid="title-notice">
         {!isEnglish() && (
           <p>TOEIC®（多益）是 ETS 的註冊商標。本遊戲與 ETS 無關，未經 ETS 認可或贊助。</p>
