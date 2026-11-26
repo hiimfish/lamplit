@@ -25,6 +25,7 @@ jobs:
       - run: npm run build
         env:
           VITE_BASE: /${{ github.event.repository.name }}/
+      - run: node scripts/check-dist.mjs
       - run: rm -f dist/audio/manifest.json
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

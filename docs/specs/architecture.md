@@ -240,7 +240,9 @@ tests/              Vitest 測試
 ### 部署
 
 - 目標是 GitHub Pages，網址路徑預設是 `/lamplit/`（見上方的 `VITE_BASE`）。GitHub Pages 免費方案需要公開的 repo。
-- 自動部署：`.github/workflows/pages.yml` 在推上 `main`（或手動執行）時跑測試、用 repo 名稱當 `VITE_BASE` 建置，刪掉 `dist/audio/manifest.json` 後發布到 GitHub Pages。repo 的 Settings → Pages 要把來源設成「GitHub Actions」。還沒有離線遊玩（PWA）。
+- 自動部署：`.github/workflows/pages.yml` 在推上 `main`（或手動執行）時跑測試、用 repo 名稱當 `VITE_BASE` 建置，用 `scripts/check-dist.mjs` 檢查建置結果（`version.json` 是這個 commit、程式裡有同一個版本號、有 `sw.js`、viewport 禁止縮放），刪掉 `dist/audio/manifest.json` 後發布到 GitHub Pages。repo 的 Settings → Pages 要把來源設成「GitHub Actions」。還沒有離線遊玩（PWA）。
+- 新版本（2026-11-26）：每次建置把版本號寫進程式和 `version.json`。打開頁面或切回來時（至少隔 30 秒）比對：在標題或小鎮直接重新載入，其他畫面在上方顯示「有新版本，點這裡更新」（`src/core/update.ts`）。`public/sw.js` 讓頁面本身和 `version.json` 永遠跟網路拿、不用快取（GitHub Pages 會讓瀏覽器快取 10 分鐘）；其他檔案檔名有雜湊，不經過它。加到主畫面的 iPhone 網站不會自己重新載入，靠的就是這個。
+- 不能縮放（2026-11-26）：viewport `maximum-scale=1, user-scalable=no`，每個元素 `touch-action: pan-x pan-y`（不能雙擊放大也不能雙指縮放），iPhone Safari 另外由 `src/core/noZoom.ts` 擋掉縮放手勢。`tests/mobileGuards.test.ts` 檢查這些設定、確定離開的大小和 `sw.js` 的行為。
 - 發布前可以先在本機確認：`npm run build` → `npm run preview`（preview 也用 `/lamplit/` 路徑，和 GitHub Pages 一樣）。
 - 生成的音檔隨網站一起發布，但不開放授權（見 [audio.md](audio.md) 和根目錄的 `LICENSE`）。
 

@@ -2,6 +2,7 @@
 import './core/boot';
 import { render } from 'preact';
 import { appStore, remeasureLayout } from './core/appState';
+import { lockZoom } from './core/noZoom';
 import { watchForUpdates } from './core/update';
 import { applyGameLayout, createGame } from './game/createGame';
 import { sameLayout, type Layout } from './layout';
@@ -30,6 +31,7 @@ applyCssLayout(currentLayout);
 const game = createGame(gameElement, currentLayout);
 render(<App />, uiElement);
 trackInputMode();
+lockZoom();
 // A new deploy reloads by itself on the title or in the town; elsewhere 有新版本 asks first.
 watchForUpdates(() => ['title', 'town'].includes(appStore.get().screen));
 if (import.meta.env.DEV) {

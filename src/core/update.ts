@@ -59,6 +59,12 @@ export function watchForUpdates(quietNow: () => boolean): void {
     history.replaceState(history.state, '', here.toString());
   }
   if (import.meta.env.DEV) return;
+  // public/sw.js: the page and version.json always come from the network, never a cache.
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`).catch(() => {
+      // No service worker (private mode, an old browser): the version check still works.
+    });
+  }
   let last = -Infinity;
   const check = async () => {
     const now = Date.now();
