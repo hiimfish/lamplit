@@ -127,6 +127,14 @@
   box-shadow: none;
 }
 
+/*
+ * 確定離開 (the first press) only turns lamp: same size as 先回小鎮, so the strip does not
+ * jump (2026-11-26: the .primary size made it outgrow the strip).
+ */
+.pixel-button.quit.armed {
+  background: var(--lamp);
+}
+
 .flow-card > .flow-title ~ .quit:focus-visible {
   outline-color: var(--paper);
   outline-offset: var(--px);

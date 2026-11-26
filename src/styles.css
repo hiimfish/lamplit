@@ -59,8 +59,15 @@
     0 calc(-1 * var(--px)) 0 var(--ink);
 }
 
+/*
+ * No double-tap zoom anywhere (2026-11-26: two quick taps on 排句子 blocks zoomed the page on
+ * an iPhone). touch-action is not inherited, and Safari does not carry the body's value into
+ * a scrolling card, so every element says it; scrolling and pinch still work. Elements that
+ * need less (the volume sliders, pan-y) override it.
+ */
 * {
   box-sizing: border-box;
+  touch-action: manipulation;
 }
 
 html,

@@ -31,7 +31,7 @@ export function QuitKey({ label, onLeave, confirm = true, testId }: Props) {
   return (
     <button
       type="button"
-      class={`pixel-button small quit${armed ? ' primary armed' : ''}`}
+      class={`pixel-button small quit${armed ? ' armed' : ''}`}
       onClick={press}
       data-testid={testId}
     >
