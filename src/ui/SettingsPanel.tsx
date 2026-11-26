@@ -215,7 +215,7 @@ const TEXT_SIZES: readonly { value: TextSize; label: string }[] = [
   { value: 'xlarge', label: '特大' },
 ];
 
-/** 顯示: 文字大小, 介面語言 and 顯示中文 (off, and not offered, in English). */
+/** 顯示: 文字大小, 英文大小, 介面語言 and 顯示中文 (off, and not offered, in English). */
 function DisplaySection({ settings }: { settings: Settings }) {
   const english = settings.uiLang === 'en';
   return (
@@ -229,6 +229,16 @@ function DisplaySection({ settings }: { settings: Settings }) {
           label: english ? { medium: 'M', large: 'L', xlarge: 'XL' }[c.value] : c.label,
         }))}
         onPick={(textSize) => settingsStore.set({ textSize })}
+      />
+      <ChoiceRow
+        id="en-size"
+        label={t('英文大小', 'English size')}
+        value={settings.enSize}
+        choices={TEXT_SIZES.map((c) => ({
+          value: c.value,
+          label: english ? { medium: 'M', large: 'L', xlarge: 'XL' }[c.value] : c.label,
+        }))}
+        onPick={(enSize) => settingsStore.set({ enSize })}
       />
       <ChoiceRow
         id="ui-lang"

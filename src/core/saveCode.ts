@@ -60,9 +60,12 @@ export const CODE_ERRORS = {
   },
 };
 
+/** Why a code could not be read (a key of CODE_ERRORS). */
+export type CodeError = keyof typeof CODE_ERRORS;
+
 export type DecodeResult =
   | { ok: true; save: SaveData; settings?: Settings; exportedAt: string }
-  | { ok: false; error: string };
+  | { ok: false; error: string; reason: CodeError };
 
 /* ---------- bytes ---------- */
 
@@ -210,58 +213,62 @@ export function clampFutureDates(raw: Record<string, unknown>, now: Date): void 
   }
 }
 
-const fail = (error: string): DecodeResult => ({ ok: false, error });
+const fail = (reason: CodeError): DecodeResult => ({
+  ok: false,
+  error: CODE_ERRORS[reason],
+  reason,
+});
 
 /** Reads a pasted or loaded code. Never throws; errors are in words for the player. */
 export async function decodeSaveCode(text: string, now: Date): Promise<DecodeResult> {
-  if (text.length > MAX_CODE_CHARS) return fail(CODE_ERRORS.tooLarge);
+  if (text.length > MAX_CODE_CHARS) return fail('tooLarge');
   const code = text.replace(/\s+/g, '');
   const parts = code.split('.');
-  if (parts.length !== 3 || parts.some((part) => part === '')) return fail(CODE_ERRORS.notCode);
+  if (parts.length !== 3 || parts.some((part) => part === '')) return fail('notCode');
   const [headerPart, payloadPart, checkPart] = parts as [string, string, string];
 
   let header: unknown;
   try {
     header = safeParse(new TextDecoder('utf-8', { fatal: true }).decode(fromBase64Url(headerPart)));
   } catch {
-    return fail(CODE_ERRORS.notCode);
+    return fail('notCode');
   }
   if (!isObject(header) || header.typ !== CODE_TYPE || typeof header.v !== 'number') {
-    return fail(CODE_ERRORS.notCode);
+    return fail('notCode');
   }
-  if (header.v > CODE_VERSION) return fail(CODE_ERRORS.tooNew);
-  if (header.v !== CODE_VERSION) return fail(CODE_ERRORS.notCode);
-  if (codeChecksum(`${headerPart}.${payloadPart}`) !== checkPart) return fail(CODE_ERRORS.damaged);
+  if (header.v > CODE_VERSION) return fail('tooNew');
+  if (header.v !== CODE_VERSION) return fail('notCode');
+  if (codeChecksum(`${headerPart}.${payloadPart}`) !== checkPart) return fail('damaged');
 
   let bytes: Uint8Array | null;
   try {
     bytes = fromBase64Url(payloadPart);
   } catch {
-    return fail(CODE_ERRORS.damaged);
+    return fail('damaged');
   }
   if (header.z === 'deflate-raw') {
-    if (typeof DecompressionStream === 'undefined') return fail(CODE_ERRORS.unsupported);
+    if (typeof DecompressionStream === 'undefined') return fail('unsupported');
     try {
       bytes = await pipeBytes(bytes, new DecompressionStream('deflate-raw'), MAX_PAYLOAD_BYTES);
     } catch {
-      return fail(CODE_ERRORS.damaged);
+      return fail('damaged');
     }
-    if (!bytes) return fail(CODE_ERRORS.tooLarge);
+    if (!bytes) return fail('tooLarge');
   } else if (header.z !== 'none') {
-    return fail(CODE_ERRORS.notCode);
+    return fail('notCode');
   }
-  if (bytes.length > MAX_PAYLOAD_BYTES) return fail(CODE_ERRORS.tooLarge);
+  if (bytes.length > MAX_PAYLOAD_BYTES) return fail('tooLarge');
 
   let payload: unknown;
   try {
     payload = safeParse(new TextDecoder('utf-8', { fatal: true }).decode(bytes));
   } catch {
-    return fail(CODE_ERRORS.damaged);
+    return fail('damaged');
   }
   if (!isObject(payload) || !isObject(payload.save) || typeof payload.saveVersion !== 'number') {
-    return fail(CODE_ERRORS.notCode);
+    return fail('notCode');
   }
-  if (payload.saveVersion > SAVE_VERSION) return fail(CODE_ERRORS.tooNew);
+  if (payload.saveVersion > SAVE_VERSION) return fail('tooNew');
   const exportedAt =
     typeof payload.exportedAt === 'string' && !Number.isNaN(Date.parse(payload.exportedAt))
       ? payload.exportedAt

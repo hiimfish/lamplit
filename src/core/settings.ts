@@ -12,6 +12,12 @@ export interface Settings {
   showZh: boolean;
   /** 文字大小: 中 (as designed), 大, 特大. Scales every text size (--text-scale). */
   textSize: TextSize;
+  /**
+   * 英文大小: the English being learned (lines, questions, words; marked lang="en") on top
+   * of 文字大小 (--en-scale). The pixel font's Latin letters look smaller than its Chinese,
+   * so English starts at 大.
+   */
+  enSize: TextSize;
   /** 介面語言: the game's own words in Chinese or English (src/core/i18n.ts). */
   uiLang: UiLang;
   /** Dev mode: every task in the town is open (see devUnlockAll). */
@@ -26,6 +32,9 @@ export type UiLang = 'zh' | 'en';
 /** How much each 文字大小 enlarges the text. */
 export const TEXT_SCALE: Record<TextSize, number> = { medium: 1, large: 1.15, xlarge: 1.3 };
 
+/** How much each 英文大小 enlarges the English, on top of 文字大小. */
+export const EN_SCALE: Record<TextSize, number> = { medium: 1, large: 1.2, xlarge: 1.4 };
+
 export const DEFAULT_SETTINGS: Settings = {
   voiceMode: 'chirp',
   musicVolume: 0.25,
@@ -33,6 +42,7 @@ export const DEFAULT_SETTINGS: Settings = {
   sfxVolume: 0.7,
   showZh: true,
   textSize: 'medium',
+  enSize: 'large',
   uiLang: 'zh',
   unlockAll: false,
   seenIntro: false,
@@ -68,6 +78,10 @@ export function sanitizeSettings(raw: unknown): Settings {
       typeof r.textSize === 'string' && r.textSize in TEXT_SCALE
         ? (r.textSize as TextSize)
         : DEFAULT_SETTINGS.textSize,
+    enSize:
+      typeof r.enSize === 'string' && r.enSize in EN_SCALE
+        ? (r.enSize as TextSize)
+        : DEFAULT_SETTINGS.enSize,
     uiLang: r.uiLang === 'en' ? 'en' : 'zh',
     unlockAll: typeof r.unlockAll === 'boolean' ? r.unlockAll : DEFAULT_SETTINGS.unlockAll,
     seenIntro: typeof r.seenIntro === 'boolean' ? r.seenIntro : DEFAULT_SETTINGS.seenIntro,

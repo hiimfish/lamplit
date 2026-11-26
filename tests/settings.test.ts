@@ -34,6 +34,7 @@ describe('sanitizeSettings', () => {
       sfxVolume: 0.3,
       showZh: false,
       textSize: 'xlarge',
+      enSize: 'medium',
       uiLang: 'en',
       unlockAll: true,
       seenIntro: true,
@@ -41,10 +42,15 @@ describe('sanitizeSettings', () => {
     expect(sanitizeSettings(s)).toEqual(s);
   });
 
-  it('falls back for an unknown 文字大小 or 介面語言', () => {
-    const s = sanitizeSettings({ textSize: 'huge', uiLang: 'fr' });
+  it('falls back for an unknown 文字大小, 英文大小 or 介面語言', () => {
+    const s = sanitizeSettings({ textSize: 'huge', enSize: 'tiny', uiLang: 'fr' });
     expect(s.textSize).toBe('medium');
+    expect(s.enSize).toBe('large');
     expect(s.uiLang).toBe('zh');
+  });
+
+  it('gives settings saved before 英文大小 existed the larger English', () => {
+    expect(sanitizeSettings({ textSize: 'large' }).enSize).toBe('large');
   });
 
   it('clamps volumes to 0-1', () => {

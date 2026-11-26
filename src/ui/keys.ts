@@ -229,14 +229,3 @@ export function trackInputMode(): void {
   );
   document.addEventListener('pointerdown', () => (root.dataset.input = 'pointer'), true);
 }
-
-/** Clicks the first visible, enabled element matching `selector`; true if it found one. */
-export function clickVisible(selector: string): boolean {
-  for (const el of document.querySelectorAll<HTMLElement>(selector)) {
-    if (el instanceof HTMLButtonElement && el.disabled) continue;
-    if (el.offsetParent === null && getComputedStyle(el).position !== 'fixed') continue;
-    el.click();
-    return true;
-  }
-  return false;
-}

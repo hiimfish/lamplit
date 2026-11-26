@@ -69,11 +69,38 @@
   border-bottom: var(--px) dotted var(--ink);
 }
 
-/* Task title: an ink header strip with paper text, tall enough to hold the quit key. */
+/*
+ * Task title: an ink header strip with paper text, tall enough to hold the quit key.
+ * The ink rule right above it (the card's border, or the portrait panel's top rule,
+ * --title-edge, none when the card runs to the screen's edge) reads as part of the
+ * strip, so the title and the key are centred in rule + strip: the strip pads its
+ * bottom by the rule's width, and the key has --title-gap of ink above and below it
+ * (the rule counts; at least two pixels). --quit-h is the quit key's height (a small
+ * key's text line, padding and border; at least 22 pixels), so the strip grows with
+ * 文字大小 and the key stays centred.
+ */
+.flow-card {
+  --title-edge: var(--line);
+  --title-gap: max(var(--title-edge), calc(2 * var(--px)));
+  --quit-h: max(calc(22 * var(--px)), calc(11 * var(--fpx) * 1.3 + 6 * var(--px)));
+}
+
+:root[data-orientation='portrait'] .flow-card {
+  --title-edge: calc(3 * var(--px));
+}
+
+/* Menu-type screens: the panel's top rule is one pixel (styles.css, data-full). */
+:root[data-orientation='portrait'][data-full] .flow-card {
+  --title-edge: var(--px);
+}
+
 .flow-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: calc(-5 * var(--px)) calc(-6 * var(--px)) 0;
-  min-height: calc(24 * var(--px));
-  padding: calc(5 * var(--px)) calc(6 * var(--px)) calc(4 * var(--px));
+  min-height: calc(var(--quit-h) + 2 * var(--title-gap) - var(--title-edge));
+  padding: var(--px) calc(6 * var(--px)) calc(var(--title-edge) + var(--px));
   font-size: inherit;
   font-weight: normal;
   text-align: center;
@@ -93,8 +120,9 @@
 
 .flow-card > .flow-title ~ .quit {
   position: absolute;
-  top: var(--px);
+  top: calc(var(--title-gap) - var(--title-edge));
   right: calc(3 * var(--px));
+  height: var(--quit-h);
   margin: 0;
   box-shadow: none;
 }
@@ -444,6 +472,7 @@
 }
 
 :root[data-orientation='landscape'] .flow.has-stage .flow-card {
+  --title-edge: 0px;
   width: 100%;
   max-width: none;
   max-height: none;

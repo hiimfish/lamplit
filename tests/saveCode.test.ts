@@ -82,6 +82,7 @@ describe('save code', () => {
     expect(await decodeSaveCode(`${header}.${changed}.${check}`, now)).toEqual({
       ok: false,
       error: CODE_ERRORS.damaged,
+      reason: 'damaged',
     });
     // A code cut short is damaged too.
     expect(await decodeSaveCode(code.slice(0, -10), now)).toMatchObject({ ok: false });
@@ -89,23 +90,43 @@ describe('save code', () => {
 
   it('says when text is not a code at all', async () => {
     for (const text of ['', 'hello world', 'a.b', 'a.b.c', btoa('{"a":1}')]) {
-      expect(await decodeSaveCode(text, now)).toEqual({ ok: false, error: CODE_ERRORS.notCode });
+      expect(await decodeSaveCode(text, now)).toEqual({
+        ok: false,
+        error: CODE_ERRORS.notCode,
+        reason: 'notCode',
+      });
     }
     const wrongType = forge(payloadOf({}), { typ: 'other', v: 1, z: 'none' });
-    expect(await decodeSaveCode(wrongType, now)).toEqual({ ok: false, error: CODE_ERRORS.notCode });
+    expect(await decodeSaveCode(wrongType, now)).toEqual({
+      ok: false,
+      error: CODE_ERRORS.notCode,
+      reason: 'notCode',
+    });
   });
 
   it('refuses a code from a newer version', async () => {
     const newerSave = forge(JSON.stringify({ saveVersion: 2, exportedAt: '', save: {} }));
-    expect(await decodeSaveCode(newerSave, now)).toEqual({ ok: false, error: CODE_ERRORS.tooNew });
+    expect(await decodeSaveCode(newerSave, now)).toEqual({
+      ok: false,
+      error: CODE_ERRORS.tooNew,
+      reason: 'tooNew',
+    });
     const newerCode = forge(payloadOf({}), { typ: 'lamplit-save', v: 2, z: 'none' });
-    expect(await decodeSaveCode(newerCode, now)).toEqual({ ok: false, error: CODE_ERRORS.tooNew });
+    expect(await decodeSaveCode(newerCode, now)).toEqual({
+      ok: false,
+      error: CODE_ERRORS.tooNew,
+      reason: 'tooNew',
+    });
     expect(CODE_ERRORS.tooNew).toContain('這個存檔來自較新的版本，請先更新遊戲');
   });
 
   it('refuses a code that is too large', async () => {
     const huge = 'a'.repeat(8 * 1024 * 1024 + 1);
-    expect(await decodeSaveCode(huge, now)).toEqual({ ok: false, error: CODE_ERRORS.tooLarge });
+    expect(await decodeSaveCode(huge, now)).toEqual({
+      ok: false,
+      error: CODE_ERRORS.tooLarge,
+      reason: 'tooLarge',
+    });
   });
 
   it('drops __proto__, constructor and prototype keys', async () => {

@@ -3,7 +3,7 @@ import { playChime, unlockAudio } from '../audio/audioContext';
 import { appStore, setDayStamp } from '../core/appState';
 import { isEnglish, t } from '../core/i18n';
 import { recordToday } from '../core/save';
-import { DEV_TOOLS, devUnlockAll, settingsStore, TEXT_SCALE } from '../core/settings';
+import { DEV_TOOLS, devUnlockAll, EN_SCALE, settingsStore, TEXT_SCALE } from '../core/settings';
 import { useStore } from '../core/store';
 import { goalStatus } from '../learning/dailyGoal';
 import { grammarOn } from '../learning/grammarOn';
@@ -103,12 +103,15 @@ function useScreenFocus(screen: string) {
 
 export function App() {
   const { screen, layout } = useStore(appStore);
-  // 文字大小 and 介面語言 (設定 → 顯示). Every setting change re-renders the whole tree from
+  // 文字大小, 英文大小 and 介面語言 (設定 → 顯示). Every setting change re-renders the whole tree from
   // here (no component is memoized), so t() calls pick up a new language in place.
-  const { textSize, uiLang } = useStore(settingsStore);
+  const { textSize, enSize, uiLang } = useStore(settingsStore);
   useEffect(() => {
     document.documentElement.style.setProperty('--text-scale', String(TEXT_SCALE[textSize]));
   }, [textSize]);
+  useEffect(() => {
+    document.documentElement.style.setProperty('--en-scale', String(EN_SCALE[enSize]));
+  }, [enSize]);
   useEffect(() => {
     document.documentElement.lang = uiLang === 'en' ? 'en' : 'zh-Hant';
   }, [uiLang]);

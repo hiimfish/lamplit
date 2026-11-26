@@ -33,6 +33,13 @@ const MODES: { mode: ImportMode; label: [zh: string, en: string] }[] = [
   { mode: 'replace', label: ['完全取代', 'Replace all'] },
 ];
 
+/**
+ * A status line, worded when it is shown: switching 介面語言 while one is up
+ * switches it too.
+ */
+type Message = () => string;
+const NO_MESSAGE: Message = () => '';
+
 /** 「上次匯出：3 天前」 */
 function lastExportText(days: number | null): string {
   if (days === null) return t('上次匯出：還沒匯出過', 'Last export: never');
@@ -45,7 +52,8 @@ function lastExportText(days: number | null): string {
  * 合併 keeps both devices' progress; 完全取代 asks once before it overwrites.
  */
 export function SaveGroup() {
-  const [status, setStatus] = useState('');
+  const [status, setStatusBox] = useState<{ say: Message }>({ say: NO_MESSAGE });
+  const setStatus = (say: Message) => setStatusBox({ say });
   /** The code, shown for selecting by hand when the clipboard is not allowed. */
   const [shown, setShown] = useState<string | null>(null);
   const [pasted, setPasted] = useState('');
@@ -67,7 +75,7 @@ export function SaveGroup() {
     try {
       await action();
     } catch {
-      setStatus(t('這次沒有成功，請再試一次。', "That didn't work. Please try again."));
+      setStatus(() => t('這次沒有成功，請再試一次。', "That didn't work. Please try again."));
     } finally {
       setBusy(false);
     }
@@ -79,7 +87,7 @@ export function SaveGroup() {
       try {
         await navigator.clipboard.writeText(code);
         setShown(null);
-        setStatus(
+        setStatus(() =>
           t(
             '已複製存檔代碼，貼到另一台裝置的「匯入」就可以。',
             'Save code copied. Paste it into "Import" on the other device.',
@@ -87,7 +95,7 @@ export function SaveGroup() {
         );
       } catch {
         setShown(code);
-        setStatus(
+        setStatus(() =>
           t(
             '沒辦法自動複製，請全選下面的代碼再複製。',
             "Couldn't copy automatically. Select all of the code below and copy it.",
@@ -109,7 +117,7 @@ export function SaveGroup() {
       link.remove();
       setTimeout(() => URL.revokeObjectURL(url), 1000);
       exported();
-      setStatus(t('已下載存檔檔案。', 'Save file downloaded.'));
+      setStatus(() => t('已下載存檔檔案。', 'Save file downloaded.'));
     });
 
   const pickFile = async (input: HTMLInputElement) => {
@@ -117,13 +125,13 @@ export function SaveGroup() {
     input.value = '';
     if (!file) return;
     if (file.size > MAX_CODE_CHARS) {
-      setStatus(CODE_ERRORS.tooLarge);
+      setStatus(() => CODE_ERRORS.tooLarge);
       return;
     }
     await run(async () => {
       setPasted(await file.text());
       setConfirming(false);
-      setStatus(
+      setStatus(() =>
         t(
           `已讀入「${file.name}」，按「匯入」完成。`,
           `Loaded "${file.name}". Press "Import" to finish.`,
@@ -134,14 +142,14 @@ export function SaveGroup() {
 
   const runImport = async () => {
     if (!pasted.trim()) {
-      setStatus(
+      setStatus(() =>
         t('先貼上存檔代碼，或選擇存檔檔案。', 'Paste a save code or choose a save file first.'),
       );
       return;
     }
     if (mode === 'replace' && !confirming) {
       setConfirming(true);
-      setStatus(
+      setStatus(() =>
         t(
           '完全取代會蓋掉這台裝置現在的進度。確定的話，再按一次「確定取代」。',
           'Replace all overwrites the progress on this device. If you\'re sure, press "Confirm replace".',
@@ -153,12 +161,13 @@ export function SaveGroup() {
     await run(async () => {
       const result = await decodeSaveCode(pasted, currentNow());
       if (!result.ok) {
-        setStatus(result.error);
+        const { reason } = result;
+        setStatus(() => CODE_ERRORS[reason]);
         return;
       }
       const { coins, cards } = saveSummary(applyImport(result.save, result.settings, mode));
       setPasted('');
-      setStatus(
+      setStatus(() =>
         t(
           `匯入完成：金幣 ${coins}、學過的卡片 ${cards} 張。`,
           `Imported: ${coins} coins, ${cards} cards learned.`,
@@ -263,7 +272,7 @@ export function SaveGroup() {
         onChange={(e) => void pickFile(e.currentTarget)}
       />
       <p class="settings-note" role="status" aria-live="polite">
-        {status}
+        {status.say()}
       </p>
       <p class="settings-note">
         {t(
@@ -282,7 +291,8 @@ export function SaveGroup() {
  */
 export function ResetGroup() {
   const [armed, setArmed] = useState<'reset' | 'restore' | null>(null);
-  const [status, setStatus] = useState('');
+  const [status, setStatusBox] = useState<{ say: Message }>({ say: NO_MESSAGE });
+  const setStatus = (say: Message) => setStatusBox({ say });
   // Re-read on every save change: a 完全取代 import in 存檔 also leaves a backup.
   useStore(appStore);
   const backup = hasBackup();
@@ -290,21 +300,22 @@ export function ResetGroup() {
     playSfx('click');
     if (armed !== what) {
       setArmed(what);
-      setStatus('');
+      setStatus(NO_MESSAGE);
       return;
     }
     if (what === 'reset') resetProgress();
     else restoreBackup();
     setArmed(null);
-    setStatus(
+    const coins = appStore.get().save.coins;
+    setStatus(() =>
       what === 'reset'
         ? t(
             '進度已重置。按「還原上一次的進度」可以換回來。',
             'Progress reset. Press "Restore last progress" to switch back.',
           )
         : t(
-            `已還原：金幣 ${appStore.get().save.coins}。剛才的進度留作備份，可以再換回來。`,
-            `Restored: ${appStore.get().save.coins} coins. The progress you had is kept as a backup.`,
+            `已還原：金幣 ${coins}。剛才的進度留作備份，可以再換回來。`,
+            `Restored: ${coins} coins. The progress you had is kept as a backup.`,
           ),
     );
   };
@@ -360,7 +371,7 @@ export function ResetGroup() {
         )}
       </div>
       <p class="settings-note" role="status" aria-live="polite">
-        {status}
+        {status.say()}
       </p>
     </div>
   );
