@@ -15,7 +15,8 @@ import { GrammarDrillScreen } from './GrammarDrillScreen';
 import { useKeys } from './keys';
 import { KeyCap } from './KeyCap';
 import { ListenScreen } from './ListenScreen';
-import { ModelLoader } from './ModelLoader';
+import { ModelLoader, useStartOpen } from './ModelLoader';
+import { preloadStore } from '../audio/pronPreload';
 import { ProgressScreen } from './ProgressScreen';
 import { ResultScreen } from './ResultScreen';
 import { SaveErrorBanner } from './SaveErrorBanner';
@@ -61,8 +62,10 @@ function TitleScreen() {
     playChime();
     appStore.set({ screen: 'town', ...(into ? { town: { act: into.act } } : {}) });
   };
+  // The start key waits for the pronunciation model (ModelLoader shows the bar meanwhile).
+  const open = useStartOpen();
   // A key press is a user gesture too, so Enter or Space can unlock sound and start.
-  useKeys({ Enter: start, Space: start });
+  useKeys(open ? { Enter: start, Space: start } : {});
   return (
     <div class="screen title-screen">
       <div class="title-block">
@@ -71,11 +74,13 @@ function TitleScreen() {
         </h1>
         <p class="subtitle">{t('英語學習', 'Learn English')}</p>
       </div>
-      <ModelLoader />
-      <button class="pixel-button primary blink" onClick={start} data-testid="start">
-        {resume ? t('點一下繼續', 'Tap to continue') : t('點一下開始', 'Tap to start')}
-        <KeyCap k="Enter" />
-      </button>
+      {(!open || preloadStore.get().phase === 'failed') && <ModelLoader />}
+      {open && (
+        <button class="pixel-button primary blink" onClick={start} data-testid="start">
+          {resume ? t('點一下繼續', 'Tap to continue') : t('點一下開始', 'Tap to start')}
+          <KeyCap k="Enter" />
+        </button>
+      )}
       <footer class="title-notice" data-testid="title-notice">
         {!isEnglish() && (
           <p>TOEIC®（多益）是 ETS 的註冊商標。本遊戲與 ETS 無關，未經 ETS 認可或贊助。</p>
