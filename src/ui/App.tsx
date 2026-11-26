@@ -15,6 +15,7 @@ import { GrammarDrillScreen } from './GrammarDrillScreen';
 import { useKeys } from './keys';
 import { KeyCap } from './KeyCap';
 import { ListenScreen } from './ListenScreen';
+import { ModelLoader } from './ModelLoader';
 import { ProgressScreen } from './ProgressScreen';
 import { ResultScreen } from './ResultScreen';
 import { SaveErrorBanner } from './SaveErrorBanner';
@@ -70,6 +71,7 @@ function TitleScreen() {
         </h1>
         <p class="subtitle">{t('英語學習', 'Learn English')}</p>
       </div>
+      <ModelLoader />
       <button class="pixel-button primary blink" onClick={start} data-testid="start">
         {resume ? t('點一下繼續', 'Tap to continue') : t('點一下開始', 'Tap to start')}
         <KeyCap k="Enter" />

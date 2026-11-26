@@ -109,23 +109,12 @@ describe('PronController (說說看)', () => {
     expect(t.tries[0]!.stop).not.toHaveBeenCalled();
   });
 
-  it('the first time asks before downloading; 取消 downloads and records nothing', async () => {
+  it('without the model, 說說看 downloads it with progress (no note to answer), then records', async () => {
     const t = setup(false);
     void t.controller.press('hi');
     await flush();
-    expect(t.controller.getState().status).toBe('confirm');
-    t.controller.cancel();
-    expect(t.controller.getState().status).toBe('idle');
-    expect(t.deps.load).not.toHaveBeenCalled();
-    expect(t.deps.attempt).not.toHaveBeenCalled();
-  });
-
-  it('下載並評分 downloads with progress, then records', async () => {
-    const t = setup(false);
-    void t.controller.press('hi');
-    await flush();
-    void t.controller.confirm();
     expect(t.controller.getState().status).toBe('downloading');
+    expect(t.deps.attempt).not.toHaveBeenCalled();
     t.progress(0.4);
     expect(t.controller.getState().progress).toBe(0.4);
     t.download.resolve();
@@ -138,7 +127,6 @@ describe('PronController (說說看)', () => {
     const t = setup(false);
     void t.controller.press('hi');
     await flush();
-    void t.controller.confirm();
     t.download.reject(new PronError('download-failed'));
     await flush();
     expect(t.controller.getState().status).toBe('idle');

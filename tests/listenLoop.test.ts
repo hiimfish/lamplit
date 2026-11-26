@@ -185,10 +185,11 @@ describe('after a line, 跟著說 off', () => {
 });
 
 describe('跟著說 on, microphone not usable (the pause)', () => {
-  it('pauses took + 1200 ms after declining the note', async () => {
+  it('pauses took + 1200 ms after the model failed to download', async () => {
     const t = setup({ modelReady: false });
     t.loop.setShadow(true);
-    t.loop.decline();
+    t.download.reject(new Error('offline'));
+    await tick(0);
     t.loop.play(0);
     await t.endPlay(2000);
     expect(t.loop.state).toBe('gap');
@@ -693,23 +694,11 @@ describe('switching 跟著說 while a line is on hand', () => {
   });
 });
 
-describe('model download note', () => {
-  it('shows the note on the first 跟著說 and stays off until answered', async () => {
+describe('model download (no note: the title screen normally loads it)', () => {
+  it('the first 跟著說 without the model downloads it with progress, then turns on and replays the line', async () => {
     const t = setup({ modelReady: false });
     t.loop.play(0);
     t.loop.setShadow(true);
-    expect(t.loop.state).toBe('confirm');
-    expect(t.last().shadow).toBe(false);
-    t.plays[0]!.done.resolve();
-    await tick(5000);
-    expect(t.advances).toEqual([]);
-  });
-
-  it('confirm() downloads with progress, then turns 跟著說 on and replays the line', async () => {
-    const t = setup({ modelReady: false });
-    t.loop.play(0);
-    t.loop.setShadow(true);
-    t.loop.confirm();
     expect(t.deps.loadModel).toHaveBeenCalledTimes(1);
     expect(t.last()).toMatchObject({ phase: 'downloading', progress: 0.5, shadow: false });
     t.download.resolve();
@@ -721,11 +710,19 @@ describe('model download note', () => {
     expect(t.deps.listen).toHaveBeenCalledTimes(1);
   });
 
+  it('does not move on while downloading', async () => {
+    const t = setup({ modelReady: false });
+    t.loop.play(0);
+    t.loop.setShadow(true);
+    t.plays[0]!.done.resolve();
+    await tick(5000);
+    expect(t.advances).toEqual([]);
+  });
+
   it('a failed download leaves 跟著說 as a pause with a note', async () => {
     const t = setup({ modelReady: false });
     t.loop.play(0);
     t.loop.setShadow(true);
-    t.loop.confirm();
     t.download.reject(new Error('offline'));
     await tick(0);
     expect(t.last()).toMatchObject({
@@ -733,31 +730,6 @@ describe('model download note', () => {
       micOn: false,
       note: '發音模型下載失敗，跟著說只會每句停一下。',
     });
-  });
-
-  it('decline() keeps the pause mode with the note and downloads nothing', async () => {
-    const t = setup({ modelReady: false });
-    t.loop.play(0);
-    t.loop.setShadow(true);
-    t.loop.decline();
-    expect(t.deps.loadModel).not.toHaveBeenCalled();
-    expect(t.last()).toMatchObject({
-      shadow: true,
-      micOn: false,
-      note: '不評分也可以，每句後面會停一下讓你唸。',
-    });
-    await t.endPlay();
-    await tick(2800);
-    expect(t.advances).toEqual([0]);
-    expect(t.deps.listen).not.toHaveBeenCalled();
-  });
-
-  it('confirm() and decline() do nothing outside the note', () => {
-    const t = setup();
-    t.loop.confirm();
-    t.loop.decline();
-    expect(t.deps.loadModel).not.toHaveBeenCalled();
-    expect(t.snapshots).toHaveLength(1);
   });
 
   it('does not ask when the model is already here', () => {

@@ -196,15 +196,12 @@ export function ListenScreen() {
     appStore.set({ screen: 'town' });
   };
 
-  const asking = snap.phase === 'confirm';
-  const confirming = asking || snap.phase === 'downloading';
+  const downloading = snap.phase === 'downloading';
   useKeys(
     !pick || done
       ? { Enter: toGoal }
-      : confirming
-        ? asking
-          ? { Enter: () => loop.confirm(), Escape: () => loop.decline() }
-          : {}
+      : downloading
+        ? {}
         : {
             Enter: advance,
             ArrowRight: advance,
@@ -326,7 +323,7 @@ export function ListenScreen() {
               {...(isEnglish() ? {} : { onPeek: peek })}
               marks={marks}
             />
-            {!confirming && (
+            {!downloading && (
               <p class="listen-status" aria-live="polite" data-testid="listen-status">
                 {status}
               </p>
@@ -335,7 +332,7 @@ export function ListenScreen() {
               class="listen-options"
               role="group"
               aria-label={t('聽的方式', 'Listening options')}
-              hidden={confirming}
+              hidden={downloading}
             >
               {!isEnglish() && (
                 <button
@@ -369,34 +366,13 @@ export function ListenScreen() {
                 <KeyCap k="s" />
               </button>
             </div>
-            {confirming ? (
+            {downloading ? (
               <div class="listen-confirm" data-testid="pron-note">
                 <p class="flow-note">{pronNote()}</p>
-                {asking ? (
-                  <div class="flow-actions">
-                    <button
-                      class="pixel-button primary"
-                      onClick={() => loop.confirm()}
-                      data-testid="pron-confirm"
-                    >
-                      {t('下載並評分', 'Download & score')}
-                      <KeyCap k="Enter" />
-                    </button>
-                    <button
-                      class="pixel-button"
-                      onClick={() => loop.decline()}
-                      data-testid="pron-cancel"
-                    >
-                      {t('不用評分', 'No scoring')}
-                      <KeyCap k="Escape" />
-                    </button>
-                  </div>
-                ) : (
-                  <p class="flow-note" aria-live="polite" data-testid="pron-progress">
-                    {t('下載發音模型', 'Downloading the pronunciation model')}{' '}
-                    {Math.round(snap.progress * 100)}%
-                  </p>
-                )}
+                <p class="flow-note" aria-live="polite" data-testid="pron-progress">
+                  {t('下載發音模型', 'Downloading the pronunciation model')}{' '}
+                  {Math.round(snap.progress * 100)}%
+                </p>
               </div>
             ) : (
               <div class="flow-actions">

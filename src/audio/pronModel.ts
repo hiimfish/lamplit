@@ -39,15 +39,15 @@ export function pronMessage(error: unknown): string {
   return t(zh, en);
 }
 
-/** Shown before the first download (大聲說說看's 評分, 聽力加量's 跟著說); the Chinese wording. */
+/** Shown while 跟著說 waits for the model (it normally loads on the title screen); the Chinese wording. */
 export const PRON_NOTE =
-  '第一次評分要下載發音模型（約 95MB，建議用 Wi-Fi），之後就不用再下載。錄音只在這台裝置上評分，不會上傳。';
+  '發音模型還沒載入好，正在下載（約 95MB，只要一次）。錄音只在這台裝置上評分，不會上傳。';
 
 /** PRON_NOTE in the current 介面語言. */
 export function pronNote(): string {
   return t(
     PRON_NOTE,
-    'The first score downloads a pronunciation model (about 95 MB, Wi-Fi is best), just once. Your recording is scored on this device and never uploaded.',
+    'The pronunciation model is still downloading (about 95 MB, just once). Your recording is scored on this device and never uploaded.',
   );
 }
 

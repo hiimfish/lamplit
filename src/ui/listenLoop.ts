@@ -15,7 +15,7 @@ import type { SpokenScore } from '../learning/spokenScore';
 
 /** What the loop is doing right now. */
 export type ListenLoopState =
-  'idle' | 'playing' | 'gap' | 'confirm' | 'downloading' | 'ready' | 'listening' | 'scored';
+  'idle' | 'playing' | 'gap' | 'downloading' | 'ready' | 'listening' | 'scored';
 
 /** The fixed gap after a line when 跟著說 is off. */
 export const GAP_MS = 900;
@@ -48,7 +48,6 @@ export const NOTE_RETRY = `還沒到 ${PASS_SCORE} 分，再聽一次、再說�
 export const NOTE_AGAIN = '再聽一次，聽完換你說。';
 export const NOTE_END = '這段的最後一句了，按「聽完了」結束。';
 export const NOTE_SILENT_OFF = '一直沒聽到聲音，先關掉跟著說。';
-export const NOTE_DECLINED = '不評分也可以，每句後面會停一下讓你唸。';
 
 /** The English interface's wording of each note (the snapshot keeps the Chinese). */
 const NOTE_EN: readonly (readonly [string, string])[] = [
@@ -73,7 +72,6 @@ const NOTE_EN: readonly (readonly [string, string])[] = [
   [NOTE_RETRY, `Not ${PASS_SCORE} yet. Listen again and say it again.`],
   [NOTE_AGAIN, 'One more listen, then your turn.'],
   [NOTE_END, 'This is the last line. Press "Done" to finish.'],
-  [NOTE_DECLINED, "No scoring is fine. There's a pause after each line for you to say it."],
 ];
 
 /** A snapshot's note in English: every note in it (a note may carry NOTE_END) swapped. */
@@ -262,16 +260,16 @@ export class ListenLoop {
   }
 
   /**
-   * The 跟著說 switch. Turning it on before the pronunciation model is on this device shows
-   * the download note (phase `confirm`); answer with confirm() or decline(). Otherwise it
-   * applies to the line on hand right away.
+   * The 跟著說 switch. Turning it on before the pronunciation model is loaded (it normally
+   * loads on the title screen, pronPreload.ts) loads it first, with no note to answer.
+   * Otherwise it applies to the line on hand right away.
    */
   setShadow(on: boolean): void {
     if (this.disposed || on === this.shadow) return;
     if (on && this.micAvailable && !this.deps.modelReady()) {
       this.begin();
       this.deps.stopAudio();
-      this.enter('confirm');
+      this.download();
       return;
     }
     this.shadow = on;
@@ -280,13 +278,11 @@ export class ListenLoop {
   }
 
   /**
-   * 下載並評分 on the note: downloads the model (phase `downloading`, with progress), then
-   * turns 跟著說 on and plays the current line again. A failed download leaves 跟著說 as a
-   * pause after each line.
+   * Loads the model (phase `downloading`, with progress; a load already running is shared),
+   * then turns 跟著說 on and plays the current line again. A failed download leaves 跟著說
+   * as a pause after each line.
    */
-  confirm(): void {
-    if (this.disposed || this.state !== 'confirm') return;
-    this.begin();
+  private download(): void {
     this.progress = 0;
     this.enter('downloading');
     const settle = (ok: boolean) => {
@@ -308,15 +304,6 @@ export class ListenLoop {
         () => settle(true),
         () => settle(false),
       );
-  }
-
-  /** Declined: 跟著說 stays a pause after each line (no scoring). */
-  decline(): void {
-    if (this.disposed || this.state !== 'confirm') return;
-    this.shadow = true;
-    this.micAvailable = false;
-    this.micNote = NOTE_DECLINED;
-    this.replayCurrent();
   }
 
   /** Plays line `index` (a new current line, or a replay of an older one). */

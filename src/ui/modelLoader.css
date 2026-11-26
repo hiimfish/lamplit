@@ -1,0 +1,46 @@
+/*
+ * The title screen's loading bar for the pronunciation model (ModelLoader): a line of words,
+ * a boxed bar filling with lamp, and on the first download a small note under it.
+ */
+.model-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(2 * var(--px));
+  width: min(100%, calc(150 * var(--px)));
+  padding: calc(2 * var(--px)) calc(4 * var(--px));
+  text-align: center;
+  color: var(--ink);
+}
+
+.model-loader p {
+  margin: 0;
+}
+
+.model-loader-label {
+  font-size: calc(8 * var(--fpx));
+}
+
+.model-loader-bar {
+  width: 100%;
+  height: calc(6 * var(--px));
+  background: var(--paper);
+  border: var(--px) solid var(--ink);
+}
+
+.model-loader-fill {
+  height: 100%;
+  background: var(--lamp);
+  transition: width 0.2s steps(4);
+}
+
+.model-loader-note {
+  font-size: calc(6 * var(--fpx));
+  line-height: 1.4;
+  opacity: 0.85;
+}
+
+/* Over the street in landscape, a paper strip keeps it legible (as the notice below). */
+:root[data-orientation='landscape'] .model-loader {
+  background: var(--paper);
+}

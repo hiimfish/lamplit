@@ -1,8 +1,9 @@
 /**
  * 說說看 for the Speak minigame: one key records the learner (stopping by itself a little
  * after they stop talking, utterance.ts) and scores the pronunciation on this device
- * (pronModel.ts). The first time, before the model is on the device, a note asks before the
- * download. One try at a time; a late result after unmount or abort() is dropped.
+ * (pronModel.ts). The model normally loads on the title screen (pronPreload.ts); if it is not
+ * here yet, 說說看 downloads it (sharing a load already running) with progress, then records.
+ * One try at a time; a late result after unmount or abort() is dropped.
  */
 import { t } from '../../core/i18n';
 import { useEffect, useRef, useState } from 'preact/hooks';
@@ -13,8 +14,7 @@ import { createShadowMic } from '../../audio/utterance';
 import type { ScoredAttempt } from '../../audio/utterance';
 import type { SpokenScore } from '../../learning/spokenScore';
 
-/** 'confirm' = the download note is on screen; nothing is downloading yet. */
-type PronStatus = 'idle' | 'confirm' | 'downloading' | 'recording' | 'scoring';
+type PronStatus = 'idle' | 'downloading' | 'recording' | 'scoring';
 
 export interface PronState {
   status: PronStatus;
@@ -67,7 +67,7 @@ export class PronController {
   }
 
   /**
-   * 說說看: records and scores at once when the model is here, otherwise asks first.
+   * 說說看: records and scores at once when the model is here, otherwise loads it first.
    * While recording, a second press ends the recording early.
    */
   async press(target: string): Promise<void> {
@@ -83,13 +83,11 @@ export class PronController {
     const cached = await this.deps.cached().catch(() => false);
     if (this.stale(mine)) return;
     if (cached) await this.record(mine);
-    else this.set({ status: 'confirm' });
+    else await this.download(mine);
   }
 
-  /** 下載並評分 on the note: downloads the model, then records. */
-  async confirm(): Promise<void> {
-    if (this.disposed || this.state.status !== 'confirm') return;
-    const mine = ++this.generation;
+  /** Loads the model with progress (a load already running is shared), then records. */
+  private async download(mine: number): Promise<void> {
     this.set({ status: 'downloading', progress: 0 });
     try {
       await this.deps.load((progress) => {
@@ -100,11 +98,6 @@ export class PronController {
       return;
     }
     if (!this.stale(mine)) await this.record(mine);
-  }
-
-  /** 取消 on the note: nothing is downloaded; the note shows again next time. */
-  cancel(): void {
-    if (this.state.status === 'confirm') this.set({ status: 'idle' });
   }
 
   /** Drops any try in progress and frees the microphone (the question is finished). */
@@ -153,8 +146,6 @@ export class PronController {
 
 export interface UsePronScore extends PronState {
   press: (target: string) => void;
-  confirm: () => void;
-  cancel: () => void;
   abort: () => void;
 }
 
@@ -183,8 +174,6 @@ export function usePronScore(): UsePronScore {
   return {
     ...state,
     press: (target) => void controller.press(target),
-    confirm: () => void controller.confirm(),
-    cancel: () => controller.cancel(),
     abort: () => controller.abort(),
   };
 }

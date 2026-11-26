@@ -1,6 +1,6 @@
 import { showZhNow, t } from '../../core/i18n';
 import { useEffect, useState } from 'preact/hooks';
-import { pronNote, pronSupported } from '../../audio/pronModel';
+import { pronSupported } from '../../audio/pronModel';
 import { settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
 import { useKeys } from '../keys';
@@ -122,13 +122,12 @@ export function Speak({ question, onAnswered }: MinigameProps<SpeakQuestion>) {
 
 const SAY_LABEL: Record<UsePronScore['status'], [zh: string, en: string]> = {
   idle: ['● 說說看', '● Say it'],
-  confirm: ['● 說說看', '● Say it'],
   downloading: ['下載中…', 'Downloading…'],
   recording: ['● 聽你說…', '● Listening…'],
   scoring: ['評分中…', 'Scoring…'],
 };
 
-/** 說說看 / 再說一次, the first-time download note, progress and the score. */
+/** 說說看 / 再說一次, the download progress (model not loaded yet) and the score. */
 function SayControls({ pron, onSay }: { pron: UsePronScore; onSay: () => void }) {
   const scored = pron.score !== null;
   const label =
@@ -161,7 +160,6 @@ function SayControls({ pron, onSay }: { pron: UsePronScore; onSay: () => void })
           )}
         </p>
       )}
-      {pron.status === 'confirm' && <PronNotice onConfirm={pron.confirm} onCancel={pron.cancel} />}
       {pron.status === 'downloading' && (
         <p class="mg-note" data-testid="pron-progress">
           {t('下載發音模型', 'Downloading the pronunciation model')}{' '}
@@ -217,29 +215,6 @@ function SpeakReplay(props: { onReplay: () => void; onSlow: () => void; disabled
         onClick={props.onSlow}
       />
     </div>
-  );
-}
-
-/** Shown before the first 說說看 on this device: nothing is downloaded until 下載並評分. */
-function PronNotice(props: { onConfirm: () => void; onCancel: () => void }) {
-  // Registered after Speak's own keys, so here Enter is 下載並評分 and Esc 取消.
-  useKeys({ Enter: props.onConfirm, Escape: props.onCancel });
-  return (
-    <>
-      <p class="mg-note" data-testid="pron-note">
-        {pronNote()}
-      </p>
-      <div class="mg-row">
-        <Btn
-          primary
-          id="pron-confirm"
-          label={t('下載並評分', 'Download & score')}
-          hint="Enter"
-          onClick={props.onConfirm}
-        />
-        <Btn id="pron-cancel" label={t('取消', 'Cancel')} hint="Escape" onClick={props.onCancel} />
-      </div>
-    </>
   );
 }
 
