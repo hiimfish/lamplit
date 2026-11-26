@@ -5,7 +5,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   CTC_VOCAB,
-  letterPeaks,
+  letterGoodness,
   logSoftmaxRows,
   numberWords,
   scorePronunciation,
@@ -102,15 +102,38 @@ describe('alignment and score', () => {
     for (const row of rows) expect([...row].reduce((a, x) => a + Math.exp(x), 0)).toBeCloseTo(1);
   });
 
-  it('gives each letter its peak probability on its own frames', () => {
-    const peaks = letterPeaks(frames('-G-O-'), [ID.get('G')!, ID.get('O')!]);
-    expect(peaks?.map((p) => p.toFixed(2))).toEqual(['0.97', '0.97']);
+  it('gives a letter the model heard first goodness 1', () => {
+    const goodness = letterGoodness(frames('-G-O-'), [ID.get('G')!, ID.get('O')!]);
+    expect(goodness?.map((g) => g.toFixed(2))).toEqual(['1.00', '1.00']);
+  });
+
+  it('measures a letter against the likeliest letter, not as a plain probability', () => {
+    // Unsure of everything (an accent, a phone): the right letter is still the top one.
+    expect(letterGoodness(frames('-G-', 0.3), [ID.get('G')!])?.[0]).toBeCloseTo(1);
+    // Another letter heard instead: G is far behind it, and the blank frames around C
+    // (no letter heard) do not count as G coming first.
+    expect(letterGoodness(frames('-C-'), [ID.get('G')!])?.[0]).toBeLessThan(0.1);
+    // G a close second to C: about their ratio.
+    const row = frames('-')[0]!.map(() => Math.log(0.01));
+    row[ID.get('C')!] = Math.log(0.5);
+    row[ID.get('G')!] = Math.log(0.4);
+    expect(letterGoodness([row], [ID.get('G')!])?.[0]).toBeCloseTo(0.8);
+  });
+
+  it('lets a letter peak up to two frames outside its aligned frames', () => {
+    // The alignment must give O the last frame, but the model said it two frames early.
+    const o = ID.get('O')!;
+    const lp = frames('-GO--');
+    lp[2] = frames('-')[0]!;
+    lp[1] = frames('G')[0]!.map((x, j) => (j === o ? Math.log(0.45) : x));
+    lp[1]![ID.get('G')!] = Math.log(0.5);
+    expect(letterGoodness(lp, [ID.get('G')!, o])?.[1]).toBeCloseTo(0.9);
   });
 
   it('needs a blank between a doubled letter, and enough frames', () => {
     const l = ID.get('L')!;
-    expect(letterPeaks(frames('L-L'), [l, l])?.[1]).toBeCloseTo(0.97);
-    expect(letterPeaks(frames('L'), [l, l])).toBeNull();
+    expect(letterGoodness(frames('L-L'), [l, l])?.[1]).toBeCloseTo(1);
+    expect(letterGoodness(frames('L'), [l, l])).toBeNull();
   });
 
   it('scores a clearly said sentence 100', () => {
@@ -125,8 +148,8 @@ describe('alignment and score', () => {
     expect(result!.score).toBeLessThan(40);
   });
 
-  it('maps a mean probability to 0..100', () => {
-    expect([0.1, 0.2, 0.5, 0.8, 0.95].map(wordScore)).toEqual([0, 0, 50, 100, 100]);
+  it('maps a mean goodness to 0..100', () => {
+    expect([0.05, 0.1, 0.4, 0.7, 0.95].map(wordScore)).toEqual([0, 0, 50, 100, 100]);
   });
 
   it('returns null when the recording is too short to hold the letters', () => {

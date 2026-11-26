@@ -5,10 +5,16 @@
  * SpokenScore comes out.
  *
  * The sentence's letters are force-aligned to the frames (Viterbi over CTC, word gaps
- * optional). A letter's goodness is the highest probability the model gave it inside its
- * own frames; a word's is the mean over its letters, mapped to 0..100. The sentence score
- * weights each word by its letter count. Names and words with symbols (prices, times) are
- * aligned but "free": they show, and are not counted.
+ * optional). A letter's goodness is how close it came to being the model's first choice:
+ * on its own frames and two frames either side, its probability over the likeliest
+ * letter's at that frame (1 when it was the top letter; the likeliest counts as at least
+ * TOP_FLOOR), at best. Measured against the
+ * other letters rather than as a plain probability, an accent or a phone microphone that
+ * makes the model less sure of every letter costs little, while a different word still
+ * scores low (calibrated on native and Mandarin-voiced TTS, the latter also band-limited
+ * with noise: docs/specs/learning.md). A word's goodness is the mean over its letters,
+ * mapped to 0..100. The sentence score weights each word by its letter count. Names and
+ * words with symbols (prices, times) are aligned but "free": they show, and are not counted.
  */
 import { normalize } from './grading';
 import { spokenLevel } from './spokenScore';
@@ -22,11 +28,20 @@ export const CTC_VOCAB = [
 
 const BLANK = 0;
 const WORD_GAP = 4;
+/** The letter columns (E to Z and the apostrophe): every column after the word gap. */
+const FIRST_LETTER = WORD_GAP + 1;
+/** A letter may peak this many frames outside the frames the alignment gave it. */
+const SLACK = 2;
+/**
+ * The likeliest letter counts as at least this probable, so a frame where the model hears
+ * no letter at all (all near 0, the blank on top) cannot make a letter look first.
+ */
+const TOP_FLOOR = 0.02;
 const LETTER_ID = new Map<string, number>(CTC_VOCAB.map((token, id) => [token, id]));
 
-/** A letter's mean probability at or under FLOOR scores 0; at or over CEILING, 100. */
-const FLOOR = 0.2;
-const CEILING = 0.8;
+/** A word's mean letter goodness at or under FLOOR scores 0; at or over CEILING, 100. */
+const FLOOR = 0.1;
+const CEILING = 0.7;
 /** Word scores from these up are 'hit'; from NEAR_FROM up 'near'; below, 'missed'. */
 const HIT_FROM = 70;
 const NEAR_FROM = 40;
@@ -174,10 +189,10 @@ export function logSoftmaxRows(
 /**
  * Viterbi CTC alignment of `tokens` (letter ids) to the frames. A gap state takes the blank
  * or the word-gap column, whichever is likelier, so word gaps are optional. Returns, per
- * token, the highest probability the model gave it inside its aligned frames; null when the
- * recording is too short for the letters.
+ * token, its goodness (0..1, see the top of the file) around its aligned frames; null when
+ * the recording is too short for the letters.
  */
-export function letterPeaks(
+export function letterGoodness(
   lp: readonly ArrayLike<number>[],
   tokens: readonly number[],
 ): number[] | null {
@@ -222,21 +237,36 @@ export function letterPeaks(
   const beforeLast = prev[states - 2] ?? -Infinity;
   if (!Number.isFinite(Math.max(last, beforeLast))) return null;
   let s = last >= beforeLast ? states - 1 : states - 2;
-  const peaks = new Array<number>(tokens.length).fill(0);
+  const first = new Array<number>(tokens.length).fill(frames);
+  const lastFrame = new Array<number>(tokens.length).fill(-1);
   for (let t = frames - 1; t >= 0; t--) {
     if (s % 2 === 1) {
       const k = (s - 1) >> 1;
-      const p = Math.exp(lp[t]?.[tokens[k] ?? BLANK] ?? -Infinity);
-      peaks[k] = Math.max(peaks[k] ?? 0, p);
+      first[k] = t;
+      if ((lastFrame[k] ?? -1) < 0) lastFrame[k] = t;
     }
     s = back[t]?.[s] ?? 0;
   }
-  return peaks;
+  return tokens.map((id, k) => {
+    let best = 0;
+    const from = Math.max(0, (first[k] ?? frames) - SLACK);
+    const to = Math.min(frames - 1, (lastFrame[k] ?? -1) + SLACK);
+    for (let t = from; t <= to; t++) {
+      const row = lp[t];
+      if (!row) continue;
+      let top = -Infinity;
+      for (let j = FIRST_LETTER; j < CTC_VOCAB.length; j++)
+        top = Math.max(top, row[j] ?? -Infinity);
+      const p = Math.exp(row[id] ?? -Infinity);
+      best = Math.max(best, Math.min(1, p / Math.max(Math.exp(top), TOP_FLOOR)));
+    }
+    return best;
+  });
 }
 
-/** A word's 0..100 from the mean probability of its letters. */
-export function wordScore(meanPeak: number): number {
-  const scaled = (meanPeak - FLOOR) / (CEILING - FLOOR);
+/** A word's 0..100 from the mean goodness of its letters. */
+export function wordScore(meanGoodness: number): number {
+  const scaled = (meanGoodness - FLOOR) / (CEILING - FLOOR);
   return Math.round(100 * Math.min(1, Math.max(0, scaled)));
 }
 
@@ -262,12 +292,12 @@ export function scorePronunciation(
       owner.push(index);
     }
   });
-  const peaks = letterPeaks(lp, tokens);
-  if (!peaks) return null;
+  const goodness = letterGoodness(lp, tokens);
+  if (!goodness) return null;
   let sum = 0;
   let weight = 0;
   const marks = words.map((w, index): SpokenMark => {
-    const own = peaks.filter((_, k) => owner[k] === index);
+    const own = goodness.filter((_, k) => owner[k] === index);
     const mean = own.reduce((a, p) => a + p, 0) / Math.max(1, own.length);
     const score = wordScore(mean);
     if (!w.free) {
