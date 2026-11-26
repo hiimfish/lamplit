@@ -1,0 +1,20 @@
+/* 有新版本: a lamp key at the top of the screen until tapped (UpdateBanner). */
+.update-banner {
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 0px) + 4 * var(--px));
+  left: 50%;
+  z-index: 100;
+  transform: translateX(-50%);
+  max-width: calc(100% - 8 * var(--px));
+  min-height: var(--tap);
+  margin: 0;
+  padding: calc(2 * var(--px)) calc(8 * var(--px));
+  font: inherit;
+  font-size: calc(11 * var(--fpx));
+  color: var(--ink);
+  background: var(--lamp);
+  border: var(--px) solid var(--ink);
+  box-shadow: var(--line) var(--line) 0 var(--ink);
+  cursor: pointer;
+  pointer-events: auto;
+}

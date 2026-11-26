@@ -1,7 +1,8 @@
 // First: moves the old storage keys before any module reads the save or settings.
 import './core/boot';
 import { render } from 'preact';
-import { remeasureLayout } from './core/appState';
+import { appStore, remeasureLayout } from './core/appState';
+import { watchForUpdates } from './core/update';
 import { applyGameLayout, createGame } from './game/createGame';
 import { sameLayout, type Layout } from './layout';
 import './styles.css';
@@ -29,6 +30,8 @@ applyCssLayout(currentLayout);
 const game = createGame(gameElement, currentLayout);
 render(<App />, uiElement);
 trackInputMode();
+// A new deploy reloads by itself on the title or in the town; elsewhere 有新版本 asks first.
+watchForUpdates(() => ['title', 'town'].includes(appStore.get().screen));
 if (import.meta.env.DEV) {
   // Handy for poking at the game from the browser console while developing.
   (window as unknown as { __game?: unknown }).__game = game;

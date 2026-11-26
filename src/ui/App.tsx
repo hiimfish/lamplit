@@ -18,6 +18,7 @@ import { ListenScreen } from './ListenScreen';
 import { ProgressScreen } from './ProgressScreen';
 import { ResultScreen } from './ResultScreen';
 import { SaveErrorBanner } from './SaveErrorBanner';
+import { UpdateBanner } from './UpdateBanner';
 import { ReviewScreen } from './ReviewScreen';
 import { SprintScreen } from './SprintScreen';
 import { TaskScreen } from './TaskScreen';
@@ -132,6 +133,7 @@ export function App() {
       {screen === 'result' && <ResultScreen />}
       {screen === 'devquiz' && DEV_TOOLS && <DevQuizScreen />}
       <SaveErrorBanner />
+      <UpdateBanner />
       {showDebug && (
         <div class="debug" data-testid="debug">
           {layout.orientation} · zoom {layout.zoom} · {layout.sceneW}×{layout.sceneH} · px{' '}
