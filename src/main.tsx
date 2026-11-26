@@ -1,6 +1,7 @@
 // First: moves the old storage keys before any module reads the save or settings.
 import './core/boot';
 import { render } from 'preact';
+import { startAnalytics } from './core/analyticsWatch';
 import { appStore, remeasureLayout } from './core/appState';
 import { lockZoom } from './core/noZoom';
 import { watchForUpdates } from './core/update';
@@ -34,6 +35,8 @@ trackInputMode();
 lockZoom();
 // A new deploy reloads by itself on the title or in the town; elsewhere 有新版本 asks first.
 watchForUpdates(() => ['title', 'town'].includes(appStore.get().screen));
+// 匿名使用統計: sends nothing until a GA id is set (src/core/analytics.ts).
+startAnalytics();
 if (import.meta.env.DEV) {
   // Handy for poking at the game from the browser console while developing.
   (window as unknown as { __game?: unknown }).__game = game;

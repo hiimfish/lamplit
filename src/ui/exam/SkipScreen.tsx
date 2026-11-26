@@ -4,9 +4,14 @@ import { playSfx } from '../../audio/sfx';
 import { ACTS } from '../../content/acts';
 import { sectionTitleEn } from '../../content/exam';
 import { actName } from '../../content/titles';
+import { track } from '../../core/analytics';
 import { appStore, commitSave, currentNow } from '../../core/appState';
 import { t } from '../../core/i18n';
+import { devUnlockAll, settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
+import { easierSkip } from '../../learning/onboarding';
+import { isActUnlocked } from '../../learning/townPlan';
+import { TOWN } from '../TownScreen';
 import { gradeSection, newSeed, reviewQuestions, type ExamOutcome } from '../../learning/exam';
 import {
   finishSkip,
@@ -73,6 +78,7 @@ function SkipExam({ act }: { act: SkipAct }) {
       }
       const done = finishSkip(appStore.get().save, act, outcomes, currentNow());
       commitSave(done.save);
+      track('skip_exam_done', { act, ...done.summary });
       setPhase({ kind: 'result', summary: done.summary, outcomes });
     };
     return (
@@ -206,6 +212,17 @@ function SkipResult({
   const { correct, total, passed } = summary;
   const wrong = total - correct;
   const short = skipNeeded(total) - correct;
+  // Not passed while this act is itself still locked (a level picked on the first visit):
+  // 「先玩這一幕」 is not possible, so the test of the act before is offered instead.
+  const { save } = useStore(appStore);
+  const openAll = devUnlockAll(useStore(settingsStore));
+  const easier = passed
+    ? undefined
+    : easierSkip(act, (no) => isActUnlocked(TOWN, save, no - 1, openAll));
+  const tryEasier = () => {
+    playSfx('click');
+    appStore.set({ screen: 'skip', activeSkip: easier, result: undefined });
+  };
   // Passed: the town opens on the next act (index `act`); else on this act (index act - 1).
   const go = () => {
     playSfx('click');
@@ -231,10 +248,15 @@ function SkipResult({
                 `及格了！第${actNo(act + 1)}幕打開了，可以直接從那裡開始。`,
                 `You passed! ${actName(act + 1)} is open; you can start there.`,
               )
-            : t(
-                `還差 ${short} 題才及格（要答對 ${skipNeeded(total)} 題）。可以先玩第${actNo(act)}幕，或再考一次。`,
-                `${short} more right to pass (${skipNeeded(total)} needed). Play ${actName(act)} first, or try again.`,
-              )}
+            : easier
+              ? t(
+                  `還差 ${short} 題才及格（要答對 ${skipNeeded(total)} 題）。第${actNo(act)}幕還沒打開，可以改考簡單一級的第${actNo(easier)}幕跳級考，或再考一次。`,
+                  `${short} more right to pass (${skipNeeded(total)} needed). ${actName(act)} is still locked: try the easier ${actName(easier)} skip test, or try again.`,
+                )
+              : t(
+                  `還差 ${short} 題才及格（要答對 ${skipNeeded(total)} 題）。可以先玩第${actNo(act)}幕，或再考一次。`,
+                  `${short} more right to pass (${skipNeeded(total)} needed). Play ${actName(act)} first, or try again.`,
+                )}
         </p>
         <div class="flow-actions">
           {wrong > 0 && (
@@ -253,6 +275,11 @@ function SkipResult({
                 {t('再考一次', 'Try again')}
                 <KeyCap k="Enter" />
               </button>
+              {easier && (
+                <button class="pixel-button" onClick={tryEasier} data-testid="skip-easier">
+                  {t(`改考${actLabel(easier)}`, `Try ${actLabel(easier)}`)}
+                </button>
+              )}
               <button class="pixel-button" onClick={go} data-testid="skip-town">
                 {t('回小鎮', 'Back to town')}
                 <KeyCap k="Back" />

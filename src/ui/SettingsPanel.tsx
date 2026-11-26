@@ -2,6 +2,7 @@ import { useRef, useState } from 'preact/hooks';
 import { playAudio } from '../audio/pronounce';
 import { playSfx } from '../audio/sfx';
 import type { VoiceMode } from '../audio/voices';
+import { GA_ID } from '../core/analytics';
 import { appStore } from '../core/appState';
 import { settingsStore, type Settings, type TextSize, DEV_TOOLS } from '../core/settings';
 import { isEnglish, t } from '../core/i18n';
@@ -445,6 +446,22 @@ export function SettingsPanel({ onClose, onHowTo }: { onClose: () => void; onHow
               </button>
             </div>
           </div>
+        )}
+        {GA_ID !== '' && (
+          <>
+            <SwitchRow
+              label={t('匿名使用統計', 'Anonymous statistics')}
+              on={settings.analytics}
+              onToggle={() => settingsStore.set({ analytics: !settings.analytics })}
+              testId="settings-analytics"
+            />
+            <p class="settings-note">
+              {t(
+                '用 Google Analytics 記錄玩到哪裡、答對幾題，幫助改進遊戲；不含錄音和個人資料。關掉就不再送出。',
+                'Google Analytics records how far you got and how many you got right, to help improve the game; never recordings or personal data. Off sends nothing more.',
+              )}
+            </p>
+          </>
         )}
         <KeyList />
       </>

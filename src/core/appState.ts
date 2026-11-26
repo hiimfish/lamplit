@@ -16,6 +16,8 @@ import { createStore } from './store';
 
 type Screen =
   | 'title'
+  /** The first-visit questions (WelcomeScreen). */
+  | 'welcome'
   | 'town'
   | 'task'
   | 'review'

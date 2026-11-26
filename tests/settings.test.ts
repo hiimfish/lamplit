@@ -38,8 +38,18 @@ describe('sanitizeSettings', () => {
       uiLang: 'en',
       unlockAll: true,
       seenIntro: true,
+      onboarded: true,
+      level: 'b1',
+      analytics: false,
     };
     expect(sanitizeSettings(s)).toEqual(s);
+  });
+
+  it('gives settings saved before the first-visit questions their defaults', () => {
+    const s = sanitizeSettings({ uiLang: 'en', level: 'z9' });
+    expect(s.onboarded).toBe(false);
+    expect(s.level).toBeNull();
+    expect(s.analytics).toBe(true);
   });
 
   it('falls back for an unknown 文字大小, 英文大小 or 介面語言', () => {

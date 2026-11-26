@@ -7,6 +7,7 @@ import { DEV_TOOLS, devUnlockAll, EN_SCALE, settingsStore, TEXT_SCALE } from '..
 import { useStore } from '../core/store';
 import { goalStatus } from '../learning/dailyGoal';
 import { grammarOn } from '../learning/grammarOn';
+import { shouldOnboard } from '../learning/onboarding';
 import { continueTarget } from '../learning/townPlan';
 import { ExamScreen } from './exam/ExamScreen';
 import { SkipScreen } from './exam/SkipScreen';
@@ -26,10 +27,12 @@ import { SprintScreen } from './SprintScreen';
 import { TaskScreen } from './TaskScreen';
 import { TOWN, TownScreen } from './TownScreen';
 import { useFullScreen } from './useFullScreen';
+import { WelcomeScreen } from './WelcomeScreen';
 import { DevQuizScreen } from './dev/DevQuizScreen';
 
 /** Menu-type screens: on a phone held upright they take the whole screen (useFullScreen). */
 const FULL_SCREENS = new Set([
+  'welcome',
   'review',
   'sprint',
   'progress',
@@ -60,6 +63,11 @@ function TitleScreen() {
     // Must run inside the tap handler so the browser allows sound afterwards.
     unlockAudio();
     playChime();
+    // A first visit goes through the questions (level, route, language) before the town.
+    if (shouldOnboard(settingsStore.get(), appStore.get().save)) {
+      appStore.set({ screen: 'welcome' });
+      return;
+    }
     appStore.set({ screen: 'town', ...(into ? { town: { act: into.act } } : {}) });
   };
   // The start key waits for the pronunciation model (ModelLoader shows the bar meanwhile).
@@ -140,6 +148,7 @@ export function App() {
   return (
     <>
       {screen === 'title' && <TitleScreen />}
+      {screen === 'welcome' && <WelcomeScreen />}
       {screen === 'town' && <TownScreen />}
       {screen === 'task' && <TaskScreen />}
       {screen === 'review' && <ReviewScreen />}

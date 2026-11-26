@@ -24,10 +24,19 @@ export interface Settings {
   unlockAll: boolean;
   /** The 怎麼玩 cards were shown once (or skipped); they open again only from 設定. */
   seenIntro: boolean;
+  /** The first-visit questions (WelcomeScreen) were answered or skipped. */
+  onboarded: boolean;
+  /** The level the player gave on the first visit; null when not asked or skipped. */
+  level: Level | null;
+  /** 匿名使用統計 (src/core/analytics.ts): off sends nothing. */
+  analytics: boolean;
 }
 
 export type TextSize = 'medium' | 'large' | 'xlarge';
 export type UiLang = 'zh' | 'en';
+/** CEFR, as the player judged it; `c1` stands for C1 and above. */
+export type Level = 'a1' | 'a2' | 'b1' | 'b2' | 'c1';
+export const LEVELS: readonly Level[] = ['a1', 'a2', 'b1', 'b2', 'c1'];
 
 /** How much each 文字大小 enlarges the text. */
 export const TEXT_SCALE: Record<TextSize, number> = { medium: 1, large: 1.15, xlarge: 1.3 };
@@ -46,6 +55,9 @@ export const DEFAULT_SETTINGS: Settings = {
   uiLang: 'zh',
   unlockAll: false,
   seenIntro: false,
+  onboarded: false,
+  level: null,
+  analytics: true,
 };
 
 export const SETTINGS_KEY = STORAGE_KEYS.settings;
@@ -85,6 +97,9 @@ export function sanitizeSettings(raw: unknown): Settings {
     uiLang: r.uiLang === 'en' ? 'en' : 'zh',
     unlockAll: typeof r.unlockAll === 'boolean' ? r.unlockAll : DEFAULT_SETTINGS.unlockAll,
     seenIntro: typeof r.seenIntro === 'boolean' ? r.seenIntro : DEFAULT_SETTINGS.seenIntro,
+    onboarded: typeof r.onboarded === 'boolean' ? r.onboarded : DEFAULT_SETTINGS.onboarded,
+    level: LEVELS.find((level) => level === r.level) ?? null,
+    analytics: typeof r.analytics === 'boolean' ? r.analytics : DEFAULT_SETTINGS.analytics,
   };
 }
 

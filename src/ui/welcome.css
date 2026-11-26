@@ -1,0 +1,78 @@
+/*
+ * The first-visit questions (WelcomeScreen.tsx). Sizes: calc(N * var(--px)).
+ */
+.welcome .flow-title {
+  position: relative;
+}
+
+/* 1/3 at the right end of the title strip. */
+.welcome-step {
+  position: absolute;
+  right: calc(6 * var(--px));
+  color: var(--lamp);
+}
+
+.welcome-options {
+  display: grid;
+  gap: calc(2 * var(--px));
+}
+
+/* A choice: its name, then one line about it, both from the left. */
+.pixel-button.welcome-option {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--px);
+  min-height: var(--tap);
+  padding: calc(2 * var(--px)) calc(5 * var(--px));
+  text-align: left;
+}
+
+/* Sideways the screen is short: tighter choices, so all five levels and 略過 fit. */
+:root[data-orientation='landscape'] .welcome {
+  gap: calc(2 * var(--px));
+}
+
+:root[data-orientation='landscape'] .welcome-options {
+  gap: var(--px);
+}
+
+:root[data-orientation='landscape'] .pixel-button.welcome-option {
+  min-height: 0;
+  gap: 0;
+  padding-top: var(--px);
+  padding-bottom: var(--px);
+}
+
+.welcome-option-name::before {
+  content: '';
+  display: inline-block;
+  width: calc(4 * var(--px));
+  height: calc(4 * var(--px));
+  margin-right: calc(4 * var(--px));
+  vertical-align: middle;
+  background: var(--neon);
+}
+
+.welcome-fit {
+  padding: calc(2 * var(--px)) calc(5 * var(--px));
+  background: var(--lamp-tint);
+  outline: var(--px) dashed var(--ink);
+  outline-offset: calc(-1 * var(--px));
+}
+
+.welcome-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(2 * var(--px)) calc(6 * var(--px));
+}
+
+.welcome-row-keys {
+  display: flex;
+  gap: calc(3 * var(--px));
+}
+
+.welcome-small {
+  color: var(--dim);
+}

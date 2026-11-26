@@ -139,6 +139,27 @@ tests/              Vitest 測試
 - 開兩個分頁時：另一個分頁寫入會讓這個分頁重新讀取；寫入前若發現被別的分頁改過，會合併（卡片取較新的、星星取較高的、金幣取較多的）。新欄位的合併規則：跟著說取分數較高的一次（同分取句數較多的）；最常錯的次數取較大的，每天仍最多 60 個標籤；結業考取 `attempts` 較多的、分數取日期較晚的那一次、`seen` 取較大的次數；校正取配對次數較多的那份；進行中的一場取完成段數較多的那份（同一場才比）；`grammarSeen` 每題取時間較晚的那筆；每日和 `history` 的數字（含 `grammar`）取較大的。
 - 匯出／匯入存檔代碼的函式已寫好，還沒有介面。
 
+## 使用統計
+
+2026-11-26。用 Google Analytics 4 看玩家的使用狀況，程式在 `src/core/analytics.ts`（送出）和 `src/core/analyticsWatch.ts`（決定送什麼）。
+
+- **開關**：`analytics.ts` 的 `GA_ID` 填上 GA4 的評估 ID（`G-XXXXXXXXXX`）才會送；空的就完全不載入 Google 的程式。開發伺服器、`?debugDate`、或玩家在「設定 → 說明」關掉「匿名使用統計」時也不送（關掉後會設 `ga-disable-<ID>`）。開發伺服器上每個事件會印在 console（`[analytics]`），方便檢查。
+- **送出的內容**只有遊戲自己的代號和數字，沒有錄音、打的字或存檔代碼。GA4 會在瀏覽器放自己的 cookie（`_ga`）來分辨回訪。
+- **事件**：
+
+| 事件                                                      | 什麼時候                       | 參數                                                               |
+| --------------------------------------------------------- | ------------------------------ | ------------------------------------------------------------------ |
+| `game_open`                                               | 打開遊戲                       | `version`、`played_tasks`、`skip_to`                               |
+| `page_view`                                               | 換畫面                         | `page_title`（畫面名稱）、`unit`、`task`、`act`                    |
+| `onboard_start`、`onboard_done`                           | 第一次的問題開始、結束         | `choice`（`exam`／`act1`／`skipped`）、`level`、`route`、`ui_lang` |
+| `task_done`、`review_done`、`sprint_done`、`grammar_done` | 一輪結束（結算畫面的資料）     | `unit`、`task`、`stars`、`correct`、`total`、`new_items`           |
+| `skip_exam_done`                                          | 考完跳級考                     | `act`、`correct`、`total`、`passed`                                |
+| `exam_done`                                               | 考完結業考                     | `exam`、`correct`、`total`、`first`                                |
+| `route_change`、`ui_lang_change`                          | 換路線、換介面語言             | `route`、`ui_lang`                                                 |
+| `pron_model`                                              | 開始畫面的發音模型載入完或失敗 | `result`、`cached`、`seconds`                                      |
+
+- **使用者屬性**：`level`（第一次的問題選的程度，沒選是 `unset`）、`ui_lang`、`text_size`、`route`、`installed`（是不是加到主畫面）。要在 GA4 的報表裡用參數或屬性分組，得先在 GA4 後台把它們登記成自訂維度。
+
 ## 安全
 
 - Google 金鑰只放在本機 `.env`（已被 git 忽略），只有 `scripts/` 的腳本會讀，不會進入打包後的網站。

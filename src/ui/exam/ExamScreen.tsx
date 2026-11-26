@@ -13,6 +13,7 @@ import {
   type SectionPlan,
 } from '../../content/exam';
 import { examFile } from '../../content/exams';
+import { track } from '../../core/analytics';
 import { appStore, commitSave, currentNow } from '../../core/appState';
 import { t } from '../../core/i18n';
 import type { ExamRun, SaveData } from '../../core/save';
@@ -93,6 +94,12 @@ function finishAll(exam: ExamId): { summary: ExamSummary; outcomes: ExamOutcome[
     updateCalibration,
   });
   commitSave(done.save);
+  track('exam_done', {
+    exam,
+    correct: outcomes.reduce((n, o) => n + o.correct, 0),
+    total: outcomes.reduce((n, o) => n + o.total, 0),
+    first: done.summary.first,
+  });
   return { summary: done.summary, outcomes };
 }
 
