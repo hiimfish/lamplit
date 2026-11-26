@@ -1,6 +1,5 @@
 import { showZhNow, t } from '../../core/i18n';
-import { useEffect, useRef, useState } from 'preact/hooks';
-import { playAudio } from '../../audio/pronounce';
+import { useEffect, useState } from 'preact/hooks';
 import { pronNote, pronSupported } from '../../audio/pronModel';
 import { settingsStore } from '../../core/settings';
 import { useStore } from '../../core/store';
@@ -16,11 +15,8 @@ import { usePronScore } from './usePronScore';
 import type { UsePronScore } from './usePronScore';
 
 /**
- * 大聲說說看: the model plays once as the question opens, and when it ends the recording
- * starts by itself (說說看 does the same by hand): it stops a little after the learner
- * stops talking and shows the pronunciation score. Any key pressed while the model plays
- * (再聽, 慢速, 說說看, skip) cancels the automatic start. 下一題 moves on; 現在不方便說話
- * skips.
+ * 大聲說說看: one key, 說說看, listens while the learner says the sentence, stops by itself
+ * when they stop and shows the pronunciation score. 下一題 moves on; 現在不方便說話 skips.
  */
 export function Speak({ question, onAnswered }: MinigameProps<SpeakQuestion>) {
   const clock = useAnswerClock();
@@ -30,16 +26,7 @@ export function Speak({ question, onAnswered }: MinigameProps<SpeakQuestion>) {
   const canScore = pronSupported();
   const scored = pron.score !== null;
 
-  // Waiting for the model to finish before recording by itself.
-  const [autoPending, setAutoPending] = useState(true);
-  const auto = useRef(true);
-  const cancelAuto = () => {
-    auto.current = false;
-    setAutoPending(false);
-  };
-
   const finish = (skipped: boolean) => {
-    cancelAuto();
     pron.abort();
     const result = clock.finish(question.itemId, true, undefined, skipped);
     if (!result) return;
@@ -48,39 +35,17 @@ export function Speak({ question, onAnswered }: MinigameProps<SpeakQuestion>) {
     onAnswered(result);
   };
 
-  const replay = () => {
-    cancelAuto();
-    play(question.audioId, question.en);
-  };
+  const replay = () => play(question.audioId, question.en);
   const slow = () => {
-    cancelAuto();
     clock.markHelp();
     play(question.audioId, question.en, true);
   };
-  const say = () => {
-    cancelAuto();
-    pron.press(question.en);
-  };
+  const say = () => pron.press(question.en);
 
   // The model plays once as the sentence appears (normal speed, not help), unless the
-  // learner has just heard this very line on an arrange check (角色扮演's 跟我說 step);
-  // then the recording starts by itself, a moment after the model ends.
+  // learner has just heard this very line on an arrange check (角色扮演's 跟我說 step).
   useEffect(() => {
-    let timer: ReturnType<typeof setTimeout> | undefined;
-    const start = () => {
-      if (!auto.current) return;
-      if (canScore) say();
-      else cancelAuto();
-    };
-    if (takeJustChecked(question.audioId)) start();
-    else
-      void playAudio(question.audioId, { speed: 'normal', text: question.en }).then(() => {
-        timer = setTimeout(start, AUTO_RECORD_DELAY_MS);
-      });
-    return () => {
-      auto.current = false;
-      clearTimeout(timer);
-    };
+    if (!takeJustChecked(question.audioId)) replay();
   }, []);
 
   // Space 播放示範, Shift+Space 慢速 (help), R 說說看 / 再說一次, Enter 下一題 once scored
@@ -121,7 +86,7 @@ export function Speak({ question, onAnswered }: MinigameProps<SpeakQuestion>) {
       {!finished && (
         <>
           {canScore ? (
-            <SayControls pron={pron} onSay={say} autoPending={autoPending} />
+            <SayControls pron={pron} onSay={say} />
           ) : (
             <p class="mg-note" data-testid="pron-unsupported">
               {t(
@@ -155,9 +120,6 @@ export function Speak({ question, onAnswered }: MinigameProps<SpeakQuestion>) {
   );
 }
 
-/** Pause between the model's end and the automatic recording (not catching its tail). */
-const AUTO_RECORD_DELAY_MS = 300;
-
 const SAY_LABEL: Record<UsePronScore['status'], [zh: string, en: string]> = {
   idle: ['● 說說看', '● Say it'],
   confirm: ['● 說說看', '● Say it'],
@@ -167,16 +129,7 @@ const SAY_LABEL: Record<UsePronScore['status'], [zh: string, en: string]> = {
 };
 
 /** 說說看 / 再說一次, the first-time download note, progress and the score. */
-function SayControls({
-  pron,
-  onSay,
-  autoPending,
-}: {
-  pron: UsePronScore;
-  onSay: () => void;
-  /** The model is playing and the recording will start by itself after it. */
-  autoPending: boolean;
-}) {
+function SayControls({ pron, onSay }: { pron: UsePronScore; onSay: () => void }) {
   const scored = pron.score !== null;
   const label =
     pron.status === 'idle' && scored ? t('再說一次', 'Say it again') : t(...SAY_LABEL[pron.status]);
@@ -194,15 +147,10 @@ function SayControls({
       </div>
       {pron.status === 'idle' && !scored && !pron.message && (
         <p class="mg-note" data-testid="say-hint">
-          {autoPending
-            ? t(
-                '先聽一次，聽完就會開始錄音，跟著說出來。',
-                'Listen once. Recording starts when it ends, then say it.',
-              )
-            : t(
-                '按「說說看」後直接說，說完停一下就會評分。',
-                'Press Say it and speak. Pause when you finish and it scores.',
-              )}
+          {t(
+            '按「說說看」後直接說，說完停一下就會評分。',
+            'Press Say it and speak. Pause when you finish and it scores.',
+          )}
         </p>
       )}
       {pron.status === 'recording' && (
