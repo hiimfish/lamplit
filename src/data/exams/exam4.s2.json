@@ -170,38 +170,18 @@
       "table": {
         "title": "Interview Schedule - Tuesday",
         "rows": [
-          [
-            "Time",
-            "Applicant"
-          ],
-          [
-            "9:30",
-            "Ms. Chen"
-          ],
-          [
-            "11:00",
-            "Mr. Ford"
-          ],
-          [
-            "1:30",
-            "Ms. Park"
-          ],
-          [
-            "3:00",
-            "Ms. Moore"
-          ]
+          ["Time", "Applicant"],
+          ["9:30", "Ms. Chen"],
+          ["11:00", "Mr. Ford"],
+          ["1:30", "Ms. Park"],
+          ["3:00", "Ms. Moore"]
         ]
       },
       "questions": [
         {
           "en": "Look at the table. Who will have an interview at 3:00?",
           "zh": "請看表格。誰會在三點面試？",
-          "options": [
-            "Ms. Chen.",
-            "Mr. Ford.",
-            "Ms. Park.",
-            "Ms. Moore."
-          ],
+          "options": ["Ms. Chen.", "Mr. Ford.", "Ms. Park.", "Ms. Moore."],
           "answer": 1
         },
         {
@@ -816,38 +796,18 @@
       "table": {
         "title": "London Office Move",
         "rows": [
-          [
-            "Task",
-            "Date"
-          ],
-          [
-            "Desks arrive",
-            "May 3"
-          ],
-          [
-            "Internet set up",
-            "May 5"
-          ],
-          [
-            "Staff move in",
-            "May 8"
-          ],
-          [
-            "Opening party",
-            "May 12"
-          ]
+          ["Task", "Date"],
+          ["Desks arrive", "May 3"],
+          ["Internet set up", "May 5"],
+          ["Staff move in", "May 8"],
+          ["Opening party", "May 12"]
         ]
       },
       "questions": [
         {
           "en": "Look at the table. Which task will now take place on May 10?",
           "zh": "請看表格。哪一項工作現在會在五月十日進行？",
-          "options": [
-            "Desks arrive.",
-            "Internet set up.",
-            "Staff move in.",
-            "Opening party."
-          ],
+          "options": ["Desks arrive.", "Internet set up.", "Staff move in.", "Opening party."],
           "answer": 2
         },
         {

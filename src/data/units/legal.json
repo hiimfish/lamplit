@@ -9,7 +9,10 @@
       "zh": "所以您是想在您的門市賣 Lantern 系列？",
       "note": "把對方的提議用自己的話再說一次，確認聽懂了。So 開頭表示「所以說……」。",
       "distractors": [
-        { "text": "So you'd like to sell the Lantern series in your twelve store?", "error": "plural" },
+        {
+          "text": "So you'd like to sell the Lantern series in your twelve store?",
+          "error": "plural"
+        },
         {
           "text": "So you'd like sell the Lantern series in your stores?",
           "error": "missing-word"

@@ -409,7 +409,13 @@
       "abstract": true
     },
     { "id": "spam", "en": "spam", "zh": "垃圾郵件", "emoji": "📧", "abstract": true },
-    { "id": "found", "en": "found", "zh": "創立（found, founded；不是 find 的過去式）", "emoji": "🏗️", "abstract": true },
+    {
+      "id": "found",
+      "en": "found",
+      "zh": "創立（found, founded；不是 find 的過去式）",
+      "emoji": "🏗️",
+      "abstract": true
+    },
     { "id": "amaze", "en": "amaze", "zh": "讓人驚訝", "emoji": "😲", "abstract": true },
     { "id": "donation", "en": "donation", "zh": "捐贈；捐款", "emoji": "💝", "abstract": true },
     { "id": "charity", "en": "charity", "zh": "慈善機構", "emoji": "🤲", "abstract": true },

@@ -6,12 +6,7 @@
       "grammarId": "ed-ing-adjectives",
       "en": "Several managers seemed very ___ in the new layout.",
       "zh": "好幾位主管似乎對新的版面很有興趣。",
-      "options": [
-        "interesting",
-        "interested",
-        "interest",
-        "interestingly"
-      ],
+      "options": ["interesting", "interested", "interest", "interestingly"],
       "answer": 1,
       "note": "人「感興趣」用 interested，後面接 in；interesting 不能接 in，interest 是名詞或動詞，interestingly 是副詞。"
     },
@@ -20,12 +15,7 @@
       "grammarId": "ed-ing-adjectives",
       "en": "The results in the last chart were quite ___ to everyone.",
       "zh": "最後一張圖表的結果讓大家都很意外。",
-      "options": [
-        "surprised",
-        "surprise",
-        "surprising",
-        "surprisingly"
-      ],
+      "options": ["surprised", "surprise", "surprising", "surprisingly"],
       "answer": 2,
       "note": "主詞是 results（事物），說它「令人意外」用 surprising；surprised 是人的感受，surprise 和 surprisingly 詞性不對。"
     },
@@ -34,12 +24,7 @@
       "grammarId": "ed-ing-adjectives",
       "en": "Our team was ___ about the launch, so we rehearsed all weekend.",
       "zh": "我們團隊對上市很興奮，所以整個週末都在排練。",
-      "options": [
-        "excited",
-        "exciting",
-        "excite",
-        "excitement"
-      ],
+      "options": ["excited", "exciting", "excite", "excitement"],
       "answer": 0,
       "note": "人的感受用 excited，常接 about；exciting 不能接 about 說人，excite 是動詞，excitement 是名詞不能直接當 was 的補語。"
     },
@@ -48,12 +33,7 @@
       "grammarId": "ed-ing-adjectives",
       "en": "Ms. Lee wasn't ___ with the first draft, so she asked me to shorten it.",
       "zh": "Lee 小姐對初稿不滿意，所以叫我把它縮短。",
-      "options": [
-        "satisfying",
-        "satisfaction",
-        "satisfied",
-        "satisfy"
-      ],
+      "options": ["satisfying", "satisfaction", "satisfied", "satisfy"],
       "answer": 2,
       "note": "人對某事滿意是 satisfied with；satisfying with 不成立，satisfaction 是名詞，satisfy 是原形動詞。"
     },
@@ -62,12 +42,7 @@
       "grammarId": "ed-ing-adjectives",
       "en": "Waiting for the projector to work was really ___ for the speakers.",
       "zh": "等投影機能用這件事讓講者們很挫折。",
-      "options": [
-        "frustrated",
-        "frustrating",
-        "frustrate",
-        "frustration"
-      ],
+      "options": ["frustrated", "frustrating", "frustrate", "frustration"],
       "answer": 1,
       "note": "主詞是「等待」這件事，事情令人挫折用 frustrating；frustrated 是人的感受，frustrate 是動詞，frustration 是名詞前面不能加 really。"
     },
@@ -76,12 +51,7 @@
       "grammarId": "ed-ing-adjectives",
       "en": "Mr. Ellis was ___ by how clearly you explained the numbers.",
       "zh": "Ellis 先生對你把數字解釋得那麼清楚印象深刻。",
-      "options": [
-        "impressing",
-        "impression",
-        "impressively",
-        "impressed"
-      ],
+      "options": ["impressing", "impression", "impressively", "impressed"],
       "answer": 3,
       "note": "人「印象深刻」用 impressed，後面接 by；impressing by 不成立，impression 是名詞，impressively 是副詞。"
     },
@@ -90,12 +60,7 @@
       "grammarId": "ed-ing-adjectives",
       "en": "After three hours of rehearsal, everyone was too ___ to keep going.",
       "zh": "排練了三個小時後，大家都累到撐不下去了。",
-      "options": [
-        "tired",
-        "tiring",
-        "tire",
-        "tiredness"
-      ],
+      "options": ["tired", "tiring", "tire", "tiredness"],
       "answer": 0,
       "note": "說人「累了」用 tired；tiring 是「令人疲累的」，用在事情上，tire 是動詞，tiredness 是名詞，too 後面要接形容詞。"
     },
@@ -104,12 +69,7 @@
       "grammarId": "ed-ing-adjectives",
       "en": "The comments from the audience were very ___, so we kept the same structure.",
       "zh": "聽眾的意見很令人鼓舞，所以我們保留了原本的架構。",
-      "options": [
-        "encouraged",
-        "encourage",
-        "encouraging",
-        "encouragement"
-      ],
+      "options": ["encouraged", "encourage", "encouraging", "encouragement"],
       "answer": 2,
       "note": "主詞是 comments（事物），「令人鼓舞的」用 encouraging；encouraged 是人受到鼓舞，encourage 是動詞，very 不能修飾名詞 encouragement。"
     },
@@ -118,12 +78,7 @@
       "grammarId": "ed-ing-adjectives",
       "en": "I felt very ___ when I forgot the name of the client.",
       "zh": "我忘了客戶的名字時，覺得很尷尬。",
-      "options": [
-        "embarrassing",
-        "embarrassed",
-        "embarrass",
-        "embarrassment"
-      ],
+      "options": ["embarrassing", "embarrassed", "embarrass", "embarrassment"],
       "answer": 1,
       "note": "felt 說的是「我」的感受，用 embarrassed；embarrassing 是「令人尷尬的」，用在事情上，embarrass 是動詞，very 不能修飾名詞 embarrassment。"
     },
@@ -132,12 +87,7 @@
       "grammarId": "ed-ing-adjectives",
       "en": "Were you ___ with how the presentation went?",
       "zh": "你對簡報的結果失望嗎？",
-      "options": [
-        "disappointing",
-        "disappoint",
-        "disappointed",
-        "disappointedly"
-      ],
+      "options": ["disappointing", "disappoint", "disappointed", "disappointedly"],
       "answer": 2,
       "note": "問人的感受用 disappointed，後面接 with；disappointing with 不成立，disappoint 是動詞，disappointedly 是副詞。"
     },
@@ -146,12 +96,7 @@
       "grammarId": "however",
       "en": "The new layout looks clean. ___, some listeners found the charts hard to read.",
       "zh": "新版面看起來很清爽。不過，有些聽眾覺得圖表很難看懂。",
-      "options": [
-        "Because",
-        "However",
-        "Due to",
-        "Unless"
-      ],
+      "options": ["Because", "However", "Due to", "Unless"],
       "answer": 1,
       "note": "前一句已經結束，句首加逗號表示轉折要用 However；Because、Unless 是連接詞，後面要直接接子句，Due to 後面要接名詞，都不能單獨加逗號。"
     },
@@ -160,12 +105,7 @@
       "grammarId": "however",
       "en": "We planned a twenty-minute talk. ___, it ran almost thirty minutes.",
       "zh": "我們原本計畫講二十分鐘。可是，最後講了將近三十分鐘。",
-      "options": [
-        "However",
-        "Unless",
-        "Because of",
-        "Because"
-      ],
+      "options": ["However", "Unless", "Because of", "Because"],
       "answer": 0,
       "note": "句首加逗號、承接上一句的轉折要用 However；Unless、Because 是連接詞要接子句，Because of 要接名詞。"
     },
@@ -174,12 +114,7 @@
       "grammarId": "however",
       "en": "Sales went up in March. Costs, ___, rose even faster.",
       "zh": "三月的銷售額上升了。不過，成本漲得更快。",
-      "options": [
-        "because",
-        "due to",
-        "however",
-        "unless"
-      ],
+      "options": ["because", "due to", "however", "unless"],
       "answer": 2,
       "note": "however 可以插在主詞後面，前後加逗號表示轉折；because、unless 是連接詞，due to 後面要接名詞，都不能這樣夾在逗號中間。"
     },
@@ -188,12 +123,7 @@
       "grammarId": "however",
       "en": "The slides were ready on Monday. ___, the room wasn't.",
       "zh": "投影片星期一就準備好了。不過，會議室還沒好。",
-      "options": [
-        "Because of",
-        "When",
-        "However",
-        "Since"
-      ],
+      "options": ["Because of", "When", "However", "Since"],
       "answer": 2,
       "note": "接在一個完整句子後面、加逗號轉折用 However；Because of 要接名詞，When 和 Since 是連接詞，後面不能直接加逗號。"
     },
@@ -202,12 +132,7 @@
       "grammarId": "however",
       "en": "The new factory is bigger. ___, it isn't producing more.",
       "zh": "新工廠比較大。不過，產量沒有比較多。",
-      "options": [
-        "Because of",
-        "However",
-        "If",
-        "Since"
-      ],
+      "options": ["Because of", "However", "If", "Since"],
       "answer": 1,
       "note": "前一句已經結束，句首加逗號表示轉折要用 However；If、Since 是連接詞要接子句，Because of 要接名詞。"
     },
@@ -216,12 +141,7 @@
       "grammarId": "however",
       "en": "I rehearsed the talk five times; ___, I still felt anxious.",
       "zh": "我把簡報排練了五次，可是我還是很緊張。",
-      "options": [
-        "however",
-        "because",
-        "because of",
-        "unless"
-      ],
+      "options": ["however", "because", "because of", "unless"],
       "answer": 0,
       "note": "分號後面接 however 加逗號表示轉折；because、unless 是連接詞，後面要直接接子句、不加逗號，because of 後面要接名詞。"
     },
@@ -230,12 +150,7 @@
       "grammarId": "however",
       "en": "Most people liked the presentation. ___, Mr. Ellis wanted more numbers.",
       "zh": "大部分的人都喜歡這場簡報。不過，Ellis 先生希望看到更多數字。",
-      "options": [
-        "Unless",
-        "Since",
-        "Due to",
-        "However"
-      ],
+      "options": ["Unless", "Since", "Due to", "However"],
       "answer": 3,
       "note": "前一句已經結束，句首加逗號表示轉折只能用 However；Unless、Since 是連接詞，Due to 要接名詞，都不能單獨加逗號開頭。"
     },
@@ -244,12 +159,7 @@
       "grammarId": "however",
       "en": "The chart is clear, ___ the numbers in the last column are wrong.",
       "zh": "這張圖表很清楚，但是最後一欄的數字錯了。",
-      "options": [
-        "but",
-        "however",
-        "because of",
-        "due to"
-      ],
+      "options": ["but", "however", "because of", "due to"],
       "answer": 0,
       "note": "用逗號連接兩個子句要用連接詞 but；however 是副詞，不能只靠逗號連接兩個子句，because of 和 due to 後面要接名詞。"
     },
@@ -258,12 +168,7 @@
       "grammarId": "however",
       "en": "The price is higher than last year's. ___, the quality is much better.",
       "zh": "價格比去年高。不過，品質好很多。",
-      "options": [
-        "Because of",
-        "When",
-        "Due to",
-        "However"
-      ],
+      "options": ["Because of", "When", "Due to", "However"],
       "answer": 3,
       "note": "承接前一句、句首加逗號表示轉折要用 However；When 是連接詞要接子句，Because of 和 Due to 後面要接名詞。"
     },
@@ -272,12 +177,7 @@
       "grammarId": "however",
       "en": "Ms. Lee liked the slides. She thought, ___, that the talk was too long.",
       "zh": "Lee 小姐喜歡那些投影片。不過，她覺得整場講得太長了。",
-      "options": [
-        "however",
-        "but",
-        "because",
-        "unless"
-      ],
+      "options": ["however", "but", "because", "unless"],
       "answer": 0,
       "note": "however 可以插在句中，前後加逗號表示轉折；but、because、unless 是連接詞，都不能這樣插在逗號中間。"
     },
@@ -286,12 +186,7 @@
       "grammarId": "modal-passive",
       "en": "The new budget will ___ to all managers on Friday.",
       "zh": "新的預算星期五會寄給所有主管。",
-      "options": [
-        "send",
-        "be sent",
-        "sending",
-        "been sent"
-      ],
+      "options": ["send", "be sent", "sending", "been sent"],
       "answer": 1,
       "note": "預算是「被寄出」，will 後面接 be 加過去分詞：will be sent；will send 是主動，will sending 和 will been sent 都不合文法。"
     },
@@ -300,12 +195,7 @@
       "grammarId": "modal-passive",
       "en": "Travel costs could ___ by almost twenty percent if we met online.",
       "zh": "如果我們改成線上開會，差旅費可以減少將近百分之二十。",
-      "options": [
-        "cut",
-        "be cut",
-        "cutting",
-        "have cut"
-      ],
+      "options": ["cut", "be cut", "cutting", "have cut"],
       "answer": 1,
       "note": "差旅費是「被削減」，could 後面接 be cut；could cut 後面少了受詞，could cutting 不合文法，could have cut 也是主動、少了受詞。"
     },
@@ -314,12 +204,7 @@
       "grammarId": "modal-passive",
       "en": "All receipts must be ___ to the finance team by the end of the month.",
       "zh": "所有收據都必須在月底前交給財務團隊。",
-      "options": [
-        "send",
-        "sending",
-        "sent",
-        "sends"
-      ],
+      "options": ["send", "sending", "sent", "sends"],
       "answer": 2,
       "note": "must be 後面接過去分詞形成被動：must be sent；send、sends、sending 都不能接在 be 後面表示被動。"
     },
@@ -328,12 +213,7 @@
       "grammarId": "modal-passive",
       "en": "The budget has to ___ by the director before we can spend anything.",
       "zh": "預算要先經過處長核准，我們才能花錢。",
-      "options": [
-        "approve",
-        "approving",
-        "be approved",
-        "approved"
-      ],
+      "options": ["approve", "approving", "be approved", "approved"],
       "answer": 2,
       "note": "預算是「被核准」，後面又有 by the director，要用 has to be approved；has to approve 後面少了受詞，approving、approved 不能直接接在 to 後面。"
     },
@@ -342,12 +222,7 @@
       "grammarId": "modal-passive",
       "en": "When will the new prices ___ to customers?",
       "zh": "新價格什麼時候會公布給客戶？",
-      "options": [
-        "announce",
-        "announcing",
-        "announced",
-        "be announced"
-      ],
+      "options": ["announce", "announcing", "announced", "be announced"],
       "answer": 3,
       "note": "價格是「被公布」，問句裡 will 後面一樣接 be 加過去分詞：be announced；announce 是主動要有受詞，announcing、announced 都不能直接接在 will 後面。"
     },
@@ -356,12 +231,7 @@
       "grammarId": "modal-passive",
       "en": "Overtime ___ paid at the end of each month.",
       "zh": "加班費會在每個月底支付。",
-      "options": [
-        "will be",
-        "will",
-        "has",
-        "will been"
-      ],
+      "options": ["will be", "will", "has", "will been"],
       "answer": 0,
       "note": "加班費是「被支付」，用 will be paid；will paid、has paid 少了 be，will been 不合文法。"
     },
@@ -370,12 +240,7 @@
       "grammarId": "modal-passive",
       "en": "New equipment can't ___ without the manager's approval.",
       "zh": "沒有經理核准，不能買新設備。",
-      "options": [
-        "buy",
-        "buying",
-        "be bought",
-        "bought"
-      ],
+      "options": ["buy", "buying", "be bought", "bought"],
       "answer": 2,
       "note": "設備是「被購買」，can't 後面接 be bought；can't buy 變成設備自己去買，buying、bought 不能直接接在 can't 後面。"
     },
@@ -384,12 +249,7 @@
       "grammarId": "modal-passive",
       "en": "The numbers in this chart ___ updated every week.",
       "zh": "這張圖表裡的數字應該每週更新。",
-      "options": [
-        "should be",
-        "should",
-        "should have",
-        "should being"
-      ],
+      "options": ["should be", "should", "should have", "should being"],
       "answer": 0,
       "note": "數字是「被更新」，用 should be updated；should updated 少了 be，should have updated 是主動且少了受詞，should being 不合文法。"
     },
@@ -398,12 +258,7 @@
       "grammarId": "modal-passive",
       "en": "The invoice won't ___ until the director signs it.",
       "zh": "處長簽名之前，這張發票不會付款。",
-      "options": [
-        "pay",
-        "be paid",
-        "paying",
-        "been paid"
-      ],
+      "options": ["pay", "be paid", "paying", "been paid"],
       "answer": 1,
       "note": "發票是「被支付」，won't 後面接 be paid；won't pay 變成發票自己付錢，paying 和 been paid 都不能直接接在 won't 後面。"
     },
@@ -412,12 +267,7 @@
       "grammarId": "modal-passive",
       "en": "Which costs could ___ from next year's budget?",
       "zh": "哪些費用可以從明年的預算裡刪掉？",
-      "options": [
-        "take out",
-        "taking out",
-        "taken out",
-        "be taken out"
-      ],
+      "options": ["take out", "taking out", "taken out", "be taken out"],
       "answer": 3,
       "note": "費用是「被拿掉」，could 後面接 be taken out；could take out 後面少了受詞，taking out、taken out 都不能直接接在 could 後面。"
     },
@@ -426,12 +276,7 @@
       "grammarId": "phrasal-verbs-numbers",
       "en": "Our paper costs went ___ by fifteen percent last quarter.",
       "zh": "我們的紙張費用上一季上漲了百分之十五。",
-      "options": [
-        "on",
-        "in",
-        "up",
-        "at"
-      ],
+      "options": ["on", "in", "up", "at"],
       "answer": 2,
       "note": "數字上升用 go up，後面用 by 說漲了多少；went on、went in、went at 都沒有「上升」的意思，也不能接 by 加百分比。"
     },
@@ -440,12 +285,7 @@
       "grammarId": "phrasal-verbs-numbers",
       "en": "We need to cut back ___ travel this year.",
       "zh": "我們今年需要減少出差。",
-      "options": [
-        "of",
-        "on",
-        "with",
-        "at"
-      ],
+      "options": ["of", "on", "with", "at"],
       "answer": 1,
       "note": "「減少某項開支」是 cut back on；cut back 後面不接 of、with、at。"
     },
@@ -454,12 +294,7 @@
       "grammarId": "phrasal-verbs-numbers",
       "en": "Sales have ___ up every month since the launch.",
       "zh": "自從上市以來，銷售額每個月都在上升。",
-      "options": [
-        "gone",
-        "went",
-        "going",
-        "go"
-      ],
+      "options": ["gone", "went", "going", "go"],
       "answer": 0,
       "note": "have 後面接過去分詞：have gone up；went 是過去式，going、go 都不能接在 have 後面。"
     },
@@ -468,12 +303,7 @@
       "grammarId": "phrasal-verbs-numbers",
       "en": "If material costs keep ___ up, we'll have to raise our prices.",
       "zh": "如果材料成本一直漲，我們就得提高售價。",
-      "options": [
-        "go",
-        "going",
-        "went",
-        "gone"
-      ],
+      "options": ["go", "going", "went", "gone"],
       "answer": 1,
       "note": "keep 後面接動名詞：keep going up；go、went、gone 都不能接在 keep 後面。"
     },
@@ -482,12 +312,7 @@
       "grammarId": "phrasal-verbs-numbers",
       "en": "Prices usually ___ down after the busy season.",
       "zh": "旺季過後，價格通常會下降。",
-      "options": [
-        "goes",
-        "going",
-        "go",
-        "gone"
-      ],
+      "options": ["goes", "going", "go", "gone"],
       "answer": 2,
       "note": "主詞 Prices 是複數、說平常的情況，用現在式 go down；goes 要配單數主詞，going、gone 不能單獨當動詞。"
     },
@@ -496,12 +321,7 @@
       "grammarId": "phrasal-verbs-numbers",
       "en": "The company is cutting back ___ overtime to save money.",
       "zh": "公司正在減少加班來省錢。",
-      "options": [
-        "on",
-        "from",
-        "of",
-        "at"
-      ],
+      "options": ["on", "from", "of", "at"],
       "answer": 0,
       "note": "「減少某項開支」是 cut back on；cut back from、of、at 都不是正確的搭配。"
     },
@@ -510,12 +330,7 @@
       "grammarId": "phrasal-verbs-numbers",
       "en": "Has the price of paper ___ down this year?",
       "zh": "今年紙價有下降嗎？",
-      "options": [
-        "go",
-        "went",
-        "gone",
-        "going"
-      ],
+      "options": ["go", "went", "gone", "going"],
       "answer": 2,
       "note": "現在完成式問句 Has … 後面接過去分詞 gone down；go、went、going 都不能接在 has 後面。"
     },
@@ -524,12 +339,7 @@
       "grammarId": "phrasal-verbs-numbers",
       "en": "We ___ back on samples last year and saved a lot of money.",
       "zh": "我們去年減少了樣品，省了很多錢。",
-      "options": [
-        "cutting",
-        "cuts",
-        "have cutting",
-        "cut"
-      ],
+      "options": ["cutting", "cuts", "have cutting", "cut"],
       "answer": 3,
       "note": "last year 是過去，cut 的過去式還是 cut；cuts 不配 We 也不是過去式，cutting、have cutting 不能單獨當動詞。"
     },
@@ -538,12 +348,7 @@
       "grammarId": "phrasal-verbs-numbers",
       "en": "Our delivery costs didn't ___ down as much as we expected.",
       "zh": "我們的運送成本沒有像我們預期的降那麼多。",
-      "options": [
-        "went",
-        "go",
-        "gone",
-        "going"
-      ],
+      "options": ["went", "go", "gone", "going"],
       "answer": 1,
       "note": "didn't 後面接原形動詞：didn't go down；went、gone、going 都不能接在 didn't 後面。"
     },
@@ -552,12 +357,7 @@
       "grammarId": "phrasal-verbs-numbers",
       "en": "To stay within budget, the team needs to cut back ___ new equipment.",
       "zh": "為了不超出預算，團隊需要減少購買新設備。",
-      "options": [
-        "for",
-        "at",
-        "by",
-        "on"
-      ],
+      "options": ["for", "at", "by", "on"],
       "answer": 3,
       "note": "「減少某項開支」是 cut back on；cut back for、at、by 都不是正確的搭配。"
     },
@@ -566,12 +366,7 @@
       "grammarId": "second-conditional",
       "en": "If we ___ a bigger budget, we would run more ads online.",
       "zh": "如果我們有更多預算，就會在網路上多下一些廣告。",
-      "options": [
-        "have",
-        "had",
-        "will have",
-        "having"
-      ],
+      "options": ["have", "had", "will have", "having"],
       "answer": 1,
       "note": "和現在事實相反的假設，If 子句用過去式 had，主要子句用 would；have、will have 不能配 would，having 不能當動詞。"
     },
@@ -580,12 +375,7 @@
       "grammarId": "second-conditional",
       "en": "If I were the manager, I ___ spend more on online ads.",
       "zh": "如果我是經理，我會在網路廣告上多花一點錢。",
-      "options": [
-        "will",
-        "am",
-        "would",
-        "did"
-      ],
+      "options": ["will", "am", "would", "did"],
       "answer": 2,
       "note": "If I were 是和現在相反的假設，主要子句用 would 加原形；will 是真實的未來，am spend、did spend 都不合文法。"
     },
@@ -594,12 +384,7 @@
       "grammarId": "second-conditional",
       "en": "We ___ reach more customers if we used video.",
       "zh": "如果我們用影片，就能接觸到更多客人。",
-      "options": [
-        "will",
-        "would",
-        "are",
-        "have"
-      ],
+      "options": ["will", "would", "are", "have"],
       "answer": 1,
       "note": "If 子句是過去式 used，主要子句用 would 加原形；will 要配現在式的 if 子句，are reach、have reach 不合文法。"
     },
@@ -608,12 +393,7 @@
       "grammarId": "second-conditional",
       "en": "If the price ___ lower, more people would try the product.",
       "zh": "如果價格低一點，就會有更多人試用這個產品。",
-      "options": [
-        "is",
-        "will be",
-        "has been",
-        "were"
-      ],
+      "options": ["is", "will be", "has been", "were"],
       "answer": 3,
       "note": "主要子句用 would，表示和現在相反的假設，If 子句用 were；is、will be、has been 都不能配 would。"
     },
@@ -622,12 +402,7 @@
       "grammarId": "second-conditional",
       "en": "What would you change if you ___ in charge of the campaign?",
       "zh": "如果你負責這個活動，你會改什麼？",
-      "options": [
-        "were",
-        "are",
-        "will be",
-        "been"
-      ],
+      "options": ["were", "are", "will be", "been"],
       "answer": 0,
       "note": "主要子句是 would，If 子句要用過去式 were；are、will be 不能配 would，been 不能單獨當動詞。"
     },
@@ -636,12 +411,7 @@
       "grammarId": "second-conditional",
       "en": "If our ads ___ more people, sales would go up.",
       "zh": "如果我們的廣告能接觸到更多人，銷售額就會上升。",
-      "options": [
-        "reach",
-        "will reach",
-        "reached",
-        "reaching"
-      ],
+      "options": ["reach", "will reach", "reached", "reaching"],
       "answer": 2,
       "note": "和現在相反的假設，If 子句用過去式 reached 配 would；reach、will reach 不能配 would，reaching 不能當動詞。"
     },
@@ -650,12 +420,7 @@
       "grammarId": "second-conditional",
       "en": "I wouldn't use that slogan if I ___ you.",
       "zh": "如果我是你，我不會用那個標語。",
-      "options": [
-        "am",
-        "be",
-        "will be",
-        "were"
-      ],
+      "options": ["am", "be", "will be", "were"],
       "answer": 3,
       "note": "「如果我是你」是和事實相反的假設，用 if I were you；am、will be 不能配 wouldn't，be 不能當 I 的動詞。"
     },
@@ -664,12 +429,7 @@
       "grammarId": "second-conditional",
       "en": "If we didn't have a deadline, we ___ test the campaign for another month.",
       "zh": "如果沒有截止日，我們會再測試這個活動一個月。",
-      "options": [
-        "would",
-        "will",
-        "are",
-        "have"
-      ],
+      "options": ["would", "will", "are", "have"],
       "answer": 0,
       "note": "If 子句是過去式 didn't have，主要子句用 would 加原形；will 要配現在式的 if 子句，are test、have test 不合文法。"
     },
@@ -678,12 +438,7 @@
       "grammarId": "second-conditional",
       "en": "Would more people buy it if the package ___ more colorful?",
       "zh": "如果包裝色彩更豐富，會有更多人買嗎？",
-      "options": [
-        "is",
-        "were",
-        "will be",
-        "be"
-      ],
+      "options": ["is", "were", "will be", "be"],
       "answer": 1,
       "note": "主要子句是 Would，If 子句用 were 表示和現在相反的假設；is、will be 不能配 would，be 不能單獨當動詞。"
     },
@@ -692,12 +447,7 @@
       "grammarId": "second-conditional",
       "en": "If we ___ the launch, we would miss the trade fair.",
       "zh": "如果我們延後上市，就會錯過商展。",
-      "options": [
-        "delaying",
-        "will delay",
-        "have delayed",
-        "delayed"
-      ],
+      "options": ["delaying", "will delay", "have delayed", "delayed"],
       "answer": 3,
       "note": "主要子句用 would，If 子句用過去式 delayed；delaying、will delay、have delayed 都不能和 would 搭配成第二條件句。"
     },
@@ -706,12 +456,7 @@
       "grammarId": "although-even-though",
       "en": "___ the ad was expensive, it brought in a lot of new customers.",
       "zh": "雖然那則廣告很貴，卻帶來很多新客人。",
-      "options": [
-        "Because of",
-        "Although",
-        "However",
-        "Due to"
-      ],
+      "options": ["Because of", "Although", "However", "Due to"],
       "answer": 1,
       "note": "後面是完整子句 the ad was expensive，要用連接詞 Although；Because of、Due to 後面要接名詞，However 是副詞不能連接兩個子句。"
     },
@@ -720,12 +465,7 @@
       "grammarId": "although-even-though",
       "en": "Even ___ our budget is small, the campaign reached a lot of people.",
       "zh": "雖然我們預算不多，這個活動還是接觸到很多人。",
-      "options": [
-        "although",
-        "because",
-        "though",
-        "however"
-      ],
+      "options": ["although", "because", "though", "however"],
       "answer": 2,
       "note": "固定說法是 even though 加子句；even although、even however 都不存在，even because 也不能這樣用。"
     },
@@ -734,12 +474,7 @@
       "grammarId": "although-even-though",
       "en": "___ sales went up, our profit went down.",
       "zh": "雖然銷售額上升了，我們的利潤卻下降了。",
-      "options": [
-        "But",
-        "Although",
-        "Due to",
-        "However"
-      ],
+      "options": ["But", "Although", "Due to", "However"],
       "answer": 1,
       "note": "句首放 Although 帶出第一個子句，第二個子句直接接；But 不能放在第一個子句開頭，Due to 後面要接名詞，However 是副詞不能連接子句。"
     },
@@ -748,12 +483,7 @@
       "grammarId": "although-even-though",
       "en": "The campaign did well ___ it started late.",
       "zh": "雖然這個活動起步晚，成效還是很好。",
-      "options": [
-        "although",
-        "however",
-        "due to",
-        "because of"
-      ],
+      "options": ["although", "however", "due to", "because of"],
       "answer": 0,
       "note": "後面是子句 it started late，要用連接詞 although；due to、because of 後面接名詞，however 不能連接兩個子句。"
     },
@@ -762,12 +492,7 @@
       "grammarId": "although-even-though",
       "en": "___ the high cost, the director didn't approve the new ad.",
       "zh": "因為費用太高，處長沒有核准新廣告。",
-      "options": [
-        "Although",
-        "Even though",
-        "However",
-        "Because of"
-      ],
+      "options": ["Although", "Even though", "However", "Because of"],
       "answer": 3,
       "note": "the high cost 是名詞片語不是子句，要用介系詞片語 Because of；Although、Even though 後面要接完整子句，However 是副詞。"
     },
@@ -776,12 +501,7 @@
       "grammarId": "although-even-though",
       "en": "We kept the old logo ___ many customers said they wanted a new one.",
       "zh": "雖然很多客人說想要新的標誌，我們還是保留了舊的。",
-      "options": [
-        "even though",
-        "due to",
-        "however",
-        "because of"
-      ],
+      "options": ["even though", "due to", "however", "because of"],
       "answer": 0,
       "note": "後面是完整子句，要用連接詞 even though；due to、because of 後面接名詞，however 不能連接兩個子句。"
     },
@@ -790,12 +510,7 @@
       "grammarId": "although-even-though",
       "en": "Although the survey was long, most customers ___ every question.",
       "zh": "雖然問卷很長，大部分客人還是每一題都回答了。",
-      "options": [
-        "but answered",
-        "answering",
-        "answered",
-        "to answer"
-      ],
+      "options": ["but answered", "answering", "answered", "to answer"],
       "answer": 2,
       "note": "Although 已經表示轉折，後面的子句不能再加 but，直接用 answered；answering、to answer 不能當動詞。"
     },
@@ -804,12 +519,7 @@
       "grammarId": "although-even-though",
       "en": "___ our competitor spends more on ads, our brand is more popular.",
       "zh": "雖然我們的競爭對手花更多錢在廣告上，我們的品牌比較受歡迎。",
-      "options": [
-        "Due to",
-        "However",
-        "Even though",
-        "Because of"
-      ],
+      "options": ["Due to", "However", "Even though", "Because of"],
       "answer": 2,
       "note": "後面是完整子句，要用連接詞 Even though；Due to、Because of 後面接名詞，However 不能連接兩個子句。"
     },
@@ -818,12 +528,7 @@
       "grammarId": "although-even-though",
       "en": "Although the meeting ran late, ___ finished the plan.",
       "zh": "雖然會議拖晚了，我們還是把計畫做完了。",
-      "options": [
-        "but we",
-        "so we",
-        "and we",
-        "we"
-      ],
+      "options": ["but we", "so we", "and we", "we"],
       "answer": 3,
       "note": "Although 已經表示轉折，後面的主要子句直接接 we，不能再加 but、so、and。"
     },
@@ -832,12 +537,7 @@
       "grammarId": "although-even-though",
       "en": "We'll launch in May ___ the packaging isn't ready yet.",
       "zh": "雖然包裝還沒準備好，我們五月還是會上市。",
-      "options": [
-        "because of",
-        "however",
-        "due to",
-        "although"
-      ],
+      "options": ["because of", "however", "due to", "although"],
       "answer": 3,
       "note": "後面是完整子句，要用連接詞 although；because of、due to 後面接名詞，however 不能連接兩個子句。"
     },
@@ -846,12 +546,7 @@
       "grammarId": "indirect-question",
       "en": "Could you tell me why ___ your last job?",
       "zh": "可以告訴我你為什麼離開上一份工作嗎？",
-      "options": [
-        "did you leave",
-        "you left",
-        "do you leave",
-        "left you"
-      ],
+      "options": ["did you leave", "you left", "do you leave", "left you"],
       "answer": 1,
       "note": "間接問句用陳述句語序、不加 did：why you left；did you leave、do you leave 是直接問句語序，left you 順序錯誤。"
     },
@@ -860,12 +555,7 @@
       "grammarId": "indirect-question",
       "en": "I'd like to know when ___ start.",
       "zh": "我想知道你什麼時候可以開始上班。",
-      "options": [
-        "you can",
-        "can you",
-        "can you to",
-        "you can to"
-      ],
+      "options": ["you can", "can you", "can you to", "you can to"],
       "answer": 0,
       "note": "間接問句不倒裝：when you can start；can you start 是直接問句語序，can 後面也不能加 to。"
     },
@@ -874,12 +564,7 @@
       "grammarId": "indirect-question",
       "en": "Do you know where the interview ___?",
       "zh": "你知道面試在哪裡嗎？",
-      "options": [
-        "is it",
-        "are",
-        "is",
-        "does"
-      ],
+      "options": ["is it", "are", "is", "does"],
       "answer": 2,
       "note": "間接問句用陳述句語序，主詞 the interview 後面直接接 is；is it 多了主詞，are 和單數主詞不合，does 後面少了動詞。"
     },
@@ -888,12 +573,7 @@
       "grammarId": "indirect-question",
       "en": "Could you tell me how many people ___ on your team?",
       "zh": "可以告訴我你的團隊有多少人嗎？",
-      "options": [
-        "did they work",
-        "were they worked",
-        "they worked",
-        "worked"
-      ],
+      "options": ["did they work", "were they worked", "they worked", "worked"],
       "answer": 3,
       "note": "how many people 本身就是主詞，後面直接接動詞 worked；did they work、were they worked 是倒裝，they worked 多了一個主詞。"
     },
@@ -902,12 +582,7 @@
       "grammarId": "indirect-question",
       "en": "We need to ask her ___ she has any experience with sales.",
       "zh": "我們需要問她有沒有業務經驗。",
-      "options": [
-        "what",
-        "that",
-        "if",
-        "which"
-      ],
+      "options": ["what", "that", "if", "which"],
       "answer": 2,
       "note": "是非題變成間接問句，用 if 連接：ask her if she has…；what、which 後面的句子要缺一個名詞，ask 也不接 that 子句。"
     },
@@ -930,12 +605,7 @@
       "grammarId": "indirect-question",
       "en": "I don't know who ___ the final decision.",
       "zh": "我不知道最後是誰做決定。",
-      "options": [
-        "does he make",
-        "make",
-        "is make",
-        "makes"
-      ],
+      "options": ["does he make", "make", "is make", "makes"],
       "answer": 3,
       "note": "who 本身是主詞，後面直接接動詞，單數用 makes；make 和單數 who 不合，does he make 多了主詞又倒裝，is make 不合文法。"
     },
@@ -944,12 +614,7 @@
       "grammarId": "indirect-question",
       "en": "Could you tell me why ___ to work for our company?",
       "zh": "可以告訴我你為什麼想來我們公司上班嗎？",
-      "options": [
-        "do you want",
-        "are you want",
-        "want you",
-        "you want"
-      ],
+      "options": ["do you want", "are you want", "want you", "you want"],
       "answer": 3,
       "note": "間接問句不倒裝、不加 do：why you want；do you want 是直接問句語序，are you want、want you 不合文法。"
     },
@@ -958,12 +623,7 @@
       "grammarId": "indirect-question",
       "en": "The manager asked me where ___ before.",
       "zh": "經理問我之前在哪裡工作過。",
-      "options": [
-        "had I worked",
-        "I had worked",
-        "did I work",
-        "I did worked"
-      ],
+      "options": ["had I worked", "I had worked", "did I work", "I did worked"],
       "answer": 1,
       "note": "間接問句用陳述句語序：where I had worked；had I worked、did I work 是倒裝，I did worked 不合文法。"
     },
@@ -972,12 +632,7 @@
       "grammarId": "indirect-question",
       "en": "Do you remember what time the interview ___?",
       "zh": "你記得面試是幾點開始嗎？",
-      "options": [
-        "starts",
-        "does it start",
-        "it starts",
-        "start"
-      ],
+      "options": ["starts", "does it start", "it starts", "start"],
       "answer": 0,
       "note": "間接問句用陳述句語序，主詞 the interview 後面直接接 starts；does it start 是倒裝，it starts 多了主詞，start 和單數主詞不合。"
     },
@@ -986,12 +641,7 @@
       "grammarId": "reported-statement",
       "en": "Mr. Park said he ___ the job ad the week before.",
       "zh": "Park 先生說他前一週就把徵才廣告貼出去了。",
-      "options": [
-        "has posted",
-        "had posted",
-        "posts",
-        "will post"
-      ],
+      "options": ["has posted", "had posted", "posts", "will post"],
       "answer": 1,
       "note": "the week before 是在他說話之前，間接引述要往過去退成過去完成式 had posted；has posted 不能配 the week before，posts、will post 時間不對。"
     },
@@ -1000,12 +650,7 @@
       "grammarId": "reported-statement",
       "en": "She told us she ___ start the next Monday.",
       "zh": "她跟我們說她隔週一開始上班。",
-      "options": [
-        "has",
-        "was",
-        "would",
-        "been"
-      ],
+      "options": ["has", "was", "would", "been"],
       "answer": 2,
       "note": "間接引述時 will 往過去退成 would：she would start；has start、was start 不合文法，been 不能單獨當動詞。"
     },
@@ -1014,12 +659,7 @@
       "grammarId": "reported-statement",
       "en": "The candidate said that she ___ working at a bank at the time.",
       "zh": "那位應徵者說她當時在銀行工作。",
-      "options": [
-        "is",
-        "has",
-        "be",
-        "was"
-      ],
+      "options": ["is", "has", "be", "was"],
       "answer": 3,
       "note": "at the time 指說話當時以前的時間，現在進行式 is working 要退成 was working；has working、be working 不合文法。"
     },
@@ -1028,12 +668,7 @@
       "grammarId": "reported-statement",
       "en": "He told me he ___ his last job two years before.",
       "zh": "他跟我說他兩年前就離開了上一份工作。",
-      "options": [
-        "had left",
-        "has left",
-        "leaves",
-        "will leave"
-      ],
+      "options": ["had left", "has left", "leaves", "will leave"],
       "answer": 0,
       "note": "two years before 是比說話時更早的過去，用過去完成式 had left；has left 不能配 two years before，leaves、will leave 時間不對。"
     },
@@ -1042,12 +677,7 @@
       "grammarId": "reported-statement",
       "en": "She ___ me that the position was still open.",
       "zh": "她跟我說那個職位還有缺。",
-      "options": [
-        "said",
-        "told",
-        "spoke",
-        "talked"
-      ],
+      "options": ["said", "told", "spoke", "talked"],
       "answer": 1,
       "note": "後面直接接人 me 再接 that 子句，要用 told；said 後面不能直接接人，spoke、talked 不能接 that 子句。"
     },
@@ -1056,12 +686,7 @@
       "grammarId": "reported-statement",
       "en": "The manager ___ that the salary was higher than last year.",
       "zh": "經理說薪水比去年高。",
-      "options": [
-        "told",
-        "spoke",
-        "said",
-        "talked"
-      ],
+      "options": ["told", "spoke", "said", "talked"],
       "answer": 2,
       "note": "後面直接接 that 子句、沒有接人，要用 said；told 後面要先接人，spoke、talked 不能接 that 子句。"
     },
@@ -1070,12 +695,7 @@
       "grammarId": "reported-statement",
       "en": "They said the interview ___ already finished by noon.",
       "zh": "他們說面試在中午前就已經結束了。",
-      "options": [
-        "have",
-        "had",
-        "has",
-        "having"
-      ],
+      "options": ["have", "had", "has", "having"],
       "answer": 1,
       "note": "間接引述往過去退，by noon 之前已完成，用 had already finished；have 和單數主詞不合，has 是現在完成式，不能配過去的 by noon，having 不能當動詞。"
     },
@@ -1084,12 +704,7 @@
       "grammarId": "reported-statement",
       "en": "She said she ___ on the phone with a candidate when I called.",
       "zh": "她說我打電話來的時候，她正在跟一位應徵者講電話。",
-      "options": [
-        "is",
-        "has been",
-        "was",
-        "be"
-      ],
+      "options": ["is", "has been", "was", "be"],
       "answer": 2,
       "note": "when I called 是過去，引述的內容也要用過去式 was；is、has been 時間不對，be 不能當動詞。"
     },
@@ -1098,12 +713,7 @@
       "grammarId": "reported-statement",
       "en": "Did he tell you why he ___ late that morning?",
       "zh": "他有跟你說他那天早上為什麼遲到嗎？",
-      "options": [
-        "was",
-        "is",
-        "has been",
-        "be"
-      ],
+      "options": ["was", "is", "has been", "be"],
       "answer": 0,
       "note": "that morning 指過去某一天的早上，要用過去式 was；is、has been 不能配 that morning，be 不能當動詞。"
     },
@@ -1112,12 +722,7 @@
       "grammarId": "reported-statement",
       "en": "Mr. Park told us he ___ three candidates the day before.",
       "zh": "Park 先生跟我們說他前一天見了三位應徵者。",
-      "options": [
-        "meets",
-        "has met",
-        "is meeting",
-        "had met"
-      ],
+      "options": ["meets", "has met", "is meeting", "had met"],
       "answer": 3,
       "note": "the day before 是說話之前的一天，用過去完成式 had met；has met 不能配 the day before，meets、is meeting 時間不對。"
     },
@@ -1126,12 +731,7 @@
       "grammarId": "causative-have-get",
       "en": "I'll have Dan ___ you how the system works.",
       "zh": "我會請 Dan 帶你看這個系統怎麼運作。",
-      "options": [
-        "show",
-        "to show",
-        "shows",
-        "showed"
-      ],
+      "options": ["show", "to show", "shows", "showed"],
       "answer": 0,
       "note": "have 加人加原形動詞：have Dan show；have 後面不接 to show，shows、showed 也不能放在這裡。"
     },
@@ -1140,12 +740,7 @@
       "grammarId": "causative-have-get",
       "en": "Can you get Luis ___ the new staff the safety rules?",
       "zh": "你可以請 Luis 跟新同事說明安全規定嗎？",
-      "options": [
-        "explain",
-        "to explain",
-        "explains",
-        "explained"
-      ],
+      "options": ["explain", "to explain", "explains", "explained"],
       "answer": 1,
       "note": "get 加人後面要接 to 加原形：get Luis to explain；get 和 have 不同，不能直接接原形 explain，explains、explained 也不對。"
     },
@@ -1154,12 +749,7 @@
       "grammarId": "causative-have-get",
       "en": "We need to have the printer ___ before the training starts.",
       "zh": "我們需要在訓練開始前把印表機修好。",
-      "options": [
-        "fix",
-        "fixing",
-        "to fix",
-        "fixed"
-      ],
+      "options": ["fix", "fixing", "to fix", "fixed"],
       "answer": 3,
       "note": "印表機是「被修理」，用 have 加物加過去分詞：have the printer fixed；fix、fixing、to fix 都變成印表機自己修。"
     },
@@ -1168,12 +758,7 @@
       "grammarId": "causative-have-get",
       "en": "Ms. Lee had her assistant ___ the training room for us.",
       "zh": "Lee 小姐請她的助理幫我們準備訓練教室。",
-      "options": [
-        "to prepare",
-        "prepare",
-        "prepares",
-        "prepared"
-      ],
+      "options": ["to prepare", "prepare", "prepares", "prepared"],
       "answer": 1,
       "note": "have 加人加原形動詞：had her assistant prepare；have 後面不接 to，prepares、prepared 也不能放在人的後面。"
     },
@@ -1182,12 +767,7 @@
       "grammarId": "causative-have-get",
       "en": "I got the IT team ___ my password.",
       "zh": "我請 IT 團隊幫我重設密碼。",
-      "options": [
-        "change",
-        "changes",
-        "to change",
-        "changed"
-      ],
+      "options": ["change", "changes", "to change", "changed"],
       "answer": 2,
       "note": "get 加人要接 to 加原形：got the IT team to change；change、changes、changed 都不能直接接在 get 加人的後面。"
     },
@@ -1196,12 +776,7 @@
       "grammarId": "causative-have-get",
       "en": "You should get your ID card ___ before Monday.",
       "zh": "你應該在星期一前把識別證辦好。",
-      "options": [
-        "make",
-        "made",
-        "to make",
-        "making"
-      ],
+      "options": ["make", "made", "to make", "making"],
       "answer": 1,
       "note": "識別證是「被製作」，用 get 加物加過去分詞：get your ID card made；make、to make、making 都變成識別證自己做。"
     },
@@ -1210,12 +785,7 @@
       "grammarId": "causative-have-get",
       "en": "Let's have the new staff ___ a short test after each part.",
       "zh": "我們讓新同事在每個部分結束後做個小測驗吧。",
-      "options": [
-        "to take",
-        "took",
-        "take",
-        "taken"
-      ],
+      "options": ["to take", "took", "take", "taken"],
       "answer": 2,
       "note": "have 加人加原形動詞：have the new staff take；have 後面不接 to take，took、taken 都不對。"
     },
@@ -1224,12 +794,7 @@
       "grammarId": "causative-have-get",
       "en": "Where can I get these forms ___?",
       "zh": "我可以去哪裡印這些表格？",
-      "options": [
-        "print",
-        "printed",
-        "prints",
-        "printer"
-      ],
+      "options": ["print", "printed", "prints", "printer"],
       "answer": 1,
       "note": "文件是「被印出來」，用 get 加物加過去分詞：get these forms printed；print、prints 是主動，printer 是名詞。"
     },
@@ -1238,12 +803,7 @@
       "grammarId": "causative-have-get",
       "en": "Did you have someone ___ over your report before you sent it?",
       "zh": "你寄出報告前，有請人幫你檢查過嗎？",
-      "options": [
-        "to go",
-        "goes",
-        "gone",
-        "go"
-      ],
+      "options": ["to go", "goes", "gone", "go"],
       "answer": 3,
       "note": "have 加人加原形動詞：have someone go over；have 後面不接 to go，goes、gone 也不對。"
     },
@@ -1252,12 +812,7 @@
       "grammarId": "causative-have-get",
       "en": "Our manager will ___ us finish the online training by Friday.",
       "zh": "我們經理會要我們在星期五前完成線上訓練。",
-      "options": [
-        "get",
-        "ask",
-        "have",
-        "want"
-      ],
+      "options": ["get", "ask", "have", "want"],
       "answer": 2,
       "note": "後面是人加原形動詞 finish，只有 have 可以這樣用；get、ask、want 加人後面都要接 to finish。"
     },
@@ -1266,12 +821,7 @@
       "grammarId": "phrasal-verbs-work-steps",
       "en": "First, you need to log ___ with your employee number.",
       "zh": "首先，你需要用員工編號登入。",
-      "options": [
-        "in",
-        "at",
-        "to",
-        "up"
-      ],
+      "options": ["in", "at", "to", "up"],
       "answer": 0,
       "note": "「登入」是 log in；log at、log to、log up 都不是正確說法。"
     },
@@ -1280,12 +830,7 @@
       "grammarId": "phrasal-verbs-work-steps",
       "en": "Let's go ___ the safety rules once more before you start.",
       "zh": "你開始之前，我們再把安全規定複習一遍吧。",
-      "options": [
-        "up",
-        "over",
-        "in",
-        "out"
-      ],
+      "options": ["up", "over", "in", "out"],
       "answer": 1,
       "note": "「檢查、複習」是 go over；go up、go in、go out 後面不能直接接 the safety rules 當受詞。"
     },
@@ -1294,12 +839,7 @@
       "grammarId": "phrasal-verbs-work-steps",
       "en": "Could you help me set ___ my email account?",
       "zh": "你可以幫我設定我的 email 帳號嗎？",
-      "options": [
-        "on",
-        "over",
-        "up",
-        "in"
-      ],
+      "options": ["on", "over", "up", "in"],
       "answer": 2,
       "note": "「設定」是 set up；set on、set over、set in 都沒有設定帳號的意思。"
     },
@@ -1308,12 +848,7 @@
       "grammarId": "phrasal-verbs-work-steps",
       "en": "Have you ___ up the new printer yet?",
       "zh": "你把新的印表機設定好了嗎？",
-      "options": [
-        "set",
-        "sets",
-        "setting",
-        "to set"
-      ],
+      "options": ["set", "sets", "setting", "to set"],
       "answer": 0,
       "note": "Have 後面接過去分詞，set 的過去分詞還是 set；sets、setting、to set 都不能接在 have 後面。"
     },
@@ -1322,12 +857,7 @@
       "grammarId": "phrasal-verbs-work-steps",
       "en": "I can't log in ___ the system with this password.",
       "zh": "我用這個密碼登不進系統。",
-      "options": [
-        "at",
-        "for",
-        "to",
-        "by"
-      ],
+      "options": ["at", "for", "to", "by"],
       "answer": 2,
       "note": "登入某個系統是 log in to；log in at、for、by 都不是正確搭配。"
     },
@@ -1336,12 +866,7 @@
       "grammarId": "phrasal-verbs-work-steps",
       "en": "We usually ___ over the numbers together on Friday afternoons.",
       "zh": "我們通常星期五下午一起檢查數字。",
-      "options": [
-        "goes",
-        "going",
-        "gone",
-        "go"
-      ],
+      "options": ["goes", "going", "gone", "go"],
       "answer": 3,
       "note": "主詞 We 加 usually 說習慣，用現在式原形 go over；goes 要配單數主詞，going、gone 不能單獨當動詞。"
     },
@@ -1350,12 +875,7 @@
       "grammarId": "phrasal-verbs-work-steps",
       "en": "Take your time and write ___ any questions you have.",
       "zh": "慢慢來，把你有的問題寫下來。",
-      "options": [
-        "down",
-        "at",
-        "by",
-        "to"
-      ],
+      "options": ["down", "at", "by", "to"],
       "answer": 0,
       "note": "「寫下來」是 write down；write at、write by、write to 都不能直接接 any questions 當受詞。"
     },
@@ -1364,12 +884,7 @@
       "grammarId": "phrasal-verbs-work-steps",
       "en": "He's picking things ___ faster than I expected.",
       "zh": "他學東西比我預期的還快。",
-      "options": [
-        "on",
-        "at",
-        "in",
-        "up"
-      ],
+      "options": ["on", "at", "in", "up"],
       "answer": 3,
       "note": "「學會、上手」是 pick up，可以說 pick things up；pick things on、at、in 都不合文法。"
     },
@@ -1378,12 +893,7 @@
       "grammarId": "phrasal-verbs-work-steps",
       "en": "Don't worry, we'll figure ___ what went wrong together.",
       "zh": "別擔心，我們一起找出哪裡出錯。",
-      "options": [
-        "up",
-        "out",
-        "over",
-        "on"
-      ],
+      "options": ["up", "out", "over", "on"],
       "answer": 1,
       "note": "「想出、弄清楚」是 figure out；figure up、figure over、figure on 都不能接 what went wrong。"
     },
@@ -1392,12 +902,7 @@
       "grammarId": "phrasal-verbs-work-steps",
       "en": "The new computers have already been ___ up in the training room.",
       "zh": "新電腦已經在訓練教室裡設定好了。",
-      "options": [
-        "set",
-        "setting",
-        "sets",
-        "to set"
-      ],
+      "options": ["set", "setting", "sets", "to set"],
       "answer": 0,
       "note": "have been 後面接過去分詞形成被動，set 的過去分詞還是 set；setting、sets、to set 都不能接在 been 後面。"
     }

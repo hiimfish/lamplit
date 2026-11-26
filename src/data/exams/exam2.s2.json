@@ -215,7 +215,10 @@
         { "label": "Color", "value": "50¢ a page" },
         { "label": "Limit", "value": "1 hour" }
       ],
-      "question": { "en": "How much does it cost to print four pages in color?", "zh": "彩色列印四頁要多少錢？" },
+      "question": {
+        "en": "How much does it cost to print four pages in color?",
+        "zh": "彩色列印四頁要多少錢？"
+      },
       "options": ["40¢", "50¢", "$2.00", "$4.00"],
       "answer": 2
     },
@@ -229,7 +232,12 @@
         { "label": "Apply", "value": "Front desk" }
       ],
       "question": { "en": "What is true about the job?", "zh": "關於這份工作，何者正確？" },
-      "options": ["The pay is $18 a day.", "Work starts at 5:00.", "You apply by email.", "Weekends are off."],
+      "options": [
+        "The pay is $18 a day.",
+        "Work starts at 5:00.",
+        "You apply by email.",
+        "Weekends are off."
+      ],
       "answer": 3
     },
     {
@@ -241,8 +249,16 @@
         { "label": "Other banks' cards", "value": "$3" },
         { "label": "Limit", "value": "$500 a day" }
       ],
-      "question": { "en": "What is true for people with this bank's card?", "zh": "持有這家銀行卡片的人，何者正確？" },
-      "options": ["They pay $3 each time.", "They pay nothing to use the ATM.", "They can take out only $3.", "They can't use this ATM."],
+      "question": {
+        "en": "What is true for people with this bank's card?",
+        "zh": "持有這家銀行卡片的人，何者正確？"
+      },
+      "options": [
+        "They pay $3 each time.",
+        "They pay nothing to use the ATM.",
+        "They can take out only $3.",
+        "They can't use this ATM."
+      ],
       "answer": 1
     },
     {
@@ -255,7 +271,12 @@
         { "label": "Register by", "value": "August 30" }
       ],
       "question": { "en": "When does the computer class meet?", "zh": "電腦課什麼時候上課？" },
-      "options": ["On Tuesday evenings", "On Saturday mornings", "On August 30", "On Tuesday mornings"],
+      "options": [
+        "On Tuesday evenings",
+        "On Saturday mornings",
+        "On August 30",
+        "On Tuesday mornings"
+      ],
       "answer": 0
     }
   ],
@@ -275,13 +296,23 @@
         {
           "en": "What will people learn at the workshop?",
           "zh": "參加研習的人會學到什麼？",
-          "options": ["How to become a job counselor", "How to talk about what they can do", "How to make a copy of a resume", "How to register for classes"],
+          "options": [
+            "How to become a job counselor",
+            "How to talk about what they can do",
+            "How to make a copy of a resume",
+            "How to register for classes"
+          ],
           "answer": 1
         },
         {
           "en": "What should people do by July 10?",
           "zh": "大家要在七月十日前做什麼？",
-          "options": ["Send their resume by email", "Go to the workshop", "Call the job counselor", "Sign up at the front desk"],
+          "options": [
+            "Send their resume by email",
+            "Go to the workshop",
+            "Call the job counselor",
+            "Sign up at the front desk"
+          ],
           "answer": 3
         }
       ]
@@ -301,13 +332,23 @@
         {
           "en": "What will happen on Wednesday morning?",
           "zh": "星期三早上會發生什麼事？",
-          "options": ["The water will be turned off.", "Mr. Grant will come to every apartment.", "The water will be off all day.", "Ms. Ortiz will get a new floor."],
+          "options": [
+            "The water will be turned off.",
+            "Mr. Grant will come to every apartment.",
+            "The water will be off all day.",
+            "Ms. Ortiz will get a new floor."
+          ],
           "answer": 0
         },
         {
           "en": "What should Ms. Ortiz do on Tuesday night?",
           "zh": "Ortiz 女士星期二晚上應該做什麼？",
-          "options": ["Call Mr. Grant", "Check her floor for water", "Fill some bottles with water", "Repair her sink"],
+          "options": [
+            "Call Mr. Grant",
+            "Check her floor for water",
+            "Fill some bottles with water",
+            "Repair her sink"
+          ],
           "answer": 2
         }
       ]
@@ -327,13 +368,23 @@
         {
           "en": "What is true about the job?",
           "zh": "關於這份工作，何者正確？",
-          "options": ["You work five days a week.", "Work starts at 1:00 p.m.", "You don't need to have done this work before.", "It pays $16 a day."],
+          "options": [
+            "You work five days a week.",
+            "Work starts at 1:00 p.m.",
+            "You don't need to have done this work before.",
+            "It pays $16 a day."
+          ],
           "answer": 2
         },
         {
           "en": "How should people apply?",
           "zh": "要怎麼應徵？",
-          "options": ["By calling Amy Fox", "By sending an email", "By coming in on Saturday", "By coming to the shop at 7:00"],
+          "options": [
+            "By calling Amy Fox",
+            "By sending an email",
+            "By coming in on Saturday",
+            "By coming to the shop at 7:00"
+          ],
           "answer": 1
         }
       ]
@@ -360,7 +411,12 @@
         {
           "en": "Why won't Ms. Hill meet Mei first?",
           "zh": "Hill 女士為什麼不會先和 Mei 見面？",
-          "options": ["She will be busy at a meeting.", "She will be at lunch.", "She works in the lobby.", "She starts work at 12:30."],
+          "options": [
+            "She will be busy at a meeting.",
+            "She will be at lunch.",
+            "She works in the lobby.",
+            "She starts work at 12:30."
+          ],
           "answer": 0
         }
       ]
@@ -386,7 +442,12 @@
         {
           "en": "What is true about the computer room?",
           "zh": "關於電腦室，何者正確？",
-          "options": ["It is open 24 hours a day.", "People can't use it on Monday mornings.", "It closes at 5:00 p.m. every day.", "It is next to the front door."],
+          "options": [
+            "It is open 24 hours a day.",
+            "People can't use it on Monday mornings.",
+            "It closes at 5:00 p.m. every day.",
+            "It is next to the front door."
+          ],
           "answer": 1
         }
       ]
@@ -413,7 +474,12 @@
         {
           "en": "When does Mr. Lin not have to pay a fee each month?",
           "zh": "林先生在什麼情況下不用付月費？",
-          "options": ["When he pays $500 to the bank", "When he keeps $500 or more in his account", "When he opens another account", "When he takes out cash at the counter"],
+          "options": [
+            "When he pays $500 to the bank",
+            "When he keeps $500 or more in his account",
+            "When he opens another account",
+            "When he takes out cash at the counter"
+          ],
           "answer": 1
         }
       ]
@@ -433,7 +499,12 @@
         {
           "en": "What happens each week?",
           "zh": "每週會做什麼？",
-          "options": ["Members go shopping together.", "Members have job interviews.", "People talk about something different.", "Mr. Ruiz teaches a computer class."],
+          "options": [
+            "Members go shopping together.",
+            "Members have job interviews.",
+            "People talk about something different.",
+            "Mr. Ruiz teaches a computer class."
+          ],
           "answer": 2
         },
         {
@@ -465,7 +536,12 @@
         {
           "en": "What should Tomas bring to the interview?",
           "zh": "Tomas 面試時應該帶什麼？",
-          "options": ["A suit", "Two copies of his resume", "A letter from Mr. Evans", "A list of jobs"],
+          "options": [
+            "A suit",
+            "Two copies of his resume",
+            "A letter from Mr. Evans",
+            "A list of jobs"
+          ],
           "answer": 1
         }
       ]

@@ -262,7 +262,10 @@
         { "label": "Muffin", "value": "$2" },
         { "label": "Sandwich", "value": "$6" }
       ],
-      "question": { "en": "How much are a muffin and an iced tea?", "zh": "一個瑪芬加一杯冰紅茶多少錢？" },
+      "question": {
+        "en": "How much are a muffin and an iced tea?",
+        "zh": "一個瑪芬加一杯冰紅茶多少錢？"
+      },
       "options": ["$5", "$2", "$6"],
       "answer": 0
     },
@@ -330,7 +333,11 @@
         { "label": "No appointment needed" }
       ],
       "question": { "en": "What is true about the flu shots?", "zh": "關於流感疫苗，哪一項正確？" },
-      "options": ["You do not have to pay for them.", "You need an appointment.", "You can get them on Saturday."],
+      "options": [
+        "You do not have to pay for them.",
+        "You need an appointment.",
+        "You can get them on Saturday."
+      ],
       "answer": 0
     },
     {
@@ -408,7 +415,11 @@
         {
           "en": "What should people do on Tuesday?",
           "zh": "大家星期二應該做什麼？",
-          "options": ["Clean their own windows", "Keep their windows closed", "Call Mr. Brown at 3 p.m."],
+          "options": [
+            "Clean their own windows",
+            "Keep their windows closed",
+            "Call Mr. Brown at 3 p.m."
+          ],
           "answer": 1
         },
         {
@@ -441,7 +452,11 @@
         {
           "en": "What should Ms. Lin do if she can't come?",
           "zh": "如果林小姐不能來，她應該怎麼做？",
-          "options": ["Bring her insurance card", "Call the doctor's office by Wednesday", "Come in on Wednesday"],
+          "options": [
+            "Bring her insurance card",
+            "Call the doctor's office by Wednesday",
+            "Come in on Wednesday"
+          ],
           "answer": 1
         }
       ]

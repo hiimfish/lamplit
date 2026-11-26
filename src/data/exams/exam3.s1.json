@@ -28,7 +28,10 @@
       "responses": [
         { "en": "The payroll office is on the second floor.", "zh": "薪資辦公室在二樓。" },
         { "en": "Yes, it was a really full day.", "zh": "對，今天真的很忙。" },
-        { "en": "Almost. I just need to add my bank details.", "zh": "快好了，只剩下銀行帳戶資料要填。" }
+        {
+          "en": "Almost. I just need to add my bank details.",
+          "zh": "快好了，只剩下銀行帳戶資料要填。"
+        }
       ],
       "answer": 2
     },
@@ -56,7 +59,10 @@
         "zh": "可以給我三百件的報價嗎？"
       },
       "responses": [
-        { "en": "Sure, I'll email it to you this afternoon.", "zh": "沒問題，我今天下午用電子郵件寄給您。" },
+        {
+          "en": "Sure, I'll email it to you this afternoon.",
+          "zh": "沒問題，我今天下午用電子郵件寄給您。"
+        },
         { "en": "There are three hundred people in the hall.", "zh": "大廳裡有三百個人。" },
         { "en": "I sent the samples by mail on Monday.", "zh": "我星期一把樣品寄出去了。" }
       ],
@@ -73,7 +79,10 @@
       "responses": [
         { "en": "I'll lock it when I leave.", "zh": "我離開的時候會鎖上。" },
         { "en": "In the room next to the dock.", "zh": "在碼頭旁邊的房間。" },
-        { "en": "They're checking the fire alarm until three.", "zh": "他們在檢查火災警報器，到三點為止。" }
+        {
+          "en": "They're checking the fire alarm until three.",
+          "zh": "他們在檢查火災警報器，到三點為止。"
+        }
       ],
       "answer": 2
     },
@@ -163,7 +172,10 @@
       "responses": [
         { "en": "Yes, they arrived at two.", "zh": "對，它們兩點到的。" },
         { "en": "We have plates in many sizes.", "zh": "我們的盤子有很多尺寸。" },
-        { "en": "I'm so sorry. We'll send new ones today.", "zh": "非常抱歉，我們今天就寄新的給您。" }
+        {
+          "en": "I'm so sorry. We'll send new ones today.",
+          "zh": "非常抱歉，我們今天就寄新的給您。"
+        }
       ],
       "answer": 2
     },
@@ -208,7 +220,10 @@
       "responses": [
         { "en": "I already read that report.", "zh": "我已經看過那份報告了。" },
         { "en": "Room 405, on the fourth floor.", "zh": "四樓的 405 號房。" },
-        { "en": "Could I leave my bags with you until it is?", "zh": "那在房間好之前，我可以把行李寄放在你們這裡嗎？" }
+        {
+          "en": "Could I leave my bags with you until it is?",
+          "zh": "那在房間好之前，我可以把行李寄放在你們這裡嗎？"
+        }
       ],
       "answer": 2
     },

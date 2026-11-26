@@ -68,12 +68,7 @@
         {
           "en": "The word \"desirable\" in paragraph 3 is closest in meaning to",
           "zh": "第三段的 \"desirable\" 意思最接近",
-          "options": [
-            "necessary",
-            "easy to learn",
-            "popular",
-            "helpful to have"
-          ],
+          "options": ["necessary", "easy to learn", "popular", "helpful to have"],
           "answer": 3
         },
         {
@@ -126,12 +121,7 @@
         {
           "en": "The word \"clear\" in paragraph 2 is closest in meaning to",
           "zh": "第二段的 \"clear\" 意思最接近",
-          "options": [
-            "explain",
-            "check",
-            "mark",
-            "empty"
-          ],
+          "options": ["explain", "check", "mark", "empty"],
           "answer": 3
         },
         {
@@ -178,12 +168,7 @@
         {
           "en": "The word \"consider\" in paragraph 4 is closest in meaning to",
           "zh": "第四段的 \"consider\" 意思最接近",
-          "options": [
-            "pay for",
-            "respect",
-            "remember",
-            "think about"
-          ],
+          "options": ["pay for", "respect", "remember", "think about"],
           "answer": 3
         },
         {
@@ -227,12 +212,7 @@
         {
           "en": "The word \"permitted\" in paragraph 4 is closest in meaning to",
           "zh": "第四段的 \"permitted\" 意思最接近",
-          "options": [
-            "printed",
-            "needed",
-            "allowed",
-            "checked"
-          ],
+          "options": ["printed", "needed", "allowed", "checked"],
           "answer": 2
         },
         {

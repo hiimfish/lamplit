@@ -705,43 +705,18 @@
       "table": {
         "title": "Meeting Rooms - Thursday",
         "rows": [
-          [
-            "Room",
-            "Seats",
-            "Screen"
-          ],
-          [
-            "Room 201",
-            "10",
-            "Yes"
-          ],
-          [
-            "Room 202",
-            "25",
-            "No"
-          ],
-          [
-            "Room 305",
-            "30",
-            "Yes"
-          ],
-          [
-            "Room 410",
-            "12",
-            "Yes"
-          ]
+          ["Room", "Seats", "Screen"],
+          ["Room 201", "10", "Yes"],
+          ["Room 202", "25", "No"],
+          ["Room 305", "30", "Yes"],
+          ["Room 410", "12", "Yes"]
         ]
       },
       "questions": [
         {
           "en": "Look at the table. Which room will the man book?",
           "zh": "請看表格。這位男士會訂哪一間會議室？",
-          "options": [
-            "Room 201.",
-            "Room 202.",
-            "Room 305.",
-            "Room 410."
-          ],
+          "options": ["Room 201.", "Room 202.", "Room 305.", "Room 410."],
           "answer": 2
         },
         {
@@ -937,38 +912,18 @@
       "table": {
         "title": "Advertising Options",
         "rows": [
-          [
-            "Option",
-            "Cost per month"
-          ],
-          [
-            "Radio",
-            "$4,000"
-          ],
-          [
-            "City magazine",
-            "$2,500"
-          ],
-          [
-            "Online videos",
-            "$1,800"
-          ],
-          [
-            "Bus signs",
-            "$3,200"
-          ]
+          ["Option", "Cost per month"],
+          ["Radio", "$4,000"],
+          ["City magazine", "$2,500"],
+          ["Online videos", "$1,800"],
+          ["Bus signs", "$3,200"]
         ]
       },
       "questions": [
         {
           "en": "Look at the table. How much will the company spend on advertising each month?",
           "zh": "請看表格。這家公司每個月會花多少錢打廣告？",
-          "options": [
-            "$4,000.",
-            "$2,500.",
-            "$1,800.",
-            "$3,200."
-          ],
+          "options": ["$4,000.", "$2,500.", "$1,800.", "$3,200."],
           "answer": 2
         },
         {

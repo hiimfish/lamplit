@@ -46,17 +46,9 @@
         {
           "en": "How much will the seminar cost Mr. Wu's team in total?",
           "zh": "Wu 先生的團隊參加研討會總共要花多少錢？",
-          "options": [
-            "$1,080",
-            "$900",
-            "$864",
-            "$1,000"
-          ],
+          "options": ["$1,080", "$900", "$864", "$1,000"],
           "answer": 2,
-          "needs": [
-            0,
-            1
-          ]
+          "needs": [0, 1]
         },
         {
           "en": "What is suggested about Mr. Kim and Ms. Ota?",
@@ -68,20 +60,12 @@
             "They might miss the first part of the seminar."
           ],
           "answer": 3,
-          "needs": [
-            0,
-            1
-          ]
+          "needs": [0, 1]
         },
         {
           "en": "In the flyer, the word \"handle\" is closest in meaning to",
           "zh": "傳單中的 \"handle\" 意思最接近",
-          "options": [
-            "pick up",
-            "deal with",
-            "carry",
-            "repeat"
-          ],
+          "options": ["pick up", "deal with", "carry", "repeat"],
           "answer": 1
         }
       ]
@@ -139,39 +123,21 @@
             "His massage is in the morning."
           ],
           "answer": 2,
-          "needs": [
-            1
-          ]
+          "needs": [1]
         },
         {
           "en": "On what day will Mr. Hsu be in Tainan?",
           "zh": "Hsu 先生哪一天會在台南？",
-          "options": [
-            "Wednesday",
-            "Monday",
-            "Tuesday",
-            "Thursday"
-          ],
+          "options": ["Wednesday", "Monday", "Tuesday", "Thursday"],
           "answer": 0,
-          "needs": [
-            0,
-            1
-          ]
+          "needs": [0, 1]
         },
         {
           "en": "Where should Mr. Hsu go at 3:35 p.m. on Thursday?",
           "zh": "Hsu 先生星期四下午三點三十五分應該去哪裡？",
-          "options": [
-            "Room 5A",
-            "The cafeteria",
-            "The front entrance",
-            "Room 2C"
-          ],
+          "options": ["Room 5A", "The cafeteria", "The front entrance", "Room 2C"],
           "answer": 3,
-          "needs": [
-            0,
-            2
-          ]
+          "needs": [0, 2]
         },
         {
           "en": "What will Ms. Park send on May 15?",
@@ -183,9 +149,7 @@
             "Mr. Hsu's appointment times"
           ],
           "answer": 1,
-          "needs": [
-            2
-          ]
+          "needs": [2]
         },
         {
           "en": "What is suggested about the walking group?",
@@ -197,10 +161,7 @@
             "It will meet in Room 2C."
           ],
           "answer": 0,
-          "needs": [
-            0,
-            2
-          ]
+          "needs": [0, 2]
         }
       ]
     },
@@ -244,24 +205,14 @@
             "To ask about working at Green Table"
           ],
           "answer": 1,
-          "needs": [
-            1
-          ]
+          "needs": [1]
         },
         {
           "en": "How much will Ms. Lin's company pay for the food and drinks?",
           "zh": "Lin 小姐的公司餐點和飲料總共要付多少錢？",
-          "options": [
-            "$1,600",
-            "$1,360",
-            "$400",
-            "$2,000"
-          ],
+          "options": ["$1,600", "$1,360", "$400", "$2,000"],
           "answer": 3,
-          "needs": [
-            0,
-            1
-          ]
+          "needs": [0, 1]
         },
         {
           "en": "What will most likely happen with the employees who do not eat meat?",
@@ -273,10 +224,7 @@
             "They will eat lunch after 1:30 p.m."
           ],
           "answer": 0,
-          "needs": [
-            0,
-            1
-          ]
+          "needs": [0, 1]
         },
         {
           "en": "What does Ms. Lin say about the hotel room?",
@@ -288,9 +236,7 @@
             "It will be ready at 12:00."
           ],
           "answer": 2,
-          "needs": [
-            1
-          ]
+          "needs": [1]
         }
       ]
     },
@@ -342,9 +288,7 @@
             "Being free to work on weekends"
           ],
           "answer": 3,
-          "needs": [
-            0
-          ]
+          "needs": [0]
         },
         {
           "en": "Which part of Mr. Lai's experience meets a requirement in the ad?",
@@ -356,10 +300,7 @@
             "He is free on weekday afternoons."
           ],
           "answer": 1,
-          "needs": [
-            0,
-            1
-          ]
+          "needs": [0, 1]
         },
         {
           "en": "What is true about Mr. Lai's interview?",
@@ -371,24 +312,14 @@
             "It will take place before March 7."
           ],
           "answer": 2,
-          "needs": [
-            1,
-            2
-          ]
+          "needs": [1, 2]
         },
         {
           "en": "In the ad, the word \"tidy\" is closest in meaning to",
           "zh": "廣告中的 \"tidy\" 意思最接近",
-          "options": [
-            "in good order",
-            "full",
-            "small",
-            "new"
-          ],
+          "options": ["in good order", "full", "small", "new"],
           "answer": 0,
-          "needs": [
-            0
-          ]
+          "needs": [0]
         },
         {
           "en": "What will Mr. Lai probably need to bring on March 10?",
@@ -400,9 +331,7 @@
             "A second copy of his résumé"
           ],
           "answer": 1,
-          "needs": [
-            2
-          ]
+          "needs": [2]
         }
       ]
     }

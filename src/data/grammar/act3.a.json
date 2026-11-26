@@ -6,12 +6,7 @@
       "grammarId": "passive-present",
       "en": "Lunch ___ in the staff room every Friday.",
       "zh": "每週五員工休息室都有供應午餐。",
-      "options": [
-        "is provided",
-        "provides",
-        "are provided",
-        "providing"
-      ],
+      "options": ["is provided", "provides", "are provided", "providing"],
       "answer": 0,
       "note": "午餐是「被供應」的，用 is provided；provide 後面要接受詞，lunch 是單數所以不用 are。"
     },
@@ -20,12 +15,7 @@
       "grammarId": "passive-present",
       "en": "Are guests ___ to use the staff entrance?",
       "zh": "訪客可以走員工入口嗎？",
-      "options": [
-        "allow",
-        "allowed",
-        "allowing",
-        "allows"
-      ],
+      "options": ["allow", "allowed", "allowing", "allows"],
       "answer": 1,
       "note": "Are + 主詞 + allowed to = 被允許做…；be 動詞後面不能接原形或 -s 形。"
     },
@@ -34,12 +24,7 @@
       "grammarId": "passive-present",
       "en": "Guests ___ to sign in at the front desk.",
       "zh": "訪客要在櫃檯登記。",
-      "options": [
-        "is asked",
-        "asking",
-        "are asked",
-        "asks"
-      ],
+      "options": ["is asked", "asking", "are asked", "asks"],
       "answer": 2,
       "note": "guests 是複數，被要求用 are asked；asking 前面少了 be 動詞，asks 不能配複數主詞。"
     },
@@ -48,12 +33,7 @@
       "grammarId": "passive-present",
       "en": "Health forms ___ to the HR department, not to your supervisor.",
       "zh": "健康表格是交給人資部，不是交給你的主管。",
-      "options": [
-        "send",
-        "is sent",
-        "sending",
-        "are sent"
-      ],
+      "options": ["send", "is sent", "sending", "are sent"],
       "answer": 3,
       "note": "表格是被送出去的，用 are sent；send 後面要有受詞，forms 是複數不用 is。"
     },
@@ -62,12 +42,7 @@
       "grammarId": "passive-present",
       "en": "Personal calls ___ allowed during orientation.",
       "zh": "新人訓練期間不能打私人電話。",
-      "options": [
-        "isn't",
-        "don't",
-        "aren't",
-        "doesn't"
-      ],
+      "options": ["isn't", "don't", "aren't", "doesn't"],
       "answer": 2,
       "note": "被動式否定是在 be 動詞後加 not：calls 是複數，用 aren't；don't 不能接過去分詞。"
     },
@@ -76,12 +51,7 @@
       "grammarId": "passive-present",
       "en": "___ parking provided for new staff?",
       "zh": "公司有提供新進員工停車位嗎？",
-      "options": [
-        "Is",
-        "Are",
-        "Does",
-        "Do"
-      ],
+      "options": ["Is", "Are", "Does", "Do"],
       "answer": 0,
       "note": "被動式問句把 be 動詞放句首；parking 不可數，用 Is，不用 Does。"
     },
@@ -90,12 +60,7 @@
       "grammarId": "passive-present",
       "en": "The staff handbook ___ to every new worker on the first day.",
       "zh": "每位新同事第一天都會拿到員工手冊。",
-      "options": [
-        "gives",
-        "is giving",
-        "are given",
-        "is given"
-      ],
+      "options": ["gives", "is giving", "are given", "is given"],
       "answer": 3,
       "note": "手冊是「被發給」新人，用 is given；gives、is giving 少了受詞，handbook 單數不用 are。"
     },
@@ -104,12 +69,7 @@
       "grammarId": "passive-present",
       "en": "Where ___ the HR forms kept?",
       "zh": "人資的表格放在哪裡？",
-      "options": [
-        "is",
-        "are",
-        "do",
-        "does"
-      ],
+      "options": ["is", "are", "do", "does"],
       "answer": 1,
       "note": "forms 是複數，被動式問句用 are + kept；do/does 不能接過去分詞。"
     },
@@ -118,12 +78,7 @@
       "grammarId": "passive-present",
       "en": "Is a badge ___ to open the front door on weekends?",
       "zh": "週末開大門需要識別證嗎？",
-      "options": [
-        "need",
-        "needing",
-        "needed",
-        "needs"
-      ],
+      "options": ["need", "needing", "needed", "needs"],
       "answer": 2,
       "note": "Is + 主詞 + 過去分詞：識別證是「被需要」的，用 needed；be 動詞後面不能接原形或 -s 形。"
     },
@@ -132,12 +87,7 @@
       "grammarId": "passive-present",
       "en": "Most of our products ___ in Taiwan.",
       "zh": "我們大部分的產品是在台灣製造的。",
-      "options": [
-        "are made",
-        "is made",
-        "make",
-        "making"
-      ],
+      "options": ["are made", "is made", "make", "making"],
       "answer": 0,
       "note": "產品是被製造的，用 are made；make 後面要受詞，products 是複數不用 is。"
     },
@@ -146,12 +96,7 @@
       "grammarId": "quantifiers-few-plenty",
       "en": "There's ___ of time before the tour starts, so you can get a coffee.",
       "zh": "參觀開始前還有很多時間，你可以先去買杯咖啡。",
-      "options": [
-        "a few",
-        "plenty",
-        "many",
-        "a little"
-      ],
+      "options": ["a few", "plenty", "many", "a little"],
       "answer": 1,
       "note": "time 不可數，plenty of 可以接不可數名詞；a few、many 只接可數，a little 後面不加 of。"
     },
@@ -160,12 +105,7 @@
       "grammarId": "quantifiers-few-plenty",
       "en": "I still have ___ questions about the health plan.",
       "zh": "我對健保方案還有幾個問題。",
-      "options": [
-        "a little",
-        "much",
-        "plenty",
-        "a few"
-      ],
+      "options": ["a little", "much", "plenty", "a few"],
       "answer": 3,
       "note": "questions 是可數複數，用 a few；a little、much 接不可數，plenty 後面要加 of。"
     },
@@ -174,12 +114,7 @@
       "grammarId": "quantifiers-few-plenty",
       "en": "Don't worry, we have plenty ___ desks for the new staff.",
       "zh": "別擔心，我們有足夠的辦公桌給新同事。",
-      "options": [
-        "of",
-        "for",
-        "with",
-        "to"
-      ],
+      "options": ["of", "for", "with", "to"],
       "answer": 0,
       "note": "plenty 接名詞時固定說 plenty of，其他介系詞都不行。"
     },
@@ -188,12 +123,7 @@
       "grammarId": "quantifiers-few-plenty",
       "en": "Could you wait ___ minutes? Ms. Reed is on the phone.",
       "zh": "可以請你等幾分鐘嗎？Reed 小姐正在講電話。",
-      "options": [
-        "a little",
-        "much",
-        "a few",
-        "few of"
-      ],
+      "options": ["a little", "much", "a few", "few of"],
       "answer": 2,
       "note": "minutes 是可數複數，用 a few；a little、much 接不可數，few of 後面要接 the 或代名詞。"
     },
@@ -202,12 +132,7 @@
       "grammarId": "quantifiers-few-plenty",
       "en": "Only a few ___ in this department speak English.",
       "zh": "這個部門只有幾個人會說英文。",
-      "options": [
-        "worker",
-        "worker's",
-        "work",
-        "workers"
-      ],
+      "options": ["worker", "worker's", "work", "workers"],
       "answer": 3,
       "note": "a few 後面接可數名詞的複數，所以是 workers，不是單數或所有格。"
     },
@@ -216,12 +141,7 @@
       "grammarId": "quantifiers-few-plenty",
       "en": "We have ___ paper, so please don't buy any more this month.",
       "zh": "我們紙很多，這個月請不要再買了。",
-      "options": [
-        "a few",
-        "plenty of",
-        "many",
-        "a lot"
-      ],
+      "options": ["a few", "plenty of", "many", "a lot"],
       "answer": 1,
       "note": "paper 不可數，用 plenty of；a few、many 接可數，a lot 後面少了 of。"
     },
@@ -230,12 +150,7 @@
       "grammarId": "quantifiers-few-plenty",
       "en": "The orientation takes only ___ hours, not the whole day.",
       "zh": "新人訓練只要幾個小時，不用一整天。",
-      "options": [
-        "a few",
-        "a little",
-        "few of",
-        "a lot"
-      ],
+      "options": ["a few", "a little", "few of", "a lot"],
       "answer": 0,
       "note": "hours 可數複數用 a few；a little 接不可數，few of 和 a lot 都少了東西或多了 of。"
     },
@@ -244,12 +159,7 @@
       "grammarId": "quantifiers-few-plenty",
       "en": "There are plenty of ___ at the front desk if you need one.",
       "zh": "櫃檯有很多表格，需要的話可以拿一張。",
-      "options": [
-        "form",
-        "forming",
-        "forms",
-        "formed"
-      ],
+      "options": ["form", "forming", "forms", "formed"],
       "answer": 2,
       "note": "plenty of 接可數名詞時要用複數，所以是 forms；前面是 There are 也要複數。"
     },
@@ -258,12 +168,7 @@
       "grammarId": "quantifiers-few-plenty",
       "en": "A few ___ from the sales department will join us for lunch.",
       "zh": "業務部有幾個人會跟我們一起吃午餐。",
-      "options": [
-        "person",
-        "people",
-        "people's",
-        "staff member"
-      ],
+      "options": ["person", "people", "people's", "staff member"],
       "answer": 1,
       "note": "a few 接可數複數，person、staff member 是單數，people's 是所有格，所以用 people。"
     },
@@ -272,12 +177,7 @@
       "grammarId": "quantifiers-few-plenty",
       "en": "There ___ plenty of parking behind the office.",
       "zh": "辦公室後面有很多停車位。",
-      "options": [
-        "are",
-        "has",
-        "have",
-        "is"
-      ],
+      "options": ["are", "has", "have", "is"],
       "answer": 3,
       "note": "plenty of 後面的 parking 不可數，動詞跟著它用單數 is；there 句型不用 has/have。"
     },
@@ -286,12 +186,7 @@
       "grammarId": "relative-who",
       "en": "I'm looking for someone ___ can fix my monitor.",
       "zh": "我在找可以修我螢幕的人。",
-      "options": [
-        "which",
-        "what",
-        "who",
-        "where"
-      ],
+      "options": ["which", "what", "who", "where"],
       "answer": 2,
       "note": "someone 是人，用 who 說明；which 指東西，what、where 不能接在名詞後面當關係詞。"
     },
@@ -300,12 +195,7 @@
       "grammarId": "relative-who",
       "en": "The technician who ___ the copier yesterday left his manual here.",
       "zh": "昨天修影印機的技術人員把他的手冊留在這裡。",
-      "options": [
-        "fixed",
-        "fix",
-        "fixes",
-        "fixing"
-      ],
+      "options": ["fixed", "fix", "fixes", "fixing"],
       "answer": 0,
       "note": "who 後面接動詞，有 yesterday 要用過去式 fixed。"
     },
@@ -314,12 +204,7 @@
       "grammarId": "relative-who",
       "en": "Is there anyone here ___ knows the login for this computer?",
       "zh": "這裡有人知道這台電腦的登入帳號嗎？",
-      "options": [
-        "which",
-        "where",
-        "when",
-        "who"
-      ],
+      "options": ["which", "where", "when", "who"],
       "answer": 3,
       "note": "anyone 是人，後面接動詞 knows，用 who；which 指東西，where、when 指地點和時間。"
     },
@@ -328,12 +213,7 @@
       "grammarId": "relative-who",
       "en": "The woman who ___ next to me always eats lunch at her desk.",
       "zh": "坐我旁邊的那位女生總是在座位上吃午餐。",
-      "options": [
-        "sit",
-        "sits",
-        "sitting",
-        "to sit"
-      ],
+      "options": ["sit", "sits", "sitting", "to sit"],
       "answer": 1,
       "note": "who 指的是 the woman（單數），後面動詞用 sits。"
     },
@@ -342,12 +222,7 @@
       "grammarId": "relative-who",
       "en": "Ask the guy ___ manages the supply room.",
       "zh": "去問管理備品室的那個人。",
-      "options": [
-        "who",
-        "he",
-        "which",
-        "what"
-      ],
+      "options": ["who", "he", "which", "what"],
       "answer": 0,
       "note": "用 who 把「管理備品室」接在 the guy 後面；he 會讓句子有兩個動詞卻沒有連接詞。"
     },
@@ -356,12 +231,7 @@
       "grammarId": "relative-who",
       "en": "Coworkers who ___ food in the refrigerator should take it home on Friday.",
       "zh": "把食物放在冰箱的同事，週五要帶回家。",
-      "options": [
-        "leaves",
-        "leaving",
-        "leave",
-        "to leave"
-      ],
+      "options": ["leaves", "leaving", "leave", "to leave"],
       "answer": 2,
       "note": "who 指的是 coworkers（複數），所以動詞用原形 leave，不加 -s。"
     },
@@ -370,12 +240,7 @@
       "grammarId": "relative-who",
       "en": "The technicians who ___ our printers come every Tuesday.",
       "zh": "幫我們檢查印表機的技術人員每週二會來。",
-      "options": [
-        "checks",
-        "check",
-        "checking",
-        "is checking"
-      ],
+      "options": ["checks", "check", "checking", "is checking"],
       "answer": 1,
       "note": "who 指 technicians（複數），動詞用 check；checks、is checking 是單數形。"
     },
@@ -384,12 +249,7 @@
       "grammarId": "relative-who",
       "en": "Anyone who ___ the copier must turn it off at night.",
       "zh": "使用影印機的人晚上都要把它關掉。",
-      "options": [
-        "use",
-        "using",
-        "used to",
-        "uses"
-      ],
+      "options": ["use", "using", "used to", "uses"],
       "answer": 3,
       "note": "anyone 當單數看，who 後面用 uses；using 前面少了 be 動詞。"
     },
@@ -398,12 +258,7 @@
       "grammarId": "relative-who",
       "en": "Mr. Ellis, ___ manages the IT section, can help you with your login.",
       "zh": "負責資訊組的 Ellis 先生可以幫你處理登入的問題。",
-      "options": [
-        "which",
-        "that",
-        "he",
-        "who"
-      ],
+      "options": ["which", "that", "he", "who"],
       "answer": 3,
       "note": "有逗號的補充說明只能用 who，不能用 that；which 指東西，he 會讓句子多一個主詞。"
     },
@@ -412,12 +267,7 @@
       "grammarId": "relative-who",
       "en": "Is there someone who ___ help me with this machine?",
       "zh": "有人可以幫我弄這台機器嗎？",
-      "options": [
-        "can",
-        "is",
-        "has",
-        "to"
-      ],
+      "options": ["can", "is", "has", "to"],
       "answer": 0,
       "note": "who 後面要接完整的動詞：can + 原形 help；is help、has help 文法不對，to 不能直接接在 who 後面。"
     },
@@ -426,12 +276,7 @@
       "grammarId": "verb-object-to",
       "en": "Do you want me ___ the printer for you?",
       "zh": "要我幫你看一下印表機嗎？",
-      "options": [
-        "check",
-        "checking",
-        "checked",
-        "to check"
-      ],
+      "options": ["check", "checking", "checked", "to check"],
       "answer": 3,
       "note": "want + 人 + to + 原形動詞，所以是 want me to check。"
     },
@@ -440,12 +285,7 @@
       "grammarId": "verb-object-to",
       "en": "Ms. Reed asked ___ to sort these folders by date.",
       "zh": "Reed 小姐請我把這些資料夾依日期整理。",
-      "options": [
-        "I",
-        "my",
-        "me",
-        "mine"
-      ],
+      "options": ["I", "my", "me", "mine"],
       "answer": 2,
       "note": "ask 後面接人要用受格 me，再接 to + 原形。"
     },
@@ -454,12 +294,7 @@
       "grammarId": "verb-object-to",
       "en": "The technician told us ___ the machine off during lunch.",
       "zh": "技術人員叫我們午休時不要把機器關掉。",
-      "options": [
-        "don't turn",
-        "not to turn",
-        "not turning",
-        "to not turning"
-      ],
+      "options": ["don't turn", "not to turn", "not turning", "to not turning"],
       "answer": 1,
       "note": "tell + 人 + not to + 原形，是「叫某人不要做」；don't turn 不能直接放在 told us 後面。"
     },
@@ -468,12 +303,7 @@
       "grammarId": "verb-object-to",
       "en": "My supervisor wants ___ the project by Friday.",
       "zh": "我的主管要我在週五前完成這個專案。",
-      "options": [
-        "me to finish",
-        "me finish",
-        "I to finish",
-        "me finishing"
-      ],
+      "options": ["me to finish", "me finish", "I to finish", "me finishing"],
       "answer": 0,
       "note": "want 後面接受格 me，再接 to + 原形 finish，三個部分缺一不可。"
     },
@@ -482,12 +312,7 @@
       "grammarId": "verb-object-to",
       "en": "Could you remind Dan ___ more copier paper?",
       "zh": "可以提醒 Dan 再訂一些影印紙嗎？",
-      "options": [
-        "ordering",
-        "to order",
-        "order",
-        "ordered"
-      ],
+      "options": ["ordering", "to order", "order", "ordered"],
       "answer": 1,
       "note": "remind + 人 + to + 原形，所以是 remind Dan to order。"
     },
@@ -496,12 +321,7 @@
       "grammarId": "verb-object-to",
       "en": "I'd like you ___ these folders in the top drawer.",
       "zh": "我希望你把這些資料夾放在最上面的抽屜。",
-      "options": [
-        "keep",
-        "keeping",
-        "keeps",
-        "to keep"
-      ],
+      "options": ["keep", "keeping", "keeps", "to keep"],
       "answer": 3,
       "note": "would like + 人 + to + 原形，跟 want 一樣，要用 to keep。"
     },
@@ -510,12 +330,7 @@
       "grammarId": "verb-object-to",
       "en": "My coworker ___ me to throw the plastic in the other bin.",
       "zh": "同事叫我把塑膠丟到另一個桶子。",
-      "options": [
-        "said",
-        "made",
-        "told",
-        "let"
-      ],
+      "options": ["said", "made", "told", "let"],
       "answer": 2,
       "note": "tell + 人 + to 原形；said 後面不能直接接人，made、let 後面接原形，不接 to。"
     },
@@ -524,12 +339,7 @@
       "grammarId": "verb-object-to",
       "en": "The manager asked everyone ___ the microwave after using it.",
       "zh": "經理請大家用完微波爐後清乾淨。",
-      "options": [
-        "to clean",
-        "clean",
-        "cleaning",
-        "cleans"
-      ],
+      "options": ["to clean", "clean", "cleaning", "cleans"],
       "answer": 0,
       "note": "ask + 人 + to + 原形，所以是 asked everyone to clean。"
     },
@@ -538,12 +348,7 @@
       "grammarId": "verb-object-to",
       "en": "Can you tell Kate ___ me back after lunch?",
       "zh": "可以請 Kate 午餐後回我電話嗎？",
-      "options": [
-        "to call",
-        "calling",
-        "calls",
-        "called"
-      ],
+      "options": ["to call", "calling", "calls", "called"],
       "answer": 0,
       "note": "tell + 人 + to + 原形：tell Kate to call me back。"
     },
@@ -552,12 +357,7 @@
       "grammarId": "verb-object-to",
       "en": "Does Ms. Ellis want ___ to help her with the boxes?",
       "zh": "Ellis 小姐要我們幫她搬箱子嗎？",
-      "options": [
-        "we",
-        "our",
-        "us",
-        "ours"
-      ],
+      "options": ["we", "our", "us", "ours"],
       "answer": 2,
       "note": "want 後面的人是受詞，要用受格 us，不能用主格 we 或所有格。"
     },
@@ -566,12 +366,7 @@
       "grammarId": "might-may",
       "en": "She might ___ in a meeting right now.",
       "zh": "她現在可能在開會。",
-      "options": [
-        "be",
-        "is",
-        "being",
-        "been"
-      ],
+      "options": ["be", "is", "being", "been"],
       "answer": 0,
       "note": "might 後面接原形動詞，be 動詞的原形是 be，不是 is。"
     },
@@ -580,12 +375,7 @@
       "grammarId": "might-may",
       "en": "Mr. Hughes ___ call you back this afternoon, but I'm not sure.",
       "zh": "Hughes 先生今天下午可能會回你電話，但我不確定。",
-      "options": [
-        "maybe",
-        "might",
-        "might to",
-        "is might"
-      ],
+      "options": ["maybe", "might", "might to", "is might"],
       "answer": 1,
       "note": "might 直接加原形 call；maybe 是副詞，不能當動詞用；might 後面不加 to。"
     },
@@ -594,12 +384,7 @@
       "grammarId": "might-may",
       "en": "She might ___ answer her mobile during her commute.",
       "zh": "她通勤的時候可能不會接手機。",
-      "options": [
-        "no",
-        "don't",
-        "not",
-        "not to"
-      ],
+      "options": ["no", "don't", "not", "not to"],
       "answer": 2,
       "note": "might 的否定是 might not + 原形；不用 no 或 don't，也不加 to。"
     },
@@ -608,12 +393,7 @@
       "grammarId": "might-may",
       "en": "The operator may ___ you to another line.",
       "zh": "總機可能會把你轉到另一條線。",
-      "options": [
-        "transfers",
-        "transferring",
-        "to transfer",
-        "transfer"
-      ],
+      "options": ["transfers", "transferring", "to transfer", "transfer"],
       "answer": 3,
       "note": "may 後面一律接原形動詞，不加 -s、-ing 或 to。"
     },
@@ -622,12 +402,7 @@
       "grammarId": "might-may",
       "en": "___ she's at lunch. Try her extension again later.",
       "zh": "她可能去吃午餐了，等一下再打她的分機看看。",
-      "options": [
-        "May",
-        "Might",
-        "Maybe",
-        "May be"
-      ],
+      "options": ["May", "Might", "Maybe", "May be"],
       "answer": 2,
       "note": "後面已經有完整的句子 she's at lunch，句首要用副詞 Maybe；may、might 後面要接原形動詞。"
     },
@@ -636,12 +411,7 @@
       "grammarId": "might-may",
       "en": "Don't call her now. She ___ still be driving.",
       "zh": "現在先別打給她，她可能還在開車。",
-      "options": [
-        "might",
-        "maybe",
-        "might to",
-        "is"
-      ],
+      "options": ["might", "maybe", "might to", "is"],
       "answer": 0,
       "note": "might 加 be 表示「可能還在…」；maybe 不能接動詞原形，is be 文法錯誤。"
     },
@@ -650,12 +420,7 @@
       "grammarId": "might-may",
       "en": "This call may ___.",
       "zh": "本通電話可能會被錄音。",
-      "options": [
-        "recorded",
-        "is recorded",
-        "recording",
-        "be recorded"
-      ],
+      "options": ["recorded", "is recorded", "recording", "be recorded"],
       "answer": 3,
       "note": "通話是被錄音的，may 後面接原形 be + 過去分詞：may be recorded。"
     },
@@ -664,12 +429,7 @@
       "grammarId": "might-may",
       "en": "We may not ___ a signal in the elevator.",
       "zh": "我們在電梯裡可能收不到訊號。",
-      "options": [
-        "has",
-        "have",
-        "having",
-        "to have"
-      ],
+      "options": ["has", "have", "having", "to have"],
       "answer": 1,
       "note": "may not 後面接原形 have，主詞是 we 也一樣不能用 has。"
     },
@@ -678,12 +438,7 @@
       "grammarId": "might-may",
       "en": "Ms. Carter ___ out of the office today. Would you like to leave a message?",
       "zh": "Carter 小姐今天可能不在辦公室，你要留言嗎？",
-      "options": [
-        "maybe",
-        "may",
-        "may be",
-        "is may"
-      ],
+      "options": ["maybe", "may", "may be", "is may"],
       "answer": 2,
       "note": "這裡需要動詞：may + 原形 be = 可能是；maybe 是副詞，只寫 may 少了 be。"
     },
@@ -692,12 +447,7 @@
       "grammarId": "might-may",
       "en": "Don't worry if he doesn't answer. He ___ be on another call.",
       "zh": "他沒接的話別擔心，他可能在講另一通電話。",
-      "options": [
-        "might",
-        "maybe",
-        "might to",
-        "is might"
-      ],
+      "options": ["might", "maybe", "might to", "is might"],
       "answer": 0,
       "note": "might + 原形 be；might 後面不加 to，前面也不加 is。"
     },
@@ -706,12 +456,7 @@
       "grammarId": "time-clause-as-soon-as",
       "en": "I'll tell her as soon as she ___ back.",
       "zh": "她一回來我就告訴她。",
-      "options": [
-        "will get",
-        "gets",
-        "got",
-        "get"
-      ],
+      "options": ["will get", "gets", "got", "get"],
       "answer": 1,
       "note": "as soon as 子句用現在式代替未來，主詞 she 用 gets，不用 will get。"
     },
@@ -720,12 +465,7 @@
       "grammarId": "time-clause-as-soon-as",
       "en": "Please call me as soon as the client ___.",
       "zh": "客戶一到請馬上打給我。",
-      "options": [
-        "will arrive",
-        "arrived",
-        "arriving",
-        "arrives"
-      ],
+      "options": ["will arrive", "arrived", "arriving", "arrives"],
       "answer": 3,
       "note": "說的是未來的事，但 as soon as 子句用現在式 arrives。"
     },
@@ -734,12 +474,7 @@
       "grammarId": "time-clause-as-soon-as",
       "en": "As soon as I ___ this call, I'll check your order.",
       "zh": "我講完這通電話就幫你查訂單。",
-      "options": [
-        "finish",
-        "will finish",
-        "finishes",
-        "finishing"
-      ],
+      "options": ["finish", "will finish", "finishes", "finishing"],
       "answer": 0,
       "note": "as soon as 子句用現在式；主詞是 I，所以是 finish，不加 -s。"
     },
@@ -748,12 +483,7 @@
       "grammarId": "time-clause-as-soon-as",
       "en": "He'll call you back ___ he gets out of the meeting.",
       "zh": "他一開完會就會回你電話。",
-      "options": [
-        "as soon",
-        "during",
-        "as soon as",
-        "soon"
-      ],
+      "options": ["as soon", "during", "as soon as", "soon"],
       "answer": 2,
       "note": "連接兩個子句要用連接詞 as soon as；during 是介系詞，as soon、soon 不能連接子句。"
     },
@@ -762,12 +492,7 @@
       "grammarId": "time-clause-as-soon-as",
       "en": "As soon as Mr. James ___ free, I'll put you through.",
       "zh": "James 先生一有空，我就幫你轉接。",
-      "options": [
-        "will be",
-        "be",
-        "was",
-        "is"
-      ],
+      "options": ["will be", "be", "was", "is"],
       "answer": 3,
       "note": "主要子句是未來（I'll），as soon as 子句用現在式 is，不用 will be。"
     },
@@ -776,12 +501,7 @@
       "grammarId": "time-clause-as-soon-as",
       "en": "We ___ you as soon as the director signs the form.",
       "zh": "主任一簽好表格，我們就傳訊息給你。",
-      "options": [
-        "texting",
-        "will text",
-        "have texted",
-        "to text"
-      ],
+      "options": ["texting", "will text", "have texted", "to text"],
       "answer": 1,
       "note": "主要子句說未來要做的事用 will；as soon as 子句（signs）才用現在式。"
     },
@@ -790,12 +510,7 @@
       "grammarId": "time-clause-as-soon-as",
       "en": "She called me back as soon as she ___ my message.",
       "zh": "她一收到我的留言就回電給我了。",
-      "options": [
-        "got",
-        "gets",
-        "will get",
-        "getting"
-      ],
+      "options": ["got", "gets", "will get", "getting"],
       "answer": 0,
       "note": "這次說的是過去的事（called），as soon as 子句也用過去式 got。"
     },
@@ -804,12 +519,7 @@
       "grammarId": "time-clause-as-soon-as",
       "en": "I'll send you the details as soon as I ___ off the phone.",
       "zh": "我一講完電話就把細節寄給你。",
-      "options": [
-        "will get",
-        "got",
-        "get",
-        "gets"
-      ],
+      "options": ["will get", "got", "get", "gets"],
       "answer": 2,
       "note": "未來的事在 as soon as 子句裡用現在式；主詞是 I，用 get。"
     },
@@ -818,12 +528,7 @@
       "grammarId": "time-clause-as-soon-as",
       "en": "Could you let me know as soon as Ms. Carter ___ her voicemail?",
       "zh": "Carter 小姐一聽了語音信箱，可以通知我嗎？",
-      "options": [
-        "will check",
-        "checks",
-        "check",
-        "checked"
-      ],
+      "options": ["will check", "checks", "check", "checked"],
       "answer": 1,
       "note": "as soon as 子句用現在式代替未來，主詞是單數，用 checks。"
     },
@@ -832,12 +537,7 @@
       "grammarId": "time-clause-as-soon-as",
       "en": "The operator will connect you as soon as someone ___ free.",
       "zh": "一有人有空，總機就會幫你接通。",
-      "options": [
-        "will be",
-        "are",
-        "being",
-        "is"
-      ],
+      "options": ["will be", "are", "being", "is"],
       "answer": 3,
       "note": "as soon as 子句用現在式；someone 是單數，用 is。"
     },
@@ -846,12 +546,7 @@
       "grammarId": "passive-past",
       "en": "The wrong file ___ to yesterday's email.",
       "zh": "昨天那封 email 附錯檔案了。",
-      "options": [
-        "were attached",
-        "was attach",
-        "was attached",
-        "attaching"
-      ],
+      "options": ["were attached", "was attach", "was attached", "attaching"],
       "answer": 2,
       "note": "昨天的事、檔案是被附上的：was + 過去分詞 attached；file 是單數，不用 were。"
     },
@@ -860,12 +555,7 @@
       "grammarId": "passive-past",
       "en": "Your request ___ by the director last Friday.",
       "zh": "你的申請上週五已經由主任核准了。",
-      "options": [
-        "was approved",
-        "is approved",
-        "approved",
-        "was approving"
-      ],
+      "options": ["was approved", "is approved", "approved", "was approving"],
       "answer": 0,
       "note": "last Friday 是過去，申請是「被核准」：was approved；只寫 approved 句子就沒有主要動詞。"
     },
@@ -874,12 +564,7 @@
       "grammarId": "passive-past",
       "en": "Both attachments ___ by mistake.",
       "zh": "兩個附件都被誤刪了。",
-      "options": [
-        "was deleted",
-        "deleted",
-        "were deleting",
-        "were deleted"
-      ],
+      "options": ["was deleted", "deleted", "were deleting", "were deleted"],
       "answer": 3,
       "note": "attachments 是複數，過去被動用 were + 過去分詞 deleted。"
     },
@@ -888,12 +573,7 @@
       "grammarId": "passive-past",
       "en": "___ the newsletter sent to all staff last week?",
       "zh": "電子報上週有寄給全體員工嗎？",
-      "options": [
-        "Were",
-        "Was",
-        "Did",
-        "Is"
-      ],
+      "options": ["Were", "Was", "Did", "Is"],
       "answer": 1,
       "note": "過去被動的問句把 was/were 放句首；newsletter 單數用 Was，Did 不能接過去分詞。"
     },
@@ -902,12 +582,7 @@
       "grammarId": "passive-past",
       "en": "The email ___ delivered, so please check the address.",
       "zh": "那封 email 沒有送達，請檢查一下地址。",
-      "options": [
-        "wasn't",
-        "weren't",
-        "didn't",
-        "doesn't"
-      ],
+      "options": ["wasn't", "weren't", "didn't", "doesn't"],
       "answer": 0,
       "note": "過去被動的否定是 wasn't + 過去分詞；email 單數不用 weren't，didn't 不能接 delivered。"
     },
@@ -916,12 +591,7 @@
       "grammarId": "passive-past",
       "en": "The article was ___ to the wrong address.",
       "zh": "那篇文章被寄到錯的地址了。",
-      "options": [
-        "send",
-        "sending",
-        "sent",
-        "sends"
-      ],
+      "options": ["send", "sending", "sent", "sends"],
       "answer": 2,
       "note": "was 後面接過去分詞 sent，組成過去被動。"
     },
@@ -930,12 +600,7 @@
       "grammarId": "passive-past",
       "en": "These errors ___ by Kate before the email went out.",
       "zh": "這些錯誤在 email 寄出前就被 Kate 改正了。",
-      "options": [
-        "was corrected",
-        "were corrected",
-        "corrected",
-        "are correcting"
-      ],
+      "options": ["was corrected", "were corrected", "corrected", "are correcting"],
       "answer": 1,
       "note": "errors 是複數，又是過去的事，用 were corrected。"
     },
@@ -944,12 +609,7 @@
       "grammarId": "passive-past",
       "en": "I'm sorry. Your name ___ spelled wrong in my last email.",
       "zh": "抱歉，我上一封 email 把你的名字拼錯了。",
-      "options": [
-        "were",
-        "did",
-        "has",
-        "was"
-      ],
+      "options": ["were", "did", "has", "was"],
       "answer": 3,
       "note": "名字是被拼錯的，過去被動用 was spelled；did、has 都不能直接接 spelled 表被動。"
     },
@@ -958,12 +618,7 @@
       "grammarId": "passive-past",
       "en": "This article ___ by someone in the sales department.",
       "zh": "這篇文章是業務部的人寫的。",
-      "options": [
-        "wrote",
-        "was writing",
-        "written",
-        "was written"
-      ],
+      "options": ["wrote", "was writing", "written", "was written"],
       "answer": 3,
       "note": "文章是被寫的：was + 過去分詞 written；wrote 是主動，written 前面少了 be 動詞。"
     },
@@ -972,12 +627,7 @@
       "grammarId": "passive-past",
       "en": "The message ___ to you by mistake. Please delete it.",
       "zh": "那則訊息是誤轉給你的，請刪掉。",
-      "options": [
-        "was forwarded",
-        "forwarding",
-        "was forwarding",
-        "forwards"
-      ],
+      "options": ["was forwarded", "forwarding", "was forwarding", "forwards"],
       "answer": 0,
       "note": "訊息是被轉寄的：was forwarded；was forwarding 是主動進行式，forwarding 前面沒有 be 動詞。"
     },
@@ -986,12 +636,7 @@
       "grammarId": "adjective-adverb",
       "en": "Thank you for your ___ reply.",
       "zh": "謝謝你這麼快回覆。",
-      "options": [
-        "quickly",
-        "quickness",
-        "quicken",
-        "quick"
-      ],
+      "options": ["quickly", "quickness", "quicken", "quick"],
       "answer": 3,
       "note": "reply 在這裡是名詞，修飾名詞要用形容詞 quick。"
     },
@@ -1000,12 +645,7 @@
       "grammarId": "adjective-adverb",
       "en": "Please read the attachment ___ before you sign it.",
       "zh": "簽名前請仔細看附件。",
-      "options": [
-        "careful",
-        "care",
-        "carefully",
-        "cares"
-      ],
+      "options": ["careful", "care", "carefully", "cares"],
       "answer": 2,
       "note": "修飾動詞 read 要用副詞 carefully。"
     },
@@ -1014,12 +654,7 @@
       "grammarId": "adjective-adverb",
       "en": "She answered all our questions very ___.",
       "zh": "她很有禮貌地回答了我們所有的問題。",
-      "options": [
-        "polite",
-        "politely",
-        "politeness",
-        "more polite"
-      ],
+      "options": ["polite", "politely", "politeness", "more polite"],
       "answer": 1,
       "note": "very ___ 修飾動詞 answered，要用副詞 politely。"
     },
@@ -1028,12 +663,7 @@
       "grammarId": "adjective-adverb",
       "en": "The instructions in this email are ___ to follow.",
       "zh": "這封 email 裡的步驟很容易照著做。",
-      "options": [
-        "simple",
-        "simply",
-        "simplify",
-        "simpler than"
-      ],
+      "options": ["simple", "simply", "simplify", "simpler than"],
       "answer": 0,
       "note": "be 動詞 are 後面接形容詞 simple 說明主詞；simply 是副詞，不能當補語。"
     },
@@ -1042,12 +672,7 @@
       "grammarId": "adjective-adverb",
       "en": "I ___ appreciate your help with the newsletter.",
       "zh": "真的很感謝你幫忙做電子報。",
-      "options": [
-        "real",
-        "really",
-        "reality",
-        "realize"
-      ],
+      "options": ["real", "really", "reality", "realize"],
       "answer": 1,
       "note": "修飾動詞 appreciate 要用副詞 really。"
     },
@@ -1056,12 +681,7 @@
       "grammarId": "adjective-adverb",
       "en": "The link in your last email doesn't work ___.",
       "zh": "你上一封 email 裡的連結沒辦法正常使用。",
-      "options": [
-        "correct",
-        "correction",
-        "corrects",
-        "correctly"
-      ],
+      "options": ["correct", "correction", "corrects", "correctly"],
       "answer": 3,
       "note": "修飾動詞 work 要用副詞 correctly。"
     },
@@ -1070,12 +690,7 @@
       "grammarId": "adjective-adverb",
       "en": "Please use the ___ form, not the old one.",
       "zh": "請用現在這版的表格，不要用舊的。",
-      "options": [
-        "currently",
-        "currents",
-        "current",
-        "more currently"
-      ],
+      "options": ["currently", "currents", "current", "more currently"],
       "answer": 2,
       "note": "form 是名詞，前面要用形容詞 current；currently 是副詞，不能修飾名詞。"
     },
@@ -1084,12 +699,7 @@
       "grammarId": "adjective-adverb",
       "en": "The email was ___ written and easy to read.",
       "zh": "那封 email 寫得很清楚，很好讀。",
-      "options": [
-        "clearly",
-        "clear",
-        "clearness",
-        "clearing"
-      ],
+      "options": ["clearly", "clear", "clearness", "clearing"],
       "answer": 0,
       "note": "修飾過去分詞 written 要用副詞 clearly。"
     },
@@ -1098,12 +708,7 @@
       "grammarId": "adjective-adverb",
       "en": "Please send me the ___ draft by Friday.",
       "zh": "請在週五前把最終版草稿寄給我。",
-      "options": [
-        "final",
-        "finally",
-        "finals",
-        "finalize"
-      ],
+      "options": ["final", "finally", "finals", "finalize"],
       "answer": 0,
       "note": "draft 是名詞，前面用形容詞 final；finally 是副詞。"
     },
@@ -1112,12 +717,7 @@
       "grammarId": "adjective-adverb",
       "en": "This part is ___ important, so please read it twice.",
       "zh": "這個部分特別重要，請看兩遍。",
-      "options": [
-        "particular",
-        "particulars",
-        "particularly",
-        "more particular"
-      ],
+      "options": ["particular", "particulars", "particularly", "more particular"],
       "answer": 2,
       "note": "修飾形容詞 important 要用副詞 particularly。"
     },
@@ -1126,12 +726,7 @@
       "grammarId": "first-conditional",
       "en": "If we start on time, we ___ early.",
       "zh": "如果我們準時開始，就會提早結束。",
-      "options": [
-        "will finish",
-        "finished",
-        "finishing",
-        "would finished"
-      ],
+      "options": ["will finish", "finished", "finishing", "would finished"],
       "answer": 0,
       "note": "第一條件句：if 子句用現在式（start），主要子句用 will + 原形 finish。"
     },
@@ -1140,12 +735,7 @@
       "grammarId": "first-conditional",
       "en": "If the projector ___ work, we'll use the slides on my laptop.",
       "zh": "如果投影機不能用，我們就用我筆電上的投影片。",
-      "options": [
-        "don't",
-        "doesn't",
-        "not",
-        "isn't"
-      ],
+      "options": ["don't", "doesn't", "not", "isn't"],
       "answer": 1,
       "note": "if 子句用現在式；projector 是單數，否定用 doesn't + 原形 work。"
     },
@@ -1154,12 +744,7 @@
       "grammarId": "first-conditional",
       "en": "We'll postpone the meeting ___ Mr. Ellis can't attend.",
       "zh": "如果 Ellis 先生不能出席，我們就把會議延期。",
-      "options": [
-        "during",
-        "between",
-        "if",
-        "without"
-      ],
+      "options": ["during", "between", "if", "without"],
       "answer": 2,
       "note": "後面是完整的子句，要用連接詞 if；during、between、without 是介系詞，只能接名詞。"
     },
@@ -1168,12 +753,7 @@
       "grammarId": "first-conditional",
       "en": "If you ___ any questions about the agenda, please email me.",
       "zh": "如果你對議程有任何問題，請寄 email 給我。",
-      "options": [
-        "will have",
-        "has",
-        "having",
-        "have"
-      ],
+      "options": ["will have", "has", "having", "have"],
       "answer": 3,
       "note": "if 子句用現在式代替未來，不用 will；主詞 you 用 have。"
     },
@@ -1182,12 +762,7 @@
       "grammarId": "first-conditional",
       "en": "What ___ if the client says no to the proposal?",
       "zh": "如果客戶不接受這個提案，我們要怎麼辦？",
-      "options": [
-        "we will do",
-        "we do",
-        "will we do",
-        "will do we"
-      ],
+      "options": ["we will do", "we do", "will we do", "will do we"],
       "answer": 2,
       "note": "主要子句是問句，要把 will 移到主詞前面：What will we do?"
     },
@@ -1196,12 +771,7 @@
       "grammarId": "first-conditional",
       "en": "If everyone agrees, we ___ the meeting to Thursday.",
       "zh": "如果大家都同意，我們就把會議改到週四。",
-      "options": [
-        "will move",
-        "moved",
-        "moving",
-        "have moved"
-      ],
+      "options": ["will move", "moved", "moving", "have moved"],
       "answer": 0,
       "note": "if 子句是現在式 agrees，主要子句用 will + 原形 move。"
     },
@@ -1210,12 +780,7 @@
       "grammarId": "first-conditional",
       "en": "If you ___ the slides by Wednesday, I'll add them to the report.",
       "zh": "如果你週三前做完投影片，我就把它們加進報告。",
-      "options": [
-        "will finish",
-        "finishes",
-        "finished",
-        "finish"
-      ],
+      "options": ["will finish", "finishes", "finished", "finish"],
       "answer": 3,
       "note": "if 子句用現在式，主詞 you 用 finish；不能用 will finish。"
     },
@@ -1224,12 +789,7 @@
       "grammarId": "first-conditional",
       "en": "If the room ___ already booked, we'll meet in my office.",
       "zh": "如果會議室已經被訂走了，我們就在我辦公室開。",
-      "options": [
-        "will be",
-        "is",
-        "be",
-        "are"
-      ],
+      "options": ["will be", "is", "be", "are"],
       "answer": 1,
       "note": "if 子句用現在式；room 是單數，用 is。"
     },
@@ -1238,12 +798,7 @@
       "grammarId": "first-conditional",
       "en": "We won't have time for questions if the talk ___ too long.",
       "zh": "如果報告講太久，我們就沒時間問問題了。",
-      "options": [
-        "will take",
-        "take",
-        "takes",
-        "taking"
-      ],
+      "options": ["will take", "take", "takes", "taking"],
       "answer": 2,
       "note": "if 子句放在後面也一樣用現在式；talk 是單數，用 takes。"
     },
@@ -1252,12 +807,7 @@
       "grammarId": "first-conditional",
       "en": "If we ___ a decision today, the project won't be late.",
       "zh": "如果我們今天做出決定，專案就不會延誤。",
-      "options": [
-        "make",
-        "will make",
-        "made",
-        "making"
-      ],
+      "options": ["make", "will make", "made", "making"],
       "answer": 0,
       "note": "if 子句用現在式 make 代替未來，不用 will make。"
     },
@@ -1266,12 +816,7 @@
       "grammarId": "relative-that",
       "en": "This is the projector ___ doesn't work.",
       "zh": "這就是那台壞掉的投影機。",
-      "options": [
-        "who",
-        "that",
-        "what",
-        "where"
-      ],
+      "options": ["who", "that", "what", "where"],
       "answer": 1,
       "note": "that 可以指東西，後面接動詞說明 projector；who 只指人，what、where 不能接在名詞後面。"
     },
@@ -1280,12 +825,7 @@
       "grammarId": "relative-that",
       "en": "I prefer plans that ___ less money.",
       "zh": "我比較喜歡花費比較少的方案。",
-      "options": [
-        "costs",
-        "costing",
-        "to cost",
-        "cost"
-      ],
+      "options": ["costs", "costing", "to cost", "cost"],
       "answer": 3,
       "note": "that 指的是 plans（複數），後面動詞用 cost，不加 s；costing、to cost 不能當子句的動詞。"
     },
@@ -1294,12 +834,7 @@
       "grammarId": "relative-that",
       "en": "The slides that ___ on the screen now are from last week.",
       "zh": "現在螢幕上的投影片是上週的。",
-      "options": [
-        "are",
-        "is",
-        "be",
-        "being"
-      ],
+      "options": ["are", "is", "be", "being"],
       "answer": 0,
       "note": "that 指的是 slides（複數），所以用 are。"
     },
@@ -1308,12 +843,7 @@
       "grammarId": "relative-that",
       "en": "Everyone that ___ the meeting got a copy of the agenda.",
       "zh": "每個參加會議的人都拿到一份議程。",
-      "options": [
-        "attend",
-        "attending",
-        "attended",
-        "to attend"
-      ],
+      "options": ["attend", "attending", "attended", "to attend"],
       "answer": 2,
       "note": "that 後面要接動詞，事情發生在過去（got），用 attended。"
     },
@@ -1322,12 +852,7 @@
       "grammarId": "relative-that",
       "en": "One suggestion ___ came up was to move the meeting online.",
       "zh": "有一個建議是把會議改成線上。",
-      "options": [
-        "who",
-        "what",
-        "it",
-        "that"
-      ],
+      "options": ["who", "what", "it", "that"],
       "answer": 3,
       "note": "that 接在 suggestion 後面說明它；who 只指人，what 不能接在名詞後，it 會讓句子多一個主詞。"
     },
@@ -1336,12 +861,7 @@
       "grammarId": "relative-that",
       "en": "We need a program that ___ easier to use.",
       "zh": "我們需要一個比較好用的程式。",
-      "options": [
-        "are",
-        "is",
-        "be",
-        "being"
-      ],
+      "options": ["are", "is", "be", "being"],
       "answer": 1,
       "note": "that 指 a program（單數），後面用 is。"
     },
@@ -1350,12 +870,7 @@
       "grammarId": "relative-that",
       "en": "Is this the report ___ you need for the meeting?",
       "zh": "這是你開會要用的報告嗎？",
-      "options": [
-        "that",
-        "it",
-        "what",
-        "who"
-      ],
+      "options": ["that", "it", "what", "who"],
       "answer": 0,
       "note": "that 接在 the report 後面，說明「你需要的」那份；it 多了一個受詞，what 不能接在名詞後。"
     },
@@ -1364,12 +879,7 @@
       "grammarId": "relative-that",
       "en": "Do you have the figures ___ show our progress this month?",
       "zh": "你有顯示我們這個月進度的數字嗎？",
-      "options": [
-        "what",
-        "who",
-        "that",
-        "they"
-      ],
+      "options": ["what", "who", "that", "they"],
       "answer": 2,
       "note": "that 指 figures，後面接動詞 show；they 會變成兩個子句沒有連接詞。"
     },
@@ -1378,12 +888,7 @@
       "grammarId": "relative-that",
       "en": "He's the person that ___ the meeting next week.",
       "zh": "他就是下週要主持會議的人。",
-      "options": [
-        "lead",
-        "will lead",
-        "leading",
-        "to lead"
-      ],
+      "options": ["lead", "will lead", "leading", "to lead"],
       "answer": 1,
       "note": "that 也可以指人；next week 是未來，用 will lead。"
     },
@@ -1392,12 +897,7 @@
       "grammarId": "relative-that",
       "en": "Any item that ___ on today's agenda will be discussed next week.",
       "zh": "不在今天議程上的項目會在下週討論。",
-      "options": [
-        "aren't",
-        "don't",
-        "doesn't",
-        "isn't"
-      ],
+      "options": ["aren't", "don't", "doesn't", "isn't"],
       "answer": 3,
       "note": "that 指 any item（單數），on the agenda 前面要用 be 動詞，所以是 isn't。"
     },
@@ -1406,12 +906,7 @@
       "grammarId": "prepositions-by-within-until",
       "en": "Please send the quote ___ Friday.",
       "zh": "請在週五前把報價寄來。",
-      "options": [
-        "within",
-        "until",
-        "by",
-        "since"
-      ],
+      "options": ["within", "until", "by", "since"],
       "answer": 2,
       "note": "「在週五之前完成」是期限，用 by；until 要配持續的動作，within 後面接一段時間。"
     },
@@ -1420,12 +915,7 @@
       "grammarId": "prepositions-by-within-until",
       "en": "Your order will arrive ___ ten days.",
       "zh": "你的訂單會在十天內送到。",
-      "options": [
-        "within",
-        "until",
-        "by",
-        "since"
-      ],
+      "options": ["within", "until", "by", "since"],
       "answer": 0,
       "note": "後面是一段時間（ten days），「在十天內」用 within。"
     },
@@ -1434,12 +924,7 @@
       "grammarId": "prepositions-by-within-until",
       "en": "Our prices will stay the same ___ the end of the year.",
       "zh": "我們的價格到年底前都不會變。",
-      "options": [
-        "by",
-        "within",
-        "since",
-        "until"
-      ],
+      "options": ["by", "within", "since", "until"],
       "answer": 3,
       "note": "stay 是持續的狀態，「一直到年底」用 until；by 是期限，用在要完成的動作。"
     },
@@ -1448,12 +933,7 @@
       "grammarId": "prepositions-by-within-until",
       "en": "We must receive payment ___ thirty days of the invoice date.",
       "zh": "我們必須在發票日起三十天內收到款項。",
-      "options": [
-        "until",
-        "within",
-        "by",
-        "since"
-      ],
+      "options": ["until", "within", "by", "since"],
       "answer": 1,
       "note": "within + 一段時間 + of = 在某日起…之內。"
     },
@@ -1462,12 +942,7 @@
       "grammarId": "prepositions-by-within-until",
       "en": "Can you confirm the order ___ noon tomorrow?",
       "zh": "你可以在明天中午前確認訂單嗎？",
-      "options": [
-        "by",
-        "until",
-        "within",
-        "since"
-      ],
+      "options": ["by", "until", "within", "since"],
       "answer": 0,
       "note": "確認是一次完成的動作，期限用 by；until 要配持續的動作。"
     },
@@ -1476,12 +951,7 @@
       "grammarId": "prepositions-by-within-until",
       "en": "We have to wait ___ next Monday for the samples.",
       "zh": "我們得等到下週一才拿得到樣品。",
-      "options": [
-        "by",
-        "within",
-        "until",
-        "since"
-      ],
+      "options": ["by", "within", "until", "since"],
       "answer": 2,
       "note": "wait 是持續的動作，「一直等到」用 until。"
     },
@@ -1490,12 +960,7 @@
       "grammarId": "prepositions-by-within-until",
       "en": "Please reply ___ two days.",
       "zh": "請在兩天內回覆。",
-      "options": [
-        "by",
-        "within",
-        "until",
-        "since"
-      ],
+      "options": ["by", "within", "until", "since"],
       "answer": 1,
       "note": "two days 是一段時間，用 within；by、until 後面要接時間點。"
     },
@@ -1504,12 +969,7 @@
       "grammarId": "prepositions-by-within-until",
       "en": "The deadline is Friday, so the final price must be agreed ___ then.",
       "zh": "截止日是週五，所以最終價格必須在那之前談好。",
-      "options": [
-        "until",
-        "within",
-        "since",
-        "by"
-      ],
+      "options": ["until", "within", "since", "by"],
       "answer": 3,
       "note": "「在那之前完成」是期限，用 by then。"
     },
@@ -1518,12 +978,7 @@
       "grammarId": "prepositions-by-within-until",
       "en": "Mr. Jack's office is closed ___ Monday.",
       "zh": "Jack 先生的辦公室關到週一。",
-      "options": [
-        "by",
-        "within",
-        "at",
-        "until"
-      ],
+      "options": ["by", "within", "at", "until"],
       "answer": 3,
       "note": "is closed 是持續的狀態，「一直到週一」用 until。"
     },
@@ -1532,12 +987,7 @@
       "grammarId": "prepositions-by-within-until",
       "en": "Please pay the invoice ___ the end of the month, or the price will rise.",
       "zh": "請在月底前付清這張發票，否則價格會上漲。",
-      "options": [
-        "by",
-        "until",
-        "within",
-        "since"
-      ],
+      "options": ["by", "until", "within", "since"],
       "answer": 0,
       "note": "付款是要在期限前完成的動作，用 by。"
     },
@@ -1546,12 +996,7 @@
       "grammarId": "noun-verb-form",
       "en": "We need a written ___ of the order.",
       "zh": "我們需要這筆訂單的書面確認。",
-      "options": [
-        "confirm",
-        "confirmed",
-        "confirms",
-        "confirmation"
-      ],
+      "options": ["confirm", "confirmed", "confirms", "confirmation"],
       "answer": 3,
       "note": "a written 後面要接名詞，confirm 的名詞是 confirmation。"
     },
@@ -1560,12 +1005,7 @@
       "grammarId": "noun-verb-form",
       "en": "Can you ___ the delivery date by email?",
       "zh": "你可以用 email 確認交貨日期嗎？",
-      "options": [
-        "confirmation",
-        "confirming",
-        "confirm",
-        "confirmed"
-      ],
+      "options": ["confirmation", "confirming", "confirm", "confirmed"],
       "answer": 2,
       "note": "can 後面接原形動詞，所以用 confirm。"
     },
@@ -1574,12 +1014,7 @@
       "grammarId": "noun-verb-form",
       "en": "The ___ of the samples was late again.",
       "zh": "樣品又晚送到了。",
-      "options": [
-        "deliver",
-        "delivery",
-        "delivered",
-        "delivers"
-      ],
+      "options": ["deliver", "delivery", "delivered", "delivers"],
       "answer": 1,
       "note": "the ___ of 中間要放名詞，deliver 的名詞是 delivery。"
     },
@@ -1588,12 +1023,7 @@
       "grammarId": "noun-verb-form",
       "en": "They promised to ___ the chairs before Friday.",
       "zh": "他們答應週五前把椅子送來。",
-      "options": [
-        "deliver",
-        "delivery",
-        "deliveries",
-        "delivered"
-      ],
+      "options": ["deliver", "delivery", "deliveries", "delivered"],
       "answer": 0,
       "note": "to 後面接原形動詞 deliver；delivery 是名詞。"
     },
@@ -1602,12 +1032,7 @@
       "grammarId": "noun-verb-form",
       "en": "We're asking for a small ___ in price.",
       "zh": "我們想請對方稍微降價。",
-      "options": [
-        "reduce",
-        "reduction",
-        "reduced",
-        "reduces"
-      ],
+      "options": ["reduce", "reduction", "reduced", "reduces"],
       "answer": 1,
       "note": "a small 後面要接名詞，reduce 的名詞是 reduction。"
     },
@@ -1616,12 +1041,7 @@
       "grammarId": "noun-verb-form",
       "en": "Could you ___ the price if we order more units?",
       "zh": "如果我們多訂一些，你可以降價嗎？",
-      "options": [
-        "reduction",
-        "reductions",
-        "reducing",
-        "reduce"
-      ],
+      "options": ["reduction", "reductions", "reducing", "reduce"],
       "answer": 3,
       "note": "could 後面接原形動詞 reduce。"
     },
@@ -1630,12 +1050,7 @@
       "grammarId": "noun-verb-form",
       "en": "We'll wait for the manager's ___ before we buy anything.",
       "zh": "買任何東西之前，我們會先等經理的決定。",
-      "options": [
-        "decide",
-        "decides",
-        "decision",
-        "decided"
-      ],
+      "options": ["decide", "decides", "decision", "decided"],
       "answer": 2,
       "note": "the manager's 後面要接名詞，decide 的名詞是 decision。"
     },
@@ -1644,12 +1059,7 @@
       "grammarId": "noun-verb-form",
       "en": "We should ___ a better price with the supplier.",
       "zh": "我們應該跟供應商談個更好的價格。",
-      "options": [
-        "negotiate",
-        "negotiation",
-        "negotiations",
-        "negotiator"
-      ],
+      "options": ["negotiate", "negotiation", "negotiations", "negotiator"],
       "answer": 0,
       "note": "should 後面接原形動詞，所以用 negotiate。"
     },
@@ -1658,12 +1068,7 @@
       "grammarId": "noun-verb-form",
       "en": "Please ___ the total cost before you place the order.",
       "zh": "下單前請先算出總成本。",
-      "options": [
-        "calculate",
-        "calculation",
-        "calculations",
-        "calculated"
-      ],
+      "options": ["calculate", "calculation", "calculations", "calculated"],
       "answer": 0,
       "note": "祈使句 Please 後面接原形動詞 calculate。"
     },
@@ -1672,12 +1077,7 @@
       "grammarId": "noun-verb-form",
       "en": "We have reached an ___ with the supplier on the price.",
       "zh": "我們已經跟供應商在價格上達成協議。",
-      "options": [
-        "agree",
-        "agreed",
-        "agreement",
-        "agrees"
-      ],
+      "options": ["agree", "agreed", "agreement", "agrees"],
       "answer": 2,
       "note": "an 後面要接名詞，agree 的名詞是 agreement。"
     }

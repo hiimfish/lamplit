@@ -520,12 +520,7 @@
         {
           "en": "How will the man most likely get to the airport?",
           "zh": "男子最有可能怎麼去機場？",
-          "options": [
-            "By taxi",
-            "By a free bus",
-            "By train",
-            "In a coworker's car"
-          ],
+          "options": ["By taxi", "By a free bus", "By train", "In a coworker's car"],
           "answer": 1
         }
       ]

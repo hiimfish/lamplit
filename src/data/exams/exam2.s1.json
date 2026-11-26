@@ -5,7 +5,11 @@
     {
       "id": "s1_r1",
       "form": "A",
-      "prompt": { "role": "friend", "en": "When is your job interview?", "zh": "你的工作面試是什麼時候？" },
+      "prompt": {
+        "role": "friend",
+        "en": "When is your job interview?",
+        "zh": "你的工作面試是什麼時候？"
+      },
       "responses": [
         { "en": "Next Tuesday morning.", "zh": "下星期二早上。" },
         { "en": "At an office near the bank.", "zh": "在銀行附近的一間辦公室。" },
@@ -16,7 +20,11 @@
     {
       "id": "s1_r2",
       "form": "A",
-      "prompt": { "role": "teller", "en": "Would you like to deposit this cash or send it?", "zh": "這筆現金您要存進去，還是要匯出去？" },
+      "prompt": {
+        "role": "teller",
+        "en": "Would you like to deposit this cash or send it?",
+        "zh": "這筆現金您要存進去，還是要匯出去？"
+      },
       "responses": [
         { "en": "Yes, I would.", "zh": "是的，我要。" },
         { "en": "Please put it in my account.", "zh": "請幫我存進我的帳戶。" },
@@ -27,7 +35,11 @@
     {
       "id": "s1_r3",
       "form": "A",
-      "prompt": { "role": "counselor", "en": "Why did you leave your last job?", "zh": "你為什麼離開上一份工作？" },
+      "prompt": {
+        "role": "counselor",
+        "en": "Why did you leave your last job?",
+        "zh": "你為什麼離開上一份工作？"
+      },
       "responses": [
         { "en": "I left it on the desk.", "zh": "我把它放在桌上了。" },
         { "en": "For about three years.", "zh": "大概三年。" },
@@ -38,7 +50,11 @@
     {
       "id": "s1_r4",
       "form": "A",
-      "prompt": { "role": "mechanic", "en": "Your car needs new brakes.", "zh": "你的車需要換新的煞車。" },
+      "prompt": {
+        "role": "mechanic",
+        "en": "Your car needs new brakes.",
+        "zh": "你的車需要換新的煞車。"
+      },
       "responses": [
         { "en": "I'll take a short break.", "zh": "我會休息一下。" },
         { "en": "How much will that cost?", "zh": "那要多少錢？" },
@@ -49,7 +65,11 @@
     {
       "id": "s1_r5",
       "form": "A",
-      "prompt": { "role": "instructor", "en": "How often do you use a computer at home?", "zh": "你在家多常用電腦？" },
+      "prompt": {
+        "role": "instructor",
+        "en": "How often do you use a computer at home?",
+        "zh": "你在家多常用電腦？"
+      },
       "responses": [
         { "en": "Almost every night.", "zh": "幾乎每天晚上。" },
         { "en": "Yes, I have a computer.", "zh": "有，我有一台電腦。" },
@@ -60,7 +80,11 @@
     {
       "id": "s1_r6",
       "form": "A",
-      "prompt": { "role": "passerby", "en": "Which bus goes to the job center?", "zh": "哪一班公車會到就業服務站？" },
+      "prompt": {
+        "role": "passerby",
+        "en": "Which bus goes to the job center?",
+        "zh": "哪一班公車會到就業服務站？"
+      },
       "responses": [
         { "en": "Yes, it goes there every day.", "zh": "對，它每天都會去。" },
         { "en": "I'm looking for a job, too.", "zh": "我也在找工作。" },
@@ -71,7 +95,11 @@
     {
       "id": "s1_r7",
       "form": "A",
-      "prompt": { "role": "neighbor", "en": "Who is going to meet you on your first day?", "zh": "你上班第一天誰會來接你？" },
+      "prompt": {
+        "role": "neighbor",
+        "en": "Who is going to meet you on your first day?",
+        "zh": "你上班第一天誰會來接你？"
+      },
       "responses": [
         { "en": "At eight thirty.", "zh": "八點半。" },
         { "en": "My new manager, in the lobby.", "zh": "我的新主管，在大廳。" },
@@ -82,9 +110,16 @@
     {
       "id": "s1_r8",
       "form": "A",
-      "prompt": { "role": "landlord", "en": "Isn't your kitchen sink still leaking?", "zh": "你廚房的水槽不是還在漏水嗎？" },
+      "prompt": {
+        "role": "landlord",
+        "en": "Isn't your kitchen sink still leaking?",
+        "zh": "你廚房的水槽不是還在漏水嗎？"
+      },
       "responses": [
-        { "en": "No, the plumber fixed it this morning.", "zh": "沒有了，水電師傅今天早上修好了。" },
+        {
+          "en": "No, the plumber fixed it this morning.",
+          "zh": "沒有了，水電師傅今天早上修好了。"
+        },
         { "en": "I'm leaving at noon.", "zh": "我中午要出門。" },
         { "en": "It's a big kitchen.", "zh": "那是一間很大的廚房。" }
       ],
@@ -93,7 +128,11 @@
     {
       "id": "s1_r9",
       "form": "B",
-      "prompt": { "role": "librarian", "en": "How many books would you like to borrow today?", "zh": "你今天想借幾本書？" },
+      "prompt": {
+        "role": "librarian",
+        "en": "How many books would you like to borrow today?",
+        "zh": "你今天想借幾本書？"
+      },
       "responses": [
         { "en": "For two weeks, please.", "zh": "兩個星期，麻煩你。" },
         { "en": "Yes, I'd like a book.", "zh": "是的，我想要一本書。" },
@@ -104,7 +143,11 @@
     {
       "id": "s1_r10",
       "form": "B",
-      "prompt": { "role": "counselor", "en": "Would you like to work full time or part time?", "zh": "你比較想要全職還是兼職的工作？" },
+      "prompt": {
+        "role": "counselor",
+        "en": "Would you like to work full time or part time?",
+        "zh": "你比較想要全職還是兼職的工作？"
+      },
       "responses": [
         { "en": "Full time, if possible.", "zh": "可以的話，全職。" },
         { "en": "Yes, I would.", "zh": "是的，我想要。" },
@@ -115,7 +158,11 @@
     {
       "id": "s1_r11",
       "form": "B",
-      "prompt": { "role": "friend", "en": "Did you pay a fee to send money home?", "zh": "你匯錢回家有付手續費嗎？" },
+      "prompt": {
+        "role": "friend",
+        "en": "Did you pay a fee to send money home?",
+        "zh": "你匯錢回家有付手續費嗎？"
+      },
       "responses": [
         { "en": "Yes, I feel much better.", "zh": "對，我覺得好多了。" },
         { "en": "Only a few dollars.", "zh": "只有幾塊錢。" },
@@ -126,7 +173,11 @@
     {
       "id": "s1_r12",
       "form": "B",
-      "prompt": { "role": "front_desk", "en": "Are you here for the ten o'clock interview?", "zh": "您是來參加十點的面試嗎？" },
+      "prompt": {
+        "role": "front_desk",
+        "en": "Are you here for the ten o'clock interview?",
+        "zh": "您是來參加十點的面試嗎？"
+      },
       "responses": [
         { "en": "I've been here since August.", "zh": "我八月就來這裡了。" },
         { "en": "The interview went well.", "zh": "面試很順利。" },
@@ -137,7 +188,11 @@
     {
       "id": "s1_r13",
       "form": "B",
-      "prompt": { "role": "mechanic", "en": "When can you pick up your car?", "zh": "你什麼時候可以來牽車？" },
+      "prompt": {
+        "role": "mechanic",
+        "en": "When can you pick up your car?",
+        "zh": "你什麼時候可以來牽車？"
+      },
       "responses": [
         { "en": "After work, around six.", "zh": "下班後，大概六點。" },
         { "en": "It's a used car.", "zh": "那是一台二手車。" },
@@ -148,7 +203,11 @@
     {
       "id": "s1_r14",
       "form": "B",
-      "prompt": { "role": "neighbor", "en": "Where did you learn to use a computer?", "zh": "你是在哪裡學會用電腦的？" },
+      "prompt": {
+        "role": "neighbor",
+        "en": "Where did you learn to use a computer?",
+        "zh": "你是在哪裡學會用電腦的？"
+      },
       "responses": [
         { "en": "About three months ago.", "zh": "大概三個月前。" },
         { "en": "At the community center.", "zh": "在社區中心。" },
@@ -159,7 +218,11 @@
     {
       "id": "s1_r15",
       "form": "B",
-      "prompt": { "role": "manager", "en": "Could you start next Monday?", "zh": "你下星期一可以開始上班嗎？" },
+      "prompt": {
+        "role": "manager",
+        "en": "Could you start next Monday?",
+        "zh": "你下星期一可以開始上班嗎？"
+      },
       "responses": [
         { "en": "Let me check my schedule first.", "zh": "我先看一下我的行程。" },
         { "en": "I started it last Monday.", "zh": "我上星期一就開始做了。" },
@@ -170,7 +233,11 @@
     {
       "id": "s1_r16",
       "form": "B",
-      "prompt": { "role": "librarian", "en": "Why don't you join the computer workshop?", "zh": "你何不參加電腦研習課？" },
+      "prompt": {
+        "role": "librarian",
+        "en": "Why don't you join the computer workshop?",
+        "zh": "你何不參加電腦研習課？"
+      },
       "responses": [
         { "en": "Because I like computers.", "zh": "因為我喜歡電腦。" },
         { "en": "That's a good idea. When is it?", "zh": "好主意。是什麼時候？" },
@@ -184,17 +251,47 @@
       "id": "s1_t1",
       "form": "A",
       "lines": [
-        { "id": "s1_t1_l1", "role": "customer", "en": "Hi. I opened an account here last week, and that was free. Today I want to send five hundred dollars to my family in Taiwan.", "zh": "你好。我上星期在這裡開了帳戶，那是免費的。今天我想匯五百塊給我在台灣的家人。" },
-        { "id": "s1_t1_l2", "role": "teller", "en": "Sure. If you send it here at the counter, the fee is fifteen dollars.", "zh": "好的。如果您在櫃檯這裡匯，手續費是十五塊。" },
-        { "id": "s1_t1_l3", "role": "customer", "en": "That's quite high. Is there another way?", "zh": "這有點貴。有別的方法嗎？" },
-        { "id": "s1_t1_l4", "role": "teller", "en": "You can send it online for five dollars. You just need a password for online banking.", "zh": "您可以在網路上匯，只要五塊。您只需要一組網路銀行的密碼。" },
-        { "id": "s1_t1_l5", "role": "customer", "en": "Great. Could you help me get one now?", "zh": "太好了。妳現在可以幫我申請一組嗎？" }
+        {
+          "id": "s1_t1_l1",
+          "role": "customer",
+          "en": "Hi. I opened an account here last week, and that was free. Today I want to send five hundred dollars to my family in Taiwan.",
+          "zh": "你好。我上星期在這裡開了帳戶，那是免費的。今天我想匯五百塊給我在台灣的家人。"
+        },
+        {
+          "id": "s1_t1_l2",
+          "role": "teller",
+          "en": "Sure. If you send it here at the counter, the fee is fifteen dollars.",
+          "zh": "好的。如果您在櫃檯這裡匯，手續費是十五塊。"
+        },
+        {
+          "id": "s1_t1_l3",
+          "role": "customer",
+          "en": "That's quite high. Is there another way?",
+          "zh": "這有點貴。有別的方法嗎？"
+        },
+        {
+          "id": "s1_t1_l4",
+          "role": "teller",
+          "en": "You can send it online for five dollars. You just need a password for online banking.",
+          "zh": "您可以在網路上匯，只要五塊。您只需要一組網路銀行的密碼。"
+        },
+        {
+          "id": "s1_t1_l5",
+          "role": "customer",
+          "en": "Great. Could you help me get one now?",
+          "zh": "太好了。妳現在可以幫我申請一組嗎？"
+        }
       ],
       "questions": [
         {
           "en": "Why does he ask about another way?",
           "zh": "他為什麼問有沒有別的方法？",
-          "options": ["He forgot his password.", "His account is not open yet.", "It costs too much.", "The counter is closed."],
+          "options": [
+            "He forgot his password.",
+            "His account is not open yet.",
+            "It costs too much.",
+            "The counter is closed."
+          ],
           "answer": 2
         },
         {
@@ -209,23 +306,58 @@
       "id": "s1_t2",
       "form": "A",
       "lines": [
-        { "id": "s1_t2_l1", "role": "passerby", "en": "Hi. Are there any seats left in the basic computer class?", "zh": "你好。基礎電腦班還有位子嗎？" },
-        { "id": "s1_t2_l2", "role": "volunteer", "en": "The Tuesday night class is full, but we have one on Thursday mornings.", "zh": "星期二晚上的班滿了，不過我們星期四早上還有一班。" },
-        { "id": "s1_t2_l3", "role": "passerby", "en": "I work in the mornings, Monday to Friday. Is there anything on the weekend?", "zh": "我星期一到星期五早上都要上班。週末有課嗎？" },
-        { "id": "s1_t2_l4", "role": "volunteer", "en": "Yes, there's a Saturday class from ten to twelve. It starts in September.", "zh": "有，星期六十點到十二點有一班，九月開課。" },
-        { "id": "s1_t2_l5", "role": "passerby", "en": "Great. I'll register for that one.", "zh": "太好了。我要報名那一班。" }
+        {
+          "id": "s1_t2_l1",
+          "role": "passerby",
+          "en": "Hi. Are there any seats left in the basic computer class?",
+          "zh": "你好。基礎電腦班還有位子嗎？"
+        },
+        {
+          "id": "s1_t2_l2",
+          "role": "volunteer",
+          "en": "The Tuesday night class is full, but we have one on Thursday mornings.",
+          "zh": "星期二晚上的班滿了，不過我們星期四早上還有一班。"
+        },
+        {
+          "id": "s1_t2_l3",
+          "role": "passerby",
+          "en": "I work in the mornings, Monday to Friday. Is there anything on the weekend?",
+          "zh": "我星期一到星期五早上都要上班。週末有課嗎？"
+        },
+        {
+          "id": "s1_t2_l4",
+          "role": "volunteer",
+          "en": "Yes, there's a Saturday class from ten to twelve. It starts in September.",
+          "zh": "有，星期六十點到十二點有一班，九月開課。"
+        },
+        {
+          "id": "s1_t2_l5",
+          "role": "passerby",
+          "en": "Great. I'll register for that one.",
+          "zh": "太好了。我要報名那一班。"
+        }
       ],
       "questions": [
         {
           "en": "Why can't she take the Thursday class?",
           "zh": "她為什麼不能上星期四的課？",
-          "options": ["She has work then.", "It is full.", "It is at night.", "It starts in September."],
+          "options": [
+            "She has work then.",
+            "It is full.",
+            "It is at night.",
+            "It starts in September."
+          ],
           "answer": 0
         },
         {
           "en": "When will her class meet?",
           "zh": "她要上的課是什麼時候？",
-          "options": ["Tuesday nights", "Thursday mornings", "Monday mornings", "Saturday mornings"],
+          "options": [
+            "Tuesday nights",
+            "Thursday mornings",
+            "Monday mornings",
+            "Saturday mornings"
+          ],
           "answer": 3
         }
       ]
@@ -235,17 +367,47 @@
       "form": "A",
       "kind": "monologue",
       "lines": [
-        { "id": "s1_t3_l1", "role": "librarian", "en": "Good evening, everyone. The library will close in fifteen minutes, at eight o'clock.", "zh": "各位晚安。圖書館再十五分鐘、也就是八點就要關門了。" },
-        { "id": "s1_t3_l2", "role": "librarian", "en": "If you want to borrow books, please take them to the front desk now.", "zh": "要借書的人，請現在拿到服務台。" },
-        { "id": "s1_t3_l3", "role": "librarian", "en": "The computer room is already closed, but you can still print next to the elevator until ten to eight.", "zh": "電腦室已經關了，不過電梯旁邊還可以列印，到七點五十分為止。" },
-        { "id": "s1_t3_l4", "role": "librarian", "en": "Tomorrow is Saturday, so we will open at nine and close at five.", "zh": "明天是星期六，所以我們九點開門、五點關門。" },
-        { "id": "s1_t3_l5", "role": "librarian", "en": "When you leave, please use the main door. Thank you.", "zh": "離開時請走大門。謝謝。" }
+        {
+          "id": "s1_t3_l1",
+          "role": "librarian",
+          "en": "Good evening, everyone. The library will close in fifteen minutes, at eight o'clock.",
+          "zh": "各位晚安。圖書館再十五分鐘、也就是八點就要關門了。"
+        },
+        {
+          "id": "s1_t3_l2",
+          "role": "librarian",
+          "en": "If you want to borrow books, please take them to the front desk now.",
+          "zh": "要借書的人，請現在拿到服務台。"
+        },
+        {
+          "id": "s1_t3_l3",
+          "role": "librarian",
+          "en": "The computer room is already closed, but you can still print next to the elevator until ten to eight.",
+          "zh": "電腦室已經關了，不過電梯旁邊還可以列印，到七點五十分為止。"
+        },
+        {
+          "id": "s1_t3_l4",
+          "role": "librarian",
+          "en": "Tomorrow is Saturday, so we will open at nine and close at five.",
+          "zh": "明天是星期六，所以我們九點開門、五點關門。"
+        },
+        {
+          "id": "s1_t3_l5",
+          "role": "librarian",
+          "en": "When you leave, please use the main door. Thank you.",
+          "zh": "離開時請走大門。謝謝。"
+        }
       ],
       "questions": [
         {
           "en": "Where can people print now?",
           "zh": "現在可以在哪裡列印？",
-          "options": ["In the computer room", "At the front desk", "Next to the elevator", "By the main door"],
+          "options": [
+            "In the computer room",
+            "At the front desk",
+            "Next to the elevator",
+            "By the main door"
+          ],
           "answer": 2
         },
         {
@@ -260,17 +422,47 @@
       "id": "s1_t4",
       "form": "A",
       "lines": [
-        { "id": "s1_t4_l1", "role": "passerby", "en": "Hi, I'm here to pick up my car. Is it ready?", "zh": "你好，我來牽車。好了嗎？" },
-        { "id": "s1_t4_l2", "role": "mechanic", "en": "Almost. We fixed the brakes, and that came to a hundred and twenty dollars. But we also found a problem with the front tire.", "zh": "快好了。煞車修好了，一共一百二十塊。不過我們也發現前輪有問題。" },
-        { "id": "s1_t4_l3", "role": "passerby", "en": "That's too bad. How much is a new tire?", "zh": "真糟糕。新輪胎要多少錢？" },
-        { "id": "s1_t4_l4", "role": "mechanic", "en": "About ninety dollars. Or I can repair this one for thirty.", "zh": "大概九十塊。或是我可以把這個修一修，三十塊。" },
-        { "id": "s1_t4_l5", "role": "passerby", "en": "Let's just repair it for now. I'll come back at five.", "zh": "那先修就好。我五點再回來。" }
+        {
+          "id": "s1_t4_l1",
+          "role": "passerby",
+          "en": "Hi, I'm here to pick up my car. Is it ready?",
+          "zh": "你好，我來牽車。好了嗎？"
+        },
+        {
+          "id": "s1_t4_l2",
+          "role": "mechanic",
+          "en": "Almost. We fixed the brakes, and that came to a hundred and twenty dollars. But we also found a problem with the front tire.",
+          "zh": "快好了。煞車修好了，一共一百二十塊。不過我們也發現前輪有問題。"
+        },
+        {
+          "id": "s1_t4_l3",
+          "role": "passerby",
+          "en": "That's too bad. How much is a new tire?",
+          "zh": "真糟糕。新輪胎要多少錢？"
+        },
+        {
+          "id": "s1_t4_l4",
+          "role": "mechanic",
+          "en": "About ninety dollars. Or I can repair this one for thirty.",
+          "zh": "大概九十塊。或是我可以把這個修一修，三十塊。"
+        },
+        {
+          "id": "s1_t4_l5",
+          "role": "passerby",
+          "en": "Let's just repair it for now. I'll come back at five.",
+          "zh": "那先修就好。我五點再回來。"
+        }
       ],
       "questions": [
         {
           "en": "Why isn't her car ready yet?",
           "zh": "她的車為什麼還沒好？",
-          "options": ["The brakes still need work.", "The mechanic found a problem with a tire.", "The shop closes at five.", "A new tire hasn't arrived."],
+          "options": [
+            "The brakes still need work.",
+            "The mechanic found a problem with a tire.",
+            "The shop closes at five.",
+            "A new tire hasn't arrived."
+          ],
           "answer": 1
         },
         {
@@ -285,18 +477,53 @@
       "id": "s1_t5",
       "form": "A",
       "lines": [
-        { "id": "s1_t5_l1", "role": "counselor", "en": "I found two jobs that could be good for you. One is an office assistant at a bank, and the other is a sales clerk at a clothes shop.", "zh": "我找到兩個可能適合你的工作。一個是銀行的辦公室助理，另一個是服飾店的店員。" },
-        { "id": "s1_t5_l2", "role": "customer", "en": "Which one pays more?", "zh": "哪一個薪水比較高？" },
-        { "id": "s1_t5_l3", "role": "counselor", "en": "The shop pays a little more, but you'd work every weekend.", "zh": "服飾店的薪水高一點，但你每個週末都要上班。" },
-        { "id": "s1_t5_l4", "role": "customer", "en": "I'd prefer to have weekends off. Does the bank job require experience?", "zh": "我比較想要週末放假。銀行的工作需要經驗嗎？" },
-        { "id": "s1_t5_l5", "role": "counselor", "en": "Yes, one year in an office. You worked in an office in Taiwan, so that's fine.", "zh": "要，一年的辦公室經驗。你在台灣做過辦公室的工作，所以沒問題。" },
-        { "id": "s1_t5_l6", "role": "customer", "en": "Great. Then I'll apply for that one.", "zh": "太好了。那我就應徵那一個。" }
+        {
+          "id": "s1_t5_l1",
+          "role": "counselor",
+          "en": "I found two jobs that could be good for you. One is an office assistant at a bank, and the other is a sales clerk at a clothes shop.",
+          "zh": "我找到兩個可能適合你的工作。一個是銀行的辦公室助理，另一個是服飾店的店員。"
+        },
+        {
+          "id": "s1_t5_l2",
+          "role": "customer",
+          "en": "Which one pays more?",
+          "zh": "哪一個薪水比較高？"
+        },
+        {
+          "id": "s1_t5_l3",
+          "role": "counselor",
+          "en": "The shop pays a little more, but you'd work every weekend.",
+          "zh": "服飾店的薪水高一點，但你每個週末都要上班。"
+        },
+        {
+          "id": "s1_t5_l4",
+          "role": "customer",
+          "en": "I'd prefer to have weekends off. Does the bank job require experience?",
+          "zh": "我比較想要週末放假。銀行的工作需要經驗嗎？"
+        },
+        {
+          "id": "s1_t5_l5",
+          "role": "counselor",
+          "en": "Yes, one year in an office. You worked in an office in Taiwan, so that's fine.",
+          "zh": "要，一年的辦公室經驗。你在台灣做過辦公室的工作，所以沒問題。"
+        },
+        {
+          "id": "s1_t5_l6",
+          "role": "customer",
+          "en": "Great. Then I'll apply for that one.",
+          "zh": "太好了。那我就應徵那一個。"
+        }
       ],
       "questions": [
         {
           "en": "What does the counselor say about the job at the shop?",
           "zh": "輔導員說服飾店的工作怎麼樣？",
-          "options": ["It has a higher wage.", "It needs office experience.", "It has weekends off.", "It is at a bank."],
+          "options": [
+            "It has a higher wage.",
+            "It needs office experience.",
+            "It has weekends off.",
+            "It is at a bank."
+          ],
           "answer": 0
         },
         {
@@ -311,24 +538,64 @@
       "id": "s1_t6",
       "form": "B",
       "lines": [
-        { "id": "s1_t6_l1", "role": "customer", "en": "Excuse me. The ATM outside took my card, and it didn't give it back.", "zh": "不好意思。外面的提款機把我的卡吃掉了，沒有退出來。" },
-        { "id": "s1_t6_l2", "role": "teller", "en": "I'm sorry about that. Did you get your cash?", "zh": "很抱歉。您有領到現金嗎？" },
-        { "id": "s1_t6_l3", "role": "customer", "en": "No. I asked for eighty dollars, but nothing came out. I need it to pay my rent today.", "zh": "沒有。我要領八十塊，但什麼都沒出來。我今天要用它付房租。" },
-        { "id": "s1_t6_l4", "role": "teller", "en": "Let me check your account. OK, the eighty dollars is still there, and there's no fee for this.", "zh": "我查一下您的帳戶。好的，那八十塊還在帳戶裡，而且這不會收手續費。" },
-        { "id": "s1_t6_l5", "role": "customer", "en": "That's good. What about my card?", "zh": "那就好。那我的卡呢？" },
-        { "id": "s1_t6_l6", "role": "teller", "en": "We'll have it back in about ten minutes. Please take a seat by the window.", "zh": "大概十分鐘就能拿回來。請在窗邊坐一下。" }
+        {
+          "id": "s1_t6_l1",
+          "role": "customer",
+          "en": "Excuse me. The ATM outside took my card, and it didn't give it back.",
+          "zh": "不好意思。外面的提款機把我的卡吃掉了，沒有退出來。"
+        },
+        {
+          "id": "s1_t6_l2",
+          "role": "teller",
+          "en": "I'm sorry about that. Did you get your cash?",
+          "zh": "很抱歉。您有領到現金嗎？"
+        },
+        {
+          "id": "s1_t6_l3",
+          "role": "customer",
+          "en": "No. I asked for eighty dollars, but nothing came out. I need it to pay my rent today.",
+          "zh": "沒有。我要領八十塊，但什麼都沒出來。我今天要用它付房租。"
+        },
+        {
+          "id": "s1_t6_l4",
+          "role": "teller",
+          "en": "Let me check your account. OK, the eighty dollars is still there, and there's no fee for this.",
+          "zh": "我查一下您的帳戶。好的，那八十塊還在帳戶裡，而且這不會收手續費。"
+        },
+        {
+          "id": "s1_t6_l5",
+          "role": "customer",
+          "en": "That's good. What about my card?",
+          "zh": "那就好。那我的卡呢？"
+        },
+        {
+          "id": "s1_t6_l6",
+          "role": "teller",
+          "en": "We'll have it back in about ten minutes. Please take a seat by the window.",
+          "zh": "大概十分鐘就能拿回來。請在窗邊坐一下。"
+        }
       ],
       "questions": [
         {
           "en": "What problem does he have?",
           "zh": "他遇到什麼問題？",
-          "options": ["The ATM took eighty dollars from his account.", "The ATM kept his card.", "He had to pay a fee.", "He can't pay his rent online."],
+          "options": [
+            "The ATM took eighty dollars from his account.",
+            "The ATM kept his card.",
+            "He had to pay a fee.",
+            "He can't pay his rent online."
+          ],
           "answer": 1
         },
         {
           "en": "What does she ask him to do?",
           "zh": "她請他做什麼？",
-          "options": ["Use the ATM again", "Pay his rent today", "Check his account", "Wait near the window"],
+          "options": [
+            "Use the ATM again",
+            "Pay his rent today",
+            "Check his account",
+            "Wait near the window"
+          ],
           "answer": 3
         }
       ]
@@ -337,17 +604,47 @@
       "id": "s1_t7",
       "form": "B",
       "lines": [
-        { "id": "s1_t7_l1", "role": "neighbor", "en": "Excuse me. I missed class last Wednesday. Was there any homework?", "zh": "不好意思。我上星期三沒來上課。有功課嗎？" },
-        { "id": "s1_t7_l2", "role": "instructor", "en": "Yes. Please do the typing exercise on page twelve.", "zh": "有。請做第十二頁的打字練習。" },
-        { "id": "s1_t7_l3", "role": "neighbor", "en": "Page twelve. Do I need to finish it by Monday?", "zh": "第十二頁。我要在星期一前做完嗎？" },
-        { "id": "s1_t7_l4", "role": "instructor", "en": "No, by next Wednesday, before class. And there's a short test the week after that.", "zh": "不用，下星期三上課前做完就好。再下一個星期還有一個小考。" },
-        { "id": "s1_t7_l5", "role": "neighbor", "en": "OK. Thanks. I'll start it this evening.", "zh": "好。謝謝。我今天晚上就開始做。" }
+        {
+          "id": "s1_t7_l1",
+          "role": "neighbor",
+          "en": "Excuse me. I missed class last Wednesday. Was there any homework?",
+          "zh": "不好意思。我上星期三沒來上課。有功課嗎？"
+        },
+        {
+          "id": "s1_t7_l2",
+          "role": "instructor",
+          "en": "Yes. Please do the typing exercise on page twelve.",
+          "zh": "有。請做第十二頁的打字練習。"
+        },
+        {
+          "id": "s1_t7_l3",
+          "role": "neighbor",
+          "en": "Page twelve. Do I need to finish it by Monday?",
+          "zh": "第十二頁。我要在星期一前做完嗎？"
+        },
+        {
+          "id": "s1_t7_l4",
+          "role": "instructor",
+          "en": "No, by next Wednesday, before class. And there's a short test the week after that.",
+          "zh": "不用，下星期三上課前做完就好。再下一個星期還有一個小考。"
+        },
+        {
+          "id": "s1_t7_l5",
+          "role": "neighbor",
+          "en": "OK. Thanks. I'll start it this evening.",
+          "zh": "好。謝謝。我今天晚上就開始做。"
+        }
       ],
       "questions": [
         {
           "en": "Why does she talk to the teacher?",
           "zh": "她為什麼來找老師說話？",
-          "options": ["She wasn't in class last week.", "She wants to take a test.", "She can't find page twelve.", "She wants to change her class to Monday."],
+          "options": [
+            "She wasn't in class last week.",
+            "She wants to take a test.",
+            "She can't find page twelve.",
+            "She wants to change her class to Monday."
+          ],
           "answer": 0
         },
         {
@@ -362,24 +659,59 @@
       "id": "s1_t8",
       "form": "B",
       "lines": [
-        { "id": "s1_t8_l1", "role": "customer", "en": "Hi. I'd like to renew these three books.", "zh": "你好。我想續借這三本書。" },
-        { "id": "s1_t8_l2", "role": "librarian", "en": "Let me see. You can renew two of them, but someone else is waiting for this one.", "zh": "我看看。其中兩本可以續借，但這一本有別人在等。" },
-        { "id": "s1_t8_l3", "role": "customer", "en": "But I haven't finished it yet.", "zh": "可是我還沒看完。" },
-        { "id": "s1_t8_l4", "role": "librarian", "en": "Sorry, it's due today. But I can put your name on the list, and you can borrow it again later.", "zh": "抱歉，這本今天到期。不過我可以把你的名字登記在預約名單上，之後你可以再借。" },
-        { "id": "s1_t8_l5", "role": "customer", "en": "OK, please do that. When are the other two due?", "zh": "好，麻煩妳。另外兩本什麼時候到期？" },
+        {
+          "id": "s1_t8_l1",
+          "role": "customer",
+          "en": "Hi. I'd like to renew these three books.",
+          "zh": "你好。我想續借這三本書。"
+        },
+        {
+          "id": "s1_t8_l2",
+          "role": "librarian",
+          "en": "Let me see. You can renew two of them, but someone else is waiting for this one.",
+          "zh": "我看看。其中兩本可以續借，但這一本有別人在等。"
+        },
+        {
+          "id": "s1_t8_l3",
+          "role": "customer",
+          "en": "But I haven't finished it yet.",
+          "zh": "可是我還沒看完。"
+        },
+        {
+          "id": "s1_t8_l4",
+          "role": "librarian",
+          "en": "Sorry, it's due today. But I can put your name on the list, and you can borrow it again later.",
+          "zh": "抱歉，這本今天到期。不過我可以把你的名字登記在預約名單上，之後你可以再借。"
+        },
+        {
+          "id": "s1_t8_l5",
+          "role": "customer",
+          "en": "OK, please do that. When are the other two due?",
+          "zh": "好，麻煩妳。另外兩本什麼時候到期？"
+        },
         { "id": "s1_t8_l6", "role": "librarian", "en": "On May twentieth.", "zh": "五月二十日。" }
       ],
       "questions": [
         {
           "en": "Why can't he renew one of the books?",
           "zh": "他為什麼有一本書不能續借？",
-          "options": ["He has too many books.", "He hasn't finished it.", "It is a new book.", "Another person asked for it."],
+          "options": [
+            "He has too many books.",
+            "He hasn't finished it.",
+            "It is a new book.",
+            "Another person asked for it."
+          ],
           "answer": 3
         },
         {
           "en": "What will the librarian do for him?",
           "zh": "圖書館員會幫他做什麼？",
-          "options": ["Renew all three books", "Put his name on a list", "Keep the book for him until May 20", "Show him the other two books"],
+          "options": [
+            "Renew all three books",
+            "Put his name on a list",
+            "Keep the book for him until May 20",
+            "Show him the other two books"
+          ],
           "answer": 1
         }
       ]
@@ -389,23 +721,58 @@
       "form": "B",
       "kind": "monologue",
       "lines": [
-        { "id": "s1_t9_l1", "role": "landlord", "en": "Hi, this is Tom. I got your message about the leak under the kitchen sink.", "zh": "你好，我是 Tom。我收到你說廚房水槽下面漏水的留言了。" },
-        { "id": "s1_t9_l2", "role": "landlord", "en": "I called a plumber, and he can come on Thursday at two in the afternoon.", "zh": "我打給水電師傅了，他星期四下午兩點可以過去。" },
-        { "id": "s1_t9_l3", "role": "landlord", "en": "If you can't be home then, please call me before Wednesday night. I'll let him in with my key.", "zh": "如果你那時不在家，請在星期三晚上之前打給我，我會用我的鑰匙讓他進去。" },
-        { "id": "s1_t9_l4", "role": "landlord", "en": "Also, please take everything out of the cabinet under the sink before he arrives.", "zh": "還有，請在他到之前把水槽下面櫃子裡的東西都拿出來。" },
-        { "id": "s1_t9_l5", "role": "landlord", "en": "Thanks, and sorry for the trouble.", "zh": "謝謝，不好意思給你添麻煩了。" }
+        {
+          "id": "s1_t9_l1",
+          "role": "landlord",
+          "en": "Hi, this is Tom. I got your message about the leak under the kitchen sink.",
+          "zh": "你好，我是 Tom。我收到你說廚房水槽下面漏水的留言了。"
+        },
+        {
+          "id": "s1_t9_l2",
+          "role": "landlord",
+          "en": "I called a plumber, and he can come on Thursday at two in the afternoon.",
+          "zh": "我打給水電師傅了，他星期四下午兩點可以過去。"
+        },
+        {
+          "id": "s1_t9_l3",
+          "role": "landlord",
+          "en": "If you can't be home then, please call me before Wednesday night. I'll let him in with my key.",
+          "zh": "如果你那時不在家，請在星期三晚上之前打給我，我會用我的鑰匙讓他進去。"
+        },
+        {
+          "id": "s1_t9_l4",
+          "role": "landlord",
+          "en": "Also, please take everything out of the cabinet under the sink before he arrives.",
+          "zh": "還有，請在他到之前把水槽下面櫃子裡的東西都拿出來。"
+        },
+        {
+          "id": "s1_t9_l5",
+          "role": "landlord",
+          "en": "Thanks, and sorry for the trouble.",
+          "zh": "謝謝，不好意思給你添麻煩了。"
+        }
       ],
       "questions": [
         {
           "en": "When will the plumber come?",
           "zh": "水電師傅什麼時候會來？",
-          "options": ["On Wednesday night", "On Thursday morning", "On Thursday afternoon", "On Tuesday afternoon"],
+          "options": [
+            "On Wednesday night",
+            "On Thursday morning",
+            "On Thursday afternoon",
+            "On Tuesday afternoon"
+          ],
           "answer": 2
         },
         {
           "en": "What does Tom ask the person to do?",
           "zh": "Tom 請對方做什麼？",
-          "options": ["Call the plumber", "Clear out the cabinet under the sink", "Give the plumber a key", "Fix the leak"],
+          "options": [
+            "Call the plumber",
+            "Clear out the cabinet under the sink",
+            "Give the plumber a key",
+            "Fix the leak"
+          ],
           "answer": 1
         }
       ]
@@ -414,23 +781,58 @@
       "id": "s1_t10",
       "form": "B",
       "lines": [
-        { "id": "s1_t10_l1", "role": "manager", "en": "Hi, this is Linda Moore from Blue Hill Company. We'd like to offer you the assistant position.", "zh": "你好，我是藍丘公司的 Linda Moore。我們想錄取你擔任助理一職。" },
-        { "id": "s1_t10_l2", "role": "new_hire", "en": "That's great news! Thank you so much. When would you like me to start?", "zh": "真是好消息！非常謝謝您。您希望我什麼時候開始上班？" },
-        { "id": "s1_t10_l3", "role": "manager", "en": "Next Monday. Please come at eight thirty and wait in the lobby. I'll meet you there.", "zh": "下星期一。請八點半到，在大廳等，我會去那裡接你。" },
-        { "id": "s1_t10_l4", "role": "new_hire", "en": "Sure. Do I need to wear a suit?", "zh": "好的。我需要穿西裝嗎？" },
-        { "id": "s1_t10_l5", "role": "manager", "en": "No, our office is casual. Just bring your ID and your bank information.", "zh": "不用，我們辦公室穿得很輕鬆。只要帶你的身分證和銀行帳戶資料就好。" }
+        {
+          "id": "s1_t10_l1",
+          "role": "manager",
+          "en": "Hi, this is Linda Moore from Blue Hill Company. We'd like to offer you the assistant position.",
+          "zh": "你好，我是藍丘公司的 Linda Moore。我們想錄取你擔任助理一職。"
+        },
+        {
+          "id": "s1_t10_l2",
+          "role": "new_hire",
+          "en": "That's great news! Thank you so much. When would you like me to start?",
+          "zh": "真是好消息！非常謝謝您。您希望我什麼時候開始上班？"
+        },
+        {
+          "id": "s1_t10_l3",
+          "role": "manager",
+          "en": "Next Monday. Please come at eight thirty and wait in the lobby. I'll meet you there.",
+          "zh": "下星期一。請八點半到，在大廳等，我會去那裡接你。"
+        },
+        {
+          "id": "s1_t10_l4",
+          "role": "new_hire",
+          "en": "Sure. Do I need to wear a suit?",
+          "zh": "好的。我需要穿西裝嗎？"
+        },
+        {
+          "id": "s1_t10_l5",
+          "role": "manager",
+          "en": "No, our office is casual. Just bring your ID and your bank information.",
+          "zh": "不用，我們辦公室穿得很輕鬆。只要帶你的身分證和銀行帳戶資料就好。"
+        }
       ],
       "questions": [
         {
           "en": "Why is Ms. Moore calling?",
           "zh": "Moore 女士為什麼打這通電話？",
-          "options": ["To ask him to come to an interview", "To tell him he got the job", "To ask about his bank", "To change his start day"],
+          "options": [
+            "To ask him to come to an interview",
+            "To tell him he got the job",
+            "To ask about his bank",
+            "To change his start day"
+          ],
           "answer": 1
         },
         {
           "en": "What does Ms. Moore say about the office?",
           "zh": "Moore 女士說辦公室怎麼樣？",
-          "options": ["People don't need to wear suits.", "It is in the lobby.", "It opens at eight thirty.", "It is next to a bank."],
+          "options": [
+            "People don't need to wear suits.",
+            "It is in the lobby.",
+            "It opens at eight thirty.",
+            "It is next to a bank."
+          ],
           "answer": 0
         }
       ]
